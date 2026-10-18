@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2024", "DOM", "DOM.Iterable"]
+  },
+  "include": ["server.ts", "client/**/*.ts", "test/**/*.ts"],
+  "exclude": ["fixtures", "screenshots"]
+}
