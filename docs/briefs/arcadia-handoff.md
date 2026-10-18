@@ -52,3 +52,9 @@ All three PNGs are **1672 × 941 pixels**, the native files returned by the buil
 Retain the selected image's atmosphere when resolving these limitations. The [exact generation prompts](arcadia-generation-prompts.md) are preserved for follow-up work; a prompt's requested feature or dimension is not evidence that the generator delivered it.
 
 Treat the generated art and references as unlicensed until the repository's art-licensing decision is recorded. This handoff does not publish or deploy the images, change the design canon, implement the home page, or close the roadmap record.
+
+## Second round reviewed: original kept (18 October 2026)
+
+Two repaints of variation 1 (`v1b-1`, `v1b-2`) were generated to apply the Capital and Port decisions and the detail fixes. They are kept in the inbound area at `+/art/2026-10-18-arcadia-v1b/`, with their prompts in `NOTES.md`. Kit reviewed them against the original and chose to **keep variation 1 unchanged**: "100% keep the original". Both repaints fixed the details but lost some of the original's dusky haze, drifting cloud and mood.
+
+Variation 1 remains the reference and the website hero. Its tall tower beside the Library dome is read as part of the painting, not as the retired Tower symbol. Future art work (the Ancient tiles, any later repaint) should match variation 1's atmosphere first and fix details second.

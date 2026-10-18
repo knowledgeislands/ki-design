@@ -1,3 +1,5 @@
+> **Outcome (18 October 2026):** reviewed and declined. Kit kept the original variation 1 ("100% keep the original"). See `docs/briefs/arcadia-handoff.md`.
+
 # Arcadia v1b candidates
 
 These are the two repaints already generated in this chat, copied without alteration into the inbound area. They are candidates for review; the chosen `docs/briefs/references/arcadia.png` and the live website hero have not been replaced.
