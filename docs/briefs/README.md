@@ -4,9 +4,9 @@ Task briefs that a person, the local app or an AI designer (Claude, ChatGPT) can
 
 | Brief | Produces | Status |
 | --- | --- | --- |
-| [Picture of Arcadia](arcadia-picture.md) | The defining painting of Arcadia, the reference for the Ancient tile set | Ready to run |
+| [Picture of Arcadia](arcadia-picture.md) | Ancient art reference | [Variation 1 chosen](arcadia-handoff.md) |
 | [Tile set: Modern](tile-set-modern.md) | The clean, engraved, flat tile set used by the local app, docs and small sizes | v0 drawn: `packages/tiles/sets/modern/` |
-| [Tile set: Ancient](tile-set-ancient.md) | The painted, dusk-lit tile set for the public site and posters | Waits on the Arcadia picture |
+| [Tile set: Ancient](tile-set-ancient.md) | Painted tiles for site and posters | Reference chosen; see [handoff](arcadia-handoff.md) |
 | [Ancient prompt pack](ancient-prompt-pack.md) | One ready-to-paste image prompt per tile in the contract | Ready to run |
 | [Building standards](building-standards.md) | The rules every building and tile follows | Draft standard |
 | [Animation standard](animation-standard.md) | The shared clock all animated tiles follow | Draft standard |
