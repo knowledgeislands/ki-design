@@ -12,4 +12,4 @@ Drafts produced in ki-design for the Observatory's own roadmap. They are proposa
 | [6](06-kit-tokens-and-glyphs.md) | Tokens and glyphs from ki-design | Looks like Knowledge Islands, light and night | PDR-KI-OBSERVA-002 digest vendoring |
 | [7](07-instrument-restructure.md) | Instruments grouped by the four jobs | Fourteen tabs become two to five per job | All instruments |
 
-A working, read-only demonstration of slices 3, 4, 5 and 7 in the new design is in `examples/observatory-preview/` (run `bun run preview` in ki-design).
+A working, read-only demonstration of slices 3, 4, 5 and 7 in the new design is in `examples/observatory-preview/` (run `bun run self:preview` in ki-design).

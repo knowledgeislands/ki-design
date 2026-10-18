@@ -1,9 +1,7 @@
 {
   "name": "@knowledgeislands/icons",
-  "version": "0.1.0",
-  "private": true,
   "description": "Knowledge Islands line glyphs: 24 × 24 SVG sources, string renderers and a symbol sprite.",
-  "type": "module",
+  "version": "0.1.0",
   "exports": {
     ".": "./src/index.ts",
     "./svg/*": "./svg/*"
@@ -12,9 +10,11 @@
     "src",
     "svg"
   ],
+  "private": true,
   "scripts": {
     "build": "bun src/build.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit -p ."
-  }
+  },
+  "type": "module"
 }

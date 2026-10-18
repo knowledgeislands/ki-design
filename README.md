@@ -40,7 +40,7 @@ Toolchain: Bun workspaces, Turbo, Biome, rumdl; `mise` pins Bun and Node. Run `b
 
 | Example | What it shows | Run |
 | --- | --- | --- |
-| [`examples/observatory-preview`](examples/observatory-preview) | The local app restructured around Observe · Attend · Act · Extend, in the new design, reading the real Observatory's API through a read-only proxy | `bun run preview` (live) or `bun run preview -- --fixtures`, then <http://127.0.0.1:1676/> |
+| [`examples/observatory-preview`](examples/observatory-preview) | The local app restructured around Observe · Attend · Act · Extend, in the new design, reading the real Observatory's API through a read-only proxy | `bun run self:preview` (live) or `bun run self:preview -- --fixtures`, then <http://127.0.0.1:1676/> |
 | [`examples/site-preview`](examples/site-preview) | The Voyage home and the Field Guide for knowledgeislands.info, drawn with the Modern set | `bun examples/site-preview/serve.ts`, then <http://127.0.0.1:1677/> |
 
 Renders worth opening: `packages/tiles/sets/modern/arcadia-iso.png`, `packages/tiles/sets/modern/contact-sheet.png`, `packages/hexmap/examples/arcadia.png` and `arcadia-night.png`, `packages/icons/contact-sheet.png`.
@@ -52,3 +52,7 @@ Renders worth opening: `packages/tiles/sets/modern/arcadia-iso.png`, `packages/t
 - Design System (Claude Design): <https://claude.ai/artifact/LWcv6ZziyZFCU8Xq8r1Z4A>
 
 All three are private until shared from their Share menus.
+
+## Licence
+
+The code and documentation in this repository are released under the [MIT License](LICENSE). AI-generated reference images and art are tracked separately: until the art-licensing decision ([KI-DESIGN-ART-002](docs/roadmap/KI-DESIGN-ART-002-art-licensing.md)) is recorded, treat them as unlicensed.

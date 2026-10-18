@@ -1,9 +1,10 @@
 {
   "name": "@knowledgeislands/tiles",
-  "version": "0.1.0",
-  "private": true,
   "description": "The Knowledge Islands tile-set contract: manifest types, required inventory, geometry and a validator.",
-  "type": "module",
+  "version": "0.1.0",
+  "dependencies": {
+    "@knowledgeislands/tokens": "workspace:*"
+  },
   "exports": {
     ".": "./src/index.ts",
     "./sets/*": "./sets/*"
@@ -12,14 +13,13 @@
     "src",
     "sets"
   ],
+  "private": true,
   "scripts": {
-    "test": "bun test",
-    "typecheck": "tsc --noEmit -p .",
+    "contact-sheet": "bun scripts/contact-sheet.ts --png",
     "generate:modern": "bun scripts/generate-modern.ts",
     "render:iso": "bun scripts/render-iso.ts --png sets/modern/arcadia-iso.png",
-    "contact-sheet": "bun scripts/contact-sheet.ts --png"
+    "test": "bun test",
+    "typecheck": "tsc --noEmit -p ."
   },
-  "dependencies": {
-    "@knowledgeislands/tokens": "workspace:*"
-  }
+  "type": "module"
 }

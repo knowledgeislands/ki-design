@@ -1,9 +1,7 @@
 {
   "name": "@knowledgeislands/tokens",
-  "version": "0.1.0",
-  "private": true,
   "description": "Knowledge Islands design tokens: DTCG source, CSS variables, Tailwind v4 theme and WCAG contrast checks.",
-  "type": "module",
+  "version": "0.1.0",
   "exports": {
     ".": "./src/index.ts",
     "./tokens.json": "./tokens.json",
@@ -15,10 +13,12 @@
     "dist",
     "tokens.json"
   ],
+  "private": true,
   "scripts": {
     "build": "bun src/build.ts",
     "clean": "rm -rf dist",
     "test": "bun test",
     "typecheck": "tsc --noEmit -p ."
-  }
+  },
+  "type": "module"
 }

@@ -1,20 +1,20 @@
 {
   "name": "@knowledgeislands/symbols",
-  "version": "0.1.0",
-  "private": true,
   "description": "The Knowledge Islands symbol library as typed data.",
-  "type": "module",
+  "version": "0.1.0",
+  "dependencies": {
+    "@knowledgeislands/icons": "workspace:*"
+  },
   "exports": {
     ".": "./src/index.ts"
   },
   "files": [
     "src"
   ],
+  "private": true,
   "scripts": {
     "test": "bun test",
     "typecheck": "tsc --noEmit -p ."
   },
-  "dependencies": {
-    "@knowledgeislands/icons": "workspace:*"
-  }
+  "type": "module"
 }

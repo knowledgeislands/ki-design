@@ -23,8 +23,8 @@ supported_runtimes = [
   "claude-desktop",
   "chatgpt-codex",
 ]
-visibility = "private"
-license = "UNLICENSED"
+visibility = "public"
+license = "MIT"
 
 [skills.ki-authoring]
 
@@ -42,8 +42,6 @@ license = "UNLICENSED"
 
 [skills.ki-decision-records]
 
-[skills.ki-specs]
-
 [skills.ki-guides]
 
 [skills.ki-binding]
@@ -57,6 +55,16 @@ auto_memory = "disabled"
 
 [skills.ki-housekeeping-chatgpt]
 auto_memory = "disabled"
+
+[skills.ki-tokenomics]
+headroom = "recommended"
+preferred_model_type = "standard"
+# User-scoped; revisit if the global MCP set is pruned.
+budgets.mcp_servers = 20
+
+[skills.ki-tokenomics-claude]
+
+[skills.ki-tokenomics-chatgpt]
 
 # -----------------------------------------------------------------------------
 # Change management

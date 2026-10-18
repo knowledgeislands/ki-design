@@ -4,7 +4,6 @@ One prompt per tile in the tile-set contract, ready to paste into an image gener
 
 Shared rules, already inside every prompt: pointy-top hexagonal tile in 2:1 dimetric projection, light from the top-left, a 48-pixel stratified rock plinth, plain flat light-grey background for cutting out, no text, no people in close-up, no creatures, no crystals, no magic glow.
 
-
 ## Terrain (12)
 
 ### `terrain/grassland`

@@ -1,6 +1,6 @@
 {
   "name": "@knowledgeislands/design",
-  "description": "The machine-readable Knowledge Islands design system: tokens, icons, symbol library, tile sets, hex map engine and web components.",
+  "description": "The machine-readable Knowledge Islands design system: tokens, icons, symbol library, tile sets, hex map engine and web components that every surface renders with.",
   "version": "0.1.0",
   "author": "kris@kris.me.uk",
   "devDependencies": {
@@ -29,7 +29,7 @@
     "knowledge-islands",
     "web-components"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json,jsonc}": [
       "bunx @biomejs/biome check --write --no-errors-on-unmatched"
@@ -39,7 +39,6 @@
     ]
   },
   "packageManager": "bun@1.4.2",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/knowledgeislands/ki-design.git"
@@ -49,10 +48,9 @@
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "ki:deps:update": "bun update --latest",
     "prepare": "husky",
-    "preview": "bun examples/observatory-preview/server.ts",
+    "self:preview": "bun examples/observatory-preview/server.ts",
     "self:typecheck": "turbo run typecheck",
-    "test": "turbo run test",
-    "test:preview": "bun test examples/observatory-preview"
+    "test": "turbo run test && bun test examples/observatory-preview"
   },
   "type": "module",
   "workspaces": [

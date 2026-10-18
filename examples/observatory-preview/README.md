@@ -9,8 +9,8 @@ It is an example, not the Observatory. It reads the real Observatory's JSON API 
 From the repository root:
 
 ```sh
-bun run preview                 # reads the live Observatory at http://127.0.0.1:1675
-bun run preview -- --fixtures   # reads the saved samples in fixtures/ instead
+bun run self:preview            # reads the live Observatory at http://127.0.0.1:1675
+bun run self:preview -- --fixtures # reads the saved samples in fixtures/ instead
 ```
 
 Then open <http://127.0.0.1:1676/>. `bun examples/observatory-preview/server.ts` works too.
@@ -24,7 +24,7 @@ Then open <http://127.0.0.1:1676/>. `bun examples/observatory-preview/server.ts`
 The client is framework-free TypeScript, bundled once by `Bun.build` when the server starts, importing `packages/tokens`, `packages/icons` and `packages/hexmap` by relative path (no install step beyond `bun install` at the root). The server serves `packages/tokens/dist/tokens.css` as `/tokens.css`; if `bun run build` has not been run it renders the same CSS from `tokens.json` in memory and says so on start-up.
 
 ```sh
-bun run test:preview            # bun test examples/observatory-preview
+bun run test                    # includes bun test examples/observatory-preview
 bunx tsc -p examples/observatory-preview
 ```
 
