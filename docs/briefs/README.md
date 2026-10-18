@@ -2,6 +2,8 @@
 
 Task briefs that a person, the local app or an AI designer (Claude, ChatGPT) can pick up and execute. Each brief says what to produce, to what standard, and how it will be judged. The rules they apply live in [DESIGN.md](../../DESIGN.md); the reasoning lives in the [design brief](design-brief.md) and the [concept atlas](concept-atlas.md).
 
+**Resuming after a break?** Start with [Resume: the design thread](resume-design-thread.md): where everything is, what's decided, what's open and what's next.
+
 | Brief | Produces | Status |
 | --- | --- | --- |
 | [Picture of Arcadia](arcadia-picture.md) | Ancient art reference | [Variation 1 chosen](arcadia-handoff.md) |
