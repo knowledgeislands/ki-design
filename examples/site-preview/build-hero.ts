@@ -146,8 +146,11 @@ export const districts: District[] = [
   { name: 'The Port', sub: 'Capture · entry & exchange', at: { q: -1, r: 3 }, dx: -170, dy: 70, anchor: 'end' }
 ]
 
+/** `citadel` is the Capital's deprecated tile id (hexmap's `structureAliases`, inlined to keep this script install-free). */
+const resolveStructure = (id: string): string => (id === 'citadel' ? 'capital' : id)
+
 const structureGlyph: Record<string, IconName> = {
-  citadel: 'council-hall', // the Capital's compound (tile id `citadel`); the citadel glyph is retired
+  capital: 'capital', // the Capital's compound: the Library's dome beside the Council Hall's colonnade
   library: 'library',
   observatory: 'observatory',
   lighthouse: 'lighthouse',
@@ -220,7 +223,10 @@ export function renderIso(map: IslandMap, opts: IsoOptions = {}): string {
 
   // Glyph symbols used in this render.
   const used = new Set<IconName>()
-  for (const h of land) if (h.structure && structureGlyph[h.structure]) used.add(structureGlyph[h.structure] as IconName)
+  for (const h of land) {
+    const name = h.structure && structureGlyph[resolveStructure(h.structure)]
+    if (name) used.add(name)
+  }
   used.add('vessel')
   used.add('compass')
   out.push('<defs>')
@@ -375,10 +381,10 @@ export function renderIso(map: IslandMap, opts: IsoOptions = {}): string {
     const s: string[] = []
     for (const h of land) {
       if (!h.structure || h.structure === 'cottage') continue
-      const name = structureGlyph[h.structure]
+      const name = structureGlyph[resolveStructure(h.structure)]
       if (!name) continue
       const c = topCentre(h)
-      const big = h.structure === 'citadel'
+      const big = resolveStructure(h.structure) === 'capital'
       const size = (big ? 54 : h.structure === 'ancient-forest' ? 42 : 38) * (w / 88)
       const x = c.x - size / 2
       const y = c.y - size * 0.86
@@ -399,7 +405,7 @@ export function renderIso(map: IslandMap, opts: IsoOptions = {}): string {
     for (const h of land) {
       if (!h.structure || h.condition !== 'thriving' || h.structure === 'ancient-forest') continue
       const c = topCentre(h)
-      const n = h.structure === 'citadel' ? 6 : h.structure === 'port' ? 5 : 3
+      const n = resolveStructure(h.structure) === 'capital' ? 6 : h.structure === 'port' ? 5 : 3
       for (let i = 0; i < n; i++) {
         const a = r() * Math.PI * 2
         const rr = 10 + r() * 18
