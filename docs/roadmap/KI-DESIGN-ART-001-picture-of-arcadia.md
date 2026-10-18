@@ -7,12 +7,12 @@ purpose: capability
 project: ki-design
 component: art
 horizon: now
-status: draft
+status: done
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T09:50:00Z
+updated_at: 2026-10-18T16:45:00Z
 ---
 
 # The picture of Arcadia
@@ -31,13 +31,13 @@ Generation by an image model Kit chooses; no generator credentials are stored he
 
 ## Current state
 
-Variation 1 of three generations is chosen and saved at `docs/briefs/references/arcadia.png`, with the generation prompts in `docs/briefs/arcadia-generation-prompts.md` and the reasons and handoff in `docs/briefs/arcadia-handoff.md`. The art-licensing decision (KI-DESIGN-ART-002) has not been recorded.
+Variation 1 of three generations is chosen and saved at `docs/briefs/references/arcadia.png`, with the generation prompts in `docs/briefs/arcadia-generation-prompts.md` and the reasons and handoff in `docs/briefs/arcadia-handoff.md`. Kit confirmed the choice on 18 October 2026, and the painting is live on knowledgeislands.info as the home hero and the `/arcadia/` hero. A second round (a larger repaint fixing the hex terraces, Port details and Citadel placement) is follow-up work, not part of this item. The art-licensing decision (KI-DESIGN-ART-002) has not been recorded.
 
 ## Steps
 
-- [ ] Run the Arcadia brief in the image model Kit chooses.
-- [ ] Choose one image and save it at `docs/briefs/references/arcadia.png`.
-- [ ] Write the notes on why it was chosen beside the brief.
+- [x] Run the Arcadia brief in the image model Kit chooses.
+- [x] Choose one image and save it at `docs/briefs/references/arcadia.png`.
+- [x] Write the notes on why it was chosen beside the brief.
 
 ## Files touched
 

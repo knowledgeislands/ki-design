@@ -1,6 +1,6 @@
 # Resume: the Knowledge Islands design thread
 
-This page holds everything needed to pick the design work up again after a break. Kit or any agent can use it. The state is as of **18 October 2026, 12:40**.
+This page holds everything needed to pick the design work up again after a break. Kit or any agent can use it. The state is as of **18 October 2026, 17:40**.
 
 Start here, then read [`DESIGN.md`](../../DESIGN.md) only for the section you need.
 
@@ -28,7 +28,7 @@ All are private to Kit's account and show in his artifacts list.
 
 ### Other repositories
 
-- **apps-knowledgeislands.info.** Design v1 is live. Port wording is in place. `/arcadia/` shows the painting as the legend above the engraved chart. The record of the work is in SITE-044 and SITE-045.
+- **apps-knowledgeislands.info.** Design v1 is live. Port wording is in place. The home page and `/arcadia/` both open on the painting, with the engraved chart below it. The record of the work is in SITE-044 and SITE-045.
 - **ki-principal.**
   - GDR-KI-PRINCIPAL-010, *The Port*: the Port replaces the Harbour, with four modes (dock, rail depot, airport, customs house). Lighthouse means guidance; Council Hall means governance.
   - The note *Influences Along the Way* covers gstack, Paperclip, Gas City, Hermes and OpenClaw.
@@ -39,7 +39,7 @@ All are private to Kit's account and show in his artifacts list.
 
 - Port replaces Harbour. This is canon in ki-principal and ki-design, and on the site.
 - Lighthouse means guidance and Council Hall means governance. Both are canon.
-- "The painting is the legend; the chart is the map." The engraved Modern chart is the home hero and is used for diagrams. The painted Ancient style is used for Arcadia moments. A chart/painting switch comes later, once the Ancient tiles exist.
+- "The painting is the legend; the chart is the map." The painting leads: it is the home hero (live since site commit 07f4c02, Kit's call on 18 October) and the `/arcadia/` hero. The engraved Modern chart follows it: the Arcadia section on the home page, the chart on `/arcadia/`, diagrams and the local app. A chart/painting switch comes later, once the Ancient tiles exist.
 - ki-design is public under the MIT licence and conforms to the KI repository standard. The audit's only remaining failure is DESIGN-2.
 - DESIGN.md is to be restructured as: data files, a short DESIGN.md (about 2–3k words), `docs/spec/*`, and one decision record per decision. The boards are then generated from those.
 - How Kit works:

@@ -52,7 +52,7 @@ Screenshots at 1440 and 390 px are in `screenshots/`.
 
 ## What waits on the Ancient art
 
-- **The hero painting.** The Chart hero is meant to be the painted, dusk-lit Ancient Arcadia (DESIGN.md 9.1, 12.2). Until `docs/briefs/arcadia-picture.md` is run and the Ancient tile set exists, the hero shows the Modern set drawn from the hex data. Swapping is a change to the hero block only: the cartouches, district list and alt text stay.
+- **The hero painting.** The Chart hero is meant to be the painted, dusk-lit Ancient Arcadia (DESIGN.md 9.1, 12.2). The painting now exists (`docs/briefs/references/arcadia.png`, variation 1) and the live site uses it as its hero; this preview still shows the Modern set drawn from the hex data. Swapping is a change to the hero block only: the cartouches, district list and alt text stay.
 - Arcadia's daylight plate, the banner art and the archetype cards for Landscapes (not built here) all want the Ancient set.
 - Real structure sprites. The map uses line glyphs standing on hexes; the Modern tile set's isometric buildings (and the Citadel drawn as three buildings on its flower) will replace them.
 - Elevation. `islandmap/v1`'s example carries no elevation, so the renderer derives it from terrain (coast 0 → snow 4). The full model's `elevation` field should drive it.
