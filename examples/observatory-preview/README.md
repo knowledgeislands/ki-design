@@ -79,7 +79,7 @@ Type is system stacks only: Georgia for headings, `system-ui` for text, `ui-mono
 
 The live estate declares no trade route yet, so `fixtures/trade-routes.json` carries three illustrative route reports between real repositories (one active pair, one awaiting a receiver) to show the lanes; they are not observed.
 
-Estate data is private, so `fixtures/` is ignored by this folder's `.gitignore`; commit it deliberately if you want the demo to travel. The screenshots in `screenshots/` were taken from these fixtures with Playwright: Beacon and Known Lands at 1440 × 900 night and light and 720 × 900 night, plus a filtered chart, Workers and Repositories.
+Estate data is private, so `fixtures/` is ignored by this folder's `.gitignore`; commit it deliberately if you want the demo to travel. Screenshots taken from real fixtures show private estate data (repository names, commit messages, thread titles), so none are committed: this repository is public. Screenshots belong here only when taken from synthetic fixtures.
 
 ## Tests
 
