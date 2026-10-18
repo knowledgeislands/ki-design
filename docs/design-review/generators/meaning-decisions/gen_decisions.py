@@ -8,24 +8,30 @@ D = [
    why='The hex is the truth and the painting shows it. Reuses the existing isometric structure art; the same map renders flat or isometric.',
    aff='Every tile, @knowledgeislands/hexmap, every map on the site and in the app.',
    nxt='Hold it fixed. A change would break every tile set.'),
- dict(id='d-port', title='Port replaces Harbour', area='Meaning', scope='Both', src='§3.1, §3.4, §16.2', flag='Needs GDR',
+ dict(id='d-port', title='Port replaces Harbour', area='Meaning', scope='Both', src='§3.1, §3.4, §16.2',
    q='What do we call the place where knowledge and work arrive and leave?',
    dec='The Port, with four districts: dock (by hand), rail depot (scheduled feeds), airport (agents and remote systems; an airship at a mast), customs house (checked boundary). Harbour is retired.',
    why='A port has more modes than a harbour, so an island shows at a glance how knowledge reaches it.',
    aff='Symbol library, five glyphs, Port tiles, review-queue intake, the site\'s Capture copy.',
-   nxt='Write the GDR in ki-principal (Phase 0) and enact it into the Aesthetics pillar. Then mark it canon here.'),
- dict(id='d-light', title='Lighthouse guides, Council Hall governs', area='Meaning', scope='Both', src='§3.1', flag='Needs GDR',
+   nxt='Enacted by GDR-KI-PRINCIPAL-010; official here and on the site.'),
+ dict(id='d-light', title='Lighthouse guides, Council Hall governs', area='Meaning', scope='Both', src='§3.1',
    q='Which symbol stands for guidance, and which for governance?',
    dec='Lighthouse = guidance only. Council Hall = governance: a parliament, where decisions are made, not stored.',
    why='Canon\'s "guidance / governance" gave one symbol two jobs. A parliament reads as governance; a light reads as direction.',
    aff='Two symbol rows, the app\'s Decisions, the Principles and Model pages.',
-   nxt='Enact with the Port GDR. Canon still says "Governance = lighthouses / citadels" until then.'),
- dict(id='d-citadel', title='The Citadel', area='Meaning', scope='Both', src='§2.1, §3.3, §16.5',
-   q='What stands at the heart of a Capital?',
-   dec='The Citadel: Library + Council Hall + Tower on one walled terrace across a 7-hex flower. Never a single-hex building.',
-   why='Knowledge, decisions and watching sit together at the centre of every island.',
-   aff='structure.citadel tile, the Arcadia hero, Territory Principal in the app.',
-   nxt='Update symbols.ts, which still says proposed (so does the Tower).'),
+   nxt='Enacted by GDR-KI-PRINCIPAL-010; official here and on the site.'),
+ dict(id='d-capital', title='The Capital, and nothing combative', area='Meaning', scope='Both', src='§2.1, §3.3, §16.5',
+   q='What stands at the heart of an island, and how is it drawn?',
+   dec='The Capital: the Library and the Council Hall around an open civic square on a 7-hex flower, a square and never a fortress. "Citadel" is retired, the Tower is dropped and the Observatory is the app\'s mark. No citadels, towers, keeps or battlements.',
+   why='Kit: "Let\'s stay with something which isn\'t considered to be Combative." A Tower read as dictatorial beside the friendlier Library and Council Hall.',
+   aff='The Capital symbol, the structure.citadel tile (id kept as an alias), the Arcadia painting, Territory Principal in the app.',
+   nxt='Enacted by GDR-KI-PRINCIPAL-011. The next painting round removes the tower beside the Library.'),
+ dict(id='d-status', title='Status labels: Official · Agreed · Proposed · Open', area='Governance', scope='Both', src='§1, §3',
+   q='Which words say how settled a thing is?',
+   dec='Official (ratified in ki-principal; was Canon) · Agreed (agreed, being enacted; was Decided) · Proposed · Open. The data keys are official and agreed.',
+   why='"Canon" confused as a label. Kit: "rename Cannon to official".',
+   aff='symbols.ts statuses, DESIGN.md, these boards, the site\'s Field Guide chips.',
+   nxt='Recorded in GDR-KI-DESIGN-002.'),
  dict(id='d-repo', title='The repository is ki-design', area='Build', scope='Both', src='Front matter, §16.1',
    q='Where does the shared design kit live?',
    dec='knowledgeislands/ki-design: tokens, glyphs, tile manifest and atlases, hexmap, elements and DESIGN.md. Chosen over apps-common.',
@@ -105,16 +111,24 @@ O = [
    rec='Yes: the roundel stays the logo. The compass is the Realm\'s orientation motif and the favicon candidate.', recBy='DESIGN.md',
    why='The roundel is canon (Pillars/Aesthetics/Logo/logo.png). The compass already means orientation.',
    aff='Site header lockup, favicon, mood boards, posters.',
-   meanwhile='Never substitute the compass for the logo. The app\'s mark is the Tower.',
+   meanwhile='Never substitute the compass for the logo. The app\'s mark is the Observatory.',
    nxt='Swap the compass out of the site header where the mood boards put it.'),
  dict(id='o-name', title='The local app\'s name', area='App', scope='App', src='§3.9, §16.5', tag='Keep till Gate B',
-   q='Keep "Observatory", or rename the app (for example, the Tower)?',
+   q='Keep "Observatory" as the app\'s name, or rename it?',
    opts='A. Keep "Observatory" as the working name until Gate B.  B. Rename now.',
-   rec='Yes: keep "Observatory" until Gate B. The Tower is its structure and mark either way.', recBy='DESIGN.md',
+   rec='Yes: keep "Observatory" until Gate B. Its mark is the Observatory either way (GDR-KI-PRINCIPAL-011).', recBy='DESIGN.md',
    why='Kit has said the app will act, not only observe, so the name may be wrong. Gate B is the moment to decide with evidence.',
-   aff='App title, docs, PDR series, the Tower glyph as mark.',
-   meanwhile='Write "Observatory"; draw the app as the Tower, never the dome.',
+   aff='App title, docs, PDR series.',
+   meanwhile='Write "Observatory"; draw the app\'s mark as the domed Observatory.',
    nxt='Put the name on the Gate B agenda.'),
+ dict(id='o-wall', title='The curtain wall', area='Meaning', scope='Both', src='§3.3, §16.5', tag='Not adopted',
+   q='Draw a low wall around the knowledge base in a territory\'s Principal repository, with the Enactment Process as its gate?',
+   opts='A. A low wall with open gates.  B. No wall: the Capital stays an open square.',
+   rec='Not adopted with the Capital. Any answer must stay within the non-combative principle.', recBy='Kit, 18 Oct',
+   why='A wall would mark the line between settled knowledge and work in motion, but it reads as a fortification.',
+   aff='The Capital drawing, the Arcadia painting, the Principal repository.',
+   meanwhile='Draw no wall; keep the Capital open.',
+   nxt='Revisit only with a non-combative form.'),
  dict(id='o-roles', title='Steward roles into canon', area='Governance', scope='Both', src='§3.7, §16.5', tag='Map, then add',
    q='Write the eight roles into Philosophy/Model/Agents, or map them onto its existing roles, before the Field Guide publishes them?',
    opts='A. Write all eight in as new roles.  B. Map onto existing Agents roles; add only what is missing.',
@@ -173,7 +187,7 @@ O = [
    nxt='Tick it off.'),
  dict(id='o-lore', title='Lore sheet', area='Meaning', scope='Both', src='§16.5', tag='Yes',
    q='One page of 8–10 named motifs, with creatures, magic and crystals ruled out?',
-   opts='Motifs: the Great Library, the Citadel, the Port and its customs house, the Mill, the tides as the cycle, the Known Lands and their fog, the compass, Ruins.',
+   opts='Motifs: the Great Library, the Capital, the Port and its customs house, the Mill, the tides as the cycle, the Known Lands and their fog, the compass, Ruins.',
    rec='Yes, and decide Whale song with it.', recBy='This board',
    why='Gives AI designers a short list of what may be invented around. Whale song is a creature, so it clashes.',
    aff='Prompt library, posters, the Field Guide.',
@@ -189,8 +203,8 @@ O = [
    nxt='File them.'),
 ]
 for x in D:
-    x['kind'] = 'decided'
-    x['needsRecord'] = x['id'] in ('d-port', 'd-light', 'd-wc', 'd-tokens')
+    x['kind'] = 'agreed'
+    x['needsRecord'] = x['id'] in ('d-wc', 'd-tokens')
 for x in O: x['kind'] = 'open'
 DATA = json.dumps(D + O, ensure_ascii=False)
 assert '</' not in DATA
@@ -210,7 +224,7 @@ ROW = r'''
             <div style="display:{{r.bodyDisp}};padding:0 14px 10px 30px;flex-direction:column;gap:7px">
               <div style="font-size:13px;line-height:1.4;color:#1a2030"><span class="dd-k">Question</span> {{r.q}}</div>
               <div style="font-size:13px;line-height:1.4;color:#1a2030"><span class="dd-k">{{r.mainLabel}}</span> {{r.main}}</div>
-              <div style="display:{{r.mwDisp}};font-size:12.5px;line-height:1.4;color:#4a5568"><span class="dd-k">Until decided</span> {{r.meanwhile}}</div>
+              <div style="display:{{r.mwDisp}};font-size:12.5px;line-height:1.4;color:#4a5568"><span class="dd-k">Until agreed</span> {{r.meanwhile}}</div>
               <div style="display:{{r.recDisp}};background:#f1e8d3;border-left:3px solid #8a5a12;border-radius:4px;padding:8px 10px;align-items:center;gap:10px">
                 <div style="flex:1;min-width:0"><div style="font-size:13.5px;font-weight:600;color:#1a2030;line-height:1.35">{{r.rec}}</div><div style="font-size:11px;color:#8a5a12;margin-top:2px">Recommended by {{r.recBy}}</div></div>
                 <button type="button" onClick="{{ r.yes }}" style="{{r.yesStyle}}">Yes</button>
@@ -253,7 +267,7 @@ html = r'''<!doctype html>
       <div style="font-size:15px;color:#4a5568">What is settled, and what still needs Kit. Every open question carries one recommendation: yes or no.</div>
     </div>
     <div style="display:flex;gap:10px">
-      <div style="background:#dfe9e1;border-radius:8px;padding:10px 16px;min-width:92px"><div class="dd-n" style="color:#2d5a3d">{{c.decided}}</div><div style="font-size:12px;font-weight:600;color:#2d5a3d">decided</div></div>
+      <div style="background:#dfe9e1;border-radius:8px;padding:10px 16px;min-width:92px"><div class="dd-n" style="color:#2d5a3d">{{c.agreed}}</div><div style="font-size:12px;font-weight:600;color:#2d5a3d">agreed</div></div>
       <div style="background:#f3dfd9;border-radius:8px;padding:10px 16px;min-width:92px"><div class="dd-n" style="color:#9b2c1c">{{c.open}}</div><div style="font-size:12px;font-weight:600;color:#9b2c1c">open</div></div>
       <div style="background:#fffaf0;border:1px solid #d4c9b4;border-radius:8px;padding:10px 16px;min-width:92px"><div class="dd-n" style="color:#0f2440">{{c.records}}</div><div style="font-size:12px;font-weight:600;color:#4a5568">need GDR or PDR</div></div>
       <div style="background:#fffaf0;border:1px solid #d4c9b4;border-radius:8px;padding:10px 16px;min-width:92px"><div class="dd-n" style="color:#8a5a12">{{c.answered}}</div><div style="font-size:12px;font-weight:600;color:#4a5568">answered here</div></div>
@@ -276,8 +290,8 @@ html = r'''<!doctype html>
   <div style="display:grid;grid-template-columns:{{cols}};gap:24px;flex:1;min-height:0">
     <div style="display:{{dCol}};flex-direction:column;gap:3px;min-width:0">
       <div style="display:flex;align-items:baseline;gap:10px;padding-bottom:6px;border-bottom:2px solid #2d5a3d;margin-bottom:4px">
-        <span style="font-family:'Cormorant SC',serif;font-size:20px;font-weight:600;color:#2d5a3d;letter-spacing:0.06em">Decided</span>
-        <span style="font-size:12px;color:#4a5568">{{dShown}} · taken 18 Oct 2026; some still need enacting into canon</span>
+        <span style="font-family:'Cormorant SC',serif;font-size:20px;font-weight:600;color:#2d5a3d;letter-spacing:0.06em">Agreed</span>
+        <span style="font-size:12px;color:#4a5568">{{dShown}} · agreed with Kit on 18 Oct 2026; some still need enacting into ki-principal</span>
       </div>''' + ROW.replace('__L__', 'dRows') + r'''
     </div>
     <div style="display:{{oCol}};flex-direction:column;gap:3px;min-width:0">
@@ -302,7 +316,7 @@ class Component extends DCLogic {
     const chip = (on) => 'font-family:Inter,sans-serif;font-size:12px;font-weight:500;padding:5px 10px;border-radius:999px;cursor:pointer;line-height:1;' +
       (on ? 'background:#0f2440;color:#f5efe0;border:1px solid #0f2440;' : 'background:#fffaf0;color:#1a2030;border:1px solid #d4c9b4;');
     const inArea = (x) => area === 'all' || x.area === area;
-    const kinds = [['all', 'Both columns'], ['decided', 'Decided'], ['open', 'Open']].map(([id, label]) => ({
+    const kinds = [['all', 'Both columns'], ['agreed', 'Agreed'], ['open', 'Open']].map(([id, label]) => ({
       label: label, pressed: id === kind ? 'true' : 'false', style: chip(id === kind), pick: () => this.setState({ kind: id })
     }));
     const areas = [['all', 'All']].concat(AREAS.map(a => [a, a])).map(([id, label]) => ({
@@ -333,11 +347,11 @@ class Component extends DCLogic {
         box: 'background:' + (on ? '#ffffff' : '#fffaf0') + ';border:1px solid ' + (on ? '#0f2440' : '#d4c9b4') + ';border-radius:8px;border-left:3px solid ' + (isOpen ? '#9b2c1c' : '#2d5a3d') + ';flex:none;'
       };
     };
-    const dAll = ITEMS.filter(x => x.kind === 'decided'), oAll = ITEMS.filter(x => x.kind === 'open');
+    const dAll = ITEMS.filter(x => x.kind === 'agreed'), oAll = ITEMS.filter(x => x.kind === 'open');
     const dRows = dAll.filter(inArea).map(row), oRows = oAll.filter(inArea).map(row);
-    const showD = kind !== 'open', showO = kind !== 'decided';
+    const showD = kind !== 'open', showO = kind !== 'agreed';
     return {
-      c: { decided: dAll.length, open: oAll.length, records: ITEMS.filter(x => x.needsRecord).length,
+      c: { agreed: dAll.length, open: oAll.length, records: ITEMS.filter(x => x.needsRecord).length,
            answered: Object.keys(ans).length + ' / ' + oAll.length },
       kinds: kinds, areas: areas, dRows: dRows, oRows: oRows,
       dShown: dRows.length + ' of ' + dAll.length, oShown: oRows.length + ' of ' + oAll.length,

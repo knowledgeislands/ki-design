@@ -17,8 +17,8 @@ body{margin:0}
 .dsc-card{background:#fffaf0;border:1px solid #d4c9b4;border-radius:8px;box-sizing:border-box}
 .dsc-ch{display:flex;align-items:center;gap:8px;font-family:'Cormorant SC',serif;font-size:16px;font-weight:600;letter-spacing:0.08em}
 .dsc-chip{display:inline-block;font-family:Inter,sans-serif;font-size:11px;font-weight:600;line-height:1;padding:4px 8px;border-radius:999px;letter-spacing:0;white-space:nowrap}
-.dsc-canon{color:#0f2440;background:#e3e8ef}
-.dsc-decided{color:#2d5a3d;background:#dfe9e1}
+.dsc-official{color:#0f2440;background:#e3e8ef}
+.dsc-agreed{color:#2d5a3d;background:#dfe9e1}
 .dsc-proposed{color:#8a5a12;background:#f1e8d3}
 .dsc-open{color:#9b2c1c;background:#f3dfd9}
 .dsc-scope{color:#4a5568;background:transparent;border:1px solid #b8bfc9;padding:3px 7px}
@@ -42,8 +42,8 @@ body{margin:0}
         <button type="button" class="dsc-btn" aria-pressed="{{nightPressed}}" onClick="{{ toNight }}" style="{{nightBtn}}">Night</button>
       </div>
       <div style="display:flex;gap:6px;align-items:center;font-size:12px;color:#4a5568">
-        <span>Night is reference</span><span class="dsc-chip dsc-decided">Decided</span>
-        <span style="margin-left:8px">App follows the OS theme</span><span class="dsc-chip dsc-decided">Decided</span><span class="dsc-chip dsc-scope">App</span>
+        <span>Night is reference</span><span class="dsc-chip dsc-agreed">Agreed</span>
+        <span style="margin-left:8px">App follows the OS theme</span><span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">App</span>
         <span style="margin-left:8px">Night on the site</span><span class="dsc-chip dsc-open">Open</span><span class="dsc-chip dsc-scope">Site</span>
       </div>
     </div>
@@ -140,7 +140,7 @@ body{margin:0}
         <div style="font-size:13.5px;line-height:1.5;color:#1a2030">{{detail.note}}</div>
         <div style="font-size:12px;color:#4a5568;margin-top:auto">Source · {{detail.src}}</div>
       </div>
-      <div style="font-size:11px;color:#4a5568;line-height:1.4">Status where DESIGN.md §5 gives none: shown as Decided (values held in tokens.json, changed only by Kit's approval, §16.1). Terrain night fills and fog come from DESIGN.md §5.6; tokens.json does not yet hold them.</div>
+      <div style="font-size:11px;color:#4a5568;line-height:1.4">Status where DESIGN.md §5 gives none: shown as Agreed (values held in tokens.json, changed only by Kit's approval, §16.1). Terrain night fills and fog come from DESIGN.md §5.6; tokens.json does not yet hold them.</div>
     </div>
 
     <!-- Right column -->
@@ -149,7 +149,7 @@ body{margin:0}
       <!-- Roles, washes, sea: on the current paper -->
       <div style="{{rolesCard}}">
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <div class="dsc-ch" style="color:{{m.ink}}">Semantic roles on {{modeName}} paper <span class="dsc-chip dsc-decided">Decided</span><span class="dsc-chip dsc-scope" style="color:{{m.muted}};border-color:{{m.boundary}}">Both</span></div>
+          <div class="dsc-ch" style="color:{{m.ink}}">Semantic roles on {{modeName}} paper <span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope" style="color:{{m.muted}};border-color:{{m.boundary}}">Both</span></div>
           <div style="font-size:12px;color:{{m.muted}}">WCAG ratio against {{m.paper}}, computed live · text ≥ 4.5 · controls ≥ 3</div>
         </div>
         <div class="dsc-g" style="grid-template-columns:repeat(5,1fr)">
@@ -183,7 +183,7 @@ body{margin:0}
       <!-- Core palette -->
       <div class="dsc-card" style="padding:12px 16px;display:flex;flex-direction:column;gap:9px">
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <div class="dsc-ch" style="color:#0f2440">Core palette · 15 <span class="dsc-chip dsc-decided">Decided</span><span class="dsc-chip dsc-scope">Both</span></div>
+          <div class="dsc-ch" style="color:#0f2440">Core palette · 15 <span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">Both</span></div>
           <div style="font-size:12px;color:#4a5568">Same in both themes. Never #000 or #fff. Gold is never text on parchment (2.32:1).</div>
         </div>
         <div class="dsc-g" style="grid-template-columns:repeat(8,1fr)">
@@ -267,7 +267,7 @@ class Component extends DCLogic {
     roles.forEach(r => {
       items['role.' + r[0]] = { id:'role.' + r[0], group:'Semantic role', name: r[0], cssVar: r[0] === 'teal' ? '(no CSS role name)' : '--' + r[0],
         path: 'color.role.light.' + r[0] + '  ·  color.role.night.' + r[0], day: r[1], night: r[2], kind: r[3], note: r[4],
-        status:'Decided', scope:'Both', src:'tokens.json; DESIGN.md §5.2, §5.4 (values from PDR-KI-OBSERVA-002)' };
+        status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.2, §5.4 (values from PDR-KI-OBSERVA-002)' };
     });
     const washes = [
       ['ok','#ddddcc','#1e374c','Forest 12 % into paper','thriving'],
@@ -278,7 +278,7 @@ class Component extends DCLogic {
       items['wash.' + w[0]] = { id:'wash.' + w[0], group:'Wash', name: w[0] + ' wash', cssVar:'--' + w[0] + '-wash', path:'color.wash.light.' + w[0] + '  ·  color.wash.night.' + w[0],
         day: w[1], night: w[2], kind:'wash', role: w[0], sample: w[4],
         note: w[3] + '. Status chips and the Beacon’s severity column are drawn on it, with the role’s own text on top. The mix is the source of truth; the token build emits the hex.',
-        status:'Decided', scope:'Both', src:'tokens.json; DESIGN.md §5.3' };
+        status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.3' };
     });
     const sea = [
       ['deep','--sea-deep','#b9cfd2','#0b1b31','Open ocean far from land.'],
@@ -289,7 +289,7 @@ class Component extends DCLogic {
     ];
     sea.forEach(s => {
       items['sea.' + s[0]] = { id:'sea.' + s[0], group:'Sea fill', name: s[0], cssVar: s[1], path:'color.sea.light.' + s[0] + '  ·  color.sea.night.' + s[0],
-        day: s[2], night: s[3], kind:'fill', note: s[4], status:'Decided', scope:'Both', src:'tokens.json; DESIGN.md §5.5' };
+        day: s[2], night: s[3], kind:'fill', note: s[4], status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.5' };
     });
     const core = [
       ['navy','#0f2440','Night paper, deep sea, hero ground.'],
@@ -311,7 +311,7 @@ class Component extends DCLogic {
     core.forEach(c => {
       items['core.' + c[0]] = { id:'core.' + c[0], group:'Core palette', name: c[0], cssVar:'--color-' + c[0], path:'color.core.' + c[0],
         day: c[1], night: c[1], kind:'core', note: c[2] + ' Core colours do not change with the theme; roles pick from them.',
-        status:'Decided', scope: c[0] === 'border-light' ? 'Site' : 'Both', src:'tokens.json; DESIGN.md §5.1, §5.8' };
+        status:'Agreed', scope: c[0] === 'border-light' ? 'Site' : 'Both', src:'tokens.json; DESIGN.md §5.1, §5.8' };
     });
     const terr = [
       ['grassland','#a9b97c','#647661','Sparse grass ticks (ink 40 %).'],
@@ -333,7 +333,7 @@ class Component extends DCLogic {
         status:'Proposed', scope:'Both', src:'tokens.json (day); DESIGN.md §5.6 (night)' };
     });
     items['terrain.fog'] = { id:'terrain.fog', group:'Map state', name:'fog', cssVar:'--fog', path:'not yet in tokens.json', day:'#cfd3d6', night:'#657384', kind:'fill',
-      note:'Fog is a map state, not a terrain: a diagonal hatch over whatever lies beneath, marking uncharted or unobserved hexes. Its meaning is canon (§3.5); the value is proposed.',
+      note:'Fog is a map state, not a terrain: a diagonal hatch over whatever lies beneath, marking uncharted or unobserved hexes. Its meaning is official (§3.5); the value is proposed.',
       status:'Proposed', scope:'Both', src:'DESIGN.md §5.6, §3.5' };
     const pal = [
       ['archipelago','Archipelago','#1b3a5c','#4a7a5a','#2d5a3d','#e3d3a8','#c8963c','The default. Deep blue sea, green islands, pale sand: the brand at rest.'],
@@ -444,7 +444,7 @@ class Component extends DCLogic {
     }
     const sw = h => 'width:34px;height:34px;border-radius:6px;flex:none;background:' + h + ';border:1px solid #9a8358;';
     const labels = ['sea','land','accent land','stone / built','brass'];
-    const statusCls = { Canon:'dsc-canon', Decided:'dsc-decided', Proposed:'dsc-proposed', Open:'dsc-open' }[it.status];
+    const statusCls = { Official:'dsc-official', Agreed:'dsc-agreed', Proposed:'dsc-proposed', Open:'dsc-open' }[it.status];
 
     const btn = on => 'font-size:13px;font-weight:600;padding:6px 18px;border-radius:999px;border:0;' + (on ? 'background:#0f2440;color:#f5efe0;' : 'background:transparent;color:#1a2030;');
 

@@ -22,8 +22,8 @@
     </div>
     <div style="margin-left:auto;display:flex;flex-direction:column;gap:6px;align-items:flex-end;font-size:11.5px;color:#4a5568">
       <div style="display:flex;gap:6px">
-        <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#0f2440;background:#e3e8ef">Canon</span>
-        <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#2d5a3d;background:#dfe9e1">Decided</span>
+        <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#0f2440;background:#e3e8ef">Official</span>
+        <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#2d5a3d;background:#dfe9e1">Agreed</span>
         <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#8a5a12;background:#f1e8d3">Proposed</span>
         <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#9b2c1c;background:#f3dfd9">Open</span>
       </div>
@@ -143,7 +143,7 @@ class Component extends DCLogic {
   icons(){ return /*DATA*/; }
 
   chip(st){
-    const c = { canon:['#0f2440','#e3e8ef','Canon'], decided:['#2d5a3d','#dfe9e1','Decided'], proposed:['#8a5a12','#f1e8d3','Proposed'], open:['#9b2c1c','#f3dfd9','Open'] }[st] || ['#4a5568','#eee','?'];
+    const c = { official:['#0f2440','#e3e8ef','Official'], agreed:['#2d5a3d','#dfe9e1','Agreed'], retired:['#4a5568','#e8e4dc','Retired'], proposed:['#8a5a12','#f1e8d3','Proposed'], open:['#9b2c1c','#f3dfd9','Open'] }[st] || ['#4a5568','#eee','?'];
     return { label: c[2], style: 'display:inline-block;font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:999px;vertical-align:1px;color:' + c[0] + ';background:' + c[1] + ';' };
   }
 
@@ -206,14 +206,14 @@ class Component extends DCLogic {
     });
 
     const R = [
-      ['Grid', '24 × 24 artboard, viewBox 0 0 24 24. 2 px safe margin; live area 20 × 20.', 'decided'],
-      ['Stroke', '1.5 px at 24 and 20 px; 1.25 px at 16 px, snapped to the pixel grid. Stroke scales.', 'decided'],
-      ['Corners', 'Round caps and round joins. Straight sides, gentle arcs.', 'decided'],
-      ['Optical size', '16 · 20 · 24 px. Redraw at 16 with fewer details. Never scale a 24 px drawing below 20.', 'decided'],
-      ['Colour', 'currentColor. Ink on paper in light; parchment on navy at night.', 'decided'],
-      ['Fills', 'None, except brass accents (lamp, flame, star) up to 10 % of the live area.', 'decided'],
-      ['View', 'Front elevation or slight three-quarter. Never isometric. No gradient, shading or duotone.', 'decided'],
-      ['Never', 'Emoji, third-party logos, weapons, faces with expressions, robot heads.', 'decided']
+      ['Grid', '24 × 24 artboard, viewBox 0 0 24 24. 2 px safe margin; live area 20 × 20.', 'agreed'],
+      ['Stroke', '1.5 px at 24 and 20 px; 1.25 px at 16 px, snapped to the pixel grid. Stroke scales.', 'agreed'],
+      ['Corners', 'Round caps and round joins. Straight sides, gentle arcs.', 'agreed'],
+      ['Optical size', '16 · 20 · 24 px. Redraw at 16 with fewer details. Never scale a 24 px drawing below 20.', 'agreed'],
+      ['Colour', 'currentColor. Ink on paper in light; parchment on navy at night.', 'agreed'],
+      ['Fills', 'None, except brass accents (lamp, flame, star) up to 10 % of the live area.', 'agreed'],
+      ['View', 'Front elevation or slight three-quarter. Never isometric. No gradient, shading or duotone.', 'agreed'],
+      ['Never', 'Emoji, third-party logos, weapons, faces with expressions, robot heads.', 'agreed']
     ];
     const rules = R.map(r => { const c = this.chip(r[2]); return { k: r[0], v: r[1], st: c.label, chip: c.style }; });
 

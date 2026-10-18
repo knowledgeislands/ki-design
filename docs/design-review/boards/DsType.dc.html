@@ -17,8 +17,8 @@ body{margin:0}
 .dst-card{background:#fffaf0;border:1px solid #d4c9b4;border-radius:8px;box-sizing:border-box}
 .dst-ch{display:flex;align-items:center;gap:8px;font-family:'Cormorant SC',serif;font-size:16px;font-weight:600;letter-spacing:0.08em;color:#0f2440}
 .dst-chip{display:inline-block;font-family:Inter,sans-serif;font-size:11px;font-weight:600;line-height:1;padding:4px 8px;border-radius:999px;letter-spacing:0;white-space:nowrap}
-.dst-canon{color:#0f2440;background:#e3e8ef}
-.dst-decided{color:#2d5a3d;background:#dfe9e1}
+.dst-official{color:#0f2440;background:#e3e8ef}
+.dst-agreed{color:#2d5a3d;background:#dfe9e1}
 .dst-proposed{color:#8a5a12;background:#f1e8d3}
 .dst-open{color:#9b2c1c;background:#f3dfd9}
 .dst-scope{color:#4a5568;background:transparent;border:1px solid #b8bfc9;padding:3px 7px}
@@ -42,8 +42,8 @@ body{margin:0}
         <button type="button" class="dst-btn" aria-pressed="{{appPressed}}" onClick="{{ toApp }}" style="{{appBtn}}">App · Instrument</button>
       </div>
       <div style="display:flex;gap:6px;align-items:center;font-size:12px;color:#4a5568">
-        <span>Site and app type</span><span class="dst-chip dst-decided">Decided</span>
-        <span style="margin-left:8px">Cormorant replaces Playfair</span><span class="dst-chip dst-decided">Decided</span><span class="dst-chip dst-scope">Site</span>
+        <span>Site and app type</span><span class="dst-chip dst-agreed">Agreed</span>
+        <span style="margin-left:8px">Cormorant replaces Playfair</span><span class="dst-chip dst-agreed">Agreed</span><span class="dst-chip dst-scope">Site</span>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@ body{margin:0}
       <!-- Faces -->
       <div class="dst-card" style="padding:12px 16px;display:flex;flex-direction:column;gap:10px">
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <div class="dst-ch">{{d.title}} <span class="dst-chip dst-decided">Decided</span><span class="dst-chip dst-scope">{{d.scope}}</span></div>
+          <div class="dst-ch">{{d.title}} <span class="dst-chip dst-agreed">Agreed</span><span class="dst-chip dst-scope">{{d.scope}}</span></div>
           <div style="display:flex;gap:12px;font-size:12px;color:#1a2030">
             <sc-for list="{{d.facts}}" as="fa" hint-placeholder-count="2"><span style="white-space:nowrap"><strong style="font-weight:600">{{fa.k}}</strong> {{fa.v}}</span></sc-for>
           </div>
@@ -149,7 +149,7 @@ class Component extends DCLogic {
       title: 'Site · the Chart', scope: 'Site', where: 'knowledgeislands.info · atmospheric, narrative',
       faces: [
         { role:'Display', name:'Cormorant Garamond 500–600 · ≥ 24 px', stack:"'Cormorant Garamond', Georgia, serif", sample:'Arcadia', sampleStyle:'font-family:' + CG + ';font-size:28px;font-weight:600;line-height:1;color:#0f2440' },
-        { role:'Labels · cartouches', name:'Cormorant SC 500–600 · tracked', stack:"'Cormorant SC', 'Cormorant Garamond', Georgia, serif", sample:'The Citadel', sampleStyle:'font-family:' + SC + ';font-size:20px;font-weight:600;letter-spacing:0.16em;line-height:1.2;color:#0f2440;border-bottom:1px solid #c8963c;align-self:flex-start;padding-bottom:2px' },
+        { role:'Labels · cartouches', name:'Cormorant SC 500–600 · tracked', stack:"'Cormorant SC', 'Cormorant Garamond', Georgia, serif", sample:'The Capital', sampleStyle:'font-family:' + SC + ';font-size:20px;font-weight:600;letter-spacing:0.16em;line-height:1.2;color:#0f2440;border-bottom:1px solid #c8963c;align-self:flex-start;padding-bottom:2px' },
         { role:'Reading', name:'Inter 400 / 500 / 600', stack:'Inter, system-ui, sans-serif', sample:'Plain words.', sampleStyle:'font-family:' + IN + ';font-size:20px;font-weight:500;line-height:1.2;color:#0f2440' },
         { role:'Code', name:'System monospace', stack:"ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace", sample:'/install/ki', sampleStyle:'font-family:' + MO + ';font-size:17px;line-height:1.3;color:#0f2440' }
       ],
@@ -218,7 +218,7 @@ class Component extends DCLogic {
       { id:'verbs', cat:'words', area:'Stewardship', good:'steward, tend, ratify, chart', bad:'own, harvest, crush, hack', why:'Stewardship over extraction: show care and tending, never harvesting or growth hacks.', src:'§4.2' },
       { id:'cycle', cat:'words', area:'Cycle', good:'Capture · Connect · Reflect', bad:'ingest · process · output', why:'The canon cycle. Pipeline words turn a living landscape back into a machine.', src:'§4.2' },
       { id:'jobs', cat:'words', area:'App jobs', good:'observe, attend, act, extend', bad:'monitor, alert, execute, plugin', why:'The local app’s four jobs. They name what a person does, not what a system emits.', src:'§4.2' },
-      { id:'model', cat:'words', area:'Model', good:'realm, territory, island', bad:'workspace, tenant, estate', why:'The section 2 model: realm, territory, island, Capital, Citadel. Software-tenancy words break the map and its meaning. Estate is avoided in display copy.', src:'§4.2 · §2' },
+      { id:'model', cat:'words', area:'Model', good:'realm, territory, island', bad:'workspace, tenant, estate', why:'The section 2 model: realm, territory, island, Capital. Software-tenancy words break the map and its meaning. Estate is avoided in display copy.', src:'§4.2 · §2' },
       { id:'hype', cat:'sentences', area:'Tone', good:'No signals. The realm is quiet.', bad:'(rocket) Supercharge your knowledge with AI!', why:'Calm and true. The don’t carries emoji, hype and AI as hero. No emoji anywhere: use glyphs.', src:'§4.4 · §4.3' },
       { id:'confirm', cat:'sentences', area:'Confirmation', good:'Pull 3 repositories in hnr? This changes files on disk.', bad:'Are you sure?', why:'Name the scope and the effect (full form: “Pull 3 repositories in territory hnr? This changes files on disk.”). A bare “are you sure” tells the reader nothing to decide on.', src:'§4.4' },
       { id:'time', cat:'sentences', area:'Time', good:'Pulled 3 of 3 · 2026-10-18 09:42', bad:'Pulled 3 days ago', why:'Outcome, time, way in. Stamps are YYYY-MM-DD HH:MM, 24-hour, local; never a relative time alone in the app (it may follow the stamp, muted).', src:'§4.3 · §4.4' },

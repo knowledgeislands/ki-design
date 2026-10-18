@@ -60,22 +60,21 @@ for k, svg in icons.items():
     elif groups[k] == 'Roles' or k in proposed_82:
         st = 'proposed'
     elif groups[k] == 'Values':
-        st = 'canon'
+        st = 'official'
     elif groups[k] == 'Not in §8.2':
         st = 'open'
     else:
-        st = 'decided'
+        st = 'agreed'
     if groups[k] == 'Roles' or k in proposed_82:
         st = 'proposed'
-    if k == 'citadel':
-        st = 'decided'
-        mean_extra = True
+    if k in ('citadel', 'tower'):
+        st = 'retired'
     scope = 'App' if groups[k] == 'Instruments' else 'Both'
     mean = [{'n': s['name'], 'm': s['meaning'], 'st': s['status'], 'note': s['notes'] or ''} for s in ms]
     if groups[k] == 'Values':
-        mean = [{'n': 'Value', 'm': values[k].split(':')[0] + '.', 'st': 'canon', 'note': 'Canon meaning from the Symbol Library sheet.'}]
-    if k == 'citadel':
-        mean[1]['note'] = 'DESIGN.md §16.5 lists the Citadel as decided; symbols.ts still says proposed.'
+        mean = [{'n': 'Value', 'm': values[k].split(':')[0] + '.', 'st': 'official', 'note': 'Official meaning from the Symbol Library sheet.'}]
+    if k in ('citadel', 'tower'):
+        mean = [{'n': 'Retired', 'm': 'Mapped to no symbol.', 'st': 'retired', 'note': 'GDR-KI-PRINCIPAL-011 retired the Citadel and dropped the Tower; the glyph stays in the package. The Capital has no glyph yet; the app\'s mark is the Observatory.'}]
     data[k] = {'g': groups[k], 'd': draw[k], 'st': st, 'sc': scope, 'mean': mean, 'svg': svg}
 
 order = ['Symbols', 'Places', 'Port modes', 'Instruments', 'Roles', 'UI basics', 'Values', 'Not in §8.2']

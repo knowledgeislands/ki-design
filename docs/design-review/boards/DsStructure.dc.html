@@ -15,8 +15,8 @@ body{margin:0}
 .st-kick{font-family:'Cormorant SC',serif;font-size:15px;font-weight:600;letter-spacing:0.12em;color:#8a5a12}
 .st-h3{font-family:'Cormorant Garamond',serif;font-weight:600;color:#0f2440;margin:0}
 .st-chip{display:inline-block;font-size:11px;font-weight:600;line-height:16px;padding:1px 7px;border-radius:4px;white-space:nowrap}
-.st-canon{color:#0f2440;background:#e3e8ef}
-.st-decided{color:#2d5a3d;background:#dfe9e1}
+.st-official{color:#0f2440;background:#e3e8ef}
+.st-agreed{color:#2d5a3d;background:#dfe9e1}
 .st-proposed{color:#8a5a12;background:#f1e8d3}
 .st-open{color:#9b2c1c;background:#f3dfd9}
 .st-scope{display:inline-block;font-size:11px;font-weight:500;line-height:16px;padding:0 7px;border-radius:4px;border:1px solid #9aa3ad;color:#4a5568;white-space:nowrap}
@@ -149,7 +149,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
         <div class="st-card" style="padding:14px 18px;display:flex;flex-direction:column;gap:10px">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span class="st-kick">Observatory · four jobs</span>
-            <span style="display:flex;gap:5px;align-items:center"><span class="st-m">Select a job to filter</span><span class="st-chip st-decided">Decided</span><span class="st-scope">App</span></span>
+            <span style="display:flex;gap:5px;align-items:center"><span class="st-m">Select a job to filter</span><span class="st-chip st-agreed">Agreed</span><span class="st-scope">App</span></span>
           </div>
           <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px">
             <sc-for list="{{jobs}}" as="j" hint-placeholder-count="4">
@@ -245,7 +245,7 @@ class Component extends DCLogic {
   renderVals() {
     const s = this.state || {};
     const tab = s.tab || 'site';
-    const CLS = { Canon: 'st-canon', Decided: 'st-decided', Proposed: 'st-proposed', Open: 'st-open' };
+    const CLS = { Official: 'st-official', Agreed: 'st-agreed', Proposed: 'st-proposed', Open: 'st-open' };
 
     const tabs = [['site', 'Site'], ['app', 'App']].map(t => {
       const on = t[0] === tab;
@@ -266,7 +266,7 @@ class Component extends DCLogic {
         art: '70 / 30.', note: 'The longer tide loop (Discover → … → Learn) is proposed and never replaces Capture → Connect → Reflect.' },
       model: { name: 'Model', mode: 'Voyage', st: 'Proposed', purpose: 'Island, Capital, Territory, Archipelago, Agents.',
         comps: ['Living Map with legend', 'Click a structure to read its concept'],
-        art: '70 / 30.', note: 'The Living Map is <ki-hexmap>, one of the two shared components (decided). Its no-JS state is still open.' },
+        art: '70 / 30.', note: 'The Living Map is <ki-hexmap>, one of the two shared components (agreed). Its no-JS state is still open.' },
       arcadia: { name: 'Arcadia', mode: 'Voyage', st: 'Proposed', purpose: 'The reference island.',
         comps: ['Arcadia map', 'Districts link to their source repositories'],
         art: '70 / 30.', note: 'Open: build it from live data (roster, freshness) or keep it illustrative.' },
@@ -318,10 +318,10 @@ class Component extends DCLogic {
       nav: ['Philosophy', 'Model', 'Arcadia', 'Landscapes', 'Docs', 'Projects'].map(t => ({ t })),
       rows: [
         { st: 'Proposed', t: 'Nav: Philosophy · Model · Arcadia · Landscapes · Docs · Projects. Enter Arcadia is the one brass call to action.' },
-        { st: 'Canon', t: 'The logo roundel (island and arch) in the lockup. Never redrawn.' },
-        { st: 'Open', t: 'Roundel or compass rose as the primary mark. Until decided, never swap in the compass.' },
+        { st: 'Official', t: 'The logo roundel (island and arch) in the lockup. Never redrawn.' },
+        { st: 'Open', t: 'Roundel or compass rose as the primary mark. Until agreed, never swap in the compass.' },
         { st: 'Open', t: 'Night on the site: follow the OS, with or without a manual toggle.' },
-        { st: 'Decided', t: 'Stable routes never move: /install/ki, /harness/bootstrap, /specifications/….' }
+        { st: 'Agreed', t: 'Stable routes never move: /install/ki, /harness/bootstrap, /specifications/….' }
       ].map(r => Object.assign(r, { cls: CLS[r.st] }))
     };
 
@@ -340,10 +340,10 @@ class Component extends DCLogic {
       Extend: 'Hosts core and island extensions inside the app’s boundary.'
     };
     const INST = [
-      { id: 'beacon', name: 'Beacon', job: 'Attend', icon: 'beacon', absorbs: 'Beacon; “what changed” from Activity', why: 'One place for what warrants notice.', note: 'The Tower’s lamp. At 800 px it shows at least 12 ranked rows.' },
+      { id: 'beacon', name: 'Beacon', job: 'Attend', icon: 'beacon', absorbs: 'Beacon; “what changed” from Activity', why: 'One place for what warrants notice.', note: 'The Observatory’s lamp. At 800 px it shows at least 12 ranked rows.' },
       { id: 'waiting', name: 'Waiting for you', job: 'Attend', icon: 'inbound', absorbs: 'Review queue', why: 'A person’s own inbox: open queries, records awaiting review, intake under +/, captures at Stage.', note: 'The Capture step of the cycle; the Port’s arrivals quay.' },
       { id: 'known', name: 'Known Lands', job: 'Observe', icon: 'known-lands', absorbs: 'Trade routes (as a layer); Activity’s 7 / 14 / 30-day window (as a time control)', why: 'The map is the overview; routes and recent movement are layers on it.', note: 'Selecting an island applies a filter, not a scope. Positions are stored.' },
-      { id: 'library', name: 'Library', job: 'Observe', icon: 'library', absorbs: 'Knowledge Bases; Documents', why: 'Both read an island’s canonical prose: one reader, two sources.', note: 'The Pillars zone, in the Citadel.' },
+      { id: 'library', name: 'Library', job: 'Observe', icon: 'library', absorbs: 'Knowledge Bases; Documents', why: 'Both read an island’s canonical prose: one reader, two sources.', note: 'The Pillars zone, in the Capital.' },
       { id: 'council', name: 'Council', job: 'Observe', icon: 'council-hall', absorbs: 'Decisions', why: 'Governance records and how they layer.', note: 'The Council Hall: decisions, not storage.' },
       { id: 'streams', name: 'Streams', job: 'Observe', icon: 'streams', absorbs: 'Roadmap', why: 'Work in motion, named as the zone is.', note: 'Rivers and canals running to the sea.' },
       { id: 'workers', name: 'Workers', job: 'Observe', icon: 'role-steward', absorbs: 'Sessions; Automation’s run history', why: 'People and agents at work, and which runs stopped reporting.', note: 'Evidence-sourced only: agent runs from Sessions, authors from Git.' },
@@ -385,7 +385,7 @@ class Component extends DCLogic {
     const allStyle = 'font-family:Inter,sans-serif;font-size:11.5px;font-weight:500;padding:2px 9px;border-radius:4px;cursor:pointer;' + (job === 'all' ? 'background:#0f2440;color:#f5efe0;border:1px solid #0f2440;' : 'background:transparent;color:#0f2440;border:1px solid #9aa3ad;');
 
     const ways = [
-      { name: 'Local browser', auth: 'Full authority', st: 'Decided', d: 'The primary listener on 127.0.0.1:1675, unchanged; Host and Origin checks stay as they are.' },
+      { name: 'Local browser', auth: 'Full authority', st: 'Agreed', d: 'The primary listener on 127.0.0.1:1675, unchanged; Host and Origin checks stay as they are.' },
       { name: 'Tailnet browser', auth: 'Read-only', st: 'Proposed', d: 'A second, opt-in listener that tailscale serve targets. Page and read routes only: acting routes return 404, so “no Bridge” is structural. Operator’s own devices; Funnel never.' },
       { name: 'Desktop shell', auth: 'As local', st: 'Proposed', d: 'Later: Tauri around the same web app at 127.0.0.1:1675, for tray, notifications, deep links.' },
       { name: 'Bridge over the tailnet', auth: 'Not yet', st: 'Open', d: 'A later, separate PDR. Receipts always record the way in (“via loopback”, “via tailnet as …”).' }

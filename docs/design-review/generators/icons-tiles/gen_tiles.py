@@ -112,7 +112,7 @@ fl = [(0, -1), (1, -1), (-1, 0), (0, 0), (1, 0), (-1, 1), (0, 1)]
 fp += group(fl, 622, base_y, s)
 fp += f'<circle cx="622" cy="{base_y}" r="4" fill="#c8963c" stroke="#1a2030"/>'
 fp += lab(622, base_y + 155, 'Flower · 7 hexes, centre + ring', 12, '#0f2440', weight=600)
-fp += lab(622, base_y + 172, 'Citadel always; Port may be', 11, '#4a5568', weight=400)
+fp += lab(622, base_y + 172, 'Capital always; Port may be', 11, '#4a5568', weight=400)
 g += fp
 g += lab(40, 300, 'Light from the top-left, fixed. Taller structures', 11, '#4a5568', 'start', 400)
 g += lab(40, 315, 'rise above the cell from the anchor.', 11, '#4a5568', 'start', 400)

@@ -138,12 +138,13 @@ html = r'''<!doctype html>
       </div>
       <div style="display:{{d.noteDisp}};font-size:12px;line-height:1.45;color:#4a5568;border-top:1px solid #d4c9b4;padding-top:10px">{{d.note}}</div>
       <div style="margin-top:auto;background:#f5efe0;border:1px solid #d4c9b4;border-radius:6px;padding:10px 12px">
-        <div class="dm-lbl" style="color:#8a5a12">The meanings to agree</div>
+        <div class="dm-lbl" style="color:#8a5a12">The key meanings</div>
         <div style="display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:12px;line-height:1.35;color:#1a2030">
-          <b style="font-weight:600">Port</b><span>replaces Harbour; dock · rail depot · airport · customs house. Needs GDR.</span>
+          <b style="font-weight:600">Port</b><span>replaces Harbour; dock · rail depot · airport · customs house.</span>
           <b style="font-weight:600">Lighthouse</b><span>guidance only.</span>
           <b style="font-weight:600">Council Hall</b><span>governance.</span>
-          <b style="font-weight:600">Tower</b><span>the app's mark; the Beacon is its lamp.</span>
+          <b style="font-weight:600">Capital</b><span>Library and Council Hall, a square, never a fortress.</span>
+          <b style="font-weight:600">Observatory</b><span>the app's mark; the Beacon is its lamp.</span>
           <b style="font-weight:600">Reef · Lantern</b><span>blocking · attention.</span>
           <b style="font-weight:600">Fog</b><span>a map state over terrain, never a tile.</span>
           <b style="font-weight:600">Condition</b><span>thriving · quiet · weathered · ruined, from evidence freshness.</span>
@@ -158,8 +159,8 @@ html = r'''<!doctype html>
 const SYMS = __DATA__;
 const CATS = __CATS__;
 const ST = {
-  canon:    { label: 'Canon',    fg: '#0f2440', bg: '#e3e8ef' },
-  decided:  { label: 'Decided',  fg: '#2d5a3d', bg: '#dfe9e1' },
+  official: { label: 'Official', fg: '#0f2440', bg: '#e3e8ef' },
+  agreed:   { label: 'Agreed',   fg: '#2d5a3d', bg: '#dfe9e1' },
   proposed: { label: 'Proposed', fg: '#8a5a12', bg: '#f1e8d3' },
   open:     { label: 'Open',     fg: '#9b2c1c', bg: '#f3dfd9' }
 };
@@ -180,7 +181,7 @@ class Component extends DCLogic {
       pressed: id === cat ? 'true' : 'false', style: chipStyle(id === cat),
       pick: () => this.setState({ cat: id })
     }));
-    const stList = [['any', 'Any'], ['canon', 'Canon'], ['decided', 'Decided'], ['proposed', 'Proposed']].map(([id, label]) => ({
+    const stList = [['any', 'Any'], ['official', 'Official'], ['agreed', 'Agreed'], ['proposed', 'Proposed']].map(([id, label]) => ({
       label: label, count: SYMS.filter(x => inSt(x, id) && inCat(x, cat)).length,
       pressed: id === st ? 'true' : 'false', style: chipStyle(id === st),
       pick: () => this.setState({ st: id })
