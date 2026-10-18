@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v4
+      - run: bun install --frozen-lockfile
+
+      # The released ki tag lives in .github/ki-version so that the
+      # update-ki-pin.yml receiver can propose its bump.
+      - name: Read released KI pin
+        run: |
+          set -euo pipefail
+          KI_VERSION=$(tr -d '[:space:]' < .github/ki-version)
+          [[ "$KI_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          printf 'KI_VERSION=%s\n' "$KI_VERSION" >> "$GITHUB_ENV"
+      - name: Install released KI
+        env:
+          KI_ROOT: ${{ runner.temp }}/ki-fnd-001
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.agents" "$HOME/.claude"
+          printf '{"autoMemoryEnabled": false}\n' > "$HOME/.claude/settings.json"
+          export KI_CLI_INSTALL_DIR="$KI_ROOT/bin"
+          export KI_MAN_INSTALL_DIR="$KI_ROOT/share/man/man1"
+          export XDG_DATA_HOME="$KI_ROOT/data"
+          export XDG_CONFIG_HOME="$KI_ROOT/config"
+          export XDG_CACHE_HOME="$KI_ROOT/cache"
+          export XDG_STATE_HOME="$KI_ROOT/state"
+          mkdir -p "$KI_ROOT"
+          mkdir -p "$XDG_CONFIG_HOME/ki"
+          printf 'mcpServers: []\n' > "$XDG_CONFIG_HOME/ki/mcp-servers.yaml"
+          curl --fail -sSL --proto '=https' -o "$RUNNER_TEMP/install.sh" "https://raw.githubusercontent.com/knowledgeislands/tools-ki/$KI_VERSION/install.sh"
+          bash "$RUNNER_TEMP/install.sh" "$KI_VERSION"
+          export PATH="$KI_CLI_INSTALL_DIR:$PATH"
+          test "$(command -v ki)" = "$KI_CLI_INSTALL_DIR/ki"
+          test "$(ki --version)" = "${KI_VERSION#v}"
+          ki bootstrap
+          ki registry add --repo .
+          ki repo repair --repo .
+          ki diag | tee "$KI_ROOT/ki-diag.txt"
+          grep -F "Configuration: valid" "$KI_ROOT/ki-diag.txt"
+          grep -F "Registry: valid" "$KI_ROOT/ki-diag.txt"
+          ki harness list | grep -F 'knowledgeislands/ki-agentic-harness'
+          {
+            echo "KI_CLI_INSTALL_DIR=$KI_CLI_INSTALL_DIR"
+            echo "KI_MAN_INSTALL_DIR=$KI_MAN_INSTALL_DIR"
+            echo "XDG_DATA_HOME=$XDG_DATA_HOME"
+            echo "XDG_CONFIG_HOME=$XDG_CONFIG_HOME"
+            echo "XDG_CACHE_HOME=$XDG_CACHE_HOME"
+            echo "XDG_STATE_HOME=$XDG_STATE_HOME"
+          } >> "$GITHUB_ENV"
+          echo "$KI_CLI_INSTALL_DIR" >> "$GITHUB_PATH"
+      - run: ki repo audit --repo .
+      - run: bun run test
