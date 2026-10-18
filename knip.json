@@ -1,0 +1,10 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "ignore": [".claude/skills/**", ".agents/skills/**"],
+  "ignoreDependencies": ["lint-staged", "syncpack"],
+  "ignoreExportsUsedInFile": true,
+  "workspaces": {
+    ".": { "entry": ["*.ts", "scripts/**/*.ts"], "project": ["*.ts", "scripts/**/*.ts"] },
+    "packages/*": { "entry": ["src/index.ts", "src/**/*.test.ts"], "project": ["src/**/*.ts"] }
+  }
+}

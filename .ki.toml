@@ -1,0 +1,97 @@
+# Knowledge Islands repository configuration.
+# Its presence declares conformance with the Knowledge Islands repository standard.
+
+# -----------------------------------------------------------------------------
+# Foundation
+# -----------------------------------------------------------------------------
+
+[repo]
+harnesses = [
+  "knowledgeislands/ki-agentic-harness",
+]
+
+[skills.ki-repo]
+repo_type = "project"
+primary_shape = "ki-repo-project"
+repository = "https://github.com/knowledgeislands/ki-design"
+title = "Knowledge Islands Design"
+capital = "https://github.com/knowledgeislands/ki-principal"
+description = "The machine-readable Knowledge Islands design system: tokens, icons, symbol library, tile sets, hex map engine and web components that every surface renders with."
+repo_code = "KI-DESIGN"
+supported_runtimes = [
+  "claude-code",
+  "claude-desktop",
+  "chatgpt-codex",
+]
+visibility = "private"
+license = "UNLICENSED"
+
+[skills.ki-authoring]
+
+# -----------------------------------------------------------------------------
+# Repository shape
+# -----------------------------------------------------------------------------
+
+[skills.ki-repo-project]
+
+# -----------------------------------------------------------------------------
+# Governance and runtime
+# -----------------------------------------------------------------------------
+
+[skills.ki-engineering]
+
+[skills.ki-decision-records]
+
+[skills.ki-specs]
+
+[skills.ki-guides]
+
+[skills.ki-binding]
+
+[skills.ki-binding-claude]
+
+[skills.ki-binding-chatgpt]
+
+[skills.ki-housekeeping-claude]
+auto_memory = "disabled"
+
+[skills.ki-housekeeping-chatgpt]
+auto_memory = "disabled"
+
+# -----------------------------------------------------------------------------
+# Change management
+# -----------------------------------------------------------------------------
+
+[skills.ki-agent-coordination-paperclip]
+organisation_code = "KIS"
+
+[skills.ki-git]
+
+[skills.ki-work]
+adapter = "roadmap"
+
+[skills.ki-work-roadmap]
+components = [
+  "tokens",
+  "icons",
+  "symbols",
+  "tiles",
+  "hexmap",
+  "elements",
+  "art",
+]
+
+[skills.ki-work-roadmap.areas]
+TOK = "Design tokens"
+ICO = "Icons"
+SYM = "Symbol library"
+TIL = "Tile sets"
+MAP = "Hex map engine"
+ELE = "Web components"
+ART = "Art direction and production"
+
+# -----------------------------------------------------------------------------
+# Relationships
+# -----------------------------------------------------------------------------
+
+[skills.ki-trades]

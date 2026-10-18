@@ -1,0 +1,14 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "stream",
+  "agentGuidance": false,
+  // Remote caching reaches an external service, so it is declared explicitly.
+  "remoteCache": { "enabled": false },
+  "globalDependencies": ["tsconfig.json", "biome.json"],
+  "tasks": {
+    "build": { "dependsOn": ["^build"], "inputs": ["$TURBO_DEFAULT$"], "outputs": ["dist/**"] },
+    "typecheck": { "dependsOn": ["^build"], "inputs": ["$TURBO_DEFAULT$"], "outputs": [] },
+    "test": { "dependsOn": ["^build"], "inputs": ["$TURBO_DEFAULT$"], "outputs": [] },
+    "clean": { "cache": false }
+  }
+}
