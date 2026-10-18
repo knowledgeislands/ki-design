@@ -10,8 +10,9 @@ horizon: next
 status: draft
 blocks: []
 blocked_by: []
+baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T03:35:00Z
+updated_at: 2026-10-18T09:50:00Z
 ---
 
 # Isometric renderer
@@ -28,6 +29,48 @@ Needed for the Living Map and the Arcadia page once the Ancient set exists.
 
 Canvas 2D only (no PixiJS) so the local app can inline it if it ever wants it.
 
-## Done when
+## Current state
+
+Not started. The flat renderer exists; there is no Canvas 2D renderer.
+
+## Steps
+
+- [ ] Render an IslandMap from a tile set's atlas in Canvas 2D with per-cell painter's order.
+- [ ] Draw ground-level routes and decals.
+- [ ] Measure frame rate and image budgets on a laptop.
+
+## Files touched
+
+`packages/hexmap/`
+
+## Verify
 
 Arcadia renders from the Modern set at 60 fps on a laptop and within the image budgets.
+
+## Dependencies / blocks
+
+Depends on the hex map engine (KI-DESIGN-MAP-001) and the tile-set contract (KI-DESIGN-TIL-001).
+
+## Documentation impact
+
+### Decision Records
+
+No decision record: this item delivers within decisions already recorded in the design brief.
+
+### Specifications
+
+No specification change: the repository holds no specifications yet; the package tests carry the contract.
+
+### Guides
+
+No guide change: the developer guide already covers running the checks and previews.
+
+### Roadmap
+
+None.
+
+## Discussion
+
+### Origin
+
+Captured with the design system on 18 Oct 2026; the original "Done when" line is now the Verify section.

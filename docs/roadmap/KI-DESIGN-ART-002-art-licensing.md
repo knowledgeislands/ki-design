@@ -10,8 +10,9 @@ horizon: now
 status: draft
 blocks: []
 blocked_by: []
+baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T03:35:00Z
+updated_at: 2026-10-18T09:50:00Z
 ---
 
 # Art-licensing decision
@@ -22,12 +23,53 @@ Record ownership, generator terms and style-reference risk for AI-generated bran
 
 ## Context
 
-The repository is private until this is settled.
+The repository went public on 18 Oct 2026 before this was settled, so until the record exists the README and the briefs tell readers to treat the reference images and generated art as unlicensed.
 
 ## Boundary
 
 A decision record only.
 
-## Done when
+## Current state
 
-A decision record exists and the repository's visibility follows it.
+Not started. The code and documentation are MIT-licensed; the reference images and generated art carry no recorded licence.
+
+## Steps
+
+- [ ] Record ownership, generator terms and the style-reference risk as a Decision Record in `docs/decisions/`.
+- [ ] Update the README licence section and the briefs' unlicensed notes to match.
+
+## Files touched
+
+`docs/decisions/`, `README.md`, `docs/briefs/README.md`, `AGENTS.md`
+
+## Verify
+
+A decision record exists, and the README's licence section and the briefs follow it.
+
+## Dependencies / blocks
+
+None. Should land before KI-DESIGN-ART-001 chooses the reference picture.
+
+## Documentation impact
+
+### Decision Records
+
+Adds the art-licensing Decision Record.
+
+### Specifications
+
+No specification change: the repository holds no specifications yet; the package tests carry the contract.
+
+### Guides
+
+No guide change: the developer guide already covers running the checks and previews.
+
+### Roadmap
+
+Unblocks KI-DESIGN-ART-001 and KI-DESIGN-TIL-002.
+
+## Discussion
+
+### Origin
+
+Captured with the design system on 18 Oct 2026; the original "Done when" line is now the Verify section.
