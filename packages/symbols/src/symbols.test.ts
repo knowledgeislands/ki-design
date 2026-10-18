@@ -30,8 +30,13 @@ describe('symbol library', () => {
   })
 
   test('Port replaces Harbour', () => {
-    expect(byId.get('port')?.status).toBe('decided')
+    expect(byId.get('port')?.status).toBe('canon')
     expect(byId.has('harbour')).toBe(false)
+  })
+
+  test('the Port, its modes, the Lighthouse and the Council Hall are canon (GDR-KI-PRINCIPAL-010)', () => {
+    for (const id of ['port', 'dock', 'rail-depot', 'airport', 'customs-house', 'lighthouse', 'council-hall'])
+      expect(byId.get(id)?.status).toBe('canon')
   })
 
   test('byCategory partitions the library', () => {

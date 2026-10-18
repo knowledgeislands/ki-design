@@ -103,9 +103,9 @@ This is the symbol library. Every visual element that carries meaning appears he
 | Trade Route | Collaboration / exchange | canon | A brass sea lane with small sailing vessels; solid = active, dashed = awaiting reciprocity | Model | Trade routes layer | `trade-route` |
 | Current | Information flow | canon | Curved arrowed lines in the water | The Cycle | Flow between islands; Sessions are vessels on it | `current` |
 | Weave / Fabric | Cross-domain synthesis | canon | Interlaced brass and teal threads meeting at points of light | Philosophy | Cross-island links | `weave` |
-| Lighthouse | **Guidance** only | decided (canon said "guidance / governance") | A tall pale tower on a rocky headland | Principles, wayfinding | Guidance and help (not the Beacon: that is the Tower's lamp, glyph `beacon`) | `lighthouse` |
+| Lighthouse | **Guidance** only | canon (GDR-KI-PRINCIPAL-010) | A tall pale tower on a rocky headland | Principles, wayfinding | Guidance and help (not the Beacon: that is the Tower's lamp, glyph `beacon`) | `lighthouse` |
 | Observatory | Insight / analytics | canon | A domed observatory on a hill or cliff | Home hero, Reflect | Activity, insight | `observatory` |
-| Port | **Entry and exchange, in any mode** | decided (replaces Harbour) | A port town of districts (3.4) | Capture | Review queue intake (`+/`) | `port` |
+| Port | **Entry and exchange, in any mode** | canon (replaces Harbour; GDR-KI-PRINCIPAL-010) | A port town of districts (3.4) | Capture | Review queue intake (`+/`) | `port` |
 | Bridge | Translation layer between systems | canon (name clash open, 3.9) | A stone arched bridge | Agents section | MCP servers | `bridge` |
 | Reef | Risk / ambiguity; blocking | canon | Sandstone rocks in shallows; in the app, a rust reef | — | Blocking signals | `reef` |
 | Terrain elevation | Depth / maturity | canon | Contour terraces; higher = more mature | Philosophy | Elevation on the chart | `terrain` |
@@ -113,10 +113,10 @@ This is the symbol library. Every visual element that carries meaning appears he
 | Cartographic Grid | Structure / orientation | canon | Faint graticule; the hex lattice at shorelines | Field Guide | The grid itself | `grid` |
 | Celestial Guide | Long-range orientation | canon | Eight-point star over constellations | Journey | Horizon, the Charter | `celestial` |
 | Library | Knowledge resources; canonical knowledge (Pillars) | canon in the model (not in the canon Symbol Library); symbol decided | Domed building with colonnade | Philosophy, Arcadia | Knowledge Bases, Documents | `library` |
-| Council Hall | **Governance** — a parliament or Capitol; decisions, not storage | decided | Colonnaded hall with pediment, on the Citadel square | Model | Decisions | `council-hall` |
-| Harbour | Was "integration point" — retired | retired 18 Oct 2026 (by GDR) | Do not draw; use Port | — | — | — |
+| Council Hall | **Governance** — a parliament or Capitol; decisions, not storage | canon (GDR-KI-PRINCIPAL-010) | Colonnaded hall with pediment, on the Citadel square | Model | Decisions | `council-hall` |
+| Harbour | Was "integration point" — retired | retired (GDR-KI-PRINCIPAL-010) | Do not draw; use Port | — | — | — |
 
-The 18 Oct decisions supersede three canon rows (canon files still carry them until the GDR is enacted): "Harbour = integration point" (now the Port); "Port = operational systems" (operational systems move to the Mill / Engine house, _proposed_); and "Governance = lighthouses / citadels" (governance is the Council Hall; the Lighthouse is guidance only).
+GDR-KI-PRINCIPAL-010 (The Port) superseded three earlier canon rows: "Harbour = integration point" (now the Port); "Port = operational systems" (operational systems move to the Mill / Engine house, _proposed_); and "Governance = lighthouses / citadels" (governance is the Council Hall; the Lighthouse is guidance only).
 
 **Value icons** (canon, Symbol Library sheet; glyphs in 8.2) label principles and values, never places.
 
@@ -162,10 +162,10 @@ A Port's modes are districts of one Port, so an island shows at a glance how kno
 
 | Mode | Meaning | Status | Drawn as | App |
 | --- | --- | --- | --- | --- |
-| Dock (`dock`) | Material carried in by hand | decided | Wooden jetty, small sailing boats | Captures at Stage |
-| Rail depot (`rail-depot`) | Scheduled, regular feeds | decided | Small station, platform canopy, a short run of track inland | Automation-fed intake |
-| Airport (`airport`) | Long-range arrivals from other systems and agents | decided | **A tall mooring mast with a moored airship** (period-consistent; never jets or runways) | Agent and remote intake |
-| Customs house (`customs-house`) | A governed boundary where things are checked | decided | Gatehouse with a barrier at the port gate | What never reaches the browser; confirmations |
+| Dock (`dock`) | Material carried in by hand | canon | Wooden jetty, small sailing boats | Captures at Stage |
+| Rail depot (`rail-depot`) | Scheduled, regular feeds | canon | Small station, platform canopy, a short run of track inland | Automation-fed intake |
+| Airport (`airport`) | Long-range arrivals from other systems and agents | canon | **A tall mooring mast with a moored airship** (period-consistent; never jets or runways) | Agent and remote intake |
+| Customs house (`customs-house`) | A governed boundary where things are checked | canon | Gatehouse with a barrier at the port gate | What never reaches the browser; confirmations |
 
 ### 3.5 Signals
 
@@ -799,15 +799,15 @@ Ids are `structure.<name>`. Every structure has **3 variants** and **4 condition
 | --- | --- | --- | --- |
 | `structure.citadel` | flower (compound: Library, Council Hall, Tower around a square) | yes | decided |
 | `structure.library` | single or pair | yes | canon (model) |
-| `structure.council-hall` | pair | yes | decided |
+| `structure.council-hall` | pair | yes | canon |
 | `structure.tower` | single | — | decided |
 | `structure.observatory` | single | — | canon |
-| `structure.lighthouse` | single (on coast) | yes | decided |
-| `structure.port` | pair or flower (its modes as districts) | yes | decided |
-| `structure.dock` | single (coast edge) | — | decided |
-| `structure.rail-depot` | single | — | decided |
-| `structure.airport` | single (mooring mast) | — | decided |
-| `structure.customs-house` | single | — | decided |
+| `structure.lighthouse` | single (on coast) | yes | canon |
+| `structure.port` | pair or flower (its modes as districts) | yes | canon |
+| `structure.dock` | single (coast edge) | — | canon |
+| `structure.rail-depot` | single | — | canon |
+| `structure.airport` | single (mooring mast) | — | canon |
+| `structure.customs-house` | single | — | canon |
 | `structure.bridge` | single (the stone arch as a landmark) | — | canon (name open) |
 | `structure.workshop` | pair | — | proposed |
 | `structure.mill` | single | — | proposed (name open) |
@@ -1107,7 +1107,7 @@ Avoid: humanoid robots, androids, glowing eyes, AI brains, circuit boards, block
 
 ### 16.2 How meaning changes
 
-Meaning (section 3) never changes in `ki-design` first. A new symbol, renamed concept (Harbour → Port) or role is proposed as a Stream, reviewed in the Council Hall and ratified into the Aesthetics pillar (and, for a model zone, Home of Knowledge and Structure; Port is enacted by a GDR as a Phase 0 item). Only then is it marked _canon_ here.
+Meaning (section 3) never changes in `ki-design` first. A new symbol, renamed concept (Harbour → Port) or role is proposed as a Stream, reviewed in the Council Hall and ratified into the Aesthetics pillar (and, for a model zone, Home of Knowledge and Structure; the Port was enacted by GDR-KI-PRINCIPAL-010). Only then is it marked _canon_ here.
 
 ### 16.3 Versioning
 

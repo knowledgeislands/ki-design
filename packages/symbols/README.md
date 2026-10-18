@@ -5,7 +5,7 @@ The Knowledge Islands symbol library as typed data: every place, structure, sign
 Meaning is canon in `ki-principal`; this package mirrors it. Statuses:
 
 - `canon`: enacted.
-- `decided`: agreed (for example Port replacing Harbour, Lighthouse as guidance, Council Hall as governance), awaiting enactment.
+- `decided`: agreed, awaiting enactment. (Port replacing Harbour, Lighthouse as guidance and Council Hall as governance were enacted by GDR-KI-PRINCIPAL-010 and are now canon.)
 - `proposed`: open (for example Workshop, Mill / Engine house, Ruins, Whale song, Fog as experimental, the steward roles, and the Tower as a name for the Observatory).
 
 Open questions sit in `notes`, such as whether a land-to-land link should be a Causeway so that Bridge keeps its meaning as a translation layer.

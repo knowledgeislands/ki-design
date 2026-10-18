@@ -161,7 +161,7 @@ export const symbols = [
     id: 'council-hall',
     name: 'Council Hall',
     meaning: 'Governance: where decisions are debated and made; the parliament of the realm.',
-    status: 'decided',
+    status: 'canon',
     category: 'structure',
     icon: 'council-hall'
   },
@@ -187,7 +187,7 @@ export const symbols = [
     id: 'lighthouse',
     name: 'Lighthouse',
     meaning: 'Guidance: standing direction that keeps travellers off the rocks.',
-    status: 'decided',
+    status: 'canon',
     category: 'structure',
     icon: 'lighthouse'
   },
@@ -195,7 +195,7 @@ export const symbols = [
     id: 'port',
     name: 'Port',
     meaning: 'Where knowledge and work arrive and depart, by whatever mode of transport.',
-    status: 'decided',
+    status: 'canon',
     category: 'structure',
     icon: 'port',
     notes: 'Replaces Harbour: a port has more modes than a harbour (dock, rail depot, airport, customs house).'
@@ -239,7 +239,7 @@ export const symbols = [
     id: 'dock',
     name: 'Dock',
     meaning: 'The port mode for exchange by sea with other islands.',
-    status: 'decided',
+    status: 'canon',
     category: 'port-mode',
     icon: 'dock'
   },
@@ -247,7 +247,7 @@ export const symbols = [
     id: 'rail-depot',
     name: 'Rail depot',
     meaning: 'The port mode for scheduled, high-volume flows along fixed lines.',
-    status: 'decided',
+    status: 'canon',
     category: 'port-mode',
     icon: 'rail-depot'
   },
@@ -255,7 +255,7 @@ export const symbols = [
     id: 'airport',
     name: 'Airport',
     meaning: 'The port mode for fast, long-range connections to distant lands.',
-    status: 'decided',
+    status: 'canon',
     category: 'port-mode',
     icon: 'airport'
   },
@@ -263,7 +263,7 @@ export const symbols = [
     id: 'customs-house',
     name: 'Customs house',
     meaning: 'The border crossing: where what enters or leaves is inspected and declared.',
-    status: 'decided',
+    status: 'canon',
     category: 'port-mode',
     icon: 'customs-house'
   },
