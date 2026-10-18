@@ -1,6 +1,30 @@
 # Observatory overhaul — design spec
 
-Draft for review, 18 October 2026. Screen design only: no app code changes until the app repository is free. The seven boards in this folder show every rule below; this file states the rules once.
+Draft for review, 18 October 2026. The seven boards in this folder show every rule below; this file states the rules once.
+
+## How to use this spec: apply, don't impose
+
+This is a **direction to converge towards, not a rebuild**. Kit's guidance (18 October 2026): "take what the observatory is and try to apply these as best as possible without losing anything, then we can converge towards improving the UI and consolidation of the tools and making sense of all the options."
+
+So, for whoever builds in `apps-observatory.local`:
+
+- **Start from the Observatory as it is.** Keep all fifteen tabs, every route, every `?view=` address and every capability working throughout. Nothing is removed or merged just because a board shows it grouped differently.
+- **Apply the design system first.** Use the ki-design tokens, the app type dialect, the glyphs, night and day, the pane states, and the signal anatomy. These improve every existing screen without changing what it does. The boards show what "applied" looks like.
+- **Restructure later, by convergence.** The four jobs, the ten instruments and the tab mapping (§9, `ObsMap`) are where things could end up, not where they must start. Each consolidation is its own small step, taken once the reskinned app shows which grouping makes sense, and agreed with Kit as it comes. §11 lists the open questions that steer it.
+- **Where the app knows better, the app wins.** If a board conflicts with something the app already does well, or with data it actually has, keep the app's behaviour and note the difference here, so the design follows the real tool.
+
+### Suggested order
+
+1. **Tokens and glyphs** (handoff draft 6): vendor `@knowledgeislands/tokens` and the icons, and swap colours, type and emoji for glyphs across all existing tabs.
+2. **Shell polish without regrouping:** the top bar with the Observatory mark, the status line, the pane states (observed, observing, empty, not observed, stale) and the filter-not-scope chip. Add the four jobs as an optional lens over the existing tabs, for example a grouped tab bar or a job filter, with every tab still reachable.
+3. **Per-tab upgrades in place:**
+   - Beacon signal anatomy and filters;
+   - the Known Lands chart as a new view, alongside the existing tabs;
+   - the Act pattern (declare, confirm, receipt) applied to the existing Repositories and Rig actions;
+   - the tailnet read-only appearance.
+4. **Converge:** consolidate tabs into instruments one at a time, only where it clearly helps, keeping redirects from the old addresses (§10).
+
+## The boards
 
 | Board | Shows | Interaction |
 | --- | --- | --- |
