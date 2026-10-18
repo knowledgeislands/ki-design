@@ -22,7 +22,7 @@ On 18 October 2026 Kit (Kris Brown) accepted the proposal to rename the labels t
 - **Official** - ratified in `ki-principal`. Formerly _canon_.
 - **Agreed** - agreed with the owner and being enacted into `ki-principal`. Formerly _decided_; where an official and an agreed item conflict, the agreed one wins.
 - **Proposed** - usable in drafts and mockups, never shipped as settled.
-- **Open** - a question still to answer, drawn as DESIGN.md 3.9 says until it is answered.
+- **Open** - a question still to answer, listed in [OPEN.md](OPEN.md) and drawn as [meaning.md](../spec/meaning.md#open-items-how-to-draw-until-decided) says until it is answered.
 
 The data keys change with the labels. `@knowledgeislands/symbols` uses `official`, `agreed` and `proposed`; Open belongs to questions rather than symbols, so it is not a symbol status.
 
@@ -30,11 +30,12 @@ The rename covers status labels only. Knowledge Islands Principal keeps its own 
 
 ## Consequences
 
-- `packages/symbols` statuses, their tests and README, DESIGN.md's status vocabulary and status columns, and the review boards use the new labels.
+- `packages/symbols` statuses, their tests and README, DESIGN.md's status vocabulary, the spec in `docs/spec/`, and the review boards use the new labels.
 - Consumers that vendor the symbol library, such as the KI Website's Field Guide, map `official` and `agreed` and show Official and Agreed chips.
 - Prose that means the body of ratified knowledge may still say "canon"; a status cell or chip never does.
 
 ## References
 
-- [DESIGN.md](../../DESIGN.md) - section 1 (status words) and section 3 (meaning).
+- [DESIGN.md](../../DESIGN.md#status-vocabulary) - the status vocabulary.
+- [docs/spec/meaning.md](../spec/meaning.md) - meaning, and how to draw open items.
 - [`@knowledgeislands/symbols`](../../packages/symbols/README.md) - the statuses as data.
