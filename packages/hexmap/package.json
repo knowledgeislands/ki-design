@@ -1,0 +1,26 @@
+{
+  "name": "@knowledgeislands/hexmap",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pure TypeScript hex map engine: axial coordinates, flat and isometric geometry, islandmap/v1 and an SVG renderer.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./examples/*": "./examples/*"
+  },
+  "files": [
+    "src",
+    "examples"
+  ],
+  "scripts": {
+    "build": "bun src/examples.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@knowledgeislands/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@knowledgeislands/icons": "workspace:*"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@knowledgeislands/elements",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Knowledge Islands web components shared by the site and the apps: <ki-glyph> and <ki-hexmap>.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@knowledgeislands/hexmap": "workspace:*",
+    "@knowledgeislands/icons": "workspace:*",
+    "lit": "3.3.1"
+  },
+  "devDependencies": {
+    "@happy-dom/global-registrator": "^21.0.3",
+    "@knowledgeislands/tokens": "workspace:*"
+  }
+}

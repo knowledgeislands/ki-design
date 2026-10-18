@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-265.42 -240 530.83 480" width="530.83" height="480" role="img" aria-labelledby="ki-map-arcadia-title">
+<title id="ki-map-arcadia-title">Arcadia</title>
+<defs>
+<pattern id="ki-map-arcadia-pattern-grassland" patternUnits="userSpaceOnUse" width="18" height="15"><g opacity="0.4"><path d="M3.2 3.8 L4.5 5 M4.5 3.2 L4.5 5 M5.8 3.8 L4.5 5 M12.2 11.3 L13.5 12.5 M13.5 10.7 L13.5 12.5 M14.8 11.3 L13.5 12.5" fill="none" stroke="#1a2030" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/></g></pattern>
+<pattern id="ki-map-arcadia-pattern-forest" patternUnits="userSpaceOnUse" width="13" height="12"><g opacity="0.42"><path d="M1.65 4.7 L3.25 1.7 L4.85 4.7 M3.25 4.7 V5.8 M8.15 10.7 L9.75 7.7 L11.35 10.7 M9.75 10.7 V11.8" fill="none" stroke="#f5efe0" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/></g></pattern>
+<pattern id="ki-map-arcadia-pattern-hills" patternUnits="userSpaceOnUse" width="16" height="13"><g opacity="0.42"><path d="M1 5.4 Q4 2.5 7 5.4 M9 11.9 Q12 9 15 11.9" fill="none" stroke="#1a2030" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/></g></pattern>
+<pattern id="ki-map-arcadia-pattern-mountain" patternUnits="userSpaceOnUse" width="18" height="15"><g opacity="0.5"><path d="M1.1 6.5 L3.9 2.3 L5.4 4.3 L6.2 3.4 L7.9 6.5 M10.1 14 L12.9 9.8 L14.4 11.8 L15.2 10.9 L16.9 14" fill="none" stroke="#1a2030" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/></g></pattern>
+<pattern id="ki-map-arcadia-pattern-coastal" patternUnits="userSpaceOnUse" width="22" height="16"><g opacity="0.35"><path d="M3.5 4 H7.5 M14.5 12 H18.5" fill="none" stroke="#1a2030" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/><g fill="#1a2030"><circle cx="12" cy="6" r="0.45"/><circle cx="3" cy="12.5" r="0.45"/><circle cx="19" cy="2" r="0.45"/></g></g></pattern>
+<pattern id="ki-map-arcadia-pattern-cliffs" patternUnits="userSpaceOnUse" width="8" height="8"><g opacity="0.42"><path d="M2 0.6 V3.4 M6 4.6 V7.4" fill="none" stroke="#1a2030" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/></g></pattern>
+<pattern id="ki-map-arcadia-pattern-sand" patternUnits="userSpaceOnUse" width="7" height="7"><g opacity="0.38"><g fill="#1a2030"><circle cx="1.75" cy="1.75" r="0.4"/><circle cx="5.25" cy="5.25" r="0.4"/><circle cx="5.6" cy="1.2" r="0.4"/></g></g></pattern>
+<pattern id="ki-map-arcadia-pattern-river" patternUnits="userSpaceOnUse" width="20" height="7"><g opacity="0.4"><path d="M0 2.5 Q2.5 1 5 2.5 T10 2.5 T15 2.5 T20 2.5 M2 5.5 Q4.5 4.3 7 5.5 M12 5.5 Q14.5 4.3 17 5.5" fill="none" stroke="#1a2030" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/></g></pattern>
+<pattern id="ki-map-arcadia-pattern-marsh" patternUnits="userSpaceOnUse" width="15" height="11"><g opacity="0.45"><path d="M1.4 4.5 H6.6 M3.1 4.5 V2.1 M4.2 4.5 V1.4 M5.2 4.5 V2.5 M9.5 9.5 H13.5" fill="none" stroke="#1a2030" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/></g></pattern>
+<pattern id="ki-map-arcadia-pattern-snow" patternUnits="userSpaceOnUse" width="14" height="12"><g opacity="0.3"><g fill="#1a2030"><circle cx="3.5" cy="3" r="0.55"/><circle cx="10.5" cy="9" r="0.55"/></g></g></pattern>
+<pattern id="ki-map-arcadia-pattern-ocean" patternUnits="userSpaceOnUse" width="24" height="15"><g opacity="0.3"><path d="M3.6 4 Q4.8 2.9 6 4 Q7.2 5.1 8.4 4 M15.6 11.5 Q16.8 10.4 18 11.5 Q19.2 12.6 20.4 11.5" fill="none" stroke="#1a2030" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/></g></pattern>
+</defs>
+<rect class="ki-paper" x="-265.42" y="-240" width="530.83" height="480" fill="#f5efe0"/>
+<rect class="ki-neatline" x="-259.02" y="-233.6" width="518.03" height="467.2" fill="none" stroke="#9a8358" stroke-opacity="0.6" stroke-width="0.8"/>
+<g class="ki-hexes ki-sea" stroke="#1a2030" stroke-opacity="0.07" stroke-width="0.8" stroke-linejoin="round">
+<polygon class="ki-hex" data-q="0" data-r="-4" data-terrain="ocean" points="-110.85,-224 -83.14,-208 -83.14,-176 -110.85,-160 -138.56,-176 -138.56,-208" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="1" data-r="-4" data-terrain="ocean" points="-55.43,-224 -27.71,-208 -27.71,-176 -55.43,-160 -83.14,-176 -83.14,-208" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="2" data-r="-4" data-terrain="ocean" points="0,-224 27.71,-208 27.71,-176 0,-160 -27.71,-176 -27.71,-208" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="3" data-r="-4" data-terrain="ocean" points="55.43,-224 83.14,-208 83.14,-176 55.43,-160 27.71,-176 27.71,-208" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="4" data-r="-4" data-terrain="ocean" points="110.85,-224 138.56,-208 138.56,-176 110.85,-160 83.14,-176 83.14,-208" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-1" data-r="-3" data-terrain="ocean" points="-138.56,-176 -110.85,-160 -110.85,-128 -138.56,-112 -166.28,-128 -166.28,-160" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="3" data-r="-3" data-terrain="ocean" points="83.14,-176 110.85,-160 110.85,-128 83.14,-112 55.43,-128 55.43,-160" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="4" data-r="-3" data-terrain="ocean" points="138.56,-176 166.28,-160 166.28,-128 138.56,-112 110.85,-128 110.85,-160" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-2" data-r="-2" data-terrain="ocean" points="-166.28,-128 -138.56,-112 -138.56,-80 -166.28,-64 -193.99,-80 -193.99,-112" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="4" data-r="-2" data-terrain="ocean" points="166.28,-128 193.99,-112 193.99,-80 166.28,-64 138.56,-80 138.56,-112" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-3" data-r="-1" data-terrain="ocean" points="-193.99,-80 -166.28,-64 -166.28,-32 -193.99,-16 -221.7,-32 -221.7,-64" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="4" data-r="-1" data-terrain="ocean" points="193.99,-80 221.7,-64 221.7,-32 193.99,-16 166.28,-32 166.28,-64" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-4" data-r="0" data-terrain="ocean" points="-221.7,-32 -193.99,-16 -193.99,16 -221.7,32 -249.42,16 -249.42,-16" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="4" data-r="0" data-terrain="ocean" points="221.7,-32 249.42,-16 249.42,16 221.7,32 193.99,16 193.99,-16" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-4" data-r="1" data-terrain="ocean" points="-193.99,16 -166.28,32 -166.28,64 -193.99,80 -221.7,64 -221.7,32" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-3" data-r="1" data-terrain="ocean" points="-138.56,16 -110.85,32 -110.85,64 -138.56,80 -166.28,64 -166.28,32" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="2" data-r="1" data-terrain="ocean" points="138.56,16 166.28,32 166.28,64 138.56,80 110.85,64 110.85,32" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="3" data-r="1" data-terrain="ocean" points="193.99,16 221.7,32 221.7,64 193.99,80 166.28,64 166.28,32" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-4" data-r="2" data-terrain="ocean" points="-166.28,64 -138.56,80 -138.56,112 -166.28,128 -193.99,112 -193.99,80" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="2" data-r="2" data-terrain="ocean" points="166.28,64 193.99,80 193.99,112 166.28,128 138.56,112 138.56,80" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-4" data-r="3" data-terrain="ocean" points="-138.56,112 -110.85,128 -110.85,160 -138.56,176 -166.28,160 -166.28,128" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-3" data-r="3" data-terrain="ocean" points="-83.14,112 -55.43,128 -55.43,160 -83.14,176 -110.85,160 -110.85,128" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="1" data-r="3" data-terrain="ocean" points="138.56,112 166.28,128 166.28,160 138.56,176 110.85,160 110.85,128" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-4" data-r="4" data-terrain="ocean" points="-110.85,160 -83.14,176 -83.14,208 -110.85,224 -138.56,208 -138.56,176" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-3" data-r="4" data-terrain="ocean" points="-55.43,160 -27.71,176 -27.71,208 -55.43,224 -83.14,208 -83.14,176" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-2" data-r="4" data-terrain="ocean" points="0,160 27.71,176 27.71,208 0,224 -27.71,208 -27.71,176" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="-1" data-r="4" data-terrain="ocean" points="55.43,160 83.14,176 83.14,208 55.43,224 27.71,208 27.71,176" fill="#d6e3e1"/>
+<polygon class="ki-hex" data-q="0" data-r="4" data-terrain="ocean" points="110.85,160 138.56,176 138.56,208 110.85,224 83.14,208 83.14,176" fill="#d6e3e1"/>
+</g>
+<g class="ki-shallows" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M-83.14 -176 L-55.43 -160 L-27.71 -176 L0 -160 L27.71 -176 L55.43 -160 L55.43 -128 L83.14 -112 L110.85 -128 L138.56 -112 L138.56 -80 L166.28 -64 L166.28 -32 L193.99 -16 L193.99 16 L166.28 32 L138.56 16 L110.85 32 L110.85 64 L138.56 80 L138.56 112 L110.85 128 L110.85 160 L83.14 176 L55.43 160 L27.71 176 L0 160 L-27.71 176 L-55.43 160 L-55.43 128 L-83.14 112 L-110.85 128 L-138.56 112 L-138.56 80 L-110.85 64 L-110.85 32 L-138.56 16 L-166.28 32 L-193.99 16 L-193.99 -16 L-166.28 -32 L-166.28 -64 L-138.56 -80 L-138.56 -112 L-110.85 -128 L-110.85 -160 Z" stroke="#1a2030" stroke-opacity="0.28" stroke-width="13.12"/>
+<path d="M-83.14 -176 L-55.43 -160 L-27.71 -176 L0 -160 L27.71 -176 L55.43 -160 L55.43 -128 L83.14 -112 L110.85 -128 L138.56 -112 L138.56 -80 L166.28 -64 L166.28 -32 L193.99 -16 L193.99 16 L166.28 32 L138.56 16 L110.85 32 L110.85 64 L138.56 80 L138.56 112 L110.85 128 L110.85 160 L83.14 176 L55.43 160 L27.71 176 L0 160 L-27.71 176 L-55.43 160 L-55.43 128 L-83.14 112 L-110.85 128 L-138.56 112 L-138.56 80 L-110.85 64 L-110.85 32 L-138.56 16 L-166.28 32 L-193.99 16 L-193.99 -16 L-166.28 -32 L-166.28 -64 L-138.56 -80 L-138.56 -112 L-110.85 -128 L-110.85 -160 Z" stroke="#e4ece4" stroke-width="11.52"/>
+</g>
+<g class="ki-hexes ki-land" stroke="#1a2030" stroke-opacity="0.16" stroke-width="0.8" stroke-linejoin="round">
+<polygon class="ki-hex" data-q="0" data-r="-3" data-terrain="cliffs" points="-83.14,-176 -55.43,-160 -55.43,-128 -83.14,-112 -110.85,-128 -110.85,-160" fill="#a2927c"/>
+<polygon class="ki-hex" data-q="1" data-r="-3" data-terrain="cliffs" points="-27.71,-176 0,-160 0,-128 -27.71,-112 -55.43,-128 -55.43,-160" fill="#a2927c"/>
+<polygon class="ki-hex" data-q="2" data-r="-3" data-terrain="coastal" points="27.71,-176 55.43,-160 55.43,-128 27.71,-112 0,-128 0,-160" fill="#cfc79a"/>
+<polygon class="ki-hex" data-q="-1" data-r="-2" data-terrain="hills" points="-110.85,-128 -83.14,-112 -83.14,-80 -110.85,-64 -138.56,-80 -138.56,-112" fill="#b9a56f"/>
+<polygon class="ki-hex" data-q="0" data-r="-2" data-terrain="mountain" points="-55.43,-128 -27.71,-112 -27.71,-80 -55.43,-64 -83.14,-80 -83.14,-112" fill="#8c8577"/>
+<polygon class="ki-hex" data-q="1" data-r="-2" data-terrain="snow" points="0,-128 27.71,-112 27.71,-80 0,-64 -27.71,-80 -27.71,-112" fill="#eef1f5"/>
+<polygon class="ki-hex" data-q="2" data-r="-2" data-terrain="hills" points="55.43,-128 83.14,-112 83.14,-80 55.43,-64 27.71,-80 27.71,-112" fill="#b9a56f"/>
+<polygon class="ki-hex" data-q="3" data-r="-2" data-terrain="coastal" points="110.85,-128 138.56,-112 138.56,-80 110.85,-64 83.14,-80 83.14,-112" fill="#cfc79a"/>
+<polygon class="ki-hex" data-q="-2" data-r="-1" data-terrain="forest" points="-138.56,-80 -110.85,-64 -110.85,-32 -138.56,-16 -166.28,-32 -166.28,-64" fill="#4f7a57"/>
+<polygon class="ki-hex" data-q="-1" data-r="-1" data-terrain="forest" points="-83.14,-80 -55.43,-64 -55.43,-32 -83.14,-16 -110.85,-32 -110.85,-64" fill="#4f7a57"/>
+<polygon class="ki-hex" data-q="0" data-r="-1" data-terrain="mountain" points="-27.71,-80 0,-64 0,-32 -27.71,-16 -55.43,-32 -55.43,-64" fill="#8c8577"/>
+<polygon class="ki-hex" data-q="1" data-r="-1" data-terrain="mountain" points="27.71,-80 55.43,-64 55.43,-32 27.71,-16 0,-32 0,-64" fill="#8c8577"/>
+<polygon class="ki-hex" data-q="2" data-r="-1" data-terrain="hills" points="83.14,-80 110.85,-64 110.85,-32 83.14,-16 55.43,-32 55.43,-64" fill="#b9a56f"/>
+<polygon class="ki-hex" data-q="3" data-r="-1" data-terrain="cliffs" points="138.56,-80 166.28,-64 166.28,-32 138.56,-16 110.85,-32 110.85,-64" fill="#a2927c"/>
+<polygon class="ki-hex" data-q="-3" data-r="0" data-terrain="sand" points="-166.28,-32 -138.56,-16 -138.56,16 -166.28,32 -193.99,16 -193.99,-16" fill="#e4d4a6"/>
+<polygon class="ki-hex" data-q="-2" data-r="0" data-terrain="forest" points="-110.85,-32 -83.14,-16 -83.14,16 -110.85,32 -138.56,16 -138.56,-16" fill="#4f7a57"/>
+<polygon class="ki-hex" data-q="-1" data-r="0" data-terrain="forest" points="-55.43,-32 -27.71,-16 -27.71,16 -55.43,32 -83.14,16 -83.14,-16" fill="#4f7a57"/>
+<polygon class="ki-hex" data-q="0" data-r="0" data-terrain="hills" points="0,-32 27.71,-16 27.71,16 0,32 -27.71,16 -27.71,-16" fill="#b9a56f"/>
+<polygon class="ki-hex" data-q="1" data-r="0" data-terrain="river" points="55.43,-32 83.14,-16 83.14,16 55.43,32 27.71,16 27.71,-16" fill="#6f9db5"/>
+<polygon class="ki-hex" data-q="2" data-r="0" data-terrain="grassland" points="110.85,-32 138.56,-16 138.56,16 110.85,32 83.14,16 83.14,-16" fill="#a9b97c"/>
+<polygon class="ki-hex" data-q="3" data-r="0" data-terrain="cliffs" points="166.28,-32 193.99,-16 193.99,16 166.28,32 138.56,16 138.56,-16" fill="#a2927c"/>
+<polygon class="ki-hex" data-q="-2" data-r="1" data-terrain="forest" points="-83.14,16 -55.43,32 -55.43,64 -83.14,80 -110.85,64 -110.85,32" fill="#4f7a57"/>
+<polygon class="ki-hex" data-q="-1" data-r="1" data-terrain="grassland" points="-27.71,16 0,32 0,64 -27.71,80 -55.43,64 -55.43,32" fill="#a9b97c"/>
+<polygon class="ki-hex" data-q="0" data-r="1" data-terrain="river" points="27.71,16 55.43,32 55.43,64 27.71,80 0,64 0,32" fill="#6f9db5"/>
+<polygon class="ki-hex" data-q="1" data-r="1" data-terrain="grassland" points="83.14,16 110.85,32 110.85,64 83.14,80 55.43,64 55.43,32" fill="#a9b97c"/>
+<polygon class="ki-hex" data-q="-3" data-r="2" data-terrain="marsh" points="-110.85,64 -83.14,80 -83.14,112 -110.85,128 -138.56,112 -138.56,80" fill="#7f9070"/>
+<polygon class="ki-hex" data-q="-2" data-r="2" data-terrain="marsh" points="-55.43,64 -27.71,80 -27.71,112 -55.43,128 -83.14,112 -83.14,80" fill="#7f9070"/>
+<polygon class="ki-hex" data-q="-1" data-r="2" data-terrain="river" points="0,64 27.71,80 27.71,112 0,128 -27.71,112 -27.71,80" fill="#6f9db5"/>
+<polygon class="ki-hex" data-q="0" data-r="2" data-terrain="grassland" points="55.43,64 83.14,80 83.14,112 55.43,128 27.71,112 27.71,80" fill="#a9b97c"/>
+<polygon class="ki-hex" data-q="1" data-r="2" data-terrain="coastal" points="110.85,64 138.56,80 138.56,112 110.85,128 83.14,112 83.14,80" fill="#cfc79a"/>
+<polygon class="ki-hex" data-q="-2" data-r="3" data-terrain="marsh" points="-27.71,112 0,128 0,160 -27.71,176 -55.43,160 -55.43,128" fill="#7f9070"/>
+<polygon class="ki-hex" data-q="-1" data-r="3" data-terrain="coastal" points="27.71,112 55.43,128 55.43,160 27.71,176 0,160 0,128" fill="#cfc79a"/>
+<polygon class="ki-hex" data-q="0" data-r="3" data-terrain="sand" points="83.14,112 110.85,128 110.85,160 83.14,176 55.43,160 55.43,128" fill="#e4d4a6"/>
+</g>
+<g class="ki-terrain-patterns" stroke="none">
+<polygon data-terrain="ocean" points="-110.85,-224 -83.14,-208 -83.14,-176 -110.85,-160 -138.56,-176 -138.56,-208" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-55.43,-224 -27.71,-208 -27.71,-176 -55.43,-160 -83.14,-176 -83.14,-208" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="0,-224 27.71,-208 27.71,-176 0,-160 -27.71,-176 -27.71,-208" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="55.43,-224 83.14,-208 83.14,-176 55.43,-160 27.71,-176 27.71,-208" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="110.85,-224 138.56,-208 138.56,-176 110.85,-160 83.14,-176 83.14,-208" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-138.56,-176 -110.85,-160 -110.85,-128 -138.56,-112 -166.28,-128 -166.28,-160" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="cliffs" points="-83.14,-176 -55.43,-160 -55.43,-128 -83.14,-112 -110.85,-128 -110.85,-160" fill="url(#ki-map-arcadia-pattern-cliffs)"/>
+<polygon data-terrain="cliffs" points="-27.71,-176 0,-160 0,-128 -27.71,-112 -55.43,-128 -55.43,-160" fill="url(#ki-map-arcadia-pattern-cliffs)"/>
+<polygon data-terrain="coastal" points="27.71,-176 55.43,-160 55.43,-128 27.71,-112 0,-128 0,-160" fill="url(#ki-map-arcadia-pattern-coastal)"/>
+<polygon data-terrain="ocean" points="83.14,-176 110.85,-160 110.85,-128 83.14,-112 55.43,-128 55.43,-160" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="138.56,-176 166.28,-160 166.28,-128 138.56,-112 110.85,-128 110.85,-160" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-166.28,-128 -138.56,-112 -138.56,-80 -166.28,-64 -193.99,-80 -193.99,-112" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="hills" points="-110.85,-128 -83.14,-112 -83.14,-80 -110.85,-64 -138.56,-80 -138.56,-112" fill="url(#ki-map-arcadia-pattern-hills)"/>
+<polygon data-terrain="mountain" points="-55.43,-128 -27.71,-112 -27.71,-80 -55.43,-64 -83.14,-80 -83.14,-112" fill="url(#ki-map-arcadia-pattern-mountain)"/>
+<polygon data-terrain="snow" points="0,-128 27.71,-112 27.71,-80 0,-64 -27.71,-80 -27.71,-112" fill="url(#ki-map-arcadia-pattern-snow)"/>
+<polygon data-terrain="hills" points="55.43,-128 83.14,-112 83.14,-80 55.43,-64 27.71,-80 27.71,-112" fill="url(#ki-map-arcadia-pattern-hills)"/>
+<polygon data-terrain="coastal" points="110.85,-128 138.56,-112 138.56,-80 110.85,-64 83.14,-80 83.14,-112" fill="url(#ki-map-arcadia-pattern-coastal)"/>
+<polygon data-terrain="ocean" points="166.28,-128 193.99,-112 193.99,-80 166.28,-64 138.56,-80 138.56,-112" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-193.99,-80 -166.28,-64 -166.28,-32 -193.99,-16 -221.7,-32 -221.7,-64" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="forest" points="-138.56,-80 -110.85,-64 -110.85,-32 -138.56,-16 -166.28,-32 -166.28,-64" fill="url(#ki-map-arcadia-pattern-forest)"/>
+<polygon data-terrain="forest" points="-83.14,-80 -55.43,-64 -55.43,-32 -83.14,-16 -110.85,-32 -110.85,-64" fill="url(#ki-map-arcadia-pattern-forest)"/>
+<polygon data-terrain="mountain" points="-27.71,-80 0,-64 0,-32 -27.71,-16 -55.43,-32 -55.43,-64" fill="url(#ki-map-arcadia-pattern-mountain)"/>
+<polygon data-terrain="mountain" points="27.71,-80 55.43,-64 55.43,-32 27.71,-16 0,-32 0,-64" fill="url(#ki-map-arcadia-pattern-mountain)"/>
+<polygon data-terrain="hills" points="83.14,-80 110.85,-64 110.85,-32 83.14,-16 55.43,-32 55.43,-64" fill="url(#ki-map-arcadia-pattern-hills)"/>
+<polygon data-terrain="cliffs" points="138.56,-80 166.28,-64 166.28,-32 138.56,-16 110.85,-32 110.85,-64" fill="url(#ki-map-arcadia-pattern-cliffs)"/>
+<polygon data-terrain="ocean" points="193.99,-80 221.7,-64 221.7,-32 193.99,-16 166.28,-32 166.28,-64" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-221.7,-32 -193.99,-16 -193.99,16 -221.7,32 -249.42,16 -249.42,-16" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="sand" points="-166.28,-32 -138.56,-16 -138.56,16 -166.28,32 -193.99,16 -193.99,-16" fill="url(#ki-map-arcadia-pattern-sand)"/>
+<polygon data-terrain="forest" points="-110.85,-32 -83.14,-16 -83.14,16 -110.85,32 -138.56,16 -138.56,-16" fill="url(#ki-map-arcadia-pattern-forest)"/>
+<polygon data-terrain="forest" points="-55.43,-32 -27.71,-16 -27.71,16 -55.43,32 -83.14,16 -83.14,-16" fill="url(#ki-map-arcadia-pattern-forest)"/>
+<polygon data-terrain="hills" points="0,-32 27.71,-16 27.71,16 0,32 -27.71,16 -27.71,-16" fill="url(#ki-map-arcadia-pattern-hills)"/>
+<polygon data-terrain="river" points="55.43,-32 83.14,-16 83.14,16 55.43,32 27.71,16 27.71,-16" fill="url(#ki-map-arcadia-pattern-river)"/>
+<polygon data-terrain="grassland" points="110.85,-32 138.56,-16 138.56,16 110.85,32 83.14,16 83.14,-16" fill="url(#ki-map-arcadia-pattern-grassland)"/>
+<polygon data-terrain="cliffs" points="166.28,-32 193.99,-16 193.99,16 166.28,32 138.56,16 138.56,-16" fill="url(#ki-map-arcadia-pattern-cliffs)"/>
+<polygon data-terrain="ocean" points="221.7,-32 249.42,-16 249.42,16 221.7,32 193.99,16 193.99,-16" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-193.99,16 -166.28,32 -166.28,64 -193.99,80 -221.7,64 -221.7,32" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-138.56,16 -110.85,32 -110.85,64 -138.56,80 -166.28,64 -166.28,32" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="forest" points="-83.14,16 -55.43,32 -55.43,64 -83.14,80 -110.85,64 -110.85,32" fill="url(#ki-map-arcadia-pattern-forest)"/>
+<polygon data-terrain="grassland" points="-27.71,16 0,32 0,64 -27.71,80 -55.43,64 -55.43,32" fill="url(#ki-map-arcadia-pattern-grassland)"/>
+<polygon data-terrain="river" points="27.71,16 55.43,32 55.43,64 27.71,80 0,64 0,32" fill="url(#ki-map-arcadia-pattern-river)"/>
+<polygon data-terrain="grassland" points="83.14,16 110.85,32 110.85,64 83.14,80 55.43,64 55.43,32" fill="url(#ki-map-arcadia-pattern-grassland)"/>
+<polygon data-terrain="ocean" points="138.56,16 166.28,32 166.28,64 138.56,80 110.85,64 110.85,32" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="193.99,16 221.7,32 221.7,64 193.99,80 166.28,64 166.28,32" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-166.28,64 -138.56,80 -138.56,112 -166.28,128 -193.99,112 -193.99,80" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="marsh" points="-110.85,64 -83.14,80 -83.14,112 -110.85,128 -138.56,112 -138.56,80" fill="url(#ki-map-arcadia-pattern-marsh)"/>
+<polygon data-terrain="marsh" points="-55.43,64 -27.71,80 -27.71,112 -55.43,128 -83.14,112 -83.14,80" fill="url(#ki-map-arcadia-pattern-marsh)"/>
+<polygon data-terrain="river" points="0,64 27.71,80 27.71,112 0,128 -27.71,112 -27.71,80" fill="url(#ki-map-arcadia-pattern-river)"/>
+<polygon data-terrain="grassland" points="55.43,64 83.14,80 83.14,112 55.43,128 27.71,112 27.71,80" fill="url(#ki-map-arcadia-pattern-grassland)"/>
+<polygon data-terrain="coastal" points="110.85,64 138.56,80 138.56,112 110.85,128 83.14,112 83.14,80" fill="url(#ki-map-arcadia-pattern-coastal)"/>
+<polygon data-terrain="ocean" points="166.28,64 193.99,80 193.99,112 166.28,128 138.56,112 138.56,80" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-138.56,112 -110.85,128 -110.85,160 -138.56,176 -166.28,160 -166.28,128" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-83.14,112 -55.43,128 -55.43,160 -83.14,176 -110.85,160 -110.85,128" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="marsh" points="-27.71,112 0,128 0,160 -27.71,176 -55.43,160 -55.43,128" fill="url(#ki-map-arcadia-pattern-marsh)"/>
+<polygon data-terrain="coastal" points="27.71,112 55.43,128 55.43,160 27.71,176 0,160 0,128" fill="url(#ki-map-arcadia-pattern-coastal)"/>
+<polygon data-terrain="sand" points="83.14,112 110.85,128 110.85,160 83.14,176 55.43,160 55.43,128" fill="url(#ki-map-arcadia-pattern-sand)"/>
+<polygon data-terrain="ocean" points="138.56,112 166.28,128 166.28,160 138.56,176 110.85,160 110.85,128" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-110.85,160 -83.14,176 -83.14,208 -110.85,224 -138.56,208 -138.56,176" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="-55.43,160 -27.71,176 -27.71,208 -55.43,224 -83.14,208 -83.14,176" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="0,160 27.71,176 27.71,208 0,224 -27.71,208 -27.71,176" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="55.43,160 83.14,176 83.14,208 55.43,224 27.71,208 27.71,176" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+<polygon data-terrain="ocean" points="110.85,160 138.56,176 138.56,208 110.85,224 83.14,208 83.14,176" fill="url(#ki-map-arcadia-pattern-ocean)"/>
+</g>
+<path class="ki-coast" d="M-83.14 -176 L-55.43 -160 L-27.71 -176 L0 -160 L27.71 -176 L55.43 -160 L55.43 -128 L83.14 -112 L110.85 -128 L138.56 -112 L138.56 -80 L166.28 -64 L166.28 -32 L193.99 -16 L193.99 16 L166.28 32 L138.56 16 L110.85 32 L110.85 64 L138.56 80 L138.56 112 L110.85 128 L110.85 160 L83.14 176 L55.43 160 L27.71 176 L0 160 L-27.71 176 L-55.43 160 L-55.43 128 L-83.14 112 L-110.85 128 L-138.56 112 L-138.56 80 L-110.85 64 L-110.85 32 L-138.56 16 L-166.28 32 L-193.99 16 L-193.99 -16 L-166.28 -32 L-166.28 -64 L-138.56 -80 L-138.56 -112 L-110.85 -128 L-110.85 -160 Z" fill="none" stroke="#1a2030" stroke-opacity="0.8" stroke-width="1.78" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="ki-routes" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g class="ki-route ki-route-active">
+<path d="M27.71 144 Q-14.94 77.54 0 0" stroke="#f5efe0" stroke-opacity="0.45" stroke-width="5.49"/>
+<path d="M27.71 144 Q-14.94 77.54 0 0" stroke="#c8963c" stroke-width="2.29"/>
+</g>
+<g class="ki-route ki-route-active">
+<path d="M0 0 Q31.97 -40.63 83.14 -48" stroke="#f5efe0" stroke-opacity="0.45" stroke-width="5.49"/>
+<path d="M0 0 Q31.97 -40.63 83.14 -48" stroke="#c8963c" stroke-width="2.29"/>
+</g>
+<g class="ki-route ki-route-active">
+<path d="M27.71 144 Q31.97 114.46 55.43 96" stroke="#f5efe0" stroke-opacity="0.45" stroke-width="5.49"/>
+<path d="M27.71 144 Q31.97 114.46 55.43 96" stroke="#c8963c" stroke-width="2.29"/>
+</g>
+<g class="ki-route ki-route-pending">
+<path d="M0 0 Q59.68 -51.71 138.56 -48" stroke="#f5efe0" stroke-opacity="0.45" stroke-width="5.49"/>
+<path d="M0 0 Q59.68 -51.71 138.56 -48" stroke="#c8963c" stroke-width="2.29" stroke-dasharray="3.56 4.57"/>
+</g>
+</g>
+<g class="ki-structures">
+<g class="ki-structure" data-structure="ruins" data-condition="ruined"><title>Ruins (ruined)</title>
+<circle cx="-110.85" cy="-96" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="-110.85" cy="-96" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(-119.68 -104.83) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21 V10 L5.5 8.5 L6.5 10 L8 9 V21"/><path d="M10.5 21 V15 L12 14 L13.5 15.5 V21"/><path d="M16 21 V12 L17.5 13.5 L19 12.5 L20 13 V21"/><path d="M3 21 H21"/></g>
+</g>
+<g class="ki-structure" data-structure="ancient-forest" data-condition="thriving"><title>Ancient forest (thriving)</title>
+<circle cx="-83.14" cy="-48" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="-83.14" cy="-48" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(-91.97 -56.83) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 C8.5 3 6 5.2 6 8 C4.2 8.4 3 9.8 3 11.5 C3 13.4 4.6 15 6.5 15 H17.5 C19.4 15 21 13.4 21 11.5 C21 9.8 19.8 8.4 18 8 C18 5.2 15.5 3 12 3 Z"/><path d="M10.5 15 V18.5 C10.5 19.5 9.5 20.5 8 21 M13.5 15 V18.5 C13.5 19.5 14.5 20.5 16 21"/><path d="M12 15 V12 M12 13 L9.5 11 M12 12.5 L14.5 10.5"/></g>
+</g>
+<g class="ki-structure" data-structure="observatory" data-condition="thriving"><title>Observatory (thriving)</title>
+<circle cx="83.14" cy="-48" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="83.14" cy="-48" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(74.31 -56.83) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21 V13 H19 V21"/><path d="M5 13 C5 9 8 6 12 6 C16 6 19 9 19 13"/><path d="M12 9.5 L18 4 M13.5 11 L19.5 5.5 M18 4 L19.5 5.5"/><path d="M10.5 21 V17.5 H13.5 V21"/><path d="M3 21 H21"/></g>
+</g>
+<g class="ki-structure" data-structure="lighthouse" data-condition="thriving"><title>Lighthouse (thriving)</title>
+<circle cx="138.56" cy="-48" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="138.56" cy="-48" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(129.73 -56.83) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21 L10 9 H14 L15 21"/><path d="M8.5 9 H15.5"/><rect x="10" y="5.5" width="4" height="3.5"/><path d="M9.5 5.5 L12 3 L14.5 5.5"/><path d="M9.6 14 H14.4"/><path d="M3 5 L7.5 6.5 M3 9 L7.5 7.5 M21 5 L16.5 6.5 M21 9 L16.5 7.5"/><path d="M6 21 H18"/></g>
+</g>
+<g class="ki-structure" data-structure="citadel" data-condition="thriving"><title>Citadel (thriving)</title>
+<circle cx="0" cy="0" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="0" cy="0" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(-8.83 -8.83) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21 V6 H10.5 V7.5 H13.5 V6 H15 V21"/><path d="M3 21 V11 H4.5 V12.5 H7.5 V11 H9"/><path d="M15 11 H16.5 V12.5 H19.5 V11 H21 V21"/><path d="M12 7.5 V2.5 L14.5 3.5 L12 4.5"/><path d="M10.5 21 V18 C10.5 17.2 11.2 16.5 12 16.5 C12.8 16.5 13.5 17.2 13.5 18 V21"/><path d="M3 21 H21"/></g>
+</g>
+<g class="ki-structure" data-structure="cottage" data-condition="quiet"><title>Cottage (quiet)</title>
+<circle cx="110.85" cy="0" r="7.85" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="110.85" cy="0" r="6.4" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<circle cx="110.85" cy="0" r="2.3" fill="#1a2030"/>
+</g>
+<g class="ki-structure" data-structure="library" data-condition="quiet"><title>Library (quiet)</title>
+<circle cx="-27.71" cy="48" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="-27.71" cy="48" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(-36.54 39.17) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="3" height="14"/><rect x="7" y="4" width="3.5" height="16"/><path d="M11.5 7.5 L14.5 6.7 L17.7 19.2 L14.7 20 Z"/><path d="M4 9 H7 M7 7 H10.5 M7 17 H10.5"/><path d="M3 20 H21"/></g>
+</g>
+<g class="ki-structure" data-structure="workshop" data-condition="weathered"><title>Workshop (weathered)</title>
+<circle cx="83.14" cy="48" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="83.14" cy="48" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(74.31 39.17) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21 V11 L8 7 V11 L13 7 V11 L18 7 V11 H21 V21"/><path d="M6 21 V16 H10 V21"/><rect x="13" y="14.5" width="5" height="3"/><path d="M3 21 H21"/></g>
+</g>
+<g class="ki-structure" data-structure="mill" data-condition="quiet"><title>Mill (quiet)</title>
+<circle cx="0" cy="96" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="0" cy="96" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(-8.83 87.17) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21 V10 L16 6 L21 10 V21"/><circle cx="6.5" cy="15.5" r="4"/><circle cx="6.5" cy="15.5" r="1"/><path d="M6.5 11.5 V14.5 M6.5 16.5 V19.5 M2.5 15.5 H5.5 M7.5 15.5 H10.5"/><rect x="14.5" y="13" width="3" height="3"/><path d="M3 21 H21"/></g>
+</g>
+<g class="ki-structure" data-structure="workshop" data-condition="thriving"><title>Workshop (thriving)</title>
+<circle cx="55.43" cy="96" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="55.43" cy="96" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(46.59 87.17) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21 V11 L8 7 V11 L13 7 V11 L18 7 V11 H21 V21"/><path d="M6 21 V16 H10 V21"/><rect x="13" y="14.5" width="5" height="3"/><path d="M3 21 H21"/></g>
+</g>
+<g class="ki-structure" data-structure="port" data-condition="thriving"><title>Port (thriving)</title>
+<circle cx="27.71" cy="144" r="14.25" fill="#1a2030" fill-opacity="0.12"/>
+<circle cx="27.71" cy="144" r="12.8" fill="#f5efe0" stroke="#1a2030" stroke-opacity="0.7" stroke-width="0.8"/>
+<g transform="translate(18.88 135.17) scale(0.736)" fill="none" stroke="#1a2030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7 V20"/><path d="M8 10 H16"/><path d="M4.5 13 C4.5 17 8 20 12 20 C16 20 19.5 17 19.5 13"/><path d="M3 14.5 L4.5 13 L6 14.5 M18 14.5 L19.5 13 L21 14.5"/></g>
+</g>
+</g>
+<g class="ki-labels" fill="#1a2030" stroke="#f5efe0" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-family="&apos;Cormorant SC&apos;, &apos;Cormorant Garamond&apos;, Georgia, serif" font-size="13.44" font-variant="small-caps" letter-spacing="0.06em" text-anchor="middle">
+<text x="-110.85" y="4.48">Old Wood</text>
+<text x="0" y="-91.52">High Peaks</text>
+<text x="83.14" y="148.48">South Strand</text>
+</g>
+<polygon class="ki-selected" points="0,-26.88 23.28,-13.44 23.28,13.44 0,26.88 -23.28,13.44 -23.28,-13.44" fill="none" stroke="#c8963c" stroke-width="1.78" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,919 @@
+{
+  "schema": "tileset/v1",
+  "id": "modern",
+  "name": "Modern",
+  "description": "Clean, engraved tiles: deep-ink linework over flat token fills, light from the top-left. The default set for the apps, docs, diagrams and print.",
+  "licence": "UNLICENSED",
+  "art": {
+    "version": "0.1.0",
+    "generator": "packages/tiles/scripts/generate-modern.ts",
+    "format": "svg",
+    "anchorNote": "`anchor` is in cell pixels (the 256 × 196 cell of the anchor hex); `art.anchor` is the same point in the canvas pixels of the SVG, whose view box extends above (and, for pair and flower footprints, beside) the cell.",
+    "themeNote": "Fills are CSS custom properties with token fallbacks: --terrain-<name>, --tile-ink, --tile-paper, --tile-plinth, --tile-deep, --tile-pine, --tile-leaf, --bld-limestone, --bld-slate, --bld-timber, --bld-brick, --bld-thatch, --bld-brass, --bld-stone.",
+    "framesNote": "v0 draws frame 0 (the still) only; animated loops are declared in `frames` and not yet drawn."
+  },
+  "conditions": {
+    "note": "Every structure is drawn once (thriving). The other states are compositions of that drawing and the decals, under the same light.",
+    "thriving": {
+      "hide": [],
+      "decals": []
+    },
+    "quiet": {
+      "hide": ["[data-state=\"thriving\"]"],
+      "decals": []
+    },
+    "weathered": {
+      "hide": ["[data-state=\"thriving\"]"],
+      "decals": ["moss", "cracks"]
+    },
+    "ruined": {
+      "hide": ["[data-state=\"thriving\"]"],
+      "decals": ["ivy", "moss", "cracks", "fallen-roof"]
+    }
+  },
+  "tiles": [
+    {
+      "id": "grassland",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/grassland.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "forest",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/forest.svg",
+        "width": 256,
+        "height": 236,
+        "anchor": {
+          "x": 128,
+          "y": 114
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "hills",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/hills.svg",
+        "width": 256,
+        "height": 216,
+        "anchor": {
+          "x": 128,
+          "y": 94
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "mountain",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/mountain.svg",
+        "width": 256,
+        "height": 286,
+        "anchor": {
+          "x": 128,
+          "y": 164
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "coastal",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/coastal.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "cliffs",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/cliffs.svg",
+        "width": 256,
+        "height": 210,
+        "anchor": {
+          "x": 128,
+          "y": 88
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "sand",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/sand.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "river",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "frames": {
+        "loop": 24
+      },
+      "status": "draft",
+      "art": {
+        "path": "terrain/river.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "marsh",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/marsh.svg",
+        "width": 256,
+        "height": 206,
+        "anchor": {
+          "x": 128,
+          "y": 84
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "snow",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/snow.svg",
+        "width": 256,
+        "height": 222,
+        "anchor": {
+          "x": 128,
+          "y": 100
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "volcanic",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "terrain/volcanic.svg",
+        "width": 256,
+        "height": 222,
+        "anchor": {
+          "x": 128,
+          "y": 100
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "ocean",
+      "kind": "terrain",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "frames": {
+        "loop": 48
+      },
+      "status": "draft",
+      "art": {
+        "path": "terrain/ocean.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "citadel",
+      "kind": "structure",
+      "footprint": "flower",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/citadel.svg",
+        "width": 768,
+        "height": 457,
+        "anchor": {
+          "x": 384,
+          "y": 224
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "library",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/library.svg",
+        "width": 256,
+        "height": 256,
+        "anchor": {
+          "x": 128,
+          "y": 134
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "council-hall",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/council-hall.svg",
+        "width": 256,
+        "height": 242,
+        "anchor": {
+          "x": 128,
+          "y": 120
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "tower",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/tower.svg",
+        "width": 256,
+        "height": 292,
+        "anchor": {
+          "x": 128,
+          "y": 170
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "observatory",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/observatory.svg",
+        "width": 256,
+        "height": 226,
+        "anchor": {
+          "x": 128,
+          "y": 104
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "lighthouse",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "frames": {
+        "loop": 12
+      },
+      "status": "draft",
+      "art": {
+        "path": "structures/lighthouse.svg",
+        "width": 256,
+        "height": 316,
+        "anchor": {
+          "x": 128,
+          "y": 194
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "port",
+      "kind": "structure",
+      "footprint": "pair",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/port.svg",
+        "width": 512,
+        "height": 238,
+        "anchor": {
+          "x": 128,
+          "y": 116
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "dock",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/dock.svg",
+        "width": 256,
+        "height": 200,
+        "anchor": {
+          "x": 128,
+          "y": 78
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "rail-depot",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/rail-depot.svg",
+        "width": 256,
+        "height": 200,
+        "anchor": {
+          "x": 128,
+          "y": 78
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "airport",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/airport.svg",
+        "width": 256,
+        "height": 332,
+        "anchor": {
+          "x": 128,
+          "y": 210
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "customs-house",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/customs-house.svg",
+        "width": 256,
+        "height": 232,
+        "anchor": {
+          "x": 128,
+          "y": 110
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "bridge",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/bridge.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "workshop",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/workshop.svg",
+        "width": 256,
+        "height": 248,
+        "anchor": {
+          "x": 128,
+          "y": 126
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "mill",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "frames": {
+        "loop": 16
+      },
+      "status": "draft",
+      "art": {
+        "path": "structures/mill.svg",
+        "width": 256,
+        "height": 206,
+        "anchor": {
+          "x": 128,
+          "y": 84
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "ruins",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/ruins.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "ancient-forest",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/ancient-forest.svg",
+        "width": 256,
+        "height": 242,
+        "anchor": {
+          "x": 128,
+          "y": 120
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "cottage",
+      "kind": "structure",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "states": ["thriving", "quiet", "weathered", "ruined"],
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "structures/cottage.svg",
+        "width": 256,
+        "height": 218,
+        "anchor": {
+          "x": 128,
+          "y": 96
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "ivy",
+      "kind": "decal",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "decals/ivy.svg",
+        "width": 256,
+        "height": 256,
+        "anchor": {
+          "x": 128,
+          "y": 134
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "cracks",
+      "kind": "decal",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "decals/cracks.svg",
+        "width": 256,
+        "height": 256,
+        "anchor": {
+          "x": 128,
+          "y": 134
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "moss",
+      "kind": "decal",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "decals/moss.svg",
+        "width": 256,
+        "height": 256,
+        "anchor": {
+          "x": 128,
+          "y": 134
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "fallen-roof",
+      "kind": "decal",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "decals/fallen-roof.svg",
+        "width": 256,
+        "height": 256,
+        "anchor": {
+          "x": 128,
+          "y": 134
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "road",
+      "kind": "connector",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "connectors/road.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "river",
+      "kind": "connector",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "frames": {
+        "loop": 24
+      },
+      "status": "draft",
+      "art": {
+        "path": "connectors/river.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "bridge-span",
+      "kind": "connector",
+      "footprint": "single",
+      "orientation": 0,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "connectors/bridge-span.svg",
+        "width": 256,
+        "height": 216,
+        "anchor": {
+          "x": 128,
+          "y": 94
+        },
+        "framesDrawn": 1
+      }
+    },
+    {
+      "id": "quay",
+      "kind": "connector",
+      "footprint": "single",
+      "orientation": 5,
+      "anchor": {
+        "x": 128,
+        "y": 74
+      },
+      "variants": 1,
+      "scales": [1, 2],
+      "status": "draft",
+      "art": {
+        "path": "connectors/quay.svg",
+        "width": 256,
+        "height": 196,
+        "anchor": {
+          "x": 128,
+          "y": 74
+        },
+        "framesDrawn": 1
+      }
+    }
+  ]
+}
