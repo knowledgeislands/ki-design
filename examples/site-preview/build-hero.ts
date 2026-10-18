@@ -141,13 +141,13 @@ interface District {
 export const districts: District[] = [
   { name: 'The Observatory', sub: 'Reflect · insight', at: { q: 2, r: -1 }, dx: 150, dy: -150, anchor: 'start' },
   { name: 'The Ancient Forest', sub: 'Wisdom · never built on', at: { q: -1, r: -1 }, dx: -30, dy: -150, anchor: 'end' },
-  { name: 'The Citadel', sub: 'Library · Council Hall · Tower', at: { q: 0, r: 0 }, dx: 300, dy: -6, anchor: 'start' },
+  { name: 'The Capital', sub: 'Library · Council Hall', at: { q: 0, r: 0 }, dx: 300, dy: -6, anchor: 'start' },
   { name: 'The Streams', sub: 'Knowledge in motion', at: { q: 0, r: 1 }, dx: 260, dy: 130, anchor: 'start' },
   { name: 'The Port', sub: 'Capture · entry & exchange', at: { q: -1, r: 3 }, dx: -170, dy: 70, anchor: 'end' }
 ]
 
 const structureGlyph: Record<string, IconName> = {
-  citadel: 'citadel',
+  citadel: 'council-hall', // the Capital's compound (tile id `citadel`); the citadel glyph is retired
   library: 'library',
   observatory: 'observatory',
   lighthouse: 'lighthouse',
@@ -211,7 +211,7 @@ export function renderIso(map: IslandMap, opts: IsoOptions = {}): string {
   const title = opts.title ?? `${map.name}, drawn in the Modern tile set`
   const desc =
     opts.desc ??
-    'An isometric hex map of Arcadia: the Citadel on the central hills above the river, the Port on the south coast, the Observatory and Lighthouse on the eastern heights, the ancient forest in the west, ruins on the north-west ridge.'
+    'An isometric hex map of Arcadia: the Capital on the central hills above the river, the Port on the south coast, the Observatory and Lighthouse on the eastern heights, the ancient forest in the west, ruins on the north-west ridge.'
   out.push(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${f(vb.x)} ${f(vb.y)} ${f(vb.w)} ${f(vb.h)}" role="img" aria-labelledby="${id}-t ${id}-d" class="iso-map">`,
     `<title id="${id}-t">${title}</title>`,
