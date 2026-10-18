@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Observatory — Extend</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#0b1b31}
+.o-root{box-sizing:border-box;background:var(--deep);color:var(--ink);font:13px/18px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-variant-numeric:tabular-nums lining-nums;display:flex;flex-direction:column;overflow:hidden}
+.o-root *{box-sizing:border-box}
+.o-kick{font:600 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+.o-h1{margin:0;font:600 34px/40px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lede{margin:0;font-size:15px;line-height:22px;color:var(--muted)}
+.o-h2{margin:0;font:600 20px/26px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-h3{margin:0;font:600 16px/22px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lbl{font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.o-m{font-size:12px;line-height:16px;color:var(--muted)}
+.o-p{margin:0;font-size:13px;line-height:18px;color:var(--ink)}
+.o-mono{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px}
+.o-card{background:var(--paper);border:1px solid var(--rule);border-radius:4px}
+.o-pane{background:var(--paper);border:1px solid var(--rule)}
+.o-note{background:var(--raised);border:1px solid var(--rule);border-radius:4px;padding:10px 12px}
+.chip{display:inline-block;font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:1px 7px;border-radius:4px;white-space:nowrap}
+.ch-official{color:var(--accent);background:var(--accw)}
+.ch-agreed{color:var(--ok);background:var(--okw)}
+.ch-proposed{color:var(--warn);background:var(--warnw)}
+.ch-open{color:var(--bad);background:var(--badw)}
+.sv-blocking{color:var(--bad);background:var(--badw)}
+.sv-attention{color:var(--warn);background:var(--warnw)}
+.sv-note{color:var(--muted);background:transparent;border:1px solid var(--rule);padding:0 6px}
+.tag{display:inline-block;font:500 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:0 6px;border-radius:4px;border:1px solid var(--rule);color:var(--muted);white-space:nowrap}
+.btn{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:5px 10px;border-radius:4px;border:1px solid var(--boundary);background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap}
+.seg{display:flex;border:1px solid var(--boundary);border-radius:4px;overflow:hidden}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--muted);text-align:left;padding:5px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
+.tbl td{font-size:13px;line-height:20px;padding:5px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+.id{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--ink)}
+.t{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--muted);white-space:nowrap}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none}
+
+.x-row{display:grid;grid-template-columns:20px 150px minmax(0,1fr) 270px 64px 44px;gap:0 12px;align-items:center;padding:6px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:20px}
+.x-row > span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hd{font-size:12px;line-height:16px;color:var(--muted)}
+.grp{font:600 11px/16px system-ui,sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:10px 8px 4px;border-bottom:1px solid var(--rule)}
+.cd-thriving{color:var(--ok);background:var(--okw)}
+.cd-quiet{color:var(--muted);border:1px solid var(--rule);padding:0 6px}
+</style>
+</helmet>
+<div class="o-root" style="width:1440px;height:940px;padding:36px 40px;gap:18px;--paper:#0f2440;--deep:#0b1b31;--raised:#182c46;--ink:#f5efe0;--muted:#a9b4c4;--accent:#9fbbd8;--ok:#8fc4a0;--teal:#7fc2c0;--warn:#c8963c;--bad:#f0947a;--rule:#24476e;--boundary:#5f7896;--okw:#1e374c;--warnw:#1e2d40;--badw:#2a3147;--accw:#1b3a5c;--gold:#c8963c;--sea:#0f2440;--shallow:#17345a">
+
+  <header style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:1px solid var(--rule);padding-bottom:14px;flex:none">
+    <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+      <div style="display:flex;align-items:center;gap:8px"><img alt="" width="18" height="18" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23c8963c%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2021%20V13%20H19%20V21%22%2F%3E%3Cpath%20d%3D%22M5%2013%20C5%209%208%206%2012%206%20C16%206%2019%209%2019%2013%22%2F%3E%3Cpath%20d%3D%22M12%209.5%20L18%204%20M13.5%2011%20L19.5%205.5%20M18%204%20L19.5%205.5%22%2F%3E%3Cpath%20d%3D%22M10.5%2021%20V17.5%20H13.5%20V21%22%2F%3E%3Cpath%20d%3D%22M3%2021%20H21%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><span class="o-kick">Observatory · 6 of 7</span></div>
+      <h1 class="o-h1">Extend — extensions and live artifacts</h1>
+      <p class="o-lede">Core instruments and each island’s own live artifacts, switched on or off per scope, inside the app’s boundary.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none"><div style="display:flex;gap:10px;align-items:center"><span class="o-lbl">Scope</span><div class="seg" role="group" aria-label="Scope"><sc-for list="{{scopes}}" as="sc" hint-placeholder-count="4"><button type="button" aria-pressed="{{sc.on}}" onClick="{{ sc.pick }}" style="{{sc.style}}">{{sc.label}}</button></sc-for></div></div>
+      <div style="display:flex;gap:6px;align-items:center"><span class="o-m">Extend job</span><span class="chip ch-agreed">Agreed</span><span class="o-m">Switchboard</span><span class="chip ch-proposed">Proposed</span><span class="o-m">Artifact writes</span><span class="chip ch-open">Open</span></div></div>
+  </header>
+
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:16px">
+    <section class="o-pane" aria-label="Extensions" style="display:flex;flex-direction:column;min-height:0">
+      <div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--rule)"><img alt="" width="20" height="20" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%2212%22%20width%3D%2218%22%20height%3D%222%22%20rx%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M4%2020%20L6%2014%20L8%2020%20M16%2020%20L18%2014%20L20%2020%22%2F%3E%3Cpath%20d%3D%22M7%2012%20V4.5%20L14.5%2012%22%2F%3E%3Cpath%20d%3D%22M8.75%2010.25%20V8.7%20L10.3%2010.25%20Z%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><h2 class="o-h2">Extensions</h2><span class="o-m">{{scopeLine}}</span><span style="flex:1"></span><span class="o-m">{{onCount}}</span></div>
+      <div style="padding:0 6px;display:flex;flex-direction:column">
+        <div class="x-row hd"><span></span><span>Extension</span><span>Where it appears</span><span>Source · tools</span><span>State</span><span></span></div>
+        <sc-for list="{{rows}}" as="x" hint-placeholder-count="14">
+          <div class="grp" style="{{x.gStyle}}">{{x.group}}</div>
+          <div class="x-row" style="{{x.rowStyle}}">
+            <img alt="" width="16" height="16" src="{{x.icon}}">
+            <span style="color:var(--ink)">{{x.name}}</span>
+            <span style="color:var(--muted)">{{x.where}}</span>
+            <span class="id" style="color:var(--muted)">{{x.src}}</span>
+            <span><span class="chip {{x.cls}}">{{x.state}}</span></span>
+            <button type="button" role="switch" aria-checked="{{x.on}}" aria-label="{{x.aria}}" onClick="{{ x.pick }}" style="{{x.sw}}"><span style="{{x.knob}}"></span></button>
+          </div>
+        </sc-for>
+      </div>
+      <div class="o-m" style="margin-top:auto;padding:8px 14px;border-top:1px solid var(--rule)">A switch hides or shows the extension everywhere in this scope — its tab, its panel and its building — and survives restarts (a host preference in XDG state). The Beacon and this switchboard cannot be switched off. Over the tailnet the switches are shown, not changed.</div>
+    </section>
+
+    <aside style="display:flex;flex-direction:column;gap:12px;min-height:0">
+      <div class="o-card" style="padding:10px;display:flex;flex-direction:column;gap:6px">
+        <span class="o-lbl" style="padding:2px 4px">On the chart · an extension is a building on its island</span>
+        <div style="border:1px solid var(--rule)"><svg width="400" height="250" viewBox="0 0 400 250" role="img" aria-label="example-island with its zones and the extensions switched on for this scope" style="display:block"><rect width="400" height="250" fill="#0b1b31"/><polygon points="86.0,35.0 86.0,65.0 60.0,80.0 34.0,65.0 34.0,35.0 60.0,20.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="137.9,35.0 137.9,65.0 112.0,80.0 86.0,65.0 86.0,35.0 112.0,20.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="189.9,35.0 189.9,65.0 163.9,80.0 137.9,65.0 137.9,35.0 163.9,20.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="241.9,35.0 241.9,65.0 215.9,80.0 189.9,65.0 189.9,35.0 215.9,20.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="293.8,35.0 293.8,65.0 267.8,80.0 241.9,65.0 241.9,35.0 267.8,20.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="345.8,35.0 345.8,65.0 319.8,80.0 293.8,65.0 293.8,35.0 319.8,20.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="397.7,35.0 397.7,65.0 371.8,80.0 345.8,65.0 345.8,35.0 371.8,20.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="449.7,35.0 449.7,65.0 423.7,80.0 397.7,65.0 397.7,35.0 423.7,20.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="112.0,80.0 112.0,110.0 86.0,125.0 60.0,110.0 60.0,80.0 86.0,65.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="163.9,80.0 163.9,110.0 137.9,125.0 112.0,110.0 112.0,80.0 137.9,65.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="215.9,80.0 215.9,110.0 189.9,125.0 163.9,110.0 163.9,80.0 189.9,65.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="267.8,80.0 267.8,110.0 241.9,125.0 215.9,110.0 215.9,80.0 241.9,65.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="319.8,80.0 319.8,110.0 293.8,125.0 267.8,110.0 267.8,80.0 293.8,65.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="371.8,80.0 371.8,110.0 345.8,125.0 319.8,110.0 319.8,80.0 345.8,65.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="423.7,80.0 423.7,110.0 397.7,125.0 371.8,110.0 371.8,80.0 397.7,65.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="475.7,80.0 475.7,110.0 449.7,125.0 423.7,110.0 423.7,80.0 449.7,65.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="86.0,125.0 86.0,155.0 60.0,170.0 34.0,155.0 34.0,125.0 60.0,110.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="137.9,125.0 137.9,155.0 112.0,170.0 86.0,155.0 86.0,125.0 112.0,110.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="189.9,125.0 189.9,155.0 163.9,170.0 137.9,155.0 137.9,125.0 163.9,110.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="241.9,125.0 241.9,155.0 215.9,170.0 189.9,155.0 189.9,125.0 215.9,110.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="293.8,125.0 293.8,155.0 267.8,170.0 241.9,155.0 241.9,125.0 267.8,110.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="345.8,125.0 345.8,155.0 319.8,170.0 293.8,155.0 293.8,125.0 319.8,110.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="397.7,125.0 397.7,155.0 371.8,170.0 345.8,155.0 345.8,125.0 371.8,110.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="449.7,125.0 449.7,155.0 423.7,170.0 397.7,155.0 397.7,125.0 423.7,110.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="112.0,170.0 112.0,200.0 86.0,215.0 60.0,200.0 60.0,170.0 86.0,155.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="163.9,170.0 163.9,200.0 137.9,215.0 112.0,200.0 112.0,170.0 137.9,155.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="215.9,170.0 215.9,200.0 189.9,215.0 163.9,200.0 163.9,170.0 189.9,155.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="267.8,170.0 267.8,200.0 241.9,215.0 215.9,200.0 215.9,170.0 241.9,155.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="319.8,170.0 319.8,200.0 293.8,215.0 267.8,200.0 267.8,170.0 293.8,155.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="371.8,170.0 371.8,200.0 345.8,215.0 319.8,200.0 319.8,170.0 345.8,155.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="423.7,170.0 423.7,200.0 397.7,215.0 371.8,200.0 371.8,170.0 397.7,155.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="475.7,170.0 475.7,200.0 449.7,215.0 423.7,200.0 423.7,170.0 449.7,155.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="86.0,215.0 86.0,245.0 60.0,260.0 34.0,245.0 34.0,215.0 60.0,200.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="137.9,215.0 137.9,245.0 112.0,260.0 86.0,245.0 86.0,215.0 112.0,200.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="189.9,215.0 189.9,245.0 163.9,260.0 137.9,245.0 137.9,215.0 163.9,200.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="241.9,215.0 241.9,245.0 215.9,260.0 189.9,245.0 189.9,215.0 215.9,200.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="293.8,215.0 293.8,245.0 267.8,260.0 241.9,245.0 241.9,215.0 267.8,200.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="345.8,215.0 345.8,245.0 319.8,260.0 293.8,245.0 293.8,215.0 319.8,200.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="397.7,215.0 397.7,245.0 371.8,260.0 345.8,245.0 345.8,215.0 371.8,200.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="449.7,215.0 449.7,245.0 423.7,260.0 397.7,245.0 397.7,215.0 423.7,200.0" fill="#0f2440" stroke="#24476e" stroke-width="0.5"/><polygon points="163.9,80.0 163.9,110.0 137.9,125.0 112.0,110.0 112.0,80.0 137.9,65.0" fill="#17345a"/><polygon points="137.9,125.0 137.9,155.0 112.0,170.0 86.0,155.0 86.0,125.0 112.0,110.0" fill="#17345a"/><polygon points="189.9,35.0 189.9,65.0 163.9,80.0 137.9,65.0 137.9,35.0 163.9,20.0" fill="#17345a"/><polygon points="241.9,35.0 241.9,65.0 215.9,80.0 189.9,65.0 189.9,35.0 215.9,20.0" fill="#17345a"/><polygon points="293.8,35.0 293.8,65.0 267.8,80.0 241.9,65.0 241.9,35.0 267.8,20.0" fill="#17345a"/><polygon points="371.8,80.0 371.8,110.0 345.8,125.0 319.8,110.0 319.8,80.0 345.8,65.0" fill="#17345a"/><polygon points="345.8,125.0 345.8,155.0 319.8,170.0 293.8,155.0 293.8,125.0 319.8,110.0" fill="#17345a"/><polygon points="319.8,170.0 319.8,200.0 293.8,215.0 267.8,200.0 267.8,170.0 293.8,155.0" fill="#17345a"/><polygon points="215.9,170.0 215.9,200.0 189.9,215.0 163.9,200.0 163.9,170.0 189.9,155.0" fill="#17345a"/><polygon points="163.9,170.0 163.9,200.0 137.9,215.0 112.0,200.0 112.0,170.0 137.9,155.0" fill="#17345a"/><polygon points="215.9,80.0 215.9,110.0 189.9,125.0 163.9,110.0 163.9,80.0 189.9,65.0" fill="#32534d" stroke="#f5efe0" stroke-opacity="0.35"/><image href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%224%22%20y%3D%226%22%20width%3D%223%22%20height%3D%2214%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%224%22%20width%3D%223.5%22%20height%3D%2216%22%2F%3E%3Cpath%20d%3D%22M11.5%207.5%20L14.5%206.7%20L17.7%2019.2%20L14.7%2020%20Z%22%2F%3E%3Cpath%20d%3D%22M4%209%20H7%20M7%207%20H10.5%20M7%2017%20H10.5%22%2F%3E%3Cpath%20d%3D%22M3%2020%20H21%22%2F%3E%3C%2Fsvg%3E" x="178.9" y="84.0" width="22" height="22"/><polygon points="267.8,80.0 267.8,110.0 241.9,125.0 215.9,110.0 215.9,80.0 241.9,65.0" fill="#647661" stroke="#f5efe0" stroke-opacity="0.35"/><image href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%209%20L12%203.5%20L21%209%20Z%22%2F%3E%3Cpath%20d%3D%22M4%2011%20H20%22%2F%3E%3Cpath%20d%3D%22M6%2011%20V18%20M10%2011%20V18%20M14%2011%20V18%20M18%2011%20V18%22%2F%3E%3Cpath%20d%3D%22M4%2018.5%20H20%20M3%2021%20H21%22%2F%3E%3C%2Fsvg%3E" x="230.9" y="84.0" width="22" height="22"/><polygon points="189.9,125.0 189.9,155.0 163.9,170.0 137.9,155.0 137.9,125.0 163.9,110.0" fill="#647661" stroke="#f5efe0" stroke-opacity="0.35"/><image href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%225%22%20r%3D%222%22%2F%3E%3Cpath%20d%3D%22M12%207%20V20%22%2F%3E%3Cpath%20d%3D%22M8%2010%20H16%22%2F%3E%3Cpath%20d%3D%22M4.5%2013%20C4.5%2017%208%2020%2012%2020%20C16%2020%2019.5%2017%2019.5%2013%22%2F%3E%3Cpath%20d%3D%22M3%2014.5%20L4.5%2013%20L6%2014.5%20M18%2014.5%20L19.5%2013%20L21%2014.5%22%2F%3E%3C%2Fsvg%3E" x="152.9" y="129.0" width="22" height="22"/><polygon points="241.9,125.0 241.9,155.0 215.9,170.0 189.9,155.0 189.9,125.0 215.9,110.0" fill="#647661" stroke="#f5efe0" stroke-opacity="0.35"/><image href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2021%20V15%20C12%2012%209.5%2011%207.5%209.5%20C5.5%208%204.5%206%204.5%203.5%22%2F%3E%3Cpath%20d%3D%22M12%2015%20C12%2012%2014.5%2011%2016.5%209.5%20C18.5%208%2019.5%206%2019.5%203.5%22%2F%3E%3Cpath%20d%3D%22M12%2015%20V3.5%22%2F%3E%3C%2Fsvg%3E" x="204.9" y="129.0" width="22" height="22"/><g opacity="{{isl.ext_reading}}"><polygon points="319.8,80.0 319.8,110.0 293.8,125.0 267.8,110.0 267.8,80.0 293.8,65.0" fill="#647661" stroke="#c8963c" stroke-width="1.2"/><image href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%2212%22%20width%3D%2218%22%20height%3D%222%22%20rx%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M4%2020%20L6%2014%20L8%2020%20M16%2020%20L18%2014%20L20%2020%22%2F%3E%3Cpath%20d%3D%22M7%2012%20V4.5%20L14.5%2012%22%2F%3E%3Cpath%20d%3D%22M8.75%2010.25%20V8.7%20L10.3%2010.25%20Z%22%2F%3E%3C%2Fsvg%3E" x="282.8" y="84.0" width="22" height="22"/></g><g opacity="{{isl.ext_tides}}"><polygon points="293.8,125.0 293.8,155.0 267.8,170.0 241.9,155.0 241.9,125.0 267.8,110.0" fill="#647661" stroke="#c8963c" stroke-width="1.2"/><image href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%2212%22%20width%3D%2218%22%20height%3D%222%22%20rx%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M4%2020%20L6%2014%20L8%2020%20M16%2020%20L18%2014%20L20%2020%22%2F%3E%3Cpath%20d%3D%22M7%2012%20V4.5%20L14.5%2012%22%2F%3E%3Cpath%20d%3D%22M8.75%2010.25%20V8.7%20L10.3%2010.25%20Z%22%2F%3E%3C%2Fsvg%3E" x="256.8" y="129.0" width="22" height="22"/></g><text x="200" y="232" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#f5efe0" stroke="#0f2440" stroke-width="3" paint-order="stroke">example-island</text></svg></div>
+        <span class="o-m" style="padding:0 4px">Workbench buildings beside the zones: one per island extension switched on in this scope.</span>
+      </div>
+      <div class="o-card" style="display:flex;flex-direction:column;min-height:0">
+        <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--rule)"><img alt="" width="16" height="16" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%2212%22%20width%3D%2218%22%20height%3D%222%22%20rx%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M4%2020%20L6%2014%20L8%2020%20M16%2020%20L18%2014%20L20%2020%22%2F%3E%3Cpath%20d%3D%22M7%2012%20V4.5%20L14.5%2012%22%2F%3E%3Cpath%20d%3D%22M8.75%2010.25%20V8.7%20L10.3%2010.25%20Z%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><span style="font-weight:600">Tide tables</span><span class="o-m">example-island · live artifact</span><span style="flex:1"></span><span class="chip ch-official">read-only</span></div>
+        <div style="margin:10px 12px;border:1px dashed var(--boundary);padding:10px;display:flex;flex-direction:column;gap:6px">
+          <span class="o-lbl">Framed, isolated · its own policy</span>
+          <div style="display:grid;grid-template-columns:90px 1fr 1fr;gap:3px 10px;font-size:12px" class="t">
+            <span>date</span><span>high</span><span>low</span>
+            <span style="color:var(--ink)">2026-10-18</span><span style="color:var(--ink)">06:12 · 4.1 m</span><span style="color:var(--ink)">12:30 · 0.8 m</span>
+            <span style="color:var(--ink)">2026-10-19</span><span style="color:var(--ink)">06:51 · 4.0 m</span><span style="color:var(--ink)">13:08 · 0.9 m</span>
+          </div>
+          <span class="o-m">Calls go through the bridge to read routes only (/api/artifacts/call). A write is refused today.</span>
+        </div>
+        <div style="padding:0 12px 10px;display:flex;flex-direction:column;gap:5px">
+          <sc-for list="{{facts}}" as="f" hint-placeholder-count="5"><div style="display:flex;gap:8px;align-items:baseline"><span style="width:5px;height:5px;flex:none;background:var(--gold);transform:rotate(45deg);position:relative;top:-2px"></span><span class="o-m" style="color:var(--ink)">{{f.t}}</span></div></sc-for>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":940}}'>
+class Component extends DCLogic {
+  icons() { return {"beacon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 7.5 L12 4.5 L15 7.5 Z\"/><path d=\"M9.5 7.5 V14 M14.5 7.5 V14\"/><path d=\"M8.5 14 H15.5\"/><path d=\"M12 9 C13 10.2 13.3 11 13.3 11.6 C13.3 12.4 12.7 13 12 13 C11.3 13 10.7 12.4 10.7 11.6 C10.7 11 11 10.2 12 9 Z\"/><path d=\"M12 14 V20 M9 20 H15\"/><path d=\"M3.5 8 L6.5 9.25 M3.5 13 L6.5 11.75 M20.5 8 L17.5 9.25 M20.5 13 L17.5 11.75\"/></svg>", "council-hall": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 9 L12 3.5 L21 9 Z\"/><path d=\"M4 11 H20\"/><path d=\"M6 11 V18 M10 11 V18 M14 11 V18 M18 11 V18\"/><path d=\"M4 18.5 H20 M3 21 H21\"/></svg>", "inbound": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 8 V4 H20 V20 H9 V16\"/><path d=\"M3 12 H14.5\"/><path d=\"M11 8.5 L14.5 12 L11 15.5\"/></svg>", "known-lands": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 6 L8 4 L16 6 L21 4 V18 L16 20 L8 18 L3 20 Z\"/><path d=\"M8 4 V18 M16 6 V20\"/><path d=\"M12 9.3 L14.77 10.9 L14.77 14.1 L12 15.7 L9.23 14.1 L9.23 10.9 Z\"/></svg>", "library": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"6\" width=\"3\" height=\"14\"/><rect x=\"7\" y=\"4\" width=\"3.5\" height=\"16\"/><path d=\"M11.5 7.5 L14.5 6.7 L17.7 19.2 L14.7 20 Z\"/><path d=\"M4 9 H7 M7 7 H10.5 M7 17 H10.5\"/><path d=\"M3 20 H21\"/></svg>", "machine": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 21 V11 L12 4.5 L19 11 V21\"/><circle cx=\"12\" cy=\"15\" r=\"2.2\"/><path d=\"M12 12.8 L12 11.7 M13.56 13.44 L14.33 12.67 M14.2 15 L15.3 15 M13.56 16.56 L14.33 17.33 M12 17.2 L12 18.3 M10.44 16.56 L9.67 17.33 M9.8 15 L8.7 15 M10.44 13.44 L9.67 12.67\"/><path d=\"M3 21 H21\"/></svg>", "role-steward": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 21 V8 C10 4.6 11.6 3 14 3 C16.4 3 18 4.6 18 7 C18 8.6 17 9.6 15.5 9.6\"/><path d=\"M8.5 14 H11.5\"/></svg>", "streams": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21 V15 C12 12 9.5 11 7.5 9.5 C5.5 8 4.5 6 4.5 3.5\"/><path d=\"M12 15 C12 12 14.5 11 16.5 9.5 C18.5 8 19.5 6 19.5 3.5\"/><path d=\"M12 15 V3.5\"/></svg>", "workbench": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"12\" width=\"18\" height=\"2\" rx=\"0.5\"/><path d=\"M4 20 L6 14 L8 20 M16 20 L18 14 L20 20\"/><path d=\"M7 12 V4.5 L14.5 12\"/><path d=\"M8.75 10.25 V8.7 L10.3 10.25 Z\"/></svg>", "workshop": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 21 V11 L8 7 V11 L13 7 V11 L18 7 V11 H21 V21\"/><path d=\"M6 21 V16 H10 V21\"/><rect x=\"13\" y=\"14.5\" width=\"5\" height=\"3\"/><path d=\"M3 21 H21\"/></svg>"}; }
+
+  ico(name, colour) {
+    const s = (this.icons()[name] || '').replace(/currentColor/g, colour || '#f5efe0');
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(s);
+  }
+
+  renderVals() {
+    const s = this.state || {};
+    const N = { ink: '#f5efe0', muted: '#a9b4c4', accw: '#1b3a5c', ok: '#8fc4a0', okw: '#1e374c', boundary: '#5f7896', rule: '#24476e' };
+    const scope = s.scope || 'example-island';
+    const segStyle = (on) => 'font:500 12px/16px system-ui,sans-serif;padding:5px 12px;border:0;cursor:pointer;' + (on ? 'background:' + N.accw + ';color:' + N.ink + ';box-shadow:inset 0 -2px 0 #c8963c;' : 'background:transparent;color:' + N.muted + ';');
+    const SCOPES = [['realm', 'Realm'], ['example-reach', 'Example Reach'], ['example-island', 'example-island']];
+    const scopes = SCOPES.map(x => ({ label: x[1], on: String(scope === x[0]), pick: () => this.setState({ scope: x[0] }), style: segStyle(scope === x[0]) }));
+    const CORE = [
+      ['beacon', 'beacon', 'Beacon', 'Attend · tab', 'core', true],
+      ['waiting', 'inbound', 'Waiting for you', 'Attend · tab', 'core', false],
+      ['known', 'known-lands', 'Known Lands', 'Observe · tab', 'core', false],
+      ['library', 'library', 'Library', 'Observe · tab', 'core', false],
+      ['council', 'council-hall', 'Council', 'Observe · tab', 'core', false],
+      ['streams', 'streams', 'Streams', 'Observe · tab', 'core', false],
+      ['workers', 'role-steward', 'Workers', 'Observe · tab; column in tables', 'core', false],
+      ['repos', 'workshop', 'Repositories', 'Act · tab', 'core', false],
+      ['machine', 'machine', 'Machine', 'Act · tab', 'core', false],
+      ['ext', 'workbench', 'Extensions', 'Extend · this switchboard', 'core', true]
+    ];
+    const ISLE = [
+      ['reading', 'Reading tracker', 'example-island', 'Extend tab · building on example-island', 'notes.search, notes.read', 'ok', ['realm', 'example-reach', 'example-island']],
+      ['tides', 'Tide tables', 'example-island', 'Extend tab · building on example-island', 'tides.read', 'ok', ['realm', 'example-reach', 'example-island']],
+      ['almanac', 'Release almanac', 'tools-example', 'Extend tab · building on tools-example', 'almanac.list, almanac.read, git.log', 'ok', ['realm', 'example-reach']],
+      ['ledger', 'Garden ledger', 'lowmarsh-almanac', 'not shown: manifest refused', 'manifest names no tools', 'refused', ['realm']]
+    ];
+    const DEFAULT_OFF = { tides: true, council: false };
+    const sw = s.sw || {};
+    const isOn = (id) => { const k = scope + ':' + id; return sw[k] === undefined ? !DEFAULT_OFF[id] : sw[k]; };
+    const toggle = (id) => () => { const n = Object.assign({}, sw); n[scope + ':' + id] = !isOn(id); this.setState({ sw: n }); };
+    const swStyle = (on, locked) => 'position:relative;width:34px;height:18px;border-radius:9px;cursor:' + (locked ? 'default' : 'pointer') + ';padding:0;border:1px solid ' + (on ? N.ok : N.boundary) + ';background:' + (on ? N.okw : 'transparent') + ';opacity:' + (locked ? '0.5' : '1');
+    const knob = (on) => 'position:absolute;top:2px;left:' + (on ? '18px' : '2px') + ';width:12px;height:12px;border-radius:50%;background:' + (on ? N.ok : N.muted);
+    const rows = [];
+    CORE.forEach((c, k) => {
+      const locked = c[5]; const on = locked || isOn(c[0]);
+      rows.push({ group: 'Core extensions · native instruments', gStyle: k === 0 ? '' : 'display:none', rowStyle: '', icon: this.ico(c[1], N.muted), name: c[2], where: c[3], src: 'ships with the app', state: locked ? 'always' : on ? 'on' : 'off', cls: on ? 'cd-thriving' : 'cd-quiet', on: String(on), aria: 'Switch ' + c[2], pick: locked ? () => null : toggle(c[0]), sw: swStyle(on, locked), knob: knob(on) });
+    });
+    const inScope = ISLE.filter(i => i[6].indexOf(scope) >= 0);
+    inScope.forEach((i, k) => {
+      const refused = i[5] === 'refused'; const on = !refused && isOn(i[0]);
+      rows.push({ group: 'Island extensions · live artifacts under Admin/Operations/Live Artifacts/', gStyle: k === 0 ? '' : 'display:none', rowStyle: refused ? 'opacity:0.7' : '', icon: this.ico('workbench', refused ? N.muted : N.ink), name: i[1], where: i[3], src: i[2] + ' · ' + i[4], state: refused ? 'refused' : on ? 'on' : 'off', cls: refused ? 'sv-attention' : on ? 'cd-thriving' : 'cd-quiet', on: String(on), aria: 'Switch ' + i[1], pick: refused ? () => null : toggle(i[0]), sw: swStyle(on, refused), knob: knob(on) });
+    });
+    const onN = rows.filter(r => r.on === 'true').length;
+    const SL = { realm: 'Scope: Realm · every island’s extensions', 'example-reach': 'Scope: territory Example Reach', 'example-island': 'Scope: the island example-island' };
+    const isl = { ext_reading: isOn('reading') ? '1' : '0', ext_tides: isOn('tides') ? '1' : '0' };
+    const facts = [
+      'Extensions never get their own route to files, processes or credentials; the backend boundary holds.',
+      'Shared tokens reach a frame only if the bridge sets them on its root (an OBS-ART-003 change).',
+      'When an extension needs to change something, it will go through Act: declare, confirm, receipt.',
+      'A refused manifest is listed with its reason, never silently dropped.',
+      'Switch state is per scope: off here can be on in the Realm.'
+    ].map(t => ({ t }));
+    return { scopes, rows, scopeLine: SL[scope], onCount: onN + ' of ' + rows.length + ' on in this scope', isl, facts };
+  }
+}
+</script>
+</body>
+</html>

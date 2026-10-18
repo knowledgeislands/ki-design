@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Observatory — Attend</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#0b1b31}
+.o-root{box-sizing:border-box;background:var(--deep);color:var(--ink);font:13px/18px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-variant-numeric:tabular-nums lining-nums;display:flex;flex-direction:column;overflow:hidden}
+.o-root *{box-sizing:border-box}
+.o-kick{font:600 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+.o-h1{margin:0;font:600 34px/40px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lede{margin:0;font-size:15px;line-height:22px;color:var(--muted)}
+.o-h2{margin:0;font:600 20px/26px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-h3{margin:0;font:600 16px/22px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lbl{font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.o-m{font-size:12px;line-height:16px;color:var(--muted)}
+.o-p{margin:0;font-size:13px;line-height:18px;color:var(--ink)}
+.o-mono{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px}
+.o-card{background:var(--paper);border:1px solid var(--rule);border-radius:4px}
+.o-pane{background:var(--paper);border:1px solid var(--rule)}
+.o-note{background:var(--raised);border:1px solid var(--rule);border-radius:4px;padding:10px 12px}
+.chip{display:inline-block;font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:1px 7px;border-radius:4px;white-space:nowrap}
+.ch-official{color:var(--accent);background:var(--accw)}
+.ch-agreed{color:var(--ok);background:var(--okw)}
+.ch-proposed{color:var(--warn);background:var(--warnw)}
+.ch-open{color:var(--bad);background:var(--badw)}
+.sv-blocking{color:var(--bad);background:var(--badw)}
+.sv-attention{color:var(--warn);background:var(--warnw)}
+.sv-note{color:var(--muted);background:transparent;border:1px solid var(--rule);padding:0 6px}
+.tag{display:inline-block;font:500 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:0 6px;border-radius:4px;border:1px solid var(--rule);color:var(--muted);white-space:nowrap}
+.btn{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:5px 10px;border-radius:4px;border:1px solid var(--boundary);background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap}
+.seg{display:flex;border:1px solid var(--boundary);border-radius:4px;overflow:hidden}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--muted);text-align:left;padding:5px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
+.tbl td{font-size:13px;line-height:20px;padding:5px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+.id{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--ink)}
+.t{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--muted);white-space:nowrap}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none}
+
+.b-row{display:grid;grid-template-columns:22px 18px 168px minmax(0,1fr) 150px 84px 116px;gap:0 10px;align-items:center;padding:5px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:20px;cursor:pointer;background:transparent;border-left:0;border-right:0;border-top:0;color:var(--ink);text-align:left;width:100%;font-family:inherit}
+.b-head{font-size:12px;line-height:16px;color:var(--muted);font-weight:500;cursor:default}
+.w-row{display:grid;grid-template-columns:22px 110px minmax(0,1fr) 190px 200px 130px;gap:0 12px;align-items:center;padding:5px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:20px}
+.new{font:600 10px/14px system-ui,sans-serif;letter-spacing:0.04em;color:var(--teal);border:1px solid var(--teal);border-radius:3px;padding:0 4px;margin-left:6px}
+.cd-thriving{color:var(--ok);background:var(--okw)}
+.cd-quiet{color:var(--muted);border:1px solid var(--rule);padding:0 6px}
+.cd-weathered{color:var(--muted);border:1px dashed var(--boundary);padding:0 6px}
+.cd-ruined{color:var(--muted);border:1px dotted var(--boundary);padding:0 6px;text-decoration:line-through}
+.kv{display:grid;grid-template-columns:118px minmax(0,1fr);gap:7px 12px;align-items:baseline}
+</style>
+</helmet>
+<div class="o-root" style="width:1440px;height:1200px;padding:36px 40px;gap:18px;--paper:#0f2440;--deep:#0b1b31;--raised:#182c46;--ink:#f5efe0;--muted:#a9b4c4;--accent:#9fbbd8;--ok:#8fc4a0;--teal:#7fc2c0;--warn:#c8963c;--bad:#f0947a;--rule:#24476e;--boundary:#5f7896;--okw:#1e374c;--warnw:#1e2d40;--badw:#2a3147;--accw:#1b3a5c;--gold:#c8963c;--sea:#0f2440;--shallow:#17345a">
+
+  <header style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:1px solid var(--rule);padding-bottom:14px;flex:none">
+    <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+      <div style="display:flex;align-items:center;gap:8px"><img alt="" width="18" height="18" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23c8963c%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2021%20V13%20H19%20V21%22%2F%3E%3Cpath%20d%3D%22M5%2013%20C5%209%208%206%2012%206%20C16%206%2019%209%2019%2013%22%2F%3E%3Cpath%20d%3D%22M12%209.5%20L18%204%20M13.5%2011%20L19.5%205.5%20M18%204%20L19.5%205.5%22%2F%3E%3Cpath%20d%3D%22M10.5%2021%20V17.5%20H13.5%20V21%22%2F%3E%3Cpath%20d%3D%22M3%2021%20H21%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><span class="o-kick">Observatory · 2 of 7</span></div>
+      <h1 class="o-h1">Attend — the Beacon and Waiting for you</h1>
+      <p class="o-lede">The Beacon gathers nothing of its own: it ranks what the instruments observed, the unusual above the complete.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none"><div style="display:flex;gap:6px;align-items:center"><span class="o-m">Beacon</span><span class="chip ch-agreed">Agreed</span><span class="o-m">Reef</span><span class="chip ch-official">Official</span><span class="o-m">Lantern</span><span class="chip ch-agreed">Agreed</span><span class="o-m">Waiting for you</span><span class="chip ch-open">Open</span></div>
+      <span class="o-m">Source: DESIGN.md §3.5, §3.6, §7.5, §12.3 · contracts beacon.ts SIGNAL_KINDS</span></div>
+  </header>
+
+  <div style="flex:none;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:16px;height:630px">
+
+    <!-- Beacon pane -->
+    <section class="o-pane" aria-label="Beacon" style="display:flex;flex-direction:column;min-height:0">
+      <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--rule)">
+        <img alt="" width="20" height="20" src="{{bIcon}}"><h2 class="o-h2">Beacon</h2>
+        <span class="o-m"><span class="t" style="color:var(--ink)">14</span> signals in Realm · <span class="t" style="color:var(--teal)">2</span> new since 09:12</span>
+        <span style="flex:1"></span>
+        <span class="o-lbl">Severity</span>
+        <div class="seg" role="group" aria-label="Severity filter"><sc-for list="{{sevs}}" as="f" hint-placeholder-count="4"><button type="button" aria-pressed="{{f.on}}" onClick="{{ f.pick }}" style="{{f.style}}">{{f.label}} <span class="t">{{f.n}}</span></button></sc-for></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 14px;border-bottom:1px solid var(--rule)">
+        <span class="o-lbl">Instrument</span>
+        <sc-for list="{{instChips}}" as="ic" hint-placeholder-count="8"><button type="button" aria-pressed="{{ic.on}}" onClick="{{ ic.pick }}" style="{{ic.style}}">{{ic.label}}</button></sc-for>
+      </div>
+      <div style="padding:0 6px;display:flex;flex-direction:column">
+        <div class="b-row b-head" role="row"><span>#</span><span></span><span>Subject</span><span>Signal</span><span>Category</span><span>Severity</span><span>Changed</span></div>
+        <sc-for list="{{signals}}" as="g" hint-placeholder-count="14">
+          <button type="button" class="b-row" aria-pressed="{{g.on}}" onClick="{{ g.pick }}" style="{{g.style}}">
+            <span class="t">{{g.rank}}</span>
+            <img alt="{{g.markAlt}}" width="16" height="16" src="{{g.mark}}">
+            <span style="display:flex;align-items:center;gap:6px;min-width:0"><img alt="" width="16" height="16" src="{{g.sIcon}}"><span class="id" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{g.subject}}</span></span>
+            <span style="min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{g.summary}}<span class="new" style="{{g.newStyle}}">new</span></span>
+            <span style="color:var(--muted)">{{g.category}}</span>
+            <span><span class="chip {{g.cls}}">{{g.severity}}</span></span>
+            <span class="t">{{g.changed}}</span>
+          </button>
+        </sc-for>
+        <div class="o-m" style="padding:10px 8px;display:{{emptyDisp}}">Nothing at this severity in Realm. The Beacon is quiet, not unobserved: all 9 contributors answered at 09:42.</div>
+      </div>
+      <div class="o-m" style="margin-top:auto;padding:8px 14px;border-top:1px solid var(--rule)">Ranked blocking › attention › note, then most recently changed. Reef = blocking, lantern = attention; a note carries no mark. Not observed: none — when a contributor fails, it is named here with its reason, never counted as quiet.</div>
+    </section>
+
+    <!-- Signal anatomy -->
+    <section class="o-pane" aria-label="Signal anatomy" style="display:flex;flex-direction:column;gap:12px;padding:14px 16px;min-height:0">
+      <div style="display:flex;align-items:center;justify-content:space-between"><span class="o-lbl">Signal anatomy · selected row</span><span class="t">{{sel.id}}</span></div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid var(--rule);border-radius:4px;flex:none"><img alt="{{sel.markAlt}}" width="32" height="32" src="{{sel.markBig}}"></span>
+        <div style="display:flex;flex-direction:column;gap:3px;min-width:0">
+          <span style="font:600 16px/22px ui-serif,Georgia,serif;color:var(--ink)">{{sel.summary}}</span>
+          <span style="display:flex;gap:6px;align-items:center"><span class="chip {{sel.cls}}">{{sel.severity}}</span><span class="o-m">{{sel.markWord}}</span></span>
+        </div>
+      </div>
+      <div class="kv">
+        <span class="o-lbl">Subject</span><span style="display:flex;align-items:center;gap:6px"><img alt="" width="16" height="16" src="{{sel.sIcon}}"><span class="id">{{sel.subject}}</span><span class="o-m">{{sel.territory}}</span></span>
+        <span class="o-lbl">Kind</span><span class="id">{{sel.kind}}</span>
+        <span class="o-lbl">Category</span><span class="o-p">{{sel.category}}</span>
+        <span class="o-lbl">Condition</span><span style="display:flex;gap:8px;align-items:center"><span class="chip {{sel.condCls}}">{{sel.cond}}</span><span class="o-m">{{sel.condWhy}}</span></span>
+        <span class="o-lbl">Freshness</span><span style="display:flex;flex-direction:column;gap:1px"><span class="t" style="color:var(--ink)">changed {{sel.changed}}</span><span class="t">observed 2026-10-18 09:42</span><span class="o-m">{{sel.age}} than the observation</span></span>
+        <span class="o-lbl">New</span><span class="o-p">{{sel.isNew}}</span>
+        <span class="o-lbl">Lands in</span><span style="display:flex;align-items:center;gap:6px"><img alt="" width="16" height="16" src="{{sel.landIcon}}"><span class="o-p">{{sel.lands}}</span></span>
+        <span class="o-lbl">On the chart</span><span class="o-p">{{sel.chart}}</span>
+      </div>
+      <div style="border-top:1px solid var(--rule);padding-top:10px;display:flex;flex-direction:column;gap:8px">
+        <span class="o-lbl">The marks</span>
+        <div style="display:grid;grid-template-columns:22px 92px minmax(0,1fr);gap:6px 8px;align-items:center">
+          <img alt="" width="18" height="18" src="{{legend.reef}}"><span style="font-weight:600;color:var(--bad)">Reef</span><span class="o-m">Blocking: something has stopped working.</span>
+          <img alt="" width="18" height="18" src="{{legend.lantern}}"><span style="font-weight:600;color:var(--warn)">Lantern</span><span class="o-m">Attention: unusual, a person should look.</span>
+          <span></span><span style="font-weight:600;color:var(--muted)">Note</span><span class="o-m">Everyday state. No mark, no colour.</span>
+        </div>
+        <span class="o-lbl" style="margin-top:4px">Conditions · from evidence freshness</span>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip cd-thriving">thriving</span><span class="chip cd-quiet">quiet</span><span class="chip cd-weathered">weathered</span><span class="chip cd-ruined">ruined</span></div>
+        <span class="o-m">Gold means attention, alone. Condition is never a score; every mark also has its word.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- Waiting for you -->
+  <section class="o-pane" aria-label="Waiting for you" style="flex:1;min-height:0;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--rule)">
+      <img alt="" width="20" height="20" src="{{wIcon}}"><h2 class="o-h2">Waiting for you</h2>
+      <span class="o-m">A person’s own inbox. Absorbs the Review queue, and the “with you” view of Work.</span>
+      <span style="flex:1"></span>
+      <div class="seg" role="group" aria-label="Kind"><sc-for list="{{kinds}}" as="k" hint-placeholder-count="6"><button type="button" aria-pressed="{{k.on}}" onClick="{{ k.pick }}" style="{{k.style}}">{{k.label}} <span class="t">{{k.n}}</span></button></sc-for></div>
+    </div>
+    <div style="padding:0 6px;display:flex;flex-direction:column">
+      <div class="w-row" style="font-size:12px;line-height:16px;color:var(--muted)"><span></span><span>Kind</span><span>What waits</span><span>Island</span><span>Opens</span><span>Since</span></div>
+      <sc-for list="{{waits}}" as="w" hint-placeholder-count="7">
+        <div class="w-row">
+          <img alt="" width="16" height="16" src="{{w.icon}}">
+          <span><span class="chip {{w.cls}}">{{w.kind}}</span></span>
+          <span>{{w.title}}</span>
+          <span class="id">{{w.island}}</span>
+          <span class="t" style="color:var(--accent)">{{w.opens}}</span>
+          <span class="t">{{w.since}}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div class="o-m" style="margin-top:auto;padding:8px 14px;border-top:1px solid var(--rule)">Ordered by kind, then oldest first. A query stops its thread, so it also raises a lantern on the Beacon; intake and captures are notes. Answering happens where the item opens, never from this list.</div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  icons() { return {"beacon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 7.5 L12 4.5 L15 7.5 Z\"/><path d=\"M9.5 7.5 V14 M14.5 7.5 V14\"/><path d=\"M8.5 14 H15.5\"/><path d=\"M12 9 C13 10.2 13.3 11 13.3 11.6 C13.3 12.4 12.7 13 12 13 C11.3 13 10.7 12.4 10.7 11.6 C10.7 11 11 10.2 12 9 Z\"/><path d=\"M12 14 V20 M9 20 H15\"/><path d=\"M3.5 8 L6.5 9.25 M3.5 13 L6.5 11.75 M20.5 8 L17.5 9.25 M20.5 13 L17.5 11.75\"/></svg>", "bridge": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 5.5 H21 M3 8 H21 M3 11 H21\"/><path d=\"M7.5 5.5 V8 M12 5.5 V8 M16.5 5.5 V8\"/><path d=\"M5 11 V19 M19 11 V19\"/><path d=\"M5 18 C5 14.1 8.1 11 12 11 C15.9 11 19 14.1 19 18\"/><path d=\"M3 20.5 Q4.5 19.5 6 20.5 T9 20.5 T12 20.5 T15 20.5 T18 20.5 T21 20.5\"/></svg>", "council-hall": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 9 L12 3.5 L21 9 Z\"/><path d=\"M4 11 H20\"/><path d=\"M6 11 V18 M10 11 V18 M14 11 V18 M18 11 V18\"/><path d=\"M4 18.5 H20 M3 21 H21\"/></svg>", "dock": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"3\" rx=\"0.5\"/><path d=\"M8 8 V6 M16 8 V6\"/><path d=\"M6 11 V17 M12 11 V17 M18 11 V17\"/><path d=\"M3 19 Q4.5 18 6 19 T9 19 T12 19 T15 19 T18 19 T21 19\"/></svg>", "inbound": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 8 V4 H20 V20 H9 V16\"/><path d=\"M3 12 H14.5\"/><path d=\"M11 8.5 L14.5 12 L11 15.5\"/></svg>", "island": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 19 Q5.25 17.5 7.5 19 T12 19 T16.5 19 T21 19\"/><path d=\"M5 16 C6.5 12.5 9 11 12 11 C15 11 17.5 12.5 19 16\"/><path d=\"M12.5 11 C12.5 8.5 12 6.5 11 5\"/><path d=\"M11 5 C9 4.5 7.5 5 6.5 6.5 M11 5 C13 4 14.5 4.5 15.5 6\"/></svg>", "lantern-signal": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 2.5 V7 M4 3.5 H13 V5.5\"/><path d=\"M10 8 L13 5.5 L16 8 Z\"/><path d=\"M10.5 8 L11 15 H15 L15.5 8\"/><path d=\"M10 15 H16 L15 17 H11 Z\"/><circle cx=\"13\" cy=\"11.25\" r=\"0.75\"/><path d=\"M13 17 V19\"/></svg>", "library": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"6\" width=\"3\" height=\"14\"/><rect x=\"7\" y=\"4\" width=\"3.5\" height=\"16\"/><path d=\"M11.5 7.5 L14.5 6.7 L17.7 19.2 L14.7 20 Z\"/><path d=\"M4 9 H7 M7 7 H10.5 M7 17 H10.5\"/><path d=\"M3 20 H21\"/></svg>", "machine": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 21 V11 L12 4.5 L19 11 V21\"/><circle cx=\"12\" cy=\"15\" r=\"2.2\"/><path d=\"M12 12.8 L12 11.7 M13.56 13.44 L14.33 12.67 M14.2 15 L15.3 15 M13.56 16.56 L14.33 17.33 M12 17.2 L12 18.3 M10.44 16.56 L9.67 17.33 M9.8 15 L8.7 15 M10.44 13.44 L9.67 12.67\"/><path d=\"M3 21 H21\"/></svg>", "port": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"5\" r=\"2\"/><path d=\"M12 7 V20\"/><path d=\"M8 10 H16\"/><path d=\"M4.5 13 C4.5 17 8 20 12 20 C16 20 19.5 17 19.5 13\"/><path d=\"M3 14.5 L4.5 13 L6 14.5 M18 14.5 L19.5 13 L21 14.5\"/></svg>", "reef-signal": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 15.5 L9 9.5 L11 11 L13.5 6 L18 15.5\"/><path d=\"M3 15.5 H21\"/><path d=\"M8 19.5 H16\"/></svg>", "role-steward": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 21 V8 C10 4.6 11.6 3 14 3 C16.4 3 18 4.6 18 7 C18 8.6 17 9.6 15.5 9.6\"/><path d=\"M8.5 14 H11.5\"/></svg>", "streams": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21 V15 C12 12 9.5 11 7.5 9.5 C5.5 8 4.5 6 4.5 3.5\"/><path d=\"M12 15 C12 12 14.5 11 16.5 9.5 C18.5 8 19.5 6 19.5 3.5\"/><path d=\"M12 15 V3.5\"/></svg>", "workshop": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 21 V11 L8 7 V11 L13 7 V11 L18 7 V11 H21 V21\"/><path d=\"M6 21 V16 H10 V21\"/><rect x=\"13\" y=\"14.5\" width=\"5\" height=\"3\"/><path d=\"M3 21 H21\"/></svg>"}; }
+
+  ico(name, colour) {
+    const s = (this.icons()[name] || '').replace(/currentColor/g, colour || '#f5efe0');
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(s);
+  }
+
+  renderVals() {
+    const s = this.state || {};
+    const N = { ink: '#f5efe0', muted: '#a9b4c4', accent: '#9fbbd8', warn: '#c8963c', bad: '#f0947a', ok: '#8fc4a0', teal: '#7fc2c0', rule: '#24476e', boundary: '#5f7896', accw: '#1b3a5c' };
+    const glyphFor = (id) => id === 'this machine' ? 'machine' : /-principal$/.test(id) ? 'council-hall' : /^tools-/.test(id) ? 'workshop' : /^mcp-/.test(id) ? 'bridge' : /^apps-/.test(id) ? 'port' : /(island|almanac)$/.test(id) ? 'library' : 'island';
+    const TERR = { 'example-island': 'Example Reach', 'example-principal': 'Example Reach', 'tools-example': 'Example Reach', 'mcp-example-notes': 'Example Reach', 'lowmarsh-principal': 'Lowmarsh', 'lowmarsh-almanac': 'Lowmarsh', 'ki-design': 'Knowledge Islands', 'tools-ki': 'Knowledge Islands', 'ki-specifications': 'Knowledge Islands', 'ki-principal': 'Knowledge Islands', 'this machine': 'host' };
+    const COND = { 'example-island': 'thriving', 'example-principal': 'thriving', 'tools-example': 'quiet', 'mcp-example-notes': 'quiet', 'lowmarsh-principal': 'quiet', 'lowmarsh-almanac': 'weathered', 'ki-design': 'thriving', 'tools-ki': 'thriving', 'ki-specifications': 'quiet', 'ki-principal': 'thriving', 'this machine': '' };
+    const LAND = { repositories: ['workshop', 'Repositories'], mcp: ['machine', 'Machine · MCP servers'], decisions: ['council-hall', 'Council'], automation: ['machine', 'Machine · schedules'], review: ['inbound', 'Waiting for you'], sessions: ['role-steward', 'Workers'], rig: ['machine', 'Machine · configuration'], roadmap: ['streams', 'Streams'], work: ['streams', 'Streams'] };
+    const SIG = [
+      ['s01', 'blocking', 'example-island', 'Merge conflict in 2 files on main', 'working tree', 'repositories', 'conflicted', '2026-10-18 09:31', '11 min earlier', true],
+      ['s02', 'blocking', 'mcp-example-notes', 'Needs 1 secret not set on this machine', 'security and credentials', 'mcp', 'credential', '2026-10-18 08:02', '1 h 40 min earlier', false],
+      ['s03', 'blocking', 'lowmarsh-principal', 'ADR-LOW-004 depends on a missing record', 'governance records', 'decisions', 'dangling', '2026-10-17 22:10', '11 h earlier', false],
+      ['s04', 'attention', 'ki-design', '3 commits on main only on this machine', 'sync', 'repositories', 'unpushed', '2026-10-18 09:12', '30 min earlier', true],
+      ['s05', 'attention', 'this machine', 'nightly-index silent since 02:00; due every 6 h', 'automation', 'automation', 'overdue', '2026-10-18 08:00', '1 h 42 min earlier', false],
+      ['s06', 'attention', 'example-island', 'A report query waits for your answer', 'work and review', 'review', 'query', '2026-10-18 07:45', '2 h earlier', false],
+      ['s07', 'attention', 'tools-example', 'An agent run stopped reporting at 08:55', 'automation', 'sessions', 'stale', '2026-10-18 07:40', '2 h earlier', false],
+      ['s08', 'attention', 'this machine', '2 home configuration files differ from source', 'configuration', 'rig', 'drift', '2026-10-18 06:15', '3 h earlier', false],
+      ['s09', 'attention', 'example-principal', 'Blocked by EXAMPLE-ISL-022', 'work and review', 'roadmap', 'blocked', '2026-10-17 15:40', '18 h earlier', false],
+      ['s10', 'attention', 'lowmarsh-almanac', 'HEAD detached at a3f9c21', 'working tree', 'repositories', 'detached', '2026-08-29 10:03', '50 days earlier', false],
+      ['s11', 'note', 'tools-ki', '4 changed, 1 untracked', 'working tree', 'repositories', 'dirty', '2026-10-18 09:05', '37 min earlier', false],
+      ['s12', 'note', 'example-island', '3 items under +/ to take in', 'work and review', 'review', 'intake', '2026-10-17 11:02', '23 h earlier', false],
+      ['s13', 'note', 'ki-specifications', '2 commits behind origin/main', 'sync', 'repositories', 'behind', '2026-09-30 12:00', '18 days earlier', false],
+      ['s14', 'note', 'this machine', 'weekly-audit reported 5 findings', 'automation', 'automation', 'findings', '2026-10-13 03:00', '5 days earlier', false]
+    ];
+    const sev = s.sev || 'all';
+    const inst = s.inst || 'all';
+    const segStyle = (on) => 'font:500 12px/16px system-ui,sans-serif;padding:4px 10px;border:0;cursor:pointer;' + (on ? 'background:' + N.accw + ';color:' + N.ink + ';box-shadow:inset 0 -2px 0 #c8963c;' : 'background:transparent;color:' + N.muted + ';');
+    const count = (f) => SIG.filter(f).length;
+    const sevs = [['all', 'All'], ['blocking', 'Blocking'], ['attention', 'Attention'], ['note', 'Note']].map(x => ({ label: x[1], n: String(count(g => x[0] === 'all' || g[1] === x[0])), on: String(sev === x[0]), pick: () => this.setState({ sev: x[0] }), style: segStyle(sev === x[0]) }));
+    const INSTS = ['all', 'repositories', 'mcp', 'decisions', 'automation', 'review', 'sessions', 'rig', 'roadmap'];
+    const instChips = INSTS.map(x => ({ label: x === 'all' ? 'all' : x, on: String(inst === x), pick: () => this.setState({ inst: x }),
+      style: 'font:500 12px/16px system-ui,sans-serif;padding:2px 8px;border-radius:4px;cursor:pointer;border:1px solid ' + (inst === x ? N.boundary : N.rule) + ';background:' + (inst === x ? N.accw : 'transparent') + ';color:' + (inst === x ? N.ink : N.muted) }));
+    const list = SIG.filter(g => (sev === 'all' || g[1] === sev) && (inst === 'all' || g[5] === inst));
+    const selId = list.some(g => g[0] === s.sel) ? s.sel : (list[0] ? list[0][0] : 's01');
+    const MARK = { blocking: ['reef-signal', N.bad, 'reef'], attention: ['lantern-signal', N.warn, 'lantern'], note: ['', '', 'no mark'] };
+    const blank = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"/>');
+    const markOf = (sv) => MARK[sv][0] ? this.ico(MARK[sv][0], MARK[sv][1]) : blank;
+    const signals = list.map((g, k) => {
+      const on = g[0] === selId;
+      return {
+        rank: String(k + 1), subject: g[2], summary: g[3], category: g[4], severity: g[1], cls: 'sv-' + g[1], changed: g[7],
+        mark: markOf(g[1]), markAlt: MARK[g[1]][2], sIcon: this.ico(glyphFor(g[2]), N.muted), on: String(on),
+        newStyle: g[9] ? '' : 'display:none',
+        pick: () => this.setState({ sel: g[0] }),
+        style: on ? 'background:' + N.accw + ';box-shadow:inset 3px 0 0 #c8963c;' : ''
+      };
+    });
+    const G = SIG.find(g => g[0] === selId);
+    const cond = COND[G[2]];
+    const CONDWHY = { thriving: 'latest commit within 7 days', quiet: 'healthy, little recent activity', weathered: 'latest commit over 30 days ago', ruined: 'archived', '': 'a host has no condition' };
+    const L = LAND[G[5]];
+    const sel = {
+      id: G[0], summary: G[3], severity: G[1], cls: 'sv-' + G[1], subject: G[2], territory: TERR[G[2]], kind: G[5] + '.' + G[6], category: G[4],
+      cond: cond || 'none', condCls: cond ? 'cd-' + cond : 'cd-quiet', condWhy: CONDWHY[cond],
+      changed: G[7], age: G[8], isNew: G[9] ? 'Yes, since the observation at 09:12' : 'No, seen at the last observation too',
+      markBig: markOf(G[1]), markAlt: MARK[G[1]][2], markWord: G[1] === 'blocking' ? 'Reef: drawn in rust by the structure' : G[1] === 'attention' ? 'Lantern: hung on the structure, gold' : 'No mark on the chart; the word stays',
+      sIcon: this.ico(glyphFor(G[2]), N.ink), landIcon: this.ico(L[0], N.accent), lands: L[1] + ' · the row for ' + G[2],
+      chart: G[2] === 'this machine' ? 'Not on the map: a host is a physical place, listed in Machine.' : (G[1] === 'note' ? 'No mark; the structure keeps its condition.' : (G[1] === 'blocking' ? 'A reef beside ' : 'A lantern on ') + G[2] + '.')
+    };
+    const kind = s.kind || 'all';
+    const WAIT = [
+      ['query', 'Which glossary term wins: tide or cycle?', 'example-island', 'thread · glossary-terms', '2026-10-18 07:45', 'inbound', 'sv-attention'],
+      ['query', 'Should the almanac keep its 2025 tables?', 'lowmarsh-almanac', 'thread · almanac-scope', '2026-10-17 18:30', 'inbound', 'sv-attention'],
+      ['record', 'PDR-EXAMPLE-007 awaits review', 'example-principal', 'Council · PDR-EXAMPLE-007', '2026-10-17 16:20', 'council-hall', 'sv-note'],
+      ['intake', '3 items under +/ to take in', 'example-island', '+/reading-2026-10-17', '2026-10-17 11:02', 'dock', 'sv-note'],
+      ['capture', '2 captures at Stage', 'example-island', 'Stage/', '2026-10-16 18:40', 'dock', 'sv-note'],
+      ['with you', 'EXAMPLE-TLS-031 is with you', 'tools-example', 'Streams · EXAMPLE-TLS-031', '2026-10-16 09:15', 'streams', 'sv-note']
+    ];
+    const kc = (k) => WAIT.filter(w => k === 'all' || w[0] === k).length;
+    const kinds = [['all', 'All'], ['query', 'Queries'], ['record', 'Records'], ['intake', 'Intake'], ['capture', 'Captures'], ['with you', 'With you']].map(x => ({ label: x[1], n: String(kc(x[0])), on: String(kind === x[0]), pick: () => this.setState({ kind: x[0] }), style: segStyle(kind === x[0]) }));
+    const waits = WAIT.filter(w => kind === 'all' || w[0] === kind).map(w => ({ kind: w[0], title: w[1], island: w[2], opens: w[3], since: w[4], icon: this.ico(w[5], N.muted), cls: w[6] }));
+    return {
+      bIcon: this.ico('beacon', '#c8963c'), wIcon: this.ico('inbound', N.ink),
+      sevs, instChips, signals, sel, kinds, waits,
+      emptyDisp: signals.length ? 'none' : 'block',
+      legend: { reef: this.ico('reef-signal', N.bad), lantern: this.ico('lantern-signal', N.warn) }
+    };
+  }
+}
+</script>
+</body>
+</html>

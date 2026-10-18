@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Observatory shell</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#0b1b31}
+.o-root{box-sizing:border-box;background:var(--deep);color:var(--ink);font:13px/18px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-variant-numeric:tabular-nums lining-nums;display:flex;flex-direction:column;overflow:hidden}
+.o-root *{box-sizing:border-box}
+.o-kick{font:600 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+.o-h1{margin:0;font:600 34px/40px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lede{margin:0;font-size:15px;line-height:22px;color:var(--muted)}
+.o-h2{margin:0;font:600 20px/26px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-h3{margin:0;font:600 16px/22px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lbl{font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.o-m{font-size:12px;line-height:16px;color:var(--muted)}
+.o-p{margin:0;font-size:13px;line-height:18px;color:var(--ink)}
+.o-mono{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px}
+.o-card{background:var(--paper);border:1px solid var(--rule);border-radius:4px}
+.o-pane{background:var(--paper);border:1px solid var(--rule)}
+.o-note{background:var(--raised);border:1px solid var(--rule);border-radius:4px;padding:10px 12px}
+.chip{display:inline-block;font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:1px 7px;border-radius:4px;white-space:nowrap}
+.ch-official{color:var(--accent);background:var(--accw)}
+.ch-agreed{color:var(--ok);background:var(--okw)}
+.ch-proposed{color:var(--warn);background:var(--warnw)}
+.ch-open{color:var(--bad);background:var(--badw)}
+.sv-blocking{color:var(--bad);background:var(--badw)}
+.sv-attention{color:var(--warn);background:var(--warnw)}
+.sv-note{color:var(--muted);background:transparent;border:1px solid var(--rule);padding:0 6px}
+.tag{display:inline-block;font:500 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:0 6px;border-radius:4px;border:1px solid var(--rule);color:var(--muted);white-space:nowrap}
+.btn{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:5px 10px;border-radius:4px;border:1px solid var(--boundary);background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap}
+.seg{display:flex;border:1px solid var(--boundary);border-radius:4px;overflow:hidden}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--muted);text-align:left;padding:5px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
+.tbl td{font-size:13px;line-height:20px;padding:5px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+.id{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--ink)}
+.t{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--muted);white-space:nowrap}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none}
+
+.g-row{display:grid;grid-template-columns:250px minmax(0,1fr) 210px 120px 140px;gap:0 12px;align-items:center;padding:5px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:20px}
+.g-head{font-size:12px;line-height:16px;color:var(--muted);font-weight:500;padding-top:4px;padding-bottom:4px}
+.cd-thriving{color:var(--ok);background:var(--okw)}
+.cd-quiet{color:var(--muted);border:1px solid var(--rule);padding:0 6px}
+.cd-weathered{color:var(--muted);border:1px dashed var(--boundary);padding:0 6px}
+.cd-ruined{color:var(--muted);border:1px dotted var(--boundary);padding:0 6px;text-decoration:line-through}
+.cd-plain{color:var(--muted);padding:1px 0}
+.num{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--gold);color:#0f2440;font:700 10px/1 system-ui,sans-serif;flex:none}
+</style>
+</helmet>
+<div class="o-root" style="width:1440px;height:1000px;padding:36px 40px;gap:18px;{{rootVars}}">
+
+  <header style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:1px solid var(--rule);padding-bottom:14px;flex:none">
+    <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+      <div style="display:flex;align-items:center;gap:8px"><img alt="" width="18" height="18" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23c8963c%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2021%20V13%20H19%20V21%22%2F%3E%3Cpath%20d%3D%22M5%2013%20C5%209%208%206%2012%206%20C16%206%2019%209%2019%2013%22%2F%3E%3Cpath%20d%3D%22M12%209.5%20L18%204%20M13.5%2011%20L19.5%205.5%20M18%204%20L19.5%205.5%22%2F%3E%3Cpath%20d%3D%22M10.5%2021%20V17.5%20H13.5%20V21%22%2F%3E%3Cpath%20d%3D%22M3%2021%20H21%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><span class="o-kick">Observatory · 1 of 7</span></div>
+      <h1 class="o-h1">The shell — four jobs, ten instruments</h1>
+      <p class="o-lede">One frame for every instrument: the job switch chooses the work, the tabs show only that job’s instruments.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none"><div style="display:flex;gap:14px;align-items:center">
+        <span class="o-lbl">Theme</span>
+        <div class="seg" role="group" aria-label="Theme"><sc-for list="{{themes}}" as="th" hint-placeholder-count="2"><button type="button" aria-pressed="{{th.on}}" onClick="{{ th.pick }}" style="{{th.style}}">{{th.label}}</button></sc-for></div>
+        <span class="o-lbl">Way in</span>
+        <div class="seg" role="group" aria-label="Way in"><sc-for list="{{ways}}" as="wy" hint-placeholder-count="2"><button type="button" aria-pressed="{{wy.on}}" onClick="{{ wy.pick }}" style="{{wy.style}}">{{wy.label}}</button></sc-for></div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center"><span class="o-lbl">Pane state</span><div class="seg" role="group" aria-label="State"><sc-for list="{{states}}" as="sv" hint-placeholder-count="5"><button type="button" aria-pressed="{{sv.on}}" onClick="{{ sv.pick }}" style="{{sv.style}}">{{sv.label}}</button></sc-for></div></div>
+      <div style="display:flex;gap:6px;align-items:center"><span class="o-m">Four jobs</span><span class="chip ch-agreed">Agreed</span><span class="o-m">Ten instruments</span><span class="chip ch-open">Open</span><span class="o-m">Tailnet</span><span class="chip ch-proposed">Proposed</span></div></div>
+  </header>
+
+  <!-- ============ the app frame ============ -->
+  <div style="flex:none;height:560px;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--boundary)">
+
+    <!-- top bar -->
+    <div style="height:44px;flex:none;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid var(--rule);white-space:nowrap">
+      <span class="num" aria-hidden="true">1</span><img alt="" width="20" height="20" src="{{mark}}"><span style="font:600 16px/1 ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)">Observatory</span>
+      <span style="width:1px;height:20px;background:var(--rule)"></span>
+      <span class="num" aria-hidden="true">2</span><span style="display:flex;align-items:center;gap:6px;height:26px;padding:0 8px;border:1px solid var(--boundary);border-radius:4px;font-size:12px;color:var(--ink)"><span class="o-m">Scope</span>Realm · 15 islands<img alt="" width="12" height="12" src="{{chev}}" style="transform:rotate(90deg)"></span>
+      <span class="num" aria-hidden="true">3</span><nav aria-label="Jobs" style="display:flex;align-items:stretch;height:44px;gap:4px">
+        <sc-for list="{{jobs}}" as="j" hint-placeholder-count="4">
+          <button type="button" aria-current="{{j.cur}}" onClick="{{ j.pick }}" style="{{j.style}}"><span style="{{j.box}}">{{j.name}}<span style="{{j.subStyle}}">{{j.sub}}</span></span></button>
+        </sc-for>
+      </nav>
+      <span style="flex:1"></span>
+      <span class="t">observed <span style="color:var(--ink)">2026-10-18 09:42</span></span>
+      <span style="display:flex;align-items:center;gap:6px;height:24px;padding:0 8px;border:1px solid var(--rule);border-radius:4px;font-size:12px"><img alt="" width="14" height="14" src="{{workersIcon}}">3 at work</span>
+      <span class="num" aria-hidden="true">8</span><span style="{{wayBadge.style}}"><img alt="" width="14" height="14" src="{{wayBadge.icon}}">{{wayBadge.text}}</span>
+      <img alt="Theme follows the system" width="18" height="18" src="{{themeIcon}}">
+    </div>
+
+    <!-- instrument tabs -->
+    <div style="height:38px;flex:none;display:flex;align-items:flex-end;gap:2px;padding:0 10px;border-bottom:1px solid var(--rule)">
+      <span class="num" aria-hidden="true">4</span>
+      <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="5">
+        <button type="button" aria-current="{{tb.cur}}" onClick="{{ tb.pick }}" style="{{tb.style}}"><img alt="" width="16" height="16" src="{{tb.icon}}">{{tb.name}}<span style="{{tb.countStyle}}">{{tb.count}}</span></button>
+      </sc-for>
+      <span style="flex:1"></span>
+      <span class="o-m" style="padding-bottom:10px">{{jobLine}}</span>
+    </div>
+
+    <!-- filter bar -->
+    <div style="height:38px;flex:none;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--rule)">
+      <span class="num" aria-hidden="true">5</span><img alt="" width="14" height="14" src="{{filterIcon}}">
+      <button type="button" onClick="{{ toggleFilter }}" style="{{filterChip.style}}">{{filterChip.text}}</button>
+      <span class="o-m">{{filterChip.note}}</span>
+      <span style="flex:1"></span>
+      <span class="o-m">Group by</span>
+      <span style="display:flex;gap:4px"><sc-for list="{{groups}}" as="g" hint-placeholder-count="3"><span style="{{g.style}}">{{g.t}}</span></sc-for></span>
+      <span class="o-m" style="margin-left:8px">{{shown}}</span>
+    </div>
+
+    <!-- pane -->
+    <div style="flex:1;min-height:0;display:flex">
+      <div style="flex:1;min-width:0;padding:10px 14px 8px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:baseline;gap:12px"><span class="num" aria-hidden="true">6</span><h2 style="margin:0;font:600 20px/26px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)">{{inst.name}}</h2><span class="o-m">{{inst.answers}}</span></div>
+        <div style="{{stateBox.style}}"><img alt="" width="20" height="20" src="{{stateBox.icon}}"><div style="display:flex;flex-direction:column;gap:4px"><span style="font:600 24px/30px ui-serif,Georgia,serif;color:var(--ink)">{{stateBox.title}}</span><span class="o-p" style="font-size:14px;line-height:20px">{{stateBox.line}}</span><span class="o-m">{{stateBox.detail}}</span></div></div>
+        <div role="table" style="{{tableStyle}}">
+          <div role="row" class="g-row g-head"><sc-for list="{{inst.cols}}" as="c" hint-placeholder-count="5"><span role="columnheader">{{c.t}}</span></sc-for></div>
+          <sc-for list="{{inst.rows}}" as="r" hint-placeholder-count="7">
+            <div role="row" class="g-row">
+              <span role="cell" style="display:flex;align-items:center;gap:6px;min-width:0"><img alt="" width="16" height="16" src="{{r.g}}"><span class="id">{{r.c1}}</span></span>
+              <span role="cell">{{r.c2}}</span>
+              <span role="cell" style="color:var(--muted)">{{r.c3}}</span>
+              <span role="cell"><span class="chip {{r.cls}}">{{r.c4}}</span></span>
+              <span role="cell" class="t">{{r.c5}}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="{{actNote.style}}"><img alt="" width="16" height="16" src="{{actNote.icon}}"><span>{{actNote.text}}</span><span style="flex:1"></span><span style="{{actNote.btnStyle}}">{{actNote.btn}}</span></div>
+        <div class="o-m" style="margin-top:auto;border-top:1px solid var(--rule);padding-top:6px">{{inst.foot}}</div>
+      </div>
+    </div>
+
+    <!-- status line -->
+    <div style="height:26px;flex:none;display:flex;align-items:center;gap:10px;padding:0 14px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted)">
+      <span class="num" aria-hidden="true">7</span><span style="color:var(--ink)">{{status.subject}}</span><span>·</span><span>{{status.summary}}</span><span>·</span><span class="t" style="{{status.obsStyle}}">{{status.obs}}</span><span>·</span><span>{{status.way}}</span>
+    </div>
+  </div>
+
+  <!-- ============ anatomy ============ -->
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px">
+    <sc-for list="{{notes}}" as="n" hint-placeholder-count="8">
+      <div class="o-note" style="display:flex;flex-direction:column;gap:4px">
+        <div style="display:flex;align-items:center;gap:8px"><span class="num">{{n.n}}</span><span style="font-weight:600;font-size:13px;color:var(--ink)">{{n.t}}</span></div>
+        <span class="o-m" style="font-size:12px;line-height:17px">{{n.d}}</span>
+      </div>
+    </sc-for>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  icons() { return {"beacon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 7.5 L12 4.5 L15 7.5 Z\"/><path d=\"M9.5 7.5 V14 M14.5 7.5 V14\"/><path d=\"M8.5 14 H15.5\"/><path d=\"M12 9 C13 10.2 13.3 11 13.3 11.6 C13.3 12.4 12.7 13 12 13 C11.3 13 10.7 12.4 10.7 11.6 C10.7 11 11 10.2 12 9 Z\"/><path d=\"M12 14 V20 M9 20 H15\"/><path d=\"M3.5 8 L6.5 9.25 M3.5 13 L6.5 11.75 M20.5 8 L17.5 9.25 M20.5 13 L17.5 11.75\"/></svg>", "bridge": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 5.5 H21 M3 8 H21 M3 11 H21\"/><path d=\"M7.5 5.5 V8 M12 5.5 V8 M16.5 5.5 V8\"/><path d=\"M5 11 V19 M19 11 V19\"/><path d=\"M5 18 C5 14.1 8.1 11 12 11 C15.9 11 19 14.1 19 18\"/><path d=\"M3 20.5 Q4.5 19.5 6 20.5 T9 20.5 T12 20.5 T15 20.5 T18 20.5 T21 20.5\"/></svg>", "check": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4.5 12.5 L9.5 17.5 L19.5 6.5\"/></svg>", "chevron": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 5 L16 12 L9 19\"/></svg>", "council-hall": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 9 L12 3.5 L21 9 Z\"/><path d=\"M4 11 H20\"/><path d=\"M6 11 V18 M10 11 V18 M14 11 V18 M18 11 V18\"/><path d=\"M4 18.5 H20 M3 21 H21\"/></svg>", "dock": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"3\" rx=\"0.5\"/><path d=\"M8 8 V6 M16 8 V6\"/><path d=\"M6 11 V17 M12 11 V17 M18 11 V17\"/><path d=\"M3 19 Q4.5 18 6 19 T9 19 T12 19 T15 19 T18 19 T21 19\"/></svg>", "filter": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6 H20 M7 12 H17 M10 18 H14\"/></svg>", "hourglass": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6.5 3.5 H17.5 M6.5 20.5 H17.5\"/><path d=\"M8 3.5 C8 8.5 16 8.5 16 12 C16 15.5 8 15.5 8 20.5\"/><path d=\"M16 3.5 C16 8.5 8 8.5 8 12 C8 15.5 16 15.5 16 20.5\"/><path d=\"M10 18 H14\"/></svg>", "inbound": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 8 V4 H20 V20 H9 V16\"/><path d=\"M3 12 H14.5\"/><path d=\"M11 8.5 L14.5 12 L11 15.5\"/></svg>", "info": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 11 V16.5\"/><circle cx=\"12\" cy=\"7.75\" r=\"0.4\"/></svg>", "known-lands": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 6 L8 4 L16 6 L21 4 V18 L16 20 L8 18 L3 20 Z\"/><path d=\"M8 4 V18 M16 6 V20\"/><path d=\"M12 9.3 L14.77 10.9 L14.77 14.1 L12 15.7 L9.23 14.1 L9.23 10.9 Z\"/></svg>", "library": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"6\" width=\"3\" height=\"14\"/><rect x=\"7\" y=\"4\" width=\"3.5\" height=\"16\"/><path d=\"M11.5 7.5 L14.5 6.7 L17.7 19.2 L14.7 20 Z\"/><path d=\"M4 9 H7 M7 7 H10.5 M7 17 H10.5\"/><path d=\"M3 20 H21\"/></svg>", "machine": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 21 V11 L12 4.5 L19 11 V21\"/><circle cx=\"12\" cy=\"15\" r=\"2.2\"/><path d=\"M12 12.8 L12 11.7 M13.56 13.44 L14.33 12.67 M14.2 15 L15.3 15 M13.56 16.56 L14.33 17.33 M12 17.2 L12 18.3 M10.44 16.56 L9.67 17.33 M9.8 15 L8.7 15 M10.44 13.44 L9.67 12.67\"/><path d=\"M3 21 H21\"/></svg>", "observatory": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 21 V13 H19 V21\"/><path d=\"M5 13 C5 9 8 6 12 6 C16 6 19 9 19 13\"/><path d=\"M12 9.5 L18 4 M13.5 11 L19.5 5.5 M18 4 L19.5 5.5\"/><path d=\"M10.5 21 V17.5 H13.5 V21\"/><path d=\"M3 21 H21\"/></svg>", "reef-signal": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 15.5 L9 9.5 L11 11 L13.5 6 L18 15.5\"/><path d=\"M3 15.5 H21\"/><path d=\"M8 19.5 H16\"/></svg>", "refresh": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5.5 8.25 C6.84 5.93 9.32 4.5 12 4.5 C14.68 4.5 17.16 5.93 18.5 8.25\"/><path d=\"M18.5 15.75 C17.16 18.07 14.68 19.5 12 19.5 C9.32 19.5 6.84 18.07 5.5 15.75\"/><path d=\"M14.5 8.45 L18.5 8.25 L18.9 4.25\"/><path d=\"M9.5 15.55 L5.5 15.75 L5.1 19.75\"/></svg>", "role-builder": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"8\" y=\"5\" width=\"7\" height=\"4\"/><path d=\"M5.5 4.5 H8 V9.5 H5.5 Z\"/><path d=\"M15 5 C17 5 18.5 3.8 19.5 2.5 M15 9 C17.5 9 19.5 7.8 20.5 5.5\"/><rect x=\"10.75\" y=\"9\" width=\"2.5\" height=\"12\" rx=\"1\"/></svg>", "role-navigator": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"4.2\" r=\"1.2\"/><path d=\"M11.5 5.3 L5 17 M12.5 5.3 L19 17\"/><path d=\"M5 17 Q12 22 19 17\"/><path d=\"M12 5.4 L14.1 19.3\"/><path d=\"M7.5 11.5 H14\"/></svg>", "role-steward": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 21 V8 C10 4.6 11.6 3 14 3 C16.4 3 18 4.6 18 7 C18 8.6 17 9.6 15.5 9.6\"/><path d=\"M8.5 14 H11.5\"/></svg>", "ruins": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 21 V10 L5.5 8.5 L6.5 10 L8 9 V21\"/><path d=\"M10.5 21 V15 L12 14 L13.5 15.5 V21\"/><path d=\"M16 21 V12 L17.5 13.5 L19 12.5 L20 13 V21\"/><path d=\"M3 21 H21\"/></svg>", "scroll": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 17 V5 C18 3.9 17.1 3 16 3 H5\"/><path d=\"M5 3 C6.1 3 7 3.9 7 5 V19 C7 20.1 7.9 21 9 21\"/><path d=\"M5 3 C3.9 3 3 3.9 3 5 V6.5 C3 7.1 3.4 7.5 4 7.5 H7\"/><path d=\"M9 21 C10.1 21 11 20.1 11 19 V18 C11 17.4 11.4 17 12 17 H20 C20.6 17 21 17.4 21 18 V19 C21 20.1 20.1 21 19 21 H9\"/><path d=\"M10 8 H15 M10 11.5 H15\"/></svg>", "streams": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21 V15 C12 12 9.5 11 7.5 9.5 C5.5 8 4.5 6 4.5 3.5\"/><path d=\"M12 15 C12 12 14.5 11 16.5 9.5 C18.5 8 19.5 6 19.5 3.5\"/><path d=\"M12 15 V3.5\"/></svg>", "theme": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10.06 6.01 C6.16 6.24 3.09 9.43 3 13.34 C2.92 17.24 5.84 20.56 9.73 20.96 C13.61 21.36 17.16 18.71 17.87 14.87 C15.39 16.39 12.18 15.9 10.25 13.72 C8.33 11.54 8.24 8.29 10.06 6.01 Z\"/><path d=\"M18.5 2.5 L19.2 4.3 L21 5 L19.2 5.7 L18.5 7.5 L17.8 5.7 L16 5 L17.8 4.3 Z\"/></svg>", "workbench": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"12\" width=\"18\" height=\"2\" rx=\"0.5\"/><path d=\"M4 20 L6 14 L8 20 M16 20 L18 14 L20 20\"/><path d=\"M7 12 V4.5 L14.5 12\"/><path d=\"M8.75 10.25 V8.7 L10.3 10.25 Z\"/></svg>", "workshop": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 21 V11 L8 7 V11 L13 7 V11 L18 7 V11 H21 V21\"/><path d=\"M6 21 V16 H10 V21\"/><rect x=\"13\" y=\"14.5\" width=\"5\" height=\"3\"/><path d=\"M3 21 H21\"/></svg>"}; }
+
+  ico(name, colour) {
+    const s = (this.icons()[name] || '').replace(/currentColor/g, colour || '#f5efe0');
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(s);
+  }
+
+  renderVals() {
+    /* Synthetic data shared by the Observatory boards. Every name, id and time below is invented,
+       except the public Knowledge Islands repository names. */
+    const JOBS = [
+      { id: 'observe', name: 'Observe', concept: 'Instruments', auth: 'Read-only', d: 'Read-only views of the knowledge and the work.' },
+      { id: 'attend', name: 'Attend', concept: 'The Beacon', auth: 'Read-only, derived', d: 'What warrants notice, the unusual above the complete.' },
+      { id: 'act', name: 'Act', concept: 'Governed change', auth: 'Mutating', d: 'Declared, confirmed and receipted. Absent over the tailnet.' },
+      { id: 'extend', name: 'Extend', concept: 'Live artifacts', auth: 'Each island’s own', d: 'Core and island extensions, on or off per scope.' }
+    ];
+    const INST = [
+      { id: 'beacon', name: 'Beacon', job: 'attend', icon: 'beacon', view: 'beacon' },
+      { id: 'waiting', name: 'Waiting for you', job: 'attend', icon: 'inbound', view: 'waiting' },
+      { id: 'known', name: 'Known Lands', job: 'observe', icon: 'known-lands', view: 'known-lands' },
+      { id: 'library', name: 'Library', job: 'observe', icon: 'library', view: 'library' },
+      { id: 'council', name: 'Council', job: 'observe', icon: 'council-hall', view: 'council' },
+      { id: 'streams', name: 'Streams', job: 'observe', icon: 'streams', view: 'streams' },
+      { id: 'workers', name: 'Workers', job: 'observe', icon: 'role-steward', view: 'workers' },
+      { id: 'repos', name: 'Repositories', job: 'act', icon: 'workshop', view: 'repositories' },
+      { id: 'machine', name: 'Machine', job: 'act', icon: 'machine', view: 'machine' },
+      { id: 'ext', name: 'Extensions', job: 'extend', icon: 'workbench', view: 'extensions' }
+    ];
+
+    const NIGHTV = {paper:'#0f2440',deep:'#0b1b31',raised:'#182c46',ink:'#f5efe0',muted:'#a9b4c4',accent:'#9fbbd8',ok:'#8fc4a0',teal:'#7fc2c0',warn:'#c8963c',bad:'#f0947a',rule:'#24476e',boundary:'#5f7896',okw:'#1e374c',warnw:'#1e2d40',badw:'#2a3147',accw:'#1b3a5c',gold:'#c8963c',sea:'#0f2440',shallow:'#17345a',vars:'--paper:#0f2440;--deep:#0b1b31;--raised:#182c46;--ink:#f5efe0;--muted:#a9b4c4;--accent:#9fbbd8;--ok:#8fc4a0;--teal:#7fc2c0;--warn:#c8963c;--bad:#f0947a;--rule:#24476e;--boundary:#5f7896;--okw:#1e374c;--warnw:#1e2d40;--badw:#2a3147;--accw:#1b3a5c;--gold:#c8963c;--sea:#0f2440;--shallow:#17345a'};
+    const DAYV = {paper:'#f5efe0',deep:'#e9e1cf',raised:'#ece6d8',ink:'#1a2030',muted:'#4a5568',accent:'#1b3a5c',ok:'#2d5a3d',teal:'#317070',warn:'#8a5a12',bad:'#9b2c1c',rule:'#d4c9b4',boundary:'#9a8358',okw:'#ddddcc',warnw:'#f1e8d3',badw:'#ead8c8',accw:'#e3e8ef',gold:'#c8963c',sea:'#d6e3e1',shallow:'#e4ece4',vars:'--paper:#f5efe0;--deep:#e9e1cf;--raised:#ece6d8;--ink:#1a2030;--muted:#4a5568;--accent:#1b3a5c;--ok:#2d5a3d;--teal:#317070;--warn:#8a5a12;--bad:#9b2c1c;--rule:#d4c9b4;--boundary:#9a8358;--okw:#ddddcc;--warnw:#f1e8d3;--badw:#ead8c8;--accw:#e3e8ef;--gold:#c8963c;--sea:#d6e3e1;--shallow:#e4ece4'};
+    const s = this.state || {};
+    const theme = s.theme || 'night';
+    const way = s.way || 'loopback';
+    const jobId = s.job || 'attend';
+    const firstOf = (j) => INST.find(i => i.job === j).id;
+    const instId = (INST.find(i => i.id === s.inst && i.job === jobId) || INST.find(i => i.job === jobId)).id;
+    const filtered = s.filter === undefined ? false : s.filter;
+    const tailnet = way === 'tailnet';
+    const T = theme === 'night' ? NIGHTV : DAYV;
+    const segStyle = (on) => 'font:500 12px/16px system-ui,sans-serif;padding:5px 14px;border:0;cursor:pointer;' + (on ? 'background:' + T.accw + ';color:' + T.ink + ';box-shadow:inset 0 -2px 0 #c8963c;' : 'background:transparent;color:' + T.muted + ';');
+
+    const themes = [['night', 'Night'], ['day', 'Day']].map(t => ({ label: t[1], on: String(t[0] === theme), pick: () => this.setState({ theme: t[0] }), style: segStyle(t[0] === theme) }));
+    const ways = [['loopback', 'Loopback'], ['tailnet', 'Tailnet, read-only']].map(t => ({ label: t[1], on: String(t[0] === way), pick: () => this.setState({ way: t[0] }), style: segStyle(t[0] === way) }));
+
+    const COUNTS = { beacon: '14', waiting: '6', known: '15', library: '212', council: '38', streams: '27', workers: '5', repos: '15', machine: '4', ext: '9' };
+    const jobs = JOBS.map(j => {
+      const on = j.id === jobId;
+      const isAct = j.id === 'act';
+      return {
+        name: j.name, cur: on ? 'true' : 'false',
+        pick: () => this.setState({ job: j.id, inst: firstOf(j.id) }),
+        sub: isAct ? (tailnet ? 'read-only' : 'governed') : '',
+        subStyle: isAct ? 'font-size:10px;font-weight:500;letter-spacing:0.04em;color:' + (tailnet ? T.muted : T.boundary) + ';margin-left:6px' : 'display:none',
+        style: 'display:flex;align-items:center;background:none;border:0;cursor:pointer;padding:0 6px;font:' + (on ? '600' : '500') + ' 13px/1 system-ui,sans-serif;color:' + (on ? T.accent : T.muted) + ';border-bottom:2px solid ' + (on ? '#c8963c' : 'transparent') + ';',
+        box: isAct ? 'display:flex;align-items:center;padding:4px 8px;border:1px solid ' + T.boundary + ';border-radius:4px;' : 'display:flex;align-items:center;padding:4px 2px;'
+      };
+    });
+    const tabs = INST.filter(i => i.job === jobId).map(i => {
+      const on = i.id === instId;
+      return {
+        name: i.name, cur: on ? 'page' : 'false', icon: this.ico(i.icon, on ? T.ink : T.muted), count: COUNTS[i.id],
+        countStyle: 'font:500 11px/14px ui-monospace,monospace;color:' + T.muted + ';margin-left:2px',
+        pick: () => this.setState({ inst: i.id }),
+        style: 'display:flex;align-items:center;gap:6px;height:37px;padding:0 10px;background:none;border:0;cursor:pointer;font:' + (on ? '600' : '500') + ' 13px/1 system-ui,sans-serif;color:' + (on ? T.ink : T.muted) + ';border-bottom:2px solid ' + (on ? '#c8963c' : 'transparent') + ';'
+      };
+    });
+    const jobDef = JOBS.find(j => j.id === jobId);
+    const jobLine = jobDef.name + ' · ' + jobDef.auth + ' · ' + tabs.length + ' of 10 instruments';
+
+    const C = (c, w) => ({ t: c, style: w ? 'width:' + w : '' });
+    const SV = { blocking: 'sv-blocking', attention: 'sv-attention', note: 'sv-note' };
+    const CD = { thriving: 'cd-thriving', quiet: 'cd-quiet', weathered: 'cd-weathered', ruined: 'cd-ruined' };
+    const row = (g, c1, c2, c3, c4, cls, c5) => ({ gi: g, c1, c2, c3, c4, cls, c5 });
+    const D = {
+      beacon: { answers: 'What warrants attention, ranked; the unusual above the complete.', cols: ['Subject', 'Signal', 'Category', 'Severity', 'Changed'],
+        rows: [row('workshop', 'example-island', 'Merge conflict in 2 files on main', 'working tree', 'blocking', SV.blocking, '2026-10-18 09:31'),
+               row('bridge', 'mcp-example-notes', 'Needs 1 secret that is not set on this machine', 'security and credentials', 'blocking', SV.blocking, '2026-10-18 08:02'),
+               row('council-hall', 'lowmarsh-principal', 'ADR-LOW-004 depends on a record that does not exist', 'governance records', 'blocking', SV.blocking, '2026-10-17 22:10'),
+               row('workshop', 'ki-design', '3 commits on main exist only on this machine', 'sync', 'attention', SV.attention, '2026-10-18 09:12'),
+               row('machine', 'this machine', 'nightly-index has not reported since 02:00', 'automation', 'attention', SV.attention, '2026-10-18 08:00'),
+               row('inbound', 'example-island', 'A report query waits for your answer', 'work and review', 'attention', SV.attention, '2026-10-18 07:45'),
+               row('workshop', 'tools-ki', '4 changed, 1 untracked', 'working tree', 'note', SV.note, '2026-10-18 09:05')],
+        foot: 'Ranked blocking › attention › note, then most recently changed. Contributors that could not be observed are named here, not hidden.' },
+      waiting: { answers: 'What waits for a person: queries, records to review, intake and captures.', cols: ['Island', 'Waiting', 'Kind', 'State', 'Since'],
+        rows: [row('inbound', 'example-island', 'Which glossary term wins: tide or cycle?', 'query', 'attention', SV.attention, '2026-10-18 07:45'),
+               row('council-hall', 'example-principal', 'PDR-EXAMPLE-007 awaits review', 'record', 'note', SV.note, '2026-10-17 16:20'),
+               row('dock', 'example-island', '3 items under +/ to take in', 'intake', 'note', SV.note, '2026-10-17 11:02'),
+               row('dock', 'example-island', '2 captures at Stage', 'capture', 'note', SV.note, '2026-10-16 18:40'),
+               row('streams', 'tools-example', 'EXAMPLE-TLS-031 is with you', 'work with you', 'note', SV.note, '2026-10-16 09:15')],
+        foot: 'Ordered by kind, then oldest first. A query stops its thread until answered, so it ranks as attention.' },
+      known: { answers: 'The whole realm at a glance. The chart is on board 3; this is its text equivalent.', cols: ['Island', 'Territory', 'Structure', 'Condition', 'Latest commit'],
+        rows: [row('library', 'ki-principal', 'Arcadia, the Capital', 'Knowledge Islands', 'thriving', CD.thriving, '2026-10-18 08:55'),
+               row('library', 'example-island', 'Library, Council Hall, Port, Streams', 'Example Reach', 'thriving', CD.thriving, '2026-10-18 09:31'),
+               row('workshop', 'tools-example', 'Workshop', 'Example Reach', 'quiet', CD.quiet, '2026-10-06 14:12'),
+               row('library', 'lowmarsh-almanac', 'Library', 'Lowmarsh', 'weathered', CD.weathered, '2026-08-29 10:03'),
+               row('ruins', 'lowmarsh-archive', 'Ruins', 'Lowmarsh', 'ruined', CD.ruined, '2025-11-02 17:40')],
+        foot: 'Condition comes from latest-commit age: thriving < 7 days, quiet < 30, weathered beyond, ruined when archived. Never a score.' },
+      library: { answers: 'What an island’s notes and documents say, read-only. One reader, two sources.', cols: ['Note or document', 'Island', 'Zone', 'Source', 'Updated'],
+        rows: [row('library', 'Glossary', 'example-island', 'Pillars', 'note', 'cd-plain', '2026-10-17 21:04'),
+               row('scroll', 'README.md', 'tools-example', 'Guides', 'document', 'cd-plain', '2026-10-06 14:12'),
+               row('library', 'Tide and cycle', 'example-island', 'Pillars', 'note', 'cd-plain', '2026-10-15 08:30'),
+               row('scroll', 'docs/specs/boundary.md', 'ki-specifications', 'Specifications', 'document', 'cd-plain', '2026-09-30 12:00'),
+               row('dock', 'Reading list', 'example-island', 'Port', 'note', 'cd-plain', '2026-10-12 19:22')],
+        foot: 'Knowledge Bases and Documents now share one reader. Search covers both; sources open in their own isolated frame.' },
+      council: { answers: 'How decision records depend on and layer over each other.', cols: ['Record', 'Island', 'Type', 'Status', 'Date'],
+        rows: [row('council-hall', 'ADR-LOW-004', 'lowmarsh-principal', 'architecture', 'dangling', SV.blocking, '2026-09-14'),
+               row('council-hall', 'PDR-EXAMPLE-007', 'example-principal', 'product', 'proposed', 'cd-quiet', '2026-10-17'),
+               row('council-hall', 'GDR-EXAMPLE-002', 'example-principal', 'governance', 'accepted', CD.thriving, '2026-10-02'),
+               row('council-hall', 'ADR-EXAMPLE-012', 'tools-example', 'architecture', 'accepted', CD.thriving, '2026-09-21'),
+               row('council-hall', 'ADR-EXAMPLE-003', 'example-island', 'architecture', 'superseded', CD.weathered, '2026-03-11')],
+        foot: 'Findings first (dangling, drifted, unmarked mirror), then records by island. Status words are the records’ own.' },
+      streams: { answers: 'Governed work in motion: planned, blocked, waiting or stale.', cols: ['Item', 'Island', 'Horizon', 'Status', 'Updated'],
+        rows: [row('streams', 'EXAMPLE-PRI-014', 'example-principal', 'now', 'blocked', SV.attention, '2026-10-17 15:40'),
+               row('streams', 'EXAMPLE-ISL-022', 'example-island', 'now', 'active', 'cd-thriving', '2026-10-18 09:20'),
+               row('streams', 'EXAMPLE-TLS-031', 'tools-example', 'now', 'with you', SV.note, '2026-10-16 09:15'),
+               row('streams', 'EXAMPLE-ISL-019', 'example-island', 'next', 'waiting', SV.note, '2026-10-11 10:00'),
+               row('streams', 'LOW-ALM-006', 'lowmarsh-almanac', 'later', 'stale', SV.note, '2026-08-29 10:03')],
+        foot: 'Grouped by horizon, then status. Work from ki work status (moving, stuck, blocked, on hold) is merged here.' },
+      workers: { answers: 'Who is at work, human or AI, and on what. A column of the work, not an agents dashboard.', cols: ['Worker', 'Touching', 'Role (proposed)', 'State', 'Since'],
+        rows: [row('role-builder', 'Claude Code', 'tools-example · EXAMPLE-TLS-031', 'Builder', 'at work', CD.thriving, '2026-10-18 09:12'),
+               row('role-builder', 'Codex', 'ki-design · branch tokens-refresh', 'Builder', 'waiting', SV.attention, '2026-10-18 08:55'),
+               row('role-navigator', 'Paperclip', 'example-principal → example-island', 'Navigator', 'at work', CD.thriving, '2026-10-18 09:30'),
+               row('role-steward', 'You (commit author)', 'ki-principal · 3 commits today', 'Steward', 'at work', CD.thriving, '2026-10-18 08:55'),
+               row('hourglass', 'nightly-index (job)', 'this machine', 'Scout', 'overdue', SV.attention, '2026-10-18 02:00')],
+        foot: 'Evidence-sourced only: agent runs from Sessions, authors from Git, jobs from Automation. Roles are proposed.' },
+      repos: { answers: 'Each checkout’s working state, with governed fetch, pull and push.', cols: ['Repository', 'Branch', 'Working tree', 'Signal', 'Head'],
+        rows: [row('workshop', 'example-island', 'main ↑0 ↓2', '2 conflicted', 'conflicted', SV.blocking, '2026-10-18 09:31'),
+               row('workshop', 'ki-design', 'main ↑3 ↓0', 'clean', 'unpushed', SV.attention, '2026-10-18 09:12'),
+               row('workshop', 'lowmarsh-almanac', 'detached a3f9c21', 'clean', 'detached', SV.attention, '2026-08-29 10:03'),
+               row('workshop', 'tools-ki', 'main ↑0 ↓0', '4 changed · 1 untracked', 'dirty', SV.note, '2026-10-18 09:05'),
+               row('workshop', 'ki-specifications', 'main ↑0 ↓2', 'clean', 'behind', SV.note, '2026-09-30 12:00')],
+        foot: 'Fetch, pull and push are planned, confirmed and receipted (board 5). A row click never mutates.' },
+      machine: { answers: 'This host: tooling, configuration drift, services, MCP servers and schedules.', cols: ['Item', 'Kind', 'Detail', 'State', 'Observed'],
+        rows: [row('machine', 'home configuration', 'drift', '2 files differ from source', 'drift', SV.attention, '2026-10-18 09:40'),
+               row('bridge', 'example-notes', 'MCP server · stdio', '0 of 1 secrets set', 'credential', SV.blocking, '2026-10-18 08:02'),
+               row('hourglass', 'nightly-index', 'schedule · every 6 h', 'last run 2026-10-17 20:00', 'overdue', SV.attention, '2026-10-18 08:00'),
+               row('machine', 'example-sync', 'service', 'running', 'running', CD.thriving, '2026-10-18 09:40'),
+               row('machine', 'bun 1.3', 'tooling', 'present', 'present', 'cd-plain', '2026-10-18 09:40')],
+        foot: 'Rig, MCP servers and Automation’s schedules in one host view. Restart, apply and update go through the Act flow.' },
+      ext: { answers: 'Core and island extensions, switched on or off per scope.', cols: ['Extension', 'Source', 'Scope', 'State', 'Tools'],
+        rows: [row('known-lands', 'Known Lands', 'core', 'realm', 'on', CD.thriving, 'native'),
+               row('workbench', 'Reading tracker', 'example-island', 'example-island', 'on', CD.thriving, '2 read tools'),
+               row('workbench', 'Tide tables', 'example-island', 'example-island', 'off', 'cd-quiet', '1 read tool'),
+               row('workbench', 'Release almanac', 'tools-example', 'Example Reach', 'on', CD.thriving, '3 read tools'),
+               row('workbench', 'Garden ledger', 'lowmarsh-almanac', 'Lowmarsh', 'refused', SV.attention, 'manifest invalid')],
+        foot: 'Island extensions are live artifacts under a KB’s Admin/Operations/Live Artifacts/; read-only today.' }
+    };
+    const I = INST.find(i => i.id === instId);
+    const d = D[instId];
+    let rows = d.rows;
+    const filterable = ['beacon', 'waiting', 'known', 'library', 'streams', 'repos', 'workers', 'council'].indexOf(instId) >= 0;
+    if (filtered && filterable) rows = rows.filter(r => r.c1 === 'example-island' || r.c3 === 'example-island' || r.c2.indexOf('example-island') >= 0);
+    const inst = {
+      name: I.name, answers: d.answers, foot: d.foot,
+      cols: d.cols.map(c => C(c)),
+      rows: rows.map(r => Object.assign({}, r, { g: this.ico(r.gi, T.muted) }))
+    };
+    const filterChip = filtered
+      ? { text: 'repository: example-island  ×', note: 'A filter, not a scope: it holds as you move between instruments.', style: 'font:500 12px/16px ui-monospace,monospace;padding:3px 8px;border-radius:4px;border:1px solid ' + T.boundary + ';background:' + T.accw + ';color:' + T.ink + ';cursor:pointer' }
+      : { text: 'Add a filter', note: 'Select an island on Known Lands, or click here to filter by example-island.', style: 'font:500 12px/16px system-ui,sans-serif;padding:3px 8px;border-radius:4px;border:1px dashed ' + T.boundary + ';background:transparent;color:' + T.muted + ';cursor:pointer' };
+    const toggleFilter = () => this.setState({ filter: !filtered });
+    const GROUPS = { beacon: ['severity', 'category', 'instrument'], waiting: ['kind', 'island'], known: ['territory', 'condition'], library: ['zone', 'source'], council: ['island', 'type'], streams: ['horizon', 'status'], workers: ['state', 'role'], repos: ['signal', 'territory'], machine: ['kind', 'state'], ext: ['source', 'state'] };
+    const groups = GROUPS[instId].map((g, k) => ({ t: g, style: 'font-size:12px;padding:2px 8px;border-radius:4px;border:1px solid ' + (k === 0 ? T.boundary : T.rule) + ';color:' + (k === 0 ? T.ink : T.muted) + ';' + (k === 0 ? 'background:' + T.accw + ';' : '') }));
+    const shown = rows.length + ' of ' + d.rows.length + ' shown';
+
+    const isAct = jobId === 'act';
+    const isExt = jobId === 'extend';
+    const NOTE_BASE = 'display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:4px;font-size:12.5px;line-height:18px;';
+    let actNote = { style: 'display:none', icon: this.ico('info', T.muted), text: '', btn: '', btnStyle: '' };
+    if (isAct && !tailnet) actNote = { style: NOTE_BASE + 'border:1px solid ' + T.boundary + ';color:' + T.ink, icon: this.ico('check', T.ok), text: 'Select rows, then plan. The plan names its tier, inputs and effect before anything changes.', btn: instId === 'repos' ? 'Plan pull · 2 repositories' : 'Plan rig apply', btnStyle: 'font-size:12px;font-weight:600;padding:4px 10px;border-radius:4px;border:1px solid ' + T.boundary + ';color:' + T.ink };
+    if (isAct && tailnet) actNote = { style: NOTE_BASE + 'border:1px dashed ' + T.rule + ';color:' + T.muted, icon: this.ico('info', T.muted), text: 'Read-only over the tailnet. Acting routes are absent here (404), so no plan can start. Open the Observatory on its host to act.', btn: 'no Act on this listener', btnStyle: 'font-size:12px;color:' + T.muted };
+    if (isExt && tailnet) actNote = { style: NOTE_BASE + 'border:1px dashed ' + T.rule + ';color:' + T.muted, icon: this.ico('info', T.muted), text: 'Switches are shown, not changed, over the tailnet: a switch writes a host preference.', btn: '', btnStyle: 'display:none' };
+
+    const wayBadge = tailnet
+      ? { text: 'Read-only · via tailnet', icon: this.ico('info', T.accent), style: 'display:flex;align-items:center;gap:6px;height:24px;padding:0 8px;border-radius:4px;font-size:12px;font-weight:600;color:' + T.accent + ';background:' + T.accw }
+      : { text: '127.0.0.1:1675', icon: this.ico('check', T.ok), style: 'display:flex;align-items:center;gap:6px;height:24px;padding:0 8px;border-radius:4px;font:12px ui-monospace,monospace;color:' + T.muted + ';border:1px solid ' + T.rule };
+    const st = s.st || 'live';
+    const states = [['live', 'Observed'], ['loading', 'Observing'], ['empty', 'Empty'], ['failed', 'Not observed'], ['stale', 'Stale']].map(x => ({ label: x[1], on: String(st === x[0]), pick: () => this.setState({ st: x[0] }), style: segStyle(st === x[0]) }));
+    const SB = {
+      loading: { icon: 'refresh', title: 'Observing ' + I.name + '…', line: 'The first observation of this scope is under way. Nothing is shown until it is read, so nothing is guessed.', detail: 'On later refreshes the last observation stays on screen with its time; only the status line says “observing”.' },
+      empty: { icon: 'check', title: instId === 'beacon' ? 'Nothing warrants attention.' : 'Nothing here in this scope.', line: 'Observed and empty: every contributor answered at 2026-10-18 09:42.', detail: 'Quiet is a result, not a gap. The empty state says what was checked and when.' },
+      failed: { icon: 'reef-signal', title: I.name + ' was not observed.', line: 'The source could not be read: the ki command did not answer within its time limit.', detail: 'Try again, or run the Observatory with the ki command on its path. An unobserved instrument is never counted as quiet; the Beacon names it in its foot note.' },
+      stale: { icon: 'hourglass', title: '', line: '', detail: '' }
+    };
+    const showBox = st === 'loading' || st === 'empty' || st === 'failed';
+    const B = SB[st] || SB.stale;
+    const stateBox = { icon: this.ico(B.icon, st === 'failed' ? T.bad : T.muted), title: B.title, line: B.line, detail: B.detail,
+      style: showBox ? 'display:flex;gap:12px;align-items:flex-start;padding:18px 16px;border:1px ' + (st === 'failed' ? 'solid ' + T.bad : 'dashed ' + T.rule) + ';border-radius:4px;margin-top:6px' : 'display:none' };
+    const tableStyle = showBox ? 'display:none' : 'display:flex;flex-direction:column;' + (st === 'stale' ? 'opacity:0.72' : '');
+    const status = { subject: I.name, summary: (st === 'loading' ? 'observing…' : st === 'failed' ? 'not observed' : st === 'empty' ? '0 rows' : st === 'stale' ? 'stale: last observed 3 h 10 min ago · refresh' : rows.length + ' rows') + (filtered && filterable ? ' · filtered to example-island' : '') + (instId === 'beacon' && (st === 'live' || st === 'stale') ? ' · 3 blocking · 2 new' : ''), obs: st === 'stale' ? 'observed 2026-10-18 06:32' : st === 'failed' ? 'tried 2026-10-18 09:42' : st === 'loading' ? 'started 2026-10-18 09:42' : 'observed 2026-10-18 09:42', obsStyle: st === 'stale' ? 'color:' + T.warn : '', way: tailnet ? 'via tailnet as operator, read-only' : 'via loopback' };
+
+    const notes = [
+      { n: '1', t: 'Mark and name', d: 'The domed Observatory glyph, then “Observatory” in the system serif. No web fonts are fetched.' },
+      { n: '2', t: 'Scope', d: 'This repository, one territory, or the realm. Scope decides what is observed; every instrument reads it.' },
+      { n: '3', t: 'Job switch', d: 'Observe · Attend · Act · Extend. Act wears a control edge because it mutates; the shell opens on Attend.' },
+      { n: '4', t: 'Instrument tabs', d: 'Only the job’s instruments, two to five. 16 px glyph plus text; scrolls in its own width at 720 px.' },
+      { n: '5', t: 'Filter, not scope', d: 'Selecting an island filters every instrument without re-observing. One chip, one way to clear it.' },
+      { n: '6', t: 'Pane and foot note', d: 'Tables stay tables; at ≤ 760 px declared columns drop. Ordering rules and legends sit under the data.' },
+      { n: '7', t: 'Status line', d: 'Subject · summary · observed time · way in. One line, the same height on every instrument.' },
+      { n: '8', t: 'Way in', d: 'Loopback has full authority. The tailnet listener is read-only, and the frame says so in two places.' }
+    ];
+    return {
+      states, stateBox, tableStyle,
+      rootVars: T.vars,
+      themes, ways, jobs, tabs, jobLine, inst, filterChip, toggleFilter, groups, shown, actNote, wayBadge, status, notes,
+      mark: this.ico('observatory', '#c8963c'), chev: this.ico('chevron', T.muted), workersIcon: this.ico('role-steward', T.ok),
+      filterIcon: this.ico('filter', T.muted), themeIcon: this.ico('theme', T.muted)
+    };
+  }
+}
+</script>
+</body>
+</html>

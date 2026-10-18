@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Observatory — Act</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#0b1b31}
+.o-root{box-sizing:border-box;background:var(--deep);color:var(--ink);font:13px/18px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-variant-numeric:tabular-nums lining-nums;display:flex;flex-direction:column;overflow:hidden}
+.o-root *{box-sizing:border-box}
+.o-kick{font:600 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+.o-h1{margin:0;font:600 34px/40px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lede{margin:0;font-size:15px;line-height:22px;color:var(--muted)}
+.o-h2{margin:0;font:600 20px/26px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-h3{margin:0;font:600 16px/22px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lbl{font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.o-m{font-size:12px;line-height:16px;color:var(--muted)}
+.o-p{margin:0;font-size:13px;line-height:18px;color:var(--ink)}
+.o-mono{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px}
+.o-card{background:var(--paper);border:1px solid var(--rule);border-radius:4px}
+.o-pane{background:var(--paper);border:1px solid var(--rule)}
+.o-note{background:var(--raised);border:1px solid var(--rule);border-radius:4px;padding:10px 12px}
+.chip{display:inline-block;font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:1px 7px;border-radius:4px;white-space:nowrap}
+.ch-official{color:var(--accent);background:var(--accw)}
+.ch-agreed{color:var(--ok);background:var(--okw)}
+.ch-proposed{color:var(--warn);background:var(--warnw)}
+.ch-open{color:var(--bad);background:var(--badw)}
+.sv-blocking{color:var(--bad);background:var(--badw)}
+.sv-attention{color:var(--warn);background:var(--warnw)}
+.sv-note{color:var(--muted);background:transparent;border:1px solid var(--rule);padding:0 6px}
+.tag{display:inline-block;font:500 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:0 6px;border-radius:4px;border:1px solid var(--rule);color:var(--muted);white-space:nowrap}
+.btn{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:5px 10px;border-radius:4px;border:1px solid var(--boundary);background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap}
+.seg{display:flex;border:1px solid var(--boundary);border-radius:4px;overflow:hidden}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--muted);text-align:left;padding:5px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
+.tbl td{font-size:13px;line-height:20px;padding:5px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+.id{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--ink)}
+.t{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--muted);white-space:nowrap}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none}
+
+.tier-plan{color:var(--accent);background:var(--accw)}
+.tier-mutate{color:var(--warn);background:var(--warnw)}
+.tier-destructive{color:var(--bad);background:var(--badw)}
+.cd-thriving{color:var(--ok);background:var(--okw)}
+.kv{display:grid;grid-template-columns:120px minmax(0,1fr);gap:9px 14px;align-items:baseline}
+.in-row{display:grid;grid-template-columns:200px 120px 130px minmax(0,1fr);gap:0 12px;align-items:center;padding:5px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:20px}
+.rc-row{display:grid;grid-template-columns:118px minmax(0,1fr) 84px 96px;gap:0 10px;align-items:center;padding:5px 0;border-bottom:1px solid var(--rule);font-size:12.5px;line-height:18px}
+.step{display:flex;align-items:center;gap:10px;padding:8px 14px;border:0;background:transparent;cursor:pointer;font-family:inherit;text-align:left}
+</style>
+</helmet>
+<div class="o-root" style="width:1440px;height:980px;padding:36px 40px;gap:18px;--paper:#0f2440;--deep:#0b1b31;--raised:#182c46;--ink:#f5efe0;--muted:#a9b4c4;--accent:#9fbbd8;--ok:#8fc4a0;--teal:#7fc2c0;--warn:#c8963c;--bad:#f0947a;--rule:#24476e;--boundary:#5f7896;--okw:#1e374c;--warnw:#1e2d40;--badw:#2a3147;--accw:#1b3a5c;--gold:#c8963c;--sea:#0f2440;--shallow:#17345a">
+
+  <header style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:1px solid var(--rule);padding-bottom:14px;flex:none">
+    <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+      <div style="display:flex;align-items:center;gap:8px"><img alt="" width="18" height="18" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23c8963c%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2021%20V13%20H19%20V21%22%2F%3E%3Cpath%20d%3D%22M5%2013%20C5%209%208%206%2012%206%20C16%206%2019%209%2019%2013%22%2F%3E%3Cpath%20d%3D%22M12%209.5%20L18%204%20M13.5%2011%20L19.5%205.5%20M18%204%20L19.5%205.5%22%2F%3E%3Cpath%20d%3D%22M10.5%2021%20V17.5%20H13.5%20V21%22%2F%3E%3Cpath%20d%3D%22M3%2021%20H21%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><span class="o-kick">Observatory · 5 of 7</span></div>
+      <h1 class="o-h1">Act — declared, confirmed, receipted</h1>
+      <p class="o-lede">Every change names its tier, shows its inputs and effect, waits for one deliberate confirmation, and leaves a receipt.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none"><div style="display:flex;gap:14px;align-items:center">
+        <span class="o-lbl">Operation</span>
+        <div class="seg" role="group" aria-label="Operation"><sc-for list="{{scens}}" as="sc" hint-placeholder-count="3"><button type="button" aria-pressed="{{sc.on}}" onClick="{{ sc.pick }}" style="{{sc.style}}">{{sc.label}}</button></sc-for></div>
+        <span class="o-lbl">Way in</span>
+        <div class="seg" role="group" aria-label="Way in"><sc-for list="{{ways}}" as="wy" hint-placeholder-count="2"><button type="button" aria-pressed="{{wy.on}}" onClick="{{ wy.pick }}" style="{{wy.style}}">{{wy.label}}</button></sc-for></div>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center"><span class="o-m">Declare · confirm · receipt</span><span class="chip ch-agreed">Agreed</span><span class="o-m">Bridge or Causeway</span><span class="chip ch-open">Open</span><span class="o-m">Act over the tailnet</span><span class="chip ch-open">Open</span></div></div>
+  </header>
+
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:16px">
+
+    <section class="o-pane" aria-label="Act flow" style="display:flex;flex-direction:column;min-height:0;border-top:2px solid var(--boundary)">
+      <div style="{{stepper.style}}">
+        <sc-for list="{{steps}}" as="st" hint-placeholder-count="3">
+          <button type="button" class="step" aria-current="{{st.cur}}" onClick="{{ st.pick }}" style="{{st.style}}"><span style="{{st.badge}}">{{st.n}}</span><span style="display:flex;flex-direction:column;gap:1px"><span style="{{st.titleStyle}}">{{st.t}}</span><span class="o-m">{{st.d}}</span></span></button>
+        </sc-for>
+        <span style="flex:1"></span>
+        <button type="button" class="btn" onClick="{{ back }}" style="{{backStyle}}">Back</button>
+        <button type="button" class="btn" onClick="{{ next }}" style="{{nextStyle}}">{{nextLabel}}</button>
+      </div>
+
+      <!-- DECLARE -->
+      <div style="{{disp.plan}}">
+        <div style="display:flex;align-items:center;gap:10px"><img alt="" width="20" height="20" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2021%20V11%20L8%207%20V11%20L13%207%20V11%20L18%207%20V11%20H21%20V21%22%2F%3E%3Cpath%20d%3D%22M6%2021%20V16%20H10%20V21%22%2F%3E%3Crect%20x%3D%2213%22%20y%3D%2214.5%22%20width%3D%225%22%20height%3D%223%22%2F%3E%3Cpath%20d%3D%22M3%2021%20H21%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><h2 class="o-h2">{{P.title}}</h2><span class="chip {{P.tierCls}}">{{P.tier}}</span><span class="o-m">{{P.confWord}}</span></div>
+        <div class="kv">
+          <span class="o-lbl">Summary</span><span class="o-p" style="font-size:14px;line-height:20px">{{P.summary}}</span>
+          <span class="o-lbl">Scope</span><span class="o-p">{{P.scope}}</span>
+          <span class="o-lbl">Command</span><span class="id" style="color:var(--ink)">{{P.command}}</span>
+          <span class="o-lbl">Plan</span><span class="t">issued 2026-10-18 09:44 · expires 2026-10-18 09:49 · one use</span>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <span class="o-lbl" style="padding-bottom:4px">Inputs · every one visible</span>
+          <div class="in-row" style="font-size:12px;line-height:16px;color:var(--muted)"><sc-for list="{{P.cols}}" as="pc" hint-placeholder-count="4"><span>{{pc.t}}</span></sc-for></div>
+          <sc-for list="{{P.inputs}}" as="ip" hint-placeholder-count="3"><div class="in-row" style="{{ip.style}}"><span class="id">{{ip.a}}</span><span class="id" style="color:var(--muted)">{{ip.b}}</span><span class="t">{{ip.c}}</span><span style="color:var(--muted)">{{ip.d}}</span></div></sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <span class="o-lbl">Effect · what changes</span>
+          <sc-for list="{{P.changes}}" as="ch" hint-placeholder-count="4"><div style="display:flex;gap:8px;align-items:baseline"><span style="width:5px;height:5px;flex:none;background:var(--gold);transform:rotate(45deg);position:relative;top:-2px"></span><span class="o-p">{{ch.t}}</span></div></sc-for>
+        </div>
+      </div>
+
+      <!-- CONFIRM -->
+      <div style="{{disp.confirm}}">
+        <h2 class="o-h2">Confirm</h2>
+        <p class="o-p" style="font-size:16px;line-height:22px;max-width:640px">{{P.confirmLine}}</p>
+        <div style="{{typed.style}}">
+          <span class="o-lbl">Type the operation’s id</span>
+          <span style="display:flex;align-items:center;height:32px;padding:0 10px;border:1px solid var(--boundary);border-radius:4px;font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);width:320px">{{typed.value}}<span style="width:1px;height:16px;background:var(--ink);margin-left:2px"></span></span>
+          <span class="o-m">A destructive tier asks for the id itself, not a click.</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <button type="button" onClick="{{ next }}" style="font:600 14px/20px system-ui,sans-serif;padding:8px 16px;border-radius:4px;border:1px solid var(--boundary);background:transparent;color:var(--ink);cursor:pointer">{{P.button}}</button>
+          <button type="button" onClick="{{ back }}" style="font:500 13px/20px system-ui,sans-serif;padding:8px 12px;border:0;background:transparent;color:var(--muted);cursor:pointer">Back to the plan</button>
+        </div>
+        <div class="o-note" style="display:flex;flex-direction:column;gap:6px;max-width:680px">
+          <span class="o-lbl">What the confirmation guards</span>
+          <span class="o-m">One boundary-edged button that names the action and its count. Never brass: the brass call to action is for going somewhere, not for changing something. No mutation from a row click, a keyboard shortcut or a link. The plan expires if it is not confirmed in time, and must be planned again.</span>
+        </div>
+      </div>
+
+      <!-- RECEIPT -->
+      <div style="{{disp.receipt}}">
+        <div style="display:flex;align-items:center;gap:10px"><img alt="" width="20" height="20" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%238fc4a0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4.5%2012.5%20L9.5%2017.5%20L19.5%206.5%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><h2 class="o-h2">Receipt</h2><span class="chip cd-thriving">{{P.outcome}}</span><span class="t">{{P.rid}}</span></div>
+        <div class="kv">
+          <span class="o-lbl">Outcome</span><span class="o-p" style="font-size:14px;line-height:20px">{{P.outcomeLine}}</span>
+          <span class="o-lbl">Operation</span><span class="o-p">{{P.title}} · tier {{P.tier}}</span>
+          <span class="o-lbl">Command</span><span class="id">{{P.command}}</span>
+          <span class="o-lbl">Requested</span><span class="t" style="color:var(--ink)">2026-10-18 09:45</span>
+          <span class="o-lbl">Completed</span><span class="t" style="color:var(--ink)">2026-10-18 09:45 · exit code 0</span>
+          <span class="o-lbl">Way in</span><span class="o-p">via loopback, 127.0.0.1:1675</span>
+          <span class="o-lbl">Next</span><span class="o-p">{{P.after}}</span>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <span class="o-lbl" style="padding-bottom:4px">Receipts · this host · newest first</span>
+          <sc-for list="{{log}}" as="lg" hint-placeholder-count="4"><div class="rc-row"><span class="t">{{lg.at}}</span><span>{{lg.t}}</span><span><span class="chip {{lg.cls}}">{{lg.o}}</span></span><span class="o-m">{{lg.way}}</span></div></sc-for>
+        </div>
+      </div>
+
+      <!-- TAILNET -->
+      <div style="{{disp.tail}}">
+        <div style="display:flex;align-items:center;gap:10px"><img alt="" width="20" height="20" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239fbbd8%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22M12%2011%20V16.5%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%227.75%22%20r%3D%220.4%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><h2 class="o-h2">Read-only over the tailnet</h2><span class="chip ch-official" style="font-weight:600">via tailnet as operator</span></div>
+        <p class="o-p" style="font-size:14px;line-height:20px;max-width:720px">This listener serves the page and the read routes only. The acting routes are not there, so no plan can start: “no Act” is structural, not a setting a forged header could flip.</p>
+        <div style="display:flex;flex-direction:column">
+          <span class="o-lbl" style="padding-bottom:4px">The same operations, as the tailnet shows them</span>
+          <sc-for list="{{tailOps}}" as="to" hint-placeholder-count="4"><div class="in-row" style="grid-template-columns:200px 110px minmax(0,1fr) 150px"><span>{{to.t}}</span><span><span class="chip {{to.cls}}">{{to.tier}}</span></span><span class="o-m">{{to.why}}</span><span class="o-m" style="text-align:right">not offered here</span></div></sc-for>
+        </div>
+        <div class="o-note" style="display:flex;flex-direction:column;gap:4px;max-width:760px">
+          <span class="o-lbl">Instead of a Plan button</span>
+          <span class="o-m">A quiet line under the table: “Acting is on this Observatory’s host. Open it there to pull, push or apply.” Receipts stay readable, each with its way in. The job switch still shows Act, labelled read-only, so the instruments keep their place.</span>
+        </div>
+      </div>
+    </section>
+
+    <aside style="display:flex;flex-direction:column;gap:12px;min-height:0">
+      <div class="o-card" style="padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+        <span class="o-lbl">The rules of Act</span>
+        <sc-for list="{{rules}}" as="ru" hint-placeholder-count="6"><div style="display:flex;gap:8px;align-items:baseline"><span class="t" style="color:var(--gold)">{{ru.n}}</span><span class="o-p" style="font-size:12.5px;line-height:18px">{{ru.t}}</span></div></sc-for>
+      </div>
+      <div class="o-card" style="padding:12px 14px;display:flex;flex-direction:column;gap:6px">
+        <span class="o-lbl">Tiers and confirmation · from the contract</span>
+        <div style="display:grid;grid-template-columns:96px 84px minmax(0,1fr);gap:6px 8px;align-items:center;font-size:12.5px">
+          <span class="chip tier-plan" style="justify-self:start">plan</span><span class="o-m">none</span><span class="o-m">fetch (dry run)</span>
+          <span class="chip tier-mutate" style="justify-self:start">mutate</span><span class="o-m">confirm</span><span class="o-m">fetch, pull, rig apply, update, maintain, restart</span>
+          <span class="chip tier-destructive" style="justify-self:start">destructive</span><span class="o-m">typed id</span><span class="o-m">push, rig clean</span>
+        </div>
+      </div>
+      <div class="o-card" style="padding:12px 14px;display:flex;flex-direction:column;gap:6px">
+        <span class="o-lbl">Acting routes · absent on the tailnet listener</span>
+        <sc-for list="{{routes}}" as="rt" hint-placeholder-count="5"><div style="display:flex;justify-content:space-between;gap:8px"><span class="id">{{rt.r}}</span><span class="t" style="{{rt.style}}">{{rt.s}}</span></div></sc-for>
+      </div>
+      <div class="o-card" style="padding:12px 14px;display:flex;flex-direction:column;gap:6px">
+        <span class="o-lbl">Naming</span>
+        <span class="o-m">The job is called Act on screen. “Bridge” is the concept’s working name (PDR-KI-OBSERVA-001); canon also uses Bridge for translation, so Bridge vs Causeway is open. The bridge glyph never marks the Act job.</span>
+      </div>
+    </aside>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+  icons() { return {}; }
+
+  ico(name, colour) {
+    const s = (this.icons()[name] || '').replace(/currentColor/g, colour || '#f5efe0');
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(s);
+  }
+
+  renderVals() {
+    const s = this.state || {};
+    const N = { ink: '#f5efe0', muted: '#a9b4c4', accw: '#1b3a5c', ok: '#8fc4a0', boundary: '#5f7896', rule: '#24476e' };
+    const scen = s.scen || 'pull';
+    const way = s.way || 'loopback';
+    const tail = way === 'tailnet';
+    const step = s.step || 1;
+    const segStyle = (on) => 'font:500 12px/16px system-ui,sans-serif;padding:5px 12px;border:0;cursor:pointer;' + (on ? 'background:' + N.accw + ';color:' + N.ink + ';box-shadow:inset 0 -2px 0 #c8963c;' : 'background:transparent;color:' + N.muted + ';');
+    const scens = [['pull', 'Pull 2 repositories'], ['push', 'Push ki-design'], ['apply', 'rig apply']].map(x => ({ label: x[1], on: String(scen === x[0]), pick: () => this.setState({ scen: x[0], step: 1 }), style: segStyle(scen === x[0]) }));
+    const ways = [['loopback', 'Loopback'], ['tailnet', 'Tailnet']].map(x => ({ label: x[1], on: String(way === x[0]), pick: () => this.setState({ way: x[0] }), style: segStyle(way === x[0]) }));
+    const SC = {
+      pull: { title: 'pull (fast-forward only) · 2 repositories', tier: 'mutate', conf: 'planned', summary: 'Move each branch up to its upstream, and only if that needs no merge.', scope: 'Realm · filter none · selected rows: 2 (1 more withheld)', command: 'git pull --ff-only',
+        cols: ['Repository', 'Branch', 'Upstream', 'State'],
+        inputs: [['ki-specifications', 'main', 'origin/main', '2 behind, clean', ''], ['apps-knowledgeislands.info', 'main', 'origin/main', '1 behind, clean', ''], ['example-island', 'main', 'origin/main', 'withheld: 2 files conflicted', 'opacity:0.55']],
+        changes: ['fast-forwards the checked-out branch to its upstream', 'refuses rather than merging when the branch has diverged, so no merge commit is ever made here', 'changes tracked files in the working tree to match the new commit'],
+        confirmLine: 'Pull 2 repositories, fast-forward only: ki-specifications and apps-knowledgeislands.info. example-island is withheld until its conflict is resolved.', button: 'Pull 2 repositories', typed: '',
+        outcome: 'succeeded', outcomeLine: '2 of 2 fast-forwarded · 0 refused · 3 commits brought in', after: 'Repositories re-observes both; the Beacon’s “behind” notes clear on the next observation.' },
+      push: { title: 'push · ki-design', tier: 'destructive', conf: 'typed', summary: 'Publish this branch’s commits to its upstream.', scope: 'Realm · filter repository: ki-design', command: 'git push',
+        cols: ['Repository', 'Branch', 'Upstream', 'State'],
+        inputs: [['ki-design', 'main', 'origin/main', '3 ahead, 0 behind, clean', '']],
+        changes: ['sends local commits to the remote, where other people and other machines can see them', 'cannot be undone from here: a published commit is public, and rewriting it is a separate act', 'may start whatever the remote runs on a push — deployment, publication, or release', 'refuses rather than forcing when the remote has moved on'],
+        confirmLine: 'Push 3 commits on main to origin/main for ki-design. This is destructive: it cannot be undone from here.', button: 'Push ki-design', typed: 'push · ki-design',
+        outcome: 'succeeded', outcomeLine: '3 commits published to origin/main · remote accepted', after: 'The “unpushed” lantern on ki-design goes out on the next observation.' },
+      apply: { title: 'rig apply · this machine', tier: 'mutate', conf: 'planned', summary: 'Write home configuration from its source where the two differ.', scope: 'This machine · 2 files drift', command: 'rig apply',
+        cols: ['Path', 'Target', 'Written', 'State'],
+        inputs: [['~/.config/example/app.toml', 'source differs', '2026-10-11 08:00', 'will be written from source', ''], ['~/.gitconfig', 'source differs', '2026-10-02 19:10', 'will be written from source', '']],
+        changes: ['writes 2 home configuration files from their source', 'leaves files that already match untouched', 'keeps no copy of what it replaced; the source is the record'],
+        confirmLine: 'Apply home configuration on this machine: 2 files will be written from their source.', button: 'Apply 2 files', typed: '',
+        outcome: 'succeeded', outcomeLine: '2 files written · 0 skipped', after: 'Machine re-observes configuration; the drift lantern goes out.' }
+    };
+    const D = SC[scen];
+    const P = {
+      title: D.title, tier: D.tier, tierCls: 'tier-' + D.tier, confWord: D.conf === 'typed' ? 'confirm by typing its id' : 'confirm once', summary: D.summary, scope: D.scope, command: D.command,
+      cols: D.cols.map(t => ({ t })), inputs: D.inputs.map(i => ({ a: i[0], b: i[1], c: i[2], d: i[3], style: i[4] })), changes: D.changes.map(t => ({ t })),
+      confirmLine: D.confirmLine, button: D.button, outcome: D.outcome, outcomeLine: D.outcomeLine, after: D.after,
+      rid: 'receipt 2026-10-18 09:45 · ' + scen
+    };
+    const typed = D.typed ? { value: D.typed, style: 'display:flex;flex-direction:column;gap:6px' } : { value: '', style: 'display:none' };
+    const STEPS = [['Declare', 'tier, inputs, effect'], ['Confirm', 'one deliberate act'], ['Receipt', 'what happened, kept']];
+    const steps = STEPS.map((x, k) => {
+      const n = k + 1; const on = n === step; const done = n < step;
+      return { n: String(n), t: x[0], d: x[1], cur: on ? 'step' : 'false', pick: () => this.setState({ step: n }),
+        style: on ? 'box-shadow:inset 0 -2px 0 #c8963c' : '',
+        badge: 'display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font:600 12px/1 system-ui,sans-serif;' + (on ? 'background:#c8963c;color:#0f2440;' : done ? 'background:' + N.accw + ';color:' + N.ink + ';' : 'border:1px solid ' + N.boundary + ';color:' + N.muted + ';'),
+        titleStyle: 'font:600 14px/18px system-ui,sans-serif;color:' + (on ? N.ink : N.muted) };
+    });
+    const stepper = { style: tail ? 'display:none' : 'display:flex;align-items:center;gap:4px;padding:6px 10px;border-bottom:1px solid ' + N.rule };
+    const body = 'display:flex;flex-direction:column;gap:16px;padding:16px 20px;flex:1;min-height:0';
+    const disp = { plan: !tail && step === 1 ? body : 'display:none', confirm: !tail && step === 2 ? body : 'display:none', receipt: !tail && step === 3 ? body : 'display:none', tail: tail ? body : 'display:none' };
+    const back = () => this.setState({ step: Math.max(1, step - 1) });
+    const next = () => this.setState({ step: step >= 3 ? 1 : step + 1 });
+    const nextLabel = step === 1 ? 'Continue to confirm' : step === 2 ? 'Confirm' : 'Start again';
+    const backStyle = step === 1 ? 'visibility:hidden' : '';
+    const nextStyle = step === 2 ? 'display:none' : 'font-weight:600';
+    const log = [
+      ['2026-10-18 09:45', D.title, D.outcome, 'cd-thriving', 'via loopback'],
+      ['2026-10-18 08:10', 'restart example-indexer', 'failed', 'sv-attention', 'via loopback'],
+      ['2026-10-17 18:02', 'push · tools-example', 'refused', 'sv-note', 'via loopback'],
+      ['2026-10-17 09:30', 'fetch · 6 repositories', 'succeeded', 'cd-thriving', 'via loopback']
+    ].map(l => ({ at: l[0], t: l[1], o: l[2], cls: l[3], way: l[4] }));
+    const tailOps = [['fetch (dry run)', 'plan', 'asks the remote what is missing'], ['pull (fast-forward only)', 'mutate', 'moves a branch to its upstream'], ['push', 'destructive', 'publishes commits'], ['rig apply', 'mutate', 'writes home configuration']].map(o => ({ t: o[0], tier: o[1], cls: 'tier-' + o[1], why: o[2] }));
+    const rules = [
+      'Every mutation passes all three steps; nothing skips to the receipt.',
+      'The plan names the tier, the scope, every input and the effect before anything changes.',
+      'Confirmation is one boundary-edged button naming the action and count; destructive asks for the id.',
+      'No mutation from a row click, a shortcut or a link.',
+      'A receipt records outcome, counts, times, exit code and the way in.',
+      'Act is absent over the tailnet: the routes are not served, so the buttons are not drawn.'
+    ].map((t, k) => ({ n: String(k + 1), t }));
+    const routes = [['POST /api/repositories/plan', '404'], ['POST /api/repositories/execute', '404'], ['POST /api/machine/plan', '404'], ['POST /api/machine/execute', '404'], ['GET /api/receipts', 'served']].map(r => ({ r: r[0], s: r[1], style: r[1] === '404' ? 'color:#f0947a' : 'color:#8fc4a0' }));
+    return { scens, ways, steps, stepper, disp, back, next, nextLabel, backStyle, nextStyle, P, typed, log, tailOps, rules, routes };
+  }
+}
+</script>
+</body>
+</html>

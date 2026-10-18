@@ -1,0 +1,151 @@
+# Observatory overhaul — design spec
+
+Draft for review, 18 October 2026. Screen design only: no app code changes until the app repository is free. The seven boards in this folder show every rule below; this file states the rules once.
+
+| Board | Shows | Interaction |
+| --- | --- | --- |
+| `ObsShell.dc.html` (1 of 7) | The shell: top bar, job switch, instrument tabs, filter bar, pane, status line | Job and tab switch, filter chip, night or day, loopback or tailnet, pane state |
+| `ObsAttend.dc.html` (2 of 7) | Beacon and Waiting for you, with signal anatomy | Severity and instrument filters, row selection, kind tabs |
+| `ObsObserve1.dc.html` (3 of 7) | Known Lands chart (flat), Library, Council | Select an island to filter all three, layers, time window |
+| `ObsObserve2.dc.html` (4 of 7) | Streams, Workers, Repositories, Machine | Grouping, worker kinds, repository detail, Machine sections |
+| `ObsAct.dc.html` (5 of 7) | Declare, confirm, receipt; what the tailnet shows instead | Step-through, three operations, way in |
+| `ObsExtend.dc.html` (6 of 7) | The extensions switchboard and a framed live artifact | Scope, switches per scope |
+| `ObsMap.dc.html` (7 of 7) | Fifteen tabs to ten instruments to four jobs | Select an instrument or a tab |
+
+All data on the boards is invented. Only the public Knowledge Islands repository names appear; everything else is `example-*`, `lowmarsh-*` or `scratch-isle`.
+
+## 1. Principles
+
+- Knowledge and the work are the subject. Agents, human or AI, are workers: a column, a figure on the chart, never a dashboard of their own.
+- Observation is the default and authority is the exception. Act is the only job that changes anything, and it looks different.
+- Dense, calm, instrument-like. Night is the reference rendering; the shell follows the operating system's theme, and light is checked second.
+- The app dialect only: system serif for titles, system sans for text, monospace for identifiers and map labels. Nothing is fetched or bundled. No emoji; glyphs from `packages/icons`.
+- The app does not replace agentic harnesses. It shows their runs as evidence.
+
+## 2. The shell
+
+One frame, the same height on every instrument (board 1).
+
+| Band | Height | Contents |
+| --- | --- | --- |
+| Top bar | 44 px | Observatory glyph and name · scope picker · job switch · observed time · workers chip · way in · theme |
+| Instrument tabs | 38 px | The current job's instruments only, 16 px glyph plus text, counts in muted monospace |
+| Filter bar | 38 px | The one filter chip, grouping, rows shown |
+| Pane | rest | Instrument title (serif 20/26), one-line answer, the table or chart, foot-of-view note |
+| Status line | 26 px | Subject · summary · observed time · way in |
+
+- **Mark.** The domed Observatory glyph in brass beside "Observatory". The Tower and the Citadel are retired and never used.
+- **Job switch.** Four text segments, Observe · Attend · Act · Extend. Current: accent text on a brass underline. Act carries a boundary-colour edge (the role that means "a reader can act here") and the small word "governed", or "read-only" over the tailnet. The shell opens on Attend, at the Beacon.
+- **Instrument tabs.** Two to five at a time. Current: ink on a brass underline. At 720 px the row scrolls inside its own width with an edge fade; the active tab stays clear of the fade.
+- **Workers chip.** Counts agent runs at work now; it opens Workers. It is a count, not a panel.
+
+## 3. Navigation
+
+- **Job, then instrument.** Choosing a job opens its first instrument; the last instrument used in each job is remembered per browser.
+- **Scope decides what is observed** (this repository, a territory, the realm). **The filter decides what is shown**: selecting an island on Known Lands, or a repository anywhere, sets one filter chip that holds across every instrument without re-observing. One way to clear it.
+- **Deep links.** `?view=` takes the new instrument ids (`beacon`, `waiting`, `known-lands`, `library`, `council`, `streams`, `workers`, `repositories`, `machine`, `extensions`). Every old id redirects to its new home (table in section 10).
+- **Keyboard.** Tabs and segments are buttons in reading order. The chart is one tab stop with roving focus: arrows along axial neighbours, Home for the Capital, Enter to select, Escape to clear.
+
+## 4. Layout grid and density
+
+- Reference widths: **1440 px** (wide) and **720 px** (half a screen beside an editor). Frame gutter 16 px; 8 px at 760 px and below.
+- No horizontal page scroll at any width. The only sideways scroller is the tab row.
+- Table rows: one line of 14/20 text, 5 px padding each side, one 1 px rule: 31 px. **The Beacon shows at least 12 ranked rows at 800 px height** at both widths; shell glyphs cost zero rows.
+- Tables stay tables. Each instrument declares which columns drop at 760 px and below; rank and subject always survive.
+- Panes are square-edged with one rule; chips, tags, inputs and buttons use the 4 px radius. No shadows.
+- Two-pane instruments (Beacon with anatomy, Known Lands with detail) put the detail on the right at 1440 and below the data at 720.
+
+## 5. Colour, type and glyphs
+
+- Roles from `packages/tokens/tokens.json`, night values first: paper `#0f2440`, ink `#f5efe0`, muted `#a9b4c4`, accent `#9fbbd8`, ok `#8fc4a0`, warn `#c8963c`, bad `#f0947a`, rule `#24476e`, boundary `#5f7896`, with the three washes for chips.
+- Gold means attention, alone. Rust means blocking. A note has no colour and no mark. Every state has its word.
+- Conditions are words on chips: thriving (ok wash), quiet (outline), weathered (dashed outline), ruined (dotted, struck through). Never a score or a percentage.
+- Severity in rows: reef glyph and `blocking` chip; lantern glyph and `attention` chip; `note` as an outline tag.
+- Tab glyphs: Beacon `beacon`, Waiting for you `inbound`, Known Lands `known-lands`, Library `library`, Council `council-hall`, Streams `streams`, Workers `role-steward`, Repositories `workshop`, Machine `machine`, Extensions `workbench`. The bridge glyph never marks Act.
+- Subject glyphs in the Beacon follow how islands are typed: a Capital is drawn as its Library and Council Hall, `tools-*` a workshop, `mcp-*` a bridge, `apps-*` a port, a knowledge base a library, the host a machine.
+
+## 6. States
+
+Each pane has five states (board 1, "Pane state"). The frame and the status line never change height.
+
+| State | What the pane shows | Status line |
+| --- | --- | --- |
+| Observed | The data, with its foot-of-view note | `n rows · observed YYYY-MM-DD HH:MM` |
+| Observing (first load) | Header row and one muted line naming what is being observed; nothing guessed | `observing… · started …` |
+| Observing (refresh) | The last observation stays, unchanged | `observing…` beside the previous time |
+| Empty | A serif 24/30 sentence ("Nothing warrants attention."), what was checked and when | `0 rows · observed …` |
+| Not observed | A rust-edged block: what failed, in the API's redacted reason, and what to do | `not observed · tried …` |
+| Stale | The data, dimmed slightly, with the observed time in warn and a refresh control | `stale: last observed … · refresh` |
+| Partial | The data, with the missing sources named in the foot note | as Observed, plus `incomplete` |
+
+An unobserved instrument is never counted as quiet. The Beacon lists every contributor that failed, with its reason, in its foot note.
+
+## 7. Act: declare, confirm, receipt
+
+Board 5. Every mutation goes through all three steps.
+
+1. **Declare.** The plan pane names the operation, its tier (`plan`, `mutate`, `destructive`) and confirmation (`none`, `planned`, `typed`), the scope, every input (one row each, withheld rows shown with their reason), the command, and the effect as the operation's own list of changes. It shows when the plan was issued and when it expires.
+2. **Confirm.** One boundary-edged button that names the action and its count ("Pull 2 repositories"). Never brass: brass is for going somewhere. A destructive tier asks the operator to type the operation's id. No mutation from a row click, a shortcut or a link.
+3. **Receipt.** Outcome (`succeeded`, `failed`, `stopped`, `refused`), counts, requested and completed times, exit code, command and the way in ("via loopback"). The receipt joins the host's receipts log, newest first. The instrument then re-observes.
+
+Operations come from the contract: Repositories offers fetch (dry run), fetch, pull (fast-forward only) and push per repository; Machine offers `rig apply`, `update`, `maintain`, `clean` and service restarts.
+
+## 8. The tailnet, read-only
+
+The tailnet listener is proposed (handoff draft 1). Its appearance:
+
+- The way-in badge in the top bar reads "Read-only · via tailnet"; the status line ends "via tailnet as operator, read-only". Loopback shows `127.0.0.1:1675`.
+- Act stays in the job switch, labelled "read-only", so instruments keep their place. Repositories and Machine show their observations; where the Plan button would be, one quiet line: "Acting is on this Observatory's host. Open it there to pull, push or apply."
+- The acting routes (`POST /api/repositories/plan`, `/execute`, `POST /api/machine/plan`, `/execute`) are not served, so no plan can start: "no Act" is structural. Receipts stay readable.
+- Extension switches are shown, not changed.
+
+## 9. Instruments
+
+| Instrument | Job | Absorbs today's tabs | Reads |
+| --- | --- | --- | --- |
+| Beacon | Attend | Beacon; Activity's "what changed" | `/api/beacon`, `/api/history`, `/api/activity` |
+| Waiting for you | Attend | Review queue; Work's "with you" view | `/api/review`, `/api/work` |
+| Known Lands | Observe | Trade routes (layer); Activity's 7 / 14 / 30-day window (time control) | `/api/scopes`, `/api/repositories`, `/api/activity`, `/api/beacon`, `/api/trade-routes`, `/api/observation` |
+| Library | Observe | Knowledge Bases; Documents | `/api/knowledge-bases` (+ `/note`, `/search`, `/asset`, `/sources`), `/api/documents` (+ `/document`, `/asset`), `/api/diagrams` |
+| Council | Observe | Decisions | `/api/decisions`, `/api/decisions/detail` |
+| Streams | Observe | Roadmap; Work (moving, stuck, blocked, on hold) | `/api/roadmap`, `/api/work` |
+| Workers | Observe | Sessions; Automation's run history; commit authors from Activity | `/api/sessions`, `/api/automation`, `/api/activity` |
+| Repositories | Act | Repositories | `/api/repositories`, `/api/repositories/detail`, `/api/receipts`; acts through `POST /api/repositories/plan`, `/execute` |
+| Machine | Act | Rig; MCP servers; Automation's schedules | `/api/machine`, `/api/mcp`, `/api/mcp/probe`, `/api/automation`, `/api/receipts`; acts through `POST /api/machine/plan`, `/execute` |
+| Extensions | Extend | Artifacts; the new switchboard | `/api/artifacts`, `/artifacts/frame`, `/artifacts/bridge.js`, `/api/artifacts/call` |
+
+Shell routes for every instrument: `/api/instruments`, `/api/scopes`, `/api/observation`, `/health`.
+
+## 10. Old addresses
+
+| `?view=` today | Lands at |
+| --- | --- |
+| `beacon` | `beacon` |
+| `activity` | `beacon` (what changed); its window is the Known Lands time control |
+| `review` | `waiting` |
+| `work` | `streams`; its "with you" view also lists in `waiting` |
+| `trade-routes` | `known-lands`, routes layer on |
+| `knowledge-bases`, `documents` | `library` |
+| `decisions` | `council` |
+| `roadmap` | `streams` |
+| `sessions` | `workers` |
+| `automation` | `workers` (runs) and `machine` (schedules); the redirect goes to `machine` |
+| `repositories` | `repositories` |
+| `rig`, `mcp` | `machine` |
+| `artifacts` | `extensions` |
+
+## 11. Open questions
+
+- **Instrument restructure.** Adopt the ten instruments under the four jobs (DESIGN.md §16.5)? The boards mark it Open.
+- **Fifteen, not fourteen.** The Work instrument landed after the brief. This design folds it into Streams and sends its "with you" view to Waiting for you. Agree, or give Work its own place?
+- **Automation splits in two** (runs to Workers, schedules to Machine). Which one does `?view=automation` land on?
+- **Bridge or Causeway.** The job is written "Act" on screen until the name is settled.
+- **How Act looks different.** The boards give the Act segment a boundary-colour edge and "governed". Enough, or should Act panes also carry a top rule in the boundary colour (as on boards 4 and 5)?
+- **The Capital has no glyph.** The chart draws it as its Library and Council Hall side by side, and the Beacon uses the Council Hall. A Capital glyph would need adding to `packages/icons`.
+- **Stored chart positions.** No endpoint holds island positions today; Known Lands needs one so islands stay where they were learnt.
+- **Stale threshold.** When does an observation become stale: a fixed age, or per instrument?
+- **Extension switches.** Is a switch a host preference (no receipt) or an Act operation? Over the tailnet it is shown and not changed either way.
+- **Workers chip.** Should it count only agent runs at work, or also people with commits today?
+- **Library search.** Search covers notes today; should the merged reader search documents too?
+- **Narrow width.** Which columns each instrument drops at 760 px still needs declaring per table; the boards show the 1440 layout.
+- **Bridge over the tailnet.** A later, separate decision record; the boards show only the read-only listener.

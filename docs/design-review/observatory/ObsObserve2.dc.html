@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Observatory — Observe II and Act</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#0b1b31}
+.o-root{box-sizing:border-box;background:var(--deep);color:var(--ink);font:13px/18px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-variant-numeric:tabular-nums lining-nums;display:flex;flex-direction:column;overflow:hidden}
+.o-root *{box-sizing:border-box}
+.o-kick{font:600 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+.o-h1{margin:0;font:600 34px/40px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lede{margin:0;font-size:15px;line-height:22px;color:var(--muted)}
+.o-h2{margin:0;font:600 20px/26px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-h3{margin:0;font:600 16px/22px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-lbl{font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.o-m{font-size:12px;line-height:16px;color:var(--muted)}
+.o-p{margin:0;font-size:13px;line-height:18px;color:var(--ink)}
+.o-mono{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px}
+.o-card{background:var(--paper);border:1px solid var(--rule);border-radius:4px}
+.o-pane{background:var(--paper);border:1px solid var(--rule)}
+.o-note{background:var(--raised);border:1px solid var(--rule);border-radius:4px;padding:10px 12px}
+.chip{display:inline-block;font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:1px 7px;border-radius:4px;white-space:nowrap}
+.ch-official{color:var(--accent);background:var(--accw)}
+.ch-agreed{color:var(--ok);background:var(--okw)}
+.ch-proposed{color:var(--warn);background:var(--warnw)}
+.ch-open{color:var(--bad);background:var(--badw)}
+.sv-blocking{color:var(--bad);background:var(--badw)}
+.sv-attention{color:var(--warn);background:var(--warnw)}
+.sv-note{color:var(--muted);background:transparent;border:1px solid var(--rule);padding:0 6px}
+.tag{display:inline-block;font:500 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:0 6px;border-radius:4px;border:1px solid var(--rule);color:var(--muted);white-space:nowrap}
+.btn{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding:5px 10px;border-radius:4px;border:1px solid var(--boundary);background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap}
+.seg{display:flex;border:1px solid var(--boundary);border-radius:4px;overflow:hidden}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--muted);text-align:left;padding:5px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
+.tbl td{font-size:13px;line-height:20px;padding:5px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+.id{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--ink)}
+.t{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--muted);white-space:nowrap}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none}
+
+.cd-thriving{color:var(--ok);background:var(--okw)}
+.cd-quiet{color:var(--muted);border:1px solid var(--rule);padding:0 6px}
+.cd-weathered{color:var(--muted);border:1px dashed var(--boundary);padding:0 6px}
+.r5{display:grid;gap:0 10px;align-items:center;padding:5px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:20px;min-width:0}
+.r5 > span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hd{font-size:12px;line-height:16px;color:var(--muted)}
+.grp{font:600 11px/16px system-ui,sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:5px 8px 2px;border-bottom:1px solid var(--rule)}
+.rowbtn{background:transparent;border-left:0;border-right:0;border-top:0;color:var(--ink);font-family:inherit;text-align:left;width:100%;cursor:pointer}
+.pane-h{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--rule)}
+.foot{margin-top:auto;padding:8px 14px;border-top:1px solid var(--rule)}
+.tier-read{color:var(--muted);border:1px solid var(--rule);padding:0 6px}
+.tier-plan{color:var(--accent);background:var(--accw)}
+.tier-mutate{color:var(--warn);background:var(--warnw)}
+.tier-destructive{color:var(--bad);background:var(--badw)}
+</style>
+</helmet>
+<div class="o-root" style="width:1440px;height:1260px;padding:36px 40px;gap:18px;--paper:#0f2440;--deep:#0b1b31;--raised:#182c46;--ink:#f5efe0;--muted:#a9b4c4;--accent:#9fbbd8;--ok:#8fc4a0;--teal:#7fc2c0;--warn:#c8963c;--bad:#f0947a;--rule:#24476e;--boundary:#5f7896;--okw:#1e374c;--warnw:#1e2d40;--badw:#2a3147;--accw:#1b3a5c;--gold:#c8963c;--sea:#0f2440;--shallow:#17345a">
+
+  <header style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:1px solid var(--rule);padding-bottom:14px;flex:none">
+    <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+      <div style="display:flex;align-items:center;gap:8px"><img alt="" width="18" height="18" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23c8963c%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2021%20V13%20H19%20V21%22%2F%3E%3Cpath%20d%3D%22M5%2013%20C5%209%208%206%2012%206%20C16%206%2019%209%2019%2013%22%2F%3E%3Cpath%20d%3D%22M12%209.5%20L18%204%20M13.5%2011%20L19.5%205.5%20M18%204%20L19.5%205.5%22%2F%3E%3Cpath%20d%3D%22M10.5%2021%20V17.5%20H13.5%20V21%22%2F%3E%3Cpath%20d%3D%22M3%2021%20H21%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><span class="o-kick">Observatory · 4 of 7</span></div>
+      <h1 class="o-h1">Streams, Workers, Repositories, Machine</h1>
+      <p class="o-lede">Work in motion and who is on it (Observe), then the two Act instruments as they read before any plan.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none"><div style="display:flex;gap:6px;align-items:center"><span class="o-m">Streams, Workers</span><span class="chip ch-open">Open</span><span class="o-m">Who is working</span><span class="chip ch-proposed">Proposed</span><span class="o-m">Steward roles</span><span class="chip ch-proposed">Proposed</span></div>
+      <span class="o-m">Source: brief, “The local app” · handoff drafts 2, 4, 7</span></div>
+  </header>
+
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:16px">
+
+    <section class="o-pane" aria-label="Streams" style="display:flex;flex-direction:column;min-height:0">
+      <div class="pane-h"><img alt="" width="20" height="20" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2021%20V15%20C12%2012%209.5%2011%207.5%209.5%20C5.5%208%204.5%206%204.5%203.5%22%2F%3E%3Cpath%20d%3D%22M12%2015%20C12%2012%2014.5%2011%2016.5%209.5%20C18.5%208%2019.5%206%2019.5%203.5%22%2F%3E%3Cpath%20d%3D%22M12%2015%20V3.5%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><h2 class="o-h2">Streams</h2><span class="o-m">Observe · Roadmap and Work</span><span style="flex:1"></span><span class="o-lbl">Group by</span><div class="seg" role="group"><sc-for list="{{sGroups}}" as="sg" hint-placeholder-count="4"><button type="button" aria-pressed="{{sg.on}}" onClick="{{ sg.pick }}" style="{{sg.style}}">{{sg.label}}</button></sc-for></div></div>
+      <div style="display:flex;gap:8px;align-items:center;padding:7px 14px;border-bottom:1px solid var(--rule)"><span class="o-lbl">Work in motion</span><sc-for list="{{workViews}}" as="wv" hint-placeholder-count="5"><span class="tag" style="{{wv.style}}">{{wv.t}} <span class="t">{{wv.n}}</span></span></sc-for></div>
+      <div style="padding:0 6px;display:flex;flex-direction:column">
+        <div class="r5 hd" style="grid-template-columns:124px minmax(0,1fr) 132px 78px 122px"><span>Item</span><span>Title</span><span>Island</span><span>{{sOther}}</span><span>Updated</span></div>
+        <sc-for list="{{streams}}" as="st" hint-placeholder-count="10">
+          <div class="grp" style="{{st.gStyle}}">{{st.group}}</div>
+          <div class="r5" style="grid-template-columns:124px minmax(0,1fr) 132px 78px 122px"><span class="id">{{st.id}}</span><span>{{st.t}}</span><span class="id" style="color:var(--muted)">{{st.isl}}</span><span><span class="chip {{st.cls}}">{{st.other}}</span></span><span class="t">{{st.at}}</span></div>
+        </sc-for>
+      </div>
+      <div class="o-m foot">Grouped by horizon, then status; blocked items name what blocks them. “With you” also appears in Waiting for you.</div>
+    </section>
+
+    <section class="o-pane" aria-label="Workers" style="display:flex;flex-direction:column;min-height:0">
+      <div class="pane-h"><img alt="" width="20" height="20" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M10%2021%20V8%20C10%204.6%2011.6%203%2014%203%20C16.4%203%2018%204.6%2018%207%20C18%208.6%2017%209.6%2015.5%209.6%22%2F%3E%3Cpath%20d%3D%22M8.5%2014%20H11.5%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><h2 class="o-h2">Workers</h2><span class="o-m">Observe · human or AI</span><span style="flex:1"></span><div class="seg" role="group"><sc-for list="{{wKinds}}" as="wk" hint-placeholder-count="4"><button type="button" aria-pressed="{{wk.on}}" onClick="{{ wk.pick }}" style="{{wk.style}}">{{wk.label}}</button></sc-for></div></div>
+      <div style="padding:0 6px;display:flex;flex-direction:column">
+        <div class="r5 hd" style="grid-template-columns:18px 150px minmax(0,1fr) 92px 96px 52px"><span></span><span>Worker · role</span><span>Touching</span><span>Evidence</span><span>State</span><span>Since</span></div>
+        <sc-for list="{{workers}}" as="w" hint-placeholder-count="8">
+          <div class="r5" style="grid-template-columns:18px 150px minmax(0,1fr) 92px 96px 52px"><img alt="" width="16" height="16" src="{{w.icon}}"><span><span style="color:var(--ink)">{{w.name}}</span> <span class="o-m">{{w.role}}</span></span><span class="id">{{w.touch}}</span><span style="color:var(--muted)">{{w.src}}</span><span><span class="chip {{w.cls}}">{{w.state}}</span></span><span class="t">{{w.since}}</span></div>
+        </sc-for>
+      </div>
+      <div style="margin:10px 14px 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+        <sc-for list="{{wSum}}" as="ws" hint-placeholder-count="4"><div class="o-note" style="padding:7px 10px;display:flex;flex-direction:column;gap:2px"><span class="t" style="font-size:16px;color:var(--ink)">{{ws.n}}</span><span class="o-m">{{ws.t}}</span></div></sc-for>
+      </div>
+      <div class="o-m foot">Workers appear only from named evidence: agent runs from Sessions, authors from Git, jobs from Automation. Roles are hats, not species, and are proposed until canon names them. Stopped first.</div>
+    </section>
+
+    <section class="o-pane" aria-label="Repositories" style="display:flex;flex-direction:column;min-height:0;border-top:2px solid var(--boundary)">
+      <div class="pane-h"><img alt="" width="20" height="20" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2021%20V11%20L8%207%20V11%20L13%207%20V11%20L18%207%20V11%20H21%20V21%22%2F%3E%3Cpath%20d%3D%22M6%2021%20V16%20H10%20V21%22%2F%3E%3Crect%20x%3D%2213%22%20y%3D%2214.5%22%20width%3D%225%22%20height%3D%223%22%2F%3E%3Cpath%20d%3D%22M3%2021%20H21%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><h2 class="o-h2">Repositories</h2><span class="o-m">Act · read view, select a row</span><span style="flex:1"></span><span class="o-m">15 checkouts · source git</span></div>
+      <div style="padding:0 6px;display:flex;flex-direction:column">
+        <div class="r5 hd" style="grid-template-columns:150px 112px 54px minmax(0,1fr) 92px"><span>Repository</span><span>Branch</span><span>↑ ↓</span><span>Working tree</span><span>Signal</span></div>
+        <sc-for list="{{repos}}" as="rp" hint-placeholder-count="6">
+          <button type="button" class="r5 rowbtn" aria-pressed="{{rp.on}}" onClick="{{ rp.pick }}" style="grid-template-columns:150px 112px 54px minmax(0,1fr) 92px;{{rp.style}}"><span class="id">{{rp.id}}</span><span class="id" style="color:var(--muted)">{{rp.branch}}</span><span class="t">{{rp.ab}}</span><span style="color:var(--muted)">{{rp.tree}}</span><span><span class="chip {{rp.cls}}">{{rp.sig}}</span></span></button>
+        </sc-for>
+      </div>
+      <div style="margin:8px 14px 0;display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;gap:10px;align-items:baseline"><span class="o-lbl">Head</span><span class="t" style="color:var(--ink)">{{rd.head}}</span><span class="o-m">{{rd.subj}}</span><span style="flex:1"></span><span class="o-lbl">Upstream</span><span class="id">{{rd.up}}</span></div>
+        <sc-for list="{{rd.ops}}" as="op" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:150px 86px 70px minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:12.5px;line-height:18px;padding:3px 0;border-bottom:1px solid var(--rule)"><span style="color:var(--ink)">{{op.t}}</span><span><span class="chip {{op.cls}}">{{op.tier}}</span></span><span class="o-m">{{op.conf}}</span><span class="o-m" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{op.why}}</span><span style="{{op.btnStyle}}">{{op.btn}}</span></div>
+        </sc-for>
+      </div>
+      <div class="o-m foot">Selecting a row reads its detail; it never mutates. Each operation is offered per repository with its tier and confirmation, then planned on board 5.</div>
+    </section>
+
+    <section class="o-pane" aria-label="Machine" style="display:flex;flex-direction:column;min-height:0;border-top:2px solid var(--boundary)">
+      <div class="pane-h"><img alt="" width="20" height="20" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23f5efe0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2021%20V11%20L12%204.5%20L19%2011%20V21%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2215%22%20r%3D%222.2%22%2F%3E%3Cpath%20d%3D%22M12%2012.8%20L12%2011.7%20M13.56%2013.44%20L14.33%2012.67%20M14.2%2015%20L15.3%2015%20M13.56%2016.56%20L14.33%2017.33%20M12%2017.2%20L12%2018.3%20M10.44%2016.56%20L9.67%2017.33%20M9.8%2015%20L8.7%2015%20M10.44%2013.44%20L9.67%2012.67%22%2F%3E%3Cpath%20d%3D%22M3%2021%20H21%22%2F%3E%3C%2Fsvg%3E" style="flex:none;"><h2 class="o-h2">Machine</h2><span class="o-m">Act · this host</span><span style="flex:1"></span><div class="seg" role="group"><sc-for list="{{mTabs}}" as="mt" hint-placeholder-count="4"><button type="button" aria-pressed="{{mt.on}}" onClick="{{ mt.pick }}" style="{{mt.style}}">{{mt.label}}</button></sc-for></div></div>
+      <div style="padding:0 6px;display:flex;flex-direction:column">
+        <div class="r5 hd" style="grid-template-columns:18px 170px minmax(0,1fr) 96px 108px"><span></span><sc-for list="{{mCols}}" as="mc" hint-placeholder-count="4"><span>{{mc.t}}</span></sc-for></div>
+        <sc-for list="{{mRows}}" as="m" hint-placeholder-count="6">
+          <div class="r5" style="grid-template-columns:18px 170px minmax(0,1fr) 96px 108px"><img alt="" width="16" height="16" src="{{m.icon}}"><span class="id">{{m.a}}</span><span style="color:var(--muted)">{{m.b}}</span><span><span class="chip {{m.cls}}">{{m.c}}</span></span><span class="t">{{m.d}}</span></div>
+        </sc-for>
+      </div>
+      <div style="margin:10px 14px 0" class="o-note"><span class="o-m">{{mNote}}</span></div>
+      <div class="o-m foot">Rig, MCP servers and Automation’s schedules, one host view. A host is a physical place: listed here, never drawn as land. Secrets are counted, never named.</div>
+    </section>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1260}}'>
+class Component extends DCLogic {
+  icons() { return {"bridge": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 5.5 H21 M3 8 H21 M3 11 H21\"/><path d=\"M7.5 5.5 V8 M12 5.5 V8 M16.5 5.5 V8\"/><path d=\"M5 11 V19 M19 11 V19\"/><path d=\"M5 18 C5 14.1 8.1 11 12 11 C15.9 11 19 14.1 19 18\"/><path d=\"M3 20.5 Q4.5 19.5 6 20.5 T9 20.5 T12 20.5 T15 20.5 T18 20.5 T21 20.5\"/></svg>", "hourglass": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6.5 3.5 H17.5 M6.5 20.5 H17.5\"/><path d=\"M8 3.5 C8 8.5 16 8.5 16 12 C16 15.5 8 15.5 8 20.5\"/><path d=\"M16 3.5 C16 8.5 8 8.5 8 12 C8 15.5 16 15.5 16 20.5\"/><path d=\"M10 18 H14\"/></svg>", "machine": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 21 V11 L12 4.5 L19 11 V21\"/><circle cx=\"12\" cy=\"15\" r=\"2.2\"/><path d=\"M12 12.8 L12 11.7 M13.56 13.44 L14.33 12.67 M14.2 15 L15.3 15 M13.56 16.56 L14.33 17.33 M12 17.2 L12 18.3 M10.44 16.56 L9.67 17.33 M9.8 15 L8.7 15 M10.44 13.44 L9.67 12.67\"/><path d=\"M3 21 H21\"/></svg>", "role-archivist": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5\" y=\"3\" width=\"13\" height=\"16\" rx=\"1\"/><path d=\"M8 3 V19\"/><rect x=\"10.5\" y=\"6.5\" width=\"5\" height=\"3\"/><path d=\"M13.5 19 V21.5 L14.75 20.5 L16 21.5 V19\"/></svg>", "role-builder": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"8\" y=\"5\" width=\"7\" height=\"4\"/><path d=\"M5.5 4.5 H8 V9.5 H5.5 Z\"/><path d=\"M15 5 C17 5 18.5 3.8 19.5 2.5 M15 9 C17.5 9 19.5 7.8 20.5 5.5\"/><rect x=\"10.75\" y=\"9\" width=\"2.5\" height=\"12\" rx=\"1\"/></svg>", "role-historian": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"11\" height=\"2.5\" rx=\"1.25\"/><rect x=\"3\" y=\"17.5\" width=\"11\" height=\"2.5\" rx=\"1.25\"/><path d=\"M4 5.5 V17.5 M13 5.5 V17.5\"/><path d=\"M6 9 H11 M6 12 H11 M6 15 H9\"/><path d=\"M21 2.5 C17 3.5 15 7.5 15 13 C17.5 11.5 20 7.5 21 2.5 Z\"/><path d=\"M15 13 L13.5 18\"/></svg>", "role-navigator": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"4.2\" r=\"1.2\"/><path d=\"M11.5 5.3 L5 17 M12.5 5.3 L19 17\"/><path d=\"M5 17 Q12 22 19 17\"/><path d=\"M12 5.4 L14.1 19.3\"/><path d=\"M7.5 11.5 H14\"/></svg>", "role-steward": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 21 V8 C10 4.6 11.6 3 14 3 C16.4 3 18 4.6 18 7 C18 8.6 17 9.6 15.5 9.6\"/><path d=\"M8.5 14 H11.5\"/></svg>"}; }
+
+  ico(name, colour) {
+    const s = (this.icons()[name] || '').replace(/currentColor/g, colour || '#f5efe0');
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(s);
+  }
+
+  renderVals() {
+    const s = this.state || {};
+    const N = { ink: '#f5efe0', muted: '#a9b4c4', accw: '#1b3a5c', ok: '#8fc4a0', warn: '#c8963c', bad: '#f0947a', boundary: '#5f7896', rule: '#24476e' };
+    const segStyle = (on) => 'font:500 12px/16px system-ui,sans-serif;padding:4px 9px;border:0;cursor:pointer;' + (on ? 'background:' + N.accw + ';color:' + N.ink + ';box-shadow:inset 0 -2px 0 #c8963c;' : 'background:transparent;color:' + N.muted + ';');
+
+    /* Streams */
+    const sgrp = s.sgrp || 'horizon';
+    const sGroups = [['horizon', 'Horizon'], ['status', 'Status']].map(x => ({ label: x[1], on: String(sgrp === x[0]), pick: () => this.setState({ sgrp: x[0] }), style: segStyle(sgrp === x[0]) }));
+    const ITEMS = [
+      ['EXAMPLE-PRI-014', 'Release almanac', 'example-principal', 'now', 'blocked', '2026-10-17 15:40'],
+      ['EXAMPLE-ISL-022', 'Glossary as notes', 'example-island', 'now', 'active', '2026-10-18 09:20'],
+      ['EXAMPLE-TLS-031', 'Almanac reads Streams', 'tools-example', 'now', 'with you', '2026-10-16 09:15'],
+      ['EXAMPLE-ISL-024', 'Tide tables artifact', 'example-island', 'now', 'active', '2026-10-18 08:40'],
+      ['EXAMPLE-ISL-019', 'Dock reading list', 'example-island', 'next', 'waiting', '2026-10-11 10:00'],
+      ['EXAMPLE-PRI-016', 'Second seat', 'example-principal', 'next', 'planned', '2026-10-09 12:30'],
+      ['LOW-ALM-006', 'Retire 2025 tables', 'lowmarsh-almanac', 'later', 'stale', '2026-08-29 10:03']
+    ];
+    const STCLS = { blocked: 'sv-attention', active: 'cd-thriving', 'with you': 'sv-note', waiting: 'sv-note', planned: 'cd-quiet', stale: 'cd-weathered' };
+    const gi = sgrp === 'horizon' ? 3 : 4;
+    const oi = sgrp === 'horizon' ? 4 : 3;
+    const ORDER = sgrp === 'horizon' ? ['now', 'next', 'later'] : ['blocked', 'active', 'with you', 'waiting', 'planned', 'stale'];
+    const sorted = ITEMS.slice().sort((a, b) => ORDER.indexOf(a[gi]) - ORDER.indexOf(b[gi]));
+    let last = '';
+    const streams = sorted.map(it => {
+      const g = it[gi]; const first = g !== last; last = g;
+      return { group: g, gStyle: first ? '' : 'display:none', id: it[0], t: it[1], isl: it[2], other: it[oi], cls: STCLS[it[4]] || 'cd-quiet', at: it[5] };
+    });
+    const sOther = sgrp === 'horizon' ? 'Status' : 'Horizon';
+    const workViews = [['moving', '4', ''], ['stuck', '1', 'color:#c8963c;border-color:#c8963c'], ['blocked', '2', 'color:#c8963c;border-color:#c8963c'], ['on hold', '1', ''], ['with you', '1', '']].map(w => ({ t: w[0], n: w[1], style: w[2] }));
+
+    /* Workers */
+    const wk = s.wk || 'all';
+    const WK = [
+      ['role-builder', 'Claude Code', 'Builder', 'tools-example', 'Sessions run', 'at work', 'cd-thriving', '09:12', 'run'],
+      ['role-builder', 'Codex', 'Builder', 'ki-design', 'Sessions run', 'waiting', 'sv-attention', '08:55', 'run'],
+      ['role-archivist', 'ChatGPT', 'Archivist', 'example-island · Glossary', 'Sessions run', 'stopped', 'sv-attention', '08:55', 'run'],
+      ['role-navigator', 'Paperclip', 'Navigator', 'trade lane → example-island', 'Sessions run', 'at work', 'cd-thriving', '09:30', 'run'],
+      ['role-steward', 'You', 'Steward', 'ki-principal', 'Git author', 'today', 'cd-quiet', '08:55', 'author'],
+      ['role-historian', 'Co-author', 'Historian', 'lowmarsh-almanac', 'Git author', 'quiet', 'cd-quiet', '09-18', 'author'],
+      ['hourglass', 'nightly-index', 'job', 'this machine', 'Automation', 'overdue', 'sv-attention', '02:00', 'job'],
+      ['hourglass', 'weekly-audit', 'job', 'this machine', 'Automation', 'succeeded', 'cd-thriving', '10-13', 'job']
+    ];
+    const wcount = (k) => WK.filter(w => k === 'all' || w[8] === k).length;
+    const wKinds = [['all', 'All'], ['run', 'Agent runs'], ['author', 'Authors'], ['job', 'Jobs']].map(x => ({ label: x[1] + ' ' + wcount(x[0]), on: String(wk === x[0]), pick: () => this.setState({ wk: x[0] }), style: segStyle(wk === x[0]) }));
+    const workers = WK.filter(w => wk === 'all' || w[8] === wk).map(w => ({ icon: this.ico(w[0], w[6] === 'sv-attention' ? N.warn : N.ok), name: w[1], role: w[2], touch: w[3], src: w[4], state: w[5], cls: w[6], since: w[7] }));
+    const wSum = [['2', 'at work now'], ['2', 'need a person'], ['2', 'authors this month'], ['1', 'job overdue']].map(x => ({ n: x[0], t: x[1] }));
+
+    /* Repositories */
+    const REPO = [
+      ['example-island', 'main', '0 2', '2 conflicted · 1 changed', 'conflicted', 'sv-blocking', 'origin/main', '2026-10-18 09:31', 'Merge the reading list', true],
+      ['ki-design', 'main', '3 0', 'clean', 'unpushed', 'sv-attention', 'origin/main', '2026-10-18 09:12', 'Refresh the night washes', true],
+      ['lowmarsh-almanac', 'detached', '— —', 'clean', 'detached', 'sv-attention', 'none', '2026-08-29 10:03', 'Tables for August', false],
+      ['tools-ki', 'main', '0 0', '4 changed · 1 untracked', 'dirty', 'sv-note', 'origin/main', '2026-10-18 09:05', 'Wire the audit summary', true],
+      ['ki-specifications', 'main', '0 2', 'clean', 'behind', 'sv-note', 'origin/main', '2026-09-30 12:00', 'State the boundary once', true],
+      ['example-principal', 'main', '0 0', 'clean', 'clean', 'cd-thriving', 'origin/main', '2026-10-17 15:40', 'Name the second seat', true]
+    ];
+    const rsel = REPO.some(r => r[0] === s.repo) ? s.repo : 'ki-design';
+    const repos = REPO.map(r => ({ id: r[0], branch: r[1], ab: r[2], tree: r[3], sig: r[4], cls: r[5], on: String(r[0] === rsel), pick: () => this.setState({ repo: r[0] }), style: r[0] === rsel ? 'background:' + N.accw + ';box-shadow:inset 3px 0 0 #c8963c' : '' }));
+    const RR = REPO.find(r => r[0] === rsel);
+    const tracking = RR[9];
+    const OPS = [['fetch (dry run)', 'plan', 'none'], ['fetch', 'mutate', 'planned'], ['pull (fast-forward only)', 'mutate', 'planned'], ['push', 'destructive', 'typed']];
+    const WHY = { 'fetch (dry run)': 'asks the remote what is missing; writes nothing', fetch: 'updates remote-tracking refs; no working-tree change', 'pull (fast-forward only)': 'refuses rather than merging when diverged', push: 'publishes commits; cannot be undone from here' };
+    const ops = OPS.map(o => {
+      const avail = tracking && !(o[0].indexOf('pull') === 0 && RR[4] === 'conflicted') && !(o[0] === 'push' && RR[2].indexOf('0') === 0 && RR[4] !== 'unpushed');
+      return { t: o[0], tier: o[1], cls: 'tier-' + o[1], conf: o[2] === 'typed' ? 'typed' : o[2] === 'planned' ? 'confirm' : 'no confirm',
+        why: avail ? WHY[o[0]] : (tracking ? 'withheld: nothing to ' + o[0].split(' ')[0] + ' or the tree is conflicted' : 'withheld: this branch tracks no upstream'),
+        btn: avail ? 'Plan…' : 'withheld', btnStyle: avail ? 'font-size:12px;font-weight:600;text-align:center;padding:2px 8px;border-radius:4px;border:1px solid ' + N.boundary + ';color:' + N.ink : 'font-size:12px;text-align:center;color:' + N.muted };
+    });
+    const rd = { head: RR[7], subj: RR[8], up: RR[6], ops };
+
+    /* Machine */
+    const mt = s.mt || 'config';
+    const MT = { tooling: ['Tooling', ['Tool', 'Version', 'State', 'Observed']], config: ['Configuration', ['Path', 'Target', 'State', 'Written']], services: ['Services', ['Service', 'Detail', 'State', 'Observed']], mcp: ['MCP', ['Server', 'Transport', 'Secrets', 'Daemon']], sched: ['Schedules', ['Job', 'Last run', 'State', 'Due']] };
+    const mTabs = Object.keys(MT).map(k => ({ label: MT[k][0], on: String(mt === k), pick: () => this.setState({ mt: k }), style: segStyle(mt === k) }));
+    const mCols = MT[mt][1].map(t => ({ t }));
+    const MR = {
+      tooling: [['machine', 'bun', '1.3.0', 'present', 'cd-thriving', '09:40'], ['machine', 'node', '22.11.0', 'present', 'cd-thriving', '09:40'], ['machine', 'ki', '0.9.2', 'present', 'cd-thriving', '09:40'], ['machine', 'tailscale', '—', 'absent', 'sv-note', '09:40']],
+      config: [['machine', '~/.config/example/app.toml', 'source differs', 'drift', 'sv-attention', '10-11 08:00'], ['machine', '~/.gitconfig', 'source differs', 'drift', 'sv-attention', '10-02 19:10'], ['machine', '~/.config/example/theme', 'matches source', 'applied', 'cd-thriving', '10-18 06:15']],
+      services: [['machine', 'example-sync', 'launch agent · pid 4120', 'running', 'cd-thriving', '09:40'], ['machine', 'observatory', 'launch agent · 127.0.0.1:1675', 'running', 'cd-thriving', '09:40'], ['machine', 'example-indexer', 'exit code 1', 'failing', 'sv-blocking', '09:38']],
+      mcp: [['bridge', 'example-notes', 'stdio', '0 of 1 set', 'sv-blocking', 'connected'], ['bridge', 'git-audit', 'stdio', '0 of 0', 'cd-thriving', 'connected'], ['bridge', 'example-calendar', 'http', '2 of 2 set', 'cd-thriving', 'idle']],
+      sched: [['hourglass', 'nightly-index', '2026-10-17 20:00', 'overdue', 'sv-attention', 'every 6 h'], ['hourglass', 'weekly-audit', '2026-10-13 03:00', 'succeeded', 'cd-thriving', 'weekly'], ['hourglass', 'tide-snapshot', '2026-10-18 06:00', 'failed', 'sv-attention', 'daily']]
+    };
+    const mRows = MR[mt].map(r => ({ icon: this.ico(r[0], N.muted), a: r[1], b: r[2], c: r[3], cls: r[4], d: r[5] }));
+    const MNOTE = { tooling: 'Absent tools are said every time: rig has no machine-readable projection yet.', config: 'Two files differ from source. rig apply (mutate, confirm) is offered through the Act flow; applying is a choice, never automatic.', services: 'restart example-indexer is a mutate operation, planned and receipted like any other.', mcp: 'Probe a server to see whether it answers. Probing is a read; a missing secret is blocking.', sched: 'Overdue is judged against each job’s own schedule. Run history lives in Workers.' };
+    return { sGroups, streams, sOther, workViews, wKinds, workers, wSum, repos, rd, mTabs, mCols, mRows, mNote: MNOTE[mt] };
+  }
+}
+</script>
+</body>
+</html>
