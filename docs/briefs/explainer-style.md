@@ -6,6 +6,8 @@ A diagram style for explaining Knowledge Islands: architecture posters, explaine
 
 ## Character
 
+These two boards are style references only: they show how a diagram is drawn, not what it says. Their subjects, gstack and an agentic operating system, are not part of this brief.
+
 From `references/explainer-how-gstack-works.png` and `explainer-agentic-operating-system.png`:
 
 - Daylight: watercolour islands on a pale turquoise sea, soft cloud and foam, warm parchment ground.

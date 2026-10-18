@@ -20,7 +20,7 @@ Kit's chosen art direction, in [references/](references/):
 | --- | --- | --- |
 | `mood-website-dusk-a.png`, `mood-website-dusk-b.png` | The public site at dusk: painted hex-plinth islands on a navy sea, lamp-lit settlements, cartouches, journey rail, Living Map, archetype cards, Create wizard, terrain / structure / role catalogues | The Ancient set and the site |
 | `explainer-hex-and-isometric.png` | How hex topology and isometric rendering combine, layer by layer | The tile kit and "How the map works" |
-| `explainer-how-gstack-works.png`, `explainer-agentic-operating-system.png` | Daylight watercolour islands, parchment cartouches, coloured line icons in roundels, dashed routes, a tide loop | The Illustrated explainer style |
+| `explainer-how-gstack-works.png`, `explainer-agentic-operating-system.png` | Daylight watercolour islands, parchment cartouches, coloured line icons in roundels, dashed routes, a tide loop | The Illustrated explainer style (style reference only: how a diagram is drawn, not what it says) |
 
 Canonical asset sheets stay in Knowledge Islands Principal: `Pillars/Aesthetics/Isometric Tiles/` (two painted square-grid tile sheets), `Pillars/Aesthetics/Symbol Library/` (reference sheet and illustrations) and `Pillars/Aesthetics/Logo/`.
 
