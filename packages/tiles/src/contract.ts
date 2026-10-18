@@ -71,11 +71,15 @@ export interface TileManifest {
 export type TileKey = `${TileKind}/${string}`
 export const tileKey = (tile: Pick<TileEntry, 'kind' | 'id'>): TileKey => `${tile.kind}/${tile.id}`
 
+/**
+ * `citadel` is the tile id of the Capital's compound (GDR-KI-PRINCIPAL-011 retired the Citadel as a term). The id is
+ * kept as an alias so drawn sets and maps stay valid; it is renamed `capital` when the next art round redraws the
+ * compound civic. The Tower is no longer required: a set may still carry its drawing as an extra.
+ */
 const structureIds = [
   'citadel',
   'library',
   'council-hall',
-  'tower',
   'observatory',
   'lighthouse',
   'port',

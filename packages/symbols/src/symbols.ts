@@ -2,7 +2,7 @@ import type { KiSymbol } from './types.ts'
 
 /**
  * The symbol library. Meanings mirror ki-principal; where a meaning or status is unsettled the entry says so in
- * `notes` rather than inventing canon.
+ * `notes` rather than inventing canon. Retired ids are listed in `retiredSymbols` and never reused.
  */
 export const symbols = [
   // Geography
@@ -10,7 +10,7 @@ export const symbols = [
     id: 'island',
     name: 'Island',
     meaning: 'A body of knowledge with its own shores: one coherent domain, project or practice.',
-    status: 'canon',
+    status: 'official',
     category: 'geography',
     icon: 'island',
     site: 'Illustrated island on the Map of Known Lands',
@@ -20,7 +20,7 @@ export const symbols = [
     id: 'archipelago',
     name: 'Archipelago',
     meaning: 'A cluster of related islands that share waters and trade closely.',
-    status: 'canon',
+    status: 'official',
     category: 'geography',
     icon: 'archipelago'
   },
@@ -28,21 +28,21 @@ export const symbols = [
     id: 'territory',
     name: 'Territory',
     meaning: 'A region of the realm held together by purpose; its parts are mostly, though not always, adjacent.',
-    status: 'decided',
+    status: 'agreed',
     category: 'geography'
   },
   {
     id: 'realm',
     name: 'Realm',
     meaning: 'The whole standard world, containing many territories laid out geographically.',
-    status: 'decided',
+    status: 'agreed',
     category: 'geography'
   },
   {
     id: 'map-of-known-lands',
     name: 'Map of Known Lands',
     meaning: 'The chart of the realm: everything charted so far, often called simply Known Lands.',
-    status: 'decided',
+    status: 'agreed',
     category: 'geography',
     icon: 'known-lands',
     site: 'The landing map',
@@ -52,7 +52,7 @@ export const symbols = [
     id: 'terrain',
     name: 'Terrain',
     meaning: 'The character of the ground on a hex, from grassland to volcanic, set by the tile set.',
-    status: 'canon',
+    status: 'official',
     category: 'geography',
     icon: 'terrain'
   },
@@ -60,7 +60,7 @@ export const symbols = [
     id: 'ancient-forest',
     name: 'Ancient forest',
     meaning: 'Old, deep-rooted knowledge at the heart of an island; slow-growing and protected.',
-    status: 'canon',
+    status: 'official',
     category: 'geography',
     icon: 'ancient-forest'
   },
@@ -68,7 +68,7 @@ export const symbols = [
     id: 'weave',
     name: 'Weave',
     meaning: 'The fabric of cross-links that binds islands and their contents together.',
-    status: 'canon',
+    status: 'official',
     category: 'geography',
     icon: 'weave'
   },
@@ -76,7 +76,7 @@ export const symbols = [
     id: 'cartographic-grid',
     name: 'Cartographic grid',
     meaning: 'The hex grid every map is drawn on; the shared coordinate system of the realm.',
-    status: 'decided',
+    status: 'agreed',
     category: 'geography',
     icon: 'grid',
     notes: 'Hex grid chosen for KI maps, reusing existing isometric structure art.'
@@ -86,23 +86,27 @@ export const symbols = [
   {
     id: 'capital',
     name: 'Capital',
-    meaning: 'The seat of the realm, where the Citadel stands.',
-    status: 'proposed',
+    meaning:
+      'The civic heart of an island, holding the Library and the Council Hall; drawn as a square, never a fortress.',
+    status: 'official',
     category: 'zone',
-    icon: 'citadel'
+    site: 'The Capital district on the Map of Known Lands',
+    app: 'Territory Principal',
+    notes:
+      'GDR-KI-PRINCIPAL-011. Replaces the Citadel; each tile set draws it its own way (a civic quarter and square, or a hilltop forum). No glyph yet: the citadel glyph is retired.'
   },
   {
     id: 'pillars',
     name: 'Pillars',
     meaning: 'The foundational principles an island or the realm rests on.',
-    status: 'canon',
+    status: 'official',
     category: 'zone'
   },
   {
     id: 'calendar',
     name: 'Calendar',
     meaning: 'The zone that keeps time: rhythms, cadences and dated commitments.',
-    status: 'canon',
+    status: 'official',
     category: 'zone',
     icon: 'calendar'
   },
@@ -110,7 +114,7 @@ export const symbols = [
     id: 'resources',
     name: 'Resources',
     meaning: 'Reference materials, assets and supplies an island draws on.',
-    status: 'canon',
+    status: 'official',
     category: 'zone',
     icon: 'resources'
   },
@@ -118,7 +122,7 @@ export const symbols = [
     id: 'streams',
     name: 'Streams',
     meaning: 'Flows of incoming material that feed an island over time.',
-    status: 'canon',
+    status: 'official',
     category: 'zone',
     icon: 'streams'
   },
@@ -126,7 +130,7 @@ export const symbols = [
     id: 'admin-governance',
     name: 'Admin / Governance',
     meaning: 'The zone for decisions, policy and stewardship of the island itself.',
-    status: 'canon',
+    status: 'official',
     category: 'zone',
     icon: 'council-hall'
   },
@@ -134,26 +138,17 @@ export const symbols = [
     id: 'admin-operations',
     name: 'Admin / Operations',
     meaning: 'The zone for the running of the island: routines, upkeep and housekeeping.',
-    status: 'canon',
+    status: 'official',
     category: 'zone',
     icon: 'mill'
   },
 
   // Structures
   {
-    id: 'citadel',
-    name: 'Citadel',
-    meaning: 'The fortified heart of the Capital that houses the realm’s central institutions.',
-    status: 'proposed',
-    category: 'structure',
-    icon: 'citadel',
-    notes: 'Suggested as the home of the Tower and Council Hall.'
-  },
-  {
     id: 'library',
     name: 'Library',
     meaning: 'Where curated, durable knowledge is kept and can be consulted.',
-    status: 'canon',
+    status: 'official',
     category: 'structure',
     icon: 'library'
   },
@@ -161,33 +156,25 @@ export const symbols = [
     id: 'council-hall',
     name: 'Council Hall',
     meaning: 'Governance: where decisions are debated and made; the parliament of the realm.',
-    status: 'canon',
+    status: 'official',
     category: 'structure',
     icon: 'council-hall'
-  },
-  {
-    id: 'tower',
-    name: 'Tower',
-    meaning: 'A place to watch, see and guide from.',
-    status: 'proposed',
-    category: 'structure',
-    icon: 'tower',
-    notes: 'Candidate new name for the Observatory app.'
   },
   {
     id: 'observatory',
     name: 'Observatory',
     meaning: 'Insight and analytics: where an island looks out and reflects.',
-    status: 'canon',
+    status: 'official',
     category: 'structure',
     icon: 'observatory',
-    notes: "Also the local app's working name; the app is marked by the Tower, so this keeps its canon meaning."
+    app: "The local app's name and mark",
+    notes: 'Also the mark of the local app, which is called the Observatory (GDR-KI-PRINCIPAL-011).'
   },
   {
     id: 'lighthouse',
     name: 'Lighthouse',
     meaning: 'Guidance: standing direction that keeps travellers off the rocks.',
-    status: 'canon',
+    status: 'official',
     category: 'structure',
     icon: 'lighthouse'
   },
@@ -195,7 +182,7 @@ export const symbols = [
     id: 'port',
     name: 'Port',
     meaning: 'Where knowledge and work arrive and depart, by whatever mode of transport.',
-    status: 'canon',
+    status: 'official',
     category: 'structure',
     icon: 'port',
     notes: 'Replaces Harbour: a port has more modes than a harbour (dock, rail depot, airport, customs house).'
@@ -204,7 +191,7 @@ export const symbols = [
     id: 'bridge',
     name: 'Bridge',
     meaning: 'A translation layer joining two lands so that what crosses can be understood on both sides.',
-    status: 'decided',
+    status: 'agreed',
     category: 'structure',
     icon: 'bridge',
     notes: 'Open question: whether a land-to-land link should be a Causeway, keeping Bridge for translation.'
@@ -239,7 +226,7 @@ export const symbols = [
     id: 'dock',
     name: 'Dock',
     meaning: 'The port mode for exchange by sea with other islands.',
-    status: 'canon',
+    status: 'official',
     category: 'port-mode',
     icon: 'dock'
   },
@@ -247,7 +234,7 @@ export const symbols = [
     id: 'rail-depot',
     name: 'Rail depot',
     meaning: 'The port mode for scheduled, high-volume flows along fixed lines.',
-    status: 'canon',
+    status: 'official',
     category: 'port-mode',
     icon: 'rail-depot'
   },
@@ -255,7 +242,7 @@ export const symbols = [
     id: 'airport',
     name: 'Airport',
     meaning: 'The port mode for fast, long-range connections to distant lands.',
-    status: 'canon',
+    status: 'official',
     category: 'port-mode',
     icon: 'airport'
   },
@@ -263,7 +250,7 @@ export const symbols = [
     id: 'customs-house',
     name: 'Customs house',
     meaning: 'The border crossing: where what enters or leaves is inspected and declared.',
-    status: 'canon',
+    status: 'official',
     category: 'port-mode',
     icon: 'customs-house'
   },
@@ -273,7 +260,7 @@ export const symbols = [
     id: 'route',
     name: 'Route',
     meaning: 'A charted way between two places.',
-    status: 'canon',
+    status: 'official',
     category: 'sea',
     icon: 'route'
   },
@@ -281,7 +268,7 @@ export const symbols = [
     id: 'trade-route',
     name: 'Trade route',
     meaning: 'A regular route along which knowledge and work are exchanged between islands.',
-    status: 'canon',
+    status: 'official',
     category: 'sea',
     icon: 'trade-route'
   },
@@ -289,7 +276,7 @@ export const symbols = [
     id: 'current',
     name: 'Current',
     meaning: 'A prevailing flow that carries things along whether or not anyone steers.',
-    status: 'canon',
+    status: 'official',
     category: 'sea',
     icon: 'current'
   },
@@ -297,7 +284,7 @@ export const symbols = [
     id: 'reef',
     name: 'Reef',
     meaning: 'A hidden hazard beneath the surface.',
-    status: 'canon',
+    status: 'official',
     category: 'sea',
     icon: 'reef'
   },
@@ -305,7 +292,7 @@ export const symbols = [
     id: 'celestial-guide',
     name: 'Celestial guide',
     meaning: 'A fixed point to navigate by: enduring values above the day-to-day.',
-    status: 'canon',
+    status: 'official',
     category: 'sea',
     icon: 'celestial-guide'
   },
@@ -324,7 +311,7 @@ export const symbols = [
     id: 'incoming',
     name: 'Incoming (+)',
     meaning: 'Something has arrived and awaits attention.',
-    status: 'canon',
+    status: 'official',
     category: 'signal',
     icon: 'inbound'
   },
@@ -332,7 +319,7 @@ export const symbols = [
     id: 'outbound',
     name: 'Outbound (-)',
     meaning: 'Something is leaving or has been sent on.',
-    status: 'canon',
+    status: 'official',
     category: 'signal',
     icon: 'outbound'
   },
@@ -340,7 +327,7 @@ export const symbols = [
     id: 'lantern',
     name: 'Lantern',
     meaning: 'Attention: a light left burning where someone should look.',
-    status: 'canon',
+    status: 'official',
     category: 'signal',
     icon: 'lantern'
   },
@@ -348,7 +335,7 @@ export const symbols = [
     id: 'storm',
     name: 'Storm',
     meaning: 'A blocking risk: work cannot safely proceed until it passes.',
-    status: 'canon',
+    status: 'official',
     category: 'signal'
   },
   {
@@ -364,28 +351,28 @@ export const symbols = [
     id: 'thriving',
     name: 'Thriving',
     meaning: 'Actively tended and in good health.',
-    status: 'canon',
+    status: 'official',
     category: 'condition'
   },
   {
     id: 'quiet',
     name: 'Quiet',
     meaning: 'Sound but little visited lately.',
-    status: 'canon',
+    status: 'official',
     category: 'condition'
   },
   {
     id: 'weathered',
     name: 'Weathered',
     meaning: 'Showing neglect: needs upkeep before it can be relied upon.',
-    status: 'canon',
+    status: 'official',
     category: 'condition'
   },
   {
     id: 'ruined',
     name: 'Ruined',
     meaning: 'No longer usable as it stands; retire or rebuild.',
-    status: 'canon',
+    status: 'official',
     category: 'condition',
     icon: 'ruins'
   },
@@ -458,3 +445,11 @@ export const symbols = [
 ] as const satisfies readonly KiSymbol[]
 
 export type SymbolId = (typeof symbols)[number]['id']
+
+/** Ids withdrawn from the library, with the reason. They are never reused for another meaning. */
+export const retiredSymbols = {
+  citadel:
+    'Retired by GDR-KI-PRINCIPAL-011: the Capital is the only name for the civic heart, drawn civic, not fortified.',
+  tower: 'Dropped by GDR-KI-PRINCIPAL-011: the symbol language stays non-combative; the Observatory is the app mark.',
+  harbour: 'Retired by GDR-KI-PRINCIPAL-010: the Port is the point of entry and exit.'
+} as const satisfies Readonly<Record<string, string>>

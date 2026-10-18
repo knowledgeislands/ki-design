@@ -1347,11 +1347,11 @@ blockquote.quote p {
   border-radius: var(--radius-sm);
   letter-spacing: 0.02em;
 }
-.badge-canon {
+.badge-official {
   background: var(--wash-ok);
   color: var(--ok);
 }
-.badge-decided {
+.badge-agreed {
   background: var(--color-mist);
   color: var(--accent);
 }
@@ -1361,7 +1361,7 @@ blockquote.quote p {
   outline: 1px dashed var(--warn);
   outline-offset: -1px;
 }
-[data-theme='night'] .badge-decided {
+[data-theme='night'] .badge-agreed {
   background: rgb(159 187 216 / 14%);
 }
 .sym-note {

@@ -1425,7 +1425,8 @@ export function cottage(iso: Iso): Parts {
 }
 
 // ---------------------------------------------------------------------------------------------------------------
-// The Citadel: Library, Council Hall and Tower on a raised terrace around a central square (a 7-hex flower).
+// The Capital (tile id `citadel`): Library, Council Hall and, until the next art round redraws it civic, a tower,
+// on a raised terrace around a central square (a 7-hex flower). GDR-KI-PRINCIPAL-011 drops the Tower.
 
 /** Clips a flat-ground segment to the hex scaled by `s` (Cyrus–Beck). */
 function clipToHex(
@@ -1559,7 +1560,6 @@ export const structureDrawers: Record<string, () => Structure> = {
   citadel,
   library: () => single(library(at()), 60),
   'council-hall': () => single(councilHall(at()), 46),
-  tower: () => single(tower(at()), 96),
   observatory: () => single(observatory(at()), 30),
   lighthouse: () => single(lighthouse(at()), 120),
   port,

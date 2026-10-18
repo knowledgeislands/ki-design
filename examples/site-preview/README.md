@@ -33,7 +33,7 @@ Both scripts import package source by relative path (`packages/hexmap/src/geomet
 8. The journey rail (The Problem · A New Paradigm · The Islands · Stewardship · Landscapes · Create), the six canon principles in canon words and order, and the closing "Tools change. Landscapes endure."
 9. Footer split into the Voyage and the Atlas.
 
-**`field-guide.html` — the Atlas's Field Guide.** One card per entry in `packages/symbols` (54), grouped by category with a filter (toggle buttons; without JavaScript every group shows): glyph roundel, name, status badge (canon · decided · proposed, proposed dashed), id, meaning and notes. Entries without a glyph show a dashed empty roundel and say "No glyph yet". Each group links back to where the Voyage explains it. It ends with "How the map works": hex topology → data and layers → isometric render → the map, all drawn from the Arcadia data.
+**`field-guide.html` — the Atlas's Field Guide.** One card per entry in `packages/symbols` (54), grouped by category with a filter (toggle buttons; without JavaScript every group shows): glyph roundel, name, status badge (Official · Agreed · Proposed, proposed dashed), id, meaning and notes. Entries without a glyph show a dashed empty roundel and say "No glyph yet". Each group links back to where the Voyage explains it. It ends with "How the map works": hex topology → data and layers → isometric render → the map, all drawn from the Arcadia data.
 
 Screenshots at 1440 and 390 px are in `screenshots/`.
 
@@ -59,5 +59,6 @@ Screenshots at 1440 and 390 px are in `screenshots/`.
 
 ## Notes for the design system
 
+- The hero, the Cycle and the Home plate predate GDR-KI-PRINCIPAL-011: they still show the Citadel and the Tower, where the live site now shows the Capital (Library · Council Hall) and the Observatory as the app's mark. The preview is not redrawn for it.
 - Some `packages/symbols` entries differ from DESIGN.md section 3 (for example Observatory's meaning reads as the local app, where DESIGN.md has insight / analytics and draws the app as the Tower; several roles borrow structure glyphs). The Field Guide renders the package as it stands; reconciling them is a symbols change.
 - No horizontal scroll at 390 px (16 px gutters); the Field Guide's filter row scrolls inside its own width. Reduced motion stops the lamps and the scroll reveal. Text pairs meet 4.5:1.

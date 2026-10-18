@@ -188,7 +188,7 @@ const categoryInfo: Record<string, { title: string; intro: string; voyage: { lab
   }
 }
 
-const statusLabel: Record<string, string> = { canon: 'Canon', decided: 'Decided', proposed: 'Proposed' }
+const statusLabel: Record<string, string> = { official: 'Official', agreed: 'Agreed', proposed: 'Proposed' }
 
 function symbolsHtml(): { filters: string; sections: string } {
   const filters = [

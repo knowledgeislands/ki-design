@@ -387,30 +387,6 @@
       }
     },
     {
-      "id": "tower",
-      "kind": "structure",
-      "footprint": "single",
-      "orientation": 0,
-      "anchor": {
-        "x": 128,
-        "y": 74
-      },
-      "variants": 1,
-      "states": ["thriving", "quiet", "weathered", "ruined"],
-      "scales": [1, 2],
-      "status": "draft",
-      "art": {
-        "path": "structures/tower.svg",
-        "width": 256,
-        "height": 292,
-        "anchor": {
-          "x": 128,
-          "y": 170
-        },
-        "framesDrawn": 1
-      }
-    },
-    {
       "id": "observatory",
       "kind": "structure",
       "footprint": "single",

@@ -1,7 +1,7 @@
 import { symbols } from './symbols.ts'
 import { type KiSymbol, type SymbolCategory, symbolCategories } from './types.ts'
 
-export { type SymbolId, symbols } from './symbols.ts'
+export { retiredSymbols, type SymbolId, symbols } from './symbols.ts'
 export {
   type KiSymbol,
   type KiSymbol as Symbol,

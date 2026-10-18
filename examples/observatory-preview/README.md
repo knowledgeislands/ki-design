@@ -38,7 +38,7 @@ bunx tsc -p examples/observatory-preview
 
 ## How it maps to the design brief
 
-The shell has a top bar (compass mark, _Knowledge Islands_, _Observatory_ with a small muted _Tower_ mark while the name is considered), a scope picker from `/api/scopes`, the job switch **Observe · Attend · Act · Extend**, the Beacon's observed-at time and a workers chip counting active agent runs. Under it, the selected job's instruments are text tabs with 14 px line glyphs; the current one is ink on a brass underline.
+The shell has a top bar (compass mark, _Knowledge Islands_, _Observatory_ with its small muted Observatory mark), a scope picker from `/api/scopes`, the job switch **Observe · Attend · Act · Extend**, the Beacon's observed-at time and a workers chip counting active agent runs. Under it, the selected job's instruments are text tabs with 14 px line glyphs; the current one is ink on a brass underline.
 
 | Job | Instrument | Reads | Notes |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ The shell has a top bar (compass mark, _Knowledge Islands_, _Observatory_ with a
 ### The Map of Known Lands
 
 - **Territories are archipelagos.** The server reads `/api/scopes`, then `/api/repositories?scope=territory:<handle>&source=git` for each territory, and serves the membership at `/preview/lands`, cached for 30 seconds. Repositories in no territory sail as _Unclaimed waters_; a territory the Observatory cannot list is shown as _uncharted_ with its reason.
-- **Repositories are islands**: one hex each, three for a territory's capital (`*-principal`). Structure by role from the name: `*-principal` citadel, `tools-*` and `*-harness` workshop, `mcp-*` bridge, `apps-*` and `homebrew-*` port, otherwise island. A capital stands on hills, every other island on grassland (terrain elevation = maturity).
+- **Repositories are islands**: one hex each, three for a territory's capital (`*-principal`). Structure by role from the name: `*-principal` the Capital (tile id `citadel`), `tools-*` and `*-harness` workshop, `mcp-*` bridge, `apps-*` and `homebrew-*` port, otherwise island. A capital stands on hills, every other island on grassland (terrain elevation = maturity).
 - **Drawn by `@knowledgeislands/hexmap`**: the chart is an `islandmap/v1` rendered with `layoutFlat` and `renderFlatLayers` — sea, shallows, land, terrain patterns, coastline, trade lanes, structure roundels with `@knowledgeislands/icons` glyphs, halo labels (monospace, as DESIGN 13.2 asks for the app) and the selected ring — in `night` or `day` to match the theme; the toggle and a system theme change redraw it. Territory waters (a tint and a dashed border) are laid under the land, and an interactive layer of islands over it.
 - **Condition by evidence**: the age of the latest commit (from `/api/activity`, falling back to the repository's head) at the time of observation — up to 2 days thriving, 14 quiet, 60 weathered, older ruined — drawn as fill strength: the island fades towards the paper as it weathers.
 - **Signals as marks**: a rust reef for a blocking signal, a brass lantern for attention.

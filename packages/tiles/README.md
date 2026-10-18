@@ -4,14 +4,14 @@ The tile-set contract: what a set of isometric tiles must contain for the maps t
 
 ## Sets
 
-- **Modern** (`sets/modern/`): clean, engraved and flat; the default for the apps. v0 is drawn as SVG for every required tile (status `draft`): 12 terrains, 17 structures in the thriving state, 4 decals and 4 connectors. `scripts/generate-modern.ts` writes the SVGs and the manifest's `art` entries from parametric shapes; `contact-sheet.png` shows every tile, and `arcadia-iso.png` is Arcadia rendered with them by `scripts/render-iso.ts`.
+- **Modern** (`sets/modern/`): clean, engraved and flat; the default for the apps. v0 is drawn as SVG for every required tile (status `draft`): 12 terrains, 16 structures in the thriving state, 4 decals and 4 connectors. `scripts/generate-modern.ts` writes the SVGs and the manifest's `art` entries from parametric shapes; `contact-sheet.png` shows every tile, and `arcadia-iso.png` is Arcadia rendered with them by `scripts/render-iso.ts`.
 - **Ancient** (planned): painterly and legendary, in the spirit of the Aesthetics pillar and mood boards; the default for the site.
 
 Generated art is treated as unlicensed until the art-licensing decision is recorded.
 
 ### Modern v0 notes
 
-- Each manifest entry's `anchor` stays in cell pixels (the contract keeps it inside the 256 × 196 cell); `art.anchor` is the same point in the SVG's canvas, which extends above the cell for tall art and beside it for the port (pair) and citadel (flower).
+- Each manifest entry's `anchor` stays in cell pixels (the contract keeps it inside the 256 × 196 cell); `art.anchor` is the same point in the SVG's canvas, which extends above the cell for tall art and beside it for the port (pair) and the Capital's compound, `citadel` (flower). That compound still draws a tower; the next art round redraws it as a civic square (GDR-KI-PRINCIPAL-011). `structures/tower.svg` is kept but no longer in the manifest or the contract.
 - Quiet, weathered and ruined are not separate drawings: the top-level `conditions` block says which layer to hide (`[data-state="thriving"]`: lit windows, smoke, lamps, pennants) and which decals to stack. The contract lists states but cannot yet express this composition, so `validateTileSet` checks only that all four are declared.
 - Only frame 0 is drawn; `frames` records the intended loops. No flat SVG twins and no extra variants yet.
 - Fills are CSS custom properties with token fallbacks (`--terrain-*`, `--tile-*`, `--bld-*`), so themes and island palettes can override them.
@@ -26,7 +26,7 @@ At 1×, the top face is a pointy-top hex 256 wide and 148 tall (2:1 dimetric). A
 A set is valid only when it covers the whole inventory, every structure in every condition state, at 1× and 2×:
 
 - **Terrain** (12): grassland, forest, hills, mountain, coastal, cliffs, sand, river, marsh, snow, volcanic, ocean.
-- **Structures** (17): citadel (the Capital), library, council-hall, tower, observatory, lighthouse, port, dock, rail-depot, airport, customs-house, bridge, workshop, mill, ruins, ancient-forest, cottage. Each in thriving, quiet, weathered and ruined.
+- **Structures** (16): citadel (the Capital's compound; the id is an alias kept until the next art round renames it `capital`), library, council-hall, observatory, lighthouse, port, dock, rail-depot, airport, customs-house, bridge, workshop, mill, ruins, ancient-forest, cottage. Each in thriving, quiet, weathered and ruined.
 - **Decals** (4): ivy, cracks, moss, fallen-roof.
 - **Connectors** (4): road, river, bridge-span, quay.
 

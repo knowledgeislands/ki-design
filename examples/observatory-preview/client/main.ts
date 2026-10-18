@@ -88,12 +88,7 @@ class Observatory extends HTMLElement {
         h('span', { class: 'brand-realm' }, 'Knowledge Islands'),
         h('span', { class: 'brand-rule', 'aria-hidden': 'true' }),
         h('span', { class: 'brand-product' }, 'Observatory'),
-        h(
-          'span',
-          { class: 'brand-alt', title: 'The Tower — a name under consideration' },
-          glyph('tower', 13),
-          h('span', {}, 'Tower')
-        )
+        h('span', { class: 'brand-alt', title: 'The Observatory mark' }, glyph('observatory', 13))
       ),
       h('label', { class: 'scope', for: 'scope' }, h('span', { class: 'scope-label' }, 'Scope'), select),
       h(

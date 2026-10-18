@@ -25,8 +25,8 @@ const withTile = (manifest: TileManifest, key: string, change: (tile: TileEntry)
 })
 
 describe('inventory', () => {
-  test('covers 12 terrains, 17 structures, 4 decals and 4 connectors', () => {
-    expect(requiredIds).toHaveLength(37)
+  test('covers 12 terrains, 16 structures, 4 decals and 4 connectors', () => {
+    expect(requiredIds).toHaveLength(36)
     expect(requiredIds.filter((id) => id.startsWith('terrain/'))).toHaveLength(12)
     expect(new Set(requiredIds).size).toBe(requiredIds.length)
     expect(requiredIds).toContain('terrain/river')
