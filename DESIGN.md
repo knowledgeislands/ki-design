@@ -17,7 +17,7 @@ One visual world — a hand-drawn, natural archipelago built on a hex grid with 
 
 1. **Everyone:** this file is self-contained. Sections 1–4 say what Knowledge Islands is and means; 5–13 say how it looks, moves and behaves; 14 holds copy-paste prompts; 15–16 hold the floors and the rules for changing anything.
 2. **For AI designers (ChatGPT, Claude): read sections 1–4 before producing anything.** Use section 14's prompts for imagery. **Never invent meaning — section 3 is the meaning.** If a thing you want to draw has no row in section 3, do not draw it; propose it, marked _proposed_.
-3. **Status words are binding.** _Canon_ = ratified in `ki-principal`; _decided_ = taken in the 18 Oct 2026 brief, being enacted into canon; _proposed_ = may be used in drafts and mockups, never shipped as settled. Where canon and a _decided_ item conflict, _decided_ wins.
+3. **Status words are binding.** There are four, always in this order — **Official · Agreed · Proposed · Open** (GDR-KI-DESIGN-002). _Official_ = ratified in `ki-principal`; _agreed_ = agreed with the owner (most in the 18 Oct 2026 brief), being enacted into `ki-principal`; _proposed_ = may be used in drafts and mockups, never shipped as settled; _open_ = a question still to answer (3.9, 16.5), drawn as 3.9 says meanwhile. Where an official and an _agreed_ item conflict, _agreed_ wins. (The labels were Canon and Decided before 18 Oct 2026; the data keys are `official`, `agreed` and `proposed`.)
 4. **Pick a dialect first.** Site work follows the Chart columns; local-app work follows the Instrument columns and PDR-KI-OBSERVA-002, which is law for that dialect. Never mix them on one surface.
 5. **Judge every output** against Appendix A (Do / Don't) and the contrast tables in section 5 before calling it done.
 
@@ -25,7 +25,7 @@ One visual world — a hand-drawn, natural archipelago built on a hex grid with 
 
 ## 1. Essence
 
-**What it is.** Knowledge Islands is a conceptual model for organising knowledge as a natural, evolving system. An **island** is a discrete, self-contained body of knowledge with boundaries and internal geography — in practice, a repository. Islands are governed together in **territories**, drawn as archipelagos, and all of them lie within the **Knowledge Islands Realm**. At the heart of each island is a **Capital**, and at its heart a **Citadel** holding the Library (canonical knowledge), the Council Hall (governance) and the Tower (watching and guiding). Knowledge Islands Principal — the island called **Arcadia** — is the Knowledge Island of Knowledge Islands: the legendary origin that holds the canonical model every other island derives its baseline from.
+**What it is.** Knowledge Islands is a conceptual model for organising knowledge as a natural, evolving system. An **island** is a discrete, self-contained body of knowledge with boundaries and internal geography — in practice, a repository. Islands are governed together in **territories**, drawn as archipelagos, and all of them lie within the **Knowledge Islands Realm**. At the heart of each island is its **Capital**, the civic heart, holding the Library (canonical knowledge) and the Council Hall (governance). Knowledge Islands Principal — the island called **Arcadia** — is the Knowledge Island of Knowledge Islands: the legendary origin that holds the canonical model every other island derives its baseline from.
 
 **Brand posture: calm intelligent infrastructure.** A navigable ecology of meaning, not a software product or a database. A modern atlas with environmental harmony in the manner of hand-painted animation backgrounds, and the gravity of the ancient library of Alexandria. Moss, slate, sea-glass and brass; soft daylight on warm paper; lantern-light at night. Settlements look grown rather than placed.
 
@@ -56,8 +56,7 @@ One visual world — a hand-drawn, natural archipelago built on a hex grid with 
 | **Map of Known Lands** | The canonical chart of the realm's territories and islands (after `Admin/Governance/Known Lands.md`) | The chart itself, with compass rose and scale bar | The Known Lands chart instrument |
 | **Territory** | Islands governed together under one Capital, one accountable authority and one harness. **A territory is an archipelago** | An archipelago: a group of islands in one sea region with a tinted border; an island may sit apart as an **exclave** | Scope `territory:<handle>` |
 | **Island** | A discrete, self-contained body of knowledge; in practice a **repository** | A land mass of hexes | A repository |
-| **Capital** | An island's (or a territory's) civic centre; the Principal island holds the territory's governance | The Citadel and its square, on a 7-hex footprint | Territory Principal repository |
-| **Citadel** | The civic heart of a Capital: **Library + Council Hall + Tower** | Three buildings on one walled terrace spanning a 7-hex flower — never a single-hex building | — |
+| **Capital** | An island's (or a territory's) civic heart: **Library + Council Hall** (GDR-KI-PRINCIPAL-011); the Principal island holds the territory's governance | A civic square, never a fortress, on a 7-hex footprint — never a single-hex building | Territory Principal repository |
 
 "Estate" is only Kit's local word for the places visited most often; display copy says **realm**. **Repositories are islands; territories are archipelagos** (decided 18 Oct 2026). An earlier draft made the archipelago a non-governing "character" grouping; that reading is withdrawn, so never draw a second grouping line that crosses territories.
 
@@ -79,7 +78,7 @@ The map has vertical meaning. Elevation reads as maturity; sea floor and sky are
 | --- | --- | --- | --- |
 | **Capture** | Information arrives without immediate judgement; routing, not filtering | The **Port** | Review queue / "Waiting for you" |
 | **Connect** | Material is contextualised and linked; received information becomes owned knowledge | Routes, Streams | Trade routes, Roadmap |
-| **Reflect** | Periodic review surfaces what is stale, changed or obsolete | Tower and Observatory | Beacon, Activity |
+| **Reflect** | Periodic review surfaces what is stale, changed or obsolete | The Observatory | Beacon, Activity |
 
 The explainer boards draw a longer **tide loop** (Discover → Curate → Govern → Nurture → Connect → Learn) as a band at the foot of a poster — _proposed_; it elaborates the cycle and never replaces Capture → Connect → Reflect in canonical copy.
 
@@ -91,34 +90,34 @@ The hex grid is the truth; the isometric painting is how that truth is shown. A 
 
 ## 3. Meaning
 
-This is the symbol library. Every visual element that carries meaning appears here once. Columns: **Status** (canon / decided / proposed), **Drawn as** (illustration and tile), **Site** (where it surfaces on knowledgeislands.info), **App** (where it surfaces in the local app). Glyph ids refer to section 8.
+This is the symbol library. Every visual element that carries meaning appears here once. Columns: **Status** (official / agreed / proposed), **Drawn as** (illustration and tile), **Site** (where it surfaces on knowledgeislands.info), **App** (where it surfaces in the local app). Glyph ids refer to section 8.
 
 ### 3.1 The canonical symbols
 
 | Symbol | Meaning | Status | Drawn as | Site | App | Glyph |
 | --- | --- | --- | --- | --- | --- | --- |
-| Island | A domain of knowledge; a repository | canon | A land mass of hexes rising from the sea | Model, Landscapes | A repository | `island` |
-| Archipelago | A federated knowledge ecosystem; the drawn form of a territory | canon (territory = archipelago decided) | Several islands in one tinted sea region | Model | A territory | `archipelago` |
-| Route | A relationship | canon | A fine dotted or inked path between places | Model | Links | `route` |
-| Trade Route | Collaboration / exchange | canon | A brass sea lane with small sailing vessels; solid = active, dashed = awaiting reciprocity | Model | Trade routes layer | `trade-route` |
-| Current | Information flow | canon | Curved arrowed lines in the water | The Cycle | Flow between islands; Sessions are vessels on it | `current` |
-| Weave / Fabric | Cross-domain synthesis | canon | Interlaced brass and teal threads meeting at points of light | Philosophy | Cross-island links | `weave` |
-| Lighthouse | **Guidance** only | canon (GDR-KI-PRINCIPAL-010) | A tall pale tower on a rocky headland | Principles, wayfinding | Guidance and help (not the Beacon: that is the Tower's lamp, glyph `beacon`) | `lighthouse` |
-| Observatory | Insight / analytics | canon | A domed observatory on a hill or cliff | Home hero, Reflect | Activity, insight | `observatory` |
-| Port | **Entry and exchange, in any mode** | canon (replaces Harbour; GDR-KI-PRINCIPAL-010) | A port town of districts (3.4) | Capture | Review queue intake (`+/`) | `port` |
-| Bridge | Translation layer between systems | canon (name clash open, 3.9) | A stone arched bridge | Agents section | MCP servers | `bridge` |
-| Reef | Risk / ambiguity; blocking | canon | Sandstone rocks in shallows; in the app, a rust reef | — | Blocking signals | `reef` |
-| Terrain elevation | Depth / maturity | canon | Contour terraces; higher = more mature | Philosophy | Elevation on the chart | `terrain` |
-| Ancient Forest | Wisdom / continuity; never built on | canon | One vast old tree among old growth | Philosophy | — | `ancient-forest` |
-| Cartographic Grid | Structure / orientation | canon | Faint graticule; the hex lattice at shorelines | Field Guide | The grid itself | `grid` |
-| Celestial Guide | Long-range orientation | canon | Eight-point star over constellations | Journey | Horizon, the Charter | `celestial` |
-| Library | Knowledge resources; canonical knowledge (Pillars) | canon in the model (not in the canon Symbol Library); symbol decided | Domed building with colonnade | Philosophy, Arcadia | Knowledge Bases, Documents | `library` |
-| Council Hall | **Governance** — a parliament or Capitol; decisions, not storage | canon (GDR-KI-PRINCIPAL-010) | Colonnaded hall with pediment, on the Citadel square | Model | Decisions | `council-hall` |
+| Island | A domain of knowledge; a repository | official | A land mass of hexes rising from the sea | Model, Landscapes | A repository | `island` |
+| Archipelago | A federated knowledge ecosystem; the drawn form of a territory | official (territory = archipelago agreed) | Several islands in one tinted sea region | Model | A territory | `archipelago` |
+| Route | A relationship | official | A fine dotted or inked path between places | Model | Links | `route` |
+| Trade Route | Collaboration / exchange | official | A brass sea lane with small sailing vessels; solid = active, dashed = awaiting reciprocity | Model | Trade routes layer | `trade-route` |
+| Current | Information flow | official | Curved arrowed lines in the water | The Cycle | Flow between islands; Sessions are vessels on it | `current` |
+| Weave / Fabric | Cross-domain synthesis | official | Interlaced brass and teal threads meeting at points of light | Philosophy | Cross-island links | `weave` |
+| Lighthouse | **Guidance** only | official (GDR-KI-PRINCIPAL-010) | A tall pale tower on a rocky headland | Principles, wayfinding | Guidance and help (not the Beacon: that is the Observatory's lamp, glyph `beacon`) | `lighthouse` |
+| Observatory | Insight / analytics; also the local app's mark (GDR-KI-PRINCIPAL-011) | official | A domed observatory on a hill or cliff | Home hero, Reflect | Activity, insight; the app's mark | `observatory` |
+| Port | **Entry and exchange, in any mode** | official (replaces Harbour; GDR-KI-PRINCIPAL-010) | A port town of districts (3.4) | Capture | Review queue intake (`+/`) | `port` |
+| Bridge | Translation layer between systems | official (name clash open, 3.9) | A stone arched bridge | Agents section | MCP servers | `bridge` |
+| Reef | Risk / ambiguity; blocking | official | Sandstone rocks in shallows; in the app, a rust reef | — | Blocking signals | `reef` |
+| Terrain elevation | Depth / maturity | official | Contour terraces; higher = more mature | Philosophy | Elevation on the chart | `terrain` |
+| Ancient Forest | Wisdom / continuity; never built on | official | One vast old tree among old growth | Philosophy | — | `ancient-forest` |
+| Cartographic Grid | Structure / orientation | official | Faint graticule; the hex lattice at shorelines | Field Guide | The grid itself | `grid` |
+| Celestial Guide | Long-range orientation | official | Eight-point star over constellations | Journey | Horizon, the Charter | `celestial` |
+| Library | Knowledge resources; canonical knowledge (Pillars) | official (GDR-KI-PRINCIPAL-011: held in the Capital) | Domed building with colonnade | Philosophy, Arcadia | Knowledge Bases, Documents | `library` |
+| Council Hall | **Governance** — a parliament or Capitol; decisions, not storage | official (GDR-KI-PRINCIPAL-010) | Colonnaded hall with pediment, on the Capital square | Model | Decisions | `council-hall` |
 | Harbour | Was "integration point" — retired | retired (GDR-KI-PRINCIPAL-010) | Do not draw; use Port | — | — | — |
 
-GDR-KI-PRINCIPAL-010 (The Port) superseded three earlier canon rows: "Harbour = integration point" (now the Port); "Port = operational systems" (operational systems move to the Mill / Engine house, _proposed_); and "Governance = lighthouses / citadels" (governance is the Council Hall; the Lighthouse is guidance only).
+GDR-KI-PRINCIPAL-010 (The Port) superseded three earlier canon rows: "Harbour = integration point" (now the Port); "Port = operational systems" (operational systems move to the Mill / Engine house, _proposed_); and "Governance = lighthouses / citadels" (governance is the Council Hall; the Lighthouse is guidance only). GDR-KI-PRINCIPAL-011 (The Capital) retired the Citadel as a term and dropped the Tower: the Capital holds the Library and the Council Hall, and the Observatory is the local app's mark.
 
-**Value icons** (canon, Symbol Library sheet; glyphs in 8.2) label principles and values, never places.
+**Value icons** (official, Symbol Library sheet; glyphs in 8.2) label principles and values, never places.
 
 ### 3.2 Zones and working areas
 
@@ -126,35 +125,36 @@ Each canonical zone of a Knowledge Base is a place on its island, so a repositor
 
 | Zone or area | Meaning | Status | Drawn as | App |
 | --- | --- | --- | --- | --- |
-| `Pillars` | Owned, canonical knowledge | canon | The Library's hall of pillars, in the Citadel | Knowledge Bases, Documents |
-| `Calendar` | Time-bound knowledge | canon | Clock tower or sundial on the Capital square | Activity, automation timing |
-| `Resources` | External reference | canon | Archive and reading room beside the Library | Artifacts, references |
-| `Streams` | Knowledge in motion: initiatives, projects, roadmap | canon | Rivers and canals running to the sea | Roadmap, Sessions |
-| `Admin/Governance` | What must hold: Charter, Known Lands, policies, decisions | canon | Council Hall, in the Citadel | Decisions |
-| `Admin/Operations` | How the island runs: activities, processes, live artefacts, lessons | canon zone; drawing proposed | Mill / Engine house (_proposed_, name open) | Automation, Rig, Extensions |
-| `+` (inbound) | Material received for triage; not a zone | canon | The Port's arrivals quay | Review queue (intake) |
-| `-` (outbound) | Material prepared to leave; not a zone | canon | The Port's departures quay | Outbound |
-| `_TRADES` | Exchange agreements with other islands | canon | Trade routes from the Port | Trade routes |
+| `Pillars` | Owned, canonical knowledge | official | The Library's hall of pillars, in the Capital | Knowledge Bases, Documents |
+| `Calendar` | Time-bound knowledge | official | Clock tower or sundial on the Capital square | Activity, automation timing |
+| `Resources` | External reference | official | Archive and reading room beside the Library | Artifacts, references |
+| `Streams` | Knowledge in motion: initiatives, projects, roadmap | official | Rivers and canals running to the sea | Roadmap, Sessions |
+| `Admin/Governance` | What must hold: Charter, Known Lands, policies, decisions | official | Council Hall, in the Capital | Decisions |
+| `Admin/Operations` | How the island runs: activities, processes, live artefacts, lessons | official zone; drawing proposed | Mill / Engine house (_proposed_, name open) | Automation, Rig, Extensions |
+| `+` (inbound) | Material received for triage; not a zone | official | The Port's arrivals quay | Review queue (intake) |
+| `-` (outbound) | Material prepared to leave; not a zone | official | The Port's departures quay | Outbound |
+| `_TRADES` | Exchange agreements with other islands | official | Trade routes from the Port | Trade routes |
 
-Canon names five zones — Calendar, Pillars, Resources, Streams, Admin — with Admin drawn as two places (Governance, Operations). `+` and `-` are working areas kept outside the zones; never draw them inside the Citadel.
+Canon names five zones — Calendar, Pillars, Resources, Streams, Admin — with Admin drawn as two places (Governance, Operations). `+` and `-` are working areas kept outside the zones; never draw them inside the Capital.
 
-### 3.3 The Citadel and other structures
+### 3.3 The Capital and other structures
 
 Structures already defined in 3.1 (Library, Council Hall, Observatory, Lighthouse, Port, Bridge, Ancient Forest) are not repeated here; the full tile inventory is 10.4.
 
 | Structure | Meaning | Status | Drawn as | App |
 | --- | --- | --- | --- | --- |
-| Citadel | Civic heart of a Capital: Library, Council Hall, Tower | decided | Walled rise, 7-hex flower, three buildings | Territory Principal |
-| Tower | Watching, seeing and guiding — a keep, a control tower | decided (part of Citadel) | Slender watchtower with a lit lamp room | The local app itself; the Beacon is its lamp |
+| Capital | Civic heart of an island: Library and Council Hall | official (GDR-KI-PRINCIPAL-011) | A civic square on a 7-hex flower, open and welcoming, never walled: a civic quarter and square (Modern), a hilltop forum or acropolis (Ancient) | Territory Principal |
 | Workshop / Forge | Building tools and harnesses | proposed | Timber workshop with chimney, anvil yard | Repositories (`tools-*`, harnesses) |
 | Mill / Engine house | Operational systems | proposed; name open (16.5); tile id `mill` | Stone house with waterwheel or windmill | Rig, Automation |
 | Ruins | Retired knowledge — honoured, not hidden | proposed | Broken walls, fallen lintel, ivy (columns stay the Library's) | Archived repos and records |
 | Cottage | Generic dwelling; the Personal Isle's hearth | in the tile contract | Small house, one hearth, garden wall | — |
 | Commons | Community archetype: shared space | proposed | Meeting hall, market square, shared gardens | — |
-| Logo roundel | The Knowledge Islands mark: an island and an arch in a roundel | canon (`Pillars/Aesthetics/Logo/logo.png`) | Use the canon file; never redraw or restyle it | Site header lockup |
-| Compass rose | Orientation of the Realm; candidate favicon and app mark — **not the logo** (open, 16.5) | proposed | Eight-point brass rose | Orientation motif on charts and posters |
+| Logo roundel | The Knowledge Islands mark: an island and an arch in a roundel | official (`Pillars/Aesthetics/Logo/logo.png`) | Use the canon file; never redraw or restyle it | Site header lockup |
+| Compass rose | Orientation of the Realm; candidate favicon — **not the logo** (open, 16.5) | proposed | Eight-point brass rose | Orientation motif on charts and posters |
 
-**Two Observatories.** The _Observatory structure_ means insight (Activity). The local app's working name is also "Observatory", but the app is drawn as the **Tower**. Never draw the domed observatory as the app's mark.
+**The Observatory is the app's mark.** The Observatory means insight (Activity), and the local app is the Observatory, so the domed observatory is its mark (GDR-KI-PRINCIPAL-011). The Beacon is the Observatory's lamp.
+
+**Non-combative.** The symbol language never fortifies: no citadels, towers, keeps or battlements, and no walls around the Capital. The Lighthouse keeps its tall form because it guides, not guards. "Citadel" is retired as a term and the Tower is dropped (GDR-KI-PRINCIPAL-011). _Open:_ whether a territory's Principal repository is drawn with a **curtain wall** around its knowledge base is not decided (16.5); any answer must stay within this principle.
 
 ### 3.4 Port modes
 
@@ -162,22 +162,22 @@ A Port's modes are districts of one Port, so an island shows at a glance how kno
 
 | Mode | Meaning | Status | Drawn as | App |
 | --- | --- | --- | --- | --- |
-| Dock (`dock`) | Material carried in by hand | canon | Wooden jetty, small sailing boats | Captures at Stage |
-| Rail depot (`rail-depot`) | Scheduled, regular feeds | canon | Small station, platform canopy, a short run of track inland | Automation-fed intake |
-| Airport (`airport`) | Long-range arrivals from other systems and agents | canon | **A tall mooring mast with a moored airship** (period-consistent; never jets or runways) | Agent and remote intake |
-| Customs house (`customs-house`) | A governed boundary where things are checked | canon | Gatehouse with a barrier at the port gate | What never reaches the browser; confirmations |
+| Dock (`dock`) | Material carried in by hand | official | Wooden jetty, small sailing boats | Captures at Stage |
+| Rail depot (`rail-depot`) | Scheduled, regular feeds | official | Small station, platform canopy, a short run of track inland | Automation-fed intake |
+| Airport (`airport`) | Long-range arrivals from other systems and agents | official | **A tall mooring mast with a moored airship** (period-consistent; never jets or runways) | Agent and remote intake |
+| Customs house (`customs-house`) | A governed boundary where things are checked | official | Gatehouse with a barrier at the port gate | What never reaches the browser; confirmations |
 
 ### 3.5 Signals
 
 | Mark | Meaning | Status | Drawn as | App |
 | --- | --- | --- | --- | --- |
-| Lantern | Attention: the Beacon ranks it as unusual | decided | Brass lantern hung on the structure | Beacon signal, gold (`--warn`) |
-| Reef | Risk; blocking | canon | Rust reef by the structure | Beacon blocking, rust (`--bad`) |
-| Fog | Experimental, or not yet observed (uncharted). A **map state** over any terrain, never a terrain tile | canon | Drifting fog over hexes; flat: `--fog` hatch (5.6) | Proposals, drafts, unobserved |
+| Lantern | Attention: the Beacon ranks it as unusual | agreed | Brass lantern hung on the structure | Beacon signal, gold (`--warn`) |
+| Reef | Risk; blocking | official | Rust reef by the structure | Beacon blocking, rust (`--bad`) |
+| Fog | Experimental, or not yet observed (uncharted). A **map state** over any terrain, never a terrain tile | official | Drifting fog over hexes; flat: `--fog` hatch (5.6) | Proposals, drafts, unobserved |
 | Storm | Risks, conflicts, policy violations | proposed | Storm cloud over an island | Beacon (blocking) |
 | Whale song | High-value, long-range signal | proposed | A whale far out at sea | Beacon (long-horizon) |
 | Tide line | Change, trigger, opportunity | proposed | Tide lines on the coast | Automation triggers |
-| Solid / dashed lane | Active / awaiting reciprocity | decided | Brass sea lane | Trade routes |
+| Solid / dashed lane | Active / awaiting reciprocity | agreed | Brass sea lane | Trade routes |
 
 ### 3.6 Condition states
 
@@ -210,7 +210,7 @@ Workers are people or AI agents acting in the same cycle. All roles are **propos
 | Culture | A territory's population of agents (norms from its harness) | Figures in the territory's tint | — |
 | Operator / Architect | External privileged role | **Not drawn on the map** | — |
 
-Explainer-board roles map onto these: Curator → Archivist; Gardener → Steward; Harbourman → Navigator (at the Port); Observer → Historian or the Tower; Governance → Guardian. A role is a hat, not a species: the same role can be worn by a person or an agent.
+Explainer-board roles map onto these: Curator → Archivist; Gardener → Steward; Harbourman → Navigator (at the Port); Observer → Historian or the Observatory; Governance → Guardian. A role is a hat, not a species: the same role can be worn by a person or an agent.
 
 ### 3.8 Physical places — never drawn as land
 
@@ -231,7 +231,8 @@ The questions themselves are listed once, in 16.5.
 | **Mill vs Engine house** | Draw a stone house with a waterwheel; id `mill`; label "Mill (proposed)" |
 | **Steward roles** (3.7) | Mark them proposed in public copy |
 | **The mark** | The canon roundel is the logo; the compass is only an orientation motif |
-| **Local app name** | Write "Observatory" (working name) until Gate B; draw the app as the Tower |
+| **Local app name** | Write "Observatory"; its mark is the domed Observatory whatever it is finally called |
+| **Curtain wall** around a Principal repository's knowledge base | Do not draw one; keep the Capital open (3.3) |
 | Commons, Ruins, compass rose, storm, whale song, tide lines | Usable in drafts and mockups, marked proposed |
 
 ---
@@ -254,7 +255,7 @@ Calm, exact, unhurried, hopeful. Write like a good atlas or a scientific publica
 
 | Use | Avoid | Why |
 | --- | --- | --- |
-| realm, territory, island, Capital, Citadel | estate (in display copy), workspace, tenant | Section 2 |
+| realm, territory, island, Capital | estate (in display copy), workspace, tenant; Citadel, Tower | Section 2; GDR-KI-PRINCIPAL-011 |
 | Port | Harbour | Retired 18 Oct 2026 |
 | steward, tend, ratify, chart, voyage | own, harvest, crush, hack | Stewardship over extraction |
 | workers; Steward, Archivist… | bots, minions, copilots (as a class) | Agents are workers, human or AI |
@@ -294,7 +295,7 @@ Calm, exact, unhurried, hopeful. Write like a good atlas or a scientific publica
 | Thing | Convention | Example |
 | --- | --- | --- |
 | Product names | Title Case, no articles | Knowledge Islands, Map of Known Lands, Living Map |
-| Places in copy | "the" + Title Case | the Port, the Council Hall, the Citadel |
+| Places in copy | "the" + Title Case | the Port, the Council Hall, the Capital |
 | Repository / record ids | Monospace, exact case | `ki-principal`, `PDR-KI-OBSERVA-002` |
 | Tokens | kebab-case, role first | `--paper`, `--ok-wash`, `--terrain-marsh` |
 | Glyph ids | kebab-case noun, matching the tile name where both exist | `council-hall`, `rail-depot` |
@@ -543,7 +544,7 @@ The app uses `sm` almost exclusively; tables and panes are square-edged.
 
 1. **No horizontal page scroll**, ever, at any width, in either dialect. The only sideways scroller is the app's instrument tab bar, inside its own width, with no scrollbar drawn and an edge fade only while that edge hides tabs.
 2. **Tables never become cards.** At narrow widths the least load-bearing columns drop (declared per table), rank and subject survive, and cells wrap (section 12).
-3. Site at phone width: 16 px gutter; hero map crops to the Citadel and Port, cartouches collapse into a district list beneath; journey rail becomes a vertical list.
+3. Site at phone width: 16 px gutter; hero map crops to the Capital and Port, cartouches collapse into a district list beneath; journey rail becomes a vertical list.
 4. Maps scale inside their container; the container is covered by the no-horizontal-scroll test.
 5. Touch targets ≥ 44 × 44 px on the site; app controls follow the published control height (reference 28 px) because it is a pointer-first desktop tool.
 
@@ -621,10 +622,10 @@ Sixty-one glyphs, plus six value icons (below). "Draw" is a one-line brief for t
 
 | Id | Draw |
 | --- | --- |
-| `citadel` | Wall line with three rooftops behind it: dome, pediment, slender tower |
+| `citadel` | _Retired_ (GDR-KI-PRINCIPAL-011): kept in the package, mapped to no symbol. Wall line with three rooftops behind it: dome, pediment, slender tower |
 | `library` | Small dome over four columns on a stepped base |
 | `council-hall` | Pediment over four columns on a wide stepped base, no dome |
-| `tower` | Slender square tower with a crenellated top and one lit window (brass dot) |
+| `tower` | _Retired_ (GDR-KI-PRINCIPAL-011): kept in the package, mapped to no symbol. Slender square tower with a crenellated top and one lit window (brass dot) |
 | `calendar` | Clock face on a short tower top, hands at ten past ten |
 | `resources` | Open archive drawer with two card edges |
 | `streams` | A river branching once and widening to the bottom edge |
@@ -707,7 +708,7 @@ Roles are drawn as **tools**, not faces, in the glyph set; figures appear only i
 
 **Reference images, in words.**
 
-- _Dusk mood boards (two variants):_ a navy page with a full-bleed painted island seen from high three-quarter view, hex lattice faintly visible on its terraces; a pale Citadel on the summit; districts labelled in dark translucent cartouches with Cormorant SC titles and a one-line subtitle ("The Archives — Memory & History"); a journey rail of six hex badges on parchment; archetype cards with painted thumbnails; a parchment principle strip of engraved glyphs; a compass rose in brass on parchment in the closing CTA.
+- _Dusk mood boards (two variants):_ a navy page with a full-bleed painted island seen from high three-quarter view, hex lattice faintly visible on its terraces; a pale civic Capital on the summit; districts labelled in dark translucent cartouches with Cormorant SC titles and a one-line subtitle ("The Archives — Memory & History"); a journey rail of six hex badges on parchment; archetype cards with painted thumbnails; a parchment principle strip of engraved glyphs; a compass rose in brass on parchment in the closing CTA.
 - _Hex maps + isometrics board:_ a parchment explainer showing a hex topology beside its isometric render, then terrain swatches, settlements with leader-line labels, territory tint, routes (gold trade route, blue sea route), stacked data layers, and a four-step strip: hex layout → data / layers → isometric render → final map.
 - _Explainer boards:_ tall posters on a pale blue sea; a lighthouse islet top-left; rows of rounded parchment cards, each headed by a coloured roundel glyph; small watercolour islands beneath each card; dashed coloured connectors; a bottom band titled "the tide" with six numbered roundels.
 - _Canon sheets:_ hand-painted isometric tiles on a **square** grid under soft daylight (teal roofs, limestone domes, a 4×4 lighthouse landmark) — re-cut them to hexes (10.2); their prop list includes crystals, which this system excludes.
@@ -730,7 +731,7 @@ Semi-flat, lightly painterly, premium infographic quality; detailed but clean; a
 ### 9.3 Agent representation
 
 - Humans represent stewardship, interpretation, context, wisdom and judgement. AI agents represent augmentation, operational scale, synthesis, continuity and infrastructure support. They coexist and collaborate; neither dominates.
-- **AI is drawn as infrastructure, never as a humanoid.** Show AI work as the things it moves and tends: vessels on currents, lit lanterns along a route, a waterwheel turning, an airship at the mooring mast, light in the Tower. Never robots, androids, glowing eyes, brains, circuit faces.
+- **AI is drawn as infrastructure, never as a humanoid.** Show AI work as the things it moves and tends: vessels on currents, lit lanterns along a route, a waterwheel turning, an airship at the mooring mast, light in the Observatory. Never robots, androids, glowing eyes, brains, circuit faces.
 - People are drawn small, grounded and diverse (age, build, skin tone, dress), in practical clothes of no single period, carrying their role's tool. No close-up faces in brand art; a figure is at most 1/12 of the image height except in a deliberate role portrait in the Field Guide.
 - In diagrams, a worker is a **role glyph** plus a label ("Archivist — Claude Code"), never an avatar.
 - Explainer boards that draw agents as islands are wrong for this system: agents work _on_ islands.
@@ -766,7 +767,7 @@ Humanoid robots; glowing evil AI; neon; cyberpunk cities; circuit boards; blockc
 | Pair | 2 (oriented) | 0–5 (which neighbour) | 1×2 / 2×1 → pair |
 | Flower | 7 (centre + ring) | — | 2×2 to 4×4 → flower; square plinth matted out, hex plinth repainted |
 
-The Citadel (`structure.citadel`, at the heart of a Capital) is always a compound across a 7-hex flower: Library, Council Hall and Tower on one terrace around a central square. It may be drawn as one terrace sprite spanning the flower (as the Modern set does) or as separate buildings on ring hexes, but never as a single-hex building.
+The Capital (tile id `structure.citadel`, an alias kept until the next art round renames it `capital`) is always a compound across a 7-hex flower: the Library and the Council Hall around an open civic square. It may be drawn as one sprite spanning the flower (as the Modern set does) or as separate buildings on ring hexes, but never as a single-hex building and never walled. Each set draws it in its own way: a civic quarter and square in Modern, a hilltop forum or acropolis in Ancient. The Modern v0 compound still draws a tower; the next art round removes it.
 
 ### 10.3 Terrain inventory
 
@@ -797,22 +798,21 @@ Ids are `structure.<name>`. Every structure has **3 variants** and **4 condition
 
 | Id | Footprint | Hero | Status |
 | --- | --- | --- | --- |
-| `structure.citadel` | flower (compound: Library, Council Hall, Tower around a square) | yes | decided |
-| `structure.library` | single or pair | yes | canon (model) |
-| `structure.council-hall` | pair | yes | canon |
-| `structure.tower` | single | — | decided |
-| `structure.observatory` | single | — | canon |
-| `structure.lighthouse` | single (on coast) | yes | canon |
-| `structure.port` | pair or flower (its modes as districts) | yes | canon |
-| `structure.dock` | single (coast edge) | — | canon |
-| `structure.rail-depot` | single | — | canon |
-| `structure.airport` | single (mooring mast) | — | canon |
-| `structure.customs-house` | single | — | canon |
-| `structure.bridge` | single (the stone arch as a landmark) | — | canon (name open) |
+| `structure.citadel` | flower (the Capital: Library and Council Hall around a square; id kept as an alias) | yes | official (GDR-KI-PRINCIPAL-011) |
+| `structure.library` | single or pair | yes | official |
+| `structure.council-hall` | pair | yes | official |
+| `structure.observatory` | single | — | official |
+| `structure.lighthouse` | single (on coast) | yes | official |
+| `structure.port` | pair or flower (its modes as districts) | yes | official |
+| `structure.dock` | single (coast edge) | — | official |
+| `structure.rail-depot` | single | — | official |
+| `structure.airport` | single (mooring mast) | — | official |
+| `structure.customs-house` | single | — | official |
+| `structure.bridge` | single (the stone arch as a landmark) | — | official (name open) |
 | `structure.workshop` | pair | — | proposed |
 | `structure.mill` | single | — | proposed (name open) |
 | `structure.ruins` | single or pair | — | proposed |
-| `structure.ancient-forest` | single or flower | — | canon; never shares a hex with another structure |
+| `structure.ancient-forest` | single or flower | — | official; never shares a hex with another structure |
 | `structure.cottage` | single | — | generic dwelling |
 
 **Decals** (`decal.ivy`, `decal.cracks`, `decal.moss`, `decal.fallen-roof`) draw condition states (10.5). **Connectors** (`connector.road`, `connector.river`, `connector.bridge-span`, `connector.quay`) run across hex edges. These 12 terrain, 17 structures, 4 decals and 4 connectors are the v0 tile-set contract, matching the tile-set briefs.
@@ -849,7 +849,7 @@ Painted art under fixed light cannot be rotated, so transitions are composited p
 6. **Scale** (_proposed_): a door is ≈ 12 px tall at 1×; a storey ≈ 18 px; a hero structure may reach two cells' height.
 7. **Silhouette first:** every structure reads as a silhouette at 25 % scale (64 px wide); Modern tiles are recognisable at 32 px wide.
 8. **No text**, logos or worded flags on any building.
-9. **Families** apply only to the five hero structures (Citadel, Library, Council Hall, Port, Lighthouse); other structures share one vernacular per set:
+9. **Families** apply only to the five hero structures (Capital, Library, Council Hall, Port, Lighthouse); other structures share one vernacular per set:
 
 | Archetype | Family | Materials and silhouette |
 | --- | --- | --- |
@@ -1038,7 +1038,7 @@ Create a premium Knowledge Islands visual in a calm, human-centred systems aesth
 The defining image of the Ancient set; every later tile is painted to its light and palette.
 
 ```text
-[Visual Style master prompt], then: A legendary, timeless painted map-illustration of Arcadia, the origin island of the Knowledge Islands Realm, seen from a high three-quarter isometric angle at dusk. The island rises from a deep navy sea in hexagonal terraces whose cliff edges show the faint geometry of a hex grid at the shoreline. On the highest ground stands the Citadel in pale limestone: a domed Library, a colonnaded Council Hall and a slender watchtower, lit from within. Below it, a Port town spreads to the coast: stone quays and wooden docks with small sailing ships, a caravan road winding inland, a tall mooring mast, and a customs house at the harbour gate. A domed observatory sits on a hill; a lighthouse stands on a far headland. Rivers run from the mountains to the sea past a watermill and a quarter of workshops. At the island's heart is an ancient forest of enormous old trees, untouched. On an outer ridge, honoured ruins of older buildings. Hundreds of small warm lamp-lights in windows and along roads; soft cloud banks drifting in from one edge; a fog bank where the map ends; gentle glints of light on the water and faint sea lanes curving away towards other islands. Painterly, richly detailed, calm and harmonious, in the tradition of illustrated atlases and environmental animation art, with buildings as crisp, readable silhouettes in the manner of a classic isometric strategy game. Palette of deep ocean blues, forest and moss greens, sandstone, parchment and restrained brass gold. No people in close-up, no text, no creatures, no crystals, no magic glow, no fantasy armour.
+[Visual Style master prompt], then: A legendary, timeless painted map-illustration of Arcadia, the origin island of the Knowledge Islands Realm, seen from a high three-quarter isometric angle at dusk. The island rises from a deep navy sea in hexagonal terraces whose cliff edges show the faint geometry of a hex grid at the shoreline. On the highest ground lies the Capital in pale limestone, an open civic square with no walls: a domed Library and a colonnaded Council Hall facing each other across it, lit from within. Below it, a Port town spreads to the coast: stone quays and wooden docks with small sailing ships, a caravan road winding inland, a tall mooring mast, and a customs house at the harbour gate. A domed observatory sits on a hill; a lighthouse stands on a far headland. Rivers run from the mountains to the sea past a watermill and a quarter of workshops. At the island's heart is an ancient forest of enormous old trees, untouched. On an outer ridge, honoured ruins of older buildings. Hundreds of small warm lamp-lights in windows and along roads; soft cloud banks drifting in from one edge; a fog bank where the map ends; gentle glints of light on the water and faint sea lanes curving away towards other islands. Painterly, richly detailed, calm and harmonious, in the tradition of illustrated atlases and environmental animation art, with buildings as crisp, readable silhouettes in the manner of a classic isometric strategy game. Palette of deep ocean blues, forest and moss greens, sandstone, parchment and restrained brass gold. No people in close-up, no text, no creatures, no crystals, no magic glow, no fantasy armour, no walls, towers or battlements around the Capital.
 ```
 
 ### 14.3 Terrain tile
@@ -1062,7 +1062,7 @@ The defining image of the Ancient set; every later tile is painted to its light 
 ### 14.6 Illustrated explainer poster
 
 ```text
-[Master prompt], then: A tall illustrated explainer poster, portrait 2:3, in a daylight watercolour style on warm parchment: small watercolour islands on a pale sea-glass blue sea (#d6e3e1), rounded parchment cards with thin hairline borders, each card headed by a coloured line icon inside a circular roundel, dashed coloured routes connecting cards and islands, and a band at the foot showing a numbered six-step loop titled with a tide motif. Subject: {subject, e.g. "how a Knowledge Island captures, connects and reflects: the Port receives material, routes carry it to the Library and Streams, the Tower and Observatory review it"}. Panels: {list panels}. Use generous whitespace, one idea per panel, a lighthouse islet in one top corner and a brass compass rose in a cartouche. Leave every text area blank or as soft placeholder lines so real typography can be set afterwards. Muted colours: ocean blue, teal, forest green, moss, sandstone, restrained gold, one desaturated rust for risk. No robots, no avatars of AI, no emoji, no neon, no heavy black outlines.
+[Master prompt], then: A tall illustrated explainer poster, portrait 2:3, in a daylight watercolour style on warm parchment: small watercolour islands on a pale sea-glass blue sea (#d6e3e1), rounded parchment cards with thin hairline borders, each card headed by a coloured line icon inside a circular roundel, dashed coloured routes connecting cards and islands, and a band at the foot showing a numbered six-step loop titled with a tide motif. Subject: {subject, e.g. "how a Knowledge Island captures, connects and reflects: the Port receives material, routes carry it to the Library and Streams, the Observatory reviews it"}. Panels: {list panels}. Use generous whitespace, one idea per panel, a lighthouse islet in one top corner and a brass compass rose in a cartouche. Leave every text area blank or as soft placeholder lines so real typography can be set afterwards. Muted colours: ocean blue, teal, forest green, moss, sandstone, restrained gold, one desaturated rust for risk. No robots, no avatars of AI, no emoji, no neon, no heavy black outlines.
 ```
 
 ### 14.7 Icon description for vector tracing
@@ -1089,7 +1089,7 @@ Avoid: humanoid robots, androids, glowing eyes, AI brains, circuit boards, block
 | Focus | Visible on every focusable element: 2 px `--accent` outline, 2 px offset (on gold buttons, 2 px ink outline); on hexes, the hex outline; never removed |
 | Keyboard | Everything operable by keyboard; logical tab order; skip link on the site; maps use roving tabindex with axial-neighbour arrows (13.4); job switch and tabs follow the ARIA tabs pattern |
 | Motion | `prefers-reduced-motion` → frame 0 everywhere, transitions instant; no motion is ever required to understand state; nothing flashes more than 3 times a second |
-| Images | Meaningful art has alt text describing what it shows _and_ means ("Arcadia: the Citadel above the Port, ancient forest at the heart"); decorative art `alt=""` |
+| Images | Meaningful art has alt text describing what it shows _and_ means ("Arcadia: the Capital above the Port, ancient forest at the heart"); decorative art `alt=""` |
 | Language | `lang="en-GB"`; plain language; abbreviations expanded on first use |
 | Zoom | Usable at 200 % zoom and 320 px CSS width without horizontal scroll |
 
@@ -1107,7 +1107,7 @@ Avoid: humanoid robots, androids, glowing eyes, AI brains, circuit boards, block
 
 ### 16.2 How meaning changes
 
-Meaning (section 3) never changes in `ki-design` first. A new symbol, renamed concept (Harbour → Port) or role is proposed as a Stream, reviewed in the Council Hall and ratified into the Aesthetics pillar (and, for a model zone, Home of Knowledge and Structure; the Port was enacted by GDR-KI-PRINCIPAL-010). Only then is it marked _canon_ here.
+Meaning (section 3) never changes in `ki-design` first. A new symbol, renamed concept (Harbour → Port) or role is proposed as a Stream, reviewed in the Council Hall and ratified into the Aesthetics pillar (and, for a model zone, Home of Knowledge and Structure; the Port was enacted by GDR-KI-PRINCIPAL-010). Only then is it marked _official_ here.
 
 ### 16.3 Versioning
 
@@ -1124,19 +1124,20 @@ Success: a newcomer can name Island, Capital, Library, Council Hall, Port and St
 
 ### 16.5 Open questions
 
-Still open after 18 Oct 2026. (Decided, not open: the hex geometry, Port, the Lighthouse / Council Hall split, the Citadel, the four jobs Observe · Attend · Act · Extend, the site and app type, the repo name `ki-design`.) Section 3.9 says how to draw each item meanwhile.
+Still open after 18 Oct 2026. (Decided, not open: the hex geometry, Port, the Lighthouse / Council Hall split, the Capital and the Observatory as the app's mark (GDR-KI-PRINCIPAL-011), the status labels (GDR-KI-DESIGN-002), the four jobs Observe · Attend · Act · Extend, the site and app type, the repo name `ki-design`.) Section 3.9 says how to draw each item meanwhile.
 
 - [ ] **Bridge vs Causeway:** rename the canon translation symbol to Causeway, freeing Bridge for the app's command concept? (Review recommends Causeway.)
 - [ ] **Mill vs Engine house** for operational systems? (Review prefers Mill; tile id `mill` meanwhile.)
 - [ ] **Steward roles into canon:** write them into Philosophy/Model/Agents, or map them onto its existing roles, before the Field Guide publishes them?
-- [ ] **Product name of the local app:** keep "Observatory" until Gate B; the Tower is its structure and mark either way.
-- [ ] **The primary mark:** the canon logo is a roundel (island and arch, `ki-principal/Pillars/Aesthetics/Logo/logo.png`); the site header and mood boards use a compass rose. Which is primary? **Recommendation:** the roundel stays the logo; the compass is the Realm's orientation motif and the candidate for favicon and app mark (the app's mark is the Tower meanwhile). Until decided, never substitute the compass for the logo.
+- [ ] **Product name of the local app:** keep "Observatory" until Gate B? Its mark is the Observatory (GDR-KI-PRINCIPAL-011); the Tower is no longer a candidate.
+- [ ] **Curtain wall:** draw a wall around the knowledge base in a territory's Principal repository? Not adopted; any answer must stay within the non-combative principle (3.3).
+- [ ] **The primary mark:** the canon logo is a roundel (island and arch, `ki-principal/Pillars/Aesthetics/Logo/logo.png`); the site header and mood boards use a compass rose. Which is primary? **Recommendation:** the roundel stays the logo; the compass is the Realm's orientation motif and the candidate for favicon (the app's mark is the Observatory). Until decided, never substitute the compass for the logo.
 - [ ] **Night on the public site:** follow the OS like the app shell, with or without a manual toggle?
 - [ ] **Arcadia page from live data:** publish the territory roster and freshness at build time, or keep it illustrative?
 - [ ] **Art licensing:** ownership and generator terms for AI-generated art (KI-DESIGN-ART-002); state the "Ghibli-like" style risk plainly. Treat references and generated art as unlicensed until recorded.
 - [ ] **Living Map without JavaScript:** confirm the no-JS state is the static SVG plus a text list of districts.
 - [ ] **Instrument restructure:** adopt the ten-instrument grouping under the four jobs?
-- [ ] **Lore sheet:** one page of 8–10 named motifs (the Great Library, the Citadel, the Port and its customs house, the Mill, the tides as the cycle, the Known Lands and their fog, the compass, Ruins as honoured retirement), with creatures, magic and crystals ruled out.
+- [ ] **Lore sheet:** one page of 8–10 named motifs (the Great Library, the Capital, the Port and its customs house, the Mill, the tides as the cycle, the Known Lands and their fog, the compass, Ruins as honoured retirement), with creatures, magic and crystals ruled out.
 - [ ] **Further references:** file the extra isometric building images into `Pillars/Aesthetics/Isometric Tiles`.
 
 ---
@@ -1175,13 +1176,13 @@ Still open after 18 Oct 2026. (Decided, not open: the hex geometry, Port, the Li
 | Archipelago | How a territory is drawn and named: its islands in one sea region |
 | Atlas | The reference half of the site: Field Guide, Docs, Specifications, Projects |
 | Attend | The local app's job of noticing: Beacon, Waiting for you |
-| Beacon | The ranked list of what warrants notice; the Tower's lamp; glyph `beacon` |
+| Beacon | The ranked list of what warrants notice; the Observatory's lamp; glyph `beacon` |
 | Boundary | The 3:1 colour role for control edges |
 | Bridge | Canon: translation layer (MCP servers). App: the command path for Act. Clash open |
-| Capital | An island's or territory's civic centre; holds the Citadel |
+| Capital | An island's or territory's civic heart; holds the Library and the Council Hall |
 | Cartouche | A labelled panel tied to a place on a map (site) |
 | Chart | The site's dialect: atmospheric, illustrated, narrative |
-| Citadel | Library + Council Hall + Tower at the heart of a Capital |
+| Citadel | Retired term (GDR-KI-PRINCIPAL-011); say the Capital |
 | Condition state | Thriving · quiet · weathered · ruined, from evidence freshness |
 | Council Hall | Governance: decisions, not storage |
 | Customs house | Port mode: a governed boundary where things are checked |
@@ -1207,7 +1208,7 @@ Still open after 18 Oct 2026. (Decided, not open: the hex geometry, Port, the Li
 | Ruins | Retired knowledge, honoured |
 | Territory | Islands governed together under one Capital |
 | Tile set | A skin over the manifest ids (Modern, Ancient) |
-| Tower | Watching, seeing and guiding; the local app's structure and mark |
+| Tower | Dropped (GDR-KI-PRINCIPAL-011); the local app's mark is the Observatory |
 | Voyage | The narrative half of the site, read in order |
 | Wash | A role mixed into the paper, for status surfaces |
 | Worker | A person or AI agent acting in the realm, shown by role |

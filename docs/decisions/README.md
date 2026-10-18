@@ -5,3 +5,4 @@ Decision records for Knowledge Islands Design, following the Knowledge Islands d
 ## Reading order
 
 1. [GDR-KI-DESIGN-001](GDR-KI-DESIGN-001-adopting-decision-records.md) - adopts Decision Records for this repository.
+2. [GDR-KI-DESIGN-002](GDR-KI-DESIGN-002-status-labels.md) - status labels: Official · Agreed · Proposed · Open.

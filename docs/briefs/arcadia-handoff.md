@@ -8,12 +8,14 @@ The chosen reference is [references/arcadia.png](references/arcadia.png), an unc
 
 This records approval of the visual direction. It does not claim the painting meets every technical requirement in the [brief](arcadia-picture.md), enact new symbol meanings, or approve a production release.
 
+**Next painting round (GDR-KI-PRINCIPAL-011).** The Capital is the civic heart and the symbol language stays non-combative. The next round removes the tower beside the Library and paints the Capital civic: the Library and the Council Hall around an open square, with no walls, towers or battlements. Until then the chosen painting stays as it is.
+
 ## What the other design work should carry forward
 
 - **Atmosphere:** calm, richly painted dusk; deep navy sea, forest and moss greens, warm pale stone and hundreds of small inhabited lights. Buildings retain clear civic silhouettes within a landscape that feels lived in.
 - **Distance and exploration:** the far islands and atmospheric depth give Arcadia somewhere to go. Kris identified them as a possible invitation to the wider world map. Preserve the distant shores; the navigation interaction still needs design.
 - **Home page:** variation 1 establishes the intended ethos. Work out the hero crop and copy placement around this atmosphere rather than substituting a flatter or more diagrammatic treatment.
-  - *Done on 18 October 2026.* The painting is the home hero on knowledgeislands.info, with the copy on a navy scrim over the open sea at the left and the Citadel and Port kept clear. The engraved Modern chart moved down to the Arcadia section. `/arcadia/` opens the same way, then shows the chart. The site vendors this exact file, pinned to ki-design commit `c73cefe`, so a new painting reaches the site only by a deliberate re-pin.
+  - _Done on 18 October 2026._ The painting is the home hero on knowledgeislands.info, with the copy on a navy scrim over the open sea at the left and the Capital and Port kept clear. The engraved Modern chart moved down to the Arcadia section. `/arcadia/` opens the same way, then shows the chart. The site vendors this exact file, pinned to ki-design commit `c73cefe`, so a new painting reaches the site only by a deliberate re-pin.
 - **Personal islands:** Kris wants people eventually to create islands in their own styles. Establish Arcadia first; retain personal island creation as a future product ambition, with its mechanics and implementation still to be planned.
 - **Ancient tiles:** use the chosen image for light, palette, atmosphere and detail, following the [Ancient tile brief](tile-set-ancient.md). The painting is a reference, not a tile atlas or a replacement for the tile geometry and building contracts.
 
@@ -27,9 +29,9 @@ The coast is one **Port**, with dock, rail depot, airport drawn as a mooring mas
 
 ### Variation 1 — chosen
 
-**What works:** strongest approved atmosphere and sense of distance. All nine required places are represented: Citadel, Port, Observatory, Lighthouse, Streams, Ancient Forest, Ruins, fog at the edge of known, and trade routes towards other islands. Major civic silhouettes remain readable at reduced scale; the palette fits and no Never-list item is apparent.
+**What works:** strongest approved atmosphere and sense of distance. All nine required places are represented: the Capital (painted as a citadel with a tower, which the next round makes civic), Port, Observatory, Lighthouse, Streams, Ancient Forest, Ruins, fog at the edge of known, and trade routes towards other islands. Major civic silhouettes remain readable at reduced scale; the palette fits and no Never-list item is apparent.
 
-**What to change:** make the hexagonal terraces, rail tracks and customs barrier more recognisable; place the Citadel on the highest ground rather than below the mountain peaks. Test the actual home-page copy over the painting: the brighter sunset and activity at the left may compete with it. At 25% scale, the small Port details need particular attention. No major place is absent, but those details are unclear.
+**What to change:** make the hexagonal terraces, rail tracks and customs barrier more recognisable; place the Capital on the highest ground rather than below the mountain peaks. Test the actual home-page copy over the painting: the brighter sunset and activity at the left may compete with it. At 25% scale, the small Port details need particular attention. No major place is absent, but those details are unclear.
 
 ### Variation 2 — retained alternative
 
@@ -41,7 +43,7 @@ The coast is one **Port**, with dock, rail depot, airport drawn as a mooring mas
 
 **What works:** generous navy space for hero copy, a strong ancient forest, readable railway and distinct civic buildings. All nine places are represented, the palette fits and no Never-list item is apparent.
 
-**What to change:** restore the cropped right coastline, clarify hex terraces and the customs inspection boundary, and raise the Citadel above the mountain ridge. Verify the smaller infrastructure at 25% scale. The complete island outline is missing from the frame. This is not the selected direction.
+**What to change:** restore the cropped right coastline, clarify hex terraces and the customs inspection boundary, and raise the Capital above the mountain ridge. Verify the smaller infrastructure at 25% scale. The complete island outline is missing from the frame. This is not the selected direction.
 
 ## Asset limits and provenance
 

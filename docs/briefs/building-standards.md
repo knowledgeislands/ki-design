@@ -33,7 +33,7 @@ Every tile in every tile set follows these rules, so tiles from different sets, 
 
 ## Architectural families
 
-Applied to the five hero structures (Capital/Citadel, Library, Council Hall, Port, Lighthouse); other structures share one vernacular per set.
+Applied to the five hero structures (Capital, Library, Council Hall, Port, Lighthouse); other structures share one vernacular per set.
 
 | Archetype | Family | Materials and silhouette |
 | --- | --- | --- |

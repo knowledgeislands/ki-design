@@ -1,6 +1,6 @@
 # Resume: the Knowledge Islands design thread
 
-This page holds everything needed to pick the design work up again after a break. Kit or any agent can use it. The state is as of **18 October 2026, 17:40**.
+This page holds everything needed to pick the design work up again after a break. Kit or any agent can use it. The state is as of **18 October 2026, 18:30**.
 
 Start here, then read [`DESIGN.md`](../../DESIGN.md) only for the section you need.
 
@@ -13,7 +13,7 @@ Start here, then read [`DESIGN.md`](../../DESIGN.md) only for the section you ne
 | Briefs for art and ChatGPT | `docs/briefs/` (README, picture of Arcadia, tile sets, prompt pack, building and animation standards, explainer style) |
 | Chosen Arcadia painting | `docs/briefs/references/arcadia.png` (variation 1). Handoff and the fixes still to make: `docs/briefs/arcadia-handoff.md` |
 | Review boards, saved | `docs/design-review/` (nine boards, early explorations, generator scripts) |
-| Decision records | `docs/decisions/` (GDR-KI-DESIGN-001 so far) |
+| Decision records | `docs/decisions/` (GDR-KI-DESIGN-001 and GDR-KI-DESIGN-002) |
 | Roadmap | `ROADMAP.md`, `docs/roadmap/` |
 | Observatory handoff drafts | `-/observatory-handoff/` |
 
@@ -30,15 +30,20 @@ All are private to Kit's account and show in his artifacts list.
 
 - **apps-knowledgeislands.info.** Design v1 is live. Port wording is in place. The home page and `/arcadia/` both open on the painting, with the engraved chart below it. The record of the work is in SITE-044 and SITE-045.
 - **ki-principal.**
-  - GDR-KI-PRINCIPAL-010, *The Port*: the Port replaces the Harbour, with four modes (dock, rail depot, airport, customs house). Lighthouse means guidance; Council Hall means governance.
-  - The note *Influences Along the Way* covers gstack, Paperclip, Gas City, Hermes and OpenClaw.
+  - GDR-KI-PRINCIPAL-010, _The Port_: the Port replaces the Harbour, with four modes (dock, rail depot, airport, customs house). Lighthouse means guidance; Council Hall means governance.
+  - The note _Influences Along the Way_ covers gstack, Paperclip, Gas City, Hermes and OpenClaw.
   - ki-design is listed in Known Lands.
-  - GDR-011 (Citadel and Tower) was written and then reverted; the naming question is open again.
+  - GDR-KI-PRINCIPAL-011, _The Capital_: the Capital is the civic heart, holding the Library and the Council Hall, drawn civic and never fortified; the symbol language stays non-combative; the Observatory is the local app's mark. (An earlier GDR-011, _The Citadel and the Tower_, was withdrawn; the number was reused, as the serials run contiguously.)
 
 ## Decided
 
-- Port replaces Harbour. This is canon in ki-principal and ki-design, and on the site.
-- Lighthouse means guidance and Council Hall means governance. Both are canon.
+- Port replaces Harbour. This is official in ki-principal and ki-design, and on the site.
+- Lighthouse means guidance and Council Hall means governance. Both are official.
+- **The Capital, and nothing combative** (Kit, 18 October, 18:01: "I think it's capital... Let's stay with something which isn't considered to be Combative"). Recorded in GDR-KI-PRINCIPAL-011.
+  - The Capital is the only name for the civic heart. It holds the Library and the Council Hall, and is drawn as a square, never a fortress: a civic quarter and square in Modern, a hilltop forum or acropolis in Ancient.
+  - "Citadel" is retired; the Tower is dropped. The Observatory is the local app's mark.
+  - The curtain wall is not adopted; it stays open under the non-combative principle.
+- **Status labels: Official · Agreed · Proposed · Open** (Kit: "rename Cannon to official"). Canon became Official and Decided became Agreed, in the data (`official`, `agreed`) as well as the labels. Recorded in GDR-KI-DESIGN-002.
 - "The painting is the legend; the chart is the map." The painting leads: it is the home hero (live since site commit 07f4c02, Kit's call on 18 October) and the `/arcadia/` hero. The engraved Modern chart follows it: the Arcadia section on the home page, the chart on `/arcadia/`, diagrams and the local app. A chart/painting switch comes later, once the Ancient tiles exist.
 - ki-design is public under the MIT licence and conforms to the KI repository standard. The audit's only remaining failure is DESIGN-2.
 - DESIGN.md is to be restructured as: data files, a short DESIGN.md (about 2–3k words), `docs/spec/*`, and one decision record per decision. The boards are then generated from those.
@@ -50,13 +55,9 @@ All are private to Kit's account and show in his artifacts list.
 
 ## Open: Kit to answer
 
-1. **Capital, Tower and the wall.** Kit feels a Tower reads as dictatorial. The proposal:
-   - Drop the Tower, and make the **Observatory** the app's mark.
-   - Use **Capital** as the only name for the idea; each tile set draws it in its own way, and the term "Citadel" is dropped.
-   - Introduce a **curtain wall** as the line between settled knowledge and work in motion, with the Enactment Process as its gate: a low wall with open gates.
-2. **Status labels.** "Canon" confuses. Should the labels be renamed to Official · Agreed · Proposed · Open?
-3. **ki-design git history.** It still contains Observatory screenshots with private repository names and commit messages. No secrets are in them. The recommendation is to leave it; rewriting means a force-push.
-4. **The remaining open questions on the Decisions board:** Bridge or Causeway, Mill or Engine house, the logo (roundel or compass), the app's name, steward roles, a night toggle on the site, Arcadia drawn from live data, art licensing (KI-DESIGN-ART-002), the tailnet design, and the 14 → 10 instrument restructure.
+1. **The curtain wall.** Not adopted with the Capital. The idea was a low wall with open gates around the knowledge base in a territory's Principal repository, the line between settled knowledge and work in motion, with the Enactment Process as its gate. Any answer must stay within the non-combative principle.
+2. **ki-design git history.** It still contains Observatory screenshots with private repository names and commit messages. No secrets are in them. The recommendation is to leave it; rewriting means a force-push.
+3. **The remaining open questions on the Decisions board:** Bridge or Causeway, Mill or Engine house, the logo (roundel or compass), the app's name (its mark is settled as the Observatory), the curtain wall, steward roles, a night toggle on the site, Arcadia drawn from live data, art licensing (KI-DESIGN-ART-002), the tailnet design, and the 14 → 10 instrument restructure.
 
 ## Kit's to-dos on the Mac
 
@@ -75,7 +76,7 @@ Also mark ART-001 (the picture of Arcadia) done, since variation 1 has been chos
    - save the result as `docs/briefs/references/arcadia-v1b-<n>.png`;
    - repoint the site's sync script to the new commit;
    - use it for the Ancient tiles.
-2. **Kit's answers.** Turn them into decision records in `docs/decisions/`, and carry the symbol-level ones into ki-principal.
+2. **Kit's answers.** Turn them into decision records in `docs/decisions/`, and carry the symbol-level ones into ki-principal. (Done for the Capital and the status labels.)
 3. **Restructure DESIGN.md** around those answers. Reconcile the drift that has been found:
    - terrain ocean `#2f5878` in the tokens against `sea` in DESIGN.md;
    - the night terrain fills;
@@ -86,8 +87,7 @@ Also mark ART-001 (the picture of Arcadia) done, since variation 1 has been chos
 4. **Generate the review boards** from the data and the decision records, so they can't drift.
 5. **Ancient tile set** from the painting, following `docs/briefs/tile-set-ancient.md` and `ancient-prompt-pack.md`.
 6. **Site.**
-   - Re-run `sync:design` against ki-design HEAD so the Field Guide's temporary `enactedCanon` list can go.
-   - Drop the last `liveWording` filter (Tower) once the Capital question is settled.
+   - Done on 18 October: `sync:design` re-run against ki-design HEAD, the Field Guide's `enactedCanon` list and the last `liveWording` filter (Tower) removed, and the Capital wording shown.
    - Consider the copy left out of v1, which needs Kit's words: the six principles strip, "Tools change. Landscapes endure.", and "Agents, human or AI, are workers."
 7. **Observatory overhaul**, when Kit is ready. Another thread owns `apps-observatory.local`; don't edit it from here.
 
@@ -101,7 +101,7 @@ Open the GitHub repository knowledgeislands/ki-design (main branch).
 
 Then repaint variation 1 — the same composition, viewpoint, dusk light, palette, atmosphere and sense of distance towards the other islands. Do not redesign it. Change only these:
 - make the hexagonal terraces of the island clearly readable at the cliff edges;
-- put the Citadel (domed Library, colonnaded Council Hall) on the island's highest ground, above the surrounding peaks;
+- put the Capital (domed Library, colonnaded Council Hall around an open civic square) on the island's highest ground, above the surrounding peaks; remove the tower beside the Library, and draw no walls, towers or battlements around the Capital;
 - make the Port's four modes readable at small size: stone docks with ships, a railway line with tracks running inland from the rail shed, the airship at its mooring mast, and a customs house with a visible inspection barrier at the gate;
 - keep the top-left sunset a little calmer so text can sit over the sea on the left.
 
