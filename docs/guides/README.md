@@ -1,6 +1,6 @@
 # Guides
 
-Practical instructions for working on Knowledge Islands Design. Decision Records explain why, the design system in `DESIGN.md` explains what, and these guides explain how.
+Practical instructions for working on Knowledge Islands Design. Decision Records explain why, the design system in [`DESIGN.md`](../../DESIGN.md) and [`docs/spec/`](../spec/README.md) explains what, and these guides explain how.
 
 Guides are grouped by the audience that reads them. This collection currently serves one audience: the developer who changes the packages, the tile sets or the previews.
 

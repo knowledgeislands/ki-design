@@ -6,7 +6,7 @@ Knowledge Islands gets one visual world — a hand-drawn, natural archipelago bu
 
 Every concept is mapped once in the Concept atlas tab.
 
-**Where the work lives.** The repository `knowledgeislands/ki-design` (public) holds `DESIGN.md` — the complete design system, written to be read cold by people, the local app or ChatGPT — plus the briefs in `docs/briefs/` (tile sets, building and animation standards, the picture of Arcadia, the explainer style, reference images), the toolkit packages, roadmap items, and a read-only preview of the restructured local app in `examples/observatory-preview/`.
+**Where the work lives.** The repository `knowledgeislands/ki-design` (public) holds `DESIGN.md` — the design system's entry point, written to be read cold by people, the local app or ChatGPT, with one file per area in `docs/spec/` — plus the briefs in `docs/briefs/` (tile sets, building and animation standards, the picture of Arcadia, the explainer style, reference images), the toolkit packages, roadmap items, and a read-only preview of the restructured local app in `examples/observatory-preview/`.
 
 ## Scope
 

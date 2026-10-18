@@ -22,7 +22,7 @@ describe('svg sources', () => {
 })
 
 describe('coverage', () => {
-  // DESIGN.md 8.2, plus the UI glyphs the previews needed (arrow, refresh, hourglass). `celestial` is drawn as
+  // The glyph inventory (docs/briefs/glyph-briefs.md), plus the UI glyphs the previews needed (arrow, refresh, hourglass). `celestial` is drawn as
   // `celestial-guide`; Library and Governance values reuse `library` and `council-hall`.
   const inventory = [
     ...['island', 'archipelago', 'route', 'trade-route', 'current', 'weave', 'lighthouse', 'observatory', 'port'],

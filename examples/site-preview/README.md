@@ -51,7 +51,7 @@ Screenshots at 1440 and 390 px are in `screenshots/`.
 
 ## What waits on the Ancient art
 
-- **The hero painting.** The Chart hero is meant to be the painted, dusk-lit Ancient Arcadia (DESIGN.md 9.1, 12.2). The painting now exists (`docs/briefs/references/arcadia.png`, variation 1) and the live site uses it as its hero; this preview still shows the Modern set drawn from the hex data. Swapping is a change to the hero block only: the cartouches, district list and alt text stay.
+- **The hero painting.** The Chart hero is meant to be the painted, dusk-lit Ancient Arcadia (docs/spec/illustration.md, components.md). The painting now exists (`docs/briefs/references/arcadia.png`, variation 1) and the live site uses it as its hero; this preview still shows the Modern set drawn from the hex data. Swapping is a change to the hero block only: the cartouches, district list and alt text stay.
 - Arcadia's daylight plate, the banner art and the archetype cards for Landscapes (not built here) all want the Ancient set.
 - Real structure sprites. The map uses line glyphs standing on hexes; the Modern tile set's isometric buildings (and the Capital drawn as a civic square on its flower) will replace them.
 - Elevation. `islandmap/v1`'s example carries no elevation, so the renderer derives it from terrain (coast 0 → snow 4). The full model's `elevation` field should drive it.
@@ -59,5 +59,5 @@ Screenshots at 1440 and 390 px are in `screenshots/`.
 ## Notes for the design system
 
 - GDR-KI-PRINCIPAL-011: the hero chart's cartouche, alt text and glyph show the Capital (Library · Council Hall), drawn with the `capital` glyph, and the site vendors that chart. The districts list, the Foundation, the Cycle, the Home plate and the Territory card use the `capital` glyph and the Capital's words too; no Citadel or Tower remains.
-- Some `packages/symbols` entries differ from DESIGN.md section 3 (for example Observatory's meaning reads as the local app, where DESIGN.md has insight / analytics and draws the app as the Tower; several roles borrow structure glyphs). The Field Guide renders the package as it stands; reconciling them is a symbols change.
+- Some `packages/symbols` meanings and statuses differ from `ki-principal` and from the earlier DESIGN.md wording; they are listed under "Drift needing a decision" in `docs/decisions/OPEN.md`. The Field Guide renders the package as it stands; reconciling them is a symbols change.
 - No horizontal scroll at 390 px (16 px gutters); the Field Guide's filter row scrolls inside its own width. Reduced motion stops the lamps and the scroll reveal. Text pairs meet 4.5:1.

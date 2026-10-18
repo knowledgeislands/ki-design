@@ -4,7 +4,7 @@ import { hexCorners, type Point, toPixel } from './geometry.ts'
 import { type IslandMap, type MapHex, type MapLabel, type MapRoute, resolveStructure } from './model.ts'
 import { patternMarkup, terrainPatterns } from './patterns.ts'
 
-/** Day is the printed chart; night is the same chart by lantern-light (DESIGN 5.2). */
+/** Day is the printed chart; night is the same chart by lantern-light (docs/spec/colour.md). */
 export const flatThemes = ['day', 'night'] as const
 export type FlatTheme = (typeof flatThemes)[number]
 
@@ -225,7 +225,7 @@ export function layoutFlat(map: IslandMap, options: FlatOptions = {}): FlatLayou
   const theme = options.theme ?? 'day'
   const tone = theme === 'day' ? 'light' : 'night'
   const day = { ...tokens.terrain, ...options.palette }
-  // Water is the theme's sea (DESIGN 5.5) unless the caller paints it; land at night is its day fill mixed into navy.
+  // Water is the theme's sea (docs/spec/colour.md) unless the caller paints it; land at night is its day fill mixed into navy.
   const palette = { ...(theme === 'day' ? day : nightTerrain(day)) }
   if (options.palette?.ocean === undefined) palette.ocean = tokens.sea[tone].sea
   const roles = tokens.roles[tone]

@@ -160,12 +160,12 @@ Shell routes for every instrument: `/api/instruments`, `/api/scopes`, `/api/obse
 
 ## 11. Open questions
 
-- **Instrument restructure.** Adopt the ten instruments under the four jobs (DESIGN.md §16.5)? The boards mark it Open.
+- **Instrument restructure.** Adopt the ten instruments under the four jobs ([OPEN.md](../../decisions/OPEN.md#instrument-restructure))? The boards mark it Open.
 - **Fifteen, not fourteen.** The Work instrument landed after the brief. This design folds it into Streams and sends its "with you" view to Waiting for you. Agree, or give Work its own place?
 - **Automation splits in two** (runs to Workers, schedules to Machine). Which one does `?view=automation` land on?
 - **Bridge or Causeway.** The job is written "Act" on screen until the name is settled.
 - **How Act looks different.** The boards give the Act segment a boundary-colour edge and "governed". Enough, or should Act panes also carry a top rule in the boundary colour (as on boards 4 and 5)?
-- **The Capital has no glyph.** The chart draws it as its Library and Council Hall side by side, and the Beacon uses the Council Hall. A Capital glyph would need adding to `packages/icons`.
+- **The Capital glyph.** Settled on 18 October 2026: `packages/icons` now has `capital`, a small dome beside a low colonnaded front on one base. The chart and the Beacon can use it in place of the Library and Council Hall pair.
 - **Stored chart positions.** No endpoint holds island positions today; Known Lands needs one so islands stay where they were learnt.
 - **Stale threshold.** When does an observation become stale: a fixed age, or per instrument?
 - **Extension switches.** Is a switch a host preference (no receipt) or an Act operation? Over the tailnet it is shown and not changed either way.

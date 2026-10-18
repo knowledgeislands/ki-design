@@ -1,7 +1,7 @@
 import type { TerrainName } from '@knowledgeislands/tokens'
 
 /**
- * Terrain patterns for the flat renderer, so terrain never relies on colour alone (DESIGN 5.6). Each is one repeating
+ * Terrain patterns for the flat renderer, so terrain never relies on colour alone (docs/spec/colour.md). Each is one repeating
  * tile authored at the reference hex size of 32 and scaled with the map. Motifs are drawn in a single pen at low
  * contrast: `auto` picks ink or parchment, whichever reads better on the fill; `gold` is the volcanic ember.
  */

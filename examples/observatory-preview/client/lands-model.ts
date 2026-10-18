@@ -81,7 +81,7 @@ export function roleOf(identity: string): Role {
   return 'island'
 }
 
-/** Condition by evidence: the age of the latest commit at the time of observation (DESIGN 3.6). */
+/** Condition by evidence: the age of the latest commit at the time of observation (docs/spec/meaning.md). */
 export function conditionOf(latest: string | null, now: number): Condition {
   const days = ageInDays(latest, now)
   if (days <= 2) return 'thriving'
@@ -264,7 +264,7 @@ export function lanesOf(routes: readonly TradeRoute[], onChart: ReadonlySet<stri
 // ---------------------------------------------------------------------------------------------
 // The chart as an `islandmap/v1` for `@knowledgeislands/hexmap`.
 
-/** Terrain carries maturity (DESIGN 3.1, terrain elevation): a capital stands on hills, the rest on grassland. */
+/** Terrain carries maturity (docs/spec/meaning.md, terrain elevation): a capital stands on hills, the rest on grassland. */
 const terrainOf = (role: Role): MapHex['terrain'] => (role === 'citadel' ? 'hills' : 'grassland')
 
 /** Where a territory's name sits: the hex one row above the top of its waters, centred. */

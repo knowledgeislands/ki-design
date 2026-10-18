@@ -95,7 +95,7 @@ export const tokens = {
     night: values<WashName, string>(doc.color.wash.night, washNames)
   },
   terrain: values<TerrainName, string>(doc.color.terrain, terrainNames),
-  /** Map water by theme (DESIGN 5.5). */
+  /** Map water by theme (docs/spec/colour.md). */
   sea: {
     light: values<SeaName, string>(doc.color.sea.light, seaNames),
     night: values<SeaName, string>(doc.color.sea.night, seaNames)
@@ -123,7 +123,7 @@ export function washSource(theme: Theme, wash: WashName, t: Tokens = tokens): st
   return wash === 'warn' ? t.core.gold : t.roles[theme][wash]
 }
 
-/** How far each day terrain fill is mixed into navy for the night chart (DESIGN 5.6). */
+/** How far each day terrain fill is mixed into navy for the night chart (docs/spec/colour.md). */
 export const nightTerrainAmount = 0.45
 
 /**

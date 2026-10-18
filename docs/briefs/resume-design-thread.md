@@ -2,18 +2,18 @@
 
 This page holds everything needed to pick the design work up again after a break. Kit or any agent can use it. The state is as of **18 October 2026, 18:30**.
 
-Start here, then read [`DESIGN.md`](../../DESIGN.md) only for the section you need.
+Start here, then read [`DESIGN.md`](../../DESIGN.md), the short entry point, and only the file in [`docs/spec/`](../spec/README.md) for the area you need.
 
 ## Where things are
 
 | What | Where |
 | --- | --- |
-| Design system spec | `DESIGN.md` (about 18,000 words; to be slimmed, see next steps) |
-| Machine-readable data | `packages/tokens/tokens.json`, `packages/symbols/src/symbols.ts`, `packages/icons/svg/` (71), `packages/tiles/sets/modern/manifest.json` |
-| Briefs for art and ChatGPT | `docs/briefs/` (README, picture of Arcadia, tile sets, prompt pack, building and animation standards, explainer style) |
+| Design system spec | `DESIGN.md` (the entry point, about 2,500 words) and `docs/spec/` (one file per area; `MIGRATION.md` maps the old sections) |
+| Machine-readable data | `packages/tokens/tokens.json`, `packages/symbols/src/symbols.ts`, `packages/icons/svg/` (72), `packages/tiles/sets/modern/manifest.json` |
+| Briefs for art and ChatGPT | `docs/briefs/` (README, picture of Arcadia, tile sets, prompt pack, prompt library, glyph briefs, building and animation standards, explainer style) |
 | Chosen Arcadia painting | `docs/briefs/references/arcadia.png` (variation 1). Handoff and the fixes still to make: `docs/briefs/arcadia-handoff.md` |
 | Review boards, saved | `docs/design-review/` (nine boards, early explorations, generator scripts) |
-| Decision records | `docs/decisions/` (GDR-KI-DESIGN-001 and GDR-KI-DESIGN-002) |
+| Decision records | `docs/decisions/` (GDR-KI-DESIGN-001 to 017); open questions in `docs/decisions/OPEN.md` |
 | Roadmap | `ROADMAP.md`, `docs/roadmap/` |
 | Observatory handoff drafts | `-/observatory-handoff/` |
 
@@ -46,7 +46,7 @@ All are private to Kit's account and show in his artifacts list.
 - **Status labels: Official · Agreed · Proposed · Open** (Kit: "rename Cannon to official"). Canon became Official and Decided became Agreed, in the data (`official`, `agreed`) as well as the labels. Recorded in GDR-KI-DESIGN-002.
 - "The painting is the legend; the chart is the map." The painting leads: it is the home hero (live since site commit 07f4c02, Kit's call on 18 October) and the `/arcadia/` hero. The engraved Modern chart follows it: the Arcadia section on the home page, the chart on `/arcadia/`, diagrams and the local app. A chart/painting switch comes later, once the Ancient tiles exist.
 - ki-design is public under the MIT licence and conforms to the KI repository standard. The audit's only remaining failure is DESIGN-2.
-- DESIGN.md is to be restructured as: data files, a short DESIGN.md (about 2–3k words), `docs/spec/*`, and one decision record per decision. The boards are then generated from those.
+- DESIGN.md is restructured as: data files, a short DESIGN.md (about 2,500 words), `docs/spec/*`, and one decision record per decision (done on 18 October; see `docs/spec/MIGRATION.md`). The boards are next to be generated from those.
 - How Kit works:
   - Push straight to main, with no pull requests.
   - Give ChatGPT prompts as copy-paste code blocks that point at files in the repo; never ask Kit to upload images.
@@ -57,7 +57,7 @@ All are private to Kit's account and show in his artifacts list.
 
 1. **The curtain wall.** Not adopted with the Capital. The idea was a low wall with open gates around the knowledge base in a territory's Principal repository, the line between settled knowledge and work in motion, with the Enactment Process as its gate. Any answer must stay within the non-combative principle.
 2. **ki-design git history.** It still contains Observatory screenshots with private repository names and commit messages. No secrets are in them. The recommendation is to leave it; rewriting means a force-push.
-3. **The remaining open questions on the Decisions board:** Bridge or Causeway, Mill or Engine house, the logo (roundel or compass), the app's name (its mark is settled as the Observatory), the curtain wall, steward roles, a night toggle on the site, Arcadia drawn from live data, art licensing (KI-DESIGN-ART-002), the tailnet design, and the 14 → 10 instrument restructure.
+3. **The remaining open questions, now listed with recommendations in `docs/decisions/OPEN.md`:** Bridge or Causeway, Mill or Engine house, the logo (roundel or compass), the app's name (its mark is settled as the Observatory), the curtain wall, steward roles, a night toggle on the site, Arcadia drawn from live data, art licensing (KI-DESIGN-ART-002), the tailnet design, and the 14 → 10 instrument restructure.
 
 ## Kit's to-dos on the Mac
 
@@ -77,13 +77,7 @@ Also mark ART-001 (the picture of Arcadia) done, since variation 1 has been chos
    - repoint the site's sync script to the new commit;
    - use it for the Ancient tiles.
 2. **Kit's answers.** Turn them into decision records in `docs/decisions/`, and carry the symbol-level ones into ki-principal. (Done for the Capital and the status labels.)
-3. **Restructure DESIGN.md** around those answers. Reconcile the drift that has been found:
-   - terrain ocean `#2f5878` in the tokens against `sea` in DESIGN.md;
-   - the night terrain fills;
-   - spacing names (`space-<px>` against `space-1…10`);
-   - the symbol statuses in `symbols.ts` against DESIGN.md (Lantern, Fog, Bridge, Library, Storm, Cartographic grid);
-   - the icon inventory (71 drawn against 67 listed);
-   - tile variants, footprints and loop lengths in the manifest against DESIGN.md.
+3. **Restructure DESIGN.md.** Done on 18 October: DESIGN.md is the entry point, `docs/spec/` holds one file per area, the prompt library and glyph briefs are in `docs/briefs/`, and GDR-KI-DESIGN-003 to 017 record the decisions. The drift found on the way is in `docs/spec/MIGRATION.md`; the items that need Kit's choice (symbol statuses and meanings, loop lengths, footprints, missing tokens, the terrain ocean token, glyph accents) are under "Drift needing a decision" in `docs/decisions/OPEN.md`.
 4. **Generate the review boards** from the data and the decision records, so they can't drift.
 5. **Ancient tile set** from the painting, following `docs/briefs/tile-set-ancient.md` and `ancient-prompt-pack.md`.
 6. **Site.**

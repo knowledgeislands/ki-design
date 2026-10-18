@@ -39,7 +39,7 @@ const SIZE = 32 // hex circumradius in chart units
 /** The island to give focus back to once a keyboard choice has redrawn the chart. */
 let pendingFocus: string | null = null
 
-/** How far each condition fades an island towards the paper: condition as fill strength (DESIGN 3.6). */
+/** How far each condition fades an island towards the paper: condition as fill strength (docs/spec/meaning.md). */
 export const CONDITION_VEIL: Record<Island['condition'], number> = {
   thriving: 0,
   quiet: 0.22,
@@ -107,7 +107,7 @@ export function nearestToward(from: Point, direction: Point, others: { at: Point
   return best?.index ?? null
 }
 
-/** The lane colour for the chart's theme (DESIGN 5.5 `--lane`). */
+/** The lane colour for the chart's theme (docs/spec/colour.md `--lane`). */
 const laneColour = (theme: FlatTheme): string => tokens.sea[theme === 'day' ? 'light' : 'night'].lane
 
 interface DrawOptions {
@@ -181,7 +181,7 @@ class KnownLands extends HTMLElement {
     }
     svg.insertBefore(waters, svg.querySelector('.ki-shallows') ?? svg.querySelector('.ki-land'))
 
-    // A small vessel at the middle of each lane: a brass sea lane with sailing vessels (DESIGN 3.1).
+    // A small vessel at the middle of each lane: a brass sea lane with sailing vessels (docs/spec/meaning.md).
     const vessels = s('g', { class: 'lane-vessels', 'aria-hidden': 'true' })
     for (const { d } of layout.routes) {
       const m = /^M(-?[\d.]+) (-?[\d.]+) Q(-?[\d.]+) (-?[\d.]+) (-?[\d.]+) (-?[\d.]+)$/.exec(d)
@@ -495,7 +495,7 @@ function bearing(island: Island, territory: string, context: Context): HTMLEleme
   )
 }
 
-/** The routes as text: the chart's text equivalent for its lanes (DESIGN 13.5). */
+/** The routes as text: the chart's text equivalent for its lanes (docs/spec/maps.md). */
 function routeList(lanes: readonly Lane[], incomplete: boolean, context: Context): HTMLElement | null {
   if (lanes.length === 0) return null
   const pick = (identity: string) =>

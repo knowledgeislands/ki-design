@@ -45,7 +45,7 @@ const glyph = (name: string, cls = 'g'): string =>
   `<svg class="${cls}" aria-hidden="true"><use href="#ki-${name}"/></svg>`
 
 // ---------------------------------------------------------------------------------------------------------------
-// Header and footer: the Voyage and the Atlas (DESIGN.md 7.7)
+// Header and footer: the Voyage and the Atlas (docs/spec/layout.md)
 
 const LIVE = 'https://knowledgeislands.info'
 const voyage = [
@@ -119,7 +119,7 @@ function footer(): string {
 }
 
 // ---------------------------------------------------------------------------------------------------------------
-// Journey rail: the canon sequence (DESIGN.md 7.7, 12.2)
+// Journey rail: the canon sequence (docs/spec/layout.md, components.md)
 
 const rail = [
   { title: 'The Problem', d: 'Why our current systems fail', glyph: 'reef', href: `${LIVE}/philosophy/` },
@@ -225,7 +225,7 @@ ${items}
   return { filters, sections }
 }
 
-// "How the map works": hex topology → data layers → isometric render → map (DESIGN.md 9.1, 2.4).
+// "How the map works": hex topology → data layers → isometric render → map (docs/spec/illustration.md, world.md).
 function flatPanel(kind: 'topology' | 'layers'): string {
   const size = 22
   const pts = arcadia.hexes.map((h) => ({ h, p: toPixel(h, size) }))

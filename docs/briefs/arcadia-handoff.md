@@ -23,7 +23,7 @@ This records approval of the visual direction. It does not claim the painting me
 
 Use only `mood-website-dusk-a.png` and `mood-website-dusk-b.png` for palette, light and density, and `explainer-hex-and-isometric.png` for isometric hex geometry. Kris corrected the reference guidance during this session: ignore the other explainer images for this work, even while they remain in the reference directory. No reference images were moved or removed here.
 
-The coast is one **Port**, with dock, rail depot, airport drawn as a mooring mast with an airship, and customs house. Follow DESIGN.md sections 2, 3 and 9 and GDR-KI-PRINCIPAL-010 in `ki-principal`; the Harbour is retired as a system symbol.
+The coast is one **Port**, with dock, rail depot, airport drawn as a mooring mast with an airship, and customs house. Follow [world.md](../spec/world.md), [meaning.md](../spec/meaning.md) and [illustration.md](../spec/illustration.md) in `docs/spec/` and GDR-KI-PRINCIPAL-010 in `ki-principal`; the Harbour is retired as a system symbol.
 
 ## Variation review against the brief
 

@@ -54,7 +54,7 @@ const C = {
   sandstone: core('sandstone'),
   forest: core('forest'),
   moss: core('moss'),
-  muted: '#a9b4c4' // night muted (DESIGN.md 5.2)
+  muted: '#a9b4c4' // night muted (docs/spec/colour.md)
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -87,7 +87,7 @@ const f = (n: number): string => (Math.round(n * 100) / 100).toString()
 const pts = (p: Point[]): string => p.map((v) => `${f(v.x)},${f(v.y)}`).join(' ')
 
 // ---------------------------------------------------------------------------------------------------------------
-// Elevation: the islandmap/v1 example carries no elevation yet, so it is derived from terrain (DESIGN.md 2.2:
+// Elevation: the islandmap/v1 example carries no elevation yet, so it is derived from terrain (docs/spec/world.md:
 // higher ground reads as more mature knowledge).
 
 const elevationOf: Record<string, number> = {
@@ -137,7 +137,7 @@ interface District {
   anchor: 'start' | 'end'
 }
 
-/** The five districts called out on the hero. Subtitles keep to four words (DESIGN.md 12.2). */
+/** The five districts called out on the hero. Subtitles keep to four words (docs/spec/components.md). */
 export const districts: District[] = [
   { name: 'The Observatory', sub: 'Reflect · insight', at: { q: 2, r: -1 }, dx: 150, dy: -150, anchor: 'start' },
   { name: 'The Ancient Forest', sub: 'Wisdom · never built on', at: { q: -1, r: -1 }, dx: -30, dy: -150, anchor: 'end' },
@@ -294,7 +294,7 @@ export function renderIso(map: IslandMap, opts: IsoOptions = {}): string {
       g.push(
         `<path d="${l.d}" fill="none" stroke="${C.gold}" stroke-opacity="0.7" stroke-width="1.4" stroke-dasharray="${l.dash}" stroke-linecap="round"/>`
       )
-    // Small vessels on the active lanes: AI work drawn as infrastructure (DESIGN.md 9.3).
+    // Small vessels on the active lanes: AI work drawn as infrastructure (docs/spec/illustration.md).
     const vessels = [
       { x: port.x - 128, y: port.y + 78 },
       { x: east.x + 168, y: east.y + 108 }
@@ -433,7 +433,7 @@ export function renderIso(map: IslandMap, opts: IsoOptions = {}): string {
     out.push(`<g class="lamps">${l.join('')}</g>`)
   }
 
-  // Fog at the map's edge: uncharted water (DESIGN.md 3.5).
+  // Fog at the map's edge: uncharted water (docs/spec/meaning.md).
   out.push(
     `<g class="fog"><ellipse cx="${f(vb.x + vb.w * 0.9)}" cy="${f(vb.y + vb.h * 0.12)}" rx="${f(vb.w * 0.28)}" ry="${f(vb.h * 0.12)}" fill="url(#${id}-fog)"/><ellipse cx="${f(vb.x + vb.w * 0.08)}" cy="${f(vb.y + vb.h * 0.9)}" rx="${f(vb.w * 0.24)}" ry="${f(vb.h * 0.1)}" fill="url(#${id}-fog)"/></g>`
   )
@@ -475,7 +475,7 @@ export function renderIso(map: IslandMap, opts: IsoOptions = {}): string {
   }
 }
 
-/** Small ink motifs per terrain so colour is never the only carrier (DESIGN.md 5.6). */
+/** Small ink motifs per terrain so colour is never the only carrier (docs/spec/colour.md). */
 function terrainMotif(h: Hex, c: Point, w: number, fill: string): string {
   const s = w / 88
   const r = rng(seedOf(h))

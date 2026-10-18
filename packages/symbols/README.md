@@ -8,7 +8,7 @@ Meaning is ratified in `ki-principal`; this package mirrors it. Statuses, displa
 - `agreed`: agreed with the owner, awaiting enactment.
 - `proposed`: open for discussion (for example Workshop, Mill / Engine house, Ruins, Whale song, Fog as experimental, and the steward roles).
 
-The fourth label, **Open**, belongs to open questions rather than symbols; they sit in `notes` and in DESIGN.md.
+The fourth label, **Open**, belongs to open questions rather than symbols; they sit in `notes` and in [docs/decisions/OPEN.md](../../docs/decisions/OPEN.md). How each symbol is drawn is in [docs/spec/meaning.md](../../docs/spec/meaning.md).
 
 `retiredSymbols` lists ids withdrawn from the library, with the reason, so they are never reused: `citadel` (the Capital is the only name for the civic heart), `tower` (dropped; the Observatory is the local app's mark) and `harbour` (now the Port). The `citadel` and `tower` glyphs stay in `@knowledgeislands/icons` but no symbol maps to them; the Capital has its own civic glyph, `capital`.
 

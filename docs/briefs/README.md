@@ -1,6 +1,6 @@
 # Briefs
 
-Task briefs that a person, the local app or an AI designer (Claude, ChatGPT) can pick up and execute. Each brief says what to produce, to what standard, and how it will be judged. The rules they apply live in [DESIGN.md](../../DESIGN.md); the reasoning lives in the [design brief](design-brief.md) and the [concept atlas](concept-atlas.md).
+Task briefs that a person, the local app or an AI designer (Claude, ChatGPT) can pick up and execute. Each brief says what to produce, to what standard, and how it will be judged. The rules they apply live in [DESIGN.md](../../DESIGN.md) and the [spec](../spec/README.md); the reasoning lives in the [design brief](design-brief.md) and the [concept atlas](concept-atlas.md).
 
 **Resuming after a break?** Start with [Resume: the design thread](resume-design-thread.md): where everything is, what's decided, what's open and what's next.
 
@@ -13,6 +13,8 @@ Task briefs that a person, the local app or an AI designer (Claude, ChatGPT) can
 | [Building standards](building-standards.md) | The rules every building and tile follows | Draft standard |
 | [Animation standard](animation-standard.md) | The shared clock all animated tiles follow | Draft standard |
 | [Illustrated explainer style](explainer-style.md) | Posters, explainers and the Field Guide's "How the map works" | Ready |
+| [Prompt library](prompt-library.md) | Copy-paste image prompts: master prompt, Arcadia, terrain, structure, Port district, explainer poster, icon tracing, negative list | Ready |
+| [Glyph briefs](glyph-briefs.md) | One line per glyph saying what to draw | Reference for the 72 drawn glyphs |
 
 ## Reference images
 

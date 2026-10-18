@@ -8,8 +8,10 @@ Knowledge Islands Design is the machine-readable design system for every Knowled
 
 | You are | Read |
 | --- | --- |
-| A person or an AI designer (Claude, ChatGPT, a design tool) picking this up cold | [DESIGN.md](DESIGN.md) — the complete design system in one document |
-| Producing art or tiles | [docs/briefs/](docs/briefs/README.md) — the tile-set, building, animation and Arcadia briefs, with the reference images |
+| A person or an AI designer (Claude, ChatGPT, a design tool) picking this up cold | [DESIGN.md](DESIGN.md) — the short entry point: essence, principles, hard rules, status words and a map of the rest |
+| Working on one area (colour, type, tiles, maps…) | [docs/spec/](docs/spec/README.md) — one self-contained file per area |
+| Looking for why something was decided, or what is still open | [docs/decisions/](docs/decisions/README.md) and [OPEN.md](docs/decisions/OPEN.md) |
+| Producing art or tiles | [docs/briefs/](docs/briefs/README.md) — the tile-set, building, animation and Arcadia briefs, the prompt library and the glyph briefs, with the reference images |
 | Wondering why it looks this way | [docs/briefs/design-brief.md](docs/briefs/design-brief.md) and [docs/briefs/concept-atlas.md](docs/briefs/concept-atlas.md) |
 | Building with the toolkit | [packages/](#packages) below |
 | Planning work | [docs/roadmap/](docs/roadmap/) |
@@ -28,7 +30,7 @@ Consumers:
 | Package | What it is | State |
 | --- | --- | --- |
 | [`@knowledgeislands/tokens`](packages/tokens) | Colour, type, space, radius and motion tokens in DTCG JSON, built to CSS custom properties (bare roles and Tailwind `--color-*`) with a digest | v0 |
-| [`@knowledgeislands/icons`](packages/icons) | Line glyphs on a 24 grid, 1.5 stroke; an SVG sprite and a typed name list | v0: 71 glyphs, the full DESIGN.md inventory |
+| [`@knowledgeislands/icons`](packages/icons) | Line glyphs on a 24 grid, 1.5 stroke; an SVG sprite and a typed name list | v0: 72 glyphs ([glyph briefs](docs/briefs/glyph-briefs.md)) |
 | [`@knowledgeislands/symbols`](packages/symbols) | The symbol library as data: every canonical symbol, its meaning, status, glyph and where it surfaces | v0 |
 | [`@knowledgeislands/hexmap`](packages/hexmap) | Pure TypeScript hex geometry (pointy-top, axial), 2:1 dimetric projection, `IslandMap` model and a flat SVG renderer with no DOM | v0 |
 | [`@knowledgeislands/tiles`](packages/tiles) | The tile-set contract: manifest schema, the id inventory every tile set must cover, and the sets themselves (Modern, Ancient) | contract v0; Modern set v0 drawn (37 tiles); Ancient set waits on art |
