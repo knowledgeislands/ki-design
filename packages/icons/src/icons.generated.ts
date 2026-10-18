@@ -8,6 +8,7 @@ export const iconNames = [
   'beacon',
   'bridge',
   'calendar',
+  'capital',
   'celestial-guide',
   'check',
   'chevron',
@@ -91,6 +92,8 @@ export const iconBodies: Readonly<Record<IconName, string>> = {
     '<path d="M3 5.5 H21 M3 8 H21 M3 11 H21"/><path d="M7.5 5.5 V8 M12 5.5 V8 M16.5 5.5 V8"/><path d="M5 11 V19 M19 11 V19"/><path d="M5 18 C5 14.1 8.1 11 12 11 C15.9 11 19 14.1 19 18"/><path d="M3 20.5 Q4.5 19.5 6 20.5 T9 20.5 T12 20.5 T15 20.5 T18 20.5 T21 20.5"/>',
   calendar:
     '<circle cx="12" cy="9" r="5.5"/><path d="M8.5 21 V13.24 M15.5 21 V13.24"/><path d="M12 9 L9.75 7.7 M12 9 L15.2 7.15"/><path d="M10.5 21 V18.5 H13.5 V21"/><path d="M5 21 H19"/>',
+  capital:
+    '<path d="M3.5 11 C3.5 8.2 5 6.5 7 6.5 C9 6.5 10.5 8.2 10.5 11"/><path d="M7 6.5 V4"/><path d="M3 11 H11"/><path d="M4.5 11 V18.5 M9.5 11 V18.5"/><path d="M12 11.5 L16.5 9 L21 11.5 Z"/><path d="M13.5 11.5 V18.5 M16.5 11.5 V18.5 M19.5 11.5 V18.5"/><path d="M3 18.5 H21 M2.5 21 H21.5"/>',
   'celestial-guide':
     '<path d="M12 2.5 L13.6 10.4 L21.5 12 L13.6 13.6 L12 21.5 L10.4 13.6 L2.5 12 L10.4 10.4 Z"/><path d="M16.5 7.5 L18 6 M7.5 7.5 L6 6 M16.5 16.5 L18 18 M7.5 16.5 L6 18"/>',
   check: '<path d="M4.5 12.5 L9.5 17.5 L19.5 6.5"/>',

@@ -28,7 +28,7 @@ describe('coverage', () => {
     ...['island', 'archipelago', 'route', 'trade-route', 'current', 'weave', 'lighthouse', 'observatory', 'port'],
     ...['bridge', 'reef', 'terrain', 'ancient-forest', 'grid', 'celestial-guide', 'compass', 'fog', 'ruins'],
     ...['citadel', 'library', 'council-hall', 'tower', 'calendar', 'resources', 'streams', 'mill', 'workshop'],
-    ...['commons', 'inbound', 'outbound', 'dock', 'rail-depot', 'airport', 'customs-house'],
+    ...['capital', 'commons', 'inbound', 'outbound', 'dock', 'rail-depot', 'airport', 'customs-house'],
     ...['beacon', 'vessel', 'scroll', 'workbench', 'tide-gauge', 'sea-lane', 'known-lands', 'machine'],
     ...['lantern', 'lantern-signal', 'reef-signal'],
     ...['role-steward', 'role-archivist', 'role-cartographer', 'role-builder', 'role-navigator', 'role-scout'],

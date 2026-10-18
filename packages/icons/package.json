@@ -13,6 +13,7 @@
   "private": true,
   "scripts": {
     "build": "bun src/build.ts",
+    "contact-sheet": "bun scripts/contact-sheet.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit -p ."
   },

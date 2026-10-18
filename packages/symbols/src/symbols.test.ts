@@ -46,6 +46,7 @@ describe('symbol library', () => {
   test('the Capital holds the Library and the Council Hall, all official (GDR-KI-PRINCIPAL-011)', () => {
     for (const id of ['capital', 'library', 'council-hall']) expect(byId.get(id)?.status).toBe('official')
     expect(byId.get('capital')?.meaning).toContain('Library and the Council Hall')
+    expect<string | undefined>(byId.get('capital')?.icon).toBe('capital')
   })
 
   test('the Citadel and the Tower are retired, and the Observatory is the app mark', () => {

@@ -92,8 +92,9 @@ export const symbols = [
     category: 'zone',
     site: 'The Capital district on the Map of Known Lands',
     app: 'Territory Principal',
+    icon: 'capital',
     notes:
-      'GDR-KI-PRINCIPAL-011. Replaces the Citadel; each tile set draws it its own way (a civic quarter and square, or a hilltop forum). No glyph yet: the citadel glyph is retired.'
+      'GDR-KI-PRINCIPAL-011. Replaces the Citadel; each tile set draws it its own way (a civic quarter and square, or a hilltop forum). The glyph is a small dome (the Library) beside a low colonnaded front (the Council Hall) on a shared base.'
   },
   {
     id: 'pillars',

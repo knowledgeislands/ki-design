@@ -593,7 +593,7 @@ The site may additionally use glyphs inside a **roundel**: a circle of 1 px bras
 
 ### 8.2 Glyph inventory
 
-Sixty-one glyphs, plus six value icons (below). "Draw" is a one-line brief for the vector artist.
+Sixty-two glyphs, plus six value icons (below). "Draw" is a one-line brief for the vector artist.
 
 **Symbols**
 
@@ -622,6 +622,7 @@ Sixty-one glyphs, plus six value icons (below). "Draw" is a one-line brief for t
 
 | Id | Draw |
 | --- | --- |
+| `capital` | The Capital (GDR-KI-PRINCIPAL-011): a small dome on a two-column drum (the Library) beside a low pedimented front of three columns (the Council Hall), both on one stepped base, the square they share. Civic, never fortified: no tower, wall or battlement |
 | `citadel` | _Retired_ (GDR-KI-PRINCIPAL-011): kept in the package, mapped to no symbol. Wall line with three rooftops behind it: dome, pediment, slender tower |
 | `library` | Small dome over four columns on a stepped base |
 | `council-hall` | Pediment over four columns on a wide stepped base, no dome |

@@ -10,7 +10,7 @@ Meaning is ratified in `ki-principal`; this package mirrors it. Statuses, displa
 
 The fourth label, **Open**, belongs to open questions rather than symbols; they sit in `notes` and in DESIGN.md.
 
-`retiredSymbols` lists ids withdrawn from the library, with the reason, so they are never reused: `citadel` (the Capital is the only name for the civic heart), `tower` (dropped; the Observatory is the local app's mark) and `harbour` (now the Port). The `citadel` and `tower` glyphs stay in `@knowledgeislands/icons` but no symbol maps to them.
+`retiredSymbols` lists ids withdrawn from the library, with the reason, so they are never reused: `citadel` (the Capital is the only name for the civic heart), `tower` (dropped; the Observatory is the local app's mark) and `harbour` (now the Port). The `citadel` and `tower` glyphs stay in `@knowledgeislands/icons` but no symbol maps to them; the Capital has its own civic glyph, `capital`.
 
 Open questions sit in `notes`, such as whether a land-to-land link should be a Causeway so that Bridge keeps its meaning as a translation layer.
 

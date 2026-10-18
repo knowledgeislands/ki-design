@@ -1,6 +1,6 @@
 # @knowledgeislands/icons
 
-Line glyphs for Knowledge Islands: 71 drawn by hand on a 24 × 24 grid.
+Line glyphs for Knowledge Islands: 72 drawn by hand on a 24 × 24 grid.
 
 ## The drawing contract
 
@@ -16,14 +16,14 @@ Every file in `svg/` carries exactly these root attributes, and `lintIcon` enfor
 - No arc commands in paths: draw curves with Béziers and round things with `circle` or `ellipse`, so bounds can be checked exactly.
 - File names are kebab-case and become the icon name.
 
-Glyphs (71; the DESIGN.md 8.2 inventory, with `celestial` drawn as `celestial-guide`, plus `arrow`, `refresh` and `hourglass` for the previews): airport, ancient-forest, archipelago, arrow, beacon, bridge, calendar, celestial-guide, check, chevron, citadel, close, commons, compass, council-hall, current, customs-house, dock, external, filter, fog, grid, hourglass, inbound, info, island, known-lands, lantern, lantern-signal, library, lighthouse, machine, menu, mill, observatory, outbound, port, rail-depot, reef, reef-signal, refresh, resources, role-archivist, role-builder, role-cartographer, role-guardian, role-historian, role-navigator, role-scout, role-steward, route, ruins, scroll, sea-lane, search, streams, terrain, theme, tide-gauge, tower, trade-route, value-community, value-creation, value-exploration, value-growth, value-sustainability, value-trust, vessel, weave, workbench, workshop.
+Glyphs (72; the DESIGN.md 8.2 inventory, with `celestial` drawn as `celestial-guide`, plus `arrow`, `refresh` and `hourglass` for the previews): airport, ancient-forest, archipelago, arrow, beacon, bridge, calendar, capital, celestial-guide, check, chevron, citadel, close, commons, compass, council-hall, current, customs-house, dock, external, filter, fog, grid, hourglass, inbound, info, island, known-lands, lantern, lantern-signal, library, lighthouse, machine, menu, mill, observatory, outbound, port, rail-depot, reef, reef-signal, refresh, resources, role-archivist, role-builder, role-cartographer, role-guardian, role-historian, role-navigator, role-scout, role-steward, route, ruins, scroll, sea-lane, search, streams, terrain, theme, tide-gauge, tower, trade-route, value-community, value-creation, value-exploration, value-growth, value-sustainability, value-trust, vessel, weave, workbench, workshop.
 
 ## Adding a glyph
 
 1. Add `svg/<name>.svg` following the contract.
 2. Run `bun run build`. It lints every glyph and regenerates `src/icons.generated.ts` (committed).
 3. Run `bun test`; add the name to the coverage list in `src/icons.test.ts`.
-4. Check it by eye on `contact-sheet.png` (64, 24, 20 and 16 px, on parchment and navy) and regenerate the sheet.
+4. Regenerate `contact-sheet.png` with `bun run contact-sheet -- --new <name>` (64, 24, 20 and 16 px on parchment, the whole set on navy; the new glyph gets a brass border; it needs Playwright's Chromium) and check the glyph by eye beside its neighbours.
 
 ## API
 
