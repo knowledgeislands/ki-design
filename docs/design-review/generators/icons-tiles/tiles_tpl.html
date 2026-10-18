@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Tiles and Motion</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Cormorant+SC:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
+.ki-card{background:#fffaf0;border:1px solid #d4c9b4;border-radius:8px;box-sizing:border-box}
+
+.ki-h{white-space:nowrap;font-family:'Cormorant SC',serif;font-weight:600;font-size:17px;letter-spacing:0.1em;color:#8a5a12}
+.ki-k{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#8a5a12}
+.ki-scope{font-size:11px;font-weight:500;padding:1px 8px;border-radius:999px;color:#4a5568;border:1px solid #a0aec0;white-space:nowrap}
+.ki-row{display:flex;gap:10px;font-size:12.5px;line-height:1.4;padding:6px 0;border-bottom:1px solid #e8e0d0}
+@keyframes kiHead{from{transform:translateX(0)}to{transform:translateX(528px)}}
+@keyframes kiPulse{from{transform:scale(1);opacity:1}to{transform:scale(0.3);opacity:0.2}}
+.ki-head{animation:kiHead 4s steps(48,end) infinite}
+.ki-p{animation-name:kiPulse;animation-iteration-count:infinite}
+.lp1{animation:none}
+.lp4{animation-duration:0.333333s;animation-timing-function:steps(4,end)}
+.lp6{animation-duration:0.5s;animation-timing-function:steps(6,end)}
+.lp8{animation-duration:0.666667s;animation-timing-function:steps(8,end)}
+.lp12{animation-duration:1s;animation-timing-function:steps(12,end)}
+.lp16{animation-duration:1.333333s;animation-timing-function:steps(16,end)}
+.lp24{animation-duration:2s;animation-timing-function:steps(24,end)}
+.lp48{animation-duration:4s;animation-timing-function:steps(48,end)}
+.ki-still{animation:none !important}
+@media (prefers-reduced-motion: reduce){.ki-head,.ki-p{animation:none !important}}
+</style>
+</helmet>
+<div style="width:1440px;height:1100px;box-sizing:border-box;padding:56px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:18px;overflow:hidden">
+
+  <!-- Header -->
+  <div style="display:flex;align-items:flex-end;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-family:'Cormorant SC',serif;font-weight:600;font-size:15px;letter-spacing:0.2em;color:#8a5a12">Design system · 6 of 8</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:48px;line-height:1;color:#0f2440">Tiles, buildings and motion</div>
+      <div style="font-size:15px;color:#4a5568">One hex geometry, one manifest of ids, any number of skins, one shared clock. These rules let tiles from any set or artist sit on one map.</div>
+    </div>
+    <div style="margin-left:auto;display:flex;gap:6px;padding-bottom:4px">
+      <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#0f2440;background:#e3e8ef">Canon</span>
+      <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#2d5a3d;background:#dfe9e1">Decided</span>
+      <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#8a5a12;background:#f1e8d3">Proposed</span>
+      <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#9b2c1c;background:#f3dfd9">Open</span>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div style="display:flex;gap:4px;border-bottom:1px solid #d4c9b4">
+    <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="4">
+      <button type="button" aria-pressed="{{tb.pressed}}" onClick="{{ tb.pick }}" style="{{tb.style}}">{{tb.label}}</button>
+    </sc-for>
+    <div style="margin-left:auto;align-self:center;font-size:12px;color:#4a5568">Sources: DESIGN.md §9–§11 · modern/manifest.json · building and animation briefs</div>
+  </div>
+
+  <!-- ============ GEOMETRY ============ -->
+  <div style="{{geoDisp}}">
+    <div class="ki-card" style="width:830px;flex:none;padding:12px 14px 6px">
+      <!--GEO-->
+    </div>
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px">
+      <div class="ki-card" style="padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ki-h">The cell · §10.1</div><span style="{{chips.decided}}">Decided</span><span class="ki-scope">Both</span></div>
+        <sc-for list="{{geoFacts}}" as="gf" hint-placeholder-count="8">
+          <div class="ki-row"><span style="width:120px;flex:none;font-weight:600;color:#0f2440">{{gf.k}}</span><span>{{gf.v}}</span></div>
+        </sc-for>
+        <div style="font-size:11.5px;color:#4a5568;margin-top:8px">§16.5: the hex geometry is decided, not open.</div>
+      </div>
+      <div class="ki-card" style="padding:16px 18px;flex:1">
+        <div class="ki-h" style="margin-bottom:10px">Footprints · §10.2</div>
+        <div style="display:flex;gap:6px;margin-bottom:12px">
+          <sc-for list="{{fps}}" as="fp" hint-placeholder-count="3">
+            <button type="button" aria-pressed="{{fp.pressed}}" onClick="{{ fp.pick }}" style="{{fp.style}}">{{fp.label}}</button>
+          </sc-for>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;color:#0f2440">{{fpd.title}}</div>
+        <div style="font-size:13px;line-height:1.45;margin:4px 0 10px">{{fpd.body}}</div>
+        <div class="ki-k">Re-cut rule from square sheets</div>
+        <div style="font-size:12.5px;line-height:1.4;margin:3px 0 10px">{{fpd.recut}}</div>
+        <div class="ki-k">In the Modern manifest</div>
+        <div style="font-size:12.5px;line-height:1.45;margin-top:3px;color:#1a2030">{{fpd.used}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TILE SETS ============ -->
+  <div style="{{setsDisp}}">
+    <div style="display:flex;gap:14px;height:318px;flex:none">
+      <!-- Modern -->
+      <div class="ki-card" style="flex:1.25;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">Modern</div><span style="{{chips.decided}}">Decided</span><span class="ki-scope">Both</span><span style="margin-left:auto;font-size:11.5px;color:#4a5568">v0 drawn · 37 SVG tiles</span></div>
+        <div style="font-size:12.5px;line-height:1.4">Engraved, flat. Crisp deep-ink outlines over flat token fills; even light or one flat 15 % shade. The default for the local app, docs, diagrams and print.</div>
+        <div style="display:flex;gap:8px;flex:1;min-height:0">
+          <div style="flex:1;display:flex;flex-direction:column;gap:3px;min-width:0"><img src="/_blob/9066c03f24633baabc99d91004476de8" alt="Modern tile set contact sheet: engraved terrain and structure tiles" style="width:100%;flex:1;min-height:0;object-fit:cover;border-radius:6px;border:1px solid #d4c9b4;background:#f5efe0"><span style="font-size:10.5px;color:#4a5568">contact-sheet</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:3px;min-width:0"><img src="/_blob/ddf877d8768f37d7312b2067a7271e9b" alt="Arcadia drawn isometrically in the Modern set" style="width:100%;flex:1;min-height:0;object-fit:cover;border-radius:6px;border:1px solid #d4c9b4;background:#f5efe0"><span style="font-size:10.5px;color:#4a5568">arcadia-iso</span></div>
+        </div>
+      </div>
+      <!-- Ancient -->
+      <div class="ki-card" style="flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">Ancient</div><span style="{{chips.decided}}">Decided</span><span class="ki-scope">Site</span><span style="margin-left:auto;{{chips.open}}">Art not drawn</span></div>
+        <div style="font-size:12.5px;line-height:1.4">Painted, dusk-lit atlas art, Age-of-Empires-esque. Low warm sun from the top-left, lamp-lit dense settlements, cloud banks, glints on navy water. For the hero, Living Map, Arcadia, posters and archetype cards.</div>
+        <div style="flex:1;border-radius:6px;background:#0f2440;padding:12px;display:flex;flex-direction:column;gap:8px;justify-content:space-between">
+          <div style="display:flex;gap:5px">
+            <span title="navy" style="width:26px;height:26px;border-radius:4px;background:#0f2440;border:1px solid #3a5577"></span>
+            <span title="ocean" style="width:26px;height:26px;border-radius:4px;background:#1b3a5c"></span>
+            <span title="forest" style="width:26px;height:26px;border-radius:4px;background:#2d5a3d"></span>
+            <span title="moss" style="width:26px;height:26px;border-radius:4px;background:#4a7a5a"></span>
+            <span title="sandstone" style="width:26px;height:26px;border-radius:4px;background:#c4a882"></span>
+            <span title="lamp gold" style="width:26px;height:26px;border-radius:4px;background:#c8963c"></span>
+          </div>
+          <div style="font-size:12.5px;line-height:1.45;color:#f5efe0">Waiting on ChatGPT art from the prompt pack (§14): master prompt, then the asset template, then the negative list, with the picture of Arcadia as the style reference.</div>
+          <div style="font-size:11px;color:#9fbbd8">Night is a tint layer over the same art, not separate art.</div>
+        </div>
+      </div>
+      <!-- Explainer -->
+      <div class="ki-card" style="flex:0.85;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">Illustrated explainer</div></div>
+        <div style="display:flex;gap:6px"><span style="{{chips.decided}}">Decided</span><span class="ki-scope">Site</span><span style="font-size:11.5px;color:#4a5568">a diagram style, not a tile set</span></div>
+        <div style="font-size:12.5px;line-height:1.4">Daylight watercolour islands on a pale sea, parchment cards headed by coloured roundel glyphs, dashed routes, a tide loop at the foot. For explainers, the Field Guide and decks.</div>
+        <div style="flex:1;border-radius:6px;background:#d6e3e1;padding:12px;display:flex;gap:8px;align-items:flex-start">
+          <div style="flex:1;background:#f5efe0;border:1px solid #d4c9b4;border-radius:6px;padding:8px;display:flex;flex-direction:column;gap:5px"><span style="width:26px;height:26px;border-radius:50%;border:1px solid #c8963c;background:rgba(49,112,112,0.15)"></span><span style="height:4px;width:80%;background:#d4c9b4;border-radius:2px"></span><span style="height:4px;width:60%;background:#d4c9b4;border-radius:2px"></span></div>
+          <div style="flex:1;background:#f5efe0;border:1px solid #d4c9b4;border-radius:6px;padding:8px;display:flex;flex-direction:column;gap:5px;margin-top:22px"><span style="width:26px;height:26px;border-radius:50%;border:1px solid #c8963c;background:rgba(45,90,61,0.15)"></span><span style="height:4px;width:80%;background:#d4c9b4;border-radius:2px"></span><span style="height:4px;width:50%;background:#d4c9b4;border-radius:2px"></span></div>
+        </div>
+        <div style="font-size:11px;color:#4a5568">Agents work on islands; never draw agents as islands.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:14px;flex:1;min-height:0">
+      <!-- Contract -->
+      <div class="ki-card" style="width:470px;flex:none;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">The open tile-set contract · §10.9</div><span style="{{chips.decided}}">Decided</span></div>
+        <div style="font-size:12.5px;line-height:1.4">A set is a skin over the same manifest ids. Any set, including a community set, is valid when it provides:</div>
+        <sc-for list="{{contract}}" as="ct" hint-placeholder-count="8">
+          <div style="display:flex;gap:8px;font-size:12.5px;line-height:1.35"><span style="color:#c8963c;font-weight:600">·</span><span>{{ct.t}}</span></div>
+        </sc-for>
+        <div class="ki-k" style="margin-top:6px">Where Modern v0 differs from DESIGN.md</div>
+        <sc-for list="{{gaps}}" as="gx" hint-placeholder-count="5">
+          <div style="display:flex;gap:8px;font-size:12px;line-height:1.35"><span style="{{chips.open}};flex:none;height:fit-content">Open</span><span>{{gx.t}}</span></div>
+        </sc-for>
+      </div>
+      <!-- Manifest -->
+      <div class="ki-card" style="flex:1;min-width:0;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">Modern manifest · tileset/v1</div><span style="margin-left:auto;font-size:11.5px;color:#4a5568">every entry status: draft · frame 0 drawn only</span></div>
+        <div style="display:flex;gap:6px">
+          <sc-for list="{{kinds}}" as="kd" hint-placeholder-count="4">
+            <button type="button" aria-pressed="{{kd.pressed}}" onClick="{{ kd.pick }}" style="{{kd.style}}"><span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;line-height:1">{{kd.n}}</span> <span style="font-size:12px">{{kd.label}}</span></button>
+          </sc-for>
+        </div>
+        <div style="display:flex;font-size:10.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#4a5568;padding:4px 0;border-bottom:1px solid #d4c9b4">
+          <span style="width:170px">id</span><span style="width:90px">footprint</span><span style="width:110px">art px (1×)</span><span style="width:90px">variants</span><span style="width:90px">loop</span><span style="flex:1">condition rows</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr;gap:0">
+          <sc-for list="{{rows}}" as="rw" hint-placeholder-count="17">
+            <div style="display:flex;font-size:12px;line-height:1;padding:3px 0;border-bottom:1px solid #efe8da">
+              <span style="width:170px;font-family:ui-monospace,Menlo,monospace;color:#0f2440">{{rw.id}}</span><span style="width:90px">{{rw.fp}}</span><span style="width:110px">{{rw.px}}</span><span style="width:90px">{{rw.v}}</span><span style="width:90px">{{rw.loop}}</span><span style="flex:1;color:#4a5568">{{rw.st}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BUILDINGS ============ -->
+  <div style="{{bldDisp}}">
+    <div class="ki-card" style="width:420px;flex:none;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">Condition states</div><span style="{{chips.canon}}">Canon</span><span class="ki-scope">Both</span></div>
+      <div style="display:flex;border:1px solid #d4c9b4;border-radius:6px;overflow:hidden">
+        <sc-for list="{{conds}}" as="cd" hint-placeholder-count="4">
+          <button type="button" aria-pressed="{{cd.pressed}}" onClick="{{ cd.pick }}" style="{{cd.style}}">{{cd.label}}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:center;background:#f5efe0;border-radius:6px;border:1px solid #e8e0d0">
+        <!--BLD-->
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;line-height:1;color:#0f2440">{{cond.name}}</div>
+      <div style="font-size:13px;line-height:1.4">{{cond.meaning}}</div>
+      <div class="ki-k">What changes</div>
+      <div style="font-size:12.5px;line-height:1.4">{{cond.drawn}}</div>
+      <div style="font:11.5px/1.45 ui-monospace,Menlo,monospace;color:#f5efe0;background:#0f2440;border-radius:6px;padding:8px 10px">{{cond.recipe}}</div>
+      <div style="font-size:11.5px;color:#4a5568;line-height:1.4">Driven by evidence freshness: a stale repository visibly weathers. Condition is never a score or a percentage.</div>
+    </div>
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px">
+      <div class="ki-card" style="padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div class="ki-h">Building standards · §10.8</div><span class="ki-scope">Both</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:22px">
+          <sc-for list="{{stds}}" as="sd" hint-placeholder-count="10">
+            <div class="ki-row" style="flex-direction:column;gap:2px">
+              <div style="display:flex;align-items:center;gap:6px"><span style="font-weight:600;color:#0f2440">{{sd.k}}</span><span style="{{sd.chip}}">{{sd.st}}</span></div>
+              <span>{{sd.v}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div class="ki-card" style="padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div class="ki-h">Architectural families</div><span style="{{chips.decided}}">Decided</span><span style="font-size:12px;color:#4a5568">hero structures only: Citadel, Library, Council Hall, Port, Lighthouse. Everything else shares one vernacular per set.</span></div>
+        <sc-for list="{{fams}}" as="fm" hint-placeholder-count="7">
+          <div class="ki-row" style="padding:3px 0"><span style="width:170px;flex:none;font-weight:600;color:#0f2440">{{fm.a}}</span><span style="width:170px;flex:none">{{fm.f}}</span><span style="color:#4a5568">{{fm.m}}</span></div>
+        </sc-for>
+      </div>
+      <div class="ki-card" style="padding:16px 18px;flex:1">
+        <div class="ki-h" style="margin-bottom:4px">Variants, sheets and twins</div>
+        <sc-for list="{{sheets}}" as="sh" hint-placeholder-count="5">
+          <div class="ki-row" style="padding:5px 0;align-items:flex-start"><span style="width:130px;flex:none;font-weight:600;color:#0f2440">{{sh.k}}</span><span style="flex:1">{{sh.v}}</span><span style="{{sh.chip}}">{{sh.st}}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MOTION ============ -->
+  <div style="{{motDisp}}">
+    <div class="ki-card" style="width:780px;flex:none;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">The clock · §11.1</div><span style="{{chips.decided}}">Decided</span><span class="ki-scope">Both</span>
+        <div style="margin-left:auto;display:flex;border:1px solid #d4c9b4;border-radius:6px;overflow:hidden">
+          <sc-for list="{{plays}}" as="pl" hint-placeholder-count="3">
+            <button type="button" aria-pressed="{{pl.pressed}}" onClick="{{ pl.pick }}" style="{{pl.style}}">{{pl.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;gap:28px;align-items:baseline">
+        <div><span style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:#0f2440">12</span> <span style="font-size:13px;color:#4a5568">frames per second</span></div>
+        <div><span style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:#0f2440">48</span> <span style="font-size:13px;color:#4a5568">frame master cycle = 4 s</span></div>
+        <div style="font:12.5px ui-monospace,Menlo,monospace;color:#1a2030">frame = floor(t × 12) mod 48</div>
+      </div>
+      <div style="font-size:12.5px;color:#4a5568;line-height:1.4">Each lane is a loop length that divides 48. Dots reset at frame 0 of their loop; the brass playhead is the shared frame index. Every lane realigns at the 4 s mark, so neighbouring tiles never drift. {{playNote}}</div>
+      <!-- ruler -->
+      <div style="display:flex;align-items:center;gap:0;margin-top:4px">
+        <span style="width:176px;flex:none;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#4a5568">Frame</span>
+        <div style="position:relative;width:528px;height:16px;font-size:10px;color:#4a5568">
+          <span style="position:absolute;left:0">0</span><span style="position:absolute;left:132px">12</span><span style="position:absolute;left:264px">24</span><span style="position:absolute;left:396px">36</span><span style="position:absolute;left:512px">48</span>
+        </div>
+      </div>
+      <sc-for list="{{lanes}}" as="ln" hint-placeholder-count="7">
+        <div style="display:flex;align-items:center;margin-bottom:8px">
+          <div style="width:140px;flex:none;display:flex;flex-direction:column">
+            <span style="font-size:13px;font-weight:600;color:#0f2440">{{ln.n}} frames</span>
+            <span style="font-size:11px;color:#4a5568">{{ln.sub}}</span>
+          </div>
+          <div style="width:36px;flex:none;display:flex;justify-content:center"><span class="{{ln.dotCls}}" style="{{ln.dotStyle}}"></span></div>
+          <div style="position:relative;width:530px;height:44px;display:flex;border-radius:4px;overflow:hidden;border:1px solid #d4c9b4;box-sizing:border-box">
+            <sc-for list="{{ln.segs}}" as="sg" hint-placeholder-count="12">
+              <span style="{{sg.style}}"></span>
+            </sc-for>
+            <span class="{{headCls}}" style="{{headStyle}}"></span>
+          </div>
+        </div>
+      </sc-for>
+      <div style="font-size:11.5px;color:#4a5568;line-height:1.4;margin-top:auto">Live demo uses CSS steps() timing at 12 fps. It honours prefers-reduced-motion: with it on, every lane shows frame 0, as the standard requires.</div>
+    </div>
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px">
+      <div class="ki-card" style="padding:14px 18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px"><div class="ki-h">What moves · §11.2</div><span class="ki-scope">Site</span></div>
+        <sc-for list="{{moves}}" as="mv" hint-placeholder-count="9">
+          <div class="ki-row" style="align-items:center;padding:4px 0">
+            <span style="width:18px;flex:none;display:flex;justify-content:center"><span class="{{mv.dotCls}}" style="{{mv.dotStyle}}"></span></span>
+            <span style="width:150px;flex:none;font-weight:600;color:#0f2440">{{mv.e}}</span>
+            <span style="width:34px;flex:none;font-family:ui-monospace,Menlo,monospace">{{mv.loop}}</span>
+            <span style="flex:1">{{mv.m}}</span>
+            <span style="{{mv.chip}}">{{mv.st}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div class="ki-card" style="padding:14px 18px;flex:1">
+        <div class="ki-h" style="margin-bottom:2px">Motion rules</div>
+        <sc-for list="{{mrules}}" as="mr" hint-placeholder-count="8">
+          <div class="ki-row" style="padding:5px 0"><span style="width:120px;flex:none;font-weight:600;color:#0f2440">{{mr.k}}</span><span style="flex:1">{{mr.v}}</span><span class="ki-scope" style="height:fit-content">{{mr.sc}}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  data(){ return /*DATA*/; }
+
+  chipStyle(st){
+    const c = { canon:['#0f2440','#e3e8ef'], decided:['#2d5a3d','#dfe9e1'], proposed:['#8a5a12','#f1e8d3'], open:['#9b2c1c','#f3dfd9'] }[st];
+    return 'display:inline-block;font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:999px;white-space:nowrap;color:' + c[0] + ';background:' + c[1];
+  }
+  label(st){ return st.charAt(0).toUpperCase() + st.slice(1); }
+  seg(on){ return 'flex:1;white-space:nowrap;font:500 12.5px Inter,sans-serif;padding:0 12px;height:32px;border:0;cursor:pointer;' + (on ? 'background:#0f2440;color:#f5efe0;' : 'background:#fffaf0;color:#1a2030;'); }
+  pill(on){ return 'font:500 12.5px Inter,sans-serif;padding:6px 12px;border-radius:999px;cursor:pointer;' + (on ? 'background:#0f2440;color:#f5efe0;border:1px solid #0f2440;' : 'background:transparent;color:#1a2030;border:1px solid #d4c9b4;'); }
+
+  renderVals(){
+    const s = this.state || {};
+    const M = this.data();
+    const tab = s.tab || 'geo';
+    const flexPanel = 'flex:1;min-height:0;display:flex;gap:14px';
+    const colPanel = 'flex:1;min-height:0;display:flex;flex-direction:column;gap:14px';
+    const chips = { canon: this.chipStyle('canon'), decided: this.chipStyle('decided'), proposed: this.chipStyle('proposed'), open: this.chipStyle('open') };
+
+    const tabs = [['geo','Geometry'],['sets','Tile sets'],['bld','Buildings'],['mot','Motion']].map(t => {
+      const on = t[0] === tab;
+      return { label: t[1], pressed: on ? 'true' : 'false', pick: () => this.setState({ tab: t[0] }),
+        style: 'font:600 14px Inter,sans-serif;padding:10px 18px;margin-bottom:-1px;cursor:pointer;background:transparent;border:0;border-bottom:2px solid ' + (on ? '#8a5a12' : 'transparent') + ';color:' + (on ? '#0f2440' : '#4a5568') + ';' };
+    });
+
+    // ---- geometry
+    const geoFacts = [
+      ['Grid', 'Pointy-top hexes, axial (q, r); cube coordinates for distance and pathing.'],
+      ['Projection', '2:1 dimetric. Every sprite is normalised to it.'],
+      ['Top face', '256 × 148 px at 1× (512 × 296 at 2×).'],
+      ['Steps', 'Horizontal 256 · row 111 · odd rows +128. All integers.'],
+      ['Plinth', '48 px deep: darker cliff face with stratified rock bands.'],
+      ['Sprite cell', '256 × 196 px at 1×. Taller structures extend upward from the anchor.'],
+      ['Scales', '1× and 2× for every raster; flat SVG twin at any size.'],
+      ['Light', 'Top-left, fixed. Painted art is never rotated, so edges auto-tile with a 6-bit neighbour mask.']
+    ].map(r => ({ k: r[0], v: r[1] }));
+    const fpSel = s.fp || 'flower';
+    const FP = {
+      single: { title: 'Single · 1 hex', body: 'The default. All twelve terrains and most structures. Anchor at the centre of the top face.', recut: '1×1 → 1 hex.' },
+      pair: { title: 'Pair · 2 hexes', body: 'Two neighbouring hexes. Orientation 0–5 records which neighbour the second hex sits on (0 = east, then anticlockwise).', recut: '1×2 or 2×1 → pair.' },
+      flower: { title: 'Flower · 7 hexes', body: 'A centre hex and its full ring. The Citadel is always a compound across a flower: Library, Council Hall and Tower around a central square. Never a single-hex building.', recut: '2×2 up to 4×4 → flower. Square plinth matted out, hex plinth repainted.' }
+    };
+    const used = M.tiles.filter(t => t.fp === fpSel).map(t => t.k + '.' + t.id);
+    const fps = ['single','pair','flower'].map(k => ({ label: k.charAt(0).toUpperCase() + k.slice(1), pressed: k === fpSel ? 'true' : 'false', pick: () => this.setState({ fp: k }), style: this.pill(k === fpSel) }));
+    const fpd = { title: FP[fpSel].title, body: FP[fpSel].body, recut: FP[fpSel].recut,
+      used: used.length ? used.length + (used.length === 1 ? ' entry: ' : ' entries: ') + used.slice(0, 14).join(', ') + (used.length > 14 ? ' and ' + (used.length - 14) + ' more.' : '.') : 'None yet.' };
+
+    // ---- tile sets
+    const contract = [
+      'Every contract id: 12 terrain, 17 structures, 4 decals, 4 connectors (37 in all).',
+      'Variants: at least 3 per entry (§10.9).',
+      'Four condition rows for structures: thriving, quiet, weathered, ruined.',
+      'Frames: 1 (still) or a loop of 4 · 6 · 8 · 12 · 16 · 24 · 48, always at 12 fps.',
+      'Rasters at 1× and 2×, plus a flat SVG twin (≤ 4 KB after SVGO).',
+      'An anchor in pixels; footprint and orientation; a palette; a family for hero structures.',
+      'Pass validateTileSet and the Building standards. The local app defaults to Modern.'
+    ].map(t => ({ t: t }));
+    const gaps = [
+      'Variants: manifest has 1 everywhere. DESIGN.md asks 3 for terrain and the five hero structures in the first release.',
+      'Council Hall and Workshop: pair in §10.4, single in the manifest.',
+      'Loops: lighthouse 12 (§11.2 says 24), mill 16 (§11.2 says 12). River and ocean loops declared, not drawn.',
+      'Port is a pair here; §10.4 allows pair or flower.'
+    ].map(t => ({ t: t }));
+    const kind = s.kind || 'structure';
+    const KL = { terrain: 'terrain', structure: 'structures', decal: 'decals', connector: 'connectors' };
+    const kinds = ['terrain','structure','decal','connector'].map(k => ({ n: M.tiles.filter(t => t.k === k).length, label: KL[k], pressed: k === kind ? 'true' : 'false', pick: () => this.setState({ kind: k }), style: this.pill(k === kind) }));
+    const rows = M.tiles.filter(t => t.k === kind).map(t => ({
+      id: t.id, fp: t.fp + (t.fp === 'pair' || t.k === 'connector' ? ' · o' + t.o : ''), px: t.w + ' × ' + t.h, v: String(t.v),
+      loop: t.loop > 1 ? t.loop + ' f' : 'still', st: t.st ? 'thriving · quiet · weathered · ruined' : '—'
+    }));
+
+    // ---- buildings
+    const cSel = s.cond || 'weathered';
+    const C = {
+      thriving: { name: 'Thriving', meaning: 'Fresh evidence; actively tended and in good health.', drawn: 'The base drawing with its thriving layer: lit windows, chimney smoke, a flag.', layers: { thr: 1 } },
+      quiet: { name: 'Quiet', meaning: 'Healthy, but little recent activity.', drawn: 'The thriving layer is hidden: windows unlit, no smoke, no flag. No decals.', layers: {} },
+      weathered: { name: 'Weathered', meaning: 'Stale evidence. Needs upkeep before it can be relied on.', drawn: 'Unlit, plus moss and cracks decals under the same light.', layers: { moss: 1, cracks: 1 } },
+      ruined: { name: 'Ruined', meaning: 'Retired or archived. Kept for history; retire or rebuild.', drawn: 'Unlit, plus ivy, moss, cracks and a fallen-roof piece: the Ruins look.', layers: { ivy: 1, moss: 1, cracks: 1, fallen: 1 } }
+    };
+    const cc = C[cSel];
+    const mc = M.conditions[cSel];
+    const recipe = 'manifest: hide ' + (mc.hide.length ? mc.hide.join(', ') : 'nothing') + ' · decals ' + (mc.decals.length ? mc.decals.join(', ') : 'none');
+    const disp = k => cc.layers[k] ? 'inline' : 'none';
+    const cond = { name: cc.name, meaning: cc.meaning, drawn: cc.drawn, recipe: recipe, thr: disp('thr'), moss: disp('moss'), cracks: disp('cracks'), ivy: disp('ivy'), fallen: disp('fallen') };
+    const conds = ['thriving','quiet','weathered','ruined'].map(k => ({ label: C[k].name, pressed: k === cSel ? 'true' : 'false', pick: () => this.setState({ cond: k }), style: this.seg(k === cSel) }));
+    const S = [
+      ['Light', 'Top-left, warm. Shadows fall bottom-right.', 'decided'],
+      ['Shadow length', 'About 0.35 × height.', 'proposed'],
+      ['Anchor', 'Centre of the anchor hex’s top face, in manifest pixels.', 'decided'],
+      ['Overhang', 'At most 8 % of tile width; nothing over the front plinth edge.', 'decided'],
+      ['Outline', '1.25 px at 1×: deep ink (Modern) or darkened local colour (Ancient). Never pure black.', 'decided'],
+      ['Palette', 'Tokens and the island palette only.', 'decided'],
+      ['Scale', 'Door ≈ 12 px, storey ≈ 18 px at 1×; a hero may reach two cells tall.', 'proposed'],
+      ['Silhouette', 'Reads at 25 % (64 px wide). Modern tiles recognisable at 32 px.', 'decided'],
+      ['Footprint', 'Single, pair or flower (see Geometry). The Citadel is always a flower.', 'decided'],
+      ['No text', 'No text, logos or worded flags on any building.', 'decided']
+    ];
+    const stds = S.map(r => ({ k: r[0], v: r[1], st: this.label(r[2]), chip: this.chipStyle(r[2]) }));
+    const sheets = [
+      ['Variants', 'Brief: 3 for terrain and the five hero structures, 1 for the rest. §10.4 says every structure has 3.', 'open'],
+      ['Sprite sheets', 'One row per condition state, one column per frame. Frame 0 of each row is the still.', 'decided'],
+      ['Night', 'A tint layer over the same art: the one place a filter is allowed.', 'decided'],
+      ['Flat twin', 'Every structure has a flat SVG twin for UI, print and small sizes; at most 4 KB after SVGO.', 'decided'],
+      ['Ancient forest', 'Never shares a hex with another structure, and is never built on.', 'canon']
+    ].map(r => ({ k: r[0], v: r[1], st: this.label(r[2]), chip: this.chipStyle(r[2]) }));
+    const fams = [
+      ['Engineering Forge','Industrial vernacular','Slate roofs, stone and timber, chimneys, waterwheels'],
+      ['Research Archipelago','Classical observatory','Pale limestone, domes, colonnades, telescopes'],
+      ['Creative Wilderness','Organic','Thatch, living roofs, treehouses, carved wood'],
+      ['Learning Realm','Collegiate','Cloisters, towers, courtyards, ivy'],
+      ['Enterprise Territory','Civic harbour town','Brick, clock towers, cranes, warehouses'],
+      ['Personal Isle','Cottage','Single hearth, garden wall, a small jetty'],
+      ['Community','Commons','Meeting hall, market square, shared gardens']
+    ].map(r => ({ a: r[0], f: r[1], m: r[2] }));
+
+    // ---- motion
+    const play = s.play || 'play';
+    const animOn = play !== 'still';
+    const ps = play === 'pause' ? 'paused' : 'running';
+    const plays = [['play','Play'],['pause','Pause'],['still','Frame 0']].map(p => ({ label: p[1], pressed: p[0] === play ? 'true' : 'false', pick: () => this.setState({ play: p[0] }), style: this.seg(p[0] === play) }));
+    const dot = (n, size) => ({
+      cls: animOn ? 'ki-p lp' + n : 'ki-still',
+      style: 'display:inline-block;width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:#c8963c;border:1px solid #8a5a12;box-sizing:border-box;animation-play-state:' + ps + ';'
+    });
+    const lanes = [4,6,8,12,16,24,48].map(n => {
+      const d = dot(n, 22);
+      const reps = 48 / n;
+      const segs = [];
+      for (let i = 0; i < reps; i++) segs.push({ style: 'display:block;height:100%;width:' + (n * 11) + 'px;flex:none;box-sizing:border-box;border-right:1px solid #d4c9b4;background:' + (i % 2 ? '#f1e8d3' : '#fffaf0') + ';' });
+      const secs = Math.round(n / 12 * 100) / 100;
+      return { n: n, sub: secs + ' s · ' + reps + '× per cycle', dotCls: d.cls, dotStyle: d.style, segs: segs };
+    });
+    const MV = [
+      ['Sea and tide', 48, 'Slow wave drift and glints; foam breathes in phase', 'decided'],
+      ['Clouds, fog banks', 48, 'Drift one hex per cycle', 'decided'],
+      ['Lanterns, windows', 8, 'Gentle flicker, never strobing', 'decided'],
+      ['Lighthouse lamp', 24, 'Slow sweep', 'decided'],
+      ['Mill wheel', 12, 'One full turn per loop', 'decided'],
+      ['Chimney smoke', 16, 'Rise and fade', 'decided'],
+      ['Sails and flags', 12, 'Light flutter', 'decided'],
+      ['Airship at mast', 48, 'Slight sway', 'proposed'],
+      ['Vessels on routes', 0, 'Along the lane path, at most 1 hex per 4 s', 'proposed']
+    ];
+    const moves = MV.map(r => { const d = r[1] ? dot(r[1], 12) : { cls: 'ki-still', style: 'display:inline-block;width:12px;height:12px;border-radius:50%;border:1px dashed #8a5a12;box-sizing:border-box' }; return { e: r[0], loop: r[1] ? String(r[1]) : '—', m: r[2], st: this.label(r[3]), chip: this.chipStyle(r[3]), dotCls: d.cls, dotStyle: d.style }; });
+    const mrules = [
+      ['Character', 'Slow, intentional, fluid, tidal, orbital. Never bouncing, flashy or attention-seeking.', 'Both'],
+      ['Speed limit', 'Nothing faster than a 4-frame loop. Tides and celestial motion use the full 48.', 'Both'],
+      ['Frame 0', 'The still: used under reduced motion, in print, in the local app and as the thumbnail.', 'Both'],
+      ['Reduced motion', 'prefers-reduced-motion: reduce shows frame 0 and makes every transition instant.', 'Both'],
+      ['UI easing', 'cubic-bezier(0.4, 0, 0.2, 1). 160 ms state · 240 ms panel · 400 ms map pan or zoom.', 'Both'],
+      ['Never', 'Bounce, overshoot, spring, parallax or auto-playing carousels.', 'Both'],
+      ['Local app', 'No motion beyond state change.', 'App'],
+      ['Site reveals', 'A 12 px rise with fade, once; never on text the reader is already reading.', 'Site']
+    ].map(r => ({ k: r[0], v: r[1], sc: r[2] }));
+
+    return {
+      tabs: tabs, chips: chips,
+      geoDisp: tab === 'geo' ? flexPanel : 'display:none',
+      setsDisp: tab === 'sets' ? colPanel : 'display:none',
+      bldDisp: tab === 'bld' ? flexPanel : 'display:none',
+      motDisp: tab === 'mot' ? flexPanel : 'display:none',
+      geoFacts: geoFacts, fps: fps, fpd: fpd,
+      contract: contract, gaps: gaps, kinds: kinds, rows: rows,
+      cond: cond, conds: conds, stds: stds, fams: fams, sheets: sheets,
+      plays: plays, lanes: lanes, moves: moves, mrules: mrules,
+      headCls: animOn ? 'ki-head' : 'ki-still',
+      headStyle: 'position:absolute;left:0;top:0;width:11px;height:100%;background:#c8963c;opacity:0.85;animation-play-state:' + ps + ';',
+      playNote: play === 'still' ? 'Showing frame 0: what reduced motion, print and the local app see.' : (play === 'pause' ? 'Paused.' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

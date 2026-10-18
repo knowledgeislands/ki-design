@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Type and voice</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Cormorant+SC:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.dst-kick{font-family:'Cormorant SC',serif;font-size:17px;font-weight:600;letter-spacing:0.14em;color:#8a5a12}
+.dst-h1{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;line-height:1.05;color:#0f2440;margin:2px 0 6px}
+.dst-lede{font-size:15px;color:#4a5568;line-height:1.45}
+.dst-card{background:#fffaf0;border:1px solid #d4c9b4;border-radius:8px;box-sizing:border-box}
+.dst-ch{display:flex;align-items:center;gap:8px;font-family:'Cormorant SC',serif;font-size:16px;font-weight:600;letter-spacing:0.08em;color:#0f2440}
+.dst-chip{display:inline-block;font-family:Inter,sans-serif;font-size:11px;font-weight:600;line-height:1;padding:4px 8px;border-radius:999px;letter-spacing:0;white-space:nowrap}
+.dst-canon{color:#0f2440;background:#e3e8ef}
+.dst-decided{color:#2d5a3d;background:#dfe9e1}
+.dst-proposed{color:#8a5a12;background:#f1e8d3}
+.dst-open{color:#9b2c1c;background:#f3dfd9}
+.dst-scope{color:#4a5568;background:transparent;border:1px solid #b8bfc9;padding:3px 7px}
+.dst-btn{font-family:Inter,sans-serif;text-align:left;cursor:pointer;box-sizing:border-box;margin:0}
+.dst-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.dst-sub{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4a5568}
+</style>
+</helmet>
+<div style="width:1440px;height:1000px;box-sizing:border-box;padding:48px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:16px;overflow:hidden">
+
+  <!-- Header -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;height:104px;flex:none">
+    <div>
+      <div class="dst-kick">Design system · 4 of 8</div>
+      <div class="dst-h1">Type and voice</div>
+      <div class="dst-lede">Two type dialects from one system, and one voice for both. Pick a dialect first; never mix them on one surface.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none">
+      <div role="group" aria-label="Dialect" style="display:flex;border:1px solid #9a8358;border-radius:999px;padding:3px;gap:2px;background:#fffaf0">
+        <button type="button" class="dst-btn" aria-pressed="{{sitePressed}}" onClick="{{ toSite }}" style="{{siteBtn}}">Site · Chart</button>
+        <button type="button" class="dst-btn" aria-pressed="{{appPressed}}" onClick="{{ toApp }}" style="{{appBtn}}">App · Instrument</button>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;font-size:12px;color:#4a5568">
+        <span>Site and app type</span><span class="dst-chip dst-decided">Decided</span>
+        <span style="margin-left:8px">Cormorant replaces Playfair</span><span class="dst-chip dst-decided">Decided</span><span class="dst-chip dst-scope">Site</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:24px;flex:1;min-height:0">
+
+    <!-- Left: type -->
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px">
+
+      <!-- Faces -->
+      <div class="dst-card" style="padding:12px 16px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="dst-ch">{{d.title}} <span class="dst-chip dst-decided">Decided</span><span class="dst-chip dst-scope">{{d.scope}}</span></div>
+          <div style="display:flex;gap:12px;font-size:12px;color:#1a2030">
+            <sc-for list="{{d.facts}}" as="fa" hint-placeholder-count="2"><span style="white-space:nowrap"><strong style="font-weight:600">{{fa.k}}</strong> {{fa.v}}</span></sc-for>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+          <sc-for list="{{d.faces}}" as="f" hint-placeholder-count="4">
+            <div style="border:1px solid #e8e0d0;border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:4px">
+              <div class="dst-sub">{{f.role}}</div>
+              <div style="{{f.sampleStyle}}">{{f.sample}}</div>
+              <div style="font-size:12px;font-weight:600;color:#1a2030">{{f.name}}</div>
+              <div class="dst-mono" style="font-size:10.5px;line-height:1.35;color:#4a5568">{{f.stack}}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Scale -->
+      <div class="dst-card" style="flex:1;min-height:0;padding:12px 16px;display:flex;flex-direction:column;gap:2px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:4px;border-bottom:1px solid #d4c9b4">
+          <div class="dst-ch">{{d.scaleTitle}}</div>
+          <div style="font-size:12px;color:#4a5568">{{d.scaleNote}}</div>
+        </div>
+        <sc-for list="{{d.scale}}" as="t" hint-placeholder-count="13">
+          <div style="display:grid;grid-template-columns:240px 1fr 150px;gap:12px;align-items:center;padding:{{t.pad}};border-bottom:1px solid #efe8da">
+            <span class="dst-mono" style="font-size:11px;line-height:15px;color:#4a5568;white-space:nowrap"><strong style="font-weight:600;color:#0f2440;font-size:11.5px">{{t.token}}</strong>  {{t.spec}}</span>
+            <div style="{{t.style}}">{{t.text}}</div>
+            <span style="font-size:11.5px;line-height:1.3;color:#4a5568">{{t.use}}</span>
+          </div>
+        </sc-for>
+        <div style="font-size:11.5px;line-height:1.4;color:{{d.footColour}};padding-top:6px;margin-top:auto">{{d.foot}}</div>
+      </div>
+    </div>
+
+    <!-- Right: voice -->
+    <div class="dst-card" style="width:450px;flex:none;padding:14px 16px;display:flex;flex-direction:column;gap:8px;border-top:3px solid #0f2440">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="dst-ch">Voice and copy</div>
+        <span class="dst-chip dst-scope">Both</span>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;line-height:1.1;color:#0f2440">Calm, exact, unhurried, hopeful.</div>
+      <div style="font-size:13px;line-height:1.5;color:#1a2030">Write like a good atlas: plain words, one idea per sentence. The metaphor carries warmth; the sentences carry precision.</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px 12px;font-size:12px;line-height:1.35;color:#1a2030;border-top:1px solid #d4c9b4;padding-top:8px">
+        <sc-for list="{{rules}}" as="ru" hint-placeholder-count="8">
+          <div><strong style="font-weight:600;color:#0f2440">{{ru.k}}</strong> · {{ru.v}}</div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center;background:#f1e8d3;border-radius:6px;padding:8px 10px">
+        <span style="font-family:'Cormorant SC',serif;font-size:15px;font-weight:600;letter-spacing:0.1em;color:#8a5a12;flex:none">en-GB</span>
+        <span style="font-size:12px;line-height:1.4;color:#1a2030">British English, <span class="dst-mono" style="font-size:11px">lang="en-GB"</span>: organise, colour, centre, catalogue, programme, licence (noun).</span>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid #d4c9b4;padding-top:8px">
+        <div class="dst-sub"><span style="color:#2d5a3d">Do</span> · <span style="color:#9b2c1c">Don’t</span> — click for why</div>
+        <div style="display:flex;gap:4px">
+          <sc-for list="{{filters}}" as="fl" hint-placeholder-count="3">
+            <button type="button" class="dst-btn" aria-pressed="{{fl.pressed}}" onClick="{{ fl.pick }}" style="{{fl.style}}">{{fl.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <sc-for list="{{pairs}}" as="p" hint-placeholder-count="12">
+          <button type="button" class="dst-btn" aria-pressed="{{p.pressed}}" aria-label="{{p.aria}}" onClick="{{ p.pick }}" style="{{p.style}}">
+            <span style="font-size:12px;line-height:1.3;color:#1a2030;border-left:3px solid #2d5a3d;padding-left:7px">{{p.good}}</span>
+            <span style="font-size:12px;line-height:1.3;color:#4a5568;border-left:3px solid #9b2c1c;padding-left:7px;text-decoration:line-through;text-decoration-color:#9b2c1c80">{{p.bad}}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="margin-top:auto;background:#0f2440;color:#f5efe0;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-family:'Cormorant SC',serif;font-size:14px;font-weight:600;letter-spacing:0.12em;color:#c8963c">Why · {{why.area}}</span>
+          <span class="dst-mono" style="font-size:10.5px;color:#a9b4c4">{{why.src}}</span>
+        </div>
+        <div style="font-size:13px;line-height:1.45">{{why.text}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = { dialect: 'site', pair: 'port', filter: 'all' }; }
+
+  site(){
+    const CG = "'Cormorant Garamond',Georgia,serif", SC = "'Cormorant SC','Cormorant Garamond',Georgia,serif", IN = "Inter,system-ui,sans-serif", MO = "ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace";
+    const row = (token, face, size, lh, wt, tr, text, use, extra) => ({ token: token, spec: size + ' / ' + lh + ' · ' + wt + (tr ? ' · ' + tr : ''), text: text, use: use, pad: '2px 0',
+      style: 'font-family:' + face + ';font-size:' + size + 'px;line-height:' + lh + ';font-weight:' + wt + ';letter-spacing:' + (tr || '0') + ';color:#0f2440;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' + (extra || '') });
+    return {
+      title: 'Site · the Chart', scope: 'Site', where: 'knowledgeislands.info · atmospheric, narrative',
+      faces: [
+        { role:'Display', name:'Cormorant Garamond 500–600 · ≥ 24 px', stack:"'Cormorant Garamond', Georgia, serif", sample:'Arcadia', sampleStyle:'font-family:' + CG + ';font-size:28px;font-weight:600;line-height:1;color:#0f2440' },
+        { role:'Labels · cartouches', name:'Cormorant SC 500–600 · tracked', stack:"'Cormorant SC', 'Cormorant Garamond', Georgia, serif", sample:'The Citadel', sampleStyle:'font-family:' + SC + ';font-size:20px;font-weight:600;letter-spacing:0.16em;line-height:1.2;color:#0f2440;border-bottom:1px solid #c8963c;align-self:flex-start;padding-bottom:2px' },
+        { role:'Reading', name:'Inter 400 / 500 / 600', stack:'Inter, system-ui, sans-serif', sample:'Plain words.', sampleStyle:'font-family:' + IN + ';font-size:20px;font-weight:500;line-height:1.2;color:#0f2440' },
+        { role:'Code', name:'System monospace', stack:"ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace", sample:'/install/ki', sampleStyle:'font-family:' + MO + ';font-size:17px;line-height:1.3;color:#0f2440' }
+      ],
+      facts: [
+        { k:'Leading', v:'unitless ratio' },
+        { k:'Loading', v:'Google Fonts or WOFF2, swap, Latin subset' }
+      ],
+      scaleTitle: 'Site type scale · 13 tokens', scaleNote: 'Token · size / leading · weight · tracking, then a live specimen at true size, then use',
+      scale: [
+        row('display-xl', CG, 72, '1.05', 500, '-0.01em', 'Tools change.', 'Home headline · clamp(40, 6vw, 72)', 'padding-bottom:6px;'),
+        row('display-l', CG, 48, '1.1', 500, '', 'Enter Arcadia', 'Page title · 36 on phones'),
+        row('display-m', CG, 36, '1.15', 500, '', 'The Port — Capture', 'Section head · 30 on phones'),
+        row('display-s', CG, 28, '1.2', 600, '', 'Engineering Forge', 'Sub-section, hero card title'),
+        row('display-xs', CG, 24, '1.25', 600, '', 'The Council Hall', 'Smallest permitted Cormorant'),
+        row('label-l', SC, 18, '1.3', 600, '0.14em', 'The journey', 'Section kicker'),
+        row('label', SC, 15, '1.3', 600, '0.16em', 'Map of Known Lands', 'Cartouche, nav item'),
+        row('label-s', SC, 13, '1.3', 600, '0.18em', 'Legend', 'Map label, legend head'),
+        row('lead', IN, 20, '1.55', 400, '', 'Information arrives without judgement.', 'Intro paragraph', 'color:#1a2030;'),
+        row('body', IN, 17, '1.65', 400, '', 'Every island answers to its Library.', 'Running text, ≤ 68 ch', 'color:#1a2030;'),
+        row('body-s', IN, 15, '1.55', 400, '', 'Build, ship and evolve software systems.', 'Cards, captions', 'color:#1a2030;'),
+        row('meta', IN, 13, '1.45', 500, '0.01em', 'Charted 2026-10-18', 'Dates, footnotes', 'color:#4a5568;font-variant-numeric:tabular-nums lining-nums;'),
+        row('code', MO, 15, '1.55', 400, '', '/install/ki', 'Commands', 'color:#1a2030;')
+      ],
+      foot: 'Below 13 px, map labels use Inter 12/16 at 500, capitals tracked 0.08 em. Display text still needs 4.5:1 contrast.',
+      footColour: '#4a5568'
+    };
+  }
+
+  app(){
+    const SE = "ui-serif,'New York','Iowan Old Style',Georgia,serif", SA = "system-ui,-apple-system,'Segoe UI',Roboto,sans-serif", MO = "ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace";
+    const row = (token, face, size, lh, text, use, extra) => ({ token: token, spec: size ? size + ' / ' + lh + ' px' : 'inherits size', text: text, use: use, pad: '8px 0',
+      style: 'font-family:' + face + ';' + (size ? 'font-size:' + size + 'px;line-height:' + lh + 'px;' : 'font-size:14px;line-height:20px;') + 'color:#1a2030;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' + (extra || '') });
+    return {
+      title: 'App · the Instrument', scope: 'App', where: 'Observatory, 127.0.0.1:1675 · law: PDR-KI-OBSERVA-002',
+      faces: [
+        { role:'Display', name:'System serif', stack:"ui-serif, \"New York\", \"Iowan Old Style\", Georgia, serif", sample:'Beacon', sampleStyle:'font-family:' + SE + ';font-size:26px;line-height:1;color:#0f2440' },
+        { role:'Labels · map labels', name:'Monospace · no small caps', stack:'--font-identifier', sample:'ki-principal', sampleStyle:'font-family:' + MO + ';font-size:16px;line-height:1.3;color:#0f2440' },
+        { role:'Reading · interface', name:'System sans', stack:"system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif", sample:'Plain words.', sampleStyle:'font-family:' + SA + ';font-size:20px;font-weight:500;line-height:1.2;color:#0f2440' },
+        { role:'Code · identifiers', name:'System monospace', stack:"ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, monospace", sample:'PDR-KI-OBSERVA-002', sampleStyle:'font-family:' + MO + ';font-size:13px;line-height:1.6;color:#0f2440' }
+      ],
+      facts: [
+        { k:'Leading', v:'fixed px, summed by test' },
+        { k:'Loading', v:'nothing fetched or bundled' }
+      ],
+      scaleTitle: 'App type scale · reference values', scaleNote: 'PDR-KI-OBSERVA-002 is law. The shell’s published scale wins; a raw px length fails a test.',
+      scale: [
+        row('--text-xs', SA, 12, 16, 'Ranked by severity, then by last change.', 'Foot-of-view notes, chip text', 'color:#4a5568;'),
+        row('--text-sm', SA, 13, 18, 'thriving · changed 2026-10-18 09:42', 'Secondary cells, status line', 'font-variant-numeric:tabular-nums;'),
+        row('--text-base', SA, 14, 20, 'Attention · branch behind its remote', 'Table cells, controls, body'),
+        row('--text-md', SA, 16, 22, 'Pull 3 repositories in territory hnr?', 'Pane body, plan text'),
+        row('--text-lg', SE, 20, 26, 'Beacon', 'Instrument title', 'color:#0f2440;'),
+        row('--text-xl', SE, 24, 30, 'No signals. The realm is quiet.', 'Empty-state heading, detail title', 'color:#0f2440;'),
+        row('--font-identifier', MO, 0, 0, 'apps-observatory.local · 3f9c2e1', 'Ids, hashes, paths, commands, map labels'),
+        row('--figures', SA, 14, 20, '012 · 2026-10-18 09:42 · 217', 'Counts, dates, times, ranks', 'font-variant-numeric:tabular-nums lining-nums;')
+      ],
+      foot: 'Mismatch to reconcile: tokens.json font.app.serif is ui-serif, Georgia, Cambria, "Times New Roman", serif and font.app.sans adds "Helvetica Neue", Arial; font.mono drops "SF Mono" and adds "Liberation Mono". DESIGN.md §6.1 stacks shown above. tokens.json holds no size tokens yet.',
+      footColour: '#9b2c1c'
+    };
+  }
+
+  pairList(){
+    return [
+      { id:'port', cat:'words', area:'Port', good:'the Port — Capture', bad:'the Harbour — Capture', why:'Harbour was retired on 18 Oct 2026. Write and draw the Port, with its modes as districts.', src:'§4.2 · App. A' },
+      { id:'condition', cat:'words', area:'Condition', good:'thriving · quiet · weathered · ruined', bad:'health score · 96 % harmony', why:'No game scores. Condition is driven by evidence freshness and is never a score or a percentage (stewardship over extraction).', src:'§4.2 · §3.6' },
+      { id:'workers', cat:'words', area:'Agents', good:'workers: Steward, Archivist', bad:'bots, minions, copilots', why:'Agents, human or AI, are workers in the realm, shown by role. Never the subject of the interface, never hero or threat.', src:'§4.2 · §1' },
+      { id:'verbs', cat:'words', area:'Stewardship', good:'steward, tend, ratify, chart', bad:'own, harvest, crush, hack', why:'Stewardship over extraction: show care and tending, never harvesting or growth hacks.', src:'§4.2' },
+      { id:'cycle', cat:'words', area:'Cycle', good:'Capture · Connect · Reflect', bad:'ingest · process · output', why:'The canon cycle. Pipeline words turn a living landscape back into a machine.', src:'§4.2' },
+      { id:'jobs', cat:'words', area:'App jobs', good:'observe, attend, act, extend', bad:'monitor, alert, execute, plugin', why:'The local app’s four jobs. They name what a person does, not what a system emits.', src:'§4.2' },
+      { id:'model', cat:'words', area:'Model', good:'realm, territory, island', bad:'workspace, tenant, estate', why:'The section 2 model: realm, territory, island, Capital, Citadel. Software-tenancy words break the map and its meaning. Estate is avoided in display copy.', src:'§4.2 · §2' },
+      { id:'hype', cat:'sentences', area:'Tone', good:'No signals. The realm is quiet.', bad:'(rocket) Supercharge your knowledge with AI!', why:'Calm and true. The don’t carries emoji, hype and AI as hero. No emoji anywhere: use glyphs.', src:'§4.4 · §4.3' },
+      { id:'confirm', cat:'sentences', area:'Confirmation', good:'Pull 3 repositories in hnr? This changes files on disk.', bad:'Are you sure?', why:'Name the scope and the effect (full form: “Pull 3 repositories in territory hnr? This changes files on disk.”). A bare “are you sure” tells the reader nothing to decide on.', src:'§4.4' },
+      { id:'time', cat:'sentences', area:'Time', good:'Pulled 3 of 3 · 2026-10-18 09:42', bad:'Pulled 3 days ago', why:'Outcome, time, way in. Stamps are YYYY-MM-DD HH:MM, 24-hour, local; never a relative time alone in the app (it may follow the stamp, muted).', src:'§4.3 · §4.4' },
+      { id:'case', cat:'sentences', area:'Case', good:'Explore the map', bad:'Explore The Map', why:'Sentence case for headings, buttons and labels; Title Case only for proper names. Capitals in cartouches come from the small-caps face, not the keyboard.', src:'§4.3' }
+    ];
+  }
+
+  renderVals(){
+    const s = this.state || {};
+    const dialect = s.dialect === 'app' ? 'app' : 'site';
+    const filter = s.filter || 'all';
+    const d = dialect === 'app' ? this.app() : this.site();
+    const all = this.pairList();
+    const shown = all.filter(p => filter === 'all' || p.cat === filter);
+    const selId = all.some(p => p.id === s.pair) ? s.pair : 'port';
+    const sel = all.filter(p => p.id === selId)[0];
+    const btn = on => 'font-size:13px;font-weight:600;padding:6px 16px;border-radius:999px;border:0;' + (on ? 'background:#0f2440;color:#f5efe0;' : 'background:transparent;color:#1a2030;');
+    const pairs = shown.map(p => {
+      const on = p.id === selId;
+      return { good: p.good, bad: p.bad, aria: 'Why: ' + p.area, pressed: on ? 'true' : 'false',
+        pick: () => this.setState({ pair: p.id }),
+        style: 'display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;padding:4px 6px;border-radius:5px;' + (on ? 'background:#e3e8ef;border:1px solid #1b3a5c;' : 'background:transparent;border:1px solid #e8e0d0;') };
+    });
+    const filters = [['all','All'],['words','Words'],['sentences','Sentences']].map(f => ({
+      label: f[1], pressed: filter === f[0] ? 'true' : 'false',
+      pick: () => this.setState({ filter: f[0] }),
+      style: 'font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px;' + (filter === f[0] ? 'background:#0f2440;color:#f5efe0;border:1px solid #0f2440;' : 'background:transparent;color:#1a2030;border:1px solid #b8bfc9;')
+    }));
+    return {
+      sitePressed: dialect === 'site' ? 'true' : 'false', appPressed: dialect === 'app' ? 'true' : 'false',
+      siteBtn: btn(dialect === 'site'), appBtn: btn(dialect === 'app'),
+      toSite: () => this.setState({ dialect: 'site' }),
+      toApp: () => this.setState({ dialect: 'app' }),
+      d: d,
+      rules: [
+        { k:'Case', v:'sentence case' },
+        { k:'Headlines', v:'one sentence, full stop' },
+        { k:'Subheads', v:'under 20 words' },
+        { k:'Microcopy', v:'verb first, < 6 words' },
+        { k:'Errors', v:'what happened, what to do' },
+        { k:'Times', v:'YYYY-MM-DD HH:MM' },
+        { k:'Small caps', v:'by the face' },
+        { k:'Emoji', v:'none; use glyphs' }
+      ],
+      filters: filters, pairs: pairs,
+      why: { area: sel.area, text: sel.why, src: sel.src }
+    };
+  }
+}
+</script>
+</body>
+</html>

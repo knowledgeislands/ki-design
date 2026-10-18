@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Map of Known Lands</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Cormorant+SC:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1440px;height:960px;position:relative;overflow:hidden;background:#f5efe0;background-image:radial-gradient(ellipse at 40% 45%, #f8f3e6 0%, #f5efe0 55%, #ece3cc 100%);font-family:Inter,system-ui,sans-serif;color:#1a2030;">
+
+  <div style="position:absolute;left:20px;top:20px;width:1040px;height:76px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;">
+    <div style="display:flex;flex-direction:column;gap:2px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8a5a12;">Knowledge Islands Realm</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;line-height:1.05;color:#0f2440;">Map of Known Lands</div>
+      <div style="font-size:13px;color:#4a5568;">8 territories · 20 islands in Knowledge Islands · 217 signals, 31 new</div>
+    </div>
+    <div style="font-size:12px;color:#4a5568;text-align:right;line-height:1.5;padding-bottom:2px;">First chart, v0<br>Charted 18 October 2026</div>
+  </div>
+
+  <svg aria-hidden="true" width="1040" height="840" viewBox="0 0 1040 840" style="position:absolute;left:20px;top:104px;display:block;">
+    <defs>
+      <pattern id="kl-waves" patternUnits="userSpaceOnUse" width="48" height="18">
+        <path d="M0 9 q6 -5 12 0 t12 0 t12 0 t12 0" fill="none" stroke="#9fbbd8" stroke-width="0.8" opacity="0.6"/>
+      </pattern>
+      <linearGradient id="kl-fogL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f5efe0" stop-opacity="0.96"/><stop offset="1" stop-color="#f5efe0" stop-opacity="0"/></linearGradient>
+      <linearGradient id="kl-fogR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#f5efe0" stop-opacity="0.96"/><stop offset="1" stop-color="#f5efe0" stop-opacity="0"/></linearGradient>
+      <linearGradient id="kl-fogT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe0" stop-opacity="0.96"/><stop offset="1" stop-color="#f5efe0" stop-opacity="0"/></linearGradient>
+      <linearGradient id="kl-fogB" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f5efe0" stop-opacity="0.96"/><stop offset="1" stop-color="#f5efe0" stop-opacity="0"/></linearGradient>
+      <filter id="kl-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+      <filter id="kl-blur-s" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+
+      <symbol id="g-citadel" viewBox="0 0 32 32">
+        <rect x="6" y="18" width="20" height="9" fill="#f5efe0" stroke="#1a2030" stroke-width="1.2"/>
+        <path d="M9 18v9M12.5 18v9M16 18v9M19.5 18v9M23 18v9" stroke="#1a2030" stroke-width="1"/>
+        <path d="M5 18h22l-2 -2.2H7z" fill="#c4a882" stroke="#1a2030" stroke-width="1"/>
+        <path d="M10 15.8a6 6 0 0 1 12 0z" fill="#c8963c" stroke="#1a2030" stroke-width="1.2"/>
+        <path d="M16 9.8v-2.6" stroke="#1a2030" stroke-width="1"/>
+        <rect x="23" y="6" width="4.5" height="12" fill="#f5efe0" stroke="#1a2030" stroke-width="1.2"/>
+        <path d="M22.4 6h5.7l-2.85 -3.6z" fill="#9b2c1c" stroke="#1a2030" stroke-width="0.8"/>
+        <path d="M3.5 27.6h25" stroke="#1a2030" stroke-width="1.8"/>
+      </symbol>
+      <symbol id="g-tower" viewBox="0 0 32 32">
+        <path d="M11 28h10l-1.6 -18h-6.8z" fill="#f5efe0" stroke="#1a2030" stroke-width="1.2"/>
+        <path d="M10 10h12V5.5h-2.2v2h-2.2v-2h-3.2v2h-2.2v-2H10z" fill="#c4a882" stroke="#1a2030" stroke-width="1.1"/>
+        <rect x="14.6" y="14" width="2.8" height="4" fill="#1a2030"/>
+        <rect x="14.6" y="21" width="2.8" height="3" fill="#1a2030"/>
+        <path d="M8 28h16" stroke="#1a2030" stroke-width="1.6"/>
+      </symbol>
+      <symbol id="g-library" viewBox="0 0 32 32">
+        <path d="M5 13l11 -7 11 7z" fill="#c4a882" stroke="#1a2030" stroke-width="1.1"/>
+        <rect x="6" y="13" width="20" height="2.2" fill="#f5efe0" stroke="#1a2030" stroke-width="1"/>
+        <path d="M8.5 15.5v9.5M12.5 15.5v9.5M16 15.5v9.5M19.5 15.5v9.5M23.5 15.5v9.5" stroke="#1a2030" stroke-width="1.8"/>
+        <rect x="5" y="25" width="22" height="3" fill="#f5efe0" stroke="#1a2030" stroke-width="1.1"/>
+      </symbol>
+      <symbol id="g-workshop" viewBox="0 0 32 32">
+        <rect x="21.5" y="8" width="3" height="8" fill="#c4a882" stroke="#1a2030" stroke-width="1"/>
+        <path d="M5.5 27V15.5l7 -6 7 6V27z" fill="#f5efe0" stroke="#1a2030" stroke-width="1.2"/>
+        <path d="M19.5 27v-8.5h7.5V27z" fill="#c4a882" stroke="#1a2030" stroke-width="1.1"/>
+        <rect x="10.6" y="20" width="3.8" height="7" fill="#1a2030"/>
+        <circle cx="12.5" cy="15.2" r="1.8" fill="none" stroke="#1a2030" stroke-width="1"/>
+        <path d="M4 27.4h24.5" stroke="#1a2030" stroke-width="1.6"/>
+      </symbol>
+      <symbol id="g-bridge" viewBox="0 0 32 32">
+        <path d="M5 15.5v10h4v-3a7 7 0 0 1 14 0v3h4v-10z" fill="#c4a882" stroke="#1a2030" stroke-width="1.2"/>
+        <path d="M3 15.5h26" stroke="#1a2030" stroke-width="2"/>
+        <path d="M5 12v3.5M10.5 12v3.5M16 12v3.5M21.5 12v3.5M27 12v3.5M4.5 12h23" stroke="#1a2030" stroke-width="1"/>
+      </symbol>
+      <symbol id="g-port" viewBox="0 0 32 32">
+        <path d="M3 17h19v3H3z" fill="#c4a882" stroke="#1a2030" stroke-width="1.1"/>
+        <path d="M6 20v7M11 20v7M16 20v7M21 20v7" stroke="#1a2030" stroke-width="1.4"/>
+        <circle cx="25.5" cy="8" r="2" fill="none" stroke="#1a2030" stroke-width="1.1"/>
+        <path d="M25.5 10v11M21.5 17a4 4 0 0 0 8 0M23.3 12.5h4.4" fill="none" stroke="#1a2030" stroke-width="1.2"/>
+      </symbol>
+      <symbol id="g-lighthouse" viewBox="0 0 32 32">
+        <path d="M19 10l10 -3.5M19 10l10 3.5M13 10l-10 -3.5M13 10l-10 3.5" stroke="#c8963c" stroke-width="1.1"/>
+        <path d="M12 28l1.6 -16h4.8L20 28z" fill="#f5efe0" stroke="#1a2030" stroke-width="1.2"/>
+        <path d="M12.6 22.5h6.8M13.1 17h5.8" stroke="#9b2c1c" stroke-width="2"/>
+        <rect x="13" y="8" width="6" height="4" fill="#c8963c" stroke="#1a2030" stroke-width="1"/>
+        <path d="M12 8l4 -4 4 4z" fill="#1a2030"/>
+        <path d="M9 28h14" stroke="#1a2030" stroke-width="1.6"/>
+      </symbol>
+      <symbol id="g-ruins" viewBox="0 0 32 32">
+        <path d="M7 27V14l4 -1.5V27z" fill="#c4a882" stroke="#1a2030" stroke-width="1.1"/>
+        <path d="M14 27v-7.5l4 1V27z" fill="#c4a882" stroke="#1a2030" stroke-width="1.1"/>
+        <path d="M21 27V10l2 1.5 2 -1V27z" fill="#c4a882" stroke="#1a2030" stroke-width="1.1"/>
+        <path d="M17.5 9.5l5 -3" stroke="#1a2030" stroke-width="1"/>
+        <rect x="24" y="23.5" width="5" height="3.5" fill="#b9a77a" stroke="#1a2030" stroke-width="0.9" transform="rotate(-14 26.5 25)"/>
+        <path d="M4 27.4h24.5" stroke="#1a2030" stroke-width="1.6"/>
+      </symbol>
+      <symbol id="b-lantern" viewBox="0 0 16 16">
+        <circle cx="8" cy="8" r="7.3" fill="#f5efe0" stroke="#c8963c" stroke-width="1.2"/>
+        <path d="M8 2.6v1.6M6 4.2h4" stroke="#1a2030" stroke-width="0.9"/>
+        <path d="M5.6 5h4.8l-0.9 6.4h-3z" fill="#c8963c" stroke="#1a2030" stroke-width="0.8"/>
+        <path d="M5 12h6" stroke="#1a2030" stroke-width="1"/>
+      </symbol>
+      <symbol id="b-reef" viewBox="0 0 16 16">
+        <circle cx="8" cy="8" r="7.3" fill="#f5efe0" stroke="#9b2c1c" stroke-width="1.2"/>
+        <path d="M2.8 12l2 -5 1.8 2.6 1.8 -5.6 1.8 4.8 1.6 -2 1.4 5.2z" fill="#9b2c1c" stroke="#1a2030" stroke-width="0.6"/>
+      </symbol>
+      <symbol id="g-steward" viewBox="0 0 12 16">
+        <circle cx="6" cy="3.2" r="2.4" fill="#0f2440"/>
+        <path d="M2.2 15.4l0.9 -8.6h5.8l0.9 8.6z" fill="#0f2440"/>
+        <path d="M10.4 15.6V5.6" stroke="#8a5a12" stroke-width="1.1"/>
+      </symbol>
+      <symbol id="g-ivy" viewBox="0 0 16 16">
+        <path d="M2 14c2 -3 1 -6 4 -8s5 -1 7 -4" fill="none" stroke="#2d5a3d" stroke-width="1.1"/>
+        <circle cx="4" cy="10.5" r="1.4" fill="#2d5a3d"/>
+        <circle cx="8" cy="6" r="1.4" fill="#4a7a5a"/>
+        <circle cx="11.5" cy="3.6" r="1.2" fill="#2d5a3d"/>
+      </symbol>
+    </defs>
+
+    <rect x="0" y="0" width="1040" height="840" fill="#cfe0e3"/>
+    <rect x="0" y="0" width="1040" height="840" fill="url(#kl-waves)"/>
+    <path d="{{sea}}" fill="none" stroke="#9fbbd8" stroke-width="0.6" opacity="0.5"/>
+
+    <sc-for list="{{routes}}" as="rt" hint-placeholder-count="5">
+      <path d="{{rt.d}}" fill="none" stroke="#c8963c" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="{{rt.dash}}"/>
+    </sc-for>
+
+    <sc-for list="{{terrs}}" as="t" hint-placeholder-count="8">
+      <path d="{{t.coast}}" fill="none" stroke="#eaf2f2" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+    </sc-for>
+    <sc-for list="{{land}}" as="h" hint-placeholder-count="40">
+      <polygon points="{{h.pts}}" fill="{{h.fill}}" stroke="#1a2030" stroke-opacity="0.14" stroke-width="0.6"/>
+    </sc-for>
+    <sc-for list="{{terrs}}" as="t" hint-placeholder-count="8">
+      <g>
+        <path d="{{t.hexes}}" fill="{{t.tint}}" fill-opacity="0.12"/>
+        <path d="{{t.coast}}" fill="none" stroke="{{t.tint}}" stroke-width="4" stroke-opacity="0.55" stroke-linecap="round"/>
+        <path d="{{t.coast}}" fill="none" stroke="#1a2030" stroke-width="1.4" stroke-linecap="round"/>
+      </g>
+    </sc-for>
+
+    <sc-for list="{{leaders}}" as="ld" hint-placeholder-count="9">
+      <line x1="{{ld.x1}}" y1="{{ld.y1}}" x2="{{ld.x2}}" y2="{{ld.y2}}" stroke="#1a2030" stroke-width="0.7" stroke-dasharray="2 2" opacity="0.7"/>
+    </sc-for>
+
+    <sc-for list="{{glyphs}}" as="g" hint-placeholder-count="28">
+      <use href="{{g.href}}" x="{{g.x}}" y="{{g.y}}" width="{{g.w}}" height="{{g.w}}" opacity="{{g.op}}"><title>{{g.title}}</title></use>
+    </sc-for>
+    <sc-for list="{{ivy}}" as="iv" hint-placeholder-count="2">
+      <use href="#g-ivy" x="{{iv.x}}" y="{{iv.y}}" width="13" height="13"/>
+    </sc-for>
+    <sc-for list="{{fogs}}" as="fg" hint-placeholder-count="1">
+      <ellipse cx="{{fg.x}}" cy="{{fg.y}}" rx="26" ry="18" fill="#f7f3ea" opacity="0.8" filter="url(#kl-blur-s)"/>
+    </sc-for>
+    <sc-for list="{{beacons}}" as="bc" hint-placeholder-count="5">
+      <use href="{{bc.href}}" x="{{bc.x}}" y="{{bc.y}}" width="14" height="14"/>
+    </sc-for>
+    <sc-for list="{{workers}}" as="wk" hint-placeholder-count="2">
+      <use href="#g-steward" x="{{wk.x}}" y="{{wk.y}}" width="9" height="12"/>
+    </sc-for>
+
+    <circle cx="{{ring.x}}" cy="{{ring.y}}" r="19" fill="none" stroke="#c8963c" stroke-width="2.4"/>
+    <circle cx="{{ring.x}}" cy="{{ring.y}}" r="23.5" fill="none" stroke="#0f2440" stroke-width="1" stroke-dasharray="3 3"/>
+
+    <sc-for list="{{callouts}}" as="co" hint-placeholder-count="9">
+      <text x="{{co.x}}" y="{{co.y}}" text-anchor="{{co.anchor}}" font-family="Inter, sans-serif" font-size="10.5" font-weight="500" fill="#1a2030" stroke="#f5efe0" stroke-width="3" paint-order="stroke">{{co.text}}</text>
+    </sc-for>
+
+    <text x="{{ex.x}}" y="{{ex.y}}" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-style="italic" fill="#1a2030" stroke="#f5efe0" stroke-width="3" paint-order="stroke">Personal · exclave, apart from its territory</text>
+
+    <sc-for list="{{terrs}}" as="t" hint-placeholder-count="8">
+      <g>
+        <rect x="{{t.rx}}" y="{{t.ry}}" width="{{t.rw}}" height="{{t.rh}}" rx="2" fill="#f5efe0" stroke="#1a2030" stroke-width="0.9"/>
+        <rect x="{{t.ix}}" y="{{t.iy}}" width="{{t.iw}}" height="{{t.ih}}" rx="1" fill="none" stroke="{{t.tint}}" stroke-width="0.8"/>
+        <text x="{{t.lx}}" y="{{t.ly}}" text-anchor="middle" font-family="Cormorant SC, serif" font-size="{{t.fs}}" font-weight="600" letter-spacing="0.6" fill="#0f2440">{{t.name}}</text>
+        <text x="{{t.lx}}" y="{{t.sy}}" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#4a5568">{{t.sub}}</text>
+      </g>
+    </sc-for>
+
+    <rect x="0" y="0" width="80" height="840" fill="url(#kl-fogL)"/>
+    <rect x="960" y="0" width="80" height="840" fill="url(#kl-fogR)"/>
+    <rect x="0" y="0" width="1040" height="64" fill="url(#kl-fogT)"/>
+    <rect x="0" y="776" width="1040" height="64" fill="url(#kl-fogB)"/>
+    <g filter="url(#kl-blur)" fill="#f7f2e6" opacity="0.9">
+      <ellipse cx="40" cy="40" rx="140" ry="60"/>
+      <ellipse cx="1010" cy="50" rx="120" ry="70"/>
+      <ellipse cx="20" cy="330" rx="40" ry="120"/>
+      <ellipse cx="1030" cy="300" rx="40" ry="110"/>
+      <ellipse cx="30" cy="820" rx="150" ry="50"/>
+      <ellipse cx="540" cy="836" rx="220" ry="26"/>
+      <ellipse cx="380" cy="6" rx="200" ry="22"/>
+      <ellipse cx="1030" cy="600" rx="36" ry="90"/>
+    </g>
+    <text x="38" y="44" font-family="Cormorant Garamond, serif" font-style="italic" font-size="16" fill="#4a5568">Uncharted</text>
+    <text x="1004" y="40" text-anchor="end" font-family="Cormorant Garamond, serif" font-style="italic" font-size="16" fill="#4a5568">Uncharted waters</text>
+    <text x="540" y="828" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="15" fill="#4a5568">Here the soundings end</text>
+
+    <g transform="translate(968 748)">
+      <circle r="38" fill="#f5efe0" fill-opacity="0.8" stroke="#1a2030" stroke-width="0.8"/>
+      <circle r="31" fill="none" stroke="#c8963c" stroke-width="0.7"/>
+      <path d="M0 -34L5 -5L0 0z" fill="#0f2440"/><path d="M0 -34L-5 -5L0 0z" fill="#c8963c"/>
+      <path d="M0 34L-5 5L0 0z" fill="#0f2440"/><path d="M0 34L5 5L0 0z" fill="#c8963c"/>
+      <path d="M34 0L5 5L0 0z" fill="#0f2440"/><path d="M34 0L5 -5L0 0z" fill="#c8963c"/>
+      <path d="M-34 0L-5 -5L0 0z" fill="#0f2440"/><path d="M-34 0L-5 5L0 0z" fill="#c8963c"/>
+      <path d="M17 -17L3 -1L0 0zM-17 17L-3 1L0 0zM17 17L1 3L0 0zM-17 -17L-1 -3L0 0z" fill="#4a5568"/>
+      <circle r="2.4" fill="#f5efe0" stroke="#1a2030" stroke-width="0.8"/>
+      <text x="0" y="-41" text-anchor="middle" font-family="Cormorant SC, serif" font-size="14" font-weight="600" fill="#0f2440">N</text>
+    </g>
+
+    <g transform="translate(34 796)">
+      <polygon points="44,0 33,19.1 11,19.1 0,0 11,-19.1 33,-19.1" fill="#8fae6b" stroke="#1a2030" stroke-width="1"/>
+      <path d="M56 6h88M56 1v10M100 3v6M144 1v10" stroke="#1a2030" stroke-width="1.2"/>
+      <rect x="56" y="4" width="44" height="4" fill="#1a2030"/>
+      <text x="56" y="-6" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#1a2030">1 hex = 1 island</text>
+    </g>
+
+    <rect x="0.5" y="0.5" width="1039" height="839" fill="none" stroke="#1a2030" stroke-width="1"/>
+    <rect x="5.5" y="5.5" width="1029" height="829" fill="none" stroke="#d4c9b4" stroke-width="1"/>
+  </svg>
+
+  <div style="position:absolute;left:20px;top:104px;width:1040px;height:840px;pointer-events:none;">
+    <sc-for list="{{picks}}" as="p" hint-placeholder-count="9">
+      <button type="button" aria-label="{{p.aria}}" aria-pressed="{{p.pressed}}" onClick="{{ p.pick }}" style="{{p.btnStyle}}"></button>
+    </sc-for>
+  </div>
+
+  <div style="position:absolute;left:1076px;top:20px;width:344px;height:920px;display:flex;flex-direction:column;gap:16px;">
+    <div style="background:#fbf7ec;border:1px solid #d4c9b4;border-top:3px solid #0f2440;padding:18px 20px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8a5a12;">Selected structure</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;line-height:1.1;color:#0f2440;word-break:break-word;">{{detail.name}}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <span style="font-size:12px;font-weight:600;color:#f5efe0;background:#1b3a5c;padding:3px 9px;border-radius:999px;">{{detail.role}}</span>
+        <span style="font-size:12px;font-weight:500;color:#1a2030;border:1px solid #d4c9b4;padding:2px 9px;border-radius:999px;">{{detail.kind}}</span>
+        <span style="font-size:12px;font-weight:500;color:#1a2030;border:1px solid #d4c9b4;padding:2px 9px;border-radius:999px;">{{detail.territory}}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3px;border-top:1px solid #d4c9b4;padding-top:10px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4a5568;">Condition</div>
+        <div style="{{detail.condStyle}}">{{detail.cond}}</div>
+        <div style="font-size:12.5px;color:#4a5568;line-height:1.45;">{{detail.condNote}}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #d4c9b4;padding-top:10px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4a5568;">Signals</div>
+        <sc-if value="{{detail.hasSignals}}" hint-placeholder-val="{{ true }}">
+          <sc-for list="{{detail.signals}}" as="sig" hint-placeholder-count="2">
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <span style="{{sig.dot}}"></span>
+              <div style="display:flex;flex-direction:column;gap:1px;">
+                <span style="font-size:13px;color:#1a2030;line-height:1.4;">{{sig.label}}</span>
+                <span style="font-size:12px;color:#4a5568;">{{sig.when}}</span>
+              </div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{detail.noSignals}}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:13px;color:#4a5568;font-style:italic;">No signals. Calm water.</div>
+        </sc-if>
+      </div>
+      <sc-if value="{{detail.hasWorkers}}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;gap:10px;align-items:center;border-top:1px solid #d4c9b4;padding-top:10px;">
+          <svg aria-hidden="true" width="12" height="16" viewBox="0 0 12 16"><use href="#g-steward"/></svg>
+          <span style="font-size:13px;color:#1a2030;">Steward at work · <strong style="font-weight:600;">2 sessions active</strong></span>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8a5a12;">Charted structures</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <sc-for list="{{picks}}" as="p" hint-placeholder-count="9">
+          <button type="button" aria-label="{{p.aria}}" aria-pressed="{{p.pressed}}" onClick="{{ p.pick }}" style="{{p.chipStyle}}">{{p.name}}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid #d4c9b4;padding-top:14px;">
+      <div style="font-family:'Cormorant SC',serif;font-size:18px;font-weight:600;color:#0f2440;letter-spacing:0.04em;">Legend</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;font-size:12px;color:#1a2030;">
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 32 32"><use href="#g-citadel"/></svg><span>Citadel · Capital</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 32 32"><use href="#g-tower"/></svg><span>Tower</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 32 32"><use href="#g-library"/></svg><span>Library</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 32 32"><use href="#g-workshop"/></svg><span>Workshop</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 32 32"><use href="#g-bridge"/></svg><span>Bridge</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 32 32"><use href="#g-port"/></svg><span>Port</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 32 32"><use href="#g-lighthouse"/></svg><span>Lighthouse</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 32 32"><use href="#g-ruins"/></svg><span>Ruins</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 16 16"><use href="#b-lantern"/></svg><span>Lantern = attention</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 16 16"><use href="#b-reef"/></svg><span>Reef = blocking</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M1 15 Q11 3 21 9" fill="none" stroke="#c8963c" stroke-width="2.2" stroke-linecap="round"/></svg><span>Solid route = active</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M1 15 Q11 3 21 9" fill="none" stroke="#c8963c" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="4 3"/></svg><span>Dashed = awaiting reciprocity</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" fill="#cfe0e3" stroke="#d4c9b4"/><ellipse cx="11" cy="11" rx="9" ry="7" fill="#f7f2e6" opacity="0.95"/></svg><span>Fog = uncharted</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 12 16"><use href="#g-steward"/></svg><span>Steward = session at work</span></div>
+      </div>
+      <div style="font-size:12px;color:#4a5568;line-height:1.5;">Faded stonework with ivy marks a weathered structure; a structure drawn in fog lies dormant.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = { selected: 'tools-ki' }; }
+
+  info(){
+    return {
+      'ki-principal': { role:'Capital', kind:'Citadel', cond:'Sound', note:'Seat of the realm. Every island answers to the records kept here.', signals:[], workers:true },
+      'apps-observatory.local': { role:'Product', kind:'Tower', cond:'Sound', note:'Watches every island and gathers its signals into one view.', signals:[{lvl:'Attention', text:'uncommitted changes in its working tree', when:'2026-10-18 08:05'}], workers:true },
+      'apps-knowledgeislands.info': { role:'Publication', kind:'Lighthouse', cond:'Weathered', note:'Guides the public to the realm. Not republished for some weeks; ivy on the stonework.', signals:[] },
+      'tools-ki': { role:'Tool', kind:'Workshop', cond:'Sound', note:'The realm’s own command-line workshop.', signals:[{lvl:'Blocking', text:'merge conflict in its working tree', when:'2026-10-16 02:13'}] },
+      'tools-mgit': { role:'Tool', kind:'Workshop', cond:'Sound', note:'Keeps many repositories moving together.', signals:[{lvl:'Attention', text:'branch behind its remote', when:'2026-10-17 09:12'}] },
+      'tools-rig': { role:'Tool', kind:'Workshop', cond:'Sound', note:'Rigs and provisions working environments.', signals:[{lvl:'Attention', text:'dependency updates waiting for review', when:'2026-10-14 11:47'}] },
+      'ki-agentic-harness': { role:'Tool', kind:'Workshop', cond:'Sound', note:'Harness for agentic work across the realm.', signals:[{lvl:'Blocking', text:'depends on records no repository holds', when:'2026-10-12 16:20'}] },
+      'mcp-git-audit': { role:'MCP', kind:'Bridge', cond:'Sound', note:'Carries git audits between the realm and its sessions.', signals:[] },
+      'ki-plugins': { role:'Tool', kind:'Ruins', cond:'Ruins', note:'Retired. Kept on the chart as a record of what once stood here.', signals:[] }
+    };
+  }
+
+  geo(){
+    if (this._g) return this._g;
+    const S = 22, H = Math.sqrt(3) * S;
+    const f = n => (Math.round(n * 10) / 10).toString();
+    const px = (q, r) => [S * 1.5 * q, H * (r + q / 2)];
+    const snap = (x, y) => { const q = Math.round(x / (S * 1.5)); return [q, Math.round(y / H - q / 2)]; };
+    const corners = (cx, cy) => { const a = []; for (let i = 0; i < 6; i++) { const t = Math.PI / 3 * i; a.push([cx + S * Math.cos(t), cy + S * Math.sin(t)]); } return a; };
+    const rnd = (q, r) => { const v = Math.sin(q * 12.9898 + r * 78.233) * 43758.5453; return v - Math.floor(v); };
+    const D = [[1,0],[0,1],[-1,1],[-1,0],[0,-1],[1,-1]];
+
+    let sea = '';
+    for (let q = -1; q <= 33; q++) {
+      const r0 = Math.floor(-q / 2) - 1, r1 = Math.ceil(840 / H - q / 2) + 1;
+      for (let r = r0; r <= r1; r++) {
+        const p = px(q, r); const c = corners(p[0], p[1]);
+        sea += 'M' + c.map(k => f(k[0]) + ' ' + f(k[1])).join('L') + 'Z';
+      }
+    }
+
+    const T = [
+      { id:'ki', name:'Knowledge Islands', x:520, y:440, tint:'#1b3a5c', n:0, rad:112, ly:185, sub:'Capital · ki-principal' },
+      { id:'hnr', name:'Humans Not Robots', x:190, y:200, tint:'#2d5a3d', n:4, rad:50, ly:62, sub:'' },
+      { id:'per', name:'Personal', x:860, y:190, tint:'#317070', n:3, rad:48, ly:62, sub:'' },
+      { id:'leg', name:'Legal', x:200, y:690, tint:'#c8963c', n:2, rad:46, ly:60, sub:'' },
+      { id:'va', name:'Valle Armonia', x:820, y:670, tint:'#4a7a5a', n:3, rad:48, ly:62, sub:'' },
+      { id:'er', name:'Equal Remedy', x:520, y:120, tint:'#c4a882', n:2, rad:46, ly:60, sub:'' },
+      { id:'tmx', name:'Techmedix', x:130, y:450, tint:'#5f7896', n:2, rad:46, ly:60, sub:'' },
+      { id:'si', name:'Sacred Inquiry', x:920, y:450, tint:'#6b4e71', n:3, rad:48, ly:62, sub:'' }
+    ];
+    const KS = [
+      ['ki-principal','citadel',0,0,32],
+      ['apps-observatory.local','tower',1,-1,27],
+      ['tools-ki','workshop',1,0,25],
+      ['tools-mgit','workshop',0,1,25],
+      ['ki-techne-harness','workshop',-1,1,25],
+      ['ki-agentic-harness','workshop',-1,0,25],
+      ['tools-git-almanac','workshop',0,-1,25],
+      ['tools-rig','workshop',1,-2,25],
+      ['mcp-gsuite','bridge',2,-2,25],
+      ['mcp-m365','bridge',2,-1,25],
+      ['mcp-git-audit','bridge',2,0,25],
+      ['tools-techne','workshop',1,1,25],
+      ['mcp-ki-kb-fs','bridge',0,2,25],
+      ['mcp-ki-kb-notion-mirror','bridge',-1,2,25],
+      ['mcp-housekeeping-claude','bridge',-2,2,25],
+      ['ki-specifications','library',-2,1,25],
+      ['mcp-housekeeping-chatgpt','bridge',-2,0,25],
+      ['ki-plugins','ruins',-1,-1,25],
+      ['mcp-acquire-whatsapp','bridge',0,-2,25],
+      ['apps-knowledgeislands.info','lighthouse',3,-3,27],
+      ['homebrew-tap','port',0,3,27]
+    ];
+    const greens = ['#a9c27f','#8fae6b','#6f9a63'];
+    const cells = {};
+    const addCell = (q, r, tid) => {
+      const k = q + ',' + r; if (cells[k]) return;
+      const v = rnd(q, r);
+      cells[k] = { q:q, r:r, t:tid, fill: v < 0.18 ? '#b9a77a' : greens[Math.floor(v * 97) % 3] };
+    };
+    const glyphs = [], byId = {};
+    T.forEach(t => {
+      const a = snap(t.x, t.y); t.q = a[0]; t.r = a[1];
+      const p = px(t.q, t.r); t.cx = p[0]; t.cy = p[1];
+      if (t.id === 'ki') {
+        KS.forEach(s => {
+          const q = t.q + s[2], r = t.r + s[3]; addCell(q, r, 'ki');
+          const pp = px(q, r);
+          byId[s[0]] = { x: pp[0], y: pp[1] };
+          let op = 1;
+          if (s[0] === 'ki-specifications') op = 0.45;
+          if (s[0] === 'apps-knowledgeislands.info' || s[0] === 'tools-git-almanac') op = 0.62;
+          glyphs.push({ href:'#g-' + s[1], x: f(pp[0] - s[4] / 2), y: f(pp[1] - s[4] / 2 - 1), w: s[4], op: op, title: s[0] });
+        });
+      } else {
+        addCell(t.q, t.r, t.id);
+        const ns = D.map(d => [t.q + d[0], t.r + d[1]]).sort((m, n) => rnd(m[0], m[1]) - rnd(n[0], n[1]));
+        for (let i = 0; i < t.n; i++) addCell(ns[i][0], ns[i][1], t.id);
+        glyphs.push({ href:'#g-citadel', x: f(t.cx - 12), y: f(t.cy - 13), w: 24, op: 1, title: t.name + ' capital' });
+      }
+    });
+    const exA = snap(650, 230); addCell(exA[0], exA[1], 'per');
+    const exP = px(exA[0], exA[1]);
+
+    const land = Object.keys(cells).map(k => {
+      const c = cells[k]; const p = px(c.q, c.r);
+      return { pts: corners(p[0], p[1]).map(z => f(z[0]) + ',' + f(z[1])).join(' '), fill: c.fill };
+    });
+
+    const terrs = T.map(t => {
+      let coast = '', hexes = '';
+      Object.keys(cells).forEach(k => {
+        const c = cells[k]; if (c.t !== t.id) return;
+        const p = px(c.q, c.r); const cs = corners(p[0], p[1]);
+        hexes += 'M' + cs.map(z => f(z[0]) + ' ' + f(z[1])).join('L') + 'Z';
+        for (let i = 0; i < 6; i++) {
+          const nb = cells[(c.q + D[i][0]) + ',' + (c.r + D[i][1])];
+          if (!nb || nb.t !== t.id) { const a = cs[i], b = cs[(i + 1) % 6]; coast += 'M' + f(a[0]) + ' ' + f(a[1]) + 'L' + f(b[0]) + ' ' + f(b[1]); }
+        }
+      });
+      const big = t.id === 'ki';
+      const fs = big ? 19 : 15;
+      const rw = Math.round(t.name.length * (big ? 10.4 : 8.6) + 30);
+      const rh = big ? 44 : 26;
+      const cy = t.cy + t.ly;
+      return {
+        name: t.name, sub: t.sub, tint: t.tint, coast: coast, hexes: hexes, fs: fs,
+        rx: f(t.cx - rw / 2), ry: f(cy - rh / 2), rw: rw, rh: rh,
+        ix: f(t.cx - rw / 2 + 3), iy: f(cy - rh / 2 + 3), iw: rw - 6, ih: rh - 6,
+        lx: f(t.cx), ly: f(big ? cy - 1 : cy + 5), sy: f(cy + 14)
+      };
+    });
+
+    const tb = {}; T.forEach(t => { tb[t.id] = t; });
+    const route = (a, b, bend, active) => {
+      const A = tb[a], B = tb[b];
+      const dx = B.cx - A.cx, dy = B.cy - A.cy, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
+      const x1 = A.cx + ux * A.rad, y1 = A.cy + uy * A.rad, x2 = B.cx - ux * B.rad, y2 = B.cy - uy * B.rad;
+      const mx = (x1 + x2) / 2 - uy * bend, my = (y1 + y2) / 2 + ux * bend;
+      return { d: 'M' + f(x1) + ' ' + f(y1) + 'Q' + f(mx) + ' ' + f(my) + ' ' + f(x2) + ' ' + f(y2), dash: active ? 'none' : '7 6' };
+    };
+    const routes = [
+      route('ki','hnr', -50, true),
+      route('ki','per', -40, true),
+      route('ki','leg', 40, true),
+      route('ki','va', -35, false),
+      route('ki','si', 30, false)
+    ];
+
+    const K = tb.ki;
+    const CO = [
+      ['apps-observatory.local', 150, -165, 'start'],
+      ['apps-knowledgeislands.info', 150, -105, 'start'],
+      ['tools-rig', 40, -150, 'middle'],
+      ['tools-ki', 150, 25, 'start'],
+      ['mcp-git-audit', 150, 70, 'start'],
+      ['tools-mgit', 110, 130, 'start'],
+      ['ki-agentic-harness', -150, -5, 'end'],
+      ['ki-specifications', -150, 60, 'end'],
+      ['homebrew-tap', -25, 140, 'end']
+    ];
+    const leaders = [], callouts = [];
+    CO.forEach(c => {
+      const s = byId[c[0]]; const tx = K.cx + c[1], ty = K.cy + c[2];
+      const dx = tx - s.x, dy = ty - s.y, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
+      leaders.push({ x1: f(s.x + ux * 14), y1: f(s.y + uy * 14), x2: f(tx - ux * 5), y2: f(ty - uy * 5) });
+      callouts.push({ x: f(tx), y: f(ty + 3.5), anchor: c[3], text: c[0] });
+    });
+
+    const beacons = [];
+    [['tools-mgit','#b-lantern'],['tools-rig','#b-lantern'],['apps-observatory.local','#b-lantern'],['tools-ki','#b-reef'],['ki-agentic-harness','#b-reef']].forEach(b => {
+      const s = byId[b[0]]; beacons.push({ href: b[1], x: f(s.x + 6), y: f(s.y - 21) });
+    });
+    const workers = ['apps-observatory.local','ki-principal'].map(id => ({ x: f(byId[id].x - 19), y: f(byId[id].y - 1) }));
+    const ivy = ['apps-knowledgeislands.info','tools-git-almanac'].map(id => ({ x: f(byId[id].x - 13), y: f(byId[id].y) }));
+    const fogs = [{ x: f(byId['ki-specifications'].x), y: f(byId['ki-specifications'].y) }];
+
+    this._g = { sea: sea, land: land, terrs: terrs, routes: routes, glyphs: glyphs, byId: byId, leaders: leaders, callouts: callouts, beacons: beacons, workers: workers, ivy: ivy, fogs: fogs, ex: { x: f(exP[0]), y: f(exP[1] + 34) } };
+    return this._g;
+  }
+
+  renderVals(){
+    const g = this.geo();
+    const INFO = this.info();
+    const sel = INFO[this.state.selected] ? this.state.selected : 'tools-ki';
+    const inf = INFO[sel];
+    const st = g.byId[sel];
+    const condColour = { Sound:'#2d5a3d', Weathered:'#8a5a12', Dormant:'#4a5568', Ruins:'#9b2c1c' }[inf.cond] || '#1a2030';
+    const signals = inf.signals.map(s => ({
+      label: s.lvl + ' · ' + s.text,
+      when: 'changed ' + s.when,
+      dot: 'display:inline-block;width:10px;height:10px;flex:none;margin-top:5px;border-radius:' + (s.lvl === 'Blocking' ? '2px' : '50%') + ';background:' + (s.lvl === 'Blocking' ? '#9b2c1c' : '#c8963c') + ';'
+    }));
+    const order = ['tools-ki','ki-principal','apps-observatory.local','apps-knowledgeislands.info','tools-mgit','tools-rig','ki-agentic-harness','mcp-git-audit','ki-plugins'];
+    const picks = order.map(id => {
+      const on = id === sel; const p = g.byId[id];
+      return {
+        id: id, name: id,
+        aria: 'Select ' + id + ', ' + INFO[id].kind,
+        pressed: on ? 'true' : 'false',
+        pick: () => this.setState({ selected: id }),
+        btnStyle: 'position:absolute;left:' + Math.round(p.x - 17) + 'px;top:' + Math.round(p.y - 17) + 'px;width:34px;height:34px;border-radius:50%;border:0;padding:0;background:transparent;cursor:pointer;pointer-events:auto;',
+        chipStyle: 'font-family:Inter,sans-serif;font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;cursor:pointer;' + (on ? 'background:#0f2440;color:#f5efe0;border:1px solid #0f2440;' : 'background:transparent;color:#1a2030;border:1px solid #d4c9b4;')
+      };
+    });
+    return {
+      sea: g.sea, land: g.land, terrs: g.terrs, routes: g.routes, glyphs: g.glyphs,
+      leaders: g.leaders, callouts: g.callouts, beacons: g.beacons, workers: g.workers,
+      ivy: g.ivy, fogs: g.fogs, ex: g.ex,
+      ring: { x: Math.round(st.x * 10) / 10, y: Math.round(st.y * 10) / 10 },
+      picks: picks,
+      detail: {
+        name: sel, role: inf.role, kind: inf.kind, territory: 'Knowledge Islands',
+        cond: inf.cond, condNote: inf.note,
+        condStyle: 'font-size:15px;font-weight:600;color:' + condColour + ';',
+        signals: signals, hasSignals: signals.length > 0, noSignals: signals.length === 0,
+        hasWorkers: !!inf.workers
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
