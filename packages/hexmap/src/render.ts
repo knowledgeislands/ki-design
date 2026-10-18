@@ -1,7 +1,7 @@
 import { contrastRatio, mix, nightTerrain, type TerrainName, terrainNames, tokens } from '@knowledgeislands/tokens'
 import { type Axial, hexKey, neighbour } from './coords.ts'
 import { hexCorners, type Point, toPixel } from './geometry.ts'
-import type { IslandMap, MapHex, MapLabel, MapRoute } from './model.ts'
+import { type IslandMap, type MapHex, type MapLabel, type MapRoute, resolveStructure } from './model.ts'
 import { patternMarkup, terrainPatterns } from './patterns.ts'
 
 /** Day is the printed chart; night is the same chart by lantern-light (DESIGN 5.2). */
@@ -275,7 +275,9 @@ export function layoutFlat(map: IslandMap, options: FlatOptions = {}): FlatLayou
   const glyphSize = radius * 1.38
   const structures = hexes.flatMap(({ hex, key, centre }): LaidOutStructure[] => {
     if (!hex.structure) return []
-    const glyph = options.glyph?.(hex.structure)
+    // A deprecated id (`citadel`) draws and names the structure that replaced it.
+    const id = resolveStructure(hex.structure)
+    const glyph = options.glyph?.(id)
     const k = glyphSize / 24
     return [
       {
@@ -283,7 +285,7 @@ export function layoutFlat(map: IslandMap, options: FlatOptions = {}): FlatLayou
         key,
         centre,
         radius,
-        title: hex.condition ? `${name(hex.structure)} (${hex.condition})` : name(hex.structure),
+        title: hex.condition ? `${name(id)} (${hex.condition})` : name(id),
         ...(glyph ? { glyph } : {}),
         transform: `translate(${fmt(centre.x - glyphSize / 2)} ${fmt(centre.y - glyphSize / 2)}) scale(${Math.round(k * 1000) / 1000})`
       }

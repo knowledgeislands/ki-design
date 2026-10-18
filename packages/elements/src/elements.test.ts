@@ -46,7 +46,7 @@ describe('<ki-hexmap>', () => {
     await map.updateComplete
     expect(map.shadowRoot?.querySelectorAll('.hex')).toHaveLength(61)
     expect(map.shadowRoot?.querySelectorAll('.hex[tabindex="0"]')).toHaveLength(1)
-    expect(map.shadowRoot?.querySelector('[data-structure="citadel"] title')?.textContent).toBe('Citadel (thriving)')
+    expect(map.shadowRoot?.querySelector('[data-structure="capital"] title')?.textContent).toBe('Capital (thriving)')
   })
 
   test('reads inline JSON from src and reports invalid input', async () => {

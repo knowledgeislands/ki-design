@@ -80,9 +80,9 @@ A single isometric game tile for the Knowledge Islands Realm, painted in the sam
 
 ## Structures (16), thriving state
 
-Generate each structure standing on its typical terrain, then cut the building out. The Capital (tile id `citadel`) spans a 7-hex flower; the Port spans an oriented 2-hex pair. The Tower is dropped (GDR-KI-PRINCIPAL-011), so there is no `structure/tower` prompt.
+Generate each structure standing on its typical terrain, then cut the building out. The Capital (tile id `capital`; `citadel` is a deprecated alias) spans a 7-hex flower; the Port spans an oriented 2-hex pair. The Tower is dropped (GDR-KI-PRINCIPAL-011), so there is no `structure/tower` prompt.
 
-### `structure/citadel` (the Capital)
+### `structure/capital` (the Capital)
 
 ```text
 A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference picture of Arcadia: dusk, warm lamp-light, deep navy sea, forest and moss greens, sandstone, restrained brass. Pointy-top hexagonal tile seen in 2:1 dimetric projection, light from the top-left, with a 48-pixel-deep stratified rock plinth, on a plain flat light-grey background so it can be cut out. Subject: pale limestone, domes, colonnades, in the Research Archipelago architectural family, condition thriving: lit windows, smoke where there is a chimney. The scene spans a cluster of seven hexes (a central hex and its ring) as a hilltop forum, open and welcoming, with no walls, towers or battlements: a domed Library and a colonnaded Council Hall facing each other across a central square. Crisp readable silhouette at small size, richly painted detail, no text, no people in close-up, no creatures, no crystals, no magic glow.

@@ -11,7 +11,9 @@ Generated art is treated as unlicensed until the art-licensing decision is recor
 
 ### Modern v0 notes
 
-- Each manifest entry's `anchor` stays in cell pixels (the contract keeps it inside the 256 × 196 cell); `art.anchor` is the same point in the SVG's canvas, which extends above the cell for tall art and beside it for the port (pair) and the Capital's compound, `citadel` (flower). That compound still draws a tower; the next art round redraws it as a civic square (GDR-KI-PRINCIPAL-011). `structures/tower.svg` is kept but no longer in the manifest or the contract.
+- Each manifest entry's `anchor` stays in cell pixels (the contract keeps it inside the 256 × 196 cell); `art.anchor` is the same point in the SVG's canvas, which extends above the cell for tall art and beside it for the port (pair) and the Capital's compound, `capital` (flower).
+- The Capital is drawn civic (GDR-KI-PRINCIPAL-011): the domed Library and the colonnaded Council Hall face an open paved square with a fountain, a stoa on its east side and trees in its south-east corner, on a low dais with open stairs down both front faces. Nothing fortifies it: no tower, keep, battlements or walls.
+- The manifest's top-level `aliases` maps deprecated keys to their replacements (`structure/citadel` → `structure/capital`, from `tileAliases` in the contract). `TileSet.tile` in `scripts/compose.ts` follows them, so a map that still says `citadel` renders the Capital.
 - Quiet, weathered and ruined are not separate drawings: the top-level `conditions` block says which layer to hide (`[data-state="thriving"]`: lit windows, smoke, lamps, pennants) and which decals to stack. The contract lists states but cannot yet express this composition, so `validateTileSet` checks only that all four are declared.
 - Only frame 0 is drawn; `frames` records the intended loops. No flat SVG twins and no extra variants yet.
 - Fills are CSS custom properties with token fallbacks (`--terrain-*`, `--tile-*`, `--bld-*`), so themes and island palettes can override them.
@@ -26,7 +28,7 @@ At 1×, the top face is a pointy-top hex 256 wide and 148 tall (2:1 dimetric). A
 A set is valid only when it covers the whole inventory, every structure in every condition state, at 1× and 2×:
 
 - **Terrain** (12): grassland, forest, hills, mountain, coastal, cliffs, sand, river, marsh, snow, volcanic, ocean.
-- **Structures** (16): citadel (the Capital's compound; the id is an alias kept until the next art round renames it `capital`), library, council-hall, observatory, lighthouse, port, dock, rail-depot, airport, customs-house, bridge, workshop, mill, ruins, ancient-forest, cottage. Each in thriving, quiet, weathered and ruined.
+- **Structures** (16): capital (the Capital's compound; `citadel` is accepted as a deprecated alias, and the validator counts a tile listed under it as the Capital), library, council-hall, observatory, lighthouse, port, dock, rail-depot, airport, customs-house, bridge, workshop, mill, ruins, ancient-forest, cottage. Each in thriving, quiet, weathered and ruined.
 - **Decals** (4): ivy, cracks, moss, fallen-roof.
 - **Connectors** (4): road, river, bridge-span, quay.
 

@@ -11,6 +11,15 @@ export type RouteKind = (typeof routeKinds)[number]
 
 export type { TerrainName }
 
+/**
+ * Deprecated structure ids and the id that replaced each. `citadel` was the Capital's tile id until
+ * GDR-KI-PRINCIPAL-011; maps that still say `citadel` render as the Capital.
+ */
+export const structureAliases: Readonly<Record<string, string>> = { citadel: 'capital' }
+
+/** The current id for a structure id, following a deprecated alias when there is one. */
+export const resolveStructure = (id: string): string => structureAliases[id] ?? id
+
 /** One hex of an island. `structure` is a tile id such as `lighthouse`. */
 export interface MapHex extends Axial {
   readonly terrain: TerrainName

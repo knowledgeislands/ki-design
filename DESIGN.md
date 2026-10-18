@@ -768,7 +768,7 @@ Humanoid robots; glowing evil AI; neon; cyberpunk cities; circuit boards; blockc
 | Pair | 2 (oriented) | 0–5 (which neighbour) | 1×2 / 2×1 → pair |
 | Flower | 7 (centre + ring) | — | 2×2 to 4×4 → flower; square plinth matted out, hex plinth repainted |
 
-The Capital (tile id `structure.citadel`, an alias kept until the next art round renames it `capital`) is always a compound across a 7-hex flower: the Library and the Council Hall around an open civic square. It may be drawn as one sprite spanning the flower (as the Modern set does) or as separate buildings on ring hexes, but never as a single-hex building and never walled. Each set draws it in its own way: a civic quarter and square in Modern, a hilltop forum or acropolis in Ancient. The Modern v0 compound still draws a tower; the next art round removes it.
+The Capital (tile id `structure.capital`; `structure.citadel` is a deprecated alias that renderers and the validator still resolve) is always a compound across a 7-hex flower: the Library and the Council Hall around an open civic square. It may be drawn as one sprite spanning the flower (as the Modern set does) or as separate buildings on ring hexes, but never as a single-hex building and never walled. Each set draws it in its own way: a civic quarter and square in Modern, a hilltop forum or acropolis in Ancient. The Modern compound draws the domed Library and the colonnaded Council Hall facing an open paved square with a fountain and a stoa, on a low dais with open stairs down both front faces, and no tower.
 
 ### 10.3 Terrain inventory
 
@@ -799,7 +799,7 @@ Ids are `structure.<name>`. Every structure has **3 variants** and **4 condition
 
 | Id | Footprint | Hero | Status |
 | --- | --- | --- | --- |
-| `structure.citadel` | flower (the Capital: Library and Council Hall around a square; id kept as an alias) | yes | official (GDR-KI-PRINCIPAL-011) |
+| `structure.capital` | flower (the Capital: Library and Council Hall around a square; `structure.citadel` is a deprecated alias) | yes | official (GDR-KI-PRINCIPAL-011) |
 | `structure.library` | single or pair | yes | official |
 | `structure.council-hall` | pair | yes | official |
 | `structure.observatory` | single | — | official |

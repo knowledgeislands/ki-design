@@ -2,6 +2,7 @@ import {
   footprints,
   loopLengths,
   requiredIds,
+  resolveTileKey,
   type TileKey,
   tileGeometry,
   tileKey,
@@ -66,9 +67,10 @@ export function validateTileSet(manifest: unknown): TileSetReport {
       errors.push(`tiles[${i}] needs a string id and a known kind`)
       return
     }
-    const key = tileKey(tile as { kind: (typeof tileKinds)[number]; id: string })
-    const at = key
-    if (seen.has(key)) errors.push(`${at} is listed twice`)
+    const at = tileKey(tile as { kind: (typeof tileKinds)[number]; id: string })
+    // A tile listed under a deprecated id covers the tile that replaced it.
+    const key = resolveTileKey(at)
+    if (seen.has(key)) errors.push(key === at ? `${at} is listed twice` : `${at} is listed twice (as ${key})`)
     seen.add(key)
 
     if (!oneOf(footprints, tile['footprint'])) errors.push(`${at} footprint must be one of ${footprints.join(', ')}`)

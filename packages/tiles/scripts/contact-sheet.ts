@@ -94,7 +94,7 @@ row(
 )
 
 // The two multi-hex structures, laid out on their footprints.
-heading('Port (pair) and Citadel (flower)')
+heading('Port (pair) and Capital (flower)')
 {
   const ay = y + 230
   const portX = 40 + 150
@@ -117,8 +117,8 @@ heading('Port (pair) and Citadel (flower)')
     const a = isoAnchor(q, r)
     parts.push(set.place('terrain', t, cx + a.x - origin.x, ay + a.y - origin.y))
   }
-  parts.push(set.place('structure', 'citadel', cx, ay))
-  label(cx, ay + 111 + 122 + 26, 'citadel', 'flower: library, council hall and tower on a terrace')
+  parts.push(set.place('structure', 'capital', cx, ay))
+  label(cx, ay + 111 + 122 + 26, 'capital', 'flower: library and council hall around an open square')
   y = ay + 111 + 122 + 60
 }
 

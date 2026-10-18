@@ -20,7 +20,7 @@ The same contract as the Modern set, id for id:
 | Kind | Ids |
 | --- | --- |
 | Terrain (12) | `grassland`, `forest`, `hills`, `mountain`, `coastal`, `cliffs`, `sand`, `river`, `marsh`, `snow`, `volcanic`, `ocean` |
-| Structures (16) | `citadel` (the Capital: Library + Council Hall around an open square on a 7-hex flower, drawn as a hilltop forum or acropolis, never walled; the id is an alias), `library`, `council-hall`, `observatory`, `lighthouse`, `port`, `dock`, `rail-depot`, `airport`, `customs-house`, `bridge`, `workshop`, `mill`, `ruins`, `ancient-forest`, `cottage` |
+| Structures (16) | `capital` (the Capital: Library + Council Hall around an open square on a 7-hex flower, drawn as a hilltop forum or acropolis, never walled; `citadel` is a deprecated alias), `library`, `council-hall`, `observatory`, `lighthouse`, `port`, `dock`, `rail-depot`, `airport`, `customs-house`, `bridge`, `workshop`, `mill`, `ruins`, `ancient-forest`, `cottage` |
 | Decals (4) | `ivy`, `cracks`, `moss`, `fallen-roof` |
 | Connectors (4) | `road`, `river`, `bridge-span`, `quay` |
 

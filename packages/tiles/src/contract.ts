@@ -72,12 +72,12 @@ export type TileKey = `${TileKind}/${string}`
 export const tileKey = (tile: Pick<TileEntry, 'kind' | 'id'>): TileKey => `${tile.kind}/${tile.id}`
 
 /**
- * `citadel` is the tile id of the Capital's compound (GDR-KI-PRINCIPAL-011 retired the Citadel as a term). The id is
- * kept as an alias so drawn sets and maps stay valid; it is renamed `capital` when the next art round redraws the
- * compound civic. The Tower is no longer required: a set may still carry its drawing as an extra.
+ * `capital` is the Capital's compound: the Library and the Council Hall around an open civic square on a 7-hex flower
+ * (GDR-KI-PRINCIPAL-011). Its old id, `citadel`, is a deprecated alias (see `tileAliases`). The Tower is no longer
+ * required: a set may still carry its drawing as an extra.
  */
 const structureIds = [
-  'citadel',
+  'capital',
   'library',
   'council-hall',
   'observatory',
@@ -104,6 +104,18 @@ export const requiredInventory: Readonly<Record<TileKind, readonly string[]>> = 
   decal: decalIds,
   connector: connectorIds
 }
+
+/**
+ * Deprecated tile keys and the key that replaced each. Maps and sets drawn with an old id keep working: renderers
+ * resolve an alias before looking a tile up, and the validator counts a tile listed under an old id as covering its
+ * replacement.
+ */
+export const tileAliases: Readonly<Record<string, TileKey>> = {
+  'structure/citadel': 'structure/capital'
+}
+
+/** The current key for a tile key, following a deprecated alias when there is one. */
+export const resolveTileKey = (key: TileKey): TileKey => tileAliases[key] ?? key
 
 /** Every required tile as a `kind/id` key, in inventory order. */
 export const requiredIds: readonly TileKey[] = tileKinds.flatMap((kind) =>

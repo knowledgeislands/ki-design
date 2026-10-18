@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test'
 import { readFileSync } from 'node:fs'
 import {
   requiredIds,
+  resolveTileKey,
   type TileEntry,
   type TileManifest,
   tileGeometry,
@@ -31,6 +32,14 @@ describe('inventory', () => {
     expect(new Set(requiredIds).size).toBe(requiredIds.length)
     expect(requiredIds).toContain('terrain/river')
     expect(requiredIds).toContain('connector/river')
+  })
+
+  test('the Capital is required, and citadel is only its deprecated alias (GDR-KI-PRINCIPAL-011)', () => {
+    expect(requiredIds).toContain('structure/capital')
+    expect(requiredIds).not.toContain('structure/citadel')
+    expect(requiredIds).not.toContain('structure/tower')
+    expect(resolveTileKey('structure/citadel')).toBe('structure/capital')
+    expect(resolveTileKey('structure/library')).toBe('structure/library')
   })
 
   test('geometry is consistent', () => {
@@ -90,6 +99,19 @@ describe('validateTileSet', () => {
     const report = validateTileSet({ ...modern, tiles: [...modern.tiles, extra, duplicate] })
     expect(report.extras).toEqual(['terrain/tundra'])
     expect(report.errors).toEqual(['terrain/forest is listed twice'])
+  })
+
+  test('a set drawn under the deprecated citadel id still covers the Capital', () => {
+    const old = withTile(modern, 'structure/capital', (t) => ({ ...t, id: 'citadel' }))
+    const report = validateTileSet(old)
+    expect(report.ok).toBe(true)
+    expect(report.missing).toEqual([])
+    expect(report.extras).toEqual([])
+    const both = validateTileSet({
+      ...modern,
+      tiles: [...modern.tiles, ...old.tiles.filter((t) => t.id === 'citadel')]
+    })
+    expect(both.errors).toEqual(['structure/citadel is listed twice (as structure/capital)'])
   })
 
   test('rejects non-manifests', () => {

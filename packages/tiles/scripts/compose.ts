@@ -4,6 +4,7 @@
  */
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { resolveTileKey, type TileKey } from '../src/contract.ts'
 
 export interface PlacedArt {
   readonly inner: string
@@ -35,8 +36,12 @@ export class TileSet {
     this.manifest = JSON.parse(readFileSync(join(dir, 'manifest.json'), 'utf8')) as Manifest
   }
 
+  /** The tile for `kind/id`, following a deprecated alias (`structure/citadel` is `structure/capital`). */
   tile(kind: string, id: string): ManifestTile | undefined {
-    return this.manifest.tiles.find((t) => t.kind === kind && t.id === id)
+    const exact = this.manifest.tiles.find((t) => t.kind === kind && t.id === id)
+    if (exact) return exact
+    const current = resolveTileKey(`${kind}/${id}` as TileKey)
+    return this.manifest.tiles.find((t) => `${t.kind}/${t.id}` === current)
   }
 
   art(kind: string, id: string): PlacedArt | undefined {

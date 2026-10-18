@@ -31,6 +31,8 @@ interface IslandMap {
 
 `validateIslandMap(value)` collects every problem (`{ ok: true, map } | { ok: false, errors }`); `assertIslandMap` throws instead.
 
+`structureAliases` maps deprecated structure ids to their replacements (`citadel` is `capital`, GDR-KI-PRINCIPAL-011) and `resolveStructure(id)` follows them; the renderer resolves before asking for a glyph or a name, so an older map that still says `citadel` draws the Capital.
+
 ## Rendering
 
 ```ts
@@ -60,4 +62,4 @@ const svg = renderFlatSvg(assertIslandMap(arcadia), {
 
 ## Example
 
-`examples/arcadia.islandmap.json` is Arcadia, hand-made on 61 hexes: a sea ring, a ragged coast, the Old Wood around an ancient-forest heart, a mountain core with a snowfield, the Citadel on the central high ground, the Observatory on a hill, a Lighthouse on the eastern headland, a river with a Mill running to a marshy mouth, a Workshop quarter, a Library, ruins on the north-west ridge and the Port on the south coast. `bun run build` re-renders `examples/arcadia.svg` (day) and `examples/arcadia-night.svg` with the icons package as the glyph resolver (a development dependency only); a test checks the committed SVGs match. `arcadia.png` and `arcadia-night.png` are Chromium renders of them for review.
+`examples/arcadia.islandmap.json` is Arcadia, hand-made on 61 hexes: a sea ring, a ragged coast, the Old Wood around an ancient-forest heart, a mountain core with a snowfield, the Capital on the central high ground, the Observatory on a hill, a Lighthouse on the eastern headland, a river with a Mill running to a marshy mouth, a Workshop quarter, a Library, ruins on the north-west ridge and the Port on the south coast. `bun run build` re-renders `examples/arcadia.svg` (day) and `examples/arcadia-night.svg` with the icons package as the glyph resolver (a development dependency only); a test checks the committed SVGs match. `arcadia.png` and `arcadia-night.png` are Chromium renders of them for review.

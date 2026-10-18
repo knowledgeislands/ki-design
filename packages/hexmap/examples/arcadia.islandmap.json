@@ -33,7 +33,7 @@
     { "q": -3, "r": 0, "terrain": "sand" },
     { "q": -2, "r": 0, "terrain": "forest" },
     { "q": -1, "r": 0, "terrain": "forest" },
-    { "q": 0, "r": 0, "terrain": "hills", "structure": "citadel", "condition": "thriving" },
+    { "q": 0, "r": 0, "terrain": "hills", "structure": "capital", "condition": "thriving" },
     { "q": 1, "r": 0, "terrain": "river" },
     { "q": 2, "r": 0, "terrain": "grassland", "structure": "cottage", "condition": "quiet" },
     { "q": 3, "r": 0, "terrain": "cliffs" },

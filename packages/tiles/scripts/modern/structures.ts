@@ -1425,8 +1425,9 @@ export function cottage(iso: Iso): Parts {
 }
 
 // ---------------------------------------------------------------------------------------------------------------
-// The Capital (tile id `citadel`): Library, Council Hall and, until the next art round redraws it civic, a tower,
-// on a raised terrace around a central square (a 7-hex flower). GDR-KI-PRINCIPAL-011 drops the Tower.
+// The Capital (tile id `capital`; `citadel` is a deprecated alias): the Library and the Council Hall around an open
+// civic square on a low dais across a 7-hex flower, with a colonnade, a fountain, trees and open stairs on both front
+// faces. Civic and welcoming, never fortified: no tower, keep, battlements or walls (GDR-KI-PRINCIPAL-011).
 
 /** Clips a flat-ground segment to the hex scaled by `s` (Cyrus–Beck). */
 function clipToHex(
@@ -1456,7 +1457,7 @@ function clipToHex(
   return [at(t0), at(t1)]
 }
 
-export function citadel(): Structure {
+export function capital(): Structure {
   const p = parts()
   const iso = new Iso(128, 74)
   const S = 1.4
@@ -1500,16 +1501,18 @@ export function citadel(): Structure {
   )
   p.body.push(ellipse(iso.g(10, 16, Z), 46, 23, { fill: mat.stone, fillOpacity: 0.45, width: 1 }))
   p.body.push(ellipse(iso.g(10, 16, Z), 34, 17, { width: 0.6, strokeOpacity: 0.5 }))
-  // Stairs down the front-left face.
-  const uf = -R
-  void uf
+  // Open stairs down both front faces: the square is entered from either side, never through a gate.
   for (let i = 0; i < 4; i++) {
-    p.body.push(box(iso, { u: uf - 5 - i * 9, v: -30, w: 10, d: 60, h: Z - i * 4, fill: mat.limestone }))
+    p.body.push(box(iso, { u: -R - 5 - i * 9, v: -30, w: 10, d: 60, h: Z - i * 4, fill: mat.limestone }))
   }
-  // Garden on the east: three round trees and a low hedge.
+  for (let i = 0; i < 4; i++) {
+    p.body.push(box(iso, { u: -30, v: -R - 5 - i * 9, w: 60, d: 10, h: Z - i * 4, fill: mat.limestone }))
+  }
+  // The Library (domed) and the Council Hall (colonnaded) face the square; a stoa closes its east side; trees shade
+  // the south-east corner.
   const buildings: { at: [number, number]; draw: (sub: Iso) => void }[] = [
     { at: Iso.uvAt(-62, -60), draw: (sub) => councilHall(sub, p) },
-    { at: Iso.uvAt(92, -50), draw: (sub) => tower(sub, p) },
+    { at: Iso.uvAt(96, -46), draw: (sub) => stoa(sub, p) },
     { at: Iso.uvAt(-138, 14), draw: (sub) => library(sub, p) },
     {
       at: Iso.uvAt(128, 22),
@@ -1526,18 +1529,25 @@ export function citadel(): Structure {
     {
       at: Iso.uvAt(10, 8),
       draw: (sub) => {
-        p.body.push(box(sub, { u: 0, v: 0, w: 14, d: 14, h: 4, fill: mat.stone }))
-        p.body.push(box(sub, { u: 0, v: 0, w: 6, d: 6, h: 24, z: 4, fill: mat.limestone }))
-        const tip = sub.p(0, 0, 28)
-        p.body.push(
-          polygon(
-            [
-              [tip[0] - 4.6, tip[1] + 1],
-              [tip[0], tip[1] - 9],
-              [tip[0] + 4.6, tip[1] + 1]
-            ],
-            { fill: mat.brass, width: 1 }
-          )
+        // A fountain at the heart of the square: a round basin of water and a small spout.
+        p.body.push(cylinder(sub, 0, 0, 20, 4, 0, mat.stone, false))
+        p.body.push(ellipse(sub.g(0, 0, 4), 20 * sub.k, 10 * sub.k, { fill: mat.water, width: 1 }))
+        p.body.push(ellipse(sub.g(0, 0, 4), 13 * sub.k, 6.5 * sub.k, { stroke: paper, width: 0.6, strokeOpacity: 0.5 }))
+        p.body.push(cylinder(sub, 0, 0, 3.2, 9, 4, mat.limestone))
+        p.body.push(cylinder(sub, 0, 0, 6, 2, 13, mat.limestone))
+        p.lit.push(
+          path(`M${pts([sub.g(0, 0, 18)])}Q${pts([sub.g(-7, 0, 22)])} ${pts([sub.g(-11, 2, 6)])}`, {
+            stroke: paper,
+            width: 1,
+            strokeOpacity: 0.8
+          })
+        )
+        p.lit.push(
+          path(`M${pts([sub.g(0, 0, 18)])}Q${pts([sub.g(7, 0, 22)])} ${pts([sub.g(11, 2, 6)])}`, {
+            stroke: paper,
+            width: 1,
+            strokeOpacity: 0.8
+          })
         )
       }
     }
@@ -1556,8 +1566,20 @@ export function citadel(): Structure {
 const K1 = 1.25
 const at = () => new Iso(128, 74, K1)
 
+/** A stoa: a low roofed colonnade open to the square on its lit (west) face, with a back wall. */
+function stoa(iso: Iso, p: Parts): Parts {
+  const base = boxOf({ u: 0, v: 0, w: 30, d: 96, h: 3 })
+  p.body.push(shadow(footprint(iso, base), 26))
+  p.body.push(box(iso, { u: 0, v: 0, w: 30, d: 96, h: 3, fill: mat.stone }))
+  p.body.push(box(iso, { u: 8, v: 0, w: 6, d: 88, h: 20, z: 3, fill: mat.limestone }))
+  for (let v = 40; v >= -40; v -= 16) p.body.push(column(iso, -9, v, 3, 18, mat.limestone, 2))
+  p.body.push(box(iso, { u: -1, v: 0, w: 26, d: 92, h: 4, z: 21, fill: mat.limestone }))
+  p.body.push(box(iso, { u: -1, v: 0, w: 24, d: 90, h: 2, z: 25, fill: mat.slate }))
+  return p
+}
+
 export const structureDrawers: Record<string, () => Structure> = {
-  citadel,
+  capital,
   library: () => single(library(at()), 60),
   'council-hall': () => single(councilHall(at()), 46),
   observatory: () => single(observatory(at()), 30),

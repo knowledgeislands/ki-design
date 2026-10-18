@@ -11,7 +11,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { terrainNames } from '@knowledgeislands/tokens'
-import { type TileEntry, type TileManifest, validateTileSet } from '../src/index.ts'
+import { type TileEntry, type TileManifest, tileAliases, validateTileSet } from '../src/index.ts'
 import { highlightDef, Iso, svgDoc } from './modern/iso.ts'
 import { connectorDrawers, decalDrawers } from './modern/overlays.ts'
 import { structureDrawers } from './modern/structures.ts'
@@ -98,8 +98,11 @@ const next = {
       '`anchor` is in cell pixels (the 256 × 196 cell of the anchor hex); `art.anchor` is the same point in the canvas pixels of the SVG, whose view box extends above (and, for pair and flower footprints, beside) the cell.',
     themeNote:
       'Fills are CSS custom properties with token fallbacks: --terrain-<name>, --tile-ink, --tile-paper, --tile-plinth, --tile-deep, --tile-pine, --tile-leaf, --bld-limestone, --bld-slate, --bld-timber, --bld-brick, --bld-thatch, --bld-brass, --bld-stone.',
+    aliasesNote:
+      '`aliases` maps deprecated tile keys to their replacements (`structure/citadel` is `structure/capital`); renderers resolve them so older maps keep working.',
     framesNote: 'v0 draws frame 0 (the still) only; animated loops are declared in `frames` and not yet drawn.'
   },
+  aliases: { ...tileAliases },
   conditions: {
     note: 'Every structure is drawn once (thriving). The other states are compositions of that drawing and the decals, under the same light.',
     thriving: { hide: [], decals: [] },

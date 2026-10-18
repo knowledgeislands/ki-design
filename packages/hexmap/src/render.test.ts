@@ -51,7 +51,7 @@ describe('Arcadia', () => {
   test('is a hand-made island of about sixty hexes', () => {
     expect(arcadia.hexes).toHaveLength(61)
     const structures = new Set(arcadia.hexes.flatMap((h) => (h.structure ? [h.structure] : [])))
-    for (const s of ['citadel', 'port', 'observatory', 'lighthouse', 'mill', 'workshop', 'ancient-forest', 'ruins']) {
+    for (const s of ['capital', 'port', 'observatory', 'lighthouse', 'mill', 'workshop', 'ancient-forest', 'ruins']) {
       expect(structures.has(s)).toBe(true)
     }
   })
@@ -62,10 +62,22 @@ describe('Arcadia', () => {
     expect(svg).toContain('role="img"')
     expect(svg).toContain('<title id="ki-map-arcadia-title">Arcadia</title>')
     expect(svg.match(/<polygon class="ki-hex"/g)).toHaveLength(61)
-    expect(svg).toContain('<title>Citadel (thriving)</title>')
+    expect(svg).toContain('<title>Capital (thriving)</title>')
     expect(svg).toContain('<title>Ancient forest (thriving)</title>')
     expect(svg.match(/class="ki-route ki-route-pending"/g)).toHaveLength(1)
     expect(svg).toContain('>Old Wood</text>')
+  })
+
+  test('draws a map that still says citadel as the Capital', () => {
+    const old: IslandMap = {
+      ...arcadia,
+      hexes: arcadia.hexes.map((h) => (h.structure === 'capital' ? { ...h, structure: 'citadel' } : h))
+    }
+    const seen: string[] = []
+    const svg = renderFlatSvg(old, { glyph: (id) => (seen.push(id), undefined) })
+    expect(svg).toContain('<title>Capital (thriving)</title>')
+    expect(seen).toContain('capital')
+    expect(seen).not.toContain('citadel')
   })
 
   test('is deterministic regardless of hex order', () => {
