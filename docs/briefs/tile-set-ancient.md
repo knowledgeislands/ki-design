@@ -4,6 +4,10 @@
 
 The painted, dusk-lit tile set for the public hero, the Living Map, the Arcadia page and posters: art, in the manner of Kit's mood boards and the [picture of Arcadia](arcadia-picture.md), with buildings as crisp silhouettes in the way of a classic isometric strategy game.
 
+## Geometry and composition research
+
+The [hex terrain composition proposal](../spec/hex-terrain-composition.md) separates this surface style from ground heights, irregular object footprints and exposed-edge construction. It records the owner’s composition direction and the implementation choices still under review; it does not change the current tile contract. Use the [local Arcadia studies](../../+/art/2026-10-19-arcadia-hex-composition-study/NOTES.md) as extraction evidence, not as finished reusable tiles.
+
 ## Reusable surface style guidance
 
 Use this brief as the main reusable guidance for the painted Ancient tile surfaces. It develops the established Arcadia direction; the [tile specification](../spec/tiles-and-buildings.md) still governs geometry, footprints, materials, outlines and scale. The Modern set retains its own drawn treatment. Surface style must survive a change of tile outline or plinth construction.

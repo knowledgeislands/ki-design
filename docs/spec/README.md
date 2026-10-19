@@ -18,6 +18,8 @@ The values are data, not prose: the tokens, the symbol library, the glyphs, the 
 | [iconography.md](iconography.md) | The line-glyph specification, roundels, inventory rules, value icons |
 | [illustration.md](illustration.md) | Modern, Ancient and the illustrated explainer; the painting and the chart; 70 / 30; agents; never draw |
 | [tiles-and-buildings.md](tiles-and-buildings.md) | Geometry, footprints and the Capital, terrain and structures, decals, auto-tiling, layering, building standards, the contract, budgets |
+| [hex-terrain-composition.md](hex-terrain-composition.md) | Proposed corner heights, compounds and edge connections; review scope and pilot |
+| [hex-terrain-mathematics.md](hex-terrain-mathematics.md) | Local coordinate, height, boundary and compound algorithms for the proposal |
 | [motion.md](motion.md) | The clock, what moves, UI motion |
 | [components.md](components.md) | `<ki-glyph>` and `<ki-hexmap>`, the package layers, site patterns, app patterns |
 | [maps.md](maps.md) | The three maps, layers, how islands are typed, keyboard, map accessibility, the IslandMap model |

@@ -1,0 +1,495 @@
+{
+  "status": "proposed-study",
+  "date": "2026-10-19",
+  "source": {
+    "path": "docs/briefs/references/arcadia.png",
+    "sha256": "ccb3e6a07856747886a47b876b03dc504b762d775132a313deb96e5ef5cdef62",
+    "pixels": [
+      1672,
+      941
+    ]
+  },
+  "contractRevision": "bc70ae35a00f7d5991c69b580f665807ad6fb732",
+  "projectionSnapshot": {
+    "width": 256,
+    "height": 148,
+    "note": "Reproducibility snapshot, not new authoritative contract values"
+  },
+  "gridOrigin": [
+    92,
+    60
+  ],
+  "candidateHexWidth": 200,
+  "previewHexWidths": [
+    100,
+    140,
+    200,
+    280
+  ],
+  "cornerOffsetKeys": [
+    [
+      0,
+      -2
+    ],
+    [
+      1,
+      -1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      -1,
+      1
+    ],
+    [
+      -1,
+      -1
+    ]
+  ],
+  "fixedCandidates": [
+    {
+      "name": "capital",
+      "anchorPixel": [
+        980,
+        145
+      ],
+      "cells": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          -1
+        ],
+        [
+          0,
+          -1
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          -1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "anchorAxialSnapshot": [
+        4,
+        1
+      ]
+    },
+    {
+      "name": "port",
+      "anchorPixel": [
+        700,
+        590
+      ],
+      "cells": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          -1
+        ],
+        [
+          0,
+          -1
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          -1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "anchorAxialSnapshot": [
+        0,
+        6
+      ]
+    },
+    {
+      "name": "forest",
+      "anchorPixel": [
+        890,
+        365
+      ],
+      "cells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          -1
+        ],
+        [
+          1,
+          -1
+        ]
+      ],
+      "anchorAxialSnapshot": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "waterfall",
+      "anchorPixel": [
+        1295,
+        430
+      ],
+      "cells": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          1
+        ]
+      ],
+      "anchorAxialSnapshot": [
+        4,
+        4
+      ]
+    },
+    {
+      "name": "grassland",
+      "anchorPixel": [
+        1150,
+        700
+      ],
+      "cells": [
+        [
+          0,
+          0
+        ]
+      ],
+      "anchorAxialSnapshot": [
+        2,
+        7
+      ]
+    },
+    {
+      "name": "sea",
+      "anchorPixel": [
+        580,
+        840
+      ],
+      "cells": [
+        [
+          0,
+          0
+        ]
+      ],
+      "anchorAxialSnapshot": [
+        -2,
+        9
+      ]
+    }
+  ],
+  "greatTree": {
+    "outlinePixels": [
+      [
+        730,
+        345
+      ],
+      [
+        760,
+        300
+      ],
+      [
+        840,
+        265
+      ],
+      [
+        940,
+        270
+      ],
+      [
+        1010,
+        305
+      ],
+      [
+        1050,
+        355
+      ],
+      [
+        1030,
+        400
+      ],
+      [
+        950,
+        430
+      ],
+      [
+        930,
+        490
+      ],
+      [
+        855,
+        490
+      ],
+      [
+        850,
+        430
+      ],
+      [
+        780,
+        410
+      ]
+    ],
+    "selection": "centre in outline OR hex corner in outline OR outline vertex in hex; even-odd point inclusion",
+    "selectedCells": {
+      "100": [
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "140": [
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "200": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "280": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    }
+  },
+  "heightDiagram": {
+    "risePixelsPerUnit": 28,
+    "a": {
+      "cell": [
+        0,
+        0
+      ],
+      "elevation": 0,
+      "localCorners": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        0
+      ]
+    },
+    "b": {
+      "cell": [
+        0,
+        1
+      ],
+      "elevation": 1,
+      "localCorners": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "waterfallDiagram": {
+    "terrainLevels": [
+      2,
+      1
+    ],
+    "waterLevels": [
+      2,
+      1
+    ],
+    "crossingPosition": 0.5,
+    "note": "Schematic water at surface; no channel-bed excavation geometry supplied"
+  }
+}

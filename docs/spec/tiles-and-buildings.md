@@ -8,6 +8,10 @@ updated: 2026-10-19
 
 A tile set is a skin over one inventory of ids, drawn on pointy-top hexes in 2:1 dimetric projection with light from the top-left. The contract is data: [`packages/tiles/src/contract.ts`](../../packages/tiles/src/contract.ts) holds the geometry, the required inventory (12 terrains, 16 structures, 4 decals, 4 connectors), the entry schema and `validateTileSet`; the [tiles README](../../packages/tiles/README.md) explains them; and each set's manifest, such as [`sets/modern/manifest.json`](../../packages/tiles/sets/modern/manifest.json), lists what it has drawn. This file holds the rules the data cannot express: footprints and the Capital, what is not terrain, condition decals, auto-tiling, layering, building standards, architectural families, what lies beyond the contract, and the budgets.
 
+## Proposed terrain composition
+
+The [hex terrain composition proposal](hex-terrain-composition.md) develops small construction cells, per-corner heights, irregular compounds and explicit cliff and waterfall connections. It is not implemented by the current contract or renderer; the existing geometry and footprint rules below remain in force. Its [research notes](../briefs/hex-terrain-research.md) and [local studies](../../+/art/2026-10-19-arcadia-hex-composition-study/NOTES.md) preserve the supporting knowledge.
+
 ## Geometry
 
 The grid is recorded in [GDR-KI-DESIGN-003](../decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md); the numbers are in `tileGeometry` and in `@knowledgeislands/hexmap` (`isoPosition`, `isoProject`).
