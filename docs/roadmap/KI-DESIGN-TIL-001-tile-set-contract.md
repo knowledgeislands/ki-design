@@ -7,12 +7,12 @@ purpose: capability
 project: ki-design
 component: tiles
 horizon: now
-status: ready
+status: awaiting-review
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: 09e001fc9825da6c0dfa742f71aa7c6c05855633
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-19T23:14:00Z
+updated_at: 2026-10-19T23:40:34Z
 ---
 
 # Tile-set contract, Modern set
@@ -35,17 +35,17 @@ v0 landed in `04b2761`: the manifest schema, id inventory and validator in `pack
 
 The preview's Known Lands chart is the flat renderer: it draws terrain as token fills and patterns and structures as glyphs, never tile art. Of the 36 inventory ids, the 12 terrains have fills and 15 of the 16 structures have glyphs (`cottage` falls back to the neutral marker); the 4 decals and 4 connectors have no flat form. Tile art reaches a chart only through the isometric renderer, KI-DESIGN-MAP-002, which this item blocks.
 
-**Decision before delivery.** As written, Step 2 cannot pass until MAP-002, which waits on this item. This plan follows the recommendation in the run report: hold the flat chart to the ids it can draw, terrains and structures, and leave decals and connectors to MAP-002.
+**Decision before delivery, answered.** As first written, Step 2 could not pass until MAP-002, which waits on this item. On 20 October 2026, under the overnight authority (OVERNIGHT in ki-principal's `+/_WORK/ki.observatory/decisions.md`), Kit took the recommendation, TILE-CHECK a): the flat chart is held to the ids it can draw, terrains and structures, and the decal and connector check moves to KI-DESIGN-MAP-002's Steps and Verify.
 
 ## Steps
 
-- [ ] Confirm the validator passes for the Modern set: the existing test holds `ok` with no errors; re-run it.
-- [ ] Add a test that every terrain and structure id in the inventory renders in the flat Known Lands chart: a terrain fill for each terrain, and a structure group, by glyph or the neutral marker, for each structure.
-- [ ] Run the package and preview tests, typecheck, lint and roadmap audit.
+- [x] Confirm the validator passes for the Modern set: the existing test holds `ok` with no errors; re-run it.
+- [x] Add a test that every terrain and structure id in the inventory renders in the flat Known Lands chart: a terrain fill for each terrain, and a structure group, by glyph or the neutral marker, for each structure.
+- [x] Run the package and preview tests, typecheck, lint and roadmap audit.
 
 ## Files touched
 
-`packages/tiles/src/validate.test.ts` or `examples/observatory-preview/test/` for the new test; no art changes
+`examples/observatory-preview/test/helpers.test.ts` for the new test; `docs/roadmap/KI-DESIGN-MAP-002-isometric-renderer.md` for the moved check; no art changes
 
 ## Verify
 
@@ -53,7 +53,7 @@ The validator passes for the Modern set; every terrain and structure id in the i
 
 ## Dependencies / blocks
 
-Blocks the Ancient tile set (KI-DESIGN-TIL-002) and the isometric renderer (KI-DESIGN-MAP-002). Waits on the owner's answer on the chart check.
+Blocks the Ancient tile set (KI-DESIGN-TIL-002) and the isometric renderer (KI-DESIGN-MAP-002). The owner's answer on the chart check is in (TILE-CHECK a).
 
 ## Documentation impact
 
@@ -72,6 +72,35 @@ No guide change: the developer guide already covers running the checks and previ
 ### Roadmap
 
 Close this item once both checks pass.
+
+## Review
+
+### Delivered
+
+Within the boundary above, from baseline `09e001f`: the validator confirmed for the Modern set, and a new test that every terrain and structure id in the tile inventory renders in the flat Known Lands chart. Decals and connectors are not checked here: that check is now a Step and Verify line of KI-DESIGN-MAP-002. No art, contract or renderer change.
+
+### Change Summary
+
+- `examples/observatory-preview/test/helpers.test.ts`: a new `the flat chart covers the tile inventory` block builds an `islandmap/v1` with one hex per inventory terrain and one structure per inventory structure, lays it out with `layoutFlat` and the chart's own glyph resolver (`glyphBody`), and checks that the map validates, that every terrain draws a hex with its token fill (the ocean with the theme sea, as the renderer paints water), and that every structure draws a structure group, by glyph or the neutral marker, with only `cottage` falling back.
+- `docs/roadmap/KI-DESIGN-MAP-002-isometric-renderer.md`: a Step and a Verify clause for the decal and connector check.
+
+### Verification
+
+- `packages/tiles` tests: 20 pass, including `the Modern stub is valid but unfinished` (validator `ok`, no errors).
+- Preview and generator tests: 90 pass, 0 fail, including the three new flat-chart tests; `bun run test` passes across every package.
+- `bun run self:typecheck`, `tsc -p examples/observatory-preview`, `biome check .`, `rumdl check .`, `knip` and `build-boards.ts --check` pass; `ki repo audit` for `ki-work-roadmap` and `ki-authoring` reports FAIL=0.
+
+### Outstanding concerns
+
+The Modern set is valid but not `complete`: every tile is still `draft`, as before. `cottage` has no glyph and draws the neutral marker; the test pins that, so a new `cottage` glyph will need the test updated. Decals and connectors stay unchecked until MAP-002.
+
+### Post-change review
+
+Goal met within the answered scope: the contract, inventory and validator stand, the validator passes for the Modern set, and the flat chart covers every terrain and structure, by test. One test block and one record note; no regression risk. Ready for acceptance.
+
+### Mini recap
+
+Confirmed the Modern set validates and added the flat-chart inventory check; moved the decal and connector check to MAP-002. Learning route: a `cottage` glyph would remove the chart's only neutral marker; capture it with `ki-next` if wanted.
 
 ## Discussion
 

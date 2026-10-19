@@ -12,7 +12,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T09:50:00Z
+updated_at: 2026-10-19T23:40:34Z
 ---
 
 # Isometric renderer
@@ -37,6 +37,7 @@ Not started. The flat renderer exists; there is no Canvas 2D renderer.
 
 - [ ] Render an IslandMap from a tile set's atlas in Canvas 2D with per-cell painter's order.
 - [ ] Draw ground-level routes and decals.
+- [ ] Add a test that every decal and connector id in the tile inventory renders from the Modern set's tile art; this check moved here from KI-DESIGN-TIL-001, whose flat-chart check covers terrains and structures only.
 - [ ] Measure frame rate and image budgets on a laptop.
 
 ## Files touched
@@ -45,7 +46,7 @@ Not started. The flat renderer exists; there is no Canvas 2D renderer.
 
 ## Verify
 
-Arcadia renders from the Modern set at 60 fps on a laptop and within the image budgets.
+Arcadia renders from the Modern set at 60 fps on a laptop and within the image budgets; every decal and connector id in the inventory renders from tile art, by test (moved from KI-DESIGN-TIL-001 on 20 October 2026, TILE-CHECK a).
 
 ## Dependencies / blocks
 

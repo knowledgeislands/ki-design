@@ -1,5 +1,14 @@
 import { describe, expect, test } from 'bun:test'
-import { hexKey, layoutFlat, renderFlatLayers, validateIslandMap } from '../../../packages/hexmap/src/index.ts'
+import {
+  hexKey,
+  type IslandMap,
+  layoutFlat,
+  renderFlatLayers,
+  validateIslandMap
+} from '../../../packages/hexmap/src/index.ts'
+import { requiredInventory } from '../../../packages/tiles/src/index.ts'
+import { tokens } from '../../../packages/tokens/src/index.ts'
+import { glyphBody } from '../client/glyphs.ts'
 import { rank } from '../client/format.ts'
 import { type ChartInput, chart, conditionOf, islandMap, lanesOf, roleOf } from '../client/lands-model.ts'
 import type { Signal, TradeRoute } from '../client/types.ts'
@@ -132,6 +141,44 @@ describe('territory layout', () => {
     const svg = renderFlatLayers(layoutFlat(map))
     expect(svg.match(/<polygon class="ki-hex"/g)).toHaveLength(map.hexes.length)
     expect(svg.match(/<g class="ki-structure"/g)).toHaveLength(map.hexes.filter((h) => h.structure).length)
+  })
+})
+
+// The flat chart draws terrain as token fills and structures as glyphs, never tile art, so it covers the tile inventory's
+// terrains and structures. Decals and connectors only reach a chart as tile art, through the isometric renderer
+// (KI-DESIGN-MAP-002), which checks them (KI-DESIGN-TIL-001).
+describe('the flat chart covers the tile inventory', () => {
+  const { terrain, structure } = requiredInventory
+  const map: IslandMap = {
+    schema: 'islandmap/v1',
+    id: 'inventory',
+    name: 'Inventory',
+    hexes: [
+      ...terrain.map((id, q) => ({ q, r: 0, terrain: id as IslandMap['hexes'][number]['terrain'] })),
+      ...structure.map((id, q) => ({ q, r: 2, terrain: 'grassland' as const, structure: id }))
+    ]
+  }
+  // Draws as the Known Lands view does: the glyph resolver it injects, the day theme.
+  const layout = layoutFlat(map, { glyph: glyphBody })
+  const svg = renderFlatLayers(layout)
+
+  test('the map is valid', () => {
+    expect(validateIslandMap(map)).toMatchObject({ ok: true })
+  })
+
+  test('every terrain renders with its token fill; the ocean is the theme sea', () => {
+    for (const id of terrain) {
+      const fill = id === 'ocean' ? tokens.sea.light.sea : tokens.terrain[id as keyof typeof tokens.terrain]
+      expect(fill).toMatch(/^#[0-9a-f]{6}$/i)
+      expect(svg).toContain(`data-terrain="${id}" points="`)
+      expect(layout.hexes.find((h) => h.hex.terrain === id)?.fill).toBe(fill)
+    }
+  })
+
+  test('every structure renders, by glyph or the neutral marker; only the cottage falls back', () => {
+    expect(layout.structures.map((s) => s.hex.structure)).toEqual([...structure])
+    expect(svg.match(/<g class="ki-structure"/g)).toHaveLength(structure.length)
+    expect(layout.structures.filter((s) => !s.glyph).map((s) => s.hex.structure)).toEqual(['cottage'])
   })
 })
 
