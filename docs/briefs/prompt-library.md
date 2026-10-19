@@ -4,7 +4,7 @@ Copy-paste prompts for image generation: the canon master prompt, the picture of
 
 ## How to use the prompts
 
-All prompts are written for ChatGPT image generation (or any capable image model). Paste the **master prompt** first, then the asset template, then the **negative list**. Replace `{…}` placeholders. For the Ancient set, also attach the chosen picture of Arcadia (`docs/briefs/references/arcadia.png`) as the style reference; the Ancient brief's shorter per-tile prompt is an equivalent. Generate at the largest square or 3:2 size available, then clean, normalise and slice to the [tile geometry](../spec/tiles-and-buildings.md#geometry).
+All prompts are written for ChatGPT image generation (or any capable image model). Paste the **master prompt** first, then the asset template, then the **negative list**. Replace `{…}` placeholders. For the Ancient set, attach [Council Hall A](../../+/art/2026-10-19-lighting-study/council-hall-A.png) as the lighting and finish reference, and prefer the [Ancient brief](tile-set-ancient.md)'s per-tile template, which supersedes the terrain and structure templates below for light and geometry (20 October 2026). Generate at the largest square or 3:2 size available, then clean, normalise and slice to the [tile geometry](../spec/tiles-and-buildings.md#geometry).
 
 ## Master prompt (canon, verbatim)
 
@@ -23,7 +23,7 @@ The defining image of the Ancient set; every later tile is painted to its light 
 ## Terrain tile
 
 ```text
-[Master prompt], then: A single isometric terrain tile for a strategy-map tile set, {tileset: "Ancient — painted, dusk-lit atlas art" | "Modern — clean engraved linework with flat colour fills, no texture"}. The tile is one pointy-top hexagon seen in 2:1 dimetric projection, top face exactly filling a 256 × 148 pixel hexagon, with a 48-pixel-deep stratified rock plinth visible on the three front faces. Terrain: {terrain, e.g. "marsh: low wet ground, reeds, small pools, a few stepping stones"}. Variant {1|2|3}: vary only small details. Light from the top-left, warm, soft; shadows fall to the bottom-right. Palette: {island palette, e.g. "Archipelago: deep ocean #1b3a5c, moss #4a7a5a, forest #2d5a3d, sand #e3d3a8, brass #c8963c"}. Centred on a plain transparent or flat light-grey background, nothing outside the hex, no neighbouring tiles, no buildings, no text, no border.
+[Master prompt], then: A single isometric terrain tile for a strategy-map tile set, {tileset: "Ancient — painted atlas art, lit as Council Hall A" | "Modern — clean engraved linework with flat colour fills, no texture"}. The tile is one pointy-top hexagon seen in 2:1 dimetric projection, top face exactly filling a 256 × 148 pixel hexagon, with a 48-pixel-deep stratified rock plinth visible on the three front faces. Terrain: {terrain, e.g. "marsh: low wet ground, reeds, small pools, a few stepping stones"}. Variant {1|2|3}: vary only small details. Light from the top-left, warm, soft; shadows fall to the bottom-right. Palette: {island palette, e.g. "Archipelago: deep ocean #1b3a5c, moss #4a7a5a, forest #2d5a3d, sand #e3d3a8, brass #c8963c"}. Centred on a plain transparent or flat light-grey background, nothing outside the hex, no neighbouring tiles, no buildings, no text, no border.
 ```
 
 ## Structure tile (with family and condition)

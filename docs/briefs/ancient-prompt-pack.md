@@ -1,5 +1,7 @@
 # Prompt pack: the Ancient tile set
 
+> **Alignment, 20 October 2026.** The subject line in each prompt below still defines that tile's subject. Its light, reference and geometry wording is superseded by the [Ancient set brief](tile-set-ancient.md). Attach [Council Hall A](../../+/art/2026-10-19-lighting-study/council-hall-A.png), not `arcadia.png`, and build each prompt from the brief's per-tile template. Paint connected multi-hex footprints directly, since single-hex requests return square diamonds. Rewrite these prompts from the brief before the next run.
+
 One prompt per tile in the tile-set contract, ready to paste into an image generator (ChatGPT's image model or similar). The style reference is the chosen picture of Arcadia, [references/arcadia.png](references/arcadia.png) (variation 1, kept unchanged): **attach it to every prompt**, so every tile shares its dusk light and palette, and match its atmosphere first and fix details second ([handoff](arcadia-handoff.md)). Then normalise each result per the [building standards](building-standards.md) and the [Ancient set brief](tile-set-ancient.md).
 
 The first run is packaged as one copy-paste instruction for the ChatGPT or Codex app: [Ancient tiles, batch 1](ancient-batch-1.md) paints the 12 terrains and the hero structures with the exact geometry, sizes and record-keeping. This pack holds the per-tile prompts for the rest of the set.

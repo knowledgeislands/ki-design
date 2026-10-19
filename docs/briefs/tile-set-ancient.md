@@ -2,7 +2,7 @@
 
 ## Goal
 
-The painted, dusk-lit tile set for the public hero, the Living Map, the Arcadia page and posters: art, in the manner of Kit's mood boards and the [picture of Arcadia](arcadia-picture.md), with buildings as crisp silhouettes in the way of a classic isometric strategy game.
+The painted, warmly lit tile set for the public hero, the Living Map, the Arcadia page and posters: art, in the manner of Kit's mood boards and the [picture of Arcadia](arcadia-picture.md), with buildings as crisp silhouettes in the way of a classic isometric strategy game.
 
 ## Geometry and composition research
 
@@ -18,13 +18,13 @@ A calm, inhabited landscape painted as a miniature world: natural greens, deep b
 
 ### Reference and lighting
 
-The selected Arcadia painting is the visual reference. Attach `references/arcadia-reference-small.jpg` for generation; it is the small copy of the selected painting, not an alternative treatment. Use a matching hex geometry reference only when the production brief permits one; the lighting study attaches only the painting. Keep reference roles explicit: the painting supplies surface style and light; any permitted geometry reference supplies camera, placement and footprint.
+Two references, with separate roles. [Council Hall A](../../+/art/2026-10-19-lighting-study/council-hall-A.png) is the target for lighting and painted finish, and is the image attached to tile generations. The selected Arcadia painting (`references/arcadia-reference-small.jpg`) remains the wider landscape reference for palette, materials and how settlements sit in terrain. Use a matching hex geometry reference only when the production brief permits one. Keep reference roles explicit in every prompt: Council Hall A supplies light, palette and brushwork, not a building or landscaping to reproduce; any permitted geometry reference supplies camera, placement and footprint.
 
-The established baseline is late, calm dusk. A low sun illuminates from the upper left, with warm light catching selected roofs, upper foliage, sun-facing slopes and stone edges. Shadows fall towards the lower right, cooled and desaturated but keeping their local colour: greener in woodland, browner on rock, blue-grey on snow, stone in distance and water. They are deep but soft enough to retain material detail. A thin haze gently compresses contrast and softens distant or recessed detail without blurring the whole tile.
+The light is Council Hall A's: a low sun from the upper left, warmer and brighter than the Arcadia painting's dusk. Golden light falls across sun-facing grass, foliage tops, limestone and rock edges. Shadows fall towards the lower right, cool but keeping their local colour: green in grass and woodland, blue-grey on stone, snow and water. They are deep but soft enough to retain material detail. There is little haze; distance on a tile is too short to need it.
 
-Warmth is selective. Most of a snowfield stays blue-grey in shadow; most of a forest stays moss and forest green; most of the sea stays deep navy. Do not wash the whole surface in amber. Water has sparse, subdued glints rather than a broad blazing reflection. Window and landing lights are small warm accents, subordinate to the subject, without bloom or a surrounding glow.
+Warmth is generous but never changes what a surface is. Lit grass stays green with golden highlights, not straw; most of a snowfield stays white and blue-grey with warm accents, not peach; most of the sea stays deep navy. Do not wash the whole surface in amber. Water has sparse, subdued glints rather than a broad blazing reflection. Window and landing lights are small warm accents, subordinate to the subject, without bloom or a surrounding glow.
 
-Calibrate against the painting, not only these words. In the selected Arcadia painting the strongest warmth sits in the sky towards the sun, on built limestone and in the sun path across the far sea. The land itself is mid-dark, and only about one surface in fourteen is a bright warm highlight. Batch 1b measured roughly one and a half to four times that share of bright warm surface (grassland the most, about four times), with a wider spread of light and dark. That excess, rather than warmth as such, is what reads as golden sunlight.
+Calibrate against Council Hall A, not only these words: match its warmth, not more. About a third of its surface is bright warm highlight, at moderate saturation, with green grass throughout. Generators asked to preserve that warmth tend to overshoot it. In the 20 October match study the grassland came out more saturated and yellower than the hall, and the snow came out peach across most of its surface. Ask for the hall's amount of warmth together with each terrain's identity, and judge a candidate side by side with the hall.
 
 **Lighting choice settled, 20 October 2026:** the owner selected [Council Hall A](../../+/art/2026-10-19-lighting-study/council-hall-A.png) as the target for lighting and painted finish, retaining its warmth and detail. Match this image directly; the earlier recommendation to reduce its warmth is superseded. The Arcadia painting remains the wider landscape reference. Use Council Hall A as the immediate style reference for matching grassland and snow candidates, recorded in [the follow-up study](../../+/art/2026-10-20-council-hall-a-match/NOTES.md). This choice approves appearance, not every geometric or landscaping detail in the candidate.
 
@@ -33,7 +33,7 @@ Calibrate against the painting, not only these words. In the selected Arcadia pa
 The original A/B comparison is retained below as the study method. The owner chose Council Hall A on 20 October 2026; the choice above now governs matching candidates.
 
 - **Subjects:** `terrain/grassland`, `terrain/snow` and `structure/council-hall`. They are the most light-sensitive: grass turns to straw, snow turns peach, and limestone burns out first.
-- **Variant A, Arcadia dusk:** the per-tile prompt below, unchanged.
+- **Variant A, Arcadia dusk:** the per-tile prompt as it stood on 19 October 2026, with its late-dusk light sentence.
 - **Variant B, golden sunlight:** the same prompt with its light sentence replaced by: "late-afternoon golden sunlight, the sun higher in the upper left, a stronger warm key light on every sun-facing surface, crisper shadows towards the lower right and little haze". Everything else, including no bloom and no amber wash of the whole tile, stays.
 - **Same subject, camera and materials:** paint directly on a seven-hex flower: one centre hex and its six neighbours, pointy-top, in straight-on 2:1 isometric projection, with a hex rock plinth beneath every exposed outer edge. Use level grassland beneath the Council Hall, with no dome. Normally make B as a lighting-only edit of A. For the 19 October study, attach only the small Arcadia painting to each generation, as the owner requested; generate B separately with the same subject and geometry wording, and record composition drift as a comparison limitation.
 - **Judging:** set each pair side by side at working size and at 25 %, and in the island test beside neighbouring tiles. Check terrain identity (grassland beside sand and hills), seams and repetition across several copies, silhouettes, and how a condition decal would read on top.
@@ -57,7 +57,7 @@ Paint candidates directly as hexes on connected multi-hex footprints, with compl
 
 ### Shape and background
 
-Paint the hexagonal footprint directly, with the prescribed straight-on 2:1 camera and consistent placement. Single-hex requests have returned square diamonds, while multi-hex requests have returned recognisable hexes; use connected multi-hex footprints. The rejected Capital and Port attempts at `+/art/2026-10-19-ancient-batch-1/_rejected/structure-capital-attempt-1.png` and `structure-port-attempt-1.png` are textual evidence references, not style masters. For this lighting study, use a seven-hex flower rather than a single tile.
+Paint the hexagonal footprint directly, with the prescribed straight-on 2:1 camera and consistent placement. Single-hex requests have returned square diamonds, while multi-hex requests have returned recognisable hexes; use connected multi-hex footprints. The rejected Capital and Port attempts at `+/art/2026-10-19-ancient-batch-1/_rejected/structure-capital-attempt-1.png` and `structure-port-attempt-1.png` are textual evidence references, not style masters. For this lighting study, use a seven-hex flower rather than a single tile. Council Hall A and both 20 October matches read as flat-topped flowers, while the tile contract is pointy-top; the hall's approval covers appearance only, so hex orientation stays with the [hex terrain composition proposal](../spec/hex-terrain-composition.md).
 
 The rock plinth supports the surface and shares its light and palette, but its construction is specified separately. Do not invent extra cliffs or raise the ground simply to make the tile more dramatic. The plinth faces carry rock strata only. Water, surf, shoreline and planting stop at the top edge and never wrap down the plinth; a coastal subject draws its water on the top face. Outside the tile, use genuine transparency. If a production brief permits flat grey instead, use exactly its specified grey. Haze belongs within the painted scene: it must not become a coloured halo, gradient backdrop or cast shadow outside the cutout. A generator's preview can show a glow that the saved file does not, or the reverse, so where image inspection is permitted, check the saved file against a saturated backdrop such as magenta and reject any fringe. Measure the saved canvas rather than assuming the requested size; retain study originals unaltered.
 
@@ -71,17 +71,17 @@ No text, lettering, numbers, logos, creatures, animals, crystals, magic glow or 
 
 Judge a candidate beside the Arcadia reference and neighbouring tiles at both working size and 25% scale. Check the following independently:
 
-- Light: the same upper-left source, selective warmth, cool readable shadows and restrained contrast. If in doubt, compare the share of bright warm surface and the spread of light and dark with the reference.
+- Light: Council Hall A's upper-left source, warmth and contrast, and no more; cool readable shadows that keep local colour. If in doubt, compare the share of bright warm surface and the spread of light and dark with Council Hall A.
 - Materials: consistent greens, navy water and pale warm stone, with matte brushwork and no overall amber wash.
 - Subject: the requested landform, feature count and civic silhouette, with no invented dramatic terrain or architecture.
 - Geometry: the active production brief's camera, connected hex footprint, surface position and plinth depth.
 - Cutout: a clean transparent exterior with no halo, guide lines or painted background.
 
-Batch 1b is evidence of failure modes, not the style master: its broad golden highlights, mountainous additions, inconsistent geometry and structural halos must not become requirements by imitation. Preserve useful material texture and readable detail while correcting those deviations. The batch notes record the individual issues.
+Batch 1b is evidence of failure modes, not the style master: its mountainous additions, inconsistent geometry and structural halos must not become requirements by imitation, and its warmth is judged against Council Hall A rather than copied. Preserve useful material texture and readable detail while correcting those deviations. The batch notes record the individual issues.
 
 ## Sequence
 
-1. Produce the picture of Arcadia first; it fixes light, palette and detail.
+1. The picture of Arcadia fixed the landscape palette and detail; Council Hall A, chosen on 20 October 2026, fixes the tile light and finish.
 2. Generate each candidate directly on its connected hex footprint against the same light, using the per-tile prompt below and the active production brief's size and camera.
 3. Check the directly painted geometry against the [building standards](building-standards.md); record the anchor and footprint. Retain original candidates unaltered and record any separately approved production normalisation.
 4. Paint condition decals (ivy, cracks, moss, fallen roof) as separate overlays under the same light.
@@ -101,10 +101,10 @@ The same contract as the Modern set, id for id:
 
 ## Per-tile prompt template
 
-Attach the small Arcadia painting as the style reference and, only where the active production brief permits it, a matching hex geometry reference. The lighting study attaches only the painting. Replace the fields below from the inventory, architectural families and active production brief. Describe the directly painted connected hex footprint explicitly in `<GEOMETRY>`.
+Attach Council Hall A (`+/art/2026-10-19-lighting-study/council-hall-A.png`) as the lighting and finish reference and, only where the active production brief permits it, a matching hex geometry reference. The 20 October match study attached Council Hall A alone. Replace the fields below from the inventory, architectural families and active production brief. Describe the directly painted connected hex footprint explicitly in `<GEOMETRY>`.
 
 ```text
-A single painted Ancient tile for the Knowledge Islands Realm. Match the attached Arcadia painting for surface style, palette and light: late calm dusk, a low sun from the upper left, selective warm highlights on sun-facing tops and edges, cool soft blue-grey shadows towards the lower right, and thin haze that gently lowers contrast. Deep navy water, forest and moss greens, pale warm limestone and sandstone, muted roofs and restrained brass, within the applicable island palette. Matte tactile brushwork, grouped readable forms, fine selective detail and outlines in darkened local colours, never pure black. Small warm window or landing lights only where appropriate; no bloom, broad amber wash or blazing reflections.
+A single painted Ancient tile for the Knowledge Islands Realm. The attached Council Hall A painting supplies light, palette and brushwork, not a building or landscaping to reproduce. Match its warm upper-left light, golden highlights on sun-facing surfaces, cool green and blue-grey shadows towards the lower right, matte painted finish, contrast and fine readable detail, at the same amount of warmth and no more. Keep each terrain's identity under that light: green grass, not straw; white and blue-grey snow, not peach; navy sea. Deep navy water, forest and moss greens, pale warm limestone and sandstone, muted roofs and restrained brass, within the applicable island palette. Matte tactile brushwork, grouped readable forms, fine selective detail and outlines in darkened local colours, never pure black. Small warm window or landing lights only where appropriate; no bloom, broad amber wash or blazing reflections.
 
 Subject: <SUBJECT>. Architectural family and materials: <FAMILY AND MATERIALS, OR NOT APPLICABLE>. Condition and frame: <STATE AND FRAME>. Keep the specified landform and feature count; do not add dramatic hills, cliffs, buildings or planting. Preserve a crisp subject silhouette at 25% scale.
 
@@ -117,4 +117,4 @@ Record the completed prompt verbatim with the references, tool, exposed model id
 
 ## Judged by
 
-Sits seamlessly beside its neighbours on the Arcadia map; matches the reference light; passes `validateTileSet`; under the image budgets.
+Sits seamlessly beside its neighbours on the Arcadia map; matches Council Hall A's light; passes `validateTileSet`; under the image budgets.
