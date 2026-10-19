@@ -1,6 +1,6 @@
 # @knowledgeislands/icons
 
-Line glyphs for Knowledge Islands: 72 drawn by hand on a 24 × 24 grid.
+Line glyphs for Knowledge Islands: 73 drawn by hand on a 24 × 24 grid.
 
 ## The drawing contract
 
@@ -15,8 +15,10 @@ Every file in `svg/` carries exactly these root attributes, and `lintIcon` enfor
 - Only `path`, `circle`, `ellipse`, `line`, `polyline`, `polygon`, `rect` and `g`; no fills, colours or stroke overrides on children (`stroke-dasharray` is allowed).
 - No arc commands in paths: draw curves with Béziers and round things with `circle` or `ellipse`, so bounds can be checked exactly.
 - File names are kebab-case and become the icon name.
+- Glyphs are single-colour (GDR-KI-DESIGN-024). Where a brass accent matters, such as the Beacon's flame, the consumer applies it (for example by colouring one element of its own copy, or by layering a second mark); the glyph file never carries it.
+- `bridge` (the stone arch) maps to no symbol. The translation layer is drawn as `causeway`, and "Bridge" now names only the local app's Act command, for which no bridge is drawn (GDR-KI-PRINCIPAL-013, GDR-KI-DESIGN-018). The file stays so that removing it is not a breaking change; nothing new should use it.
 
-Glyphs (72; the inventory in [docs/briefs/glyph-briefs.md](../../docs/briefs/glyph-briefs.md), with `celestial` drawn as `celestial-guide`, plus `arrow`, `refresh` and `hourglass` for the previews): airport, ancient-forest, archipelago, arrow, beacon, bridge, calendar, capital, celestial-guide, check, chevron, citadel, close, commons, compass, council-hall, current, customs-house, dock, external, filter, fog, grid, hourglass, inbound, info, island, known-lands, lantern, lantern-signal, library, lighthouse, machine, menu, mill, observatory, outbound, port, rail-depot, reef, reef-signal, refresh, resources, role-archivist, role-builder, role-cartographer, role-guardian, role-historian, role-navigator, role-scout, role-steward, route, ruins, scroll, sea-lane, search, streams, terrain, theme, tide-gauge, tower, trade-route, value-community, value-creation, value-exploration, value-growth, value-sustainability, value-trust, vessel, weave, workbench, workshop.
+Glyphs (73; the inventory in [docs/briefs/glyph-briefs.md](../../docs/briefs/glyph-briefs.md), with `celestial` drawn as `celestial-guide`, plus `arrow`, `refresh` and `hourglass` for the previews): airport, ancient-forest, archipelago, arrow, beacon, bridge, calendar, capital, causeway, celestial-guide, check, chevron, citadel, close, commons, compass, council-hall, current, customs-house, dock, external, filter, fog, grid, hourglass, inbound, info, island, known-lands, lantern, lantern-signal, library, lighthouse, machine, menu, mill, observatory, outbound, port, rail-depot, reef, reef-signal, refresh, resources, role-archivist, role-builder, role-cartographer, role-guardian, role-historian, role-navigator, role-scout, role-steward, route, ruins, scroll, sea-lane, search, streams, terrain, theme, tide-gauge, tower, trade-route, value-community, value-creation, value-exploration, value-growth, value-sustainability, value-trust, vessel, weave, workbench, workshop.
 
 ## Adding a glyph
 

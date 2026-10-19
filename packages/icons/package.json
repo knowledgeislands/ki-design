@@ -1,7 +1,7 @@
 {
   "name": "@knowledgeislands/icons",
   "description": "Knowledge Islands line glyphs: 24 × 24 SVG sources, string renderers and a symbol sprite.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "exports": {
     ".": "./src/index.ts",
     "./svg/*": "./svg/*"

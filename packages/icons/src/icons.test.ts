@@ -26,10 +26,10 @@ describe('coverage', () => {
   // `celestial-guide`; Library and Governance values reuse `library` and `council-hall`.
   const inventory = [
     ...['island', 'archipelago', 'route', 'trade-route', 'current', 'weave', 'lighthouse', 'observatory', 'port'],
-    ...['bridge', 'reef', 'terrain', 'ancient-forest', 'grid', 'celestial-guide', 'compass', 'fog', 'ruins'],
+    ...['causeway', 'reef', 'terrain', 'ancient-forest', 'grid', 'celestial-guide', 'compass', 'fog', 'ruins'],
     ...['citadel', 'library', 'council-hall', 'tower', 'calendar', 'resources', 'streams', 'mill', 'workshop'],
     ...['capital', 'commons', 'inbound', 'outbound', 'dock', 'rail-depot', 'airport', 'customs-house'],
-    ...['beacon', 'vessel', 'scroll', 'workbench', 'tide-gauge', 'sea-lane', 'known-lands', 'machine'],
+    ...['beacon', 'vessel', 'scroll', 'workbench', 'tide-gauge', 'sea-lane', 'known-lands', 'machine', 'bridge'],
     ...['lantern', 'lantern-signal', 'reef-signal'],
     ...['role-steward', 'role-archivist', 'role-cartographer', 'role-builder', 'role-navigator', 'role-scout'],
     ...['role-historian', 'role-guardian'],
