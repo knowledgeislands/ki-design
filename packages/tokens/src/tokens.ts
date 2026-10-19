@@ -58,23 +58,40 @@ export type SeaName = (typeof seaNames)[number]
 export const fontNames = ['display', 'smallcaps', 'body', 'sans', 'serif', 'mono'] as const
 export type FontName = (typeof fontNames)[number]
 
-export const spaceSteps = [2, 4, 8, 12, 16, 24, 32, 48, 64] as const
+export const spaceSteps = [2, 4, 8, 12, 16, 24, 32, 48, 64, 96] as const
 export type SpaceStep = (typeof spaceSteps)[number]
 
-export const radiusNames = ['sm', 'md', 'lg'] as const
+export const radiusNames = ['sm', 'md', 'lg', 'round'] as const
 export type RadiusName = (typeof radiusNames)[number]
 
 export const loopLengths = [4, 6, 8, 12, 16, 24, 48] as const
 export type LoopLength = (typeof loopLengths)[number]
+
+export const durationNames = ['state', 'panel', 'map'] as const
+export type DurationName = (typeof durationNames)[number]
 
 interface Token<T> {
   readonly $value: T
   readonly $description?: string
 }
 
+/** A DTCG alias, such as `{color.tile.water}`, names another token by its dotted path. */
+const aliasPattern = /^\{([a-z0-9.-]+)\}$/i
+
+/** A token value with any alias followed to the token it names. */
+export function resolveValue<T>(value: T, seen: readonly string[] = []): T {
+  const path = typeof value === 'string' ? aliasPattern.exec(value)?.[1] : undefined
+  if (!path) return value
+  if (seen.includes(path)) throw new Error(`tokens: alias cycle through {${path}}`)
+  let node: unknown = doc
+  for (const part of path.split('.')) node = (node as Record<string, unknown> | undefined)?.[part]
+  if (!node || typeof node !== 'object' || !('$value' in node)) throw new Error(`tokens: unknown alias {${path}}`)
+  return resolveValue((node as Token<T>).$value, [...seen, path])
+}
+
 function values<K extends string, T>(group: { readonly [P in K]: Token<T> }, keys: readonly K[]): Record<K, T> {
   const out = {} as Record<K, T>
-  for (const key of keys) out[key] = group[key].$value
+  for (const key of keys) out[key] = resolveValue(group[key].$value)
   return out
 }
 
@@ -94,7 +111,12 @@ export const tokens = {
     light: values<WashName, string>(doc.color.wash.light, washNames),
     night: values<WashName, string>(doc.color.wash.night, washNames)
   },
+  /** Flat terrain fills. `ocean` is a deprecated alias of `tile.water`; the flat chart paints water in `sea`. */
   terrain: values<TerrainName, string>(doc.color.terrain, terrainNames),
+  /** Isometric tile colours: `water` is the Modern tiles' water, never the flat chart's sea. */
+  tile: { water: doc.color.tile.water.$value },
+  /** The fog hatch, a map state over any terrain (docs/spec/colour.md). */
+  fog: { light: doc.color.fog.light.$value, night: doc.color.fog.night.$value } satisfies Record<Theme, string>,
   /** Map water by theme (docs/spec/colour.md). */
   sea: {
     light: values<SeaName, string>(doc.color.sea.light, seaNames),
@@ -110,7 +132,13 @@ export const tokens = {
   } satisfies Record<FontName, readonly string[]>,
   space: Object.fromEntries(spaceSteps.map((step) => [step, doc.space[step].$value])) as Record<SpaceStep, string>,
   radius: values<RadiusName, string>(doc.radius, radiusNames),
-  motion: { fps: doc.motion.fps.$value, cycle: doc.motion.cycle.$value, loops: loops as readonly LoopLength[] }
+  motion: {
+    fps: doc.motion.fps.$value,
+    cycle: doc.motion.cycle.$value,
+    loops: loops as readonly LoopLength[],
+    easing: doc.motion.easing.standard.$value as unknown as readonly [number, number, number, number],
+    duration: values<DurationName, string>(doc.motion.duration, durationNames)
+  }
 } as const
 
 export type Tokens = typeof tokens

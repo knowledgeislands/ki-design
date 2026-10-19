@@ -24,6 +24,20 @@ describe('tokens.css', () => {
     expect(css).toContain('--space-64: 64px;')
   })
 
+  test('declares the 0.2.0 additions: fog, tile water, space-96, radius-round and UI motion', () => {
+    expect(css).toContain(`--fog: ${tokens.fog.light};`)
+    expect(css).toContain(`--fog: ${tokens.fog.night};`)
+    expect(css).toContain('--color-fog: var(--fog);')
+    expect(css).toContain('--color-tile-water: #2f5878;')
+    expect(css).toContain('--color-terrain-ocean: var(--color-tile-water);')
+    expect(css).toContain('--space-96: 96px;')
+    expect(css).toContain('--radius-round: 999px;')
+    expect(css).toContain('--motion-easing: cubic-bezier(0.4, 0, 0.2, 1);')
+    expect(css).toContain('--motion-duration-state: 160ms;')
+    expect(css).toContain('--motion-duration-panel: 240ms;')
+    expect(css).toContain('--motion-duration-map: 400ms;')
+  })
+
   test('never declares a property twice in one block', () => {
     for (const block of cssBlocks()) {
       const names = block.declarations.map(([p]) => p)

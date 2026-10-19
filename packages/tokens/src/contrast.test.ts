@@ -1,7 +1,17 @@
 import { describe, expect, test } from 'bun:test'
 import { mix, parseHex, toHex } from './colour.ts'
 import { contrastFloor, contrastRatio, relativeLuminance } from './contrast.ts'
-import { nightTerrain, terrainNames, textRoles, themes, tokens, washAmount, washNames, washSource } from './tokens.ts'
+import {
+  nightTerrain,
+  resolveValue,
+  terrainNames,
+  textRoles,
+  themes,
+  tokens,
+  washAmount,
+  washNames,
+  washSource
+} from './tokens.ts'
 
 describe('colour helpers', () => {
   test('parseHex and toHex round-trip', () => {
@@ -74,5 +84,18 @@ describe('sea', () => {
     for (const theme of themes) {
       expect(relativeLuminance(tokens.sea[theme].shallow)).toBeGreaterThan(relativeLuminance(tokens.sea[theme].sea))
     }
+  })
+})
+
+describe('fog and tile water', () => {
+  // The fog hatch carries hex patterns and halo labels, so its floor is the 3:1 boundary floor, not the text floor.
+  test.each(themes)('the %s ink holds 3:1 on the fog hatch', (theme) => {
+    expect(contrastRatio(tokens.roles[theme].ink, tokens.fog[theme])).toBeGreaterThanOrEqual(contrastFloor.boundary)
+  })
+
+  test('the terrain ocean token is a deprecated alias of tile water', () => {
+    expect(tokens.terrain.ocean).toBe(tokens.tile.water)
+    expect(resolveValue('{color.tile.water}')).toBe('#2f5878')
+    expect(() => resolveValue('{color.nowhere}')).toThrow()
   })
 })

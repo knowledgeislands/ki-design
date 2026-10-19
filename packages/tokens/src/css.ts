@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import {
   coreNames,
   tokens as defaultTokens,
+  durationNames,
   fontNames,
   radiusNames,
   roleNames,
@@ -30,7 +31,8 @@ function themeDeclarations(t: Tokens, theme: Theme): Declaration[] {
   return [
     ['color-scheme', theme === 'night' ? 'dark' : 'light'],
     ...roleNames.map((role): Declaration => [`--${role}`, t.roles[theme][role]]),
-    ...washNames.map((wash): Declaration => [`--wash-${wash}`, t.washes[theme][wash]])
+    ...washNames.map((wash): Declaration => [`--wash-${wash}`, t.washes[theme][wash]]),
+    ['--fog', t.fog[theme]]
   ]
 }
 
@@ -43,13 +45,20 @@ function staticDeclarations(t: Tokens): Declaration[] {
       .map((name): Declaration => [`--color-${name}`, t.core[name]]),
     ...roleNames.map((role): Declaration => [`--color-${role}`, `var(--${role})`]),
     ...washNames.map((wash): Declaration => [`--color-wash-${wash}`, `var(--wash-${wash})`]),
-    ...terrainNames.map((name): Declaration => [`--color-terrain-${name}`, t.terrain[name]]),
+    ['--color-fog', 'var(--fog)'],
+    ['--color-tile-water', t.tile.water],
+    // `color.terrain.ocean` is a deprecated alias of `color.tile.water` (GDR-KI-DESIGN-023).
+    ...terrainNames.map(
+      (name): Declaration => [`--color-terrain-${name}`, name === 'ocean' ? 'var(--color-tile-water)' : t.terrain[name]]
+    ),
     ...fontNames.map((name): Declaration => [`--font-${name}`, fontStack(t.fonts[name])]),
     ...spaceSteps.map((step): Declaration => [`--space-${step}`, t.space[step]]),
     ...radiusNames.map((name): Declaration => [`--radius-${name}`, t.radius[name]]),
     ['--motion-fps', String(t.motion.fps)],
     ['--motion-cycle', String(t.motion.cycle)],
-    ['--motion-frame', `${(1000 / t.motion.fps).toFixed(3)}ms`]
+    ['--motion-frame', `${(1000 / t.motion.fps).toFixed(3)}ms`],
+    ['--motion-easing', `cubic-bezier(${t.motion.easing.join(', ')})`],
+    ...durationNames.map((name): Declaration => [`--motion-duration-${name}`, t.motion.duration[name]])
   ]
 }
 
