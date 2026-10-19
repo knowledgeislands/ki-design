@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>@@title@@</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Cormorant+SC:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.dd-k{font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4a5568;margin-right:6px}
+.dd-l{font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4a5568;margin-bottom:3px}
+.dd-t{font-size:12.5px;line-height:1.4;color:#1a2030}
+.dd-n{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;line-height:1}
+</style>
+</helmet>
+<div style="width:1440px;height:@@height@@px;box-sizing:border-box;padding:48px 64px 40px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:18px;overflow:hidden">
+
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <div style="font-family:'Cormorant SC',serif;font-size:16px;font-weight:600;letter-spacing:0.14em;color:#8a5a12">@@kicker@@</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;line-height:1.05;color:#0f2440">@@title@@</div>
+      <div style="font-size:15px;color:#4a5568">What is settled, and what still needs Kit. Agreed: one record each in docs/decisions/. Open: docs/decisions/OPEN.md, each with its recommendation.</div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <div style="background:#dfe9e1;border-radius:8px;padding:10px 16px;min-width:92px"><div class="dd-n" style="color:#2d5a3d">{{c.agreed}}</div><div style="font-size:12px;font-weight:600;color:#2d5a3d">agreed</div></div>
+      <div style="background:#f3dfd9;border-radius:8px;padding:10px 16px;min-width:92px"><div class="dd-n" style="color:#9b2c1c">{{c.open}}</div><div style="font-size:12px;font-weight:600;color:#9b2c1c">open</div></div>
+      <div style="background:#fffaf0;border:1px solid #d4c9b4;border-radius:8px;padding:10px 16px;min-width:92px"><div class="dd-n" style="color:#8a5a12">{{c.answered}}</div><div style="font-size:12px;font-weight:600;color:#4a5568">answered here</div></div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+    <span style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4a5568;margin-right:4px">Show</span>
+    <sc-for list="{{kinds}}" as="f" hint-placeholder-count="3">
+      <button type="button" aria-pressed="{{f.pressed}}" onClick="{{ f.pick }}" style="{{f.style}}">{{f.label}}</button>
+    </sc-for>
+    <span style="width:18px"></span>
+    <span style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4a5568;margin-right:4px">Open</span>
+    <sc-for list="{{groups}}" as="f" hint-placeholder-count="3">
+      <button type="button" aria-pressed="{{f.pressed}}" onClick="{{ f.pick }}" style="{{f.style}}">{{f.label}} {{f.count}}</button>
+    </sc-for>
+    <span style="font-size:12px;color:#4a5568;margin-left:auto">Click a row to open it. Yes / No answers are kept only on this board.</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:{{cols}};gap:24px;flex:1;min-height:0">
+    <div style="display:{{dCol}};flex-direction:column;gap:3px;min-width:0">
+      <div style="display:flex;align-items:baseline;gap:10px;padding-bottom:6px;border-bottom:2px solid #2d5a3d;margin-bottom:4px">
+        <span style="font-family:'Cormorant SC',serif;font-size:20px;font-weight:600;color:#2d5a3d;letter-spacing:0.06em">Agreed</span>
+        <span style="font-size:12px;color:#4a5568">{{dShown}} · decision records GDR-KI-DESIGN-*; some still need enacting into ki-principal</span>
+      </div>
+        <sc-for list="{{dRows}}" as="r" hint-placeholder-count="@@count:decisions@@">
+          <div style="{{r.box}}">
+            <button type="button" aria-expanded="{{r.expanded}}" onClick="{{ r.toggle }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:8px;width:100%;min-height:32px;padding:4px 12px;font-family:Inter,sans-serif">
+              <span style="font-size:11px;color:#8b94a3;width:10px;flex:none">{{r.caret}}</span>
+              <span style="font-size:11px;font-weight:600;color:#8a5a12;white-space:nowrap;flex:none">{{r.tag}}</span>
+              <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px"><span style="font-size:13.5px;font-weight:600;color:#0f2440;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{r.title}}</span><span style="display:{{r.subDisp}};font-size:11.5px;color:#4a5568;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{r.sub}}</span></span>
+              <span style="display:{{r.ansDisp}};{{r.ansStyle}}">{{r.ans}}</span>
+              <span style="font-size:10.5px;color:#4a5568;border:1px solid #a7adb8;border-radius:4px;padding:2px 6px;white-space:nowrap">{{r.scope}}</span>
+            </button>
+            <div style="display:{{r.bodyDisp}};padding:0 14px 10px 30px;flex-direction:column;gap:7px">
+              <div style="font-size:13px;line-height:1.4;color:#1a2030"><span class="dd-k">{{r.mainLabel}}</span> {{r.main}}</div>
+              <div style="display:{{r.recDisp}};background:#f1e8d3;border-left:3px solid #8a5a12;border-radius:4px;padding:8px 10px;align-items:center;gap:10px">
+                <div style="flex:1;min-width:0"><div style="font-size:13.5px;font-weight:600;color:#1a2030;line-height:1.35">{{r.rec}}</div><div style="font-size:11px;color:#8a5a12;margin-top:2px">Recommendation in OPEN.md</div></div>
+                <button type="button" onClick="{{ r.yes }}" style="{{r.yesStyle}}">Yes</button>
+                <button type="button" onClick="{{ r.no }}" style="{{r.noStyle}}">No</button>
+              </div>
+              <sc-for list="{{r.facts}}" as="f" hint-placeholder-count="2">
+                <div style="font-size:12.5px;line-height:1.4;color:#4a5568"><span class="dd-k">{{f.k}}</span> {{f.v}}</div>
+              </sc-for>
+              <div style="font-size:11px;color:#8b94a3">{{r.src}}</div>
+            </div>
+          </div>
+        </sc-for>
+    </div>
+    <div style="display:{{oCol}};flex-direction:column;gap:3px;min-width:0">
+      <div style="display:flex;align-items:baseline;gap:10px;padding-bottom:6px;border-bottom:2px solid #9b2c1c;margin-bottom:4px">
+        <span style="font-family:'Cormorant SC',serif;font-size:20px;font-weight:600;color:#9b2c1c;letter-spacing:0.06em">Open</span>
+        <span style="font-size:12px;color:#4a5568">{{oShown}} · OPEN.md; brass = the recommendation</span>
+      </div>
+        <sc-for list="{{oRows}}" as="r" hint-placeholder-count="@@count:open@@">
+          <div style="{{r.box}}">
+            <button type="button" aria-expanded="{{r.expanded}}" onClick="{{ r.toggle }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:8px;width:100%;min-height:32px;padding:4px 12px;font-family:Inter,sans-serif">
+              <span style="font-size:11px;color:#8b94a3;width:10px;flex:none">{{r.caret}}</span>
+              <span style="font-size:11px;font-weight:600;color:#8a5a12;white-space:nowrap;flex:none">{{r.tag}}</span>
+              <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px"><span style="font-size:13.5px;font-weight:600;color:#0f2440;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{r.title}}</span><span style="display:{{r.subDisp}};font-size:11.5px;color:#4a5568;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{r.sub}}</span></span>
+              <span style="display:{{r.ansDisp}};{{r.ansStyle}}">{{r.ans}}</span>
+              <span style="font-size:10.5px;color:#4a5568;border:1px solid #a7adb8;border-radius:4px;padding:2px 6px;white-space:nowrap">{{r.scope}}</span>
+            </button>
+            <div style="display:{{r.bodyDisp}};padding:0 14px 10px 30px;flex-direction:column;gap:7px">
+              <div style="font-size:13px;line-height:1.4;color:#1a2030"><span class="dd-k">{{r.mainLabel}}</span> {{r.main}}</div>
+              <div style="display:{{r.recDisp}};background:#f1e8d3;border-left:3px solid #8a5a12;border-radius:4px;padding:8px 10px;align-items:center;gap:10px">
+                <div style="flex:1;min-width:0"><div style="font-size:13.5px;font-weight:600;color:#1a2030;line-height:1.35">{{r.rec}}</div><div style="font-size:11px;color:#8a5a12;margin-top:2px">Recommendation in OPEN.md</div></div>
+                <button type="button" onClick="{{ r.yes }}" style="{{r.yesStyle}}">Yes</button>
+                <button type="button" onClick="{{ r.no }}" style="{{r.noStyle}}">No</button>
+              </div>
+              <sc-for list="{{r.facts}}" as="f" hint-placeholder-count="2">
+                <div style="font-size:12.5px;line-height:1.4;color:#4a5568"><span class="dd-k">{{f.k}}</span> {{f.v}}</div>
+              </sc-for>
+              <div style="font-size:11px;color:#8b94a3">{{r.src}}</div>
+            </div>
+          </div>
+        </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":@@height@@}}'>
+class Component extends DCLogic {
+  agreed() { return @@json:agreed@@; }
+  open() { return @@json:open@@; }
+  groupNames() { return @@json:groups@@; }
+  renderVals() {
+    const s = this.state || {};
+    const kind = s.kind || 'all';
+    const group = s.group || 'all';
+    const ans = s.ans || {};
+    const D = this.agreed();
+    const O = this.open();
+    const openId = s.openId === undefined ? 'GDR-KI-DESIGN-008' : s.openId;
+    const chip = (on) => 'font-family:Inter,sans-serif;font-size:12px;font-weight:500;padding:5px 10px;border-radius:999px;cursor:pointer;line-height:1;' +
+      (on ? 'background:#0f2440;color:#f5efe0;border:1px solid #0f2440;' : 'background:#fffaf0;color:#1a2030;border:1px solid #d4c9b4;');
+    const kinds = [['all', 'Both columns'], ['agreed', 'Agreed'], ['open', 'Open']].map(([id, label]) => ({
+      label: label, pressed: id === kind ? 'true' : 'false', style: chip(id === kind), pick: () => this.setState({ kind: id })
+    }));
+    const groups = [['all', 'All']].concat(this.groupNames().map(g => [g, g])).map(([id, label]) => ({
+      label: label, count: O.filter(x => id === 'all' || x.group === id).length,
+      pressed: id === group ? 'true' : 'false', style: chip(id === group), pick: () => this.setState({ group: id })
+    }));
+    const btn = (on, colour) => 'font-family:Inter,sans-serif;font-size:12px;font-weight:600;padding:6px 12px;border-radius:6px;cursor:pointer;flex:none;' +
+      (on ? 'background:' + colour + ';color:#fffaf0;border:1px solid ' + colour + ';' : 'background:#fffaf0;color:' + colour + ';border:1px solid ' + colour + ';');
+    const shell = (id, isOpen) => {
+      const on = id === openId;
+      return {
+        caret: on ? '▾' : '▸', expanded: on ? 'true' : 'false', bodyDisp: on ? 'flex' : 'none',
+        toggle: () => this.setState({ openId: on ? null : id }),
+        box: 'background:' + (on ? '#ffffff' : '#fffaf0') + ';border:1px solid ' + (on ? '#0f2440' : '#d4c9b4') + ';border-radius:8px;border-left:3px solid ' + (isOpen ? '#9b2c1c' : '#2d5a3d') + ';flex:none;'
+      };
+    };
+    const dRows = D.map(d => Object.assign(shell(d.id, false), {
+      tag: d.n, title: d.title, sub: d.summary, subDisp: 'block', scope: d.scope, mainLabel: 'Decision', main: d.decision,
+      recDisp: 'none', rec: '', yes: () => {}, no: () => {}, yesStyle: '', noStyle: '',
+      ans: '', ansDisp: 'none', ansStyle: '',
+      facts: [{ k: 'Date', v: d.date }],
+      src: d.id + ' · ' + d.path
+    }));
+    const oRows = O.filter(x => group === 'all' || x.group === group).map(x => {
+      const id = 'open:' + x.title;
+      const a = ans[id];
+      const setAns = (v) => { const n = Object.assign({}, ans); if (n[id] === v) delete n[id]; else n[id] = v; this.setState({ ans: n }); };
+      const facts = [['Status', x.status], ['Meanwhile', x.meanwhile], ['Affects', x.affects]].filter(f => f[1]).map(f => ({ k: f[0], v: f[1] }));
+      return Object.assign(shell(id, true), {
+        tag: '', title: x.title, sub: '', subDisp: 'none', scope: x.group === 'Design questions' ? 'Design' : 'Drift', mainLabel: 'Question', main: x.q,
+        rec: x.rec, recDisp: x.rec ? 'flex' : 'none',
+        yesStyle: btn(a === 'yes', '#2d5a3d'), noStyle: btn(a === 'no', '#9b2c1c'),
+        yes: () => setAns('yes'), no: () => setAns('no'),
+        ans: a === 'yes' ? 'Kit: yes' : (a === 'no' ? 'Kit: no' : ''), ansDisp: a ? 'inline-block' : 'none',
+        ansStyle: 'font-size:10.5px;font-weight:600;padding:3px 6px;border-radius:4px;white-space:nowrap;' + (a === 'yes' ? 'color:#2d5a3d;background:#dfe9e1;' : 'color:#9b2c1c;background:#f3dfd9;'),
+        facts: facts, src: 'docs/decisions/OPEN.md · ' + x.group
+      });
+    });
+    const showD = kind !== 'open', showO = kind !== 'agreed';
+    return {
+      c: { agreed: D.length, open: O.length, answered: Object.keys(ans).length + ' / ' + O.length },
+      kinds: kinds, groups: groups, dRows: dRows, oRows: oRows,
+      dShown: D.length + ' records', oShown: oRows.length + ' of ' + O.length,
+      cols: (showD && showO) ? '1fr 1fr' : '1fr',
+      dCol: showD ? 'flex' : 'none', oCol: showO ? 'flex' : 'none'
+    };
+  }
+}
+</script>
+</body>
+</html>

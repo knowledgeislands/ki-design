@@ -25,6 +25,6 @@
     "erasableSyntaxOnly": true,
     "skipLibCheck": true
   },
-  "include": ["*.ts", "scripts/**/*.ts"],
+  "include": ["*.ts", "scripts/**/*.ts", "docs/design-review/generators/**/*.ts"],
   "exclude": ["node_modules", "dist", "packages"]
 }

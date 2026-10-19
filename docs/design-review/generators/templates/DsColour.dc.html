@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Colour — day and night</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Cormorant+SC:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.dsc-kick{font-family:'Cormorant SC',serif;font-size:17px;font-weight:600;letter-spacing:0.14em;color:#8a5a12}
+.dsc-h1{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;line-height:1.05;color:#0f2440;margin:2px 0 6px}
+.dsc-lede{font-size:15px;color:#4a5568;line-height:1.45}
+.dsc-card{background:#fffaf0;border:1px solid #d4c9b4;border-radius:8px;box-sizing:border-box}
+.dsc-ch{display:flex;align-items:center;gap:8px;font-family:'Cormorant SC',serif;font-size:16px;font-weight:600;letter-spacing:0.08em}
+.dsc-chip{display:inline-block;font-family:Inter,sans-serif;font-size:11px;font-weight:600;line-height:1;padding:4px 8px;border-radius:999px;letter-spacing:0;white-space:nowrap}
+.dsc-official{color:#0f2440;background:#e3e8ef}
+.dsc-agreed{color:#2d5a3d;background:#dfe9e1}
+.dsc-proposed{color:#8a5a12;background:#f1e8d3}
+.dsc-open{color:#9b2c1c;background:#f3dfd9}
+.dsc-scope{color:#4a5568;background:transparent;border:1px solid #b8bfc9;padding:3px 7px}
+.dsc-btn{font-family:Inter,sans-serif;text-align:left;cursor:pointer;box-sizing:border-box;margin:0}
+.dsc-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.dsc-g{display:grid;gap:8px}
+</style>
+</helmet>
+<div style="width:1440px;height:1100px;box-sizing:border-box;padding:48px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:16px;overflow:hidden">
+
+  <!-- Header -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;height:104px;flex:none">
+    <div>
+      <div class="dsc-kick">Design system · 3 of 8</div>
+      <div class="dsc-h1">Colour — day and night</div>
+      <div class="dsc-lede">One palette, two papers. Night is the reference rendering: judge it first, then check day. Click any swatch for its token, both values and the rule behind it.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none">
+      <div role="group" aria-label="Rendering" style="display:flex;border:1px solid #9a8358;border-radius:999px;padding:3px;gap:2px;background:#fffaf0">
+        <button type="button" class="dsc-btn" aria-pressed="{{dayPressed}}" onClick="{{ toDay }}" style="{{dayBtn}}">Day</button>
+        <button type="button" class="dsc-btn" aria-pressed="{{nightPressed}}" onClick="{{ toNight }}" style="{{nightBtn}}">Night</button>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;font-size:12px;color:#4a5568">
+        <span>Night is reference</span><span class="dsc-chip dsc-agreed">Agreed</span>
+        <span style="margin-left:8px">App follows the OS theme</span><span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">App</span>
+        <span style="margin-left:8px">Night on the site</span><span class="dsc-chip dsc-open">Open</span><span class="dsc-chip dsc-scope">Site</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:24px;flex:1;min-height:0">
+
+    <!-- Left column -->
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:16px">
+
+      <!-- Sample panel -->
+      <div style="{{panelStyle}}">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-family:'Cormorant SC',serif;font-size:15px;font-weight:600;letter-spacing:0.16em;color:{{m.warn}}">The journey</div>
+          <div class="dsc-mono" style="font-size:11px;color:{{m.muted}}">sample · {{modeName}}</div>
+        </div>
+        <div style="height:1px;width:56px;background:{{m.warn}};margin-top:-6px"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;line-height:1.1;color:{{m.ink}}">The Port — Capture</div>
+        <div style="font-size:15px;line-height:1.55;color:{{m.ink}}">Information arrives without judgement and is routed inward. Every arrival is logged with its source and time. <span style="color:{{m.accent}};text-decoration:underline;text-underline-offset:3px">Explore the map</span></div>
+        <div style="font-size:13px;color:{{m.muted}};font-variant-numeric:tabular-nums">Charted 2026-10-18 09:42 · via loopback</div>
+
+        <div style="border:1px solid {{m.rule}};border-radius:8px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:{{m.ink}}">Engineering Forge</div>
+            <div style="font-size:13px;color:{{m.muted}}">Build, ship and evolve software systems.</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;flex:none">
+            <span style="font-size:12px;font-weight:600;color:{{m.ok}};background:{{m.okWash}};padding:3px 8px;border-radius:999px">thriving</span>
+            <span style="font-size:13px;font-weight:500;color:{{m.ink}};border:1px solid {{m.boundary}};border-radius:4px;padding:4px 10px">Open record</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;border-top:1px solid {{m.rule}}">
+          <div style="display:flex;gap:10px;align-items:center;padding:9px 10px;background:{{m.warnWash}};border-bottom:1px solid {{m.rule}}">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 16 16" style="flex:none">
+              <circle cx="8" cy="8" r="7.3" fill="{{m.paper}}" stroke="{{m.warn}}" stroke-width="1.2"/>
+              <path d="M8 2.6v1.6M6 4.2h4" stroke="{{m.ink}}" stroke-width="0.9"/>
+              <path d="M5.6 5h4.8l-0.9 6.4h-3z" fill="{{m.warn}}" stroke="{{m.ink}}" stroke-width="0.8"/>
+              <path d="M5 12h6" stroke="{{m.ink}}" stroke-width="1"/>
+            </svg>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:13px;font-weight:600;color:{{m.warn}}">Attention · branch behind its remote</div>
+              <div class="dsc-mono" style="font-size:11.5px;color:{{m.muted}}">tools-mgit · 2026-10-17 09:12</div>
+            </div>
+            <div style="font-size:11px;font-weight:600;color:{{m.warn}}">Lantern</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;padding:9px 10px;background:{{m.badWash}};border-bottom:1px solid {{m.rule}}">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 16 16" style="flex:none">
+              <circle cx="8" cy="8" r="7.3" fill="{{m.paper}}" stroke="{{m.bad}}" stroke-width="1.2"/>
+              <path d="M2.8 12l2 -5 1.8 2.6 1.8 -5.6 1.8 4.8 1.6 -2 1.4 5.2z" fill="{{m.bad}}" stroke="{{m.ink}}" stroke-width="0.6"/>
+            </svg>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:13px;font-weight:600;color:{{m.bad}}">Blocking · merge conflict in its working tree</div>
+              <div class="dsc-mono" style="font-size:11.5px;color:{{m.muted}}">tools-ki · 2026-10-16 02:13</div>
+            </div>
+            <div style="font-size:11px;font-weight:600;color:{{m.bad}}">Reef</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:{{m.muted}}">Ranked by severity, then by last change. Gold: attention. Rust: blocking.</div>
+      </div>
+
+      <!-- Detail -->
+      <div class="dsc-card" style="flex:1;min-height:0;padding:16px 18px;display:flex;flex-direction:column;gap:10px;border-top:3px solid #0f2440">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="dsc-kick" style="font-size:14px">Selected · {{detail.group}}</div>
+          <div style="display:flex;gap:6px"><span class="dsc-chip {{detail.statusCls}}">{{detail.status}}</span><span class="dsc-chip dsc-scope">{{detail.scope}}</span></div>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;line-height:1;color:#0f2440">{{detail.name}}</div>
+          <div class="dsc-mono" style="font-size:12px;color:#4a5568">{{detail.cssVar}}</div>
+        </div>
+        <div class="dsc-mono" style="font-size:12px;color:#1a2030;background:#f5efe0;border:1px solid #e8e0d0;border-radius:4px;padding:5px 8px">{{detail.path}}</div>
+
+        <div style="display:{{detail.pairDisp}};gap:10px">
+          <div style="flex:1;display:flex;gap:10px;align-items:center;border:1px solid #d4c9b4;border-radius:6px;padding:8px">
+            <span style="{{detail.daySw}}"></span>
+            <div><div style="font-size:11px;font-weight:600;color:#4a5568;letter-spacing:0.06em">DAY</div><div class="dsc-mono" style="font-size:13px">{{detail.day}}</div></div>
+          </div>
+          <div style="flex:1;display:flex;gap:10px;align-items:center;border:1px solid #d4c9b4;border-radius:6px;padding:8px">
+            <span style="{{detail.nightSw}}"></span>
+            <div><div style="font-size:11px;font-weight:600;color:#4a5568;letter-spacing:0.06em">NIGHT</div><div class="dsc-mono" style="font-size:13px">{{detail.night}}</div></div>
+          </div>
+        </div>
+        <div style="display:{{detail.stripDisp}};gap:6px">
+          <sc-for list="{{detail.strip}}" as="sw" hint-placeholder-count="5">
+            <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+              <span style="{{sw.st}}"></span>
+              <span style="font-size:11px;color:#4a5568">{{sw.label}}</span>
+              <span class="dsc-mono" style="font-size:11px">{{sw.hex}}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-size:13px;color:#1a2030;font-variant-numeric:tabular-nums;display:{{detail.ratioDisp}}"><strong style="font-weight:600">Contrast</strong> · {{detail.ratio}}</div>
+        <div style="font-size:13.5px;line-height:1.5;color:#1a2030">{{detail.note}}</div>
+        <div style="font-size:12px;color:#4a5568;margin-top:auto">Source · {{detail.src}}</div>
+      </div>
+      <div style="font-size:11px;color:#4a5568;line-height:1.4">Status where DESIGN.md §5 gives none: shown as Agreed (values held in tokens.json, changed only by Kit's approval, §16.1). Terrain night fills and fog come from DESIGN.md §5.6; tokens.json does not yet hold them.</div>
+    </div>
+
+    <!-- Right column -->
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px">
+
+      <!-- Roles, washes, sea: on the current paper -->
+      <div style="{{rolesCard}}">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="dsc-ch" style="color:{{m.ink}}">Semantic roles on {{modeName}} paper <span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope" style="color:{{m.muted}};border-color:{{m.boundary}}">Both</span></div>
+          <div style="font-size:12px;color:{{m.muted}}">WCAG ratio against {{m.paper}}, computed live · text ≥ 4.5 · controls ≥ 3</div>
+        </div>
+        <div class="dsc-g" style="grid-template-columns:repeat(5,1fr)">
+          <sc-for list="{{roles}}" as="r" hint-placeholder-count="10">
+            <button type="button" class="dsc-btn" aria-pressed="{{r.pressed}}" aria-label="{{r.aria}}" onClick="{{ r.pick }}" style="{{r.tile}}">
+              <div style="display:flex;align-items:center;gap:7px;width:100%">
+                <span style="{{r.sw}}"></span>
+                <span style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;line-height:1;color:{{r.fg}}">Aa</span>
+                <span style="{{r.badge}}">{{r.verdict}}</span>
+              </div>
+              <div class="dsc-mono" style="font-size:12px;font-weight:600;color:{{m.ink}}">{{r.label}}</div>
+              <div class="dsc-mono" style="font-size:11px;color:{{m.muted}}">{{r.hex}} · {{r.ratio}}</div>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:24px;font-size:12px;color:{{m.muted}}">
+          <span style="flex:3">Washes · role text on its wash</span>
+          <span style="flex:5">Sea fills · maps</span>
+        </div>
+        <div class="dsc-g" style="grid-template-columns:repeat(8,1fr)">
+          <sc-for list="{{washSea}}" as="w" hint-placeholder-count="8">
+            <button type="button" class="dsc-btn" aria-pressed="{{w.pressed}}" aria-label="{{w.aria}}" onClick="{{ w.pick }}" style="{{w.tile}}">
+              <div style="{{w.block}}">{{w.sample}}</div>
+              <div class="dsc-mono" style="font-size:11px;font-weight:600;color:{{m.ink}}">{{w.label}}</div>
+              <div class="dsc-mono" style="font-size:10.5px;color:{{m.muted}}">{{w.hex}} {{w.ratio}}</div>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Core palette -->
+      <div class="dsc-card" style="padding:12px 16px;display:flex;flex-direction:column;gap:9px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="dsc-ch" style="color:#0f2440">Core palette · 15 <span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">Both</span></div>
+          <div style="font-size:12px;color:#4a5568">Same in both themes. Never #000 or #fff. Gold is never text on parchment (2.32:1).</div>
+        </div>
+        <div class="dsc-g" style="grid-template-columns:repeat(8,1fr)">
+          <sc-for list="{{core}}" as="c" hint-placeholder-count="15">
+            <button type="button" class="dsc-btn" aria-pressed="{{c.pressed}}" aria-label="{{c.aria}}" onClick="{{ c.pick }}" style="{{c.tile}}">
+              <span style="{{c.block}}"></span>
+              <span style="font-size:11.5px;font-weight:600;color:#1a2030">{{c.label}}</span>
+              <span class="dsc-mono" style="font-size:10.5px;color:#4a5568">{{c.hex}}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Terrain -->
+      <div class="dsc-card" style="padding:12px 16px;display:flex;flex-direction:column;gap:9px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="dsc-ch" style="color:#0f2440">Terrain fills · {{modeName}} <span class="dsc-chip dsc-proposed">Proposed</span><span class="dsc-chip dsc-scope">Both</span></div>
+          <div style="font-size:12px;color:#4a5568">Every terrain also carries a pattern. Labels always sit on a paper halo.</div>
+        </div>
+        <div class="dsc-g" style="grid-template-columns:repeat(7,1fr)">
+          <sc-for list="{{terrain}}" as="t" hint-placeholder-count="13">
+            <button type="button" class="dsc-btn" aria-pressed="{{t.pressed}}" aria-label="{{t.aria}}" onClick="{{ t.pick }}" style="{{t.tile}}">
+              <span style="{{t.block}}"></span>
+              <span style="font-size:11.5px;font-weight:600;color:#1a2030">{{t.label}}</span>
+              <span class="dsc-mono" style="font-size:10.5px;color:#4a5568">{{t.hex}}</span>
+            </button>
+          </sc-for>
+          <div style="font-size:11.5px;line-height:1.4;color:#9b2c1c;padding:4px 2px">Ocean: the two sources disagree. Click it.</div>
+        </div>
+      </div>
+
+      <!-- Per-island palettes -->
+      <div class="dsc-card" style="padding:12px 16px;display:flex;flex-direction:column;gap:9px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="dsc-ch" style="color:#0f2440">Per-island palettes <span class="dsc-chip dsc-proposed">Proposed</span><span class="dsc-chip dsc-scope">Both</span></div>
+          <div style="font-size:12px;color:#4a5568">sea · land · accent land · stone · brass. Recolours art only; never the roles.</div>
+        </div>
+        <div class="dsc-g" style="grid-template-columns:repeat(4,1fr);gap:10px">
+          <sc-for list="{{palettes}}" as="p" hint-placeholder-count="4">
+            <button type="button" class="dsc-btn" aria-pressed="{{p.pressed}}" aria-label="{{p.aria}}" onClick="{{ p.pick }}" style="{{p.tile}}">
+              <div style="display:flex;width:100%;height:20px;border-radius:3px;overflow:hidden">
+                <sc-for list="{{p.cols}}" as="pc" hint-placeholder-count="5"><span style="{{pc.st}}"></span></sc-for>
+              </div>
+              <span style="font-size:12px;font-weight:600;color:#1a2030">{{p.label}}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = { mode: 'night', sel: 'role.warn' }; }
+
+  lum(h){
+    const c = [1,3,5].map(i => parseInt(h.substr(i,2),16) / 255).map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4));
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+  cr(a, b){ const x = this.lum(a), y = this.lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  fx(n){ return n.toFixed(2); }
+
+  data(){
+    if (this._d) return this._d;
+    const P = { light:'#f5efe0', night:'#0f2440' };
+    const roles = [
+      ['paper','#f5efe0','#0f2440','bg','Page background: parchment by day, navy by night. Every ratio on this board is measured against it.'],
+      ['ink','#1a2030','#f5efe0','text','Body text. Never pure black or white. Held at 4.5:1 or more by test in the app.'],
+      ['muted','#4a5568','#a9b4c4','text','Secondary text and metadata. Night muted is a cool neutral on purpose: sandstone shares gold’s hue, so metadata would read as warning.'],
+      ['accent','#1b3a5c','#9fbbd8','text','Links and primary actions (ocean by day). Also the 2 px focus outline, 2 px offset.'],
+      ['ok','#2d5a3d','#8fc4a0','text','Healthy state (forest by day). Always paired with a word: colour is never the only carrier.'],
+      ['teal','#317070','#7fc2c0','text','Informational highlight. DESIGN.md lists it as “(teal)” with no CSS role name; tokens.json names it role.teal.'],
+      ['warn','#8a5a12','#c8963c','text','Attention: the Lantern. Text gold by day, gold by night. Gold means attention, alone; one brass call to action per view.'],
+      ['bad','#9b2c1c','#f0947a','text','Blocking or failed: the Reef. Rust by day.'],
+      ['rule','#d4c9b4','#24476e','rule','Decorative hairline: table rows, pane edges, frames. No floor; the ratio is recorded so a change is deliberate. Never a control’s edge.'],
+      ['boundary','#9a8358','#5f7896','ctrl','A control’s edge: inputs, selects, buttons, pickers, focusable hexes. Held to 3:1 (WCAG 1.4.11).']
+    ];
+    const items = {};
+    roles.forEach(r => {
+      items['role.' + r[0]] = { id:'role.' + r[0], group:'Semantic role', name: r[0], cssVar: r[0] === 'teal' ? '(no CSS role name)' : '--' + r[0],
+        path: 'color.role.light.' + r[0] + '  ·  color.role.night.' + r[0], day: r[1], night: r[2], kind: r[3], note: r[4],
+        status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.2, §5.4 (values from PDR-KI-OBSERVA-002)' };
+    });
+    const washes = [
+      ['ok','#ddddcc','#1e374c','Forest 12 % into paper','thriving'],
+      ['warn','#f1e8d3','#1e2d40','Gold 8 % into paper','Lantern'],
+      ['bad','#ead8c8','#2a3147','Rust 12 % into paper','Reef']
+    ];
+    washes.forEach(w => {
+      items['wash.' + w[0]] = { id:'wash.' + w[0], group:'Wash', name: w[0] + ' wash', cssVar:'--' + w[0] + '-wash', path:'color.wash.light.' + w[0] + '  ·  color.wash.night.' + w[0],
+        day: w[1], night: w[2], kind:'wash', role: w[0], sample: w[4],
+        note: w[3] + '. Status chips and the Beacon’s severity column are drawn on it, with the role’s own text on top. The mix is the source of truth; the token build emits the hex.',
+        status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.3' };
+    });
+    const sea = [
+      ['deep','--sea-deep','#b9cfd2','#0b1b31','Open ocean far from land.'],
+      ['sea','--sea','#d6e3e1','#0f2440','Default water. By night it is the night paper itself.'],
+      ['shallow','--sea-shallow','#e4ece4','#17345a','Water within one hex of land.'],
+      ['current','--current','#317070','#7fc2c0','Current lines.'],
+      ['lane','--lane','#8a5a12','#c8963c','Trade-route lanes: solid when active, dashed when awaiting reciprocity.']
+    ];
+    sea.forEach(s => {
+      items['sea.' + s[0]] = { id:'sea.' + s[0], group:'Sea fill', name: s[0], cssVar: s[1], path:'color.sea.light.' + s[0] + '  ·  color.sea.night.' + s[0],
+        day: s[2], night: s[3], kind:'fill', note: s[4], status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.5' };
+    });
+    const core = [
+      ['navy','#0f2440','Night paper, deep sea, hero ground.'],
+      ['ocean','#1b3a5c','Accent and links by day; open sea.'],
+      ['teal','#317070','Shallows, currents, secondary accent.'],
+      ['mist','#eef1f5','Cool alternate surface. Also the snow terrain.'],
+      ['forest','#2d5a3d','OK by day; forests.'],
+      ['moss','#4a7a5a','Secondary land; young growth.'],
+      ['sandstone','#c4a882','Limestone, sand, warm rules on the hero. Shares gold’s hue, so never night metadata.'],
+      ['parchment','#f5efe0','Light paper; night ink.'],
+      ['ink','#1a2030','Light text. Never pure black.'],
+      ['ink-light','#4a5568','Muted text by day.'],
+      ['border','#d4c9b4','The rule by day. Decorative only.'],
+      ['border-light','#e8e0d0','Faint internal divisions. Site only.'],
+      ['gold','#c8963c','Brass fills, CTAs, lanterns, gold on navy (5.85:1). On parchment it is 2.32:1 and fails: never text there. Ink on a gold button is 6.1:1.'],
+      ['text-gold','#8a5a12','Brass text on parchment: the day warn role.'],
+      ['rust','#9b2c1c','Blocking, reefs: the day bad role.']
+    ];
+    core.forEach(c => {
+      items['core.' + c[0]] = { id:'core.' + c[0], group:'Core palette', name: c[0], cssVar:'--color-' + c[0], path:'color.core.' + c[0],
+        day: c[1], night: c[1], kind:'core', note: c[2] + ' Core colours do not change with the theme; roles pick from them.',
+        status:'Agreed', scope: c[0] === 'border-light' ? 'Site' : 'Both', src:'tokens.json; DESIGN.md §5.1, §5.8' };
+    });
+    const terr = [
+      ['grassland','#a9b97c','#647661','Sparse grass ticks (ink 40 %).'],
+      ['forest','#4f7a57','#32534d','Small pines (parchment). Parchment on fill is 4.30, just under 4.5, so labels sit on a paper halo.'],
+      ['hills','#b9a56f','#6d6b5a','Contour ticks (ink).'],
+      ['mountain','#8c8577','#54595e','Chevron peaks (ink). Ink on fill is 4.44, under 4.5: labels on a halo.'],
+      ['coastal','#cfc79a','#797e72','Stipple dots (ink 40 %).'],
+      ['cliffs','#a2927c','#606061','Vertical strata under a hard top edge (ink).'],
+      ['sand','#e4d4a6','#848578','Dune arcs (ink 40 %).'],
+      ['river','#6f9db5','#446780','Two flowing lines (parchment).'],
+      ['marsh','#7f9070','#4d5f5a','Short horizontal dashes with reeds (ink).'],
+      ['snow','#eef1f5','#8a95a4','Sparse crosses (ink 30 %). Same as mist.'],
+      ['volcanic','#5b4743','#393742','Radiating cracks (gold).'],
+      ['ocean','#2f5878','#0f2440','Short wave dashes (ink 30 %). Mismatch to reconcile: tokens.json holds #2f5878; DESIGN.md §5.6 says terrain ocean is --sea, #d6e3e1 by day and #0f2440 by night (not mixed).']
+    ];
+    terr.forEach(t => {
+      items['terrain.' + t[0]] = { id:'terrain.' + t[0], group:'Terrain fill', name: t[0], cssVar:'--terrain-' + t[0], path:'color.terrain.' + t[0] + '  (night: build-emitted)',
+        day: t[1], night: t[2], kind:'fill', note: 'Pattern: ' + t[3] + (t[0] === 'ocean' ? '' : ' Night fill is the day fill mixed with navy by the token build.'),
+        status:'Proposed', scope:'Both', src:'tokens.json (day); DESIGN.md §5.6 (night)' };
+    });
+    items['terrain.fog'] = { id:'terrain.fog', group:'Map state', name:'fog', cssVar:'--fog', path:'not yet in tokens.json', day:'#cfd3d6', night:'#657384', kind:'fill',
+      note:'Fog is a map state, not a terrain: a diagonal hatch over whatever lies beneath, marking uncharted or unobserved hexes. Its meaning is official (§3.5); the value is proposed.',
+      status:'Proposed', scope:'Both', src:'DESIGN.md §5.6, §3.5' };
+    const pal = [
+      ['archipelago','Archipelago','#1b3a5c','#4a7a5a','#2d5a3d','#e3d3a8','#c8963c','The default. Deep blue sea, green islands, pale sand: the brand at rest.'],
+      ['savanna','Savanna','#3f6f7a','#b8a061','#6b7a3e','#a65a3a','#c79a4b','Dry grass, acacia green, terracotta roofs, ochre light.'],
+      ['natural','Natural Colours','#6f9fb0','#a3b26f','#4a7a5a','#8c8a80','#6b4f3a','Meadow, moss, grey stone, bark brown. No gilt: the brass slot is timber.'],
+      ['glass','Glass and Stone','#4f8f86','#9cc5bf','#4f5b66','#e8e1d0','#b0843a','Limestone, slate, sea-glass, verdigris: the classical observatory look.']
+    ];
+    pal.forEach(p => {
+      items['pal.' + p[0]] = { id:'pal.' + p[0], group:'Island palette', name: p[1], cssVar:'palette = "' + p[1] + '"', path:'tile-set option; not in tokens.json',
+        cols: [p[2],p[3],p[4],p[5],p[6]], kind:'palette',
+        note: p[7] + ' A palette recolours terrain and buildings in the art; it never changes --ok, --warn or --bad, so signals mean the same on every island.',
+        status:'Proposed', scope:'Both', src:'DESIGN.md §5.7' };
+    });
+    this._d = { P: P, items: items, roles: roles, washes: washes, sea: sea, core: core, terr: terr, pal: pal };
+    return this._d;
+  }
+
+  verdict(kind, r){
+    if (kind === 'bg') return 'paper';
+    if (kind === 'rule') return 'no floor';
+    if (kind === 'ctrl') return r >= 3 ? '3:1 pass' : 'fails 3:1';
+    return r >= 7 ? 'AAA' : (r >= 4.5 ? 'AA' : 'fails');
+  }
+
+  renderVals(){
+    const s = this.state || {};
+    const mode = s.mode === 'light' ? 'light' : 'night';
+    const D = this.data();
+    const I = D.items;
+    const sel = I[s.sel] ? s.sel : 'role.warn';
+    const day = mode === 'light';
+    const v = it => day ? it.day : it.night;
+    const paper = D.P[mode];
+    const m = {};
+    D.roles.forEach(r => { m[r[0]] = day ? r[1] : r[2]; });
+    D.washes.forEach(w => { m[w[0] + 'Wash'] = day ? w[1] : w[2]; });
+    const pick = id => () => this.setState({ sel: id });
+    const ring = (on, onCol, offCol) => on ? 'outline:2px solid ' + onCol + ';outline-offset:1px;' : '';
+
+    const roles = D.roles.map(r => {
+      const id = 'role.' + r[0]; const it = I[id]; const hex = v(it);
+      const ratio = r[3] === 'bg' ? 1 : this.cr(hex, paper);
+      const ver = this.verdict(r[3], ratio);
+      const good = ver === 'AAA' || ver === 'AA' || ver === '3:1 pass';
+      const fill = ver === 'AAA';
+      return {
+        id: id, label: '--' + r[0], hex: hex, ratio: r[3] === 'bg' ? 'base' : this.fx(ratio) + ':1', verdict: ver,
+        fg: r[3] === 'bg' ? m.ink : hex, pressed: id === sel ? 'true' : 'false', aria: 'Role ' + r[0] + ', ' + hex,
+        pick: pick(id),
+        sw: 'width:18px;height:18px;border-radius:4px;flex:none;background:' + hex + ';border:1px solid ' + m.boundary + ';',
+        badge: 'margin-left:auto;font-size:10.5px;font-weight:600;padding:2px 6px;border-radius:999px;white-space:nowrap;' +
+          (good ? (fill ? 'color:' + m.paper + ';background:' + m.ok + ';' : 'color:' + m.ok + ';border:1px solid ' + m.ok + ';') : 'color:' + m.muted + ';border:1px solid ' + m.rule + ';'),
+        tile: 'display:flex;flex-direction:column;gap:4px;padding:8px 9px;border-radius:6px;background:transparent;border:1px solid ' + m.rule + ';' + ring(id === sel, m.accent)
+      };
+    });
+
+    const washSea = [];
+    D.washes.forEach(w => {
+      const id = 'wash.' + w[0]; const it = I[id]; const hex = v(it); const fg = m[w[0]];
+      washSea.push({ id: id, label: '--' + w[0] + '-wash', hex: hex, ratio: this.fx(this.cr(fg, hex)), sample: w[4],
+        pressed: id === sel ? 'true' : 'false', aria: w[0] + ' wash, ' + hex, pick: pick(id),
+        block: 'height:28px;border-radius:4px;background:' + hex + ';color:' + fg + ';font-size:12px;font-weight:600;display:flex;align-items:center;padding:0 8px;',
+        tile: 'display:flex;flex-direction:column;gap:3px;padding:6px;border-radius:6px;background:transparent;border:1px solid ' + m.rule + ';' + ring(id === sel, m.accent) });
+    });
+    D.sea.forEach(x => {
+      const id = 'sea.' + x[0]; const it = I[id]; const hex = v(it);
+      washSea.push({ id: id, label: x[1], hex: hex, ratio: '', sample: '',
+        pressed: id === sel ? 'true' : 'false', aria: 'Sea fill ' + x[0] + ', ' + hex, pick: pick(id),
+        block: 'height:28px;border-radius:4px;background:' + hex + ';border:1px solid ' + m.rule + ';box-sizing:border-box;',
+        tile: 'display:flex;flex-direction:column;gap:3px;padding:6px;border-radius:6px;background:transparent;border:1px solid ' + m.rule + ';' + ring(id === sel, m.accent) });
+    });
+
+    const tileLight = on => 'display:flex;flex-direction:column;gap:3px;padding:6px;border-radius:6px;background:transparent;border:1px solid #e8e0d0;' + ring(on, '#1b3a5c');
+    const core = D.core.map(c => {
+      const id = 'core.' + c[0];
+      return { id: id, label: c[0], hex: c[1], pressed: id === sel ? 'true' : 'false', aria: 'Core ' + c[0] + ', ' + c[1], pick: pick(id),
+        block: 'height:26px;border-radius:4px;background:' + c[1] + ';border:1px solid #d4c9b4;box-sizing:border-box;', tile: tileLight(id === sel) };
+    });
+    const terrain = D.terr.map(t => t[0]).concat(['fog']).map(n => {
+      const id = 'terrain.' + n; const it = I[id]; const hex = v(it);
+      const hatch = n === 'fog' ? 'background-image:repeating-linear-gradient(45deg,' + hex + ' 0 4px,' + (day ? '#1a2030' : '#f5efe0') + '33 4px 5px);' : '';
+      return { id: id, label: n, hex: hex, pressed: id === sel ? 'true' : 'false', aria: 'Terrain ' + n + ', ' + hex, pick: pick(id),
+        block: 'height:26px;border-radius:4px;background:' + hex + ';' + hatch + 'border:1px solid ' + (n === 'ocean' ? '#9b2c1c' : '#d4c9b4') + ';box-sizing:border-box;', tile: tileLight(id === sel) };
+    });
+    const palettes = D.pal.map(p => {
+      const id = 'pal.' + p[0];
+      return { id: id, label: p[1], pressed: id === sel ? 'true' : 'false', aria: 'Island palette ' + p[1], pick: pick(id),
+        cols: [p[2],p[3],p[4],p[5],p[6]].map(h => ({ st: 'flex:1;height:20px;background:' + h + ';' })),
+        tile: 'display:flex;flex-direction:column;gap:5px;padding:7px;border-radius:6px;background:transparent;border:1px solid #e8e0d0;' + ring(id === sel, '#1b3a5c') };
+    });
+
+    // Detail
+    const it = I[sel];
+    const isPal = it.kind === 'palette';
+    let ratio = '';
+    const lab = (k, r) => this.fx(r) + ':1 ' + this.verdict(k, r);
+    if (it.kind === 'text' || it.kind === 'ctrl' || it.kind === 'rule') {
+      ratio = 'day ' + lab(it.kind, this.cr(it.day, D.P.light)) + ' on #f5efe0 · night ' + lab(it.kind, this.cr(it.night, D.P.night)) + ' on #0f2440';
+    } else if (it.kind === 'bg') {
+      ratio = 'day ink 14.16:1 · night ink 13.59:1 (the reference pairs)';
+    } else if (it.kind === 'wash') {
+      const rr = D.roles.filter(r => r[0] === it.role)[0];
+      ratio = it.role + ' text on wash · day ' + lab('text', this.cr(rr[1], it.day)) + ' · night ' + lab('text', this.cr(rr[2], it.night));
+    } else if (it.kind === 'core') {
+      ratio = 'as text · ' + lab('text', this.cr(it.day, '#f5efe0')) + ' on parchment · ' + lab('text', this.cr(it.day, '#0f2440')) + ' on navy';
+    } else if (it.kind === 'fill') {
+      ratio = 'day fill · ink ' + this.fx(this.cr('#1a2030', it.day)) + ':1 · parchment ' + this.fx(this.cr('#f5efe0', it.day)) + ':1';
+    }
+    const sw = h => 'width:34px;height:34px;border-radius:6px;flex:none;background:' + h + ';border:1px solid #9a8358;';
+    const labels = ['sea','land','accent land','stone / built','brass'];
+    const statusCls = { Official:'dsc-official', Agreed:'dsc-agreed', Proposed:'dsc-proposed', Open:'dsc-open' }[it.status];
+
+    const btn = on => 'font-size:13px;font-weight:600;padding:6px 18px;border-radius:999px;border:0;' + (on ? 'background:#0f2440;color:#f5efe0;' : 'background:transparent;color:#1a2030;');
+
+    return {
+      modeName: day ? 'day' : 'night',
+      dayPressed: day ? 'true' : 'false', nightPressed: day ? 'false' : 'true',
+      dayBtn: btn(day), nightBtn: btn(!day),
+      toDay: () => this.setState({ mode: 'light' }),
+      toNight: () => this.setState({ mode: 'night' }),
+      m: m,
+      panelStyle: 'height:452px;flex:none;box-sizing:border-box;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;background:' + m.paper + ';border:1px solid ' + (day ? '#d4c9b4' : '#24476e') + ';',
+      rolesCard: 'border-radius:8px;padding:12px 16px;display:flex;flex-direction:column;gap:9px;box-sizing:border-box;background:' + m.paper + ';border:1px solid ' + (day ? '#d4c9b4' : '#24476e') + ';',
+      roles: roles, washSea: washSea, core: core, terrain: terrain, palettes: palettes,
+      detail: {
+        group: it.group, name: it.name, cssVar: it.cssVar, path: it.path,
+        day: it.day || '', night: it.night || '',
+        daySw: sw(it.day || '#f5efe0'), nightSw: sw(it.night || '#0f2440'),
+        pairDisp: isPal ? 'none' : 'flex', stripDisp: isPal ? 'flex' : 'none',
+        strip: isPal ? it.cols.map((h, i) => ({ hex: h, label: labels[i], st: 'height:30px;border-radius:4px;background:' + h + ';' })) : [],
+        ratio: ratio, ratioDisp: ratio ? 'block' : 'none',
+        note: it.note, status: it.status, statusCls: statusCls, scope: it.scope, src: it.src
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

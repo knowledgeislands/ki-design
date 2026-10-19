@@ -4,7 +4,10 @@
   "ignoreDependencies": ["lint-staged", "syncpack"],
   "ignoreExportsUsedInFile": true,
   "workspaces": {
-    ".": { "entry": ["*.ts", "scripts/**/*.ts"], "project": ["*.ts", "scripts/**/*.ts"] },
+    ".": {
+      "entry": ["*.ts", "scripts/**/*.ts", "docs/design-review/generators/*.ts"],
+      "project": ["*.ts", "scripts/**/*.ts", "docs/design-review/generators/*.ts"]
+    },
     "packages/*": { "entry": ["src/index.ts", "src/**/*.test.ts"], "project": ["src/**/*.ts"] }
   }
 }

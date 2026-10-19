@@ -9,6 +9,7 @@
     "includes": [
       "packages/**",
       "scripts/**",
+      "docs/design-review/generators/**/*.ts",
       "*.ts",
       "*.json",
       "!.claude/skills",
