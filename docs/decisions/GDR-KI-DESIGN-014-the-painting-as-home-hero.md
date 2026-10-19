@@ -22,7 +22,9 @@ The site needs one image that makes the world legible at first sight. The painte
 - The painting has been live as the home hero since site commit `07f4c02`, Kit's call on 18 October 2026.
 - A chart / painting switch comes later, once the Ancient tiles exist.
 - The painting is generated reference art. It is treated as unlicensed until the art-licensing decision is recorded, and the site says so.
-- Repaints keep variation 1's composition, light and palette; see the handoff.
+- The painting is shown without a caption, on the home page and on `/arcadia/`.
+- Variation 1 is kept unchanged. The v1b repaints fixed the terraces, the Port's details and the Capital but lost the original's haze and mood, so Kit kept the original. The tower beside the Library is part of the picture, not the retired Tower symbol.
+- Future art, the Ancient tiles and any later repaint, matches variation 1's atmosphere first and fixes details second; see the handoff.
 
 ## References
 

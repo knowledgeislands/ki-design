@@ -27,7 +27,7 @@ The design work had drawn an island's civic heart as a walled Citadel and given 
 - The tile id is `structure/capital`; `structure/citadel` stays as a deprecated alias that renderers and the validator resolve. The hex map model resolves `citadel` to `capital` too.
 - The Capital has its own civic glyph, `capital`. The `citadel` and `tower` glyphs stay in the icon package, mapped to no symbol.
 - No curtain wall is drawn around a territory's Principal knowledge base; it is revisited only in a form that does not read as a fortification ([GDR-KI-DESIGN-027](GDR-KI-DESIGN-027-no-curtain-wall-for-now.md)).
-- The next painting round removes the tower beside the Library in the Arcadia painting.
+- The Arcadia painting keeps variation 1 unchanged. A repaint that painted the Capital civic lost the original's haze and mood, so Kit kept the original; its tower beside the Library is part of the picture, not the retired Tower symbol ([Arcadia handoff](../briefs/arcadia-handoff.md#second-round-reviewed-original-kept-18-october-2026)).
 
 ## References
 

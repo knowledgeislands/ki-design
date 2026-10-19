@@ -8,7 +8,7 @@ The chosen reference is [references/arcadia.png](references/arcadia.png), an unc
 
 This records approval of the visual direction. It does not claim the painting meets every technical requirement in the [brief](arcadia-picture.md), enact new symbol meanings, or approve a production release.
 
-**Next painting round (GDR-KI-PRINCIPAL-011).** The Capital is the civic heart and the symbol language stays non-combative. The next round removes the tower beside the Library and paints the Capital civic: the Library and the Council Hall around an open square, with no walls, towers or battlements. Until then the chosen painting stays as it is.
+**The Capital in the painting (GDR-KI-PRINCIPAL-011).** The Capital is the civic heart and the symbol language stays non-combative. A second round repainted the Capital civic, without the tower beside the Library; Kit reviewed it and kept variation 1 unchanged, so the tower stays as part of the picture, not the retired Tower symbol (see [Second round reviewed](#second-round-reviewed-original-kept-18-october-2026)).
 
 ## What the other design work should carry forward
 
@@ -29,7 +29,7 @@ The coast is one **Port**, with dock, rail depot, airport drawn as a mooring mas
 
 ### Variation 1 — chosen
 
-**What works:** strongest approved atmosphere and sense of distance. All nine required places are represented: the Capital (painted as a citadel with a tower, which the next round makes civic), Port, Observatory, Lighthouse, Streams, Ancient Forest, Ruins, fog at the edge of known, and trade routes towards other islands. Major civic silhouettes remain readable at reduced scale; the palette fits and no Never-list item is apparent.
+**What works:** strongest approved atmosphere and sense of distance. All nine required places are represented: the Capital (painted with a tall tower beside the Library, kept as part of the picture), Port, Observatory, Lighthouse, Streams, Ancient Forest, Ruins, fog at the edge of known, and trade routes towards other islands. Major civic silhouettes remain readable at reduced scale; the palette fits and no Never-list item is apparent.
 
 **What to change:** make the hexagonal terraces, rail tracks and customs barrier more recognisable; place the Capital on the highest ground rather than below the mountain peaks. Test the actual home-page copy over the painting: the brighter sunset and activity at the left may compete with it. At 25% scale, the small Port details need particular attention. No major place is absent, but those details are unclear.
 
