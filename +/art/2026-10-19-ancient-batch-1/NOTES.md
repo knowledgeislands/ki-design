@@ -42,6 +42,21 @@ The terrains are 1254 px square, not the 1024 px canvas requested. Their alpha i
 - **Subjects:** the Capital is civic and unfortified, with the domed Library facing the colonnaded Council Hall across a square. The Port shows docks, ships, the rail shed and the airship mast. The Mill, Lighthouse and Causeway read clearly.
 - **Geometry:** wrong for 18 of the 20. The prompts gave the exact hex vertices and a hex template, and the generator still painted square diamonds. Each diamond's angle also differs a little from the others.
 
+## Rejected first attempts, recovered
+
+Six first attempts were rejected during the run and left out of the folder. Kit recovered them from the ChatGPT app on 19 October 2026, and they are in `_rejected/`. Their SHA-256 hashes match the rejected attempts in `_batch-state.json`; grassland's first attempt has no recorded hash there. The other 21 recovered images were exact copies of the selected files and were not added again.
+
+| File | Background | Note |
+| --- | --- | --- |
+| `structure-capital-attempt-1.png` | transparent | **A true 7-hex flower** with hex plinths: the best Capital geometry so far. The run rejected it only for faint edge halos in the alpha |
+| `structure-port-attempt-1.png` | transparent | **A true east–west hex pair** with hex plinths: the best Port geometry so far. Rejected for edge halos |
+| `structure-lighthouse-attempt-1.png` | transparent | Square diamond, with a small harbour |
+| `structure-observatory-attempt-1.png` | transparent | Square diamond, tall plinth |
+| `terrain-grassland-attempt-1.png` | transparent | Square diamond, with two cottages |
+| `terrain-snow-attempt-1.png` | transparent | Square diamond, a snowy ridge with pines |
+
+What this shows: when the footprint is several hexes, the generator does paint hexes. It fails only on the single hex, which it turns into a square diamond. The halos are a small clean-up for the cut-out step, not a reason to reject. These two are the candidates to take forward for the Capital and the Port.
+
 ## What happened next
 
 The design thread re-projected the 18 diamonds onto the hex cell. The results are in [`../2026-10-19-ancient-batch-1-hexed/`](../2026-10-19-ancient-batch-1-hexed/NOTES.md). The next batch stops asking the generator for hexes: [batch 1b](../../../docs/briefs/ancient-batch-1b.md) has it paint its natural diamond on a template, and the hex is cut from it afterwards.
