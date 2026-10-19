@@ -74,7 +74,12 @@ describe('Arcadia', () => {
       hexes: arcadia.hexes.map((h) => (h.structure === 'capital' ? { ...h, structure: 'citadel' } : h))
     }
     const seen: string[] = []
-    const svg = renderFlatSvg(old, { glyph: (id) => (seen.push(id), undefined) })
+    const svg = renderFlatSvg(old, {
+      glyph: (id) => {
+        seen.push(id)
+        return undefined
+      }
+    })
     expect(svg).toContain('<title>Capital (thriving)</title>')
     expect(seen).toContain('capital')
     expect(seen).not.toContain('citadel')
