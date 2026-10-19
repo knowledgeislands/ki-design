@@ -2,6 +2,8 @@
 
 **Start here:** [INSTRUCTION.md](INSTRUCTION.md) is the instruction for the Observatory build thread.
 
+**Reply, 19 October 2026:** [ANSWER-2026-10-19.md](ANSWER-2026-10-19.md) is ki-design's answer to the Observatory's report back: what changed for each of the fourteen app wins, the open banner-glyph question, and what can be re-vendored.
+
 Drafts produced in ki-design for the Observatory's own roadmap. They are proposals for the Observatory's product thread to shape, number (`KI-OBSERVA-*`) and accept under its own process; nothing here changes that repository. Source: the design brief (`docs/briefs/design-brief.md`, "First slices" and "The local app").
 
 | Draft | Slice | Value | Builds on |
