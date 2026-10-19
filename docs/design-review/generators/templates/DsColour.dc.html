@@ -44,7 +44,7 @@ body{margin:0}
       <div style="display:flex;gap:6px;align-items:center;font-size:12px;color:#4a5568">
         <span>Night is reference · @@gdr:010@@</span><span class="dsc-chip dsc-agreed">Agreed</span>
         <span style="margin-left:8px">App follows the OS theme</span><span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">App</span>
-        <span style="margin-left:8px">Night on the site</span><span class="dsc-chip dsc-open">@@open:Night on the public site@@</span><span class="dsc-chip dsc-scope">Site</span>
+        <span style="margin-left:8px">Site follows the OS, with a toggle · @@gdr:025@@</span><span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">Site</span>
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@ body{margin:0}
         <div style="font-size:13.5px;line-height:1.5;color:#1a2030">{{detail.note}}</div>
         <div style="font-size:12px;color:#4a5568;margin-top:auto">Source · {{detail.src}}</div>
       </div>
-      <div style="font-size:11px;color:#4a5568;line-height:1.4">Values: packages/tokens/tokens.json; rules: docs/spec/colour.md. Roles, washes, sea and core are Agreed (changed only with Kit's approval); terrain fills, fog and island palettes are Proposed. Night terrain is nightTerrain(); fog is not yet a token.</div>
+      <div style="font-size:11px;color:#4a5568;line-height:1.4">Values: packages/tokens/tokens.json; rules: docs/spec/colour.md. Roles, washes, sea and core are Agreed (changed only with Kit's approval); terrain fills, fog and island palettes are Proposed. Night terrain is nightTerrain(); fog is color.fog and isometric water is color.tile.water (@@gdr:023@@).</div>
     </div>
 
     <!-- Right column -->
@@ -211,7 +211,7 @@ body{margin:0}
               <span class="dsc-mono" style="font-size:10.5px;color:#4a5568">{{t.hex}}</span>
             </button>
           </sc-for>
-          <div style="font-size:11.5px;line-height:1.4;color:#9b2c1c;padding:4px 2px">Ocean: isometric water; its token name is open. Click it.</div>
+          <div style="font-size:11.5px;line-height:1.4;color:#9b2c1c;padding:4px 2px">Ocean: the flat chart paints it in the sea; the swatch is color.tile.water, isometric water only. Click it.</div>
         </div>
       </div>
 
@@ -325,16 +325,18 @@ class Component extends DCLogic {
       ['marsh','@@token:color.terrain.marsh@@','@@night:marsh@@','Short horizontal dashes with reeds (ink).'],
       ['snow','@@token:color.terrain.snow@@','@@night:snow@@','Sparse crosses (ink 30 %). Same as mist.'],
       ['volcanic','@@token:color.terrain.volcanic@@','@@night:volcanic@@','Radiating cracks (gold).'],
-      ['ocean','@@token:color.terrain.ocean@@','@@night:ocean@@','Short wave dashes (ink 30 %). The flat chart paints ocean hexes in the theme sea; this token is the Modern isometric water. Its name is open in OPEN.md (The terrain ocean token).']
+      ['ocean','@@token:color.tile.water@@','@@night:ocean@@','Short wave dashes (ink 30 %). The flat chart paints ocean hexes in the theme sea; this swatch is color.tile.water, the water of the isometric tiles only.']
     ];
     terr.forEach(t => {
       items['terrain.' + t[0]] = { id:'terrain.' + t[0], group:'Terrain fill', name: t[0], cssVar:'--terrain-' + t[0], path:'color.terrain.' + t[0] + '  (night: nightTerrain())',
         day: t[1], night: t[2], kind:'fill', note: 'Pattern: ' + t[3] + ' Night fill: nightTerrain(), the day fill mixed 45 % into navy.',
         status:'Proposed', scope:'Both', src:'tokens.json color.terrain; nightTerrain() in packages/tokens; docs/spec/colour.md (terrain fills)' };
     });
-    items['terrain.fog'] = { id:'terrain.fog', group:'Map state', name:'fog', cssVar:'--fog', path:'not yet in tokens.json', day:'#cfd3d6', night:'#657384', kind:'fill',
-      note:'Fog is a map state, not a terrain: a diagonal hatch over whatever lies beneath, marking uncharted or unobserved hexes. Its meaning is in docs/spec/meaning.md (signals); the value is proposed and not yet a token (OPEN.md).',
-      status:'Proposed', scope:'Both', src:'docs/spec/colour.md (fog); docs/decisions/OPEN.md' };
+    Object.assign(items['terrain.ocean'], { cssVar:'--color-tile-water', path:'color.tile.water  (color.terrain.ocean is its deprecated alias)',
+      note: items['terrain.ocean'].note + ' Renamed by @@gdr:023@@.', src:'tokens.json color.tile.water; docs/spec/colour.md (sea and ocean); @@gdr:023@@' });
+    items['terrain.fog'] = { id:'terrain.fog', group:'Map state', name:'fog', cssVar:'--fog', path:'color.fog.light / color.fog.night', day:'@@token:color.fog.light@@', night:'@@token:color.fog.night@@', kind:'fill',
+      note:'Fog is a map state, not a terrain: a diagonal hatch over whatever lies beneath, marking uncharted or unobserved hexes. Its meaning is in docs/spec/meaning.md (signals); the symbol is proposed, the colour a token since tokens 0.2.0.',
+      status:'Agreed', scope:'Both', src:'tokens.json color.fog; docs/spec/colour.md (fog); @@gdr:023@@' };
     const pal = [
       ['archipelago','Archipelago','#1b3a5c','#4a7a5a','#2d5a3d','#e3d3a8','#c8963c','The default. Deep blue sea, green islands, pale sand: the brand at rest.'],
       ['savanna','Savanna','#3f6f7a','#b8a061','#6b7a3e','#a65a3a','#c79a4b','Dry grass, acacia green, terracotta roofs, ochre light.'],

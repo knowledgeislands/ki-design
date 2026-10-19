@@ -14,7 +14,7 @@
  */
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { retiredSymbols, symbolCategories, symbols } from '../../../packages/symbols/src/index.ts'
+import { retiredSymbols, symbolAliases, symbolCategories, symbols } from '../../../packages/symbols/src/index.ts'
 import type { KiSymbol } from '../../../packages/symbols/src/types.ts'
 import { requiredInventory, tileGeometry, tileKinds } from '../../../packages/tiles/src/contract.ts'
 import { contrastRatio } from '../../../packages/tokens/src/contrast.ts'
@@ -307,7 +307,7 @@ const briefGroups: Readonly<Record<string, string>> = {
   'Places within an island': 'Places',
   'Port modes': 'Port modes',
   'Instruments and app concepts': 'Instruments',
-  'Steward roles (proposed)': 'Roles',
+  'Steward roles': 'Roles',
   'UI basics': 'UI basics',
   'Value icons': 'Values'
 }
@@ -358,7 +358,16 @@ function iconsData(): Record<string, unknown> {
       mean.push({ ...v, st: 'official', note: 'Labels principles and values, never places.' })
     let st: string
     const retiredReason = retired[name] ?? retired[name.replace(/^role-/, '')]
-    if (retiredReason) {
+    const renamedTo = (symbolAliases as Readonly<Record<string, string>>)[name]
+    if (renamedTo) {
+      st = 'retired'
+      mean.push({
+        n: 'Renamed',
+        m: `Mapped to no symbol; the symbol is now ${symbol(renamedTo).name}, glyph ${symbol(renamedTo).icon ?? 'none'}.`,
+        st,
+        note: symbol(renamedTo).notes ?? ''
+      })
+    } else if (retiredReason) {
       st = 'retired'
       mean.push({ n: 'Retired', m: 'Mapped to no symbol; the glyph stays in the package.', st, note: retiredReason })
     } else if (mapped[0]) st = mapped[0].status

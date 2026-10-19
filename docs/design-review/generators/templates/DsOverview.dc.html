@@ -246,11 +246,11 @@ class Component extends DCLogic {
 
     const zones = [
       { name: 'Pillars', icon: 'library', d: 'Canonical knowledge. The Library.', st: '@@status:pillars@@' },
-      { name: 'Calendar', icon: 'calendar', d: 'Time-bound. Clock tower, sundial.', st: '@@status:calendar@@' },
+      { name: 'Calendar', icon: 'calendar', d: 'Time-based notes. Civic clock tower or sundial, beside the Capital.', st: '@@status:calendar@@' },
       { name: 'Resources', icon: 'resources', d: 'External reference. Archive.', st: '@@status:resources@@' },
       { name: 'Streams', icon: 'streams', d: 'Knowledge in motion. Rivers.', st: '@@status:streams@@' },
       { name: 'Admin/Governance', icon: 'council-hall', d: 'What must hold. Council Hall.', st: '@@status:admin-governance@@' },
-      { name: 'Admin/Operations', icon: 'mill', d: 'How it runs. Mill: drawing proposed.', st: '@@status:admin-operations@@' },
+      { name: 'Admin/Operations', icon: 'mill', d: 'How it runs. The Mill: a stone house with a waterwheel.', st: '@@status:admin-operations@@' },
       { name: '+ inbound', icon: 'inbound', d: 'Port arrivals quay. Not a zone.', st: '@@status:incoming@@' },
       { name: '- outbound', icon: 'outbound', d: 'Port departures quay. Not a zone.', st: '@@status:outbound@@' }
     ].map((z, i) => ({ name: z.name, d: z.d, st: z.st, cls: CLS[z.st], icon: this.ico(z.icon, '#0f2440'), edge: i >= 6 ? '#317070' : '#c8963c' }));

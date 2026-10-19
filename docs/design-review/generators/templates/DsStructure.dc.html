@@ -41,7 +41,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
           <button type="button" role="tab" aria-selected="{{tb.sel}}" onClick="{{ tb.pick }}" style="{{tb.style}}">{{tb.label}}</button>
         </sc-for>
       </div>
-      <span class="st-m">Source: layout.md, components.md · @@gdr:011@@, @@gdr:016@@ · OPEN.md</span>
+      <span class="st-m">Source: layout.md, components.md · @@gdr:011@@, @@gdr:016@@, @@gdr:033@@</span>
     </div>
   </header>
 
@@ -167,7 +167,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
         <div class="st-card" style="padding:14px 18px;display:flex;flex-direction:column;gap:10px;flex:1;min-height:0">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span class="st-kick">Instruments · fourteen become ten</span>
-            <span style="display:flex;gap:5px;align-items:center"><button type="button" onClick="{{ showAll }}" style="{{allStyle}}">Show all ten</button><span class="st-chip st-open">Open</span><span class="st-scope">App</span></span>
+            <span style="display:flex;gap:5px;align-items:center"><button type="button" onClick="{{ showAll }}" style="{{allStyle}}">Show all ten</button><span class="st-chip st-agreed">Agreed</span><span class="st-scope">App</span></span>
           </div>
           <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px">
             <sc-for list="{{insts}}" as="i" hint-placeholder-count="10">
@@ -199,7 +199,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
               <sc-for list="{{olds}}" as="o" hint-placeholder-count="14"><span style="{{o.style}}">{{o.t}}</span></sc-for>
             </div>
           </div>
-          <div class="st-m" style="margin-top:auto">The four jobs are agreed (@@gdr:016@@); the ten-instrument grouping is open in OPEN.md (@@open:Instrument restructure@@). The job switch shows only that job’s instruments, so the tab bar shrinks from fourteen to two–five. Every existing capability is kept.</div>
+          <div class="st-m" style="margin-top:auto">The four jobs are agreed (@@gdr:016@@); the ten-instrument grouping is agreed, reached by convergence (@@gdr:033@@). The job switch shows only that job’s instruments, so the tab bar shrinks from fourteen to two–five. Every existing capability is kept.</div>
         </div>
       </div>
 
@@ -266,10 +266,10 @@ class Component extends DCLogic {
         art: '70 / 30.', note: 'The longer tide loop (Discover → … → Learn) is proposed and never replaces Capture → Connect → Reflect.' },
       model: { name: 'Model', mode: 'Voyage', st: 'Agreed', purpose: 'Island, Capital, Territory, Archipelago, Agents.',
         comps: ['Living Map with legend', 'Click a structure to read its concept'],
-        art: '70 / 30.', note: 'The Living Map is <ki-hexmap>, one of the two shared components (agreed). Its no-JS state is still open.' },
+        art: '70 / 30.', note: 'The Living Map is <ki-hexmap>, one of the two shared components (agreed). Without JavaScript it is the static SVG plus a text list of districts (@@gdr:032@@).' },
       arcadia: { name: 'Arcadia', mode: 'Voyage', st: 'Agreed', purpose: 'The reference island.',
         comps: ['Arcadia map', 'Districts link to their source repositories'],
-        art: '70 / 30.', note: 'Open: build it from live data (roster, freshness) or keep it illustrative.' },
+        art: '70 / 30.', note: 'Drawn from a dated build-time snapshot, public islands only, stamped “Charted YYYY-MM-DD” (@@gdr:031@@); illustrative until the site builds it.' },
       landscapes: { name: 'Landscapes', mode: 'Voyage', st: 'Agreed', purpose: 'The archetypes an island can take.',
         comps: ['Filterable archetype cards: Engineering, Research, Creative, Learning, Enterprise, Personal, Community', 'Filter chips above; no ratings or counts'],
         art: '70 / 30.', note: 'Thumbnails are painted (Ancient set), 4:5.' },
@@ -278,7 +278,7 @@ class Component extends DCLogic {
         art: '70 / 30.', note: 'Stable routes such as /harness/bootstrap never move.' },
       guide: { name: 'Field Guide', mode: 'Atlas', st: 'Agreed', purpose: 'The catalogue of symbols, structures, terrain and roles.',
         comps: ['Catalogue pages per symbol, structure, terrain and role', '“How the map works”, from the hex + isometric explainer'],
-        art: '80 / 20.', note: 'Steward roles are proposed; whether they enter ki-principal first is open (@@open:Steward roles into canon@@).' },
+        art: '80 / 20.', note: 'Seven steward roles are official; the Guardian is not adopted (@@gdr:029@@).' },
       docs: { name: 'Docs', mode: 'Atlas', st: 'Agreed', purpose: 'Get started, ki, harness, prompting.',
         comps: ['Quiet parchment layout', 'Glyph sidebar', 'Section-header illustration only'],
         art: '95 / 5.', note: '/install/ki stays where it is.' },
@@ -319,8 +319,8 @@ class Component extends DCLogic {
       rows: [
         { st: 'Proposed', t: 'Nav: Philosophy · Model · Arcadia · Landscapes · Docs · Projects. Enter Arcadia is the one brass call to action.' },
         { st: 'Official', t: 'The logo roundel (island and arch) in the lockup. Never redrawn.' },
-        { st: '@@open:The primary mark@@', t: 'Roundel or compass rose as the primary mark. Until agreed, never swap in the compass.' },
-        { st: '@@open:Night on the public site@@', t: 'Night on the site: follow the OS, with or without a manual toggle.' },
+        { st: 'Agreed', t: 'The roundel is the logo; the compass rose orients and is the candidate favicon, never the logo (@@gdr:026@@).' },
+        { st: 'Agreed', t: 'Night on the site: follow the OS, plus a small manual toggle with the theme glyph (@@gdr:025@@).' },
         { st: 'Agreed', t: 'Stable routes never move: /install/ki, /harness/bootstrap, /specifications/….' }
       ].map(r => Object.assign(r, { cls: CLS[r.st] }))
     };
@@ -362,7 +362,7 @@ class Component extends DCLogic {
         style: 'display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:10px 12px;height:140px;box-sizing:border-box;border-radius:6px;cursor:pointer;font-family:Inter,sans-serif;text-align:left;' + (on ? 'background:#fffaf0;border:1px solid ' + JOBC[j.name] + ';box-shadow:inset 0 -3px 0 #c8963c;' : 'background:#f9f3e5;border:1px solid #d4c9b4;')
       });
     });
-    const jobNote = 'Act is visibly distinct because it mutates. “Bridge” is written only for the Act job; never put the bridge glyph on it (the Bridge vs Causeway name is open).';
+    const jobNote = 'Act is visibly distinct because it mutates. “Bridge” names only the Act command and is written, never drawn; the translation symbol is the Causeway (@@gdr:018@@).';
     const jobPill = (j) => 'font-size:10.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:' + JOBC[j] + ';';
     const insts = INST.map(i => {
       const on = i.id === instId;
@@ -388,7 +388,7 @@ class Component extends DCLogic {
       { name: 'Local browser', auth: 'Full authority', st: 'Agreed', d: 'The primary listener on 127.0.0.1:1675, unchanged; Host and Origin checks stay as they are.' },
       { name: 'Tailnet browser', auth: 'Read-only', st: 'Proposed', d: 'A second, opt-in listener that tailscale serve targets. Page and read routes only: acting routes return 404, so “no Bridge” is structural. Operator’s own devices; Funnel never.' },
       { name: 'Desktop shell', auth: 'As local', st: 'Proposed', d: 'Later: Tauri around the same web app at 127.0.0.1:1675, for tray, notifications, deep links.' },
-      { name: 'Bridge over the tailnet', auth: 'Not yet', st: '@@open:The tailnet design@@', d: 'A later, separate PDR. Receipts always record the way in (“via loopback”, “via tailnet as …”).' }
+      { name: 'Bridge over the tailnet', auth: 'Not yet', st: 'Agreed', d: 'Read-only over the tailnet; Act stays on loopback until identity is designed (@@gdr:034@@). Receipts always record the way in (“via loopback”, “via tailnet as …”).' }
     ].map(w => Object.assign(w, { cls: CLS[w.st] }));
 
     return {
