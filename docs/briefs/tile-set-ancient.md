@@ -26,11 +26,11 @@ Warmth is selective. Most of a snowfield stays blue-grey in shadow; most of a fo
 
 Calibrate against the painting, not only these words. In the selected Arcadia painting the strongest warmth sits in the sky towards the sun, on built limestone and in the sun path across the far sea. The land itself is mid-dark, and only about one surface in fourteen is a bright warm highlight. Batch 1b measured roughly one and a half to four times that share of bright warm surface (grassland the most, about four times), with a wider spread of light and dark. That excess, rather than warmth as such, is what reads as golden sunlight.
 
-**Lighting choice still open:** the owner has not selected between the softer Arcadia dusk and the stronger golden sunlight visible in batch 1b. Until that comparison is resolved, retain the established Arcadia dusk baseline. A stronger-sunlight study may be compared separately with exactly the same subject, camera and materials; do not silently replace the baseline or mix the two treatments across a set.
+**Lighting choice settled, 20 October 2026:** the owner selected [Council Hall A](../../+/art/2026-10-19-lighting-study/council-hall-A.png) as the target for lighting and painted finish, retaining its warmth and detail. Match this image directly; the earlier recommendation to reduce its warmth is superseded. The Arcadia painting remains the wider landscape reference. Use Council Hall A as the immediate style reference for matching grassland and snow candidates, recorded in [the follow-up study](../../+/art/2026-10-20-council-hall-a-match/NOTES.md). This choice approves appearance, not every geometric or landscaping detail in the candidate.
 
 ### Lighting study
 
-The comparison that settles the open choice. It changes nothing in the baseline until the owner chooses.
+The original A/B comparison is retained below as the study method. The owner chose Council Hall A on 20 October 2026; the choice above now governs matching candidates.
 
 - **Subjects:** `terrain/grassland`, `terrain/snow` and `structure/council-hall`. They are the most light-sensitive: grass turns to straw, snow turns peach, and limestone burns out first.
 - **Variant A, Arcadia dusk:** the per-tile prompt below, unchanged.

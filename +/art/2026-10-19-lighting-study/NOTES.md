@@ -2,7 +2,7 @@
 
 Six original candidates for the painted, isometric Island Map: grassland, snow and the Council Hall on a level grassland flower. The Territory Map is unchanged. Each requested footprint is a centre hex and its six neighbours, pointy-top, straight-on 2:1 isometric, with a shallow hex rock plinth beneath every exposed outer edge.
 
-A uses Arcadia dusk; B uses golden sunlight. This is a comparison, not an adopted style change or a production tile set. The established dusk baseline remains in place pending the owner's choice.
+A uses Arcadia dusk; B uses golden sunlight. This was a comparison, not a production tile set. On 20 October 2026 the owner selected Council Hall A as the target for lighting and painted finish, preserving its warmth and detail. This supersedes the provisional recommendation below to reduce its warmth. The matching grassland and snow follow-up is recorded in [the next study](../2026-10-20-council-hall-a-match/NOTES.md).
 
 ## Method and provenance
 
