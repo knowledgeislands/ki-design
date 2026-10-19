@@ -40,7 +40,8 @@ Decision records for Knowledge Islands Design, following the Knowledge Islands d
 34. [GDR-KI-DESIGN-034](GDR-KI-DESIGN-034-read-only-over-the-tailnet.md) - read-only over the tailnet.
 35. [GDR-KI-DESIGN-035](GDR-KI-DESIGN-035-art-unlicensed-until-recorded.md) - art is unlicensed until its licensing is recorded.
 36. [GDR-KI-DESIGN-036](GDR-KI-DESIGN-036-the-history-stays.md) - the ki-design history stays as it is.
+37. [GDR-KI-DESIGN-037](GDR-KI-DESIGN-037-banner-emoji-stay-the-notation.md) - the banner emoji stay the written notation; line glyphs may be a rendered form.
 
 ## Open questions
 
-[OPEN.md](OPEN.md) lists every question still open, with its recommendation and how to draw meanwhile. Records 018 to 036 answer the questions it held on 18 October.
+[OPEN.md](OPEN.md) lists every question still open, with its recommendation and how to draw meanwhile. Records 018 to 036 answer the questions it held on 18 October, and 037 the banner-glyph question of 19 October.
