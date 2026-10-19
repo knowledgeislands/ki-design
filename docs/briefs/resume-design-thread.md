@@ -108,7 +108,7 @@ Done on 19 October: Kit's answers enacted as GDR-KI-DESIGN-018 to 036, with the 
   - The bridge shell has no bun, no ki and no git identity.
   - Commit with the git-audit commit tool, which runs hooks on the host. It takes a single-line message and the exact paths, and it rejects paths that start with `-`.
   - For shell git, add `-c user.name="Kris Brown" -c user.email=kris@kris.me.uk`.
-- **Builds and tests.** Run them in a container copy: tar into the repository's `-/` folder, stage it, then run bun from npm.
+- **Builds and tests.** Run them in a container copy: tar into the repository's `tmp/` folder (gitignored), stage it, then run bun from npm. Return results the same way, through `tmp/`, and delete every transfer tarball as soon as it has been used. Never put them in `-/`.
 - **Commit messages.** Commitlint allows the types chore, docs, feat, fix, refactor and test. There is no `revert` type, and headers are limited to 100 characters.
 - **Before committing anything public:**
   - Never commit screenshots or fixtures taken from real estate data.
