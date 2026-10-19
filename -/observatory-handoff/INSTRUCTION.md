@@ -22,7 +22,7 @@ So this is **apply, don't impose**:
 | The original seven slice drafts, now with an "apply first" note | `-/observatory-handoff/README.md` and `01`–`07` |
 | The design system: the entry point, then the spec files for voice, colour, type, layout, icons, components and maps | `DESIGN.md`, then `docs/spec/` (`voice.md`, `colour.md`, `typography.md`, `layout.md`, `iconography.md`, `components.md`, `maps.md`) |
 | Tokens (DTCG, light and night) | `packages/tokens/tokens.json`; the built `dist/tokens.css` and `dist/theme.css` via `bun run build` |
-| 72 line glyphs (24 px grid) | `packages/icons/svg/` |
+| 73 line glyphs (24 px grid) | `packages/icons/svg/` |
 | Symbol meanings and statuses (Official · Agreed · Proposed) | `packages/symbols/src/symbols.ts` |
 | Flat hex-chart renderer for Known Lands | `packages/hexmap` |
 | A working read-only preview of the new look against the live API | `examples/observatory-preview/`. Run `bun run self:preview` in ki-design; it proxies GET `/api/*` from 127.0.0.1:1675 |
@@ -83,11 +83,11 @@ These are from the spec's §11.
 - Should the ten-instrument restructure be adopted at all?
 - Where should Work go: folded into Streams, or its own instrument?
 - Automation splits between Workers (runs) and Machine (schedules). Which one should `?view=automation` open?
-- Bridge or Causeway: until that's named, the UI says "Act".
+- ~~Bridge or Causeway~~: settled by GDR-KI-DESIGN-018. Causeway is the translation glyph; the Observatory draws it for the MCP servers tab.
 - Is the outline plus "governed" enough to mark Act out?
 - When does an observation become stale: a fixed age, or per instrument?
 - Is switching an extension on a preference, or an Act operation with a receipt?
-- The Capital has no glyph yet; draw it as Library plus Council Hall.
+- ~~The Capital has no glyph yet~~: settled. `capital` is in `@knowledgeislands/icons`, and the Known Lands chart draws it (CAPITAL-GLYPH a).
 
 ## Reporting back
 
