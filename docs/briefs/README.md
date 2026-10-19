@@ -10,7 +10,8 @@ Task briefs that a person, the local app or an AI designer (Claude, ChatGPT) can
 | [Tile set: Modern](tile-set-modern.md) | The clean, engraved, flat tile set used by the local app, docs and small sizes | v0 drawn: `packages/tiles/sets/modern/` |
 | [Tile set: Ancient](tile-set-ancient.md) | Painted tiles for site and posters | Reference chosen; see [handoff](arcadia-handoff.md) |
 | [Ancient prompt pack](ancient-prompt-pack.md) | One ready-to-paste image prompt per tile in the contract | Ready to run |
-| [Ancient tiles, batch 1](ancient-batch-1.md) | One copy-paste instruction for the ChatGPT or Codex app: the 12 terrains and the hero structures, saved unaltered to `+/art/` with notes | Ready to run |
+| [Ancient tiles, batch 1](ancient-batch-1.md) | One copy-paste instruction for the ChatGPT or Codex app: the 12 terrains and the hero structures, saved unaltered to `+/art/` with notes | Run 19 Oct 2026; painted squares, re-projected onto the hex |
+| [Ancient tiles, batch 1b](ancient-batch-1b.md) | Six tiles painted on a geometry template, testing the template method and the dusk light | Ready to run |
 | [Building standards](building-standards.md) | The rules every building and tile follows | Draft standard |
 | [Animation standard](animation-standard.md) | The shared clock all animated tiles follow | Draft standard |
 | [Illustrated explainer style](explainer-style.md) | Posters, explainers and the Field Guide's "How the map works" | Ready |

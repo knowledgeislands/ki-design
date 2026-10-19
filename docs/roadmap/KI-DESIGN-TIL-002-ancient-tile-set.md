@@ -12,7 +12,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T09:50:00Z
+updated_at: 2026-10-19T18:00:00Z
 ---
 
 # Ancient tile set
@@ -31,11 +31,15 @@ Waits on ART-001 (the picture of Arcadia) and ART-002 (licensing).
 
 ## Current state
 
-Not started. The brief `docs/briefs/tile-set-ancient.md` and the prompt pack are ready; no tile has been produced.
+Batch 1 ran on 19 October 2026: 20 candidates in `+/art/2026-10-19-ancient-batch-1/`. The style matches the painting; the light is golden hour rather than dusk; the generator painted square diamonds despite exact hex geometry. A prototype re-projection (`+/art/2026-10-19-ancient-batch-1-hexed/_hexify.py`) cuts each diamond down to the hex cell, and a 37-hex island built from the results tiles cleanly. So the geometry is ours and the generator only paints. Batch 1b (`docs/briefs/ancient-batch-1b.md`) tests painting on a template and the dusk light on six tiles.
 
 ## Steps
 
-- [ ] Generate each tile from the prompt pack against the picture of Arcadia.
+- [x] Run batch 1 against the picture of Arcadia (19 Oct 2026).
+- [x] Prototype the diamond-to-hex re-projection and test it on a 37-hex island.
+- [ ] Run batch 1b on the geometry templates and judge the template method and the dusk light.
+- [ ] Port the re-projection to the `packages/tiles` TypeScript tooling, and record the geometry decision as a Decision Record.
+- [ ] Generate the rest of the set from the prompt pack the same way.
 - [ ] Record each chosen image and its prompt in `packages/tiles/sets/ancient/manifest.json`.
 - [ ] Validate the set against the contract and place it on the Arcadia map.
 
