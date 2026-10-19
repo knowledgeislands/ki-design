@@ -8,6 +8,21 @@ updated: 2026-10-19
 
 Three maps draw one world: the Map of Known Lands (the canon chart of the realm), the Living Map (the site's interactive map) and the Known Lands chart (the local app's instrument). Each is drawn from an `islandmap/v1` model on the hex grid, flat or isometric, with a text equivalent always rendered. The model and the renderer are code in [`packages/hexmap`](../../packages/hexmap/README.md); this file holds what each map shows, its layers, how islands are typed, keyboard and pointer interaction, accessibility, and the fuller model still proposed.
 
+## Two scales: the Territory Map and the Island Map
+
+Agreed with the owner on 19 October 2026. Every map is drawn at one of two scales, and the two serve different purposes. Both use the same pointy-top axial hex grid and the same code in `packages/hexmap`; what a hex means differs.
+
+| Scale | Purpose | A hex is | Shows | Rendering |
+| --- | --- | --- | --- | --- |
+| **Territory Map** | Orientation and navigation: which islands exist, what each is for, how they relate, and where attention is needed | A chart cell for laying islands out across a sea region | Islands as small clusters of hexes with their glyphs and names, the Capital as the seven-hex flower, routes, signals | Top-down and flat. No heights, no painted ground |
+| **Island Map** | Understanding one island: how its knowledge and work are arranged, as a place to explore | A cell of ground inside one island | Terrain, heights, cliffs, rivers, waterfalls and buildings; the Capital as seven cells of actual ground | Isometric and painted (Ancient); a flat top-down rendering of the same cells serves as its overview |
+
+- An island's cluster on the Territory Map is a symbol: its size and shape place and identify the island, and measure no ground. The Territory Map stays as it is.
+- The Capital appears at both scales, as a symbol on the Territory Map and as ground on the Island Map; both keep the seven-hex rule.
+- Selecting an island on the Territory Map is the natural way into its Island Map.
+- The [hex terrain composition proposal](hex-terrain-composition.md) is about the Island Map only.
+- The `islandmap/v1` model name predates these terms. It describes a map at either scale.
+
 ## Three maps
 
 | Map | Surface | Shows | Renderer | Interaction |

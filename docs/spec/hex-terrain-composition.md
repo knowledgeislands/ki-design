@@ -8,6 +8,10 @@ updated: 2026-10-19
 
 **Proposed.** Compose terrain from small pointy-top hexagonal cells, with six relative corner heights and a separate whole-cell elevation. Larger objects occupy connected groups of cells, while their artwork can remain continuous across internal boundaries. Neighbours join through explicit edge profiles and feature crossings; differences can reveal cliffs or waterfalls. This is the local design proposal and review specification, not an implemented extension of the tile contract.
 
+## Scope: the Island Map
+
+This proposal is about the **Island Map**: one island's ground, drawn isometric, where a hex is a cell of ground. The **Territory Map**, where islands are small hex clusters laid out top-down across a sea region, is unchanged by it. The two scales share the hex grid's mathematics but not what a hex means; [maps.md](maps.md#two-scales-the-territory-map-and-the-island-map) defines both. Where this proposal says "one grid", it means within the Island Map: no finer grid beneath its cells.
+
 ## Authority and current compatibility
 
 The current [tile contract](../../packages/tiles/src/contract.ts), [tile specification](tiles-and-buildings.md), [geometry decision](../decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md) and [footprint decision](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md) remain authoritative. Their existing geometry, footprint union, plinth and validation have not changed. In particular, a new irregular footprint cannot currently be written into a production manifest and pass the existing validator.

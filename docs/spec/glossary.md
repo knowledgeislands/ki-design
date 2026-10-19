@@ -37,6 +37,7 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | Illustrated explainer | The daylight watercolour diagram style |
 | Instrument | The local app's dialect; also each view in it |
 | Island | A body of knowledge; a repository |
+| Island Map | The ground-scale map of one island: a hex is a cell of ground, drawn isometric and painted ([maps.md](maps.md#two-scales-the-territory-map-and-the-island-map)). Not the `islandmap/v1` model, which serves both scales |
 | IslandMap | The `islandmap/v1` JSON model of a map |
 | Known Lands | The canonical chart of the realm; the app's chart instrument |
 | Lighthouse | Guidance; serves others |
@@ -52,6 +53,7 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | Rule | The receding colour role for separating rows and panes |
 | Ruins | Retired knowledge, honoured |
 | Territory | Islands governed together under one Capital, drawn as an archipelago |
+| Territory Map | The chart-scale map of a territory: islands as small hex clusters in a sea region, drawn top-down and flat ([maps.md](maps.md#two-scales-the-territory-map-and-the-island-map)) |
 | Tile set | A skin over the manifest ids (Modern, Ancient) |
 | Tower | Dropped (GDR-KI-PRINCIPAL-011); the local app's mark is the Observatory |
 | Voyage | The narrative half of the site, read in order |
