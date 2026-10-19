@@ -58,7 +58,7 @@ Normalise an existing set of absolute heights by taking `b = min(H0…H5)` and `
 
 Map elevation may be negative relative to the chosen world datum. Local heights remain non-negative. The physical distance of a height unit and its projected pixel rise are separate choices: zoom changes the pixel rise, not the stored elevation. The initial recommendation is integer terrain-height units; the unit size and any finer increments remain Open.
 
-**Worked join:** A has elevation 0 and local heights `[0, 0, 1, 2, 0, 0]`. Across A's `e2`, P is `c2` at absolute height 1 and Q is `c3` at height 2. B is at axial offset `(0, +1)`, has elevation 1 and local heights `[0, 1, 1, 1, 1, 1]`. Its opposite edge is `e5`: B's `c0` is P at `1 + 0 = 1`, and B's `c5` is Q at `1 + 1 = 2`. Both cells satisfy the zero-corner rule and the join is continuous.
+**Worked join:** A has elevation 0 and local heights `[0, 0, 1, 2, 0, 0]`. Across A's `e2`, its local endpoints are `c2` at absolute height 1 and `c3` at height 2. (In the mathematics' canonical P → Q order, which sorts the corner keys, `c3` comes first; the comparison is the same either way.) B is at axial offset `(0, +1)`, has elevation 1 and local heights `[0, 1, 1, 1, 1, 1]`. Its opposite edge is `e5`: B's `c0` meets A's `c2` at `1 + 0 = 1`, and B's `c5` meets A's `c3` at `1 + 1 = 2`. Both cells satisfy the zero-corner rule and the join is continuous.
 
 ![Two hexes joining at different whole-cell elevations](../../+/art/2026-10-19-arcadia-hex-composition-study/corner-heights.svg)
 
@@ -66,7 +66,9 @@ Map elevation may be negative relative to the chosen world datum. Local heights 
 
 Six corner heights specify the boundary, not the entire interior. A ridge, hollow or terrace needs an interior rule or additional geometry. The proposed first pilot uses straight edge profiles and six triangles meeting at a centre whose height is the mean of the six corners. This is a deterministic pilot convention, not a claim that every terrain should look like a six-triangle fan.
 
-Painted material follows that geometry. Buildings retain upright geometry and a defined ground contact. Warping a complete painting, including a building, onto a sloped terrain mesh would distort it. A building foundation must either fit the sampled ground, explicitly level it, or declare supported steps or terraces. That placement policy remains Open.
+**What needs more than six heights.** Six corners fix the boundary only. A ridge or hollow across a cell needs an interior height; a terrace within one cell needs a break line; a river channel needs a carved bed; a cliff along part of an edge needs a non-straight profile; an overhang or cave cannot be a height field at all. The recommended pilot addition is a single optional centre height, used in place of the mean when present: seven values, the same fan, and it covers ridges, hollows and single peaks. Everything else is better carried by artwork or by splitting the feature across cells than by more stored heights.
+
+Painted material follows that geometry: each flat-painted material tile is warped triangle by triangle onto the sloped fan, as the [mathematics](hex-terrain-mathematics.md#mapping-painted-material-onto-the-fan) defines. Buildings retain upright geometry and a defined ground contact. Warping a complete painting, including a building, onto a sloped terrain mesh would distort it. A building foundation must either fit the sampled ground, explicitly level it, or declare supported steps or terraces. For the pilot the recommended policy is a level pad: every member cell flat and at one elevation, with placement offering to level them (see [compound operations](hex-terrain-mathematics.md#compound-operations)). Steps and terraces remain Open.
 
 ## Shared edges and exposed faces
 
@@ -86,17 +88,23 @@ Two endpoints suffice only for straight profiles. Curved, stepped or otherwise d
 
 An ordinary internal join has no decorative plinth between its cells. A real height discontinuity can expose rock, soil or an explicit retaining treatment. An island's outside boundary may expose a cutaway down to a declared datum. That visible depth is not automatically the height difference to a neighbour, and the current fixed-plinth renderer is not yet replaced by this proposal.
 
+### What the camera shows
+
+Only the higher cell's lower-front edges (e2 and e3) ever show a cliff face. East and west steps (e1, e4) are edge-on and show no face, so their art needs a darkened edge stroke to read as a step; drops away from the camera (e0, e5) are hidden behind the higher cell. The [mathematics](hex-terrain-mathematics.md#what-the-fixed-camera-can-show) gives the table, the lit and shaded tones and the draw order. This removes most visibility work: a renderer draws at most two faces per cell.
+
 ### Where three cells meet
 
-For continuous terrain, all incident cells agree on the absolute height of the shared world vertex. Store or derive one authoritative value for that continuous surface. If cliffs deliberately separate surface levels, retain each incident surface's height at the junction; do not merge different levels into a single shared height.
+Each cell keeps its own corner heights. Terrain is continuous at a world vertex where the incident stored heights are equal, and a cliff where they are not; nothing needs reconciling or storing twice.
 
-The junction must close the exposed faces without cracks, doubled caps or holes. A cliff meeting a ramp, two cliffs of different heights, and a three-way river junction each need an explicit supported case. Independent edge sprites without a junction rule are insufficient. Boundary identity and ownership must remain stable across chunk boundaries.
+With straight profiles and vertical faces the junction closes by construction: all faces meeting at the vertex lie in vertical planes through it, each covering the interval between its two incident heights, so no corner cap is needed ([proof](hex-terrain-mathematics.md#closing-three-cell-junctions)). Caps, and explicit cases for cliffs meeting ramps, become necessary only when faces stop being vertical planes (bevels, thickness, overhangs) or when a fixed sprite stands in for a computed face. The pilot excludes both. Independent edge sprites without this rule are insufficient. Boundary identity and ownership must remain stable across chunk boundaries.
 
 ## Rivers, roads and waterfalls
 
 Height says what can be exposed; a feature declaration says what actually crosses the edge. The recommended crossing record contains the feature type, connection identity, position along P → Q, width in world units, and the relevant level and direction information. Reversing endpoint order also reverses the crossing parameter: `t` becomes `1 − t`.
 
 For water, record or derive river-bed level and water-surface level separately from surrounding terrain height. Match the crossing position, width and receiving reach on the neighbour. River flow follows an explicit directed connection and compatible water levels. A terrain drop without a river crossing is a cliff, not a waterfall.
+
+For the pilot, accept a crossing only where both sides are level across it, so the water surface is the cell surface and no separate levels are stored, and accept a waterfall only over the upper cell's e2 or e3 edge, where the camera can see it ([pilot simplification](hex-terrain-mathematics.md#feature-crossings-and-waterfalls)). Separate bed and water levels follow once that holds.
 
 If the connected upper water surface drops to a lower receiving water surface, create a waterfall connector between them, with rock exposure around it and an explicit receiving-water treatment. Its width and drop follow the water connection, not the entire hex edge. Keep painted foam and spray within the connector's declared extent. Roads crossing a discontinuity similarly need a supported ramp, stairs, bridge or a rejected connection; they cannot silently float over it.
 
@@ -108,11 +116,13 @@ A compound stores a stable id, anchor cell, occupied axial offsets and artwork p
 
 One continuous artwork can cover the compound, or separate ground, structures and details can be assembled there. Occupancy, visual overhang, ground contact and interaction bounds are distinct. A canopy extending beyond its trunk's contact patch does not automatically make every overhung cell impassable. Their exact occupancy policy must be explicit before implementation; existing overhang limits still apply to current production art.
 
+Draw a compound in the pass of its front-most row. For the pilot, that requires the cells just in front of its members, within its rows, to be neither raised above its base nor occupied; the [draw order](hex-terrain-mathematics.md#draw-order) states the rule, and per-row slicing of compound art is the general alternative. Footprints with holes are rejected in the pilot.
+
 Place and move the compound as one object while testing occupancy and connections for every member cell. Handle external boundary edges individually. A shared placement elevation may raise the whole compound; member surfaces still normalise their local corner heights. A common building foundation spanning several cells must not be independently warped by each member cell.
 
 Logical footprint rotation is possible in the grid, but existing painted art has fixed upper-left light. Do not rotate its bitmap. A differently oriented structure needs compatible artwork. A cluster of small hexes generally has a stepped boundary, not the straight sides of one larger regular hexagon.
 
-The Capital's canonical flower remains a separate constraint. If smaller construction cells are eventually introduced beneath the current semantic hex scale, the relationship between those two scales needs an explicit decision; a finer extraction grid must not silently redefine the Capital's footprint.
+The Capital's canonical flower remains a separate constraint. **Hexes do not nest:** no set of smaller hexes exactly fills a larger one, and the closest fit, the seven-hex flower, is turned about 19.1° from its parent hex. A finer construction grid beneath the current semantic hex could therefore never share its boundaries, and every semantic-cell edge would cut through small cells. The recommendation is one grid: the construction cell _is_ the semantic hex, and the Capital stays seven of them. That also ties the grid's scale to the painting. The Capital's hilltop forum is about 420 source pixels across, and a seven-hex flower is three cells wide, so the matching sampling width is about 140 pixels. At that width the study's own selection rule gives the Great Tree 12 cells: irregular, and between the 8-cell and 17-cell comparisons. The 17-cell tree belongs to a 100-pixel grid, on which the Capital's hilltop would need about 19 cells (a hex of radius two), which the seven-hex rule excludes. This is a sampling estimate for review, not a world size. A finer extraction grid must not silently redefine the Capital's footprint.
 
 ### Size and resolution
 
@@ -159,6 +169,21 @@ compound:
 ```
 
 ## Pilot and acceptance
+
+### Pilot 0: the smallest useful test
+
+**Proposed.** One pure function and one fixture, with no art, no contract change and no renderer migration:
+
+- a `renderTerrainSvg` beside `renderArchipelagoSvg` in `@knowledgeislands/hexmap`, drawing cells from `(q, r, b, h0…h5, material)` with flat token colours;
+- the mean-centre fan, visible e2 and e3 faces in lit and shaded rock tones, outside faces down to the datum with the existing plinth below, and `isoSort` draw order;
+- a 19-cell fixture island containing: equal joins, a cell raised by one unit, a sloped shared edge, a tapered cliff, an edge whose higher side swaps, a three-cell junction with three different heights, an east step, one level river crossing and one front-edge waterfall, a seven-cell level-pad compound as a placeholder block, and a three-cell tree compound on a slope;
+- unit tests for every check in [mathematical acceptance](hex-terrain-mathematics.md#mathematical-acceptance-checks), plus: the all-zero map draws the same top faces and plinths as the current renderer, every visible face's endpoints coincide with its two surfaces' edges, and the placement rules reject a hole, a non-level pad and a raised cell in front of a compound.
+
+Its output is one review board. It proves the geometry, the visibility rules and the draw order before any painted material is involved, and it costs a few hundred lines of TypeScript.
+
+### Later stages
+
+Pilot 1 warps flat-painted Ancient materials onto the same fixture and judges whether the painting survives the slopes; that is the result that decides whether this model suits the painted style. Pilot 2 adds an Arcadia-derived patch beside new material. Chunking, depth-aware picking on raised terrain, continuous heights, layered occupancy and compound rotation stay out of the pilots until a need appears.
 
 Before changing a production schema, demonstrate all of the following with hex-only examples:
 

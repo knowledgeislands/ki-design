@@ -14,6 +14,16 @@ Read nominal top-face width `W0` and height `H0` from `tileGeometry` in the [exi
 
 Map coordinates and heights exist independently of pixels. Screen x points right and screen y down. Axial q points right; axial r points towards the lower right. A projected height `z` moves a point upwards by `Z × z`. Setting a camera origin or zoom never changes stored terrain heights.
 
+### A height rise consistent with the camera
+
+**Proposed.** The 2:1 projection is a real camera, so `Z` need not be an arbitrary art choice. Screen pixels per plan unit are `W / (sqrt(3) × R)` across and `H / (2R)` down; with `H = 148` and `W = 256` their ratio is 0.5007, which is a camera looking down at 30° (`sin 30° = 1/2`; the contract's 148 rounds the exact 147.80). A vertical physical length `L` therefore projects to `L × cos 30°` times the horizontal scale:
+
+```text
+Z = (W / 2) × (U / R)
+```
+
+Choose the height unit as a fraction of the cell's corner radius and `Z` follows. The recommended pilot value is `U = R / 4`, which gives `Z = W / 8`: 32 px at 1× and 64 px at 2×, both integral. On that scale the existing 48 px plinth is 1.5 height units. A different ratio is a world-scale decision, not a rendering tweak; record it in `OPEN.md` if it changes.
+
 ## Cell centres and corners
 
 The centre of cell `(q, r)` at height `z` projects to:
@@ -36,7 +46,7 @@ Number corners clockwise from north. Use these dimensionless integer corner offs
 
 For corner `i`, its exact plan-position key is the integer pair `K = (2q + r + dxi, 3r + dyi)`. Its screen position is `x = ox + (W/2) × Kx`, `y = oy + (H/4) × Ky − Z × Hi`. Adjacent cells therefore derive the same plan-position key without rounding floating-point coordinates. Store height per incident surface at this key when a cliff deliberately separates levels.
 
-For a continuous world vertex, reconcile one absolute height shared by all incident cells. At `ci`, the incident neighbours are across `ei` and `e(i−1 mod 6)`. Where a neighbour is absent, use an explicit outside-boundary treatment rather than an invented neighbouring surface.
+Each cell stores its own corner heights, so a world vertex carries up to three values, one per incident cell. Nothing is reconciled: two cells join continuously at a vertex exactly when their stored absolute heights there are equal, and a cliff is simply inequality. There is no separate continuous or split vertex mode to store. At `ci`, the incident neighbours are across `ei` and `e(i−1 mod 6)`. Where a neighbour is absent, use the outside-boundary rule below rather than an invented neighbouring surface.
 
 ## Neighbours and shared boundary keys
 
@@ -98,9 +108,43 @@ If dP and dQ are zero, there is no exposed height face. Otherwise, if their sign
 
 If the signs oppose, compute `tCross = dP / (dP − dQ)`. It lies strictly inside the edge. Compute the world point on P → Q at that parameter and its common height using either A or B. Make one triangular face towards P and another towards Q; the higher owner changes at the crossing. Do not make a bow-tie quadrilateral. This is the complete straight-profile case split; detailed profiles require the same procedure per shared segment.
 
+### What the fixed camera can show
+
+**Proposed.** Only some exposed faces are ever visible, and which ones follows from the edge alone. A face hangs from the higher cell's edge towards the lower neighbour. Under the fixed camera:
+
+| Higher cell's edge | Lower neighbour lies | Face on screen |
+| --- | --- | --- |
+| e2, e3 | in front | Visible. e3 faces the light (lower left) and takes the lit rock tone; e2 faces away (lower right) and takes the shade tone, matching the current plinth |
+| e1, e4 | beside | Edge-on: both endpoints share one screen x, so the face projects to a line with no area |
+| e0, e5 | behind | Back-facing and hidden; the higher cell occludes part of the lower one instead |
+
+Two consequences. An east or west step (e1 or e4) shows no cliff at all: the two top surfaces simply meet at different heights along a vertical screen line. The art must mark it, for example with a darkened edge stroke on the higher surface; otherwise the step reads as a texture shear. And a drop across e0 or e5 is hidden behind the higher cell, which matters for waterfalls (below).
+
+### Draw order
+
+Draw cells in increasing r, then increasing q: the existing `isoSort` in `@knowledgeislands/hexmap`. For each cell draw its top surface, then its visible e2 and e3 faces. A face hangs exactly down to the lower front neighbour's edge. Anything of that neighbour that rises over the face is in front of it and is drawn later, so it covers the face correctly; the same holds for any raised cell in front of what lies behind it. Cells in the same row never overlap: a raised surface moves straight up, into the rows behind.
+
+Upright objects (buildings, trees, compounds) are drawn in the pass of their front-most occupied row, after that row's ground. That is correct as long as nothing that should cover the object is drawn earlier. For the pilot, enforce it as a placement rule: a cell outside the compound that touches a member's e2 or e3 edge, and lies in a row no further forward than the compound's front row, must not be raised above the compound's base elevation and must carry no object. The general alternative, slicing compound art into per-row strips drawn in each row's pass, is Open.
+
+### Closing three-cell junctions
+
+With straight profiles and vertical faces, a junction closes without any extra geometry. Every face meeting at a world vertex lies in a vertical plane through that vertex, so all of them contain the same vertical line there. Each face covers the interval between its two incident heights on that line: with heights `a ≤ b ≤ c`, the three faces cover `[a, b]`, `[b, c]` and `[a, c]`. Together with the three top surfaces they bound a closed surface. No corner cap, filler or triangle is needed, and there is nothing to double-draw.
+
+Caps become necessary only when faces stop being vertical planes: bevelled or sloped cliffs, faces with thickness, overhangs, or a decorative plinth sprite stood in for a computed face. The pilot keeps faces vertical and computed, so its junction work is visual only: which face's texture shows at the vertex. Since only e2 and e3 faces are visible, the only visible junction between two faces of one cell is the vertical line under its c3 corner. That is where the current plinth's two faces already meet.
+
+### The outside boundary
+
+Where a visible edge (e2 or e3) has no neighbour, draw a face from the surface down to the world datum, height 0, and hang the existing fixed plinth below that. A flat map at height 0 then renders exactly as today, so the current renderer is the special case of this model in which every height is zero. A sea cell is an ordinary neighbour: a coast at height 2 above sea at height 0 shows a two-unit cliff to the water, not a plinth.
+
+### Mapping painted material onto the fan
+
+**Proposed.** Paint each ground material once as a flat tile: the current top-face image at height 0. A sloped cell draws each of its six triangles by mapping the flat tile's triangle `(centre, ci, c(i+1))` to the same triangle with its corners raised. Three point pairs define an affine map exactly, so the image needs no mesh library. With source points `s0, s1, s2` and destination points `d0, d1, d2`, take the 2 × 2 matrices `S = [s1 − s0, s2 − s0]` and `D = [d1 − d0, d2 − d0]`, each with its two vectors as columns. The forward map is `M = D × S⁻¹` with translation `d0 − M × s0`. Pass those six numbers to a canvas `setTransform`, or an SVG `matrix()`, and clip to the destination triangle. Reject a zero-area source triangle.
+
+Height steps stretch painted texture vertically, so the pilot limits a single cell's corner range: the recommended limit is `max(hi) ≤ 2` units. Painted art that must stay upright (buildings, trunks) is never warped; it is placed on the surface at its contact point.
+
 Compute shared values once per boundary to avoid cracks from inconsistent tolerances. The integer-height pilot permits exact endpoint comparisons. If continuous height input is later supported, decide common quantisation or comparison tolerance explicitly. Face visibility and occlusion follow the fixed camera and scene depth; height difference alone does not prove a face is visible.
 
-At a three-cell junction, reconcile the incident continuous heights or retain the ordered split levels, then close the meeting edge faces. Reject a geometry combination the pilot has not implemented rather than drawing independent faces with an unfilled corner. The pilot acceptance cases in the composition spec define the required junction coverage; a general corner-cap algorithm remains Open.
+At a three-cell junction, use each incident cell's stored height as it is; the closure argument above shows the vertical faces meet without a cap. A general corner-cap algorithm is needed only for non-vertical faces, which the pilot excludes.
 
 ## Feature crossings and waterfalls
 
@@ -110,11 +154,17 @@ For a directed water connection, require one connection identity, aligned crossi
 
 A declared upstream water level below the supposed receiving level is inconsistent with that directed drop. Reject or reclassify the connection rather than inventing uphill flow. Equal levels describe a continuous or otherwise explicitly modelled reach. Terrain without a water crossing produces no waterfall.
 
+**Pilot simplification (Proposed).** Accept a river crossing only where both sides are level across the crossing interval, that is where each incident profile is constant over `[a, b]`; with straight profiles this means the edge's two endpoint heights are equal on each side. The water surface is then the cell's surface height, the drop is the step between the two sides, and no separate bed or water level needs storing. Accept a waterfall only on the upper cell's e2 or e3 edge, where it is visible. A drop across e0 or e5 would fall behind the upper cell; one across e1 or e4 would be edge-on. Reject both in the pilot rather than drawing them wrongly. Separate bed and water levels, sloping reaches and side-on falls follow once the pilot holds.
+
 ## Compound operations
 
 Represent a compound footprint as a set of distinct integer axial offsets, containing `(0,0)` as its occupied anchor. For placement at `(aq, ar)`, each member occupies `(aq + dq, ar + dr)`. A translation changes the anchor only. Use the six neighbour offsets above for connectivity and exposed-boundary calculations.
 
 To validate edge connectivity, start at `(0,0)`, visit all occupied neighbours using a queue, and compare the number visited with the number of offsets. Reject disconnected sets and duplicates. An occupied cell edge is internal if its neighbour is also occupied; otherwise it is a compound boundary edge. Preserve all boundary edges and their world-vertex identities. Do not assume an arbitrary connected set has one simple outer loop: holes and corner contacts need an explicit support policy.
+
+For the pilot, also reject a footprint with a hole: a non-member cell whose six neighbours are all members, or more generally any non-member region enclosed by members. A hole needs ground drawn inside a compound's art and has no use in the first examples.
+
+**Foundations (pilot, Proposed).** A building compound needs a level pad: every member cell has all six local heights zero and all members share one elevation `b`. Placement either finds such a pad or offers to level the cells to the highest member's elevation, which raises their surroundings' exposed faces like any other step. A tree compound needs only its contact cells, the trunk, to be flat; its canopy cells may slope beneath the overhang. Stepped and terraced foundations are a later extension: a compound as several level pads with declared steps between them.
 
 Test placement against map availability, the chosen occupancy layers, terrain contact and supported external crossings. Occupancy, canopy overhang and blocking space are different data; a plan-position overlap alone is not a universal collision rule. Multi-level bridges and canopy selection require a layer/volume policy, which remains Open. Artwork bounds and clipping must not silently redefine occupied cells.
 
