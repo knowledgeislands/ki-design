@@ -1,1 +1,106 @@
-{"v": 3, "createdOnFiles": {"v": 1, "at": "2026-10-18T03:10:00Z"}, "title": "Knowledge Islands \u2014 Design System", "launch": {"view": "canvas"}, "pages": [], "boards": {"DsOverview.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 1000, "title": "1 \u00b7 Overview \u2014 essence, world, how to read", "is_interactive": true}, "DsMeaning.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 1100, "title": "2 \u00b7 Meaning \u2014 the symbol library", "is_interactive": true}, "DsColour.dc.html": {"x": 0, "y": 1220, "w": 1440, "h": 1100, "title": "3 \u00b7 Colour \u2014 day and night", "is_interactive": true}, "DsType.dc.html": {"x": 1520, "y": 1220, "w": 1440, "h": 1000, "title": "4 \u00b7 Type and voice", "is_interactive": true}, "DsIcons.dc.html": {"x": 0, "y": 2440, "w": 1440, "h": 1100, "title": "5 \u00b7 Icons \u2014 all 71 glyphs", "is_interactive": true}, "DsTiles.dc.html": {"x": 1520, "y": 2440, "w": 1440, "h": 1100, "title": "6 \u00b7 Tiles, buildings and motion", "is_interactive": true}, "DsDecisions.dc.html": {"x": 0, "y": 3660, "w": 1440, "h": 1100, "title": "8 \u00b7 Decisions and open questions", "is_interactive": true}, "DsStructure.dc.html": {"x": 1520, "y": 3660, "w": 1440, "h": 1100, "title": "7 \u00b7 Structure \u2014 the site (Voyage and Atlas) and the local app (four jobs)", "is_interactive": true}, "DsArcadia.dc.html": {"x": 3040, "y": 0, "w": 1440, "h": 1100, "title": "Arcadia \u2014 the reference painting"}}, "order": ["DsOverview.dc.html", "DsMeaning.dc.html", "DsColour.dc.html", "DsType.dc.html", "DsIcons.dc.html", "DsTiles.dc.html", "DsStructure.dc.html", "DsDecisions.dc.html", "DsArcadia.dc.html"], "notes": {"dstitle": {"x": 0, "y": -300, "text": "Knowledge Islands design system \u2014 review", "kind": "title1", "maxW": 4480}}, "designSystems": []}
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-18T03:10:00Z"
+  },
+  "title": "Knowledge Islands — Design System",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "DsOverview.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1000,
+      "title": "1 · Overview — essence, world, how to read",
+      "is_interactive": true
+    },
+    "DsMeaning.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1100,
+      "title": "2 · Meaning — the symbol library",
+      "is_interactive": true
+    },
+    "DsColour.dc.html": {
+      "x": 0,
+      "y": 1220,
+      "w": 1440,
+      "h": 1100,
+      "title": "3 · Colour — day and night",
+      "is_interactive": true
+    },
+    "DsType.dc.html": {
+      "x": 1520,
+      "y": 1220,
+      "w": 1440,
+      "h": 1000,
+      "title": "4 · Type and voice",
+      "is_interactive": true
+    },
+    "DsIcons.dc.html": {
+      "x": 0,
+      "y": 2440,
+      "w": 1440,
+      "h": 1100,
+      "title": "5 · Icons — all 72 glyphs",
+      "is_interactive": true
+    },
+    "DsTiles.dc.html": {
+      "x": 1520,
+      "y": 2440,
+      "w": 1440,
+      "h": 1100,
+      "title": "6 · Tiles, buildings and motion",
+      "is_interactive": true
+    },
+    "DsDecisions.dc.html": {
+      "x": 0,
+      "y": 3660,
+      "w": 1440,
+      "h": 1450,
+      "title": "8 · Decisions and open questions",
+      "is_interactive": true
+    },
+    "DsStructure.dc.html": {
+      "x": 1520,
+      "y": 3660,
+      "w": 1440,
+      "h": 1100,
+      "title": "7 · Structure — the site (Voyage and Atlas) and the local app (four jobs)",
+      "is_interactive": true
+    },
+    "DsArcadia.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 1100,
+      "title": "Arcadia — the reference painting"
+    }
+  },
+  "order": [
+    "DsOverview.dc.html",
+    "DsMeaning.dc.html",
+    "DsColour.dc.html",
+    "DsType.dc.html",
+    "DsIcons.dc.html",
+    "DsTiles.dc.html",
+    "DsStructure.dc.html",
+    "DsDecisions.dc.html",
+    "DsArcadia.dc.html"
+  ],
+  "notes": {
+    "dstitle": {
+      "x": 0,
+      "y": -300,
+      "text": "Knowledge Islands design system — review",
+      "kind": "title1",
+      "maxW": 4480
+    }
+  },
+  "designSystems": []
+}
