@@ -1,0 +1,972 @@
+{
+  "folder": "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1",
+  "date": "2026-10-19",
+  "baseline": "6501948d0dce6c4f1f57782fa8849659d68582ca",
+  "reference": "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+  "tool": "built-in image_gen.imagegen",
+  "model": "Not exposed by the built-in tool; unknown",
+  "required_sentence": "This art is unlicensed until KI-DESIGN-ART-002 is decided. These are candidates for review, not the Ancient set.",
+  "tiles": [
+    {
+      "ordinal": 1,
+      "id": "grassland",
+      "subject": "gentle grassland with wildflowers and a few stones.",
+      "kind": "terrain",
+      "filename": "terrain-grassland.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: gentle grassland with wildflowers and a few stones.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.\nVery gentle mostly level GRASS meadow, many small natural wildflowers, ONLY a few low scattered stones. NO trees, tall bushes, wooded hills or terraces built from masonry. One continuous flat meadow from edge to edge, cliff plinth below, not a landscape vignette.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: gentle grassland with wildflowers and a few stones.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-0ae8baf3-7d53-4e8d-9544-4956e6902c4b.png",
+          "review": "Rejected: cottages, built garden walls and paths appear on terrain-only grassland; 1254 x 1254 output also differs from requested canvas.",
+          "selected": false,
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          }
+        },
+        {
+          "attempt": 2,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: gentle grassland with wildflowers and a few stones.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.\nVery gentle mostly level GRASS meadow, many small natural wildflowers, ONLY a few low scattered stones. NO trees, tall bushes, wooded hills or terraces built from masonry. One continuous flat meadow from edge to edge, cliff plinth below, not a landscape vignette.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-4a0ce655-af18-4547-8f37-46dc427b734b.png",
+          "source_bytes": 2451846,
+          "sha256": "11d6346a958b28adb3475ab4fb2bb4e7573b4f97e8dba0fc2eaeeed5f8ed0c7d",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1237+0+17",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 2,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 2,
+      "id": "forest",
+      "subject": "dense temperate woodland of pines and oaks.",
+      "kind": "terrain",
+      "filename": "terrain-forest.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: dense temperate woodland of pines and oaks.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: dense temperate woodland of pines and oaks.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-86b249fe-982f-4a89-b543-3f4ee5457dd5.png",
+          "source_bytes": 2257237,
+          "sha256": "87a6d4a21e65f17dcc6d4b9819ea9a79c61c42eb3c2e5287127aa4704bb7dfe8",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1237+0+17",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 3,
+      "id": "hills",
+      "subject": "rolling hills with exposed rock and heather.",
+      "kind": "terrain",
+      "filename": "terrain-hills.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: rolling hills with exposed rock and heather.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: rolling hills with exposed rock and heather.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-d0d8c341-b077-469c-879b-d56d050f1c7f.png",
+          "source_bytes": 2267455,
+          "sha256": "1830d44667ca37bc18567befdb0436de8764f0391654b9be3c07aa8911294e2c",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1245+0+9",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 4,
+      "id": "mountain",
+      "subject": "a steep rocky peak with snow on its summit, staying inside the hex outline apart from the peak rising above it.",
+      "kind": "terrain",
+      "filename": "terrain-mountain.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a steep rocky peak with snow on its summit, staying inside the hex outline apart from the peak rising above it.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a steep rocky peak with snow on its summit, staying inside the hex outline apart from the peak rising above it.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-2ca0c5ca-5deb-4e10-a359-b923bd7ce08b.png",
+          "source_bytes": 2135755,
+          "sha256": "5c569c8a43024311183107294b288a85acf703ed9218cac589ec70b43b5f6a3f",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1250+0+4",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 5,
+      "id": "coastal",
+      "subject": "a sandy shore meeting shallow water with foam; the water lies along the two southern edges and the land to the north.",
+      "kind": "terrain",
+      "filename": "terrain-coastal.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a sandy shore meeting shallow water with foam; the water lies along the two southern edges and the land to the north.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a sandy shore meeting shallow water with foam; the water lies along the two southern edges and the land to the north.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-e4c45787-cd47-4006-926d-eeb5b8e3f4c5.png",
+          "source_bytes": 2388099,
+          "sha256": "5d48af5c529e24836084c0975a514725ab28dc12cd9af1a83f58d6ec3df9835b",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1254+0+0",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 6,
+      "id": "cliffs",
+      "subject": "a grassy top above sheer stratified sea cliffs.",
+      "kind": "terrain",
+      "filename": "terrain-cliffs.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a grassy top above sheer stratified sea cliffs.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a grassy top above sheer stratified sea cliffs.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-8522acab-dd06-470b-8c9a-4240e8cd0d5f.png",
+          "source_bytes": 2388675,
+          "sha256": "531bf2c90138b3d8470f6eb54fc364a5d3eb3ce8b60671f037904a3f7c22935e",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1211+0+19",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 7,
+      "id": "sand",
+      "subject": "warm dunes with sparse grasses.",
+      "kind": "terrain",
+      "filename": "terrain-sand.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: warm dunes with sparse grasses.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: warm dunes with sparse grasses.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-6ae3c472-fc71-46ed-b024-8659005f2b8b.png",
+          "source_bytes": 2123071,
+          "sha256": "3491dcd94a211efb2a1d7611c9e280d76ae5ceb8cdab09223f8e2ba1112212b6",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1253x1254+0+0",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 8,
+      "id": "river",
+      "subject": "a clear river crossing grassland from the north-east edge to the south-west edge.",
+      "kind": "terrain",
+      "filename": "terrain-river.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a clear river crossing grassland from the north-east edge to the south-west edge.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a clear river crossing grassland from the north-east edge to the south-west edge.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-4514912b-6f2b-4b9a-8090-08e6288fc0eb.png",
+          "source_bytes": 2311059,
+          "sha256": "1936597e388ee1789a40b52c99e9352a08245c03da855e2676ada41129afa527",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1253x1237+0+17",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 9,
+      "id": "marsh",
+      "subject": "reed marsh with small pools.",
+      "kind": "terrain",
+      "filename": "terrain-marsh.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: reed marsh with small pools.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: reed marsh with small pools.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-7aa6dd53-96d2-49ce-a89b-76ceddf6bdcf.png",
+          "source_bytes": 2450422,
+          "sha256": "9df04dc762482b0250526f2d3b5c56f6a0cf97d9bdfe9d5e6fdb779737c8df21",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1254+0+0",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 10,
+      "id": "snow",
+      "subject": "a deep snowfield with a few dark pines.",
+      "kind": "terrain",
+      "filename": "terrain-snow.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a deep snowfield with a few dark pines.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a deep snowfield with a few dark pines.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-0f8afc4b-42c0-45a7-8fd1-5d23688f9915.png",
+          "source_bytes": 2080162,
+          "sha256": "c29a9d3b522b770e2f2e54f230a8714cb31662c9114efb7997fea01685d1df65",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1254+0+0",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": false
+        },
+        {
+          "attempt": 2,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: a deep snowfield with a few dark pines.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.\nSNOWFIELD, NOT A MOUNTAIN: a broad mostly flat deep snow blanket with just THREE small dark pines and a few low snow-covered stones, no mountain summit, no high rocky ridge, no snow-covered woodland. Keep the six-edge top face open, calm and readable.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-bd8f8a0f-6add-45db-b14c-b7119bae106c.png",
+          "source_bytes": 1427618,
+          "sha256": "9a0795d0d3646da62dbe46b2c3534b591672feaf4fa87c3cc05db27b33b44d36",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1224x1205+0+33",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 2,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 11,
+      "id": "volcanic",
+      "subject": "dark volcanic rock with a dormant crater and cooled lava seams, dull ember at most, no glow.",
+      "kind": "terrain",
+      "filename": "terrain-volcanic.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: dark volcanic rock with a dormant crater and cooled lava seams, dull ember at most, no glow.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: dark volcanic rock with a dormant crater and cooled lava seams, dull ember at most, no glow.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-df07b9fb-6f2d-4039-b8e5-4fdaf0e5549c.png",
+          "source_bytes": 2291051,
+          "sha256": "e30911e4cf1886ad57f2b1aaece42069b9ea866abed3dba47a6cbcf8670dd326",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1254+0+0",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 12,
+      "id": "ocean",
+      "subject": "deep navy open sea with gentle swell and faint glints, the whole top face water.",
+      "kind": "terrain",
+      "filename": "terrain-ocean.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: deep navy open sea with gentle swell and faint glints, the whole top face water.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1024 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1024, empty headroom above the cell. Top-face vertices (512,240),(1024,388),(1024,684),(512,832),(0,684),(0,388). No overhang beyond the hex except upward terrain/building height within the canvas. Terrain fills the ENTIRE hex top face.\n\nSubject: deep navy open sea with gentle swell and faint glints, the whole top face water.\nTerrain still, one tile, frame 0 only.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nSTRICT TERRAIN-ONLY TILE: no buildings, cottages, gardens, masonry walls, roads, paths, settlements, lamps, windows, harbour, airship, people or other man-made structures. The shared opening's warm window lights describe the STYLE reference only; do not add windows to terrain. Preserve natural grass/woodland/stone/water according to the subject only.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-b6504fc0-0cb6-4eb4-9417-08c1b0770856.png",
+          "source_bytes": 2004876,
+          "sha256": "b89ab2b2a47171e839fe102e73e77e42ee6a1c1737c092818d6192fad1807d8b",
+          "metadata": {
+            "width": 1254,
+            "height": 1254,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1254x1250+0+4",
+            "alpha_min": "0",
+            "alpha_max": "1"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 13,
+      "id": "capital",
+      "subject": "the island's civic heart as a hilltop forum in pale limestone, open and welcoming. A domed Library and a colonnaded Council Hall face each other across an open paved civic square with a few trees and a fountain, on a low terraced dais with open stairs down the front faces. Civic and never fortified: no walls, no gatehouse, no battlements and no tower of any kind, not even a clock tower. Not a temple, not a castle. Classical observatory family: pale limestone, domes, colonnades.",
+      "kind": "structure",
+      "filename": "structure-capital.png",
+      "footprint": "7-hex flower",
+      "scale": 2,
+      "requested_size": [
+        1536,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1536 x 1024 pixels. Drawing scale 2x. This Capital is an EXCEPTION to the shared single-hex opening: ONE compound sprite on a 7-HEX FLOWER, one centre hex and all six adjacent hexes, not one giant hex and not a square platform. Each top face is 512 x 296 pixels; their combined top-face footprint is 1536 x 740 pixels. Stratified rock plinth is 96 pixels deep (48 at 1x); full footprint cell 1536 x 836 pixels, horizontally centred, bottom at y=1024 with 188 pixels empty headroom above the footprint. Seven top-face centres: (768,558), (256,558), (1280,558), (512,336), (1024,336), (512,780), (1024,780). Show the stepped outer contour of the seven tessellated pointy-top hexes. No architecture outside this flower; open steps are civic terraces, not ramparts.\n\nSubject: the island's civic heart as a hilltop forum in pale limestone, open and welcoming. A domed Library and a colonnaded Council Hall face each other across an open paved civic square with a few trees and a fountain, on a low terraced dais with open stairs down the front faces. Civic and never fortified: no walls, no gatehouse, no battlements and no tower of any kind, not even a clock tower. Not a temple, not a castle. Classical observatory family: pale limestone, domes, colonnades.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1536 x 1024 pixels. Drawing scale 2x. This Capital is an EXCEPTION to the shared single-hex opening: ONE compound sprite on a 7-HEX FLOWER, one centre hex and all six adjacent hexes, not one giant hex and not a square platform. Each top face is 512 x 296 pixels; their combined top-face footprint is 1536 x 740 pixels. Stratified rock plinth is 96 pixels deep (48 at 1x); full footprint cell 1536 x 836 pixels, horizontally centred, bottom at y=1024 with 188 pixels empty headroom above the footprint. Seven top-face centres: (768,558), (256,558), (1280,558), (512,336), (1024,336), (512,780), (1024,780). Show the stepped outer contour of the seven tessellated pointy-top hexes. No architecture outside this flower; open steps are civic terraces, not ramparts.\n\nSubject: the island's civic heart as a hilltop forum in pale limestone, open and welcoming. A domed Library and a colonnaded Council Hall face each other across an open paved civic square with a few trees and a fountain, on a low terraced dais with open stairs down the front faces. Civic and never fortified: no walls, no gatehouse, no battlements and no tower of any kind, not even a clock tower. Not a temple, not a castle. Classical observatory family: pale limestone, domes, colonnades.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is ONLY the exact footprint template, not an art-style reference. Preserve its visible tessellated hex topology and compound perimeter, and paint over that ground using the Arcadia reference's light/materials. The whole compound must be a single connected footprint. Do NOT replace it with a square, rectangle, rhombus or one enlarged hexagon.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/flower.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-a9da7fe8-0e28-4fed-b879-a91405214196.png",
+          "source_bytes": 2748191,
+          "sha256": "8437e73ecbac3a535680666f07ece8e8968fb23088cb199c9a976e4e9f933d4a",
+          "metadata": {
+            "width": 1536,
+            "height": 1024,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1524x998+0+8",
+            "alpha_min": "0",
+            "alpha_max": "0.996078"
+          },
+          "selected": false
+        },
+        {
+          "attempt": 2,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1536 x 1024 pixels. Drawing scale 2x. This Capital is an EXCEPTION to the shared single-hex opening: ONE compound sprite on a 7-HEX FLOWER, one centre hex and all six adjacent hexes, not one giant hex and not a square platform. Each top face is 512 x 296 pixels; their combined top-face footprint is 1536 x 740 pixels. Stratified rock plinth is 96 pixels deep (48 at 1x); full footprint cell 1536 x 836 pixels, horizontally centred, bottom at y=1024 with 188 pixels empty headroom above the footprint. Seven top-face centres: (768,558), (256,558), (1280,558), (512,336), (1024,336), (512,780), (1024,780). Show the stepped outer contour of the seven tessellated pointy-top hexes. No architecture outside this flower; open steps are civic terraces, not ramparts.\n\nSubject: the island's civic heart as a hilltop forum in pale limestone, open and welcoming. A domed Library and a colonnaded Council Hall face each other across an open paved civic square with a few trees and a fountain, on a low terraced dais with open stairs down the front faces. Civic and never fortified: no walls, no gatehouse, no battlements and no tower of any kind, not even a clock tower. Not a temple, not a castle. Classical observatory family: pale limestone, domes, colonnades.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is ONLY the exact footprint template, not an art-style reference. Preserve its visible tessellated hex topology and compound perimeter, and paint over that ground using the Arcadia reference's light/materials. The whole compound must be a single connected footprint. Do NOT replace it with a square, rectangle, rhombus or one enlarged hexagon.\nStrict final quality constraints: only the domed Library and the colonnaded Council Hall, open square, fountain and a few trees; no cottages or extra buildings, no garden walls, no boundary walls, no gateposts or gates, no freestanding pillars except the buildings' own colonnades. Use low open terraces and stairs without enclosing the square. ALL pixels outside the footprint and building silhouettes must have alpha=0, absolutely no amber halo, background haze, bloom, soft rectangle, vignette or cast shadow on the transparent background. Dusk haze belongs only inside painted materials, never behind the cutout. Fully opaque painted objects, truly transparent empty space.\nBACKGROUND FALLBACK OVERRIDE: previous transparency requests have produced visible amber/grey halo contamination outside the cutout. For this candidate use the brief's allowed fallback instead: an entirely uniform flat LIGHT GREY background, solid #d9d9d9 edge to edge, RGB(217,217,217). This overrides every earlier request for transparent alpha. NO gradient, NO dark background, NO vignette, NO haze, NO glow, NO bloom and NO cast shadow on the background. Paint only the tile and structures, with sharp separation from the flat light-grey background; internal shadows remain top-left lit and restrained. Keep the exact requested canvas and footprint, not a floating square diorama.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/flower.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-bcdc794a-bc4e-4c35-8933-83f8a8ccaef4.png",
+          "source_bytes": 2514731,
+          "sha256": "1fc48b0c245a29a61400df7a2dc8034995b95c48791605dfd8d9cce1982e6cb6",
+          "metadata": {
+            "width": 1536,
+            "height": 1024,
+            "channels": "srgb  3.0",
+            "opaque": "True",
+            "bbox": "1536x1024+0+0",
+            "alpha_min": "2.7431e+303",
+            "alpha_max": "-2.7431e+303"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 2,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png"
+      ]
+    },
+    {
+      "ordinal": 14,
+      "id": "port",
+      "subject": "one coastal port town where knowledge enters and is exchanged, with water along its southern edges. Low open stone quays and a timber dock with small sailing ships, brick and stone warehouses, a crane, a small rail depot with short double rails running inland, a tall mooring mast with a small moored airship, and a modest customs house with a simple barrier on the entry road. A civic clock tower may stand among the warehouses: architecture only, no battlements. Civic harbour town family: brick, clock tower, cranes, warehouses.",
+      "kind": "structure",
+      "filename": "structure-port.png",
+      "footprint": "east-west 2-hex pair",
+      "scale": 3,
+      "requested_size": [
+        1536,
+        1024
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1536 x 1024 pixels. Drawing scale 3x. This Port is an EXCEPTION to the shared single-hex opening: ONE compound sprite spanning an EAST-WEST PAIR of two pointy-top hexes side by side with a shared vertical edge, not a square island, not a flower and not two disconnected tiles. Each top face is 768 x 444 pixels, combined top-face bounds 1536 x 444. Plinth 144 pixels deep (48 at 1x); cell 1536 x 588, horizontally centred, bottom at y=1024, footprint top at y=436 with empty headroom above. Left hex vertices (384,436),(768,547),(768,769),(384,880),(0,769),(0,547); right hex is shifted 768 pixels right. No exterior ground or water beyond these hexes.\n\nSubject: one coastal port town where knowledge enters and is exchanged, with water along its southern edges. Low open stone quays and a timber dock with small sailing ships, brick and stone warehouses, a crane, a small rail depot with short double rails running inland, a tall mooring mast with a small moored airship, and a modest customs house with a simple barrier on the entry road. A civic clock tower may stand among the warehouses: architecture only, no battlements. Civic harbour town family: brick, clock tower, cranes, warehouses.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1536 x 1024 pixels. Drawing scale 3x. This Port is an EXCEPTION to the shared single-hex opening: ONE compound sprite spanning an EAST-WEST PAIR of two pointy-top hexes side by side with a shared vertical edge, not a square island, not a flower and not two disconnected tiles. Each top face is 768 x 444 pixels, combined top-face bounds 1536 x 444. Plinth 144 pixels deep (48 at 1x); cell 1536 x 588, horizontally centred, bottom at y=1024, footprint top at y=436 with empty headroom above. Left hex vertices (384,436),(768,547),(768,769),(384,880),(0,769),(0,547); right hex is shifted 768 pixels right. No exterior ground or water beyond these hexes.\n\nSubject: one coastal port town where knowledge enters and is exchanged, with water along its southern edges. Low open stone quays and a timber dock with small sailing ships, brick and stone warehouses, a crane, a small rail depot with short double rails running inland, a tall mooring mast with a small moored airship, and a modest customs house with a simple barrier on the entry road. A civic clock tower may stand among the warehouses: architecture only, no battlements. Civic harbour town family: brick, clock tower, cranes, warehouses.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is ONLY the exact footprint template, not an art-style reference. Preserve its visible tessellated hex topology and compound perimeter, and paint over that ground using the Arcadia reference's light/materials. The whole compound must be a single connected footprint. Do NOT replace it with a square, rectangle, rhombus or one enlarged hexagon.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/pair.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-2f17b462-4fd2-44b5-b249-863b5a3f583a.png",
+          "source_bytes": 2438084,
+          "sha256": "1f90df0aab2c63789aef20ad89112e7a2d52388ba6b126a6a8dffa3bede8649d",
+          "metadata": {
+            "width": 1536,
+            "height": 1024,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1536x1015+0+9",
+            "alpha_min": "0",
+            "alpha_max": "0.996078"
+          },
+          "selected": false
+        },
+        {
+          "attempt": 2,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1536 x 1024 pixels. Drawing scale 3x. This Port is an EXCEPTION to the shared single-hex opening: ONE compound sprite spanning an EAST-WEST PAIR of two pointy-top hexes side by side with a shared vertical edge, not a square island, not a flower and not two disconnected tiles. Each top face is 768 x 444 pixels, combined top-face bounds 1536 x 444. Plinth 144 pixels deep (48 at 1x); cell 1536 x 588, horizontally centred, bottom at y=1024, footprint top at y=436 with empty headroom above. Left hex vertices (384,436),(768,547),(768,769),(384,880),(0,769),(0,547); right hex is shifted 768 pixels right. No exterior ground or water beyond these hexes.\n\nSubject: one coastal port town where knowledge enters and is exchanged, with water along its southern edges. Low open stone quays and a timber dock with small sailing ships, brick and stone warehouses, a crane, a small rail depot with short double rails running inland, a tall mooring mast with a small moored airship, and a modest customs house with a simple barrier on the entry road. A civic clock tower may stand among the warehouses: architecture only, no battlements. Civic harbour town family: brick, clock tower, cranes, warehouses.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is ONLY the exact footprint template, not an art-style reference. Preserve its visible tessellated hex topology and compound perimeter, and paint over that ground using the Arcadia reference's light/materials. The whole compound must be a single connected footprint. Do NOT replace it with a square, rectangle, rhombus or one enlarged hexagon.\nStrict final quality constraints: ALL pixels outside the two-hex footprint, boats and airship silhouettes must have alpha=0. Absolutely NO amber halo, background haze, bloom, soft rectangle, vignette or shadow on the transparent background. Dusk softness belongs only inside painted objects, never behind the cutout. Fully opaque painted objects, truly transparent empty space. Preserve the four clearly distinct modes and pair footprint; all boat hulls remain inside the water portion of the pair.\nBACKGROUND FALLBACK OVERRIDE: previous transparency requests have produced visible amber/grey halo contamination outside the cutout. For this candidate use the brief's allowed fallback instead: an entirely uniform flat LIGHT GREY background, solid #d9d9d9 edge to edge, RGB(217,217,217). This overrides every earlier request for transparent alpha. NO gradient, NO dark background, NO vignette, NO haze, NO glow, NO bloom and NO cast shadow on the background. Paint only the tile and structures, with sharp separation from the flat light-grey background; internal shadows remain top-left lit and restrained. Keep the exact requested canvas and footprint, not a floating square diorama.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/pair.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-8651e9ec-ff10-42c9-9a64-6fdedc229ef5.png",
+          "source_bytes": 2234092,
+          "sha256": "4be0f284a51f87d09ccae0ee34a80c3821766eb03413d4c97424f39dd0bc3665",
+          "metadata": {
+            "width": 1536,
+            "height": 1024,
+            "channels": "srgb  3.0",
+            "opaque": "True",
+            "bbox": "1536x1024+0+0",
+            "alpha_min": "2.7431e+303",
+            "alpha_max": "-2.7431e+303"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 2,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png"
+      ]
+    },
+    {
+      "ordinal": 15,
+      "id": "lighthouse",
+      "subject": "a pale stone lighthouse on rocks at the water's edge with a keeper's cottage, its lamp lit warm, not glowing. A civic tower for guidance, never fortified. Civic harbour town family.",
+      "kind": "structure",
+      "filename": "structure-lighthouse.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1536
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: a pale stone lighthouse on rocks at the water's edge with a keeper's cottage, its lamp lit warm, not glowing. A civic tower for guidance, never fortified. Civic harbour town family.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: a pale stone lighthouse on rocks at the water's edge with a keeper's cottage, its lamp lit warm, not glowing. A civic tower for guidance, never fortified. Civic harbour town family.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nCutout quality: fully opaque painted surfaces, absolutely zero alpha outside the tile/building/smoke silhouette; no amber halo, backdrop haze, bloom, vignette or cast shadow outside the footprint. Dusk softness inside painted objects only. Keep all six top-face edges readable and avoid a square or rhombus base.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-106a2e31-624a-4734-9d8e-8122eed2f2b5.png",
+          "source_bytes": 2249070,
+          "sha256": "fc98970562770b5ea2aa01428703736f1dc88cf79ef628fc3690db2393483485",
+          "metadata": {
+            "width": 1024,
+            "height": 1536,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1024x1517+0+19",
+            "alpha_min": "0",
+            "alpha_max": "0.996078"
+          },
+          "selected": false
+        },
+        {
+          "attempt": 2,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: a pale stone lighthouse on rocks at the water's edge with a keeper's cottage, its lamp lit warm, not glowing. A civic tower for guidance, never fortified. Civic harbour town family.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nCutout quality: fully opaque painted surfaces, absolutely zero alpha outside the tile/building/smoke silhouette; no amber halo, backdrop haze, bloom, vignette or cast shadow outside the footprint. Dusk softness inside painted objects only. Keep all six top-face edges readable and avoid a square or rhombus base.\nBACKGROUND FALLBACK OVERRIDE: previous transparency requests have produced visible amber/grey halo contamination outside the cutout. For this candidate use the brief's allowed fallback instead: an entirely uniform flat LIGHT GREY background, solid #d9d9d9 edge to edge, RGB(217,217,217). This overrides every earlier request for transparent alpha. NO gradient, NO dark background, NO vignette, NO haze, NO glow, NO bloom and NO cast shadow on the background. Paint only the tile and structures, with sharp separation from the flat light-grey background; internal shadows remain top-left lit and restrained. Keep the exact requested canvas and footprint, not a floating square diorama.\nSubject isolation: ONLY the lighthouse, ONE small keeper's cottage, rocks and the water edge. No harbour district, docks, cranes, ships or extra houses. The lamp is a small warm lit glass, with no halo or light beam.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-c4b4625a-d1f2-45d7-a2c1-0efd22c71596.png",
+          "source_bytes": 2003927,
+          "sha256": "f00044584163036cb3c67860f3e4ad2a838a26d31455bb689c2d9e70fd1974bd",
+          "metadata": {
+            "width": 1024,
+            "height": 1536,
+            "channels": "srgb  3.0",
+            "opaque": "True",
+            "bbox": "1024x1536+0+0",
+            "alpha_min": "2.7431e+303",
+            "alpha_max": "-2.7431e+303"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 2,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 16,
+      "id": "observatory",
+      "subject": "a domed observatory on its own small hill, the dome open at a slit with a brass telescope, smaller than and distinct from the Library. The island's shared vernacular: pale limestone, muted roofs.",
+      "kind": "structure",
+      "filename": "structure-observatory.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1536
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: a domed observatory on its own small hill, the dome open at a slit with a brass telescope, smaller than and distinct from the Library. The island's shared vernacular: pale limestone, muted roofs.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: a domed observatory on its own small hill, the dome open at a slit with a brass telescope, smaller than and distinct from the Library. The island's shared vernacular: pale limestone, muted roofs.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nCutout quality: fully opaque painted surfaces, absolutely zero alpha outside the tile/building/smoke silhouette; no amber halo, backdrop haze, bloom, vignette or cast shadow outside the footprint. Dusk softness inside painted objects only. Keep all six top-face edges readable and avoid a square or rhombus base.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-7e057e17-5394-49fb-910c-520c7dda736f.png",
+          "source_bytes": 2269070,
+          "sha256": "7475e01d3e535d7d9a6c6b2e0e1da6d5df0c879635d83ee2e7b88e162958dfd2",
+          "metadata": {
+            "width": 1024,
+            "height": 1536,
+            "channels": "srgba 4.0",
+            "opaque": "False",
+            "bbox": "1024x1503+0+33",
+            "alpha_min": "0",
+            "alpha_max": "0.996078"
+          },
+          "selected": false
+        },
+        {
+          "attempt": 2,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: a domed observatory on its own small hill, the dome open at a slit with a brass telescope, smaller than and distinct from the Library. The island's shared vernacular: pale limestone, muted roofs.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nCutout quality: fully opaque painted surfaces, absolutely zero alpha outside the tile/building/smoke silhouette; no amber halo, backdrop haze, bloom, vignette or cast shadow outside the footprint. Dusk softness inside painted objects only. Keep all six top-face edges readable and avoid a square or rhombus base.\nBACKGROUND FALLBACK OVERRIDE: previous transparency requests have produced visible amber/grey halo contamination outside the cutout. For this candidate use the brief's allowed fallback instead: an entirely uniform flat LIGHT GREY background, solid #d9d9d9 edge to edge, RGB(217,217,217). This overrides every earlier request for transparent alpha. NO gradient, NO dark background, NO vignette, NO haze, NO glow, NO bloom and NO cast shadow on the background. Paint only the tile and structures, with sharp separation from the flat light-grey background; internal shadows remain top-left lit and restrained. Keep the exact requested canvas and footprint, not a floating square diorama.\nSubject isolation: ONE small observatory building on a modest hill, its open dome slit and brass telescope clearly readable, low front stairs and a few trees. No cottages, extra buildings, clock tower or additional dome.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-eb0d474c-b29d-4d75-8605-3a95e175b6b9.png",
+          "source_bytes": 1858972,
+          "sha256": "e5c35966fcf817326b88b6b8631301adde9529949e436a088aea40ef68071935",
+          "metadata": {
+            "width": 1024,
+            "height": 1536,
+            "channels": "srgb  3.0",
+            "opaque": "True",
+            "bbox": "1024x1536+0+0",
+            "alpha_min": "2.7431e+303",
+            "alpha_max": "-2.7431e+303"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 2,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 17,
+      "id": "library",
+      "subject": "the Library, the island's canonical record: pale limestone, a great dome, a colonnade and tall arched lit windows on a low stepped base. Classical observatory family.",
+      "kind": "structure",
+      "filename": "structure-library.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1536
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: the Library, the island's canonical record: pale limestone, a great dome, a colonnade and tall arched lit windows on a low stepped base. Classical observatory family.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: the Library, the island's canonical record: pale limestone, a great dome, a colonnade and tall arched lit windows on a low stepped base. Classical observatory family.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nCutout quality: fully opaque painted surfaces, absolutely zero alpha outside the tile/building/smoke silhouette; no amber halo, backdrop haze, bloom, vignette or cast shadow outside the footprint. Dusk softness inside painted objects only. Keep all six top-face edges readable and avoid a square or rhombus base.\nBACKGROUND FALLBACK OVERRIDE: previous transparency requests have produced visible amber/grey halo contamination outside the cutout. For this candidate use the brief's allowed fallback instead: an entirely uniform flat LIGHT GREY background, solid #d9d9d9 edge to edge, RGB(217,217,217). This overrides every earlier request for transparent alpha. NO gradient, NO dark background, NO vignette, NO haze, NO glow, NO bloom and NO cast shadow on the background. Paint only the tile and structures, with sharp separation from the flat light-grey background; internal shadows remain top-left lit and restrained. Keep the exact requested canvas and footprint, not a floating square diorama.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-778c5278-837b-4a08-95cb-75ce8446375c.png",
+          "source_bytes": 1982826,
+          "sha256": "2ffd156f6b484aaa931c6d1af9e75a4c4682d1239307fd81ec7de13480553c37",
+          "metadata": {
+            "width": 1024,
+            "height": 1536,
+            "channels": "srgb  3.0",
+            "opaque": "True",
+            "bbox": "1024x1536+0+0",
+            "alpha_min": "2.7431e+303",
+            "alpha_max": "-2.7431e+303"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 18,
+      "id": "council-hall",
+      "subject": "the Council Hall, the place of governance: a colonnaded civic hall with a pediment and broad open steps. Never a temple. Classical observatory family.",
+      "kind": "structure",
+      "filename": "structure-council-hall.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1536
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: the Council Hall, the place of governance: a colonnaded civic hall with a pediment and broad open steps. Never a temple. Classical observatory family.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: the Council Hall, the place of governance: a colonnaded civic hall with a pediment and broad open steps. Never a temple. Classical observatory family.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nCutout quality: fully opaque painted surfaces, absolutely zero alpha outside the tile/building/smoke silhouette; no amber halo, backdrop haze, bloom, vignette or cast shadow outside the footprint. Dusk softness inside painted objects only. Keep all six top-face edges readable and avoid a square or rhombus base.\nBACKGROUND FALLBACK OVERRIDE: previous transparency requests have produced visible amber/grey halo contamination outside the cutout. For this candidate use the brief's allowed fallback instead: an entirely uniform flat LIGHT GREY background, solid #d9d9d9 edge to edge, RGB(217,217,217). This overrides every earlier request for transparent alpha. NO gradient, NO dark background, NO vignette, NO haze, NO glow, NO bloom and NO cast shadow on the background. Paint only the tile and structures, with sharp separation from the flat light-grey background; internal shadows remain top-left lit and restrained. Keep the exact requested canvas and footprint, not a floating square diorama.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-bf913090-bb44-4bdd-993f-82afc1bf5ccf.png",
+          "source_bytes": 2109602,
+          "sha256": "5cd3132800d6e576c6aa0a2a1c326fe4aa6272ad1217781784ee284a60810cca",
+          "metadata": {
+            "width": 1024,
+            "height": 1536,
+            "channels": "srgb  3.0",
+            "opaque": "True",
+            "bbox": "1024x1536+0+0",
+            "alpha_min": "2.7431e+303",
+            "alpha_max": "-2.7431e+303"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 19,
+      "id": "mill",
+      "subject": "the Mill, the island's operations and upkeep: a stone house with a large external wooden waterwheel on a small river running from the north-east edge to the south-west edge. The island's shared vernacular.",
+      "kind": "structure",
+      "filename": "structure-mill.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1536
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: the Mill, the island's operations and upkeep: a stone house with a large external wooden waterwheel on a small river running from the north-east edge to the south-west edge. The island's shared vernacular.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: the Mill, the island's operations and upkeep: a stone house with a large external wooden waterwheel on a small river running from the north-east edge to the south-west edge. The island's shared vernacular.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nCutout quality: fully opaque painted surfaces, absolutely zero alpha outside the tile/building/smoke silhouette; no amber halo, backdrop haze, bloom, vignette or cast shadow outside the footprint. Dusk softness inside painted objects only. Keep all six top-face edges readable and avoid a square or rhombus base.\nBACKGROUND FALLBACK OVERRIDE: previous transparency requests have produced visible amber/grey halo contamination outside the cutout. For this candidate use the brief's allowed fallback instead: an entirely uniform flat LIGHT GREY background, solid #d9d9d9 edge to edge, RGB(217,217,217). This overrides every earlier request for transparent alpha. NO gradient, NO dark background, NO vignette, NO haze, NO glow, NO bloom and NO cast shadow on the background. Paint only the tile and structures, with sharp separation from the flat light-grey background; internal shadows remain top-left lit and restrained. Keep the exact requested canvas and footprint, not a floating square diorama.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-7a94bc61-01ea-4088-a081-9b081315dca2.png",
+          "source_bytes": 2057524,
+          "sha256": "36ce10e2953c4256beeee88b351d41a1c9e40a57af55bc6e72a16fb053f17f0f",
+          "metadata": {
+            "width": 1024,
+            "height": 1536,
+            "channels": "srgb  3.0",
+            "opaque": "True",
+            "bbox": "1024x1536+0+0",
+            "alpha_min": "2.7431e+303",
+            "alpha_max": "-2.7431e+303"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    },
+    {
+      "ordinal": 20,
+      "id": "causeway",
+      "subject": "the Causeway, the translation layer: a low stone way on three small culvert arches carrying a level paved deck between low parapets across shallow water, joining the ground on either side, a lamp at each landing. The shallow water runs from the north-east edge to the south-west edge under the way. Civic, never fortified: no gatehouse, towers or battlements. Not a tall arched bridge. The island's shared vernacular.",
+      "kind": "structure",
+      "filename": "structure-causeway.png",
+      "footprint": "single hex",
+      "scale": 4,
+      "requested_size": [
+        1024,
+        1536
+      ],
+      "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: the Causeway, the translation layer: a low stone way on three small culvert arches carrying a level paved deck between low parapets across shallow water, joining the ground on either side, a lamp at each landing. The shallow water runs from the north-east edge to the south-west edge under the way. Civic, never fortified: no gatehouse, towers or battlements. Not a tall arched bridge. The island's shared vernacular.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference painting of Arcadia: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted roofs, restrained brass, small warm window lights, soft haze. One pointy-top hexagonal tile in 2:1 dimetric projection, top face and 48-pixel stratified rock plinth to the exact geometry given, on a transparent background. No text, no people in close-up, no creatures or animals of any kind, no crystals, no magic glow or spell effects, no weapons, no fantasy armour, no temples, no walls, towers or battlements around the Capital.\n\nRequested canvas exactly 1024 x 1536 pixels. Drawing scale 4x. ONE pointy-top hex top face exactly 1024 x 592 pixels (256 x 148 at 1x), stratified rock plinth 192 pixels deep (48 at 1x), cell 1024 x 784 pixels. Horizontally centred; cell bottom EXACTLY at canvas bottom y=1536, empty headroom above the cell. Top-face vertices (512,752),(1024,900),(1024,1196),(512,1344),(0,1196),(0,900). No overhang beyond the hex except upward terrain/building height within the canvas. Building rises above the top face into the headroom; do not crop its roof, lamp or smoke.\n\nSubject: the Causeway, the translation layer: a low stone way on three small culvert arches carrying a level paved deck between low parapets across shallow water, joining the ground on either side, a lamp at each landing. The shallow water runs from the north-east edge to the south-west edge under the way. Civic, never fortified: no gatehouse, towers or battlements. Not a tall arched bridge. The island's shared vernacular.\nCondition thriving, frame 0 only: warm lit windows and only a thin wisp of smoke where a chimney exists. Not a sprite sheet, no alternate variants.\n\nReference image 1 is Arcadia, STYLE, LIGHT, MATERIALS AND PALETTE ONLY. Create a single isolated cutout tile, not a repaint of the island, not an island landscape, not a scene with a horizon or surrounding sea. Match the source's dusky haze and matte subtle brushwork, with NO bloom. Every surface, prop and building belongs on the specified footprint; no adjacent tiles or backdrop. Keep a crisp readable silhouette at 25% size, fine outlines in darkened local colour, never pure black. Lighting warm top-left; shadows bottom-right, confined to the footprint. No backdrop shadow, no border, no text, labels, logos, creatures, crystals, weapons, skulls or religious imagery. Truly transparent alpha background. No neighbouring tiles.\nReference image 2 is a GEOMETRY TEMPLATE ONLY: match this single-hex outline and flat top-face projection/plinth proportions, but never its engraved style, motifs or colours. Keep the top face a hex, not a round or square island. All structures and terrain use the Arcadia painterly style from image 1.\nCutout quality: fully opaque painted surfaces, absolutely zero alpha outside the tile/building/smoke silhouette; no amber halo, backdrop haze, bloom, vignette or cast shadow outside the footprint. Dusk softness inside painted objects only. Keep all six top-face edges readable and avoid a square or rhombus base.\nBACKGROUND FALLBACK OVERRIDE: previous transparency requests have produced visible amber/grey halo contamination outside the cutout. For this candidate use the brief's allowed fallback instead: an entirely uniform flat LIGHT GREY background, solid #d9d9d9 edge to edge, RGB(217,217,217). This overrides every earlier request for transparent alpha. NO gradient, NO dark background, NO vignette, NO haze, NO glow, NO bloom and NO cast shadow on the background. Paint only the tile and structures, with sharp separation from the flat light-grey background; internal shadows remain top-left lit and restrained. Keep the exact requested canvas and footprint, not a floating square diorama.",
+          "reference_paths": [
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+            "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+          ],
+          "source_path": "/Users/krisbrown/.codex/generated_images/01a15003-15de-73d0-a2f0-b1d4ba5faba0/exec-45f5dd0a-551a-4344-8598-aad39aca9bef.png",
+          "source_bytes": 2104995,
+          "sha256": "6bf81ceb25bd4de0dedf3a24eaa371717ae7fb666a5ae6570631d188568429a5",
+          "metadata": {
+            "width": 1024,
+            "height": 1536,
+            "channels": "srgb  3.0",
+            "opaque": "True",
+            "bbox": "1024x1536+0+0",
+            "alpha_min": "2.7431e+303",
+            "alpha_max": "-2.7431e+303"
+          },
+          "selected": true
+        }
+      ],
+      "selected_attempt": 1,
+      "reference_paths": [
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/docs/briefs/references/arcadia.png",
+        "/Users/krisbrown/workspaces/knowledge-islands/ki-design/+/art/2026-10-19-ancient-batch-1/_reference-previews/modern-grassland.png"
+      ]
+    }
+  ]
+}
