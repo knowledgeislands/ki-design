@@ -26,8 +26,9 @@ The grid is recorded in [GDR-KI-DESIGN-003](../decisions/GDR-KI-DESIGN-003-hex-g
 | Single | 1 | — | 1×1 → 1 hex |
 | Pair | 2 (oriented) | 0–5 (which neighbour) | 1×2 / 2×1 → pair |
 | Flower | 7 (centre + ring) | — | 2×2 to 4×4 → flower; square plinth matted out, hex plinth repainted |
+| Edge | Along one edge of a hex | 0–5 (which edge) | Connectors only: a river, road or quay drawn along a hex edge rather than across the hex |
 
-Each set declares each tile's footprint in its manifest. **The contract fixes only the Capital's; every other footprint is the set's choice** ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)). The Modern set draws every structure on a single hex except the Port (a pair) and the Capital (a flower). The earlier spec's suggestions (Council Hall and Workshop as pairs; Library single or pair; Port pair or flower; ancient forest single or flower) are options a set may take, not rules.
+Each set declares each tile's footprint in its manifest. The `edge` footprint is for connectors only; the validator rejects it on any other kind. **The contract fixes only the Capital's; every other footprint is the set's choice** ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)). The Modern set draws every structure on a single hex except the Port (a pair) and the Capital (a flower). The earlier spec's suggestions (Council Hall and Workshop as pairs; Library single or pair; Port pair or flower; ancient forest single or flower) are options a set may take, not rules.
 
 ### The Capital
 
@@ -137,6 +138,19 @@ The full brief is [building-standards.md](../briefs/building-standards.md).
 
 A tile set is a skin over the same ids. Two sets are planned: **Modern** (v0 drawn) and **Ancient** (waits on the painting). A community set is valid when it covers every contract id and passes `validateTileSet` and the building standards; a set is _complete_ when it is valid and every tile is final. Extra tiles are welcome and are reported as extras. An island may adopt any valid set as local character; the local app defaults to Modern.
 
+### Optional manifest fields
+
+Four fields describe how a tile was drawn rather than what it is. They are optional, so a set without them stays valid; `validateTileSet` checks them only when they are present ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)).
+
+| Field | Where | Values | Rule |
+| --- | --- | --- | --- |
+| `flat` | Tile | A relative path to an `.svg` beside the manifest | The flat SVG twin for UI, print and small sizes. The building standards ask for one per structure; the contract does not yet require it |
+| `family` | Tile | `industrial-vernacular`, `classical-observatory`, `organic`, `collegiate`, `civic-harbour-town`, `cottage`, `commons` | The architectural family of this drawing. Hero structures only (Capital, Library, Council Hall, Port, Lighthouse); a tile listed under a deprecated id counts as its replacement |
+| `palette` | Set, and tile as an override | `archipelago`, `savanna`, `natural-colours`, `glass-and-stone` | The island palette the art is painted in ([colour.md](colour.md#per-island-palettes)); a tile's value overrides the set's |
+| `footprint: edge` | Tile | Orientation 0–5 names the edge | Connectors only |
+
+The Modern set declares `palette: archipelago`, and the families it plainly draws: the Capital, the Library and the Council Hall in the classical observatory family, the Port in the civic harbour town. Its Lighthouse has no family yet, and it has no flat twins, because Modern is itself the flat twin of the Ancient set.
+
 ### Proposed beyond the contract
 
 These are _proposed_; a tile set need not cover them, and the contract does not yet have fields for them:
@@ -144,8 +158,7 @@ These are _proposed_; a tile set need not cover them, and the contract does not 
 - structures `calendar` (clock tower or sundial), `archive` (Resources reading room) and `commons`;
 - `prop` tiles (trees, rocks, lamps, barrels, wells, boats, carts, statues; no crystals);
 - ground ribbons `overlay/route`, `overlay/lane` and `overlay/current`;
-- markers `signal/lantern`, `signal/reef`, `signal/fog` and `signal/storm`;
-- manifest fields for the flat SVG twin, the architectural family (hero only), the island palette, and an `edge` footprint for connectors. They are added to the contract when the Ancient set needs them ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)).
+- markers `signal/lantern`, `signal/reef`, `signal/fog` and `signal/storm`.
 
 ## Budgets
 

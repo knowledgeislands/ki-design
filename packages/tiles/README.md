@@ -16,6 +16,7 @@ Generated art is treated as unlicensed until the art-licensing decision is recor
 - The manifest's top-level `aliases` maps deprecated keys to their replacements (`structure/citadel` → `structure/capital` and `structure/bridge` → `structure/causeway`, from `tileAliases` in the contract). `TileSet.tile` in `scripts/compose.ts` follows them, so a map that still says `citadel` renders the Capital and one that says `bridge` renders the Causeway.
 - Quiet, weathered and ruined are not separate drawings: the top-level `conditions` block says which layer to hide (`[data-state="thriving"]`: lit windows, smoke, lamps, pennants) and which decals to stack. The contract lists states but cannot yet express this composition, so `validateTileSet` checks only that all four are declared.
 - Only frame 0 is drawn; `frames` records the intended loops, which follow the animation standard (the lighthouse 24, the mill 12; GDR-KI-DESIGN-022). No flat SVG twins and no extra variants yet.
+- The manifest declares `palette: "archipelago"`, and `family` on the heroes it plainly draws: `classical-observatory` for the Capital, the Library and the Council Hall, `civic-harbour-town` for the Port. The Lighthouse has no family yet.
 - Fills are CSS custom properties with token fallbacks (`--terrain-*`, `--tile-*`, `--bld-*`), so themes and island palettes can override them. Water in the ocean and coastal tiles is `--tile-water`, from `color.tile.water`.
 - `causeway` is the Causeway, the translation layer (GDR-KI-DESIGN-018): a low limestone way on three culvert arches with cutwaters, joining two grounds across shallow water, with a level paved deck between low parapets, a lamp where the deck levels out on each side and a waymark at each landing. Its shallows run edge to edge where a river runs (edges 1 and 4) and widen under the way, so it reads on dry ground too. Nothing about it is military: no gatehouse, towers or battlements.
 - Without auto-tiled edges, coastal tiles always face the water to the south and rivers run north-east to south-west.
@@ -33,7 +34,9 @@ A set is valid only when it covers the whole inventory, every structure in every
 - **Decals** (4): ivy, cracks, moss, fallen-roof.
 - **Connectors** (4): road, river, bridge-span, quay.
 
-**Footprints are each set's choice, apart from the Capital's flower**, which the contract fixes (GDR-KI-DESIGN-022). Manifest fields for the flat SVG twin, the architectural family, the island palette and an `edge` footprint for connectors are added when the Ancient set needs them.
+**Footprints are each set's choice, apart from the Capital's flower**, which the contract fixes (GDR-KI-DESIGN-022). The `edge` footprint, along one hex edge with `orientation` naming the edge, is for connectors only.
+
+Four fields are optional, so a set without them stays valid, and are checked when present: `flat`, a relative path to the tile's flat SVG twin; `family`, the architectural family, on the five hero structures only (capital, library, council-hall, port, lighthouse); `palette`, the island palette (archipelago, savanna, natural-colours or glass-and-stone), on the manifest and as a per-tile override; and the `edge` footprint above.
 
 A tile is identified by kind and id together, so `terrain/river` and `connector/river` are different tiles. Each entry:
 
@@ -41,7 +44,7 @@ A tile is identified by kind and id together, so `terrain/river` and `connector/
 interface TileEntry {
   id: string
   kind: 'terrain' | 'structure' | 'decal' | 'connector'
-  footprint: 'single' | 'pair' | 'flower' // one hex, two adjacent hexes, or a hex and its six neighbours
+  footprint: 'single' | 'pair' | 'flower' | 'edge' // one hex, two adjacent hexes, a hex and its six neighbours, or one edge (connectors)
   orientation: 0 | 1 | 2 | 3 | 4 | 5 // sixths of a turn
   anchor: { x: number; y: number } // inside the 256 × 196 cell
   variants: number // at least 1
@@ -49,6 +52,9 @@ interface TileEntry {
   scales: (1 | 2)[] // both
   frames?: { loop: 4 | 6 | 8 | 12 | 16 | 24 | 48 } // on the 12 fps clock; frame 0 is the still
   status?: 'planned' | 'draft' | 'final' // defaults to final
+  flat?: string // the flat SVG twin, relative to the manifest
+  family?: ArchitecturalFamily // hero structures only
+  palette?: IslandPalette // overrides the manifest's palette
 }
 ```
 
@@ -65,4 +71,4 @@ const report = validateTileSet(manifest)
 // { ok, complete, errors, missing, unfinished, extras }
 ```
 
-Also exported: `requiredInventory`, `requiredIds`, `tileKey`, `tileGeometry`, `defaultAnchor`, `tileKinds`, `footprints`, `tileStates`, `tileScales`, `tileStatuses`, `loopLengths` and the types.
+Also exported: `requiredInventory`, `requiredIds`, `tileKey`, `tileGeometry`, `defaultAnchor`, `tileKinds`, `footprints`, `tileStates`, `tileScales`, `tileStatuses`, `loopLengths`, `heroStructures`, `architecturalFamilies`, `islandPalettes` and the types.

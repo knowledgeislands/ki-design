@@ -1,5 +1,8 @@
 import {
+  architecturalFamilies,
   footprints,
+  heroStructures,
+  islandPalettes,
   loopLengths,
   requiredIds,
   resolveTileKey,
@@ -34,7 +37,9 @@ const oneOf = (list: readonly (string | number)[], value: unknown): boolean =>
 
 /**
  * Checks a tile-set manifest against the contract: every required id, every structure in every condition state,
- * every tile at 1× and 2×, loops on the animation clock and anchors inside the cell.
+ * every tile at 1× and 2×, loops on the animation clock and anchors inside the cell. The optional fields are checked
+ * when present: an `edge` footprint only on connectors, a flat twin that is an SVG path, a family only on a hero
+ * structure, and palettes from the canon's four.
  */
 export function validateTileSet(manifest: unknown): TileSetReport {
   const errors: string[] = []
@@ -54,6 +59,11 @@ export function validateTileSet(manifest: unknown): TileSetReport {
   for (const key of ['id', 'name'] as const) {
     if (typeof manifest[key] !== 'string' || manifest[key] === '') errors.push(`${key} must be a non-empty string`)
   }
+  const paletteError = (value: unknown, at: string): void => {
+    if (value !== undefined && !oneOf(islandPalettes, value))
+      errors.push(`${at} palette must be one of ${islandPalettes.join(', ')}`)
+  }
+  paletteError(manifest['palette'], 'manifest')
   const tiles = manifest['tiles']
   if (!Array.isArray(tiles)) {
     errors.push('tiles must be an array')
@@ -74,6 +84,9 @@ export function validateTileSet(manifest: unknown): TileSetReport {
     seen.add(key)
 
     if (!oneOf(footprints, tile['footprint'])) errors.push(`${at} footprint must be one of ${footprints.join(', ')}`)
+    else if (tile['footprint'] === 'edge' && tile['kind'] !== 'connector') {
+      errors.push(`${at} footprint edge is for connectors only`)
+    }
     if (
       !(
         Number.isInteger(tile['orientation']) &&
@@ -119,6 +132,22 @@ export function validateTileSet(manifest: unknown): TileSetReport {
     if (frames !== undefined && !(isRecord(frames) && oneOf(loopLengths, frames['loop']))) {
       errors.push(`${at} frames.loop must be one of ${loopLengths.join(', ')}`)
     }
+
+    const flat = tile['flat']
+    if (flat !== undefined && !(typeof flat === 'string' && /^[^/].*\.svg$/.test(flat))) {
+      errors.push(`${at} flat must be a relative path to an .svg file`)
+    }
+    const family = tile['family']
+    if (family !== undefined) {
+      if (!oneOf(architecturalFamilies, family)) {
+        errors.push(`${at} family must be one of ${architecturalFamilies.join(', ')}`)
+      } else if (
+        !(tile['kind'] === 'structure' && oneOf(heroStructures, resolveTileKey(at).slice('structure/'.length)))
+      ) {
+        errors.push(`${at} family is for the hero structures only (${heroStructures.join(', ')})`)
+      }
+    }
+    paletteError(tile['palette'], at)
 
     const status = tile['status'] ?? 'final'
     if (!oneOf(tileStatuses, status)) errors.push(`${at} status must be one of ${tileStatuses.join(', ')}`)

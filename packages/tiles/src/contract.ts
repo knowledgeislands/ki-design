@@ -5,8 +5,11 @@ export const tileSetSchema = 'tileset/v1'
 export const tileKinds = ['terrain', 'structure', 'decal', 'connector'] as const
 export type TileKind = (typeof tileKinds)[number]
 
-/** `single`: one hex. `pair`: two adjacent hexes. `flower`: a hex and its six neighbours. */
-export const footprints = ['single', 'pair', 'flower'] as const
+/**
+ * `single`: one hex. `pair`: two adjacent hexes. `flower`: a hex and its six neighbours. `edge`: along one edge of a
+ * hex, for connectors only; `orientation` names the edge.
+ */
+export const footprints = ['single', 'pair', 'flower', 'edge'] as const
 export type Footprint = (typeof footprints)[number]
 
 /** Condition states every structure must be drawn in. */
@@ -22,6 +25,30 @@ export type Orientation = 0 | 1 | 2 | 3 | 4 | 5
 
 export const tileStatuses = ['planned', 'draft', 'final'] as const
 export type TileStatus = (typeof tileStatuses)[number]
+
+/** The five hero structures: the only tiles drawn per architectural family. */
+export const heroStructures = ['capital', 'library', 'council-hall', 'port', 'lighthouse'] as const
+export type HeroStructure = (typeof heroStructures)[number]
+
+/**
+ * Architectural families, one per archetype (building standards): industrial vernacular (Engineering Forge),
+ * classical observatory (Research Archipelago), organic (Creative Wilderness), collegiate (Learning Realm), civic
+ * harbour town (Enterprise Territory), cottage (Personal Isle) and commons (Community).
+ */
+export const architecturalFamilies = [
+  'industrial-vernacular',
+  'classical-observatory',
+  'organic',
+  'collegiate',
+  'civic-harbour-town',
+  'cottage',
+  'commons'
+] as const
+export type ArchitecturalFamily = (typeof architecturalFamilies)[number]
+
+/** The canon's four island palettes (colour.md); Archipelago is the default. */
+export const islandPalettes = ['archipelago', 'savanna', 'natural-colours', 'glass-and-stone'] as const
+export type IslandPalette = (typeof islandPalettes)[number]
 
 export { type LoopLength, loopLengths }
 
@@ -56,6 +83,12 @@ export interface TileEntry {
   /** Animated tiles loop on the 12 fps clock; frame 0 is the still. */
   readonly frames?: { readonly loop: LoopLength }
   readonly status?: TileStatus
+  /** The flat SVG twin for UI, print and small sizes: a path to an `.svg`, relative to the manifest. */
+  readonly flat?: string
+  /** The architectural family this drawing is in; hero structures only. */
+  readonly family?: ArchitecturalFamily
+  /** The island palette this tile is painted in, when it differs from the set's `palette`. */
+  readonly palette?: IslandPalette
 }
 
 export interface TileManifest {
@@ -64,6 +97,8 @@ export interface TileManifest {
   readonly name: string
   readonly description?: string
   readonly licence?: string
+  /** The island palette the set's art is painted in; tiles may override it. */
+  readonly palette?: IslandPalette
   readonly tiles: readonly TileEntry[]
 }
 

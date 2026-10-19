@@ -90,6 +90,7 @@ const next = {
   description:
     'Clean, engraved tiles: deep-ink linework over flat token fills, light from the top-left. The default set for the apps, docs, diagrams and print.',
   licence: manifest.licence,
+  palette: manifest.palette,
   art: {
     version: '0.1.0',
     generator: 'packages/tiles/scripts/generate-modern.ts',

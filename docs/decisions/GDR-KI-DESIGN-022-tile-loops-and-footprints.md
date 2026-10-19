@@ -21,13 +21,13 @@ The contract fixes only the Capital's footprint, a 7-hex flower. The old DESIGN.
 
 - The Modern manifest loops the lighthouse at 24 frames and the mill at 12.
 - The contract fixes only the Capital's flower. Each set declares the rest in its manifest.
-- The missing manifest fields are added when the Ancient set needs them, not before.
+- The missing manifest fields are added when the Ancient set needs them, not before, and as optional fields.
 
 ## Consequences
 
 - `sets/modern/manifest.json` declares `structure/lighthouse` 24 and `structure/mill` 12 (`@knowledgeislands/tiles` 0.1.1).
 - The contract notes in [docs/spec/tiles-and-buildings.md](../spec/tiles-and-buildings.md#footprints) and the [tiles README](../../packages/tiles/README.md) say footprints are per set.
-- The flat SVG twin, the family, the palette and the `edge` footprint stay later work for the contract.
+- The flat SVG twin (`flat`), the family (`family`, hero structures only), the palette (`palette`, on the set and per tile) and the `edge` footprint (connectors only) were added to the contract as optional fields ahead of the first Ancient batch (`@knowledgeislands/tiles` 0.2.0). The Modern manifest declares its palette and the families it plainly draws; see [Optional manifest fields](../spec/tiles-and-buildings.md#optional-manifest-fields).
 
 ## References
 

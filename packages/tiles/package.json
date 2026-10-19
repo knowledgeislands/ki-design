@@ -1,7 +1,7 @@
 {
   "name": "@knowledgeislands/tiles",
   "description": "The Knowledge Islands tile-set contract: manifest types, required inventory, geometry and a validator.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "dependencies": {
     "@knowledgeislands/tokens": "workspace:*"
   },

@@ -4,6 +4,7 @@
   "name": "Modern",
   "description": "Clean, engraved tiles: deep-ink linework over flat token fills, light from the top-left. The default set for the apps, docs, diagrams and print.",
   "licence": "UNLICENSED",
+  "palette": "archipelago",
   "art": {
     "version": "0.1.0",
     "generator": "packages/tiles/scripts/generate-modern.ts",
@@ -332,6 +333,7 @@
       "states": ["thriving", "quiet", "weathered", "ruined"],
       "scales": [1, 2],
       "status": "draft",
+      "family": "classical-observatory",
       "art": {
         "path": "structures/capital.svg",
         "width": 768,
@@ -356,6 +358,7 @@
       "states": ["thriving", "quiet", "weathered", "ruined"],
       "scales": [1, 2],
       "status": "draft",
+      "family": "classical-observatory",
       "art": {
         "path": "structures/library.svg",
         "width": 256,
@@ -380,6 +383,7 @@
       "states": ["thriving", "quiet", "weathered", "ruined"],
       "scales": [1, 2],
       "status": "draft",
+      "family": "classical-observatory",
       "art": {
         "path": "structures/council-hall.svg",
         "width": 256,
@@ -455,6 +459,7 @@
       "states": ["thriving", "quiet", "weathered", "ruined"],
       "scales": [1, 2],
       "status": "draft",
+      "family": "civic-harbour-town",
       "art": {
         "path": "structures/port.svg",
         "width": 512,

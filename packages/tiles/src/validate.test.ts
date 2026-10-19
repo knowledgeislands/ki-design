@@ -130,6 +130,70 @@ describe('validateTileSet', () => {
     expect(report.extras).toEqual([])
   })
 
+  test('the optional fields are optional: a set without them is still valid', () => {
+    const bare = {
+      ...modern,
+      palette: undefined,
+      tiles: modern.tiles.map(({ family: _family, palette: _palette, flat: _flat, ...tile }) => tile)
+    }
+    expect(validateTileSet(bare).errors).toEqual([])
+  })
+
+  test('accepts a flat twin, a hero family, a palette and an edge connector', () => {
+    const drawn = withTile(
+      withTile(modern, 'connector/road', (t) => ({ ...t, footprint: 'edge', orientation: 2, flat: 'flat/road.svg' })),
+      'structure/lighthouse',
+      (t) => ({ ...t, family: 'civic-harbour-town', palette: 'glass-and-stone', flat: 'flat/lighthouse.svg' })
+    )
+    expect(validateTileSet({ ...drawn, palette: 'savanna' }).errors).toEqual([])
+  })
+
+  test('reports an edge footprint off a connector, and a family off a hero structure', () => {
+    const report = validateTileSet(
+      withTile(
+        withTile(modern, 'terrain/cliffs', (t) => ({ ...t, footprint: 'edge' })),
+        'structure/mill',
+        (t) => ({ ...t, family: 'industrial-vernacular' })
+      )
+    )
+    expect(report.errors).toEqual([
+      'terrain/cliffs footprint edge is for connectors only',
+      'structure/mill family is for the hero structures only (capital, library, council-hall, port, lighthouse)'
+    ])
+  })
+
+  test('a hero drawn under a deprecated id may still carry a family', () => {
+    const old = withTile(modern, 'structure/capital', (t) => ({ ...t, id: 'citadel', family: 'collegiate' }))
+    expect(validateTileSet(old).errors).toEqual([])
+  })
+
+  test('reports unknown families and palettes, and a flat twin that is not an SVG path', () => {
+    const report = validateTileSet({
+      ...withTile(modern, 'structure/library', (t) => ({
+        ...t,
+        family: 'gothic',
+        palette: 'neon',
+        flat: '/abs/library.png'
+      })),
+      palette: 'sepia'
+    } as unknown as TileManifest)
+    expect(report.errors).toEqual([
+      'manifest palette must be one of archipelago, savanna, natural-colours, glass-and-stone',
+      'structure/library flat must be a relative path to an .svg file',
+      'structure/library family must be one of industrial-vernacular, classical-observatory, organic, collegiate, civic-harbour-town, cottage, commons',
+      'structure/library palette must be one of archipelago, savanna, natural-colours, glass-and-stone'
+    ])
+  })
+
+  test('the Modern set declares its palette and the families it plainly draws', () => {
+    expect(modern.palette).toBe('archipelago')
+    const family = (id: string) => modern.tiles.find((t) => t.kind === 'structure' && t.id === id)?.family
+    expect(family('library')).toBe('classical-observatory')
+    expect(family('council-hall')).toBe('classical-observatory')
+    expect(family('capital')).toBe('classical-observatory')
+    expect(family('port')).toBe('civic-harbour-town')
+  })
+
   test('rejects non-manifests', () => {
     expect(validateTileSet(42).ok).toBe(false)
     expect(validateTileSet({ schema: 'tileset/v1', id: 'x', name: 'X' }).errors).toContain('tiles must be an array')
