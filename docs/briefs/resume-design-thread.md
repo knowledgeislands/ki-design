@@ -1,6 +1,6 @@
 # Resume: the Knowledge Islands design thread
 
-This page holds everything needed to pick the design work up again after a break. Kit or any agent can use it. The state is as of **18 October 2026, 18:30**.
+This page holds everything needed to pick the design work up again after a break. Kit or any agent can use it. The state is as of **19 October 2026, 07:10**.
 
 Start here, then read [`DESIGN.md`](../../DESIGN.md), the short entry point, and only the file in [`docs/spec/`](../spec/README.md) for the area you need.
 
@@ -72,35 +72,14 @@ Also mark ART-001 (the picture of Arcadia) done, since variation 1 has been chos
 
 ## Next steps, in order
 
-1. **Painting, second round.** Kit runs the ChatGPT prompt below. Then:
-   - save the result as `docs/briefs/references/arcadia-v1b-<n>.png`;
-   - repoint the site's sync script to the new commit;
-   - use it for the Ancient tiles.
-2. **Kit's answers.** Turn them into decision records in `docs/decisions/`, and carry the symbol-level ones into ki-principal. (Done for the Capital and the status labels.)
-3. **Restructure DESIGN.md.** Done on 18 October: DESIGN.md is the entry point, `docs/spec/` holds one file per area, the prompt library and glyph briefs are in `docs/briefs/`, and GDR-KI-DESIGN-003 to 017 record the decisions. The drift found on the way is in `docs/spec/MIGRATION.md`; the items that need Kit's choice (symbol statuses and meanings, loop lengths, footprints, missing tokens, the terrain ocean token, glyph accents) are under "Drift needing a decision" in `docs/decisions/OPEN.md`.
-4. **Generate the review boards** from the data and the decision records, so they can't drift.
-5. **Ancient tile set** from the painting, following `docs/briefs/tile-set-ancient.md` and `ancient-prompt-pack.md`.
-6. **Site.**
-   - Done on 18 October: `sync:design` re-run against ki-design HEAD, the Field Guide's `enactedCanon` list and the last `liveWording` filter (Tower) removed, and the Capital wording shown.
-   - Consider the copy left out of v1, which needs Kit's words: the six principles strip, "Tools change. Landscapes endure.", and "Agents, human or AI, are workers."
-7. **Observatory overhaul**, when Kit is ready. Another thread owns `apps-observatory.local`; don't edit it from here.
+Done since 18 October: the painting second round (Kit kept the original), the Capital and Official/Agreed decisions, the Capital glyph and Modern Capital tile, the DESIGN.md restructure (entry point, `docs/spec/`, GDR-KI-DESIGN-003 to 017, `OPEN.md`), boards generated from data (`bun run self:boards`, drift-checked in `bun run test`), the Observatory design boards and the apply-first hand-off to the Observatory thread (`-/observatory-handoff/INSTRUCTION.md`), and the site polish pass.
 
-## ChatGPT prompt: Arcadia, second round
+1. **Kit's answers on `docs/decisions/OPEN.md`.** Each answer becomes a GDR; symbol-level ones also go to ki-principal. Then run `bun run self:boards` and republish the canvas.
+2. **Drift needing a decision** (bottom of `OPEN.md`): symbol statuses and meanings, loop lengths, footprints, missing tokens, the terrain ocean token, glyph accents.
+3. **Ancient tile set** from the original painting's atmosphere, following `docs/briefs/tile-set-ancient.md` and `ancient-prompt-pack.md` (ChatGPT drops candidates in `+/art/`).
+4. **Site.** The v1 copy left out still needs Kit's words (the six principles, "Tools change. Landscapes endure."); `/docs/` heading order (h1 to h3); faint chart cartouche labels on dark; moving the Model and Philosophy inline styles into classes.
+5. **Observatory.** The build thread applies the design; fold its feedback back into `docs/design-review/observatory/`.
 
-```text
-Open the GitHub repository knowledgeislands/ki-design (main branch).
-
-1. Read docs/briefs/arcadia-handoff.md — variation 1 (docs/briefs/references/arcadia.png) is the chosen Arcadia painting. Read its "What to change" notes for variation 1.
-2. Read docs/briefs/arcadia-picture.md (the original brief) and look at docs/briefs/references/arcadia.png itself.
-
-Then repaint variation 1 — the same composition, viewpoint, dusk light, palette, atmosphere and sense of distance towards the other islands. Do not redesign it. Change only these:
-- make the hexagonal terraces of the island clearly readable at the cliff edges;
-- put the Capital (domed Library, colonnaded Council Hall around an open civic square) on the island's highest ground, above the surrounding peaks; remove the tower beside the Library, and draw no walls, towers or battlements around the Capital;
-- make the Port's four modes readable at small size: stone docks with ships, a railway line with tracks running inland from the rail shed, the airship at its mooring mast, and a customs house with a visible inspection barrier at the gate;
-- keep the top-left sunset a little calmer so text can sit over the sea on the left.
-
-Output it landscape at the largest size you can, at least 2048 px wide if at all possible. Give me 2 versions. For each, two lines on what changed and whether anything from variation 1 was lost. Don't change anything in the repo; I'll save them as docs/briefs/references/arcadia-v1b-<n>.png.
-```
 
 ## Hand-offs already given to Kit's input thread
 
@@ -121,3 +100,6 @@ Output it landscape at the largest size you can, at least 2048 px wide if at all
   - Never commit screenshots or fixtures taken from real estate data.
   - The `/_blob/` image URLs in the boards resolve only inside their canvas.
 - **Shared repository.** Other threads commit in ki-principal and ki-design. Commit only your own paths, and fetch and rebase before pushing.
+- **Moving files back to the Mac.** Send images and SVGs inside a tarball. Copying them one by one through the bridge adds C2PA metadata, which breaks the icon lint and the hexmap tests.
+- **Pushing.** GitHub over SSH from the Mac stops working when Kit's key locks. Commit locally and push when it works again; never push from a container.
+- **Boards.** Never edit the generated boards by hand. Change the data, the decision records or `docs/design-review/generators/templates/`, then run `bun run self:boards`.
