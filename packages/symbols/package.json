@@ -1,7 +1,7 @@
 {
   "name": "@knowledgeislands/symbols",
   "description": "The Knowledge Islands symbol library as typed data.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
     "@knowledgeislands/icons": "workspace:*"
   },

@@ -9,7 +9,8 @@ export const symbols = [
   {
     id: 'island',
     name: 'Island',
-    meaning: 'A body of knowledge with its own shores: one coherent domain, project or practice.',
+    meaning:
+      'Domain of knowledge: a discrete, self-contained body of knowledge with its own shores; in practice, a repository.',
     status: 'official',
     category: 'geography',
     icon: 'island',
@@ -19,17 +20,22 @@ export const symbols = [
   {
     id: 'archipelago',
     name: 'Archipelago',
-    meaning: 'A cluster of related islands that share waters and trade closely.',
+    meaning:
+      "A territory, drawn; federated knowledge ecosystem: the territory's islands in one sea region, with a tinted border; an island may sit apart as an exclave.",
     status: 'official',
     category: 'geography',
-    icon: 'archipelago'
+    icon: 'archipelago',
+    notes:
+      'A territory is an archipelago (GDR-KI-DESIGN-015; SDR-KI-PRINCIPAL-005, amended 2026-10-19). Islands that share a subject across territories are described in words, never drawn as a second grouping.'
   },
   {
     id: 'territory',
     name: 'Territory',
-    meaning: 'A region of the realm held together by purpose; its parts are mostly, though not always, adjacent.',
-    status: 'agreed',
-    category: 'geography'
+    meaning:
+      'Islands governed together under one Capital, drawn as an archipelago: its islands in one sea region with a tinted border.',
+    status: 'official',
+    category: 'geography',
+    notes: 'Drawn as an archipelago (GDR-KI-DESIGN-015; SDR-KI-PRINCIPAL-005, amended 2026-10-19).'
   },
   {
     id: 'realm',
@@ -51,7 +57,8 @@ export const symbols = [
   {
     id: 'terrain',
     name: 'Terrain',
-    meaning: 'The character of the ground on a hex, from grassland to volcanic, set by the tile set.',
+    meaning:
+      'Depth / maturity: the character of the ground on a hex, from grassland to volcanic; elevation reads as maturity.',
     status: 'official',
     category: 'geography',
     icon: 'terrain'
@@ -59,7 +66,7 @@ export const symbols = [
   {
     id: 'ancient-forest',
     name: 'Ancient forest',
-    meaning: 'Old, deep-rooted knowledge at the heart of an island; slow-growing and protected.',
+    meaning: 'Wisdom / continuity: old, deep-rooted knowledge at the heart of an island; slow-growing and protected.',
     status: 'official',
     category: 'geography',
     icon: 'ancient-forest'
@@ -67,7 +74,7 @@ export const symbols = [
   {
     id: 'weave',
     name: 'Weave',
-    meaning: 'The fabric of cross-links that binds islands and their contents together.',
+    meaning: 'Cross-domain synthesis: the fabric of cross-links that binds islands and their contents together.',
     status: 'official',
     category: 'geography',
     icon: 'weave'
@@ -75,8 +82,8 @@ export const symbols = [
   {
     id: 'cartographic-grid',
     name: 'Cartographic grid',
-    meaning: 'The hex grid every map is drawn on; the shared coordinate system of the realm.',
-    status: 'agreed',
+    meaning: 'Structure / orientation: the hex grid every map is drawn on; the shared coordinate system of the realm.',
+    status: 'official',
     category: 'geography',
     icon: 'grid',
     notes: 'Hex grid chosen for KI maps, reusing existing isometric structure art.'
@@ -87,7 +94,7 @@ export const symbols = [
     id: 'capital',
     name: 'Capital',
     meaning:
-      'The civic heart of an island, holding the Library and the Council Hall; drawn as a square, never a fortress.',
+      'Civic heart of an island: it holds the Library and the Council Hall; drawn as a square, never a fortress.',
     status: 'official',
     category: 'zone',
     site: 'The Capital district on the Map of Known Lands',
@@ -99,14 +106,14 @@ export const symbols = [
   {
     id: 'pillars',
     name: 'Pillars',
-    meaning: 'The foundational principles an island or the realm rests on.',
+    meaning: 'Internal knowledge owned by the island: philosophies, methodologies and approaches, kept in the Library.',
     status: 'official',
     category: 'zone'
   },
   {
     id: 'calendar',
     name: 'Calendar',
-    meaning: 'The zone that keeps time: rhythms, cadences and dated commitments.',
+    meaning: 'Time-based notes: daily notes, meeting notes and periodic reviews.',
     status: 'official',
     category: 'zone',
     icon: 'calendar'
@@ -114,7 +121,8 @@ export const symbols = [
   {
     id: 'resources',
     name: 'Resources',
-    meaning: 'Reference materials, assets and supplies an island draws on.',
+    meaning:
+      'External knowledge: things that exist independently of the island and add value by being synthesised in it.',
     status: 'official',
     category: 'zone',
     icon: 'resources'
@@ -122,7 +130,8 @@ export const symbols = [
   {
     id: 'streams',
     name: 'Streams',
-    meaning: 'Flows of incoming material that feed an island over time.',
+    meaning:
+      'Knowledge in motion: finite forward work, runs of recurring obligations and their review evidence; not part of the Library.',
     status: 'official',
     category: 'zone',
     icon: 'streams'
@@ -130,7 +139,7 @@ export const symbols = [
   {
     id: 'admin-governance',
     name: 'Admin / Governance',
-    meaning: 'The zone for decisions, policy and stewardship of the island itself.',
+    meaning: 'Local governance: what must hold, such as the Charter, Known Lands, policies and decisions.',
     status: 'official',
     category: 'zone',
     icon: 'council-hall'
@@ -138,7 +147,7 @@ export const symbols = [
   {
     id: 'admin-operations',
     name: 'Admin / Operations',
-    meaning: 'The zone for the running of the island: routines, upkeep and housekeeping.',
+    meaning: 'Local operations: how the island runs, such as activities, processes, live artefacts and lessons.',
     status: 'official',
     category: 'zone',
     icon: 'mill'
@@ -148,7 +157,8 @@ export const symbols = [
   {
     id: 'library',
     name: 'Library',
-    meaning: 'Where curated, durable knowledge is kept and can be consulted.',
+    meaning:
+      'The canonical record: governed, version-controlled ratified knowledge, holding the Calendar, Pillars and Resources zones.',
     status: 'official',
     category: 'structure',
     icon: 'library'
@@ -156,7 +166,7 @@ export const symbols = [
   {
     id: 'council-hall',
     name: 'Council Hall',
-    meaning: 'Governance: where decisions are debated and made; the parliament of the realm.',
+    meaning: 'Governance: where decisions are debated and made; the parliament of the island, in the Capital.',
     status: 'official',
     category: 'structure',
     icon: 'council-hall'
@@ -164,7 +174,7 @@ export const symbols = [
   {
     id: 'observatory',
     name: 'Observatory',
-    meaning: 'Insight and analytics: where an island looks out and reflects.',
+    meaning: 'Insight / analytics: where an island looks out and reflects.',
     status: 'official',
     category: 'structure',
     icon: 'observatory',
@@ -182,20 +192,24 @@ export const symbols = [
   {
     id: 'port',
     name: 'Port',
-    meaning: 'Where knowledge and work arrive and depart, by whatever mode of transport.',
+    meaning: 'Entry and exit; integration: where knowledge and work arrive and depart, by whatever mode of transport.',
     status: 'official',
     category: 'structure',
     icon: 'port',
     notes: 'Replaces Harbour: a port has more modes than a harbour (dock, rail depot, airport, customs house).'
   },
   {
-    id: 'bridge',
-    name: 'Bridge',
-    meaning: 'A translation layer joining two lands so that what crosses can be understood on both sides.',
-    status: 'agreed',
+    id: 'causeway',
+    name: 'Causeway',
+    meaning:
+      'Translation layer: a causeway joins two grounds across shallow water, so that what crosses keeps its footing on both sides.',
+    status: 'official',
     category: 'structure',
-    icon: 'bridge',
-    notes: 'Open question: whether a land-to-land link should be a Causeway, keeping Bridge for translation.'
+    icon: 'causeway',
+    site: 'The Agents section',
+    app: 'MCP servers',
+    notes:
+      "GDR-KI-PRINCIPAL-013 and GDR-KI-DESIGN-018: replaces the Bridge as the translation layer, so that Bridge names only the local app's Act command (plan / confirm / receipt), for which no bridge is drawn. The old id `bridge` resolves here through `symbolAliases`; the tile id is still `structure/bridge`."
   },
   {
     id: 'workshop',
@@ -207,11 +221,13 @@ export const symbols = [
   },
   {
     id: 'mill',
-    name: 'Mill / Engine house',
-    meaning: 'Operational systems: the machinery that keeps turning, such as automations and pipelines.',
-    status: 'proposed',
+    name: 'Mill',
+    meaning: 'Operational systems: the running of the island, routines and upkeep.',
+    status: 'official',
     category: 'structure',
-    icon: 'mill'
+    icon: 'mill',
+    notes:
+      'GDR-KI-PRINCIPAL-013 and GDR-KI-DESIGN-019: the drawn form of Admin / Operations, a stone house with a waterwheel. The Engine house is not adopted.'
   },
   {
     id: 'ruins',
@@ -226,7 +242,7 @@ export const symbols = [
   {
     id: 'dock',
     name: 'Dock',
-    meaning: 'The port mode for exchange by sea with other islands.',
+    meaning: 'The port mode by sea: exchange with other islands, and material carried in.',
     status: 'official',
     category: 'port-mode',
     icon: 'dock'
@@ -260,7 +276,7 @@ export const symbols = [
   {
     id: 'route',
     name: 'Route',
-    meaning: 'A charted way between two places.',
+    meaning: 'Relationship: a charted way between two places.',
     status: 'official',
     category: 'sea',
     icon: 'route'
@@ -268,7 +284,7 @@ export const symbols = [
   {
     id: 'trade-route',
     name: 'Trade route',
-    meaning: 'A regular route along which knowledge and work are exchanged between islands.',
+    meaning: 'Collaboration / exchange: a regular route along which knowledge and work pass between islands.',
     status: 'official',
     category: 'sea',
     icon: 'trade-route'
@@ -276,7 +292,7 @@ export const symbols = [
   {
     id: 'current',
     name: 'Current',
-    meaning: 'A prevailing flow that carries things along whether or not anyone steers.',
+    meaning: 'Information flow: a prevailing flow that carries things along whether or not anyone steers.',
     status: 'official',
     category: 'sea',
     icon: 'current'
@@ -284,7 +300,7 @@ export const symbols = [
   {
     id: 'reef',
     name: 'Reef',
-    meaning: 'A hidden hazard beneath the surface.',
+    meaning: 'Risk / ambiguity: a hidden hazard beneath the surface.',
     status: 'official',
     category: 'sea',
     icon: 'reef'
@@ -292,7 +308,7 @@ export const symbols = [
   {
     id: 'celestial-guide',
     name: 'Celestial guide',
-    meaning: 'A fixed point to navigate by: enduring values above the day-to-day.',
+    meaning: 'Long-range orientation: a fixed point to navigate by, enduring values above the day-to-day.',
     status: 'official',
     category: 'sea',
     icon: 'celestial-guide'
@@ -304,7 +320,8 @@ export const symbols = [
     status: 'proposed',
     category: 'sea',
     icon: 'fog',
-    notes: 'Experimental.'
+    notes:
+      'GDR-KI-DESIGN-020: proposed. The canon uses fog as a terrain metaphor (Visual Style: experimental ideas are fog or shifting sands); here it is a map state over any terrain, never a terrain tile.'
   },
 
   // Signals
@@ -328,23 +345,18 @@ export const symbols = [
     id: 'lantern',
     name: 'Lantern',
     meaning: 'Attention: a light left burning where someone should look.',
-    status: 'official',
+    status: 'agreed',
     category: 'signal',
-    icon: 'lantern'
+    icon: 'lantern',
+    notes: "GDR-KI-DESIGN-020: agreed until ki-principal's Symbol Library names it."
   },
   {
     id: 'storm',
     name: 'Storm',
     meaning: 'A blocking risk: work cannot safely proceed until it passes.',
-    status: 'official',
-    category: 'signal'
-  },
-  {
-    id: 'whale-song',
-    name: 'Whale song',
-    meaning: 'A long-range signal heard across many islands.',
     status: 'proposed',
-    category: 'signal'
+    category: 'signal',
+    notes: 'GDR-KI-DESIGN-020: proposed until ki-principal names it; never ship it as settled.'
   },
 
   // Conditions
@@ -378,70 +390,63 @@ export const symbols = [
     icon: 'ruins'
   },
 
-  // Steward roles (agents are workers, human or robot)
+  // Steward roles (GDR-KI-PRINCIPAL-014): a role is a hat, not a species; any agent, human or AI, may wear one
   {
     id: 'steward',
     name: 'Steward',
-    meaning: 'Holds overall care of an island.',
-    status: 'proposed',
+    meaning:
+      'Tends an island and holds its boundaries, at the Council Hall; an AI agent in this hat tends but does not ratify.',
+    status: 'official',
     category: 'role',
     icon: 'role-steward'
   },
   {
     id: 'archivist',
     name: 'Archivist',
-    meaning: 'Keeps the record: files, preserves and retrieves.',
-    status: 'proposed',
+    meaning: 'Curates the Library.',
+    status: 'official',
     category: 'role',
     icon: 'role-archivist'
   },
   {
     id: 'cartographer',
     name: 'Cartographer',
-    meaning: 'Charts the lands and keeps the maps true.',
-    status: 'proposed',
+    meaning: 'Maps links and routes: the Connect stage of the cycle.',
+    status: 'official',
     category: 'role',
     icon: 'role-cartographer'
   },
   {
     id: 'builder',
     name: 'Builder',
-    meaning: 'Raises and repairs structures.',
-    status: 'proposed',
+    meaning: 'Builds tools and harnesses.',
+    status: 'official',
     category: 'role',
     icon: 'role-builder'
   },
   {
     id: 'navigator',
     name: 'Navigator',
-    meaning: 'Plots routes and steers work between places.',
-    status: 'proposed',
+    meaning: 'Works the trade routes, at the Port.',
+    status: 'official',
     category: 'role',
     icon: 'role-navigator'
   },
   {
     id: 'scout',
     name: 'Scout',
-    meaning: 'Ventures into fog and reports back on uncharted waters.',
-    status: 'proposed',
+    meaning: 'Acquires and captures new material: the Capture stage of the cycle.',
+    status: 'official',
     category: 'role',
     icon: 'role-scout'
   },
   {
     id: 'historian',
     name: 'Historian',
-    meaning: 'Tells how things came to be and tends the ruins.',
-    status: 'proposed',
+    meaning: 'Reflects on what has happened (retrospect); an AI agent prepares it and a person judges it.',
+    status: 'official',
     category: 'role',
     icon: 'role-historian'
-  },
-  {
-    id: 'guardian',
-    name: 'Guardian',
-    meaning: 'Protects boundaries and watches for storms and reefs.',
-    status: 'proposed',
-    category: 'role',
-    icon: 'role-guardian'
   }
 ] as const satisfies readonly KiSymbol[]
 
@@ -452,5 +457,17 @@ export const retiredSymbols = {
   citadel:
     'Retired by GDR-KI-PRINCIPAL-011: the Capital is the only name for the civic heart, drawn civic, not fortified.',
   tower: 'Dropped by GDR-KI-PRINCIPAL-011: the symbol language stays non-combative; the Observatory is the app mark.',
-  harbour: 'Retired by GDR-KI-PRINCIPAL-010: the Port is the point of entry and exit.'
+  harbour: 'Retired by GDR-KI-PRINCIPAL-010: the Port is the point of entry and exit.',
+  guardian:
+    "Not adopted by GDR-KI-PRINCIPAL-014: boundary-keeping is the Council's work, drawn as the Steward at the Council Hall. The role-guardian glyph stays, mapped to no symbol.",
+  'whale-song': 'Ruled out by GDR-KI-PRINCIPAL-015: creatures are ruled out of the lore, so whale song is not a signal.'
 } as const satisfies Readonly<Record<string, string>>
+
+/**
+ * Old ids that still resolve to the symbol that replaced them, so references written before a rename keep working.
+ * An alias is never reused as a symbol id. `bridge` became `causeway` (GDR-KI-DESIGN-018); the `bridge` glyph stays
+ * in `@knowledgeislands/icons`, mapped to no symbol, and is never drawn for the local app's Act command.
+ */
+export const symbolAliases = {
+  bridge: 'causeway'
+} as const satisfies Readonly<Record<string, SymbolId>>
