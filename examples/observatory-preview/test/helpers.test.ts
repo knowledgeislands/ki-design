@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { hexKey } from '../../../packages/hexmap/src/index.ts'
+import { hexKey, layoutFlat, renderFlatLayers, validateIslandMap } from '../../../packages/hexmap/src/index.ts'
 import { rank } from '../client/format.ts'
 import { type ChartInput, chart, conditionOf, islandMap, lanesOf, roleOf } from '../client/lands-model.ts'
 import type { Signal, TradeRoute } from '../client/types.ts'
@@ -124,6 +124,14 @@ describe('territory layout', () => {
     expect(map.hexes.filter((h) => h.structure)).toHaveLength(c.islands.length)
     expect(new Set(map.hexes.map(hexKey)).size).toBe(map.hexes.length)
     expect(map.labels?.map((l) => l.text)).toEqual(['ALPHA', 'BETA', 'UNCLAIMED WATERS'])
+  })
+
+  test('the chart is a valid islandmap/v1 drawn by the hexmap package, as the Known Lands view draws it', () => {
+    const map = islandMap(chart(input()))
+    expect(validateIslandMap(map)).toMatchObject({ ok: true })
+    const svg = renderFlatLayers(layoutFlat(map))
+    expect(svg.match(/<polygon class="ki-hex"/g)).toHaveLength(map.hexes.length)
+    expect(svg.match(/<g class="ki-structure"/g)).toHaveLength(map.hexes.filter((h) => h.structure).length)
   })
 })
 

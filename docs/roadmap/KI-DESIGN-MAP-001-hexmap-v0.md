@@ -7,12 +7,12 @@ purpose: capability
 project: ki-design
 component: hexmap
 horizon: now
-status: draft
+status: awaiting-review
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: f1ca1cc18c09aaa9cb54a8de2e13eccfd110d1af
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T09:50:00Z
+updated_at: 2026-10-19T23:12:00Z
 ---
 
 # Hex map engine v0
@@ -35,8 +35,8 @@ v0 landed in `04b2761`: geometry, projection, the `islandmap/v1` model and valid
 
 ## Steps
 
-- [ ] Confirm Arcadia's example map renders to SVG in the package tests.
-- [ ] Confirm the preview's Known Lands chart renders through the package.
+- [x] Confirm Arcadia's example map renders to SVG in the package tests: `render.test.ts` already holds it (61 hexes, structures, routes and labels in an accessible SVG).
+- [x] Confirm the preview's Known Lands chart renders through the package: add a preview test that the chart's `islandmap/v1` passes the package validator and draws through `layoutFlat` and `renderFlatLayers`, the calls the Known Lands view makes, with one hex polygon per hex and one structure per island.
 
 ## Files touched
 
@@ -66,7 +66,35 @@ No guide change: the developer guide already covers running the checks and previ
 
 ### Roadmap
 
-Close this item once both checks pass.
+Close this item on acceptance; both checks pass.
+
+## Review
+
+### Delivered
+
+Within the boundary above, from baseline `f1ca1cc`: a preview test confirming the Known Lands chart is drawn by `packages/hexmap`; Arcadia's render test already existed. No renderer or model change.
+
+### Change Summary
+
+`examples/observatory-preview/test/helpers.test.ts` gains one test in `territory layout`: the chart model's island map validates as `islandmap/v1` and renders through the package's `layoutFlat` and `renderFlatLayers` with every hex and structure drawn.
+
+### Verification
+
+- `packages/hexmap` tests: 66 pass, 0 fail, Arcadia's accessible SVG render included.
+- Preview and generator tests: 87 pass, 0 fail; `tsc -p examples/observatory-preview` passes.
+- Repository gates: the package tests and typechecks, `biome check .`, `rumdl check .` and `build-boards.ts --check` pass; the `ki-work-roadmap` and `ki-authoring` audits report FAIL=0. Offline, the `elements` package's `lit` and `happy-dom` and the local `rumdl` devDependency could not be installed, so the `elements` tests and typecheck did not run and `knip` reports `rumdl` unused, as at baseline; neither touches this item.
+
+### Outstanding concerns
+
+None for this item. The preview's chart model still names its roles `citadel` and `bridge`, which the package resolves to the Capital and the Causeway; renaming them is not in this item's scope.
+
+### Post-change review
+
+Both checks hold: Arcadia renders to SVG in tests, and the preview's chart is drawn by the package. One test added, no regression risk. Ready for acceptance.
+
+### Mini recap
+
+Added the chart-through-package test; Arcadia's test already stood. No learning to route.
 
 ## Discussion
 
