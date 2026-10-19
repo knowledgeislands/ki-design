@@ -777,15 +777,44 @@ function render(board: Board, template: string): string {
   return out
 }
 
-/** canvas.json with each generated board's title and height; positions, order and every other board are kept. */
+/** The gap kept between the lowest design-system board and the hand-placed Observatory row. */
+export const observatoryGap = 420
+
+type CanvasBoard = { x?: number; y?: number; title?: string; h?: number }
+type Canvas = { boards: Record<string, CanvasBoard>; notes?: Record<string, { y?: number }> }
+
+/**
+ * Keeps the hand-placed Observatory row (`Obs*` boards and the `obstitle` note) clear of the generated `Ds*` boards.
+ * When any `Obs*` board starts above the lowest `Ds*` board's bottom edge plus {@link observatoryGap}, the whole row
+ * and its title move down together by the shortfall; a row already clear is left exactly where it was.
+ */
+export function clearObservatoryRow<T extends Canvas>(canvas: T): T {
+  const entries = Object.entries(canvas.boards)
+  const dsBottom = Math.max(
+    ...entries.filter(([file]) => file.startsWith('Ds')).map(([, b]) => (b.y ?? 0) + (b.h ?? 0))
+  )
+  const obs = entries.filter(([file]) => file.startsWith('Obs')).map(([, b]) => b)
+  if (obs.length === 0 || !Number.isFinite(dsBottom)) return canvas
+  const shift = dsBottom + observatoryGap - Math.min(...obs.map((b) => b.y ?? 0))
+  if (shift <= 0) return canvas
+  for (const b of obs) b.y = (b.y ?? 0) + shift
+  const title = canvas.notes?.['obstitle']
+  if (title) title.y = (title.y ?? 0) + shift
+  return canvas
+}
+
+/**
+ * canvas.json with each generated board's title and height, and the Observatory row pushed clear of them; every
+ * other position, the order and every other board are kept.
+ */
 function renderCanvas(current: string): string {
-  const canvas = JSON.parse(current) as { boards: Record<string, { title?: string; h?: number }> }
+  const canvas = JSON.parse(current) as Canvas
   for (const b of boards) {
     const entry = need(canvas.boards[b.file], `${b.file} in canvas.json`)
     entry.title = b.n ? `${b.n} · ${b.title}` : b.title
     entry.h = b.height
   }
-  return `${JSON.stringify(canvas, null, 2)}\n`
+  return `${JSON.stringify(clearObservatoryRow(canvas), null, 2)}\n`
 }
 
 /** Every generated file, keyed by its name in the boards folder. */

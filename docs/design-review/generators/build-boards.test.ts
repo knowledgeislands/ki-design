@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { buildBoards, staleBoards } from './build-boards.ts'
+import { buildBoards, clearObservatoryRow, observatoryGap, staleBoards } from './build-boards.ts'
 
 const built = buildBoards()
 const boards = [...built].filter(([file]) => file.endsWith('.dc.html'))
@@ -94,4 +94,40 @@ describe('design review boards', () => {
       })
     })
   }
+})
+
+describe('clearObservatoryRow', () => {
+  const canvasWith = (obsY: number) => ({
+    boards: {
+      DsOverview: { x: 0, y: 0, h: 1000 },
+      DsDecisions: { x: 0, y: 1200, h: 2000 },
+      ObsShell: { x: 0, y: obsY, h: 900 },
+      ObsMap: { x: 0, y: obsY + 1400, h: 900 }
+    },
+    notes: { dstitle: { y: -300 }, obstitle: { y: obsY - 300 } }
+  })
+
+  test('moves the whole Observatory row and its title down together when a Ds board grows into it', () => {
+    const moved = clearObservatoryRow(canvasWith(3000))
+    const line = 1200 + 2000 + observatoryGap
+    expect(moved.boards.ObsShell.y).toBe(line)
+    expect(moved.boards.ObsMap.y).toBe(line + 1400)
+    expect(moved.notes.obstitle.y).toBe(line - 300)
+    expect(moved.notes.dstitle.y).toBe(-300)
+    expect(moved.boards.DsDecisions.y).toBe(1200)
+  })
+
+  test('leaves a row that is already clear exactly where it is', () => {
+    expect(clearObservatoryRow(canvasWith(9000))).toEqual(canvasWith(9000))
+  })
+
+  test('the committed canvas keeps the Observatory row clear of every Ds board', () => {
+    const all = JSON.parse(built.get('canvas.json') ?? '{}') as {
+      boards: Record<string, { y: number; h: number }>
+    }
+    const entries = Object.entries(all.boards)
+    const dsBottom = Math.max(...entries.filter(([f]) => f.startsWith('Ds')).map(([, b]) => b.y + b.h))
+    const obsTop = Math.min(...entries.filter(([f]) => f.startsWith('Obs')).map(([, b]) => b.y))
+    expect(obsTop).toBeGreaterThanOrEqual(dsBottom + observatoryGap)
+  })
 })
