@@ -21,7 +21,26 @@ Decision records for Knowledge Islands Design, following the Knowledge Islands d
 15. [GDR-KI-DESIGN-015](GDR-KI-DESIGN-015-islands-and-archipelagos.md) - repositories are islands; territories are archipelagos.
 16. [GDR-KI-DESIGN-016](GDR-KI-DESIGN-016-the-four-jobs.md) - the local app's four jobs: Observe · Attend · Act · Extend.
 17. [GDR-KI-DESIGN-017](GDR-KI-DESIGN-017-ki-design-home.md) - `ki-design` is the home of the design kit.
+18. [GDR-KI-DESIGN-018](GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md) - the Causeway is the translation symbol; Bridge names the Act command.
+19. [GDR-KI-DESIGN-019](GDR-KI-DESIGN-019-the-mill.md) - the Mill draws operational systems.
+20. [GDR-KI-DESIGN-020](GDR-KI-DESIGN-020-symbols-follow-ki-principal.md) - symbol statuses and meanings follow `ki-principal`.
+21. [GDR-KI-DESIGN-021](GDR-KI-DESIGN-021-civic-towers.md) - civic towers in the architectural families, never fortified and never on the Capital.
+22. [GDR-KI-DESIGN-022](GDR-KI-DESIGN-022-tile-loops-and-footprints.md) - tile loops follow the animation standard; footprints are each set's choice.
+23. [GDR-KI-DESIGN-023](GDR-KI-DESIGN-023-token-additions.md) - token additions and the isometric water token (tokens 0.2.0).
+24. [GDR-KI-DESIGN-024](GDR-KI-DESIGN-024-single-colour-glyphs.md) - glyphs stay single-colour; consumers apply brass.
+25. [GDR-KI-DESIGN-025](GDR-KI-DESIGN-025-night-on-the-site.md) - night on the site: follow the OS, with a manual toggle.
+26. [GDR-KI-DESIGN-026](GDR-KI-DESIGN-026-the-roundel-is-the-logo.md) - the roundel is the logo; the compass orients.
+27. [GDR-KI-DESIGN-027](GDR-KI-DESIGN-027-no-curtain-wall-for-now.md) - no curtain wall for now.
+28. [GDR-KI-DESIGN-028](GDR-KI-DESIGN-028-observatory-name-until-gate-b.md) - Observatory stays the app's name until Gate B.
+29. [GDR-KI-DESIGN-029](GDR-KI-DESIGN-029-steward-roles.md) - seven steward roles, following GDR-KI-PRINCIPAL-014.
+30. [GDR-KI-DESIGN-030](GDR-KI-DESIGN-030-the-lore-sheet.md) - the lore sheet, following GDR-KI-PRINCIPAL-015.
+31. [GDR-KI-DESIGN-031](GDR-KI-DESIGN-031-arcadia-from-a-dated-snapshot.md) - Arcadia drawn from a dated snapshot.
+32. [GDR-KI-DESIGN-032](GDR-KI-DESIGN-032-living-map-without-javascript.md) - the Living Map without JavaScript.
+33. [GDR-KI-DESIGN-033](GDR-KI-DESIGN-033-instruments-by-convergence.md) - ten instruments under the four jobs, by convergence.
+34. [GDR-KI-DESIGN-034](GDR-KI-DESIGN-034-read-only-over-the-tailnet.md) - read-only over the tailnet.
+35. [GDR-KI-DESIGN-035](GDR-KI-DESIGN-035-art-unlicensed-until-recorded.md) - art is unlicensed until its licensing is recorded.
+36. [GDR-KI-DESIGN-036](GDR-KI-DESIGN-036-the-history-stays.md) - the ki-design history stays as it is.
 
 ## Open questions
 
-[OPEN.md](OPEN.md) lists every question still open, with its recommendation and how to draw meanwhile.
+[OPEN.md](OPEN.md) lists every question still open, with its recommendation and how to draw meanwhile. Records 018 to 036 answer the questions it held on 18 October.

@@ -20,7 +20,7 @@ The canon had a Harbour as the integration point and used "Port" for operational
 - The Port is entry and exchange, in any mode. Its four modes are drawn as districts of one Port: dock (material carried in by hand), rail depot (scheduled feeds), airport (long-range arrivals, drawn as a tall mooring mast with a moored airship, never jets or runways) and customs house (a governed boundary where things are checked).
 - The Harbour is retired. It is never written or drawn, and its id is never reused.
 - The Lighthouse means guidance only. The Council Hall means governance.
-- Operational systems move to the Mill / Engine house, which stays proposed.
+- Operational systems move to the Mill, official since GDR-KI-PRINCIPAL-013 ([GDR-KI-DESIGN-019](GDR-KI-DESIGN-019-the-mill.md)).
 
 ## Consequences
 

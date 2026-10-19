@@ -26,7 +26,7 @@ The local app is about people's interaction with the knowledge and the work; age
 
 - The job switch shows only the current job's instruments.
 - Act is absent over the tailnet.
-- How the instruments group under the jobs (the ten-instrument restructure) is open ([OPEN.md](OPEN.md)), and the Observatory's own records own the instruments.
+- The instruments group as ten under the jobs, reached by convergence ([GDR-KI-DESIGN-033](GDR-KI-DESIGN-033-instruments-by-convergence.md)); the Observatory's own records own the instruments.
 
 ## References
 

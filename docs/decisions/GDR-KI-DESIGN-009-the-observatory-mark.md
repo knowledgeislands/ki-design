@@ -20,8 +20,8 @@ With the Tower dropped (GDR-KI-PRINCIPAL-011), the local app needed a mark that 
 ## Consequences
 
 - The `observatory` glyph and symbol serve as the app's mark; `beacon` is the Beacon's tab glyph.
-- The compass rose and the Observatory dome never stand in for the Knowledge Islands logo, which is the canon roundel.
-- The app's product name is still open ([OPEN.md](OPEN.md)); the mark does not change with it.
+- The compass rose and the Observatory dome never stand in for the Knowledge Islands logo, which is the canon roundel ([GDR-KI-DESIGN-026](GDR-KI-DESIGN-026-the-roundel-is-the-logo.md)).
+- The app is called the Observatory until Gate B ([GDR-KI-DESIGN-028](GDR-KI-DESIGN-028-observatory-name-until-gate-b.md)); the mark does not change with the name.
 
 ## References
 

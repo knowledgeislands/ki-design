@@ -20,7 +20,7 @@ The palette has two papers: parchment by day and navy by night. Designs need one
 ## Consequences
 
 - Every colour role holds its contrast floor in both themes; night is checked first.
-- The app shell follows the operating system's theme. Whether the public site follows the OS alone or adds a manual toggle is open ([OPEN.md](OPEN.md)).
+- The app shell follows the operating system's theme. The public site follows it too, with a small manual toggle ([GDR-KI-DESIGN-025](GDR-KI-DESIGN-025-night-on-the-site.md)).
 - Night in painted art is a tint layer, the one place a filter is allowed, not separate art.
 
 ## References

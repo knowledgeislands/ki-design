@@ -19,14 +19,14 @@ The design work had drawn an island's civic heart as a walled Citadel and given 
 
 - The Capital holds the Library (canonical knowledge) and the Council Hall (governance).
 - It is drawn as a civic square, open and welcoming, never a fortress: a civic quarter and square in Modern, a hilltop forum or acropolis in Ancient. It always spans a 7-hex flower and is never a single-hex building.
-- Nothing fortifies: no citadels, towers, keeps or battlements, and no walls around the Capital. The Lighthouse keeps its tall form because it guides, not guards.
+- Nothing fortifies: no citadels, keeps, battlements or fortified towers, and no walls around the Capital. The Lighthouse keeps its tall form because it guides, not guards. Civic towers, a clock tower or a cloister tower, may stand as architecture, never fortified and never on the Capital ([GDR-KI-DESIGN-021](GDR-KI-DESIGN-021-civic-towers.md)).
 - "Citadel" is retired as a term and the Tower is dropped.
 
 ## Consequences
 
 - The tile id is `structure/capital`; `structure/citadel` stays as a deprecated alias that renderers and the validator resolve. The hex map model resolves `citadel` to `capital` too.
 - The Capital has its own civic glyph, `capital`. The `citadel` and `tower` glyphs stay in the icon package, mapped to no symbol.
-- Whether a territory's Principal repository is drawn with a curtain wall around its knowledge base is not adopted; it is listed in [OPEN.md](OPEN.md), and any answer must stay within this principle.
+- No curtain wall is drawn around a territory's Principal knowledge base; it is revisited only in a form that does not read as a fortification ([GDR-KI-DESIGN-027](GDR-KI-DESIGN-027-no-curtain-wall-for-now.md)).
 - The next painting round removes the tower beside the Library in the Arcadia painting.
 
 ## References
