@@ -42,7 +42,7 @@ body{margin:0}
         <button type="button" class="dsc-btn" aria-pressed="{{nightPressed}}" onClick="{{ toNight }}" style="{{nightBtn}}">Night</button>
       </div>
       <div style="display:flex;gap:6px;align-items:center;font-size:12px;color:#4a5568">
-        <span>Night is reference</span><span class="dsc-chip dsc-agreed">Agreed</span>
+        <span>Night is reference · GDR-KI-DESIGN-010</span><span class="dsc-chip dsc-agreed">Agreed</span>
         <span style="margin-left:8px">App follows the OS theme</span><span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">App</span>
         <span style="margin-left:8px">Night on the site</span><span class="dsc-chip dsc-open">Open</span><span class="dsc-chip dsc-scope">Site</span>
       </div>
@@ -140,7 +140,7 @@ body{margin:0}
         <div style="font-size:13.5px;line-height:1.5;color:#1a2030">{{detail.note}}</div>
         <div style="font-size:12px;color:#4a5568;margin-top:auto">Source · {{detail.src}}</div>
       </div>
-      <div style="font-size:11px;color:#4a5568;line-height:1.4">Status where DESIGN.md §5 gives none: shown as Agreed (values held in tokens.json, changed only by Kit's approval, §16.1). Terrain night fills and fog come from DESIGN.md §5.6; tokens.json does not yet hold them.</div>
+      <div style="font-size:11px;color:#4a5568;line-height:1.4">Values: packages/tokens/tokens.json; rules: docs/spec/colour.md. Roles, washes, sea and core are Agreed (changed only with Kit's approval); terrain fills, fog and island palettes are Proposed. Night terrain is nightTerrain(); fog is not yet a token.</div>
     </div>
 
     <!-- Right column -->
@@ -211,7 +211,7 @@ body{margin:0}
               <span class="dsc-mono" style="font-size:10.5px;color:#4a5568">{{t.hex}}</span>
             </button>
           </sc-for>
-          <div style="font-size:11.5px;line-height:1.4;color:#9b2c1c;padding:4px 2px">Ocean: the two sources disagree. Click it.</div>
+          <div style="font-size:11.5px;line-height:1.4;color:#9b2c1c;padding:4px 2px">Ocean: isometric water; its token name is open. Click it.</div>
         </div>
       </div>
 
@@ -257,7 +257,7 @@ class Component extends DCLogic {
       ['muted','#4a5568','#a9b4c4','text','Secondary text and metadata. Night muted is a cool neutral on purpose: sandstone shares gold’s hue, so metadata would read as warning.'],
       ['accent','#1b3a5c','#9fbbd8','text','Links and primary actions (ocean by day). Also the 2 px focus outline, 2 px offset.'],
       ['ok','#2d5a3d','#8fc4a0','text','Healthy state (forest by day). Always paired with a word: colour is never the only carrier.'],
-      ['teal','#317070','#7fc2c0','text','Informational highlight. DESIGN.md lists it as “(teal)” with no CSS role name; tokens.json names it role.teal.'],
+      ['teal','#317070','#7fc2c0','text','Informational highlight: color.role.teal.'],
       ['warn','#8a5a12','#c8963c','text','Attention: the Lantern. Text gold by day, gold by night. Gold means attention, alone; one brass call to action per view.'],
       ['bad','#9b2c1c','#f0947a','text','Blocking or failed: the Reef. Rust by day.'],
       ['rule','#d4c9b4','#24476e','rule','Decorative hairline: table rows, pane edges, frames. No floor; the ratio is recorded so a change is deliberate. Never a control’s edge.'],
@@ -265,9 +265,9 @@ class Component extends DCLogic {
     ];
     const items = {};
     roles.forEach(r => {
-      items['role.' + r[0]] = { id:'role.' + r[0], group:'Semantic role', name: r[0], cssVar: r[0] === 'teal' ? '(no CSS role name)' : '--' + r[0],
+      items['role.' + r[0]] = { id:'role.' + r[0], group:'Semantic role', name: r[0], cssVar: '--' + r[0],
         path: 'color.role.light.' + r[0] + '  ·  color.role.night.' + r[0], day: r[1], night: r[2], kind: r[3], note: r[4],
-        status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.2, §5.4 (values from PDR-KI-OBSERVA-002)' };
+        status:'Agreed', scope:'Both', src:'tokens.json color.role; docs/spec/colour.md (semantic roles, rule and boundary)' };
     });
     const washes = [
       ['ok','#ddddcc','#1e374c','Forest 12 % into paper','thriving'],
@@ -278,7 +278,7 @@ class Component extends DCLogic {
       items['wash.' + w[0]] = { id:'wash.' + w[0], group:'Wash', name: w[0] + ' wash', cssVar:'--' + w[0] + '-wash', path:'color.wash.light.' + w[0] + '  ·  color.wash.night.' + w[0],
         day: w[1], night: w[2], kind:'wash', role: w[0], sample: w[4],
         note: w[3] + '. Status chips and the Beacon’s severity column are drawn on it, with the role’s own text on top. The mix is the source of truth; the token build emits the hex.',
-        status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.3' };
+        status:'Agreed', scope:'Both', src:'tokens.json color.wash; docs/spec/colour.md (washes)' };
     });
     const sea = [
       ['deep','--sea-deep','#b9cfd2','#0b1b31','Open ocean far from land.'],
@@ -289,7 +289,7 @@ class Component extends DCLogic {
     ];
     sea.forEach(s => {
       items['sea.' + s[0]] = { id:'sea.' + s[0], group:'Sea fill', name: s[0], cssVar: s[1], path:'color.sea.light.' + s[0] + '  ·  color.sea.night.' + s[0],
-        day: s[2], night: s[3], kind:'fill', note: s[4], status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.5' };
+        day: s[2], night: s[3], kind:'fill', note: s[4], status:'Agreed', scope:'Both', src:'tokens.json color.sea; docs/spec/colour.md (sea fills)' };
     });
     const core = [
       ['navy','#0f2440','Night paper, deep sea, hero ground.'],
@@ -304,37 +304,37 @@ class Component extends DCLogic {
       ['ink-light','#4a5568','Muted text by day.'],
       ['border','#d4c9b4','The rule by day. Decorative only.'],
       ['border-light','#e8e0d0','Faint internal divisions. Site only.'],
-      ['gold','#c8963c','Brass fills, CTAs, lanterns, gold on navy (5.85:1). On parchment it is 2.32:1 and fails: never text there. Ink on a gold button is 6.1:1.'],
+      ['gold','#c8963c','Brass fills, CTAs, lanterns, gold on navy (5.85:1). On parchment it is 2.32:1 and fails: never text there. Ink on a gold button is 6.10:1.'],
       ['text-gold','#8a5a12','Brass text on parchment: the day warn role.'],
       ['rust','#9b2c1c','Blocking, reefs: the day bad role.']
     ];
     core.forEach(c => {
       items['core.' + c[0]] = { id:'core.' + c[0], group:'Core palette', name: c[0], cssVar:'--color-' + c[0], path:'color.core.' + c[0],
         day: c[1], night: c[1], kind:'core', note: c[2] + ' Core colours do not change with the theme; roles pick from them.',
-        status:'Agreed', scope: c[0] === 'border-light' ? 'Site' : 'Both', src:'tokens.json; DESIGN.md §5.1, §5.8' };
+        status:'Agreed', scope: c[0] === 'border-light' ? 'Site' : 'Both', src:'tokens.json color.core; docs/spec/colour.md (core palette, usage rules)' };
     });
     const terr = [
-      ['grassland','#a9b97c','#647661','Sparse grass ticks (ink 40 %).'],
-      ['forest','#4f7a57','#32534d','Small pines (parchment). Parchment on fill is 4.30, just under 4.5, so labels sit on a paper halo.'],
-      ['hills','#b9a56f','#6d6b5a','Contour ticks (ink).'],
-      ['mountain','#8c8577','#54595e','Chevron peaks (ink). Ink on fill is 4.44, under 4.5: labels on a halo.'],
-      ['coastal','#cfc79a','#797e72','Stipple dots (ink 40 %).'],
-      ['cliffs','#a2927c','#606061','Vertical strata under a hard top edge (ink).'],
-      ['sand','#e4d4a6','#848578','Dune arcs (ink 40 %).'],
-      ['river','#6f9db5','#446780','Two flowing lines (parchment).'],
-      ['marsh','#7f9070','#4d5f5a','Short horizontal dashes with reeds (ink).'],
-      ['snow','#eef1f5','#8a95a4','Sparse crosses (ink 30 %). Same as mist.'],
-      ['volcanic','#5b4743','#393742','Radiating cracks (gold).'],
-      ['ocean','#2f5878','#0f2440','Short wave dashes (ink 30 %). Mismatch to reconcile: tokens.json holds #2f5878; DESIGN.md §5.6 says terrain ocean is --sea, #d6e3e1 by day and #0f2440 by night (not mixed).']
+      ['grassland','#a9b97c','#54675b','Sparse grass ticks (ink 40 %).'],
+      ['forest','#4f7a57','#2c4b4a','Small pines (parchment). Parchment on fill is 4.30, just under 4.5, so labels sit on a paper halo.'],
+      ['hills','#b9a56f','#5c5e55','Contour ticks (ink).'],
+      ['mountain','#8c8577','#475059','Chevron peaks (ink). Ink on fill is 4.44, under 4.5: labels on a halo.'],
+      ['coastal','#cfc79a','#656d69','Stipple dots (ink 40 %).'],
+      ['cliffs','#a2927c','#51565b','Vertical strata under a hard top edge (ink).'],
+      ['sand','#e4d4a6','#6f736e','Dune arcs (ink 40 %).'],
+      ['river','#6f9db5','#3a5a75','Two flowing lines (parchment).'],
+      ['marsh','#7f9070','#415556','Short horizontal dashes with reeds (ink).'],
+      ['snow','#eef1f5','#738091','Sparse crosses (ink 30 %). Same as mist.'],
+      ['volcanic','#5b4743','#313441','Radiating cracks (gold).'],
+      ['ocean','#2f5878','#1d3b59','Short wave dashes (ink 30 %). The flat chart paints ocean hexes in the theme sea; this token is the Modern isometric water. Its name is open in OPEN.md (The terrain ocean token).']
     ];
     terr.forEach(t => {
-      items['terrain.' + t[0]] = { id:'terrain.' + t[0], group:'Terrain fill', name: t[0], cssVar:'--terrain-' + t[0], path:'color.terrain.' + t[0] + '  (night: build-emitted)',
-        day: t[1], night: t[2], kind:'fill', note: 'Pattern: ' + t[3] + (t[0] === 'ocean' ? '' : ' Night fill is the day fill mixed with navy by the token build.'),
-        status:'Proposed', scope:'Both', src:'tokens.json (day); DESIGN.md §5.6 (night)' };
+      items['terrain.' + t[0]] = { id:'terrain.' + t[0], group:'Terrain fill', name: t[0], cssVar:'--terrain-' + t[0], path:'color.terrain.' + t[0] + '  (night: nightTerrain())',
+        day: t[1], night: t[2], kind:'fill', note: 'Pattern: ' + t[3] + ' Night fill: nightTerrain(), the day fill mixed 45 % into navy.',
+        status:'Proposed', scope:'Both', src:'tokens.json color.terrain; nightTerrain() in packages/tokens; docs/spec/colour.md (terrain fills)' };
     });
     items['terrain.fog'] = { id:'terrain.fog', group:'Map state', name:'fog', cssVar:'--fog', path:'not yet in tokens.json', day:'#cfd3d6', night:'#657384', kind:'fill',
-      note:'Fog is a map state, not a terrain: a diagonal hatch over whatever lies beneath, marking uncharted or unobserved hexes. Its meaning is official (§3.5); the value is proposed.',
-      status:'Proposed', scope:'Both', src:'DESIGN.md §5.6, §3.5' };
+      note:'Fog is a map state, not a terrain: a diagonal hatch over whatever lies beneath, marking uncharted or unobserved hexes. Its meaning is in docs/spec/meaning.md (signals); the value is proposed and not yet a token (OPEN.md).',
+      status:'Proposed', scope:'Both', src:'docs/spec/colour.md (fog); docs/decisions/OPEN.md' };
     const pal = [
       ['archipelago','Archipelago','#1b3a5c','#4a7a5a','#2d5a3d','#e3d3a8','#c8963c','The default. Deep blue sea, green islands, pale sand: the brand at rest.'],
       ['savanna','Savanna','#3f6f7a','#b8a061','#6b7a3e','#a65a3a','#c79a4b','Dry grass, acacia green, terracotta roofs, ochre light.'],
@@ -345,7 +345,7 @@ class Component extends DCLogic {
       items['pal.' + p[0]] = { id:'pal.' + p[0], group:'Island palette', name: p[1], cssVar:'palette = "' + p[1] + '"', path:'tile-set option; not in tokens.json',
         cols: [p[2],p[3],p[4],p[5],p[6]], kind:'palette',
         note: p[7] + ' A palette recolours terrain and buildings in the art; it never changes --ok, --warn or --bad, so signals mean the same on every island.',
-        status:'Proposed', scope:'Both', src:'DESIGN.md §5.7' };
+        status:'Proposed', scope:'Both', src:'docs/spec/colour.md (per-island palettes); not yet tokens' };
     });
     this._d = { P: P, items: items, roles: roles, washes: washes, sea: sea, core: core, terr: terr, pal: pal };
     return this._d;

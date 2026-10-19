@@ -26,7 +26,7 @@ body{margin:0}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
 </style>
 </helmet>
-<div style="width:1440px;height:1000px;box-sizing:border-box;padding:56px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:14px">
+<div style="width:1440px;height:1050px;box-sizing:border-box;padding:56px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:14px">
 
   <header style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:1px solid #d4c9b4;padding-bottom:14px">
     <div style="display:flex;flex-direction:column;gap:6px">
@@ -34,7 +34,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
       <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:46px;line-height:1;color:#0f2440">Overview — essence, world, how to read</h1>
       <p style="margin:0;font-size:15px;line-height:22px;color:#4a5568">What Knowledge Islands is, the world it is drawn as, and how to read the seven boards that follow.</p>
     </div>
-    <div style="font-size:12px;line-height:18px;color:#4a5568;text-align:right;white-space:nowrap">Source: DESIGN.md §1–2, §3.2<br>v0.1.0 draft · 18 October 2026</div>
+    <div style="font-size:12px;line-height:18px;color:#4a5568;text-align:right;white-space:nowrap">Source: DESIGN.md, world.md, meaning.md; statuses from symbols.ts<br>v0.1.0 draft · 18 October 2026</div>
   </header>
 
   <!-- four working principles -->
@@ -53,10 +53,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
   <!-- main three columns -->
   <div style="display:grid;grid-template-columns:430px minmax(0,1fr) 372px;gap:20px;height:384px">
 
-    <!-- left: essence + six canon principles -->
+    <!-- left: essence + six principles -->
     <div style="display:flex;flex-direction:column;gap:12px;min-height:0">
       <div class="ov-card" style="padding:14px 18px;display:flex;flex-direction:column;gap:8px">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="ov-kick">Essence · §1</span><span class="ov-scope">Both</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><span class="ov-kick">Essence · DESIGN.md</span><span class="ov-scope">Both</span></div>
         <p class="ov-p">A model for organising knowledge as a natural, evolving system. An <b style="font-weight:600">island</b> is a self-contained body of knowledge: a repository. <b style="font-weight:600">Arcadia</b> is the origin island; it holds the canonical model.</p>
         <p class="ov-p" style="color:#4a5568"><b style="font-weight:600;color:#1a2030">Posture: calm intelligent infrastructure.</b> A modern atlas, not a software product.</p>
       </div>
@@ -76,7 +76,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
 
     <!-- middle: layers stack -->
     <div class="ov-card" style="padding:12px 18px;display:flex;flex-direction:column;gap:8px;min-height:0">
-      <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="ov-kick">The world in layers · §2.2</span><span class="ov-m">Select a layer</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="ov-kick">The world in layers · world.md</span><span class="ov-m">Select a layer</span></div>
       <div role="group" aria-label="Layers of the world" style="display:flex;flex-direction:column;gap:3px">
         <sc-for list="{{layers}}" as="l" hint-placeholder-count="5">
           <button type="button" aria-pressed="{{l.pressed}}" onClick="{{ l.pick }}" style="{{l.btn}}">
@@ -109,7 +109,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
         <span><span class="ov-chip ov-official">Official</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Ratified in <code>ki-principal</code>; changes only by enactment.</span>
         <span><span class="ov-chip ov-agreed">Agreed</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Agreed with Kit; being enacted into <code>ki-principal</code>. Beats official on conflict.</span>
         <span><span class="ov-chip ov-proposed">Proposed</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Fine in drafts and mockups; never shipped as settled.</span>
-        <span><span class="ov-chip ov-open">Open</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Still a question (§16.5). Draw per §3.9 until agreed.</span>
+        <span><span class="ov-chip ov-open">Open</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Still a question (OPEN.md). Draw as meaning.md says until agreed.</span>
       </div>
       <div style="border-top:1px solid #d4c9b4;padding-top:9px;display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 10px;align-items:baseline">
         <span><span class="ov-scope">Site</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">knowledgeislands.info — the <b style="font-weight:600">Chart</b>: illustrated, narrative.</span>
@@ -123,7 +123,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
   <!-- bottom band -->
   <div style="display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:20px;flex:1;min-height:0">
     <div class="ov-card" style="padding:12px 18px;display:flex;flex-direction:column;gap:8px">
-      <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="ov-kick">From realm to island · §2.1</span><span class="ov-m">Repositories are islands; territories are archipelagos.</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="ov-kick">From realm to island · GDR-KI-DESIGN-015</span><span class="ov-m">Repositories are islands; territories are archipelagos.</span></div>
       <div style="display:flex;align-items:stretch;gap:0">
         <sc-for list="{{nest}}" as="n" hint-placeholder-count="6">
           <div style="display:flex;align-items:center;flex:1;min-width:0">
@@ -136,7 +136,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
           </div>
         </sc-for>
       </div>
-      <div style="display:flex;align-items:baseline;gap:10px"><span class="ov-lbl">Zones on every island · §3.2</span><span class="ov-m">A repository's own folders draw its island. <code>+</code> and <code>-</code> are working areas, never inside the Capital.</span></div>
+      <div style="display:flex;align-items:baseline;gap:10px"><span class="ov-lbl">Zones on every island · meaning.md</span><span class="ov-m">A repository's own folders draw its island. <code>+</code> and <code>-</code> are working areas, never inside the Capital.</span></div>
       <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px 8px">
         <sc-for list="{{zones}}" as="z" hint-placeholder-count="8">
           <div style="display:flex;align-items:center;gap:7px;padding:5px 8px;border-left:2px solid {{z.edge}};background:#f9f3e5;border-radius:0 4px 4px 0;min-width:0">
@@ -160,9 +160,9 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1050}}'>
 class Component extends DCLogic {
-  icons() { return {"ancient-forest": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3 C8.5 3 6 5.2 6 8 C4.2 8.4 3 9.8 3 11.5 C3 13.4 4.6 15 6.5 15 H17.5 C19.4 15 21 13.4 21 11.5 C21 9.8 19.8 8.4 18 8 C18 5.2 15.5 3 12 3 Z\"/><path d=\"M10.5 15 V18.5 C10.5 19.5 9.5 20.5 8 21 M13.5 15 V18.5 C13.5 19.5 14.5 20.5 16 21\"/><path d=\"M12 15 V12 M12 13 L9.5 11 M12 12.5 L14.5 10.5\"/></svg>", "archipelago": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 20 Q5.25 18.8 7.5 20 T12 20 T16.5 20 T21 20\"/><path d=\"M3 13 C4 10.5 5.5 9.5 7 9.5 C8.5 9.5 10 10.5 11 13\"/><path d=\"M12 10 C13.2 6.8 15 5 17 5 C19 5 20.3 6.8 21 10\"/><path d=\"M8 17 C9 14.5 10.5 13.5 12.5 13.5 C14.5 13.5 16 14.5 17 17\"/></svg>", "calendar": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"9\" r=\"5.5\"/><path d=\"M8.5 21 V13.24 M15.5 21 V13.24\"/><path d=\"M12 9 L9.75 7.7 M12 9 L15.2 7.15\"/><path d=\"M10.5 21 V18.5 H13.5 V21\"/><path d=\"M5 21 H19\"/></svg>", "celestial-guide": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2.5 L13.6 10.4 L21.5 12 L13.6 13.6 L12 21.5 L10.4 13.6 L2.5 12 L10.4 10.4 Z\"/><path d=\"M16.5 7.5 L18 6 M7.5 7.5 L6 6 M16.5 16.5 L18 18 M7.5 16.5 L6 18\"/></svg>", "compass": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 6.5 L14 12 L12 17.5 L10 12 Z\"/><path d=\"M12 3 V4.5 M12 19.5 V21 M3 12 H4.5 M19.5 12 H21\"/></svg>", "council-hall": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 9 L12 3.5 L21 9 Z\"/><path d=\"M4 11 H20\"/><path d=\"M6 11 V18 M10 11 V18 M14 11 V18 M18 11 V18\"/><path d=\"M4 18.5 H20 M3 21 H21\"/></svg>", "current": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 7 C5 5 7 5 9 7 S13 9 15 7\"/><path d=\"M3 12 C5 10 7 10 9 12 S13 14 15 12 S19 10 21 12\"/><path d=\"M18.5 9.5 L21 12 L18.5 14.5\"/><path d=\"M9 17 C11 15 13 15 15 17 S19 19 21 17\"/></svg>", "inbound": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 8 V4 H20 V20 H9 V16\"/><path d=\"M3 12 H14.5\"/><path d=\"M11 8.5 L14.5 12 L11 15.5\"/></svg>", "island": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 19 Q5.25 17.5 7.5 19 T12 19 T16.5 19 T21 19\"/><path d=\"M5 16 C6.5 12.5 9 11 12 11 C15 11 17.5 12.5 19 16\"/><path d=\"M12.5 11 C12.5 8.5 12 6.5 11 5\"/><path d=\"M11 5 C9 4.5 7.5 5 6.5 6.5 M11 5 C13 4 14.5 4.5 15.5 6\"/></svg>", "known-lands": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 6 L8 4 L16 6 L21 4 V18 L16 20 L8 18 L3 20 Z\"/><path d=\"M8 4 V18 M16 6 V20\"/><path d=\"M12 9.3 L14.77 10.9 L14.77 14.1 L12 15.7 L9.23 14.1 L9.23 10.9 Z\"/></svg>", "library": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"6\" width=\"3\" height=\"14\"/><rect x=\"7\" y=\"4\" width=\"3.5\" height=\"16\"/><path d=\"M11.5 7.5 L14.5 6.7 L17.7 19.2 L14.7 20 Z\"/><path d=\"M4 9 H7 M7 7 H10.5 M7 17 H10.5\"/><path d=\"M3 20 H21\"/></svg>", "mill": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 21 V10 L16 6 L21 10 V21\"/><circle cx=\"6.5\" cy=\"15.5\" r=\"4\"/><circle cx=\"6.5\" cy=\"15.5\" r=\"1\"/><path d=\"M6.5 11.5 V14.5 M6.5 16.5 V19.5 M2.5 15.5 H5.5 M7.5 15.5 H10.5\"/><rect x=\"14.5\" y=\"13\" width=\"3\" height=\"3\"/><path d=\"M3 21 H21\"/></svg>", "outbound": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 8 V4 H4 V20 H15 V16\"/><path d=\"M9.5 12 H21\"/><path d=\"M17.5 8.5 L21 12 L17.5 15.5\"/></svg>", "port": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"5\" r=\"2\"/><path d=\"M12 7 V20\"/><path d=\"M8 10 H16\"/><path d=\"M4.5 13 C4.5 17 8 20 12 20 C16 20 19.5 17 19.5 13\"/><path d=\"M3 14.5 L4.5 13 L6 14.5 M18 14.5 L19.5 13 L21 14.5\"/></svg>", "resources": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 15 V3 H20 V15\"/><path d=\"M4 8.5 H20\"/><path d=\"M10.5 5.75 H13.5\"/><rect x=\"3\" y=\"15\" width=\"18\" height=\"5.5\" rx=\"0.5\"/><path d=\"M10 17.75 H14\"/><path d=\"M6.5 15 V11.5 H11.5 V15\"/><path d=\"M8 11.5 V10.5 H10 V11.5\"/><path d=\"M12.75 15 V12.5 H17.5 V15\"/></svg>", "streams": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21 V15 C12 12 9.5 11 7.5 9.5 C5.5 8 4.5 6 4.5 3.5\"/><path d=\"M12 15 C12 12 14.5 11 16.5 9.5 C18.5 8 19.5 6 19.5 3.5\"/><path d=\"M12 15 V3.5\"/></svg>"}; }
+  icons() { return {"ancient-forest":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3 C8.5 3 6 5.2 6 8 C4.2 8.4 3 9.8 3 11.5 C3 13.4 4.6 15 6.5 15 H17.5 C19.4 15 21 13.4 21 11.5 C21 9.8 19.8 8.4 18 8 C18 5.2 15.5 3 12 3 Z\"/><path d=\"M10.5 15 V18.5 C10.5 19.5 9.5 20.5 8 21 M13.5 15 V18.5 C13.5 19.5 14.5 20.5 16 21\"/><path d=\"M12 15 V12 M12 13 L9.5 11 M12 12.5 L14.5 10.5\"/><\/svg>","archipelago":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 20 Q5.25 18.8 7.5 20 T12 20 T16.5 20 T21 20\"/><path d=\"M3 13 C4 10.5 5.5 9.5 7 9.5 C8.5 9.5 10 10.5 11 13\"/><path d=\"M12 10 C13.2 6.8 15 5 17 5 C19 5 20.3 6.8 21 10\"/><path d=\"M8 17 C9 14.5 10.5 13.5 12.5 13.5 C14.5 13.5 16 14.5 17 17\"/><\/svg>","calendar":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"9\" r=\"5.5\"/><path d=\"M8.5 21 V13.24 M15.5 21 V13.24\"/><path d=\"M12 9 L9.75 7.7 M12 9 L15.2 7.15\"/><path d=\"M10.5 21 V18.5 H13.5 V21\"/><path d=\"M5 21 H19\"/><\/svg>","capital":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3.5 11 C3.5 8.2 5 6.5 7 6.5 C9 6.5 10.5 8.2 10.5 11\"/><path d=\"M7 6.5 V4\"/><path d=\"M3 11 H11\"/><path d=\"M4.5 11 V18.5 M9.5 11 V18.5\"/><path d=\"M12 11.5 L16.5 9 L21 11.5 Z\"/><path d=\"M13.5 11.5 V18.5 M16.5 11.5 V18.5 M19.5 11.5 V18.5\"/><path d=\"M3 18.5 H21 M2.5 21 H21.5\"/><\/svg>","celestial-guide":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2.5 L13.6 10.4 L21.5 12 L13.6 13.6 L12 21.5 L10.4 13.6 L2.5 12 L10.4 10.4 Z\"/><path d=\"M16.5 7.5 L18 6 M7.5 7.5 L6 6 M16.5 16.5 L18 18 M7.5 16.5 L6 18\"/><\/svg>","compass":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 6.5 L14 12 L12 17.5 L10 12 Z\"/><path d=\"M12 3 V4.5 M12 19.5 V21 M3 12 H4.5 M19.5 12 H21\"/><\/svg>","council-hall":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 9 L12 3.5 L21 9 Z\"/><path d=\"M4 11 H20\"/><path d=\"M6 11 V18 M10 11 V18 M14 11 V18 M18 11 V18\"/><path d=\"M4 18.5 H20 M3 21 H21\"/><\/svg>","current":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 7 C5 5 7 5 9 7 S13 9 15 7\"/><path d=\"M3 12 C5 10 7 10 9 12 S13 14 15 12 S19 10 21 12\"/><path d=\"M18.5 9.5 L21 12 L18.5 14.5\"/><path d=\"M9 17 C11 15 13 15 15 17 S19 19 21 17\"/><\/svg>","inbound":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 8 V4 H20 V20 H9 V16\"/><path d=\"M3 12 H14.5\"/><path d=\"M11 8.5 L14.5 12 L11 15.5\"/><\/svg>","island":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 19 Q5.25 17.5 7.5 19 T12 19 T16.5 19 T21 19\"/><path d=\"M5 16 C6.5 12.5 9 11 12 11 C15 11 17.5 12.5 19 16\"/><path d=\"M12.5 11 C12.5 8.5 12 6.5 11 5\"/><path d=\"M11 5 C9 4.5 7.5 5 6.5 6.5 M11 5 C13 4 14.5 4.5 15.5 6\"/><\/svg>","known-lands":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 6 L8 4 L16 6 L21 4 V18 L16 20 L8 18 L3 20 Z\"/><path d=\"M8 4 V18 M16 6 V20\"/><path d=\"M12 9.3 L14.77 10.9 L14.77 14.1 L12 15.7 L9.23 14.1 L9.23 10.9 Z\"/><\/svg>","library":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"6\" width=\"3\" height=\"14\"/><rect x=\"7\" y=\"4\" width=\"3.5\" height=\"16\"/><path d=\"M11.5 7.5 L14.5 6.7 L17.7 19.2 L14.7 20 Z\"/><path d=\"M4 9 H7 M7 7 H10.5 M7 17 H10.5\"/><path d=\"M3 20 H21\"/><\/svg>","mill":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 21 V10 L16 6 L21 10 V21\"/><circle cx=\"6.5\" cy=\"15.5\" r=\"4\"/><circle cx=\"6.5\" cy=\"15.5\" r=\"1\"/><path d=\"M6.5 11.5 V14.5 M6.5 16.5 V19.5 M2.5 15.5 H5.5 M7.5 15.5 H10.5\"/><rect x=\"14.5\" y=\"13\" width=\"3\" height=\"3\"/><path d=\"M3 21 H21\"/><\/svg>","outbound":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 8 V4 H4 V20 H15 V16\"/><path d=\"M9.5 12 H21\"/><path d=\"M17.5 8.5 L21 12 L17.5 15.5\"/><\/svg>","port":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"5\" r=\"2\"/><path d=\"M12 7 V20\"/><path d=\"M8 10 H16\"/><path d=\"M4.5 13 C4.5 17 8 20 12 20 C16 20 19.5 17 19.5 13\"/><path d=\"M3 14.5 L4.5 13 L6 14.5 M18 14.5 L19.5 13 L21 14.5\"/><\/svg>","resources":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 15 V3 H20 V15\"/><path d=\"M4 8.5 H20\"/><path d=\"M10.5 5.75 H13.5\"/><rect x=\"3\" y=\"15\" width=\"18\" height=\"5.5\" rx=\"0.5\"/><path d=\"M10 17.75 H14\"/><path d=\"M6.5 15 V11.5 H11.5 V15\"/><path d=\"M8 11.5 V10.5 H10 V11.5\"/><path d=\"M12.75 15 V12.5 H17.5 V15\"/><\/svg>","streams":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21 V15 C12 12 9.5 11 7.5 9.5 C5.5 8 4.5 6 4.5 3.5\"/><path d=\"M12 15 C12 12 14.5 11 16.5 9.5 C18.5 8 19.5 6 19.5 3.5\"/><path d=\"M12 15 V3.5\"/><\/svg>"}; }
   ico(name, colour) {
     const s = (this.icons()[name] || '').replace(/currentColor/g, colour || '#0f2440');
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(s);
@@ -219,7 +219,7 @@ class Component extends DCLogic {
         dikwLong: 'Data: the bottom tier.',
         dur: 'Raw; always moving.',
         where: 'Site: the Cycle. App: island links.',
-        status: 'Current is a canon symbol.' }
+        status: 'Current is official.' }
     ];
     const layers = L.map(l => {
       const on = l.id === selId;
@@ -237,8 +237,8 @@ class Component extends DCLogic {
       { name: 'Realm', icon: 'compass', d: 'The governed environment.', st: 'Agreed' },
       { name: 'Known Lands', icon: 'known-lands', d: 'The map: canonical chart of the realm.', st: 'Agreed' },
       { name: 'Territory', icon: 'archipelago', d: 'An archipelago under one Capital.', st: 'Agreed' },
-      { name: 'Island', icon: 'island', d: 'A body of knowledge: a repository.', st: 'Agreed' },
-      { name: 'Capital', icon: 'council-hall', d: 'Civic heart: Library and Council Hall, on 7 hexes.', st: 'Official' }
+      { name: 'Island', icon: 'island', d: 'A body of knowledge: a repository.', st: 'Official' },
+      { name: 'Capital', icon: 'capital', d: 'Civic heart: Library and Council Hall, on 7 hexes.', st: 'Official' }
     ].map((n, i, a) => ({
       name: n.name, d: n.d, st: n.st, cls: CLS[n.st], icon: this.ico(n.icon, '#0f2440'),
       arrow: i === a.length - 1 ? 'display:none' : 'flex:none;width:16px;text-align:center;font-size:20px;color:#8a5a12'
@@ -250,21 +250,12 @@ class Component extends DCLogic {
       { name: 'Resources', icon: 'resources', d: 'External reference. Archive.', st: 'Official' },
       { name: 'Streams', icon: 'streams', d: 'Knowledge in motion. Rivers.', st: 'Official' },
       { name: 'Admin/Governance', icon: 'council-hall', d: 'What must hold. Council Hall.', st: 'Official' },
-      { name: 'Admin/Operations', icon: 'mill', d: 'How it runs. Mill: drawing proposed.', st: 'Proposed' },
+      { name: 'Admin/Operations', icon: 'mill', d: 'How it runs. Mill: drawing proposed.', st: 'Official' },
       { name: '+ inbound', icon: 'inbound', d: 'Port arrivals quay. Not a zone.', st: 'Official' },
       { name: '- outbound', icon: 'outbound', d: 'Port departures quay. Not a zone.', st: 'Official' }
     ].map((z, i) => ({ name: z.name, d: z.d, st: z.st, cls: CLS[z.st], icon: this.ico(z.icon, '#0f2440'), edge: i >= 6 ? '#317070' : '#c8963c' }));
 
-    const boards = [
-      ['Overview — essence, world, how to read', '§1–2'],
-      ['Meaning — the symbol library', '§3'],
-      ['Colour — day and night', '§5'],
-      ['Type and voice', '§4, §6'],
-      ['Icons — all 71 glyphs', '§8'],
-      ['Tiles, buildings and motion', '§10–11'],
-      ['Structure — the site and the local app', '§7.7, §12'],
-      ['Decisions and open questions', '§16']
-    ].map((b, i) => ({
+    const boards = [["Overview — essence, world, how to read","DESIGN.md, world.md"],["Meaning — the symbol library","meaning.md"],["Colour — day and night","colour.md"],["Type and voice","typography.md, voice.md"],["Icons — all 72 glyphs","iconography.md"],["Tiles, buildings and motion","tiles-and-buildings.md, motion.md"],["Structure — the site (Voyage and Atlas) and the local app (four jobs)","layout.md, components.md"],["Decisions and open questions","docs/decisions/"]].map((b, i) => ({
       n: String(i + 1), t: b[0], src: b[1],
       row: 'display:flex;align-items:center;gap:10px;padding:3px 8px;border-radius:5px;' + (i === 0 ? 'background:#e3e8ef;' : 'border-top:1px solid #efe6d2;')
     }));

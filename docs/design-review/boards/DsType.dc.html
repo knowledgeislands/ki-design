@@ -141,88 +141,70 @@ body{margin:0}
 class Component extends DCLogic {
   constructor(props){ super(props); this.state = { dialect: 'site', pair: 'port', filter: 'all' }; }
 
+  siteScale(){ return [{"token":"display-xl","face":"Cormorant Garamond","size":72,"lh":"1.05","weight":500,"tracking":"-0.01em","use":"Home headline","spec":"clamp(40px, 6vw, 72px) / 1.05"},{"token":"display-l","face":"Cormorant Garamond","size":48,"lh":"1.1","weight":500,"tracking":"","use":"Page title · 36 on phones","spec":"48 / 1.1 (36 on phones)"},{"token":"display-m","face":"Cormorant Garamond","size":36,"lh":"1.15","weight":500,"tracking":"","use":"Section head · 30 on phones","spec":"36 / 1.15 (30 on phones)"},{"token":"display-s","face":"Cormorant Garamond","size":28,"lh":"1.2","weight":600,"tracking":"","use":"Sub-section, card title on hero","spec":"28 / 1.2"},{"token":"display-xs","face":"Cormorant Garamond","size":24,"lh":"1.25","weight":600,"tracking":"","use":"Smallest permitted Cormorant","spec":"24 / 1.25"},{"token":"label-l","face":"Cormorant SC","size":18,"lh":"1.3","weight":600,"tracking":"0.14em","use":"Section kicker (\"THE JOURNEY\")","spec":"18 / 1.3"},{"token":"label","face":"Cormorant SC","size":15,"lh":"1.3","weight":600,"tracking":"0.16em","use":"Cartouche, nav item","spec":"15 / 1.3"},{"token":"label-s","face":"Cormorant SC","size":13,"lh":"1.3","weight":600,"tracking":"0.18em","use":"Map label, legend head","spec":"13 / 1.3"},{"token":"lead","face":"Inter","size":20,"lh":"1.55","weight":400,"tracking":"","use":"Intro paragraph","spec":"20 / 1.55"},{"token":"body","face":"Inter","size":17,"lh":"1.65","weight":400,"tracking":"","use":"Running text (max 68 ch)","spec":"17 / 1.65"},{"token":"body-s","face":"Inter","size":15,"lh":"1.55","weight":400,"tracking":"","use":"Cards, captions","spec":"15 / 1.55"},{"token":"meta","face":"Inter","size":13,"lh":"1.45","weight":500,"tracking":"0.01em","use":"Dates, footnotes","spec":"13 / 1.45"},{"token":"code","face":"monospace","size":15,"lh":"1.55","weight":400,"tracking":"","use":"Commands (/install/ki)","spec":"15 / 1.55"}]; }
+  appScale(){ return [{"token":"--text-xs","face":"sans","size":12,"lh":16,"use":"Foot-of-view notes, chip text"},{"token":"--text-sm","face":"sans","size":13,"lh":18,"use":"Secondary cells, status line"},{"token":"--text-base","face":"sans","size":14,"lh":20,"use":"Table cells, controls, body"},{"token":"--text-md","face":"sans","size":16,"lh":22,"use":"Pane body, plan text"},{"token":"--text-lg","face":"serif","size":20,"lh":26,"use":"Instrument title"},{"token":"--text-xl","face":"serif","size":24,"lh":30,"use":"Empty-state heading, detail title"},{"token":"--font-identifier","face":"mono","size":0,"lh":0,"use":"Repository ids, record ids, hashes, paths, commands, map labels"},{"token":"--figures","face":"font-variant-numeric: tabular-nums","size":0,"lh":0,"use":"Counts, dates, times, ranks"}]; }
   site(){
-    const CG = "'Cormorant Garamond',Georgia,serif", SC = "'Cormorant SC','Cormorant Garamond',Georgia,serif", IN = "Inter,system-ui,sans-serif", MO = "ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace";
+    const SPEC = { 'display-xl': 'Tools change.', 'display-l': 'Enter Arcadia', 'display-m': 'The Port — Capture', 'display-s': 'Engineering Forge', 'display-xs': 'The Council Hall', 'label-l': 'The journey', 'label': 'Map of Known Lands', 'label-s': 'Legend', 'lead': 'Information arrives without judgement.', 'body': 'Every island answers to its Library.', 'body-s': 'Build, ship and evolve software systems.', 'meta': 'Charted 2026-10-18', 'code': '/install/ki' };
+    const CG = "'Cormorant Garamond', Georgia, serif", SC = "'Cormorant SC', 'Cormorant Garamond', Georgia, serif", IN = "Inter, system-ui, sans-serif", MO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
     const row = (token, face, size, lh, wt, tr, text, use, extra) => ({ token: token, spec: size + ' / ' + lh + ' · ' + wt + (tr ? ' · ' + tr : ''), text: text, use: use, pad: '2px 0',
       style: 'font-family:' + face + ';font-size:' + size + 'px;line-height:' + lh + ';font-weight:' + wt + ';letter-spacing:' + (tr || '0') + ';color:#0f2440;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' + (extra || '') });
     return {
       title: 'Site · the Chart', scope: 'Site', where: 'knowledgeislands.info · atmospheric, narrative',
       faces: [
-        { role:'Display', name:'Cormorant Garamond 500–600 · ≥ 24 px', stack:"'Cormorant Garamond', Georgia, serif", sample:'Arcadia', sampleStyle:'font-family:' + CG + ';font-size:28px;font-weight:600;line-height:1;color:#0f2440' },
-        { role:'Labels · cartouches', name:'Cormorant SC 500–600 · tracked', stack:"'Cormorant SC', 'Cormorant Garamond', Georgia, serif", sample:'The Capital', sampleStyle:'font-family:' + SC + ';font-size:20px;font-weight:600;letter-spacing:0.16em;line-height:1.2;color:#0f2440;border-bottom:1px solid #c8963c;align-self:flex-start;padding-bottom:2px' },
-        { role:'Reading', name:'Inter 400 / 500 / 600', stack:'Inter, system-ui, sans-serif', sample:'Plain words.', sampleStyle:'font-family:' + IN + ';font-size:20px;font-weight:500;line-height:1.2;color:#0f2440' },
-        { role:'Code', name:'System monospace', stack:"ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace", sample:'/install/ki', sampleStyle:'font-family:' + MO + ';font-size:17px;line-height:1.3;color:#0f2440' }
+        { role:'Display', name:'Cormorant Garamond 500–600 · ≥ 24 px', stack:CG, sample:'Arcadia', sampleStyle:'font-family:' + CG + ';font-size:28px;font-weight:600;line-height:1;color:#0f2440' },
+        { role:'Labels · cartouches', name:'Cormorant SC 500–600 · tracked', stack:SC, sample:'The Capital', sampleStyle:'font-family:' + SC + ';font-size:20px;font-weight:600;letter-spacing:0.16em;line-height:1.2;color:#0f2440;border-bottom:1px solid #c8963c;align-self:flex-start;padding-bottom:2px' },
+        { role:'Reading', name:'Inter 400 / 500 / 600', stack:IN, sample:'Plain words.', sampleStyle:'font-family:' + IN + ';font-size:20px;font-weight:500;line-height:1.2;color:#0f2440' },
+        { role:'Code', name:'System monospace', stack:MO, sample:'/install/ki', sampleStyle:'font-family:' + MO + ';font-size:17px;line-height:1.3;color:#0f2440' }
       ],
       facts: [
         { k:'Leading', v:'unitless ratio' },
         { k:'Loading', v:'Google Fonts or WOFF2, swap, Latin subset' }
       ],
-      scaleTitle: 'Site type scale · 13 tokens', scaleNote: 'Token · size / leading · weight · tracking, then a live specimen at true size, then use',
-      scale: [
-        row('display-xl', CG, 72, '1.05', 500, '-0.01em', 'Tools change.', 'Home headline · clamp(40, 6vw, 72)', 'padding-bottom:6px;'),
-        row('display-l', CG, 48, '1.1', 500, '', 'Enter Arcadia', 'Page title · 36 on phones'),
-        row('display-m', CG, 36, '1.15', 500, '', 'The Port — Capture', 'Section head · 30 on phones'),
-        row('display-s', CG, 28, '1.2', 600, '', 'Engineering Forge', 'Sub-section, hero card title'),
-        row('display-xs', CG, 24, '1.25', 600, '', 'The Council Hall', 'Smallest permitted Cormorant'),
-        row('label-l', SC, 18, '1.3', 600, '0.14em', 'The journey', 'Section kicker'),
-        row('label', SC, 15, '1.3', 600, '0.16em', 'Map of Known Lands', 'Cartouche, nav item'),
-        row('label-s', SC, 13, '1.3', 600, '0.18em', 'Legend', 'Map label, legend head'),
-        row('lead', IN, 20, '1.55', 400, '', 'Information arrives without judgement.', 'Intro paragraph', 'color:#1a2030;'),
-        row('body', IN, 17, '1.65', 400, '', 'Every island answers to its Library.', 'Running text, ≤ 68 ch', 'color:#1a2030;'),
-        row('body-s', IN, 15, '1.55', 400, '', 'Build, ship and evolve software systems.', 'Cards, captions', 'color:#1a2030;'),
-        row('meta', IN, 13, '1.45', 500, '0.01em', 'Charted 2026-10-18', 'Dates, footnotes', 'color:#4a5568;font-variant-numeric:tabular-nums lining-nums;'),
-        row('code', MO, 15, '1.55', 400, '', '/install/ki', 'Commands', 'color:#1a2030;')
-      ],
+      scaleTitle: 'Site type scale · ' + this.siteScale().length + ' tokens', scaleNote: 'Token · size / leading · weight · tracking, then a live specimen at true size, then use',
+      scale: this.siteScale().map(r => row(r.token, r.face === 'Cormorant SC' ? SC : (r.face === 'Inter' ? IN : (r.face === 'monospace' ? MO : CG)), r.size, r.lh, r.weight, r.tracking, SPEC[r.token] || r.use, r.use, r.token === 'meta' ? 'color:#4a5568;font-variant-numeric:tabular-nums lining-nums;' : (r.face === 'Cormorant Garamond' || r.face === 'Cormorant SC' ? '' : 'color:#1a2030;'))),
       foot: 'Below 13 px, map labels use Inter 12/16 at 500, capitals tracked 0.08 em. Display text still needs 4.5:1 contrast.',
       footColour: '#4a5568'
     };
   }
 
   app(){
-    const SE = "ui-serif,'New York','Iowan Old Style',Georgia,serif", SA = "system-ui,-apple-system,'Segoe UI',Roboto,sans-serif", MO = "ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace";
+    const ASPEC = { '--text-xs': 'Ranked by severity, then by last change.', '--text-sm': 'thriving · changed 2026-10-18 09:42', '--text-base': 'Attention · branch behind its remote', '--text-md': 'Pull 3 repositories in territory hnr?', '--text-lg': 'Beacon', '--text-xl': 'No signals. The realm is quiet.', '--font-identifier': 'apps-observatory.local · 3f9c2e1', '--figures': '012 · 2026-10-18 09:42 · 217' };
+    const AEXTRA = { '--text-xs': 'color:#4a5568;', '--text-sm': 'font-variant-numeric:tabular-nums;', '--text-lg': 'color:#0f2440;', '--text-xl': 'color:#0f2440;', '--figures': 'font-variant-numeric:tabular-nums lining-nums;' };
+    const SE = "ui-serif, Georgia, Cambria, 'Times New Roman', serif", SA = "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif", MO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
     const row = (token, face, size, lh, text, use, extra) => ({ token: token, spec: size ? size + ' / ' + lh + ' px' : 'inherits size', text: text, use: use, pad: '8px 0',
       style: 'font-family:' + face + ';' + (size ? 'font-size:' + size + 'px;line-height:' + lh + 'px;' : 'font-size:14px;line-height:20px;') + 'color:#1a2030;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' + (extra || '') });
     return {
       title: 'App · the Instrument', scope: 'App', where: 'Observatory, 127.0.0.1:1675 · law: PDR-KI-OBSERVA-002',
       faces: [
-        { role:'Display', name:'System serif', stack:"ui-serif, \"New York\", \"Iowan Old Style\", Georgia, serif", sample:'Beacon', sampleStyle:'font-family:' + SE + ';font-size:26px;line-height:1;color:#0f2440' },
+        { role:'Display', name:'System serif', stack:SE, sample:'Beacon', sampleStyle:'font-family:' + SE + ';font-size:26px;line-height:1;color:#0f2440' },
         { role:'Labels · map labels', name:'Monospace · no small caps', stack:'--font-identifier', sample:'ki-principal', sampleStyle:'font-family:' + MO + ';font-size:16px;line-height:1.3;color:#0f2440' },
-        { role:'Reading · interface', name:'System sans', stack:"system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif", sample:'Plain words.', sampleStyle:'font-family:' + SA + ';font-size:20px;font-weight:500;line-height:1.2;color:#0f2440' },
-        { role:'Code · identifiers', name:'System monospace', stack:"ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, monospace", sample:'PDR-KI-OBSERVA-002', sampleStyle:'font-family:' + MO + ';font-size:13px;line-height:1.6;color:#0f2440' }
+        { role:'Reading · interface', name:'System sans', stack:SA, sample:'Plain words.', sampleStyle:'font-family:' + SA + ';font-size:20px;font-weight:500;line-height:1.2;color:#0f2440' },
+        { role:'Code · identifiers', name:'System monospace', stack:MO, sample:'PDR-KI-OBSERVA-002', sampleStyle:'font-family:' + MO + ';font-size:13px;line-height:1.6;color:#0f2440' }
       ],
       facts: [
         { k:'Leading', v:'fixed px, summed by test' },
         { k:'Loading', v:'nothing fetched or bundled' }
       ],
       scaleTitle: 'App type scale · reference values', scaleNote: 'PDR-KI-OBSERVA-002 is law. The shell’s published scale wins; a raw px length fails a test.',
-      scale: [
-        row('--text-xs', SA, 12, 16, 'Ranked by severity, then by last change.', 'Foot-of-view notes, chip text', 'color:#4a5568;'),
-        row('--text-sm', SA, 13, 18, 'thriving · changed 2026-10-18 09:42', 'Secondary cells, status line', 'font-variant-numeric:tabular-nums;'),
-        row('--text-base', SA, 14, 20, 'Attention · branch behind its remote', 'Table cells, controls, body'),
-        row('--text-md', SA, 16, 22, 'Pull 3 repositories in territory hnr?', 'Pane body, plan text'),
-        row('--text-lg', SE, 20, 26, 'Beacon', 'Instrument title', 'color:#0f2440;'),
-        row('--text-xl', SE, 24, 30, 'No signals. The realm is quiet.', 'Empty-state heading, detail title', 'color:#0f2440;'),
-        row('--font-identifier', MO, 0, 0, 'apps-observatory.local · 3f9c2e1', 'Ids, hashes, paths, commands, map labels'),
-        row('--figures', SA, 14, 20, '012 · 2026-10-18 09:42 · 217', 'Counts, dates, times, ranks', 'font-variant-numeric:tabular-nums lining-nums;')
-      ],
-      foot: 'Mismatch to reconcile: tokens.json font.app.serif is ui-serif, Georgia, Cambria, "Times New Roman", serif and font.app.sans adds "Helvetica Neue", Arial; font.mono drops "SF Mono" and adds "Liberation Mono". DESIGN.md §6.1 stacks shown above. tokens.json holds no size tokens yet.',
-      footColour: '#9b2c1c'
+      scale: this.appScale().map(r => row(r.token, r.face === 'serif' ? SE : (r.face === 'mono' ? MO : SA), r.size, r.lh, ASPEC[r.token] || r.use, r.use, AEXTRA[r.token] || '')),
+      foot: 'Stacks are the token values: font.app.serif, font.app.sans and font.mono. The scale is docs/spec/typography.md; tokens.json holds no size tokens yet.',
+      footColour: '#4a5568'
     };
   }
 
   pairList(){
     return [
-      { id:'port', cat:'words', area:'Port', good:'the Port — Capture', bad:'the Harbour — Capture', why:'Harbour was retired on 18 Oct 2026. Write and draw the Port, with its modes as districts.', src:'§4.2 · App. A' },
-      { id:'condition', cat:'words', area:'Condition', good:'thriving · quiet · weathered · ruined', bad:'health score · 96 % harmony', why:'No game scores. Condition is driven by evidence freshness and is never a score or a percentage (stewardship over extraction).', src:'§4.2 · §3.6' },
-      { id:'workers', cat:'words', area:'Agents', good:'workers: Steward, Archivist', bad:'bots, minions, copilots', why:'Agents, human or AI, are workers in the realm, shown by role. Never the subject of the interface, never hero or threat.', src:'§4.2 · §1' },
-      { id:'verbs', cat:'words', area:'Stewardship', good:'steward, tend, ratify, chart', bad:'own, harvest, crush, hack', why:'Stewardship over extraction: show care and tending, never harvesting or growth hacks.', src:'§4.2' },
-      { id:'cycle', cat:'words', area:'Cycle', good:'Capture · Connect · Reflect', bad:'ingest · process · output', why:'The canon cycle. Pipeline words turn a living landscape back into a machine.', src:'§4.2' },
-      { id:'jobs', cat:'words', area:'App jobs', good:'observe, attend, act, extend', bad:'monitor, alert, execute, plugin', why:'The local app’s four jobs. They name what a person does, not what a system emits.', src:'§4.2' },
-      { id:'model', cat:'words', area:'Model', good:'realm, territory, island', bad:'workspace, tenant, estate', why:'The section 2 model: realm, territory, island, Capital. Software-tenancy words break the map and its meaning. Estate is avoided in display copy.', src:'§4.2 · §2' },
-      { id:'hype', cat:'sentences', area:'Tone', good:'No signals. The realm is quiet.', bad:'(rocket) Supercharge your knowledge with AI!', why:'Calm and true. The don’t carries emoji, hype and AI as hero. No emoji anywhere: use glyphs.', src:'§4.4 · §4.3' },
-      { id:'confirm', cat:'sentences', area:'Confirmation', good:'Pull 3 repositories in hnr? This changes files on disk.', bad:'Are you sure?', why:'Name the scope and the effect (full form: “Pull 3 repositories in territory hnr? This changes files on disk.”). A bare “are you sure” tells the reader nothing to decide on.', src:'§4.4' },
-      { id:'time', cat:'sentences', area:'Time', good:'Pulled 3 of 3 · 2026-10-18 09:42', bad:'Pulled 3 days ago', why:'Outcome, time, way in. Stamps are YYYY-MM-DD HH:MM, 24-hour, local; never a relative time alone in the app (it may follow the stamp, muted).', src:'§4.3 · §4.4' },
-      { id:'case', cat:'sentences', area:'Case', good:'Explore the map', bad:'Explore The Map', why:'Sentence case for headings, buttons and labels; Title Case only for proper names. Capitals in cartouches come from the small-caps face, not the keyboard.', src:'§4.3' }
+      { id:'port', cat:'words', area:'Port', good:'the Port — Capture', bad:'the Harbour — Capture', why:'Harbour was retired on 18 Oct 2026. Write and draw the Port, with its modes as districts.', src:'voice.md' },
+      { id:'condition', cat:'words', area:'Condition', good:'thriving · quiet · weathered · ruined', bad:'health score · 96 % harmony', why:'No game scores. Condition is driven by evidence freshness and is never a score or a percentage (stewardship over extraction).', src:'voice.md' },
+      { id:'workers', cat:'words', area:'Agents', good:'workers: Steward, Archivist', bad:'bots, minions, copilots', why:'Agents, human or AI, are workers in the realm, shown by role. Never the subject of the interface, never hero or threat.', src:'voice.md' },
+      { id:'verbs', cat:'words', area:'Stewardship', good:'steward, tend, ratify, chart', bad:'own, harvest, crush, hack', why:'Stewardship over extraction: show care and tending, never harvesting or growth hacks.', src:'voice.md' },
+      { id:'cycle', cat:'words', area:'Cycle', good:'Capture · Connect · Reflect', bad:'ingest · process · output', why:'The canon cycle. Pipeline words turn a living landscape back into a machine.', src:'voice.md' },
+      { id:'jobs', cat:'words', area:'App jobs', good:'observe, attend, act, extend', bad:'monitor, alert, execute, plugin', why:'The local app’s four jobs. They name what a person does, not what a system emits.', src:'voice.md' },
+      { id:'model', cat:'words', area:'Model', good:'realm, territory, island', bad:'workspace, tenant, estate', why:'The world model (world.md): realm, territory, island, Capital. Software-tenancy words break the map and its meaning. Estate is avoided in display copy.', src:'voice.md' },
+      { id:'hype', cat:'sentences', area:'Tone', good:'No signals. The realm is quiet.', bad:'(rocket) Supercharge your knowledge with AI!', why:'Calm and true. The don’t carries emoji, hype and AI as hero. No emoji anywhere: use glyphs.', src:'voice.md' },
+      { id:'confirm', cat:'sentences', area:'Confirmation', good:'Pull 3 repositories in hnr? This changes files on disk.', bad:'Are you sure?', why:'Name the scope and the effect (full form: “Pull 3 repositories in territory hnr? This changes files on disk.”). A bare “are you sure” tells the reader nothing to decide on.', src:'voice.md' },
+      { id:'time', cat:'sentences', area:'Time', good:'Pulled 3 of 3 · 2026-10-18 09:42', bad:'Pulled 3 days ago', why:'Outcome, time, way in. Stamps are YYYY-MM-DD HH:MM, 24-hour, local; never a relative time alone in the app (it may follow the stamp, muted).', src:'voice.md' },
+      { id:'case', cat:'sentences', area:'Case', good:'Explore the map', bad:'Explore The Map', why:'Sentence case for headings, buttons and labels; Title Case only for proper names. Capitals in cartouches come from the small-caps face, not the keyboard.', src:'voice.md' }
     ];
   }
 
