@@ -1,6 +1,6 @@
 # Observatory overhaul — design spec
 
-Draft for review, 18 October 2026. The seven boards in this folder show every rule below; this file states the rules once.
+Draft for review, 18 October 2026; brought in line with the app on 19 October 2026, where the Observatory's build showed the app knew better (its design hand-off of that date). The seven boards in this folder show every rule below; this file states the rules once.
 
 ## How to use this spec: apply, don't impose
 
@@ -8,7 +8,7 @@ This is a **direction to converge towards, not a rebuild**. Kit's guidance (18 O
 
 So, for whoever builds in `apps-observatory.local`:
 
-- **Start from the Observatory as it is.** Keep all fifteen tabs, every route, every `?view=` address and every capability working throughout. Nothing is removed or merged just because a board shows it grouped differently.
+- **Start from the Observatory as it is.** Keep all fifteen tabs (sixteen once the Known Lands chart lands beside them), every route, every `?view=` address and every capability working throughout. Nothing is removed or merged just because a board shows it grouped differently.
 - **Apply the design system first.** Use the ki-design tokens, the app type dialect, the glyphs, night and day, the pane states, and the signal anatomy. These improve every existing screen without changing what it does. The boards show what "applied" looks like.
 - **Restructure later, by convergence.** The four jobs, the ten instruments and the tab mapping (§9, `ObsMap`) are where things could end up, not where they must start. Each consolidation is its own small step, taken once the reskinned app shows which grouping makes sense, and agreed with Kit as it comes. §11 lists the open questions that steer it.
 - **Where the app knows better, the app wins.** If a board conflicts with something the app already does well, or with data it actually has, keep the app's behaviour and note the difference here, so the design follows the real tool.
@@ -40,23 +40,23 @@ All data on the boards is invented. Only the public Knowledge Islands repository
 
 ## 1. Principles
 
-- Knowledge and the work are the subject. Agents, human or AI, are workers: a column, a figure on the chart, never a dashboard of their own.
+- Knowledge and the work are the subject. Agents, human or AI, are workers: a column, a figure on the chart, never a dashboard of their own. This is the destination: the app's Sessions tab is a runs view today, and it stays one until Kit approves the Workers consolidation (§9).
 - Observation is the default and authority is the exception. Act is the only job that changes anything, and it looks different.
 - Dense, calm, instrument-like. Night is the reference rendering; the shell follows the operating system's theme, and light is checked second.
-- The app dialect only: system serif for titles, system sans for text, monospace for identifiers and map labels. Nothing is fetched or bundled. No emoji; glyphs from `packages/icons`.
+- The app dialect only: system serif for titles, system sans for text, monospace for identifiers and map labels. Nothing is fetched or bundled. No emoji; glyphs from `packages/icons`. One known exception: the Work tab prints the work model's banner glyphs exactly as the `ki-coordination` standard writes them, because Kit chose one notation everywhere ([PDR-KI-OBSERVA-008](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-008-line-glyphs-beside-tabs-and-subjects.md)). Whether that notation should gain line glyphs is an open question for Kit ([OPEN.md](../../decisions/OPEN.md), "Banner glyphs").
 - The app does not replace agentic harnesses. It shows their runs as evidence.
 
 ## 2. The shell
 
-One frame, the same height on every instrument (board 1).
+One frame, the same height on every instrument (board 1). The bands have no fixed heights of their own: each is what the app's published scale sums to (row 25 px, control 22 px, 13/16 text), as [PDR-KI-OBSERVA-002](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-002-observatory-design-language.md) holds by test.
 
-| Band | Height | Contents |
-| --- | --- | --- |
-| Top bar | 44 px | Observatory glyph and name · scope picker · job switch · observed time · workers chip · way in · theme |
-| Instrument tabs | 38 px | The current job's instruments only, 16 px glyph plus text, counts in muted monospace |
-| Filter bar | 38 px | The one filter chip, grouping, rows shown |
-| Pane | rest | Instrument title (serif 20/26), one-line answer, the table or chart, foot-of-view note |
-| Status line | 26 px | Subject · summary · observed time · way in |
+| Band | Contents |
+| --- | --- |
+| Top bar | Observatory glyph and name · scope picker · job switch · observed time · workers chip · way in · theme |
+| Instrument tabs | Today's tabs, each a 14 px glyph before its title (§5), counts in muted monospace; after convergence, the current job's instruments only |
+| Filter bar | The one filter chip, grouping, rows shown |
+| Pane | Instrument title (serif 19/24), one-line answer, the table or chart, foot-of-view note |
+| Status line | Subject · summary · observed time · way in |
 
 - **Mark.** The domed Observatory glyph in brass beside "Observatory". The Tower and the Citadel are retired and never used.
 - **Job switch.** Four text segments, Observe · Attend · Act · Extend. Current: accent text on a brass underline. Act carries a boundary-colour edge (the role that means "a reader can act here") and the small word "governed", or "read-only" over the tailnet. The shell opens on Attend, at the Beacon.
@@ -72,21 +72,42 @@ One frame, the same height on every instrument (board 1).
 
 ## 4. Layout grid and density
 
-- Reference widths: **1440 px** (wide) and **720 px** (half a screen beside an editor). Frame gutter 16 px; 8 px at 760 px and below.
+- Reference widths: **1440 px** (wide) and **720 px** (half a screen beside an editor). Frame gutter 24 px; 12 px at 760 px and below, as the app ships it.
 - No horizontal page scroll at any width. The only sideways scroller is the tab row.
-- Table rows: one line of 14/20 text, 5 px padding each side, one 1 px rule: 31 px. **The Beacon shows at least 12 ranked rows at 800 px height** at both widths; shell glyphs cost zero rows.
+- Table rows: one line of 13/16 text, 4 px padding each side, one 1 px rule: 25 px. **The Beacon shows at least 12 ranked rows at 800 px height** at both widths, and the app's density test decides ([PDR-KI-OBSERVA-002](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-002-observatory-design-language.md)); shell glyphs cost zero rows.
 - Tables stay tables. Each instrument declares which columns drop at 760 px and below; rank and subject always survive.
 - Panes are square-edged with one rule; chips, tags, inputs and buttons use the 4 px radius. No shadows.
 - Two-pane instruments (Beacon with anatomy, Known Lands with detail) put the detail on the right at 1440 and below the data at 720.
 
 ## 5. Colour, type and glyphs
 
-- Roles from `packages/tokens/tokens.json`, night values first: paper `#0f2440`, ink `#f5efe0`, muted `#a9b4c4`, accent `#9fbbd8`, ok `#8fc4a0`, warn `#c8963c`, bad `#f0947a`, rule `#24476e`, boundary `#5f7896`, with the three washes for chips.
+- Roles from `packages/tokens/tokens.json`, night values first: paper `#0f2440`, ink `#f5efe0`, muted `#a9b4c4`, accent `#9fbbd8`, ok `#8fc4a0`, warn `#c8963c`, bad `#f0947a`, rule `#24476e`, boundary `#5f7896`, with the three washes for chips. These match the values the app derived and holds by test, hex for hex, washes included; the app's contrast record in [PDR-KI-OBSERVA-002](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-002-observatory-design-language.md) is the evidence.
 - Gold means attention, alone. Rust means blocking. A note has no colour and no mark. Every state has its word.
 - Conditions are words on chips: thriving (ok wash), quiet (outline), weathered (dashed outline), ruined (dotted, struck through). Never a score or a percentage.
 - Severity in rows: reef glyph and `blocking` chip; lantern glyph and `attention` chip; `note` as an outline tag.
-- Tab glyphs: Beacon `beacon`, Waiting for you `inbound`, Known Lands `known-lands`, Library `library`, Council `council-hall`, Streams `streams`, Workers `role-steward`, Repositories `workshop`, Machine `machine`, Extensions `workbench`. No bridge glyph marks Act: the Bridge is written, never drawn.
-- Subject glyphs in the Beacon follow how islands are typed: a Capital is drawn as its Library and Council Hall, `tools-*` a workshop, `mcp-*` a causeway, `apps-*` a port, a knowledge base a library, the host a machine.
+- Tab glyphs today: one distinct 14 px glyph before each of the fifteen tab titles, as the app draws them ([PDR-KI-OBSERVA-008](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-008-line-glyphs-beside-tabs-and-subjects.md)):
+
+  | Tab (`?view=`) | Glyph |
+  | --- | --- |
+  | Beacon (`beacon`) | `beacon` |
+  | Trade routes (`trade-routes`) | `trade-route` |
+  | Roadmap (`roadmap`) | `streams` |
+  | Sessions (`sessions`) | `role-steward` |
+  | Work (`work`) | `hourglass` |
+  | Review queue (`review`) | `inbound` |
+  | Decisions (`decisions`) | `council-hall` |
+  | Knowledge Bases (`knowledge-bases`) | `library` |
+  | Documents (`documents`) | `scroll` |
+  | Artifacts (`artifacts`) | `workbench` |
+  | Repositories (`repositories`) | `workshop` |
+  | Activity (`activity`) | `tide-gauge` |
+  | MCP servers (`mcp`) | `bridge` |
+  | Automation (`automation`) | `calendar` |
+  | Rig (`rig`) | `machine` |
+
+  The MCP servers tab draws `bridge`, chosen before [GDR-KI-DESIGN-018](../../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md) made `causeway` the translation glyph; ki-design suggests `causeway` at the Observatory's next glyph refresh, and the choice is the Observatory's.
+- Instrument glyphs after convergence (§9), the destination: Beacon `beacon`, Waiting for you `inbound`, Known Lands `known-lands`, Library `library`, Council `council-hall`, Streams `streams`, Workers `role-steward`, Repositories `workshop`, Machine `machine`, Extensions `workbench`. No bridge glyph marks Act: the Bridge is written, never drawn.
+- Subject glyphs in the Beacon follow what the app can know from `ki` contracts, and no contract states a repository's kind ([PDR-KI-OBSERVA-008](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-008-line-glyphs-beside-tabs-and-subjects.md)): every repository is an `island`, this machine is `machine`, and a signal across several repositories is `archipelago`. Typing subjects by kind (a Capital as its `capital`, a tool as a workshop, an MCP server as a causeway, an app as a port, a knowledge base as a library) is future work that depends on a `ki` contract stating the kind; it is never guessed from a repository's name.
 
 ## 6. States
 
@@ -106,7 +127,7 @@ An unobserved instrument is never counted as quiet. The Beacon lists every contr
 
 ## 7. Act: declare, confirm, receipt
 
-Board 5. Every mutation goes through all three steps.
+Board 5. Every mutation goes through all three steps. The pattern below already matches what the app enforces; where they differ, the Observatory's [authority specification](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/specs/authority.md) wins and this section follows it.
 
 1. **Declare.** The plan pane names the operation, its tier (`plan`, `mutate`, `destructive`) and confirmation (`none`, `planned`, `typed`), the scope, every input (one row each, withheld rows shown with their reason), the command, and the effect as the operation's own list of changes. It shows when the plan was issued and when it expires.
 2. **Confirm.** One boundary-edged button that names the action and its count ("Pull 2 repositories"). Never brass: brass is for going somewhere. A destructive tier asks the operator to type the operation's id. No mutation from a row click, a shortcut or a link.
@@ -116,7 +137,7 @@ Operations come from the contract: Repositories offers fetch (dry run), fetch, p
 
 ## 8. The tailnet, read-only
 
-The tailnet listener is proposed (handoff draft 1). Its appearance:
+The tailnet listener itself (the listener, `tailscale serve` and the ACLs) is connection-critical and belongs to the host network work, not to the Observatory; the Observatory plans only the app's read-only side. Its appearance:
 
 - The way-in badge in the top bar reads "Read-only · via tailnet"; the status line ends "via tailnet as operator, read-only". Loopback shows `127.0.0.1:1675`.
 - Act stays in the job switch, labelled "read-only", so instruments keep their place. Repositories and Machine show their observations; where the Plan button would be, one quiet line: "Acting is on this Observatory's host. Open it there to pull, push or apply."
@@ -133,10 +154,10 @@ The tailnet listener is proposed (handoff draft 1). Its appearance:
 | Library | Observe | Knowledge Bases; Documents | `/api/knowledge-bases` (+ `/note`, `/search`, `/asset`, `/sources`), `/api/documents` (+ `/document`, `/asset`), `/api/diagrams` |
 | Council | Observe | Decisions | `/api/decisions`, `/api/decisions/detail` |
 | Streams | Observe | Roadmap; Work (moving, stuck, blocked, on hold) | `/api/roadmap`, `/api/work` |
-| Workers | Observe | Sessions; Automation's run history; commit authors from Activity | `/api/sessions`, `/api/automation`, `/api/activity` |
-| Repositories | Act | Repositories | `/api/repositories`, `/api/repositories/detail`, `/api/receipts`; acts through `POST /api/repositories/plan`, `/execute` |
+| Workers | Observe | Sessions; Automation's run history; commit authors from Activity. Until Kit approves this consolidation, Sessions stays a runs view of its own | `/api/sessions`, `/api/automation`, `/api/activity` |
+| Repositories | Act | Repositories. The Observatory now plans a Git view, from Kit Git Repo Audit, to replace Repositories with every capability, governed operation and `?view=` address carried over | `/api/repositories`, `/api/repositories/detail`, `/api/receipts`; acts through `POST /api/repositories/plan`, `/execute` |
 | Machine | Act | Rig; MCP servers; Automation's schedules | `/api/machine`, `/api/mcp`, `/api/mcp/probe`, `/api/automation`, `/api/receipts`; acts through `POST /api/machine/plan`, `/execute` |
-| Extensions | Extend | Artifacts; the new switchboard | `/api/artifacts`, `/artifacts/frame`, `/artifacts/bridge.js`, `/api/artifacts/call` |
+| Extensions | Extend | Artifacts; the switchboard, which the Observatory now plans as its inbound live-artifact adapter, beside an outbound adapter that opens a view as a live artifact | `/api/artifacts`, `/artifacts/frame`, `/artifacts/bridge.js`, `/api/artifacts/call` |
 
 Shell routes for every instrument: `/api/instruments`, `/api/scopes`, `/api/observation`, `/health`.
 
@@ -161,11 +182,11 @@ Shell routes for every instrument: `/api/instruments`, `/api/scopes`, `/api/obse
 ## 11. Open questions
 
 - **Instrument restructure.** Settled on 19 October 2026: the ten instruments under the four jobs, reached by convergence ([GDR-KI-DESIGN-033](../../decisions/GDR-KI-DESIGN-033-instruments-by-convergence.md)).
-- **Fifteen, not fourteen.** The Work instrument landed after the brief. This design folds it into Streams and sends its "with you" view to Waiting for you. Agree, or give Work its own place?
+- **Where Work goes.** There are fifteen tabs today, because Work landed after the brief, and the Known Lands chart makes sixteen before any consolidation. This design folds Work into Streams and sends its "with you" view to Waiting for you. Agree, or give Work its own place?
 - **Automation splits in two** (runs to Workers, schedules to Machine). Which one does `?view=automation` land on?
-- **Bridge or Causeway.** Settled on 19 October 2026: the translation symbol is the Causeway, so "Bridge" names only the Act command, written and never drawn ([GDR-KI-DESIGN-018](../../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)). `mcp-*` repositories take the `causeway` glyph.
+- **Bridge or Causeway.** Settled on 19 October 2026: the translation symbol is the Causeway, so "Bridge" names only the Act command, written and never drawn ([GDR-KI-DESIGN-018](../../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)). An MCP server takes the `causeway` glyph wherever its kind is known, which for Beacon subjects waits on a `ki` contract (§5).
 - **How Act looks different.** The boards give the Act segment a boundary-colour edge and "governed". Enough, or should Act panes also carry a top rule in the boundary colour (as on boards 4 and 5)?
-- **The Capital glyph.** Settled on 18 October 2026: `packages/icons` now has `capital`, a small dome beside a low colonnaded front on one base. The chart and the Beacon can use it in place of the Library and Council Hall pair.
+- **The Capital glyph.** Settled on 18 October 2026: `packages/icons` now has `capital`, a small dome beside a low colonnaded front on one base. The Known Lands chart uses it, vendored at a pinned commit, in place of the Library and Council Hall pair; a Beacon subject can use it once a `ki` contract says which repository is a Capital (§5).
 - **Stored chart positions.** No endpoint holds island positions today; Known Lands needs one so islands stay where they were learnt.
 - **Stale threshold.** When does an observation become stale: a fixed age, or per instrument?
 - **Extension switches.** Is a switch a host preference (no receipt) or an Act operation? Over the tailnet it is shown and not changed either way.

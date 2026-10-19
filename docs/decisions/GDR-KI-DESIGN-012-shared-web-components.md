@@ -24,7 +24,7 @@ PDR-KI-OBSERVA-002 in the Observatory says "shared values, never shared renderin
 ## Consequences
 
 - `@knowledgeislands/elements` holds the two components and nothing else.
-- The exception to PDR-002 is to be recorded in PDR-KI-OBSERVA-007, which is not yet written.
+- The exception to PDR-002 is to be recorded in a later Observatory decision record, not yet written. PDR-KI-OBSERVA-008 covers only the tokens and glyphs, and 007 was already taken by feedback.
 - Site-only and app-only patterns live in their own repositories.
 
 ## References

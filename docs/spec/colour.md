@@ -32,7 +32,7 @@ The site's palette is kept verbatim and the local app's derived values are promo
 
 ## Semantic roles
 
-Each role maps to a core colour in light (ink, muted, accent = ocean, ok = forest, teal, warn = text gold, bad = rust) and has its own night value. Every foreground role holds 4.5:1 on its paper in both themes. The values match PDR-KI-OBSERVA-002, which calls night "dark".
+Each role maps to a core colour in light (ink, muted, accent = ocean, ok = forest, teal, warn = text gold, bad = rust) and has its own night value. Every foreground role holds 4.5:1 on its paper in both themes. The values match PDR-KI-OBSERVA-002, which calls night "dark": when the Observatory re-vendored them from this repository (PDR-KI-OBSERVA-008), its role colours and washes matched the values it had derived and holds by test, hex for hex, so the move changed where the values come from, not what the screen shows. The app's recorded contrast ratios in [PDR-KI-OBSERVA-002](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-002-observatory-design-language.md) and its tests are the evidence.
 
 - **Night is the reference rendering** ([GDR-KI-DESIGN-010](../decisions/GDR-KI-DESIGN-010-night-as-reference.md)). Mock up and judge night first, then check light.
 - The app shell follows the OS theme (`prefers-color-scheme`). The site follows it too, with a small manual toggle that sets `data-theme` ([GDR-KI-DESIGN-025](../decisions/GDR-KI-DESIGN-025-night-on-the-site.md)).

@@ -43,16 +43,15 @@ Cormorant SC labels at 13–15 px are permitted only because small caps and trac
 
 ## App type scale (reference values)
 
-Fixed pixel leading. The shell's published scale is authoritative; these are the reference values a designer should mock up with. Only tokens from the scale may be used: a raw pixel length fails a test.
+Fixed pixel leading. The shell's published scale is authoritative ([PDR-KI-OBSERVA-002](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-002-observatory-design-language.md)); these are its values as the Observatory ships them, for a designer to mock up with. Only tokens from the scale may be used: a raw pixel length fails a test. Leading is its own token (`--leading-tight` 14, `--leading` 16, `--leading-title` 24), so a size is listed with the leading the app sets it on.
 
 | Token | Face | Size / leading | Use |
 | --- | --- | --- | --- |
-| `--text-xs` | sans | 12 / 16 | Foot-of-view notes, chip text |
-| `--text-sm` | sans | 13 / 18 | Secondary cells, status line |
-| `--text-base` | sans | 14 / 20 | Table cells, controls, body |
-| `--text-md` | sans | 16 / 22 | Pane body, plan text |
-| `--text-lg` | serif | 20 / 26 | Instrument title |
-| `--text-xl` | serif | 24 / 30 | Empty-state heading, detail title |
+| `--text-2xs` | sans | 10 / 14 | Smallest marks: chart owner labels, heat-strip counts |
+| `--text-xs` | sans | 11 / 14 | Chip and tag text, foot-of-view notes (on `--leading` where they run to lines) |
+| `--text-sm` | sans | 12 / 16 | Secondary cells, status line |
+| `--text-md` | sans | 13 / 16 | Table cells, controls, body: one row is 25 px |
+| `--text-title` | serif | 19 / 24 | Instrument title |
 | `--font-identifier` | mono | inherits size | Repository ids, record ids, hashes, paths, commands, map labels |
 | `--figures` | `font-variant-numeric: tabular-nums` | — | Counts, dates, times, ranks |
 

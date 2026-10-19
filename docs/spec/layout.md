@@ -54,13 +54,13 @@ The app uses `sm` almost exclusively; tables and panes are square-edged.
 | Site, desktop | 12 columns, 24 px gutters, max content 1200 px; prose column max 68 ch (about 680 px) |
 | Site, tablet | 8 columns, 24 px gutters |
 | Site, phone | 4 columns, **16 px side gutter**, 16 px gutters |
-| App, wide | 1440 px reference (a laptop given to the app); frame gutter 16 px |
-| App, narrow | **720 px** reference (half a screen beside an editor); at 760 px or less the frame gutter narrows to 8 px |
+| App, wide | 1440 px reference (a laptop given to the app); frame gutter 24 px |
+| App, narrow | **720 px** reference (half a screen beside an editor); at 760 px or less the frame gutter narrows to 12 px |
 
 ## Density targets (app)
 
 - At 800 px viewport height, the **Beacon shows at least 12 ranked rows** without scrolling, at both 1440 and 720 widths. This is asserted against the shipped stylesheet.
-- A row is one line of `--text-base` (20 px) plus two row paddings plus one 1 px rule. Any change to these is a change to the density model.
+- A row is one line of `--text-md` on `--leading` (16 px) plus two 4 px row paddings plus one 1 px rule: 25 px, as the app ships it ([PDR-KI-OBSERVA-002](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-002-observatory-design-language.md)). Any change to these is a change to the density model.
 - Shell glyphs (tabs, subject column) cost **zero rows**: they are sized to the existing line height.
 
 ## Responsive rules
@@ -69,7 +69,7 @@ The app uses `sm` almost exclusively; tables and panes are square-edged.
 2. **Tables never become cards.** At narrow widths the least load-bearing columns drop (declared per table), rank and subject survive, and cells wrap ([components.md](components.md)).
 3. Site at phone width: 16 px gutter; the hero map crops to the Capital and Port, cartouches collapse into a district list beneath, and the journey rail becomes a vertical list.
 4. Maps scale inside their container; the container is covered by the no-horizontal-scroll test.
-5. Touch targets are at least 44 × 44 px on the site. App controls follow the published control height (reference 28 px), because it is a pointer-first desktop tool.
+5. Touch targets are at least 44 × 44 px on the site. App controls follow the published control height (22 px in the app), because it is a pointer-first desktop tool.
 
 ## Site structure: the Voyage and the Atlas
 

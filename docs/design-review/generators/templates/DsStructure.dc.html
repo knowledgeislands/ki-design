@@ -166,7 +166,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
 
         <div class="st-card" style="padding:14px 18px;display:flex;flex-direction:column;gap:10px;flex:1;min-height:0">
           <div style="display:flex;justify-content:space-between;align-items:center">
-            <span class="st-kick">Instruments · fourteen become ten</span>
+            <span class="st-kick">Instruments · fifteen become ten</span>
             <span style="display:flex;gap:5px;align-items:center"><button type="button" onClick="{{ showAll }}" style="{{allStyle}}">Show all ten</button><span class="st-chip st-agreed">Agreed</span><span class="st-scope">App</span></span>
           </div>
           <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px">
@@ -194,12 +194,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
             </div>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #e6dcc6;padding-top:10px">
-            <span class="st-lbl">Today’s fourteen tabs · highlighted = folded into {{inst.name}}</span>
+            <span class="st-lbl">Today’s fifteen tabs · highlighted = folded into {{inst.name}}</span>
             <div style="display:flex;flex-wrap:wrap;gap:6px">
-              <sc-for list="{{olds}}" as="o" hint-placeholder-count="14"><span style="{{o.style}}">{{o.t}}</span></sc-for>
+              <sc-for list="{{olds}}" as="o" hint-placeholder-count="15"><span style="{{o.style}}">{{o.t}}</span></sc-for>
             </div>
           </div>
-          <div class="st-m" style="margin-top:auto">The four jobs are agreed (@@gdr:016@@); the ten-instrument grouping is agreed, reached by convergence (@@gdr:033@@). The job switch shows only that job’s instruments, so the tab bar shrinks from fourteen to two–five. Every existing capability is kept.</div>
+          <div class="st-m" style="margin-top:auto">The four jobs are agreed (@@gdr:016@@); the ten-instrument grouping is agreed, reached by convergence (@@gdr:033@@). The job switch shows only that job’s instruments, so the tab bar shrinks from fifteen to two–five. Every existing capability is kept.</div>
         </div>
       </div>
 
@@ -376,7 +376,7 @@ class Component extends DCLogic {
     });
     const I = INST.find(i => i.id === instId);
     const inst = { name: I.name, job: I.job, why: I.why, absorbs: I.absorbs, note: I.note, jobMeans: JOBMEANS[I.job], icon: this.ico(I.icon, JOBC[I.job]), jobStyle: jobPill(I.job) + 'border:1px solid ' + JOBC[I.job] + ';border-radius:4px;padding:1px 7px;' };
-    const OLD = [['Beacon', 'beacon'], ['Activity', 'beacon known'], ['Review queue', 'waiting'], ['Trade routes', 'known'], ['Knowledge Bases', 'library'], ['Documents', 'library'], ['Decisions', 'council'], ['Roadmap', 'streams'], ['Sessions', 'workers'], ['Automation', 'workers machine'], ['Repositories', 'repos'], ['Rig', 'machine'], ['MCP servers', 'machine'], ['Artifacts', 'ext']];
+    const OLD = [['Beacon', 'beacon'], ['Activity', 'beacon known'], ['Review queue', 'waiting'], ['Trade routes', 'known'], ['Knowledge Bases', 'library'], ['Documents', 'library'], ['Decisions', 'council'], ['Roadmap', 'streams'], ['Sessions', 'workers'], ['Automation', 'workers machine'], ['Repositories', 'repos'], ['Rig', 'machine'], ['MCP servers', 'machine'], ['Artifacts', 'ext'], ['Work', 'streams waiting']];
     const olds = OLD.map(o => {
       const hit = o[1].split(' ').indexOf(instId) >= 0;
       return { t: o[0], style: 'font-size:12px;padding:2px 8px;border-radius:4px;' + (hit ? 'background:#0f2440;color:#f5efe0;border:1px solid #0f2440;font-weight:600;' : 'background:transparent;color:#4a5568;border:1px solid #d4c9b4;') };

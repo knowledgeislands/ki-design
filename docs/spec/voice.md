@@ -73,4 +73,4 @@ Confident statements, plain words, one idea per sentence. Never breathless, neve
 | Components | `ki-` prefix; only the two shared elements | `<ki-glyph>`, `<ki-hexmap>` |
 | Packages | `@knowledgeislands/<name>` | `@knowledgeislands/tokens` |
 | Repository | `ki-design` | — |
-| Decision records | Existing series only; ids never rewritten | `PDR-KI-OBSERVA-007`, `GDR-KI-DESIGN-003` |
+| Decision records | Existing series only; ids never rewritten | `PDR-KI-OBSERVA-008`, `GDR-KI-DESIGN-003` |

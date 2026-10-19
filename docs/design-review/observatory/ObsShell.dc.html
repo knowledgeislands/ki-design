@@ -15,7 +15,7 @@ body{margin:0;background:#0b1b31}
 .o-kick{font:600 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
 .o-h1{margin:0;font:600 34px/40px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
 .o-lede{margin:0;font-size:15px;line-height:22px;color:var(--muted)}
-.o-h2{margin:0;font:600 20px/26px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-h2{margin:0;font:600 19px/24px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
 .o-h3{margin:0;font:600 16px/22px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
 .o-lbl{font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
 .o-m{font-size:12px;line-height:16px;color:var(--muted)}
@@ -37,12 +37,12 @@ body{margin:0;background:#0b1b31}
 .seg{display:flex;border:1px solid var(--boundary);border-radius:4px;overflow:hidden}
 .tbl{width:100%;border-collapse:collapse}
 .tbl th{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--muted);text-align:left;padding:5px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
-.tbl td{font-size:13px;line-height:20px;padding:5px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+.tbl td{font-size:13px;line-height:16px;padding:4px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
 .id{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--ink)}
 .t{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--muted);white-space:nowrap}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none}
 
-.g-row{display:grid;grid-template-columns:250px minmax(0,1fr) 210px 120px 140px;gap:0 12px;align-items:center;padding:5px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:20px}
+.g-row{display:grid;grid-template-columns:250px minmax(0,1fr) 210px 120px 140px;gap:0 12px;align-items:center;padding:4px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:16px}
 .g-head{font-size:12px;line-height:16px;color:var(--muted);font-weight:500;padding-top:4px;padding-bottom:4px}
 .cd-thriving{color:var(--ok);background:var(--okw)}
 .cd-quiet{color:var(--muted);border:1px solid var(--rule);padding:0 6px}
@@ -74,7 +74,7 @@ body{margin:0;background:#0b1b31}
   <div style="flex:none;height:560px;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--boundary)">
 
     <!-- top bar -->
-    <div style="height:44px;flex:none;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid var(--rule);white-space:nowrap">
+    <div style="height:44px;flex:none;display:flex;align-items:center;gap:12px;padding:0 24px;border-bottom:1px solid var(--rule);white-space:nowrap">
       <span class="num" aria-hidden="true">1</span><img alt="" width="20" height="20" src="{{mark}}"><span style="font:600 16px/1 ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)">Observatory</span>
       <span style="width:1px;height:20px;background:var(--rule)"></span>
       <span class="num" aria-hidden="true">2</span><span style="display:flex;align-items:center;gap:6px;height:26px;padding:0 8px;border:1px solid var(--boundary);border-radius:4px;font-size:12px;color:var(--ink)"><span class="o-m">Scope</span>Realm · 15 islands<img alt="" width="12" height="12" src="{{chev}}" style="transform:rotate(90deg)"></span>
@@ -91,17 +91,17 @@ body{margin:0;background:#0b1b31}
     </div>
 
     <!-- instrument tabs -->
-    <div style="height:38px;flex:none;display:flex;align-items:flex-end;gap:2px;padding:0 10px;border-bottom:1px solid var(--rule)">
+    <div style="height:38px;flex:none;display:flex;align-items:flex-end;gap:2px;padding:0 24px;border-bottom:1px solid var(--rule)">
       <span class="num" aria-hidden="true">4</span>
       <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="5">
-        <button type="button" aria-current="{{tb.cur}}" onClick="{{ tb.pick }}" style="{{tb.style}}"><img alt="" width="16" height="16" src="{{tb.icon}}">{{tb.name}}<span style="{{tb.countStyle}}">{{tb.count}}</span></button>
+        <button type="button" aria-current="{{tb.cur}}" onClick="{{ tb.pick }}" style="{{tb.style}}"><img alt="" width="14" height="14" src="{{tb.icon}}">{{tb.name}}<span style="{{tb.countStyle}}">{{tb.count}}</span></button>
       </sc-for>
       <span style="flex:1"></span>
       <span class="o-m" style="padding-bottom:10px">{{jobLine}}</span>
     </div>
 
     <!-- filter bar -->
-    <div style="height:38px;flex:none;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--rule)">
+    <div style="height:38px;flex:none;display:flex;align-items:center;gap:10px;padding:0 24px;border-bottom:1px solid var(--rule)">
       <span class="num" aria-hidden="true">5</span><img alt="" width="14" height="14" src="{{filterIcon}}">
       <button type="button" onClick="{{ toggleFilter }}" style="{{filterChip.style}}">{{filterChip.text}}</button>
       <span class="o-m">{{filterChip.note}}</span>
@@ -113,14 +113,14 @@ body{margin:0;background:#0b1b31}
 
     <!-- pane -->
     <div style="flex:1;min-height:0;display:flex">
-      <div style="flex:1;min-width:0;padding:10px 14px 8px;display:flex;flex-direction:column;gap:8px">
-        <div style="display:flex;align-items:baseline;gap:12px"><span class="num" aria-hidden="true">6</span><h2 style="margin:0;font:600 20px/26px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)">{{inst.name}}</h2><span class="o-m">{{inst.answers}}</span></div>
-        <div style="{{stateBox.style}}"><img alt="" width="20" height="20" src="{{stateBox.icon}}"><div style="display:flex;flex-direction:column;gap:4px"><span style="font:600 24px/30px ui-serif,Georgia,serif;color:var(--ink)">{{stateBox.title}}</span><span class="o-p" style="font-size:14px;line-height:20px">{{stateBox.line}}</span><span class="o-m">{{stateBox.detail}}</span></div></div>
+      <div style="flex:1;min-width:0;padding:10px 24px 8px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:baseline;gap:12px"><span class="num" aria-hidden="true">6</span><h2 style="margin:0;font:600 19px/24px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)">{{inst.name}}</h2><span class="o-m">{{inst.answers}}</span></div>
+        <div style="{{stateBox.style}}"><img alt="" width="20" height="20" src="{{stateBox.icon}}"><div style="display:flex;flex-direction:column;gap:4px"><span style="font:600 24px/30px ui-serif,Georgia,serif;color:var(--ink)">{{stateBox.title}}</span><span class="o-p" style="font-size:13px;line-height:16px">{{stateBox.line}}</span><span class="o-m">{{stateBox.detail}}</span></div></div>
         <div role="table" style="{{tableStyle}}">
           <div role="row" class="g-row g-head"><sc-for list="{{inst.cols}}" as="c" hint-placeholder-count="5"><span role="columnheader">{{c.t}}</span></sc-for></div>
           <sc-for list="{{inst.rows}}" as="r" hint-placeholder-count="7">
             <div role="row" class="g-row">
-              <span role="cell" style="display:flex;align-items:center;gap:6px;min-width:0"><img alt="" width="16" height="16" src="{{r.g}}"><span class="id">{{r.c1}}</span></span>
+              <span role="cell" style="display:flex;align-items:center;gap:6px;min-width:0"><img alt="" width="14" height="14" src="{{r.g}}"><span class="id">{{r.c1}}</span></span>
               <span role="cell">{{r.c2}}</span>
               <span role="cell" style="color:var(--muted)">{{r.c3}}</span>
               <span role="cell"><span class="chip {{r.cls}}">{{r.c4}}</span></span>
@@ -134,7 +134,7 @@ body{margin:0;background:#0b1b31}
     </div>
 
     <!-- status line -->
-    <div style="height:26px;flex:none;display:flex;align-items:center;gap:10px;padding:0 14px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted)">
+    <div style="height:26px;flex:none;display:flex;align-items:center;gap:10px;padding:0 24px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted)">
       <span class="num" aria-hidden="true">7</span><span style="color:var(--ink)">{{status.subject}}</span><span>·</span><span>{{status.summary}}</span><span>·</span><span class="t" style="{{status.obsStyle}}">{{status.obs}}</span><span>·</span><span>{{status.way}}</span>
     </div>
   </div>
@@ -349,9 +349,9 @@ class Component extends DCLogic {
       { n: '1', t: 'Mark and name', d: 'The domed Observatory glyph, then “Observatory” in the system serif. No web fonts are fetched.' },
       { n: '2', t: 'Scope', d: 'This repository, one territory, or the realm. Scope decides what is observed; every instrument reads it.' },
       { n: '3', t: 'Job switch', d: 'Observe · Attend · Act · Extend. Act wears a control edge because it mutates; the shell opens on Attend.' },
-      { n: '4', t: 'Instrument tabs', d: 'Only the job’s instruments, two to five. 16 px glyph plus text; scrolls in its own width at 720 px.' },
+      { n: '4', t: 'Instrument tabs', d: 'Only the job’s instruments, two to five. 14 px glyph plus text; scrolls in its own width at 720 px.' },
       { n: '5', t: 'Filter, not scope', d: 'Selecting an island filters every instrument without re-observing. One chip, one way to clear it.' },
-      { n: '6', t: 'Pane and foot note', d: 'Tables stay tables; at ≤ 760 px declared columns drop. Ordering rules and legends sit under the data.' },
+      { n: '6', t: 'Pane and foot note', d: 'Rows are 25 px (13/16 text); tables stay tables, and at ≤ 760 px declared columns drop. Ordering rules and legends sit under the data.' },
       { n: '7', t: 'Status line', d: 'Subject · summary · observed time · way in. One line, the same height on every instrument.' },
       { n: '8', t: 'Way in', d: 'Loopback has full authority. The tailnet listener is read-only, and the frame says so in two places.' }
     ];

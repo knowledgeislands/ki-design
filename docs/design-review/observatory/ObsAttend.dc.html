@@ -15,7 +15,7 @@ body{margin:0;background:#0b1b31}
 .o-kick{font:600 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
 .o-h1{margin:0;font:600 34px/40px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
 .o-lede{margin:0;font-size:15px;line-height:22px;color:var(--muted)}
-.o-h2{margin:0;font:600 20px/26px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
+.o-h2{margin:0;font:600 19px/24px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
 .o-h3{margin:0;font:600 16px/22px ui-serif,'New York','Iowan Old Style',Georgia,serif;color:var(--ink)}
 .o-lbl{font:600 11px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
 .o-m{font-size:12px;line-height:16px;color:var(--muted)}
@@ -37,14 +37,14 @@ body{margin:0;background:#0b1b31}
 .seg{display:flex;border:1px solid var(--boundary);border-radius:4px;overflow:hidden}
 .tbl{width:100%;border-collapse:collapse}
 .tbl th{font:500 12px/16px system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--muted);text-align:left;padding:5px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
-.tbl td{font-size:13px;line-height:20px;padding:5px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+.tbl td{font-size:13px;line-height:16px;padding:4px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
 .id{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--ink)}
 .t{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--muted);white-space:nowrap}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none}
 
-.b-row{display:grid;grid-template-columns:22px 18px 168px minmax(0,1fr) 150px 84px 116px;gap:0 10px;align-items:center;padding:5px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:20px;cursor:pointer;background:transparent;border-left:0;border-right:0;border-top:0;color:var(--ink);text-align:left;width:100%;font-family:inherit}
+.b-row{display:grid;grid-template-columns:22px 18px 168px minmax(0,1fr) 150px 84px 116px;gap:0 10px;align-items:center;padding:4px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:16px;cursor:pointer;background:transparent;border-left:0;border-right:0;border-top:0;color:var(--ink);text-align:left;width:100%;font-family:inherit}
 .b-head{font-size:12px;line-height:16px;color:var(--muted);font-weight:500;cursor:default}
-.w-row{display:grid;grid-template-columns:22px 110px minmax(0,1fr) 190px 200px 130px;gap:0 12px;align-items:center;padding:5px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:20px}
+.w-row{display:grid;grid-template-columns:22px 110px minmax(0,1fr) 190px 200px 130px;gap:0 12px;align-items:center;padding:4px 8px;border-bottom:1px solid var(--rule);font-size:13px;line-height:16px}
 .new{font:600 10px/14px system-ui,sans-serif;letter-spacing:0.04em;color:var(--teal);border:1px solid var(--teal);border-radius:3px;padding:0 4px;margin-left:6px}
 .cd-thriving{color:var(--ok);background:var(--okw)}
 .cd-quiet{color:var(--muted);border:1px solid var(--rule);padding:0 6px}
@@ -86,7 +86,7 @@ body{margin:0;background:#0b1b31}
           <button type="button" class="b-row" aria-pressed="{{g.on}}" onClick="{{ g.pick }}" style="{{g.style}}">
             <span class="t">{{g.rank}}</span>
             <img alt="{{g.markAlt}}" width="16" height="16" src="{{g.mark}}">
-            <span style="display:flex;align-items:center;gap:6px;min-width:0"><img alt="" width="16" height="16" src="{{g.sIcon}}"><span class="id" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{g.subject}}</span></span>
+            <span style="display:flex;align-items:center;gap:6px;min-width:0"><img alt="" width="14" height="14" src="{{g.sIcon}}"><span class="id" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{g.subject}}</span></span>
             <span style="min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{g.summary}}<span class="new" style="{{g.newStyle}}">new</span></span>
             <span style="color:var(--muted)">{{g.category}}</span>
             <span><span class="chip {{g.cls}}">{{g.severity}}</span></span>
@@ -170,7 +170,7 @@ class Component extends DCLogic {
   renderVals() {
     const s = this.state || {};
     const N = { ink: '#f5efe0', muted: '#a9b4c4', accent: '#9fbbd8', warn: '#c8963c', bad: '#f0947a', ok: '#8fc4a0', teal: '#7fc2c0', rule: '#24476e', boundary: '#5f7896', accw: '#1b3a5c' };
-    const glyphFor = (id) => id === 'this machine' ? 'machine' : /-principal$/.test(id) ? 'council-hall' : /^tools-/.test(id) ? 'workshop' : /^mcp-/.test(id) ? 'bridge' : /^apps-/.test(id) ? 'port' : /(island|almanac)$/.test(id) ? 'library' : 'island';
+    const glyphFor = (id) => id === 'this machine' ? 'machine' : 'island';
     const TERR = { 'example-island': 'Example Reach', 'example-principal': 'Example Reach', 'tools-example': 'Example Reach', 'mcp-example-notes': 'Example Reach', 'lowmarsh-principal': 'Lowmarsh', 'lowmarsh-almanac': 'Lowmarsh', 'ki-design': 'Knowledge Islands', 'tools-ki': 'Knowledge Islands', 'ki-specifications': 'Knowledge Islands', 'ki-principal': 'Knowledge Islands', 'this machine': 'host' };
     const COND = { 'example-island': 'thriving', 'example-principal': 'thriving', 'tools-example': 'quiet', 'mcp-example-notes': 'quiet', 'lowmarsh-principal': 'quiet', 'lowmarsh-almanac': 'weathered', 'ki-design': 'thriving', 'tools-ki': 'thriving', 'ki-specifications': 'quiet', 'ki-principal': 'thriving', 'this machine': '' };
     const LAND = { repositories: ['workshop', 'Repositories'], mcp: ['machine', 'Machine · MCP servers'], decisions: ['council-hall', 'Council'], automation: ['machine', 'Machine · schedules'], review: ['inbound', 'Waiting for you'], sessions: ['role-steward', 'Workers'], rig: ['machine', 'Machine · configuration'], roadmap: ['streams', 'Streams'], work: ['streams', 'Streams'] };

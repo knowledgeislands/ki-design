@@ -23,7 +23,7 @@ Both surfaces must render from the same values. The local app fetches nothing at
 
 ## Consequences
 
-- Today the app vendors its tokens from `ki-website`. The source moves to `ki-design` once PDR-KI-OBSERVA-007 records the switch.
+- The app vendors its tokens and glyphs from `ki-design` at a pinned commit, as PDR-KI-OBSERVA-008 records; before it, the source was `ki-website`.
 - A removed or renamed token is a major release.
 
 ## References

@@ -277,13 +277,13 @@ The world enters the Observatory as one new instrument and a set of small marks,
 - Renders as flat SVG by default (fast, crisp, theme-aware); an isometric view is a toggle. Selecting an island applies the shell's filter (a filter, not a scope) for that repository, so it holds across instruments.
 - Layout is deterministic: hex positions are stored, so a repository stays where the operator learnt it was.
 
-**2. Small marks in the shell.** A compass glyph and wordmark in the header; one line glyph per instrument tab (lighthouse for Beacon, sea lane for Trade routes, council hall for Decisions, library for Knowledge Bases, forge for Repositories, bridge for MCP servers, engine house for Automation and Rig, port for Review queue, streams for Roadmap, vessel for Sessions, scroll for Documents, workbench for Artifacts, tide gauge for Activity; the Observatory is the app's own mark); the structure glyph in the subject column of the Beacon. All sized to the existing row height, so the density model is unchanged. Glyphs on tabs change a decided element (PDR-002: tabs are text), so PDR-007 updates the tab-width model in the same change; map labels in the app stay monospace, and cartouches are for the site.
+**2. Small marks in the shell.** A compass glyph and wordmark in the header; one line glyph per instrument tab (lighthouse for Beacon, sea lane for Trade routes, council hall for Decisions, library for Knowledge Bases, forge for Repositories, bridge for MCP servers, engine house for Automation and Rig, port for Review queue, streams for Roadmap, vessel for Sessions, scroll for Documents, workbench for Artifacts, tide gauge for Activity; the Observatory is the app's own mark); the structure glyph in the subject column of the Beacon. All sized to the existing row height, so the density model is unchanged. Glyphs on tabs change a decided element (PDR-002: tabs are text), so the Observatory's next decision record updates the tab-width model in the same change (it became PDR-KI-OBSERVA-008, since 007 was taken); map labels in the app stay monospace, and cartouches are for the site.
 
 **3. Night is the reference rendering.** Dark stays first-class: navy paper with lantern-gold attention reads as the chart at night, which is where an operator beside an editor usually is.
 
-**4. Governance of the change.** Record it as PDR-KI-OBSERVA-007 (“The Known Lands chart”), refresh the vendored tokens from the shared kit with a new digest, add the map container to the no-horizontal-scroll test, and add a density check that the shell glyphs cost zero rows.
+**4. Governance of the change.** Record it in an Observatory decision record of its own (the chart is not yet recorded; PDR-KI-OBSERVA-008 records the tokens and glyphs, and 007 was taken), refresh the vendored tokens from the shared kit with a new digest, add the map container to the no-horizontal-scroll test, and add a density check that the shell glyphs cost zero rows.
 
-**5. Restructure the instruments around the four jobs (proposal).** The fourteen instruments grew one at a time; grouped by job they consolidate to ten, with every existing capability kept:
+**5. Restructure the instruments around the four jobs (proposal).** The instruments grew one at a time (fourteen when this brief was written; fifteen once Work landed on 18 October 2026, and sixteen with the Known Lands chart); grouped by job they consolidate to ten, with every existing capability kept:
 
 | Job | Proposed instrument | Absorbs | Why |
 | --- | --- | --- | --- |
@@ -298,7 +298,7 @@ The world enters the Observatory as one new instrument and a set of small marks,
 | Act | **Machine** | Rig; MCP servers; Automation's schedules | The host: tooling, drift, services, connections, jobs |
 | Extend | **Extensions** | Artifacts; the switchboard | Core and island extensions, on or off per scope |
 
-The shell's job switch (Observe · Attend · Act · Extend) shows only that job's instruments, so the tab bar shrinks from fourteen to two to five. Existing work items (KI-OBSERVA-VIS-021 to -024) carry over to the instrument that absorbs them; the change is a PDR in its own right.
+The shell's job switch (Observe · Attend · Act · Extend) shows only that job's instruments, so the tab bar shrinks from fifteen (sixteen with the chart) to two to five. Existing work items (KI-OBSERVA-VIS-021 to -024) carry over to the instrument that absorbs them; the change is a PDR in its own right.
 
 ## Tooling and asset pipeline
 
@@ -318,13 +318,13 @@ Four pieces of tooling make the world repeatable: a token build, a glyph sprite,
 | --- | --- | --- | --- | --- |
 | 1 | `@knowledgeislands/tokens` | CSS custom properties from DTCG JSON; they pierce Shadow DOM, so light and night theming reach inside every component | Tailwind `@theme` + `:root` vars | Vendored module + digest (PDR-KI-OBSERVA-002) |
 | 2 | `@knowledgeislands/hexmap` | Pure TypeScript: geometry, layout, data in → SVG string out; no DOM, no Lit | Called at build time; maps ship as static SVG | Called server- or client-side |
-| 3 | `@knowledgeislands/elements` | Thin Lit wrappers adding interaction: `<ki-hexmap>`, `<ki-glyph>`, `<ki-cartouche>`, `<ki-status-chip>`, `<ki-journey>` | Server-rendered via `@lit-labs/eleventy-plugin-lit` with Declarative Shadow DOM; works without JS, enhances where it loads | Used directly. This is shared rendering, which PDR-KI-OBSERVA-002 rules out (“shared values, never shared rendering”), so PDR-007 explicitly supersedes that sentence for these elements only; each exports its stylesheet as a string so the density, contrast and scale tests read it, and packages are pinned by exact version and lockfile integrity, inlined into the single document |
+| 3 | `@knowledgeislands/elements` | Thin Lit wrappers adding interaction: `<ki-hexmap>`, `<ki-glyph>`, `<ki-cartouche>`, `<ki-status-chip>`, `<ki-journey>` | Server-rendered via `@lit-labs/eleventy-plugin-lit` with Declarative Shadow DOM; works without JS, enhances where it loads | Used directly. This is shared rendering, which PDR-KI-OBSERVA-002 rules out (“shared values, never shared rendering”), so a later Observatory decision record, not yet written, explicitly supersedes that sentence for these elements only; each exports its stylesheet as a string so the density, contrast and scale tests read it, and packages are pinned by exact version and lockfile integrity, inlined into the single document |
 
 Rules for the layer:
 
 - **A dozen components, not a UI library.** Only what both surfaces genuinely share; buttons, dialogs and forms stay in each app. This is the guard against `ki-design` becoming a dumping ground.
 - **Styled from tokens only.** Tailwind does not reach into Shadow DOM, so components carry their own styles; Tailwind stays for page layout on the site.
-- **Observatory tests extend inward.** Its density and contrast checks read shipped stylesheets; component styles must be exported so those checks cover them — part of PDR-KI-OBSERVA-007.
+- **Observatory tests extend inward.** Its density and contrast checks read shipped stylesheets; component styles must be exported so those checks cover them — part of that later Observatory decision record.
 - **Why not React:** it would force a framework into the Observatory for no gain. Stencil (adds React/Vue wrappers) is the upgrade path only if outside teams adopt the kit.
 
 **Review notes on the layer.** Lit earns its place through `<ki-hexmap>`'s interaction; on the “both surfaces” test only `<ki-hexmap>` and `<ki-glyph>` qualify today, so `<ki-cartouche>` and `<ki-journey>` stay site components and `<ki-status-chip>` stays the Observatory's own pattern. Risks to clear in a Phase 0 spike: Lit SSR is a labs package needing Node VM modules, so confirm it runs under Bun or build the site under Node; set `window.litNonce` from the page nonce for CSP; each element carries its own reset (Tailwind Preflight does not cross the shadow boundary); the token build emits both `--color-*` for Tailwind v4 `@theme` and the bare roles (`--paper`, `--ink`, `--accent`) from one source.

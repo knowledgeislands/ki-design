@@ -168,11 +168,11 @@ class Component extends DCLogic {
   }
 
   app(){
-    const ASPEC = { '--text-xs': 'Ranked by severity, then by last change.', '--text-sm': 'thriving · changed 2026-10-18 09:42', '--text-base': 'Attention · branch behind its remote', '--text-md': 'Pull 3 repositories in territory hnr?', '--text-lg': 'Beacon', '--text-xl': 'No signals. The realm is quiet.', '--font-identifier': 'apps-observatory.local · 3f9c2e1', '--figures': '012 · 2026-10-18 09:42 · 217' };
-    const AEXTRA = { '--text-xs': 'color:#4a5568;', '--text-sm': 'font-variant-numeric:tabular-nums;', '--text-lg': 'color:#0f2440;', '--text-xl': 'color:#0f2440;', '--figures': 'font-variant-numeric:tabular-nums lining-nums;' };
+    const ASPEC = { '--text-2xs': '7 · 12 · 3', '--text-xs': 'Ranked by severity, then by last change.', '--text-sm': 'thriving · changed 2026-10-18 09:42', '--text-md': 'Attention · branch behind its remote', '--text-title': 'Beacon', '--font-identifier': 'apps-observatory.local · 3f9c2e1', '--figures': '012 · 2026-10-18 09:42 · 217' };
+    const AEXTRA = { '--text-xs': 'color:#4a5568;', '--text-sm': 'font-variant-numeric:tabular-nums;', '--text-title': 'color:#0f2440;', '--figures': 'font-variant-numeric:tabular-nums lining-nums;' };
     const SE = "@@stack:font.app.serif@@", SA = "@@stack:font.app.sans@@", MO = "@@stack:font.mono@@";
     const row = (token, face, size, lh, text, use, extra) => ({ token: token, spec: size ? size + ' / ' + lh + ' px' : 'inherits size', text: text, use: use, pad: '8px 0',
-      style: 'font-family:' + face + ';' + (size ? 'font-size:' + size + 'px;line-height:' + lh + 'px;' : 'font-size:14px;line-height:20px;') + 'color:#1a2030;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' + (extra || '') });
+      style: 'font-family:' + face + ';' + (size ? 'font-size:' + size + 'px;line-height:' + lh + 'px;' : 'font-size:13px;line-height:16px;') + 'color:#1a2030;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' + (extra || '') });
     return {
       title: 'App · the Instrument', scope: 'App', where: 'Observatory, 127.0.0.1:1675 · law: PDR-KI-OBSERVA-002',
       faces: [

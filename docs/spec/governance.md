@@ -46,7 +46,7 @@ Where prose and data disagree, the data wins, unless a decision record says othe
 ## Versioning
 
 - `ki-design` and every `@knowledgeislands/*` package follow **semver**. A removed or renamed token, glyph id or tile id is **major**; a new one is **minor**; a value tweak within its floor is **patch**.
-- Each release publishes a **SHA-256 digest** of the token declarations. The local app vendors tokens by digest (PDR-KI-OBSERVA-002; today from `ki-website`, from `ki-design` once PDR-007 records the switch); a hand edit fails its test. See [GDR-KI-DESIGN-013](../decisions/GDR-KI-DESIGN-013-tokens-vendored-by-digest.md).
+- Each release publishes a **SHA-256 digest** of the token declarations. The local app vendors tokens by digest (PDR-KI-OBSERVA-002; from `ki-design` since PDR-KI-OBSERVA-008 recorded the switch); a hand edit fails its test. See [GDR-KI-DESIGN-013](../decisions/GDR-KI-DESIGN-013-tokens-vendored-by-digest.md).
 - Both apps render from one tagged kit release with matching digests.
 - Packages are pinned by exact version and lockfile integrity in the app.
 
