@@ -39,8 +39,11 @@ export const iconNames = [
   'mill',
   'observatory',
   'outbound',
+  'pillars',
   'port',
+  'quiet',
   'rail-depot',
+  'realm',
   'reef-signal',
   'reef',
   'refresh',
@@ -61,6 +64,7 @@ export const iconNames = [
   'streams',
   'terrain',
   'theme',
+  'thriving',
   'tide-gauge',
   'tower',
   'trade-route',
@@ -71,6 +75,7 @@ export const iconNames = [
   'value-sustainability',
   'value-trust',
   'vessel',
+  'weathered',
   'weave',
   'workbench',
   'workshop'
@@ -142,9 +147,15 @@ export const iconBodies: Readonly<Record<IconName, string>> = {
   observatory:
     '<path d="M5 21 V13 H19 V21"/><path d="M5 13 C5 9 8 6 12 6 C16 6 19 9 19 13"/><path d="M12 9.5 L18 4 M13.5 11 L19.5 5.5 M18 4 L19.5 5.5"/><path d="M10.5 21 V17.5 H13.5 V21"/><path d="M3 21 H21"/>',
   outbound: '<path d="M15 8 V4 H4 V20 H15 V16"/><path d="M9.5 12 H21"/><path d="M17.5 8.5 L21 12 L17.5 15.5"/>',
+  pillars:
+    '<path d="M4 4.5 H8 V6 H4 Z M10 4.5 H14 V6 H10 Z M16 4.5 H20 V6 H16 Z"/><path d="M6 6 V18 M12 6 V18 M18 6 V18"/><path d="M4 18 H8 M10 18 H14 M16 18 H20"/><path d="M3 20.5 H21"/>',
   port: '<circle cx="12" cy="5" r="2"/><path d="M12 7 V20"/><path d="M8 10 H16"/><path d="M4.5 13 C4.5 17 8 20 12 20 C16 20 19.5 17 19.5 13"/><path d="M3 14.5 L4.5 13 L6 14.5 M18 14.5 L19.5 13 L21 14.5"/>',
+  quiet:
+    '<path d="M4 11.5 L12 5 L20 11.5"/><path d="M15.5 7.84 V5 H17 V9.06"/><path d="M18 9.9 V21 M6 9.9 V21"/><path d="M13.5 21 V16.5 H16.5 V21"/><path d="M3 21 H21"/><rect x="8.25" y="12" width="3.5" height="3.5"/>',
   'rail-depot':
     '<path d="M3 10 L12 4 L21 10"/><path d="M5 9 V16 M19 9 V16"/><path d="M9 16 V12.5 C9 10.8 10.3 9.5 12 9.5 C13.7 9.5 15 10.8 15 12.5 V16"/><path d="M3 16 H21 M3 20 H21 M6 16 V20 M10 16 V20 M14 16 V20 M18 16 V20"/>',
+  realm:
+    '<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12 H21"/><path d="M4.6 7.5 H19.4 M4.6 16.5 H19.4"/>',
   'reef-signal': '<path d="M6 15.5 L9 9.5 L11 11 L13.5 6 L18 15.5"/><path d="M3 15.5 H21"/><path d="M8 19.5 H16"/>',
   reef: '<path d="M12 21 V11"/><path d="M12 16 C9 16 7.5 14.5 7.5 11.5 V8"/><path d="M7.5 11 C5.5 11 4.5 10 4.5 8"/><path d="M12 13.5 C15 13.5 16.5 12 16.5 9 V6"/><path d="M16.5 10 C18.5 10 19.5 9 19.5 7"/><path d="M3 3.5 Q4.5 2.5 6 3.5 T9 3.5 T12 3.5 T15 3.5 T18 3.5 T21 3.5"/><path d="M3 21 H21"/>',
   refresh:
@@ -182,6 +193,8 @@ export const iconBodies: Readonly<Record<IconName, string>> = {
     '<path d="M3 20 C9 20 11 13 14.5 9.5 C16.5 7.5 18.5 6 21 6"/><path d="M9 20 C12.5 20 14 15.5 16 13.5 C17.5 12 19 11.5 21 11.5"/><path d="M15 20 C17 20 18 17.5 21 17"/><path d="M3 20 H21"/>',
   theme:
     '<path d="M10.06 6.01 C6.16 6.24 3.09 9.43 3 13.34 C2.92 17.24 5.84 20.56 9.73 20.96 C13.61 21.36 17.16 18.71 17.87 14.87 C15.39 16.39 12.18 15.9 10.25 13.72 C8.33 11.54 8.24 8.29 10.06 6.01 Z"/><path d="M18.5 2.5 L19.2 4.3 L21 5 L19.2 5.7 L18.5 7.5 L17.8 5.7 L16 5 L17.8 4.3 Z"/>',
+  thriving:
+    '<path d="M4 11.5 L12 5 L20 11.5"/><path d="M15.5 7.84 V5 H17 V9.06"/><path d="M16.2 4 C15.4 3.4 16 2.6 17 2.6 C18 2.6 18.6 2.2 19 2"/><path d="M18 9.9 V21 M6 9.9 V21"/><path d="M13.5 21 V16.5 H16.5 V21"/><path d="M3 21 H21"/><rect x="8.25" y="12" width="3.5" height="3.5"/>',
   'tide-gauge':
     '<rect x="10.5" y="2.5" width="3" height="18" rx="0.5"/><path d="M10.5 5.5 H12 M10.5 8.5 H12.75 M10.5 11.5 H12"/><path d="M3 14.5 Q3.94 13.5 4.88 14.5 T6.75 14.5 T8.62 14.5 T10.5 14.5"/><path d="M13.5 14.5 Q14.44 13.5 15.38 14.5 T17.25 14.5 T19.12 14.5 T21 14.5"/><path d="M3 18.5 Q3.94 17.5 4.88 18.5 T6.75 18.5 T8.62 18.5 T10.5 18.5"/><path d="M13.5 18.5 Q14.44 17.5 15.38 18.5 T17.25 18.5 T19.12 18.5 T21 18.5"/>',
   tower:
@@ -202,6 +215,8 @@ export const iconBodies: Readonly<Record<IconName, string>> = {
     '<path d="M5 3.5 H19 V10 C19 15 16 18.5 12 21 C8 18.5 5 15 5 10 Z"/><path d="M12 6 L12.46 9.39 L14.12 8.38 L13.11 10.04 L16.5 10.5 L13.11 10.96 L14.12 12.62 L12.46 11.61 L12 15 L11.54 11.61 L9.88 12.62 L10.89 10.96 L7.5 10.5 L10.89 10.04 L9.88 8.38 L11.54 9.39 Z"/>',
   vessel:
     '<path d="M3 15 H21 L18.5 19.5 H5.5 Z"/><path d="M12 15 V3"/><path d="M12 4 L18.5 13 H12"/><path d="M11 6 L6 13 H11"/>',
+  weathered:
+    '<path d="M4 11.5 L6.4 9.55 M8 8.25 L12 5 L20 11.5"/><path d="M15.5 7.84 V5 H17 V9.06"/><path d="M18 9.9 V21 M6 9.9 V21"/><path d="M13.5 21 V16.5 H16.5 V21"/><path d="M3 21 H21"/><rect x="8.25" y="12" width="3.5" height="3.5"/><path d="M16.2 11 L15 12.6 L16.1 13.7 L15 15"/>',
   weave:
     '<path d="M3 7 C7.5 7 7.5 17 12 17 S16.5 7 21 7"/><path d="M3 17 C7.5 17 7.5 7 12 7 S16.5 17 21 17"/><circle cx="7.5" cy="12" r="0.6"/>',
   workbench:

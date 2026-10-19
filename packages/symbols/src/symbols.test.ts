@@ -23,6 +23,15 @@ describe('symbol library', () => {
     for (const symbol of symbols) if ('icon' in symbol) expect(known.has(symbol.icon)).toBe(true)
   })
 
+  test('every Official or Agreed symbol names a glyph (KI-DESIGN-ICO-001, KI-DESIGN-SYM-001)', () => {
+    const known = new Set<string>(iconNames)
+    const missing = symbols
+      .filter((symbol) => symbol.status !== 'proposed')
+      .filter((symbol) => !('icon' in symbol) || !known.has(symbol.icon))
+      .map((symbol) => symbol.id)
+    expect(missing).toEqual([])
+  })
+
   test('roles are drawn as tools, with their own role glyphs', () => {
     for (const symbol of byCategory.role) expect<string | undefined>(symbol.icon).toBe(`role-${symbol.id}`)
   })

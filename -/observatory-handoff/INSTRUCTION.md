@@ -22,7 +22,7 @@ So this is **apply, don't impose**:
 | The original seven slice drafts, now with an "apply first" note | `-/observatory-handoff/README.md` and `01`–`07` |
 | The design system: the entry point, then the spec files for voice, colour, type, layout, icons, components and maps | `DESIGN.md`, then `docs/spec/` (`voice.md`, `colour.md`, `typography.md`, `layout.md`, `iconography.md`, `components.md`, `maps.md`) |
 | Tokens (DTCG, light and night) | `packages/tokens/tokens.json`; the built `dist/tokens.css` and `dist/theme.css` via `bun run build` |
-| 73 line glyphs (24 px grid) | `packages/icons/svg/` |
+| 78 line glyphs (24 px grid) | `packages/icons/svg/` |
 | Symbol meanings and statuses (Official · Agreed · Proposed) | `packages/symbols/src/symbols.ts` |
 | Flat hex-chart renderer for Known Lands | `packages/hexmap` |
 | A working read-only preview of the new look against the live API | `examples/observatory-preview/`. Run `bun run self:preview` in ki-design; it proxies GET `/api/*` from 127.0.0.1:1675 |

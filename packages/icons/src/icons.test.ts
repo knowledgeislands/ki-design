@@ -22,8 +22,9 @@ describe('svg sources', () => {
 })
 
 describe('coverage', () => {
-  // The glyph inventory (docs/briefs/glyph-briefs.md), plus the UI glyphs the previews needed (arrow, refresh, hourglass). `celestial` is drawn as
-  // `celestial-guide`; Library and Governance values reuse `library` and `council-hall`.
+  // The glyph inventory (docs/briefs/glyph-briefs.md), plus the UI glyphs the previews needed (arrow, refresh, hourglass)
+  // and the glyphs that cover every Official or Agreed symbol (realm, pillars, thriving, quiet, weathered). `celestial` is
+  // drawn as `celestial-guide`; Library and Governance values reuse `library` and `council-hall`.
   const inventory = [
     ...['island', 'archipelago', 'route', 'trade-route', 'current', 'weave', 'lighthouse', 'observatory', 'port'],
     ...['causeway', 'reef', 'terrain', 'ancient-forest', 'grid', 'celestial-guide', 'compass', 'fog', 'ruins'],
@@ -36,7 +37,8 @@ describe('coverage', () => {
     ...['search', 'filter', 'external', 'close', 'chevron', 'check', 'info', 'menu', 'theme'],
     ...['arrow', 'refresh', 'hourglass'],
     ...['value-trust', 'value-community', 'value-growth', 'value-exploration', 'value-creation'],
-    'value-sustainability'
+    'value-sustainability',
+    ...['realm', 'pillars', 'thriving', 'quiet', 'weathered']
   ]
 
   test('every inventory glyph is drawn, and nothing else', () => {

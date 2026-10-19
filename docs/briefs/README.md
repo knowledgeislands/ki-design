@@ -18,7 +18,7 @@ Task briefs that a person, the local app or an AI designer (Claude, ChatGPT) can
 | [Animation standard](animation-standard.md) | The shared clock all animated tiles follow | Draft standard |
 | [Illustrated explainer style](explainer-style.md) | Posters, explainers and the Field Guide's "How the map works" | Ready |
 | [Prompt library](prompt-library.md) | Copy-paste image prompts: master prompt, Arcadia, terrain, structure, Port district, explainer poster, icon tracing, negative list | Ready |
-| [Glyph briefs](glyph-briefs.md) | One line per glyph saying what to draw | Reference for the 73 drawn glyphs |
+| [Glyph briefs](glyph-briefs.md) | One line per glyph saying what to draw | Reference for the 78 drawn glyphs |
 | [Banner glyph candidates](banner-glyph-candidates.md) | Five line glyphs for the work model's banner states, for a rendered surface to draw beside the state's words | Proposed until the `ki-coordination` standard admits the rendered form (GDR-KI-DESIGN-037) |
 
 ## Reference images

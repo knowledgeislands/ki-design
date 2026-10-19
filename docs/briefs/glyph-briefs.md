@@ -2,7 +2,7 @@
 
 One line per glyph, saying what to draw. Use it when drawing a new glyph, redrawing one at an optical size, or asking an image model for a tracing reference with the icon prompt in the [prompt library](prompt-library.md#icon-description-for-vector-tracing). The drawn glyphs are the truth: they are in [`packages/icons/svg/`](../../packages/icons/svg/), and the rules every drawing follows are in [docs/spec/iconography.md](../spec/iconography.md).
 
-The inventory is 73 glyphs. It is grouped here as the spec grouped it. Where a brief mentions brass or rust, it describes an accent the consumer applies; the glyph files stay single-colour ([GDR-KI-DESIGN-024](../decisions/GDR-KI-DESIGN-024-single-colour-glyphs.md)). `celestial` is drawn as `celestial-guide`, and `arrow`, `refresh` and `hourglass` were added for the previews.
+The inventory is 78 glyphs. It is grouped here as the spec grouped it. Where a brief mentions brass or rust, it describes an accent the consumer applies; the glyph files stay single-colour ([GDR-KI-DESIGN-024](../decisions/GDR-KI-DESIGN-024-single-colour-glyphs.md)). `celestial` is drawn as `celestial-guide`, `arrow`, `refresh` and `hourglass` were added for the previews, and `realm`, `pillars` and the three conditions so that every Official or Agreed symbol has a glyph; a territory is drawn with `archipelago`.
 
 ## Symbols
 
@@ -26,6 +26,7 @@ The inventory is 73 glyphs. It is grouped here as the spec grouped it. Where a b
 | `compass` | Eight-point compass rose, north point longer, small brass centre (orientation motif; not the logo) |
 | `fog` | Three horizontal wavy strokes of decreasing length |
 | `ruins` | Two broken columns of unequal height and a fallen lintel |
+| `realm` | A globe: circle, one meridian ellipse, the equator and two parallels (the whole standard world) |
 
 ## Places within an island
 
@@ -40,11 +41,22 @@ The inventory is 73 glyphs. It is grouped here as the spec grouped it. Where a b
 | `calendar` | Clock face on a short tower top, hands at ten past ten |
 | `resources` | Open archive drawer with two card edges |
 | `streams` | A river branching once and widening to the bottom edge |
+| `pillars` | Three free-standing columns, each with a capital block and a base, on one ground line; no pediment, so it never reads as the Council Hall |
 | `mill` | Small gabled house with a waterwheel on its side (the Mill) |
 | `workshop` | Anvil with a hammer above it (proposed; also "forge") |
 | `commons` | Market canopy with three posts over a short ground line (proposed) |
 | `inbound` | Small chevron arrow entering an open square from the left (`+`) |
 | `outbound` | Small chevron arrow leaving an open square to the right (`-`) |
+
+## Conditions
+
+One gabled house with a chimney, a window and a door, varied by state; `ruined` draws `ruins`.
+
+| Id | Draw |
+| --- | --- |
+| `thriving` | The house with smoke curling from the chimney |
+| `quiet` | The house, no smoke |
+| `weathered` | The house with a tile missing from the roof line and a crack down the wall |
 
 ## Port modes
 

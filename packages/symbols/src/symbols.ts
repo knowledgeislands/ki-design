@@ -35,6 +35,7 @@ export const symbols = [
       'Islands governed together under one Capital, drawn as an archipelago: its islands in one sea region with a tinted border.',
     status: 'official',
     category: 'geography',
+    icon: 'archipelago',
     notes: 'Drawn as an archipelago (GDR-KI-DESIGN-015; SDR-KI-PRINCIPAL-005, amended 2026-10-19).'
   },
   {
@@ -42,7 +43,8 @@ export const symbols = [
     name: 'Realm',
     meaning: 'The whole standard world, containing many territories laid out geographically.',
     status: 'agreed',
-    category: 'geography'
+    category: 'geography',
+    icon: 'realm'
   },
   {
     id: 'map-of-known-lands',
@@ -108,7 +110,8 @@ export const symbols = [
     name: 'Pillars',
     meaning: 'Internal knowledge owned by the island: philosophies, methodologies and approaches, kept in the Library.',
     status: 'official',
-    category: 'zone'
+    category: 'zone',
+    icon: 'pillars'
   },
   {
     id: 'calendar',
@@ -365,21 +368,24 @@ export const symbols = [
     name: 'Thriving',
     meaning: 'Actively tended and in good health.',
     status: 'official',
-    category: 'condition'
+    category: 'condition',
+    icon: 'thriving'
   },
   {
     id: 'quiet',
     name: 'Quiet',
     meaning: 'Sound but little visited lately.',
     status: 'official',
-    category: 'condition'
+    category: 'condition',
+    icon: 'quiet'
   },
   {
     id: 'weathered',
     name: 'Weathered',
     meaning: 'Showing neglect: needs upkeep before it can be relied upon.',
     status: 'official',
-    category: 'condition'
+    category: 'condition',
+    icon: 'weathered'
   },
   {
     id: 'ruined',

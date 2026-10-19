@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Iconography
 
-Glyphs are engraved, cartographic line drawings on a 24 px grid, in `currentColor`, with no fills. They label places, instruments, roles and values on both surfaces. The glyphs themselves are data: the SVGs in [`packages/icons/svg/`](../../packages/icons/svg/) (72 today, including `capital`), the generated name list in `packages/icons/src/icons.generated.ts`, and the drawing contract that `lintIcon` enforces, described in the [icons README](../../packages/icons/README.md). This file holds the rules the files cannot carry: optical sizes, colour, style, what is forbidden, labelling, roundels and the value icons. The one-line drawing brief for each glyph is in [docs/briefs/glyph-briefs.md](../briefs/glyph-briefs.md).
+Glyphs are engraved, cartographic line drawings on a 24 px grid, in `currentColor`, with no fills. They label places, instruments, roles and values on both surfaces. The glyphs themselves are data: the SVGs in [`packages/icons/svg/`](../../packages/icons/svg/) (78 today, including `capital`), the generated name list in `packages/icons/src/icons.generated.ts`, and the drawing contract that `lintIcon` enforces, described in the [icons README](../../packages/icons/README.md). This file holds the rules the files cannot carry: optical sizes, colour, style, what is forbidden, labelling, roundels and the value icons. The one-line drawing brief for each glyph is in [docs/briefs/glyph-briefs.md](../briefs/glyph-briefs.md).
 
 ## The line-glyph specification
 
@@ -30,6 +30,7 @@ The site may use glyphs inside a **roundel**: a circle of 1 px brass hairline at
 
 - **Ids** are kebab-case nouns, matching the tile name where both exist (`council-hall`, `rail-depot`). The file name is the id.
 - **Roles are drawn as tools, not faces**, in the glyph set. Figures appear only in illustration.
+- **Every Official or Agreed symbol has a glyph**, by test in `packages/symbols`; a territory is drawn with `archipelago`, and Proposed symbols may wait.
 - **Retired glyphs stay but mean nothing.** `citadel` and `tower` remain in the package, mapped to no symbol (GDR-KI-PRINCIPAL-011). The Capital has its own civic glyph, `capital`.
 - **`beacon` is not `lighthouse`.** The Beacon is a lantern with a brass flame, the Observatory's lamp; the lighthouse is guidance. They must stay distinct at small sizes.
 - **The compass is not the logo.** `compass` is the orientation motif.
