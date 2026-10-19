@@ -10,7 +10,7 @@ Start here, then read [`DESIGN.md`](../../DESIGN.md), the short entry point, and
 | --- | --- |
 | Design system spec | `DESIGN.md` (the entry point, about 2,500 words) and `docs/spec/` (one file per area; `MIGRATION.md` maps the old sections) |
 | Machine-readable data | `packages/tokens/tokens.json`, `packages/symbols/src/symbols.ts`, `packages/icons/svg/` (73), `packages/tiles/sets/modern/manifest.json` |
-| Briefs for art and ChatGPT | `docs/briefs/` (README, picture of Arcadia, tile sets, prompt pack, prompt library, glyph briefs, building and animation standards, explainer style) |
+| Briefs for art and ChatGPT | `docs/briefs/` (README, picture of Arcadia, tile sets, prompt pack, Ancient batch 1, prompt library, glyph briefs, building and animation standards, explainer style) |
 | Chosen Arcadia painting | `docs/briefs/references/arcadia.png` (variation 1). Handoff and the fixes still to make: `docs/briefs/arcadia-handoff.md` |
 | Review boards, saved | `docs/design-review/` (nine boards, early explorations, generator scripts) |
 | Decision records | `docs/decisions/` (GDR-KI-DESIGN-001 to 036); the two questions still open in `docs/decisions/OPEN.md` |
@@ -86,12 +86,12 @@ Also mark ART-001 (the picture of Arcadia) done, since variation 1 has been chos
 
 Done since 18 October: the painting second round (Kit kept the original), the Capital and Official/Agreed decisions, the Capital glyph and Modern Capital tile, the DESIGN.md restructure (entry point, `docs/spec/`, GDR-KI-DESIGN-003 to 017, `OPEN.md`), boards generated from data (`bun run self:boards`, drift-checked in `bun run test`), the Observatory design boards and the apply-first hand-off to the Observatory thread (`-/observatory-handoff/INSTRUCTION.md`), and the site polish pass.
 
-Done on 19 October: Kit's answers enacted as GDR-KI-DESIGN-018 to 036, with the symbols, glyph, tokens and manifest changes and regenerated boards. The Modern set now draws the Causeway as `structure/causeway`, with `bridge` as its alias.
+Done on 19 October: Kit's answers enacted as GDR-KI-DESIGN-018 to 036, with the symbols, glyph, tokens and manifest changes and regenerated boards. The Modern set now draws the Causeway as `structure/causeway`, with `bridge` as its alias. The tile contract gained its optional fields (`flat`, `family`, `palette` and the `edge` footprint; tiles 0.2.0), the Modern manifest declares its palette and hero families, the prompt pack follows the current decisions, and the board generator keeps the Observatory row clear of the Ds boards.
 
 1. **Republish the canvas** from the regenerated boards.
 2. **Website re-sync.** The KI Website takes the `causeway` id (from `bridge`), the new statuses, `--color-tile-water` (from `--color-terrain-ocean`), the token digest of tokens 0.2.0, and adds the night toggle (GDR-KI-DESIGN-025).
-3. **Tile contract follow-ups:** add the flat-twin, family, palette and `edge` fields when the Ancient set needs them.
-4. **Ancient tile set** from the original painting's atmosphere, following `docs/briefs/tile-set-ancient.md` and `ancient-prompt-pack.md` (ChatGPT drops candidates in `+/art/`).
+3. **Run Ancient tiles, batch 1.** Paste the block in [`ancient-batch-1.md`](ancient-batch-1.md) into the ChatGPT or Codex app on the local checkout. It paints the 12 terrains and the hero structures (Capital, Port, Lighthouse, Observatory, Library, Council Hall, Mill and Causeway) against the original painting. It saves them unaltered to `+/art/<date>-ancient-batch-1/` with a `NOTES.md`, then commits only that folder and pushes. Then review the candidates.
+4. **Ancient tile set** from the original painting's atmosphere, following `docs/briefs/tile-set-ancient.md` and `ancient-prompt-pack.md` (ChatGPT drops candidates in `+/art/`); normalise the chosen batch 1 tiles and start `packages/tiles/sets/ancient/manifest.json`.
 5. **Site.** The v1 copy left out still needs Kit's words (the six principles, "Tools change. Landscapes endure."); `/docs/` heading order (h1 to h3); faint chart cartouche labels on dark; moving the Model and Philosophy inline styles into classes.
 6. **Observatory.** The build thread applies the design; fold its feedback back into `docs/design-review/observatory/`.
 
