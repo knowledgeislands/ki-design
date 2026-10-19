@@ -48,9 +48,10 @@
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "ki:deps:update": "bun update --latest",
     "prepare": "husky",
+    "self:boards": "bun docs/design-review/generators/build-boards.ts",
     "self:preview": "bun examples/observatory-preview/server.ts",
     "self:typecheck": "turbo run typecheck",
-    "test": "turbo run test && bun test examples/observatory-preview"
+    "test": "turbo run test && bun test examples/observatory-preview docs/design-review/generators"
   },
   "type": "module",
   "workspaces": [

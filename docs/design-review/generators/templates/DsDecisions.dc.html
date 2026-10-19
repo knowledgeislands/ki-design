@@ -66,8 +66,8 @@
                 <button type="button" onClick="{{ r.yes }}" style="{{r.yesStyle}}">Yes</button>
                 <button type="button" onClick="{{ r.no }}" style="{{r.noStyle}}">No</button>
               </div>
-              <sc-for list="{{r.facts}}" as="f" hint-placeholder-count="2">
-                <div style="font-size:12.5px;line-height:1.4;color:#4a5568"><span class="dd-k">{{f.k}}</span> {{f.v}}</div>
+              <sc-for list="{{r.facts}}" as="fact" hint-placeholder-count="2">
+                <div style="font-size:12.5px;line-height:1.4;color:#4a5568"><span class="dd-k">{{fact.k}}</span> {{fact.v}}</div>
               </sc-for>
               <div style="font-size:11px;color:#8b94a3">{{r.src}}</div>
             </div>
@@ -95,8 +95,8 @@
                 <button type="button" onClick="{{ r.yes }}" style="{{r.yesStyle}}">Yes</button>
                 <button type="button" onClick="{{ r.no }}" style="{{r.noStyle}}">No</button>
               </div>
-              <sc-for list="{{r.facts}}" as="f" hint-placeholder-count="2">
-                <div style="font-size:12.5px;line-height:1.4;color:#4a5568"><span class="dd-k">{{f.k}}</span> {{f.v}}</div>
+              <sc-for list="{{r.facts}}" as="fact" hint-placeholder-count="2">
+                <div style="font-size:12.5px;line-height:1.4;color:#4a5568"><span class="dd-k">{{fact.k}}</span> {{fact.v}}</div>
               </sc-for>
               <div style="font-size:11px;color:#8b94a3">{{r.src}}</div>
             </div>
