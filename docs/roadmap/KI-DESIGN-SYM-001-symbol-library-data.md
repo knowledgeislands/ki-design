@@ -7,12 +7,12 @@ purpose: capability
 project: ki-design
 component: symbols
 horizon: now
-status: draft
+status: ready
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T09:50:00Z
+updated_at: 2026-10-19T23:14:00Z
 ---
 
 # Symbol library as data
@@ -31,24 +31,26 @@ Mirror canon; proposed entries are marked proposed and never shown publicly as c
 
 ## Current state
 
-v0 landed in `04b2761`: `packages/symbols` holds every symbol with its meaning, status, glyph and surfaces, and the site preview's Field Guide is generated from it.
+v0 landed in `04b2761`: `packages/symbols` holds every symbol with its meaning, status, glyph and surfaces, and the site preview's Field Guide is generated from it. On 20 October 2026 `bun examples/site-preview/build-pages.ts` rebuilt `field-guide.html` byte-identical from the data.
+
+Six Official or Agreed symbols name no glyph (see KI-DESIGN-ICO-001), and Proposed `storm` has none. A test that fails for _any_ symbol without a glyph would require drawing Proposed symbols, which ICO-001 leaves out; this plan scopes the test to Official and Agreed, as ICO-001 does. It waits on the owner's answer on condition glyphs in ICO-001.
 
 ## Steps
 
-- [ ] Add a test that fails for any symbol without a glyph.
-- [ ] Confirm the Field Guide page builds from the data alone.
+- [ ] Confirm the shared glyph-coverage test from KI-DESIGN-ICO-001 fails for any Official or Agreed symbol without a glyph (check it fails with one icon removed, then restore).
+- [ ] Confirm the Field Guide page builds from the data alone: rebuild with `bun examples/site-preview/build-pages.ts` and check `field-guide.html` is unchanged in Git.
 
 ## Files touched
 
-`packages/symbols/`, `examples/site-preview/`
+`packages/symbols/src/symbols.test.ts` (only if the shared test needs a fix); `examples/site-preview/field-guide.html` is rebuilt and must not change
 
 ## Verify
 
-The Field Guide page can be generated from the data; a test catches any symbol without a glyph.
+The Field Guide page is regenerated from the data with no diff; a test catches any Official or Agreed symbol without a glyph.
 
 ## Dependencies / blocks
 
-Shares the glyph-coverage test with KI-DESIGN-ICO-001.
+Shares the glyph-coverage test with KI-DESIGN-ICO-001 and follows it.
 
 ## Documentation impact
 
