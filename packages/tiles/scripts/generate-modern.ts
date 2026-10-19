@@ -97,7 +97,7 @@ const next = {
     anchorNote:
       '`anchor` is in cell pixels (the 256 × 196 cell of the anchor hex); `art.anchor` is the same point in the canvas pixels of the SVG, whose view box extends above (and, for pair and flower footprints, beside) the cell.',
     themeNote:
-      'Fills are CSS custom properties with token fallbacks: --terrain-<name>, --tile-ink, --tile-paper, --tile-plinth, --tile-deep, --tile-pine, --tile-leaf, --bld-limestone, --bld-slate, --bld-timber, --bld-brick, --bld-thatch, --bld-brass, --bld-stone.',
+      'Fills are CSS custom properties with token fallbacks: --terrain-<name>, --tile-water (the ocean and coastal water, from color.tile.water), --tile-ink, --tile-paper, --tile-plinth, --tile-deep, --tile-pine, --tile-leaf, --bld-limestone, --bld-slate, --bld-timber, --bld-brick, --bld-thatch, --bld-brass, --bld-stone.',
     aliasesNote:
       '`aliases` maps deprecated tile keys to their replacements (`structure/citadel` is `structure/capital`); renderers resolve them so older maps keep working.',
     framesNote: 'v0 draws frame 0 (the still) only; animated loops are declared in `frames` and not yet drawn.'

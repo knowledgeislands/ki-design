@@ -25,6 +25,9 @@ import {
 
 export const terrainFill = (name: TerrainName): string => `var(--terrain-${name}, ${tokens.terrain[name]})`
 
+/** The isometric tiles' water: `--tile-water`, from `color.tile.water` (never the flat chart's sea). */
+export const tileWater = `var(--tile-water, ${tokens.tile.water})`
+
 const CELL_BOTTOM = 196
 const SIDE_BOTTOM = 159
 
@@ -423,7 +426,7 @@ function coastal(iso: Iso): Drawn {
   const land = terrainFill('coastal')
   const sand = terrainFill('sand')
   const drop = 6
-  const water = terrainFill('ocean')
+  const water = tileWater
   // Shoreline in flat ground, west side to east side.
   const shore: Pt[] = [
     [-128, 18],
@@ -820,7 +823,7 @@ function volcanic(iso: Iso): Drawn {
 
 function ocean(iso: Iso): Drawn {
   const random = rng('ocean')
-  const fill = terrainFill('ocean')
+  const fill = tileWater
   const drop = 10
   return {
     up: 0,
