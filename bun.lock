@@ -44,25 +44,25 @@
     },
     "packages/icons": {
       "name": "@knowledgeislands/icons",
-      "version": "0.1.0",
+      "version": "0.2.0",
     },
     "packages/symbols": {
       "name": "@knowledgeislands/symbols",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "dependencies": {
         "@knowledgeislands/icons": "workspace:*",
       },
     },
     "packages/tiles": {
       "name": "@knowledgeislands/tiles",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "dependencies": {
         "@knowledgeislands/tokens": "workspace:*",
       },
     },
     "packages/tokens": {
       "name": "@knowledgeislands/tokens",
-      "version": "0.1.0",
+      "version": "0.2.0",
     },
   },
   "packages": {
