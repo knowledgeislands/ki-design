@@ -1,0 +1,121 @@
+{
+  "id": "arcadia",
+  "name": "Arcadia",
+  "islands": [
+    {
+      "id": "ki-principal",
+      "role": "Capital",
+      "href": "https://github.com/knowledgeislands/ki-principal",
+      "glyph": "capital",
+      "capital": true
+    },
+    {
+      "id": "apps-knowledgeislands.info",
+      "role": "Publication",
+      "href": "https://github.com/knowledgeislands/apps-knowledgeislands.info",
+      "glyph": "island"
+    },
+    {
+      "id": "homebrew-tap",
+      "role": "Delivery",
+      "href": "https://github.com/knowledgeislands/homebrew-tap",
+      "glyph": "island"
+    },
+    {
+      "id": "ki-agentic-harness",
+      "role": "Capability",
+      "href": "https://github.com/knowledgeislands/ki-agentic-harness",
+      "glyph": "island"
+    },
+    {
+      "id": "ki-design",
+      "role": "Capability",
+      "href": "https://github.com/knowledgeislands/ki-design",
+      "glyph": "island"
+    },
+    {
+      "id": "ki-specifications",
+      "role": "Standards",
+      "href": "https://github.com/knowledgeislands/ki-specifications",
+      "glyph": "island"
+    },
+    {
+      "id": "ki-techne-harness",
+      "role": "Product",
+      "href": "https://github.com/knowledgeislands/ki-techne-harness",
+      "glyph": "island"
+    },
+    {
+      "id": "mcp-git-audit",
+      "role": "MCP",
+      "href": "https://github.com/knowledgeislands/mcp-git-audit",
+      "glyph": "causeway"
+    },
+    {
+      "id": "mcp-gsuite",
+      "role": "MCP",
+      "href": "https://github.com/knowledgeislands/mcp-gsuite",
+      "glyph": "causeway"
+    },
+    {
+      "id": "mcp-housekeeping-chatgpt",
+      "role": "MCP",
+      "href": "https://github.com/knowledgeislands/mcp-housekeeping-chatgpt",
+      "glyph": "causeway"
+    },
+    {
+      "id": "mcp-housekeeping-claude",
+      "role": "MCP",
+      "href": "https://github.com/knowledgeislands/mcp-housekeeping-claude",
+      "glyph": "causeway"
+    },
+    {
+      "id": "mcp-ki-kb-fs",
+      "role": "MCP",
+      "href": "https://github.com/knowledgeislands/mcp-ki-kb-fs",
+      "glyph": "causeway"
+    },
+    {
+      "id": "mcp-ki-kb-notion-mirror",
+      "role": "MCP",
+      "href": "https://github.com/knowledgeislands/mcp-ki-kb-notion-mirror",
+      "glyph": "causeway"
+    },
+    {
+      "id": "mcp-m365",
+      "role": "MCP",
+      "href": "https://github.com/knowledgeislands/mcp-m365",
+      "glyph": "causeway"
+    },
+    {
+      "id": "tools-git-almanac",
+      "role": "Tool",
+      "href": "https://github.com/knowledgeislands/tools-git-almanac",
+      "glyph": "workshop"
+    },
+    {
+      "id": "tools-ki",
+      "role": "Tool",
+      "href": "https://github.com/knowledgeislands/tools-ki",
+      "glyph": "workshop"
+    },
+    {
+      "id": "tools-mgit",
+      "role": "Tool",
+      "href": "https://github.com/knowledgeislands/tools-mgit",
+      "glyph": "workshop"
+    },
+    {
+      "id": "tools-rig",
+      "role": "Tool",
+      "href": "https://github.com/knowledgeislands/tools-rig",
+      "glyph": "workshop"
+    },
+    {
+      "id": "tools-techne",
+      "role": "Tool",
+      "href": "https://github.com/knowledgeislands/tools-techne",
+      "glyph": "workshop"
+    }
+  ]
+}

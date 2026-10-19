@@ -3,6 +3,7 @@
  * any `GlyphResolver`, and the icons package is injected here as consumers would inject it.
  */
 import { iconBodies, isIconName } from '@knowledgeislands/icons'
+import type { ArchipelagoOptions } from './archipelago.ts'
 import type { FlatOptions, FlatTheme, GlyphResolver } from './render.ts'
 
 export const iconGlyph: GlyphResolver = (id) => (isIconName(id) ? iconBodies[id] : undefined)
@@ -12,3 +13,5 @@ export const exampleOptions = (theme: FlatTheme): FlatOptions => ({
   glyph: iconGlyph,
   selected: { q: 0, r: 0 }
 })
+
+export const archipelagoExampleOptions = (theme: FlatTheme): ArchipelagoOptions => ({ theme, glyph: iconGlyph })

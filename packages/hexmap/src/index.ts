@@ -1,3 +1,4 @@
+export * from './archipelago.ts'
 export * from './coords.ts'
 export * from './geometry.ts'
 export * from './model.ts'

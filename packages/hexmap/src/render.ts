@@ -164,8 +164,16 @@ const edgeCorners = (d: number): readonly [number, number] => {
   return [a, (a + 1) % 6]
 }
 
-/** Coast edges joined into runs, so the stroke has clean joins rather than overlapping caps. */
-function coastPath(hexes: readonly LaidOutHex[], byKey: ReadonlyMap<string, MapHex>, size: number): string {
+/**
+ * Path data for every edge of `cells` that `crosses` says is a boundary (from a cell to its neighbour), joined into
+ * runs so a stroke has clean joins rather than overlapping caps. The coastline and a sea region's border are both
+ * drawn with it.
+ */
+export function boundaryPath(
+  cells: readonly Axial[],
+  size: number,
+  crosses: (from: Axial, to: Axial) => boolean
+): string {
   type Segment = { readonly a: string; readonly b: string }
   const points = new Map<string, Point>()
   const segments: Segment[] = []
@@ -178,13 +186,11 @@ function coastPath(hexes: readonly LaidOutHex[], byKey: ReadonlyMap<string, MapH
     }
     return key
   }
-  for (const { hex, land } of hexes) {
-    if (!land) continue
+  for (const cell of cells) {
     for (let d = 0; d < 6; d++) {
-      const other = byKey.get(hexKey(neighbour(hex, d)))
-      if (other?.terrain !== 'ocean') continue
+      if (!crosses(cell, neighbour(cell, d))) continue
       const [i, j] = edgeCorners(d)
-      segments.push({ a: latticeKey(hex, i), b: latticeKey(hex, j) })
+      segments.push({ a: latticeKey(cell, i), b: latticeKey(cell, j) })
     }
   }
 
@@ -217,6 +223,14 @@ function coastPath(hexes: readonly LaidOutHex[], byKey: ReadonlyMap<string, MapH
   }
   return runs.join(' ')
 }
+
+/** Every land edge that meets the ocean. */
+const coastPath = (hexes: readonly LaidOutHex[], byKey: ReadonlyMap<string, MapHex>, size: number): string =>
+  boundaryPath(
+    hexes.filter((h) => h.land).map((h) => h.hex),
+    size,
+    (_, to) => byKey.get(hexKey(to))?.terrain === 'ocean'
+  )
 
 /** Lays out a map for flat top-down rendering. Hexes are drawn north to south, west to east. */
 export function layoutFlat(map: IslandMap, options: FlatOptions = {}): FlatLayout {
@@ -359,7 +373,8 @@ function insetRing(h: Axial, size: number, k: number): string {
   return pointsOf(hexCorners({ q: 0, r: 0 }, size * k).map((p) => ({ x: p.x + x, y: p.y + y })))
 }
 
-const escapeXml = (text: string): string =>
+/** Escapes text for use in SVG markup, in content or in a double-quoted attribute. */
+export const escapeXml = (text: string): string =>
   text.replace(/[&<>"']/g, (c) => `&${{ '&': 'amp', '<': 'lt', '>': 'gt', '"': 'quot', "'": 'apos' }[c]};`)
 
 /**

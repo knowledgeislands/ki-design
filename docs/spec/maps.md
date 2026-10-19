@@ -31,6 +31,7 @@ Until the Ancient tiles exist, the site shows the painting as the legend and the
 - A Knowledge Base island shows its zones as structures (Library, Council Hall, Port, Streams).
 - A single-purpose repository is a small isle typed by its dominant building: Capital for a Principal, Workshop for `tools-*`, Causeway for `mcp-*`, Library for knowledge bases, Port for intake-heavy repositories.
 - Layout is **deterministic**: positions are stored, so a repository stays where the operator learnt it was.
+- Until positions are stored, `renderArchipelagoSvg` in `packages/hexmap` lays a territory out from its island list: the Capital at the centre, the rest ring by ring in list order, each a small isle with its glyph, label and link, in one sea region with a tinted border. The site's Arcadia page draws its dated snapshot with it.
 
 ## Interaction and keyboard
 
