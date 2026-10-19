@@ -18,7 +18,7 @@ import { retiredSymbols, symbolCategories, symbols } from '../../../packages/sym
 import type { KiSymbol } from '../../../packages/symbols/src/types.ts'
 import { requiredInventory, tileGeometry, tileKinds } from '../../../packages/tiles/src/contract.ts'
 import { contrastRatio } from '../../../packages/tokens/src/contrast.ts'
-import { nightTerrain, terrainNames, tokenDocument } from '../../../packages/tokens/src/tokens.ts'
+import { nightTerrain, resolveValue, terrainNames, tokenDocument } from '../../../packages/tokens/src/tokens.ts'
 
 const root = resolve(import.meta.dir, '../../..')
 const templateDir = join(import.meta.dir, 'templates')
@@ -148,7 +148,7 @@ const tokenValues: ReadonlyMap<string, unknown> = (() => {
   const walk = (node: unknown, path: string): void => {
     if (!node || typeof node !== 'object') return
     if ('$value' in node) {
-      out.set(path, (node as { $value: unknown }).$value)
+      out.set(path, resolveValue((node as { $value: unknown }).$value))
       return
     }
     for (const [key, child] of Object.entries(node))
@@ -357,7 +357,7 @@ function iconsData(): Record<string, unknown> {
     for (const v of values.get(name) ?? [])
       mean.push({ ...v, st: 'official', note: 'Labels principles and values, never places.' })
     let st: string
-    const retiredReason = retired[name]
+    const retiredReason = retired[name] ?? retired[name.replace(/^role-/, '')]
     if (retiredReason) {
       st = 'retired'
       mean.push({ n: 'Retired', m: 'Mapped to no symbol; the glyph stays in the package.', st, note: retiredReason })
@@ -380,7 +380,7 @@ function iconsData(): Record<string, unknown> {
   const foot = [
     `${icons.size} glyphs in packages/icons/svg, grouped and briefed as docs/briefs/glyph-briefs.md lists them.`,
     `${names.filter((n) => library.some((s) => s.icon === n)).length} map to a symbol in symbols.ts.`,
-    `Retired, mapped to no symbol: ${names.filter((n) => retired[n]).join(', ')}.`,
+    `Retired, mapped to no symbol: ${names.filter((n) => retired[n] ?? retired[n.replace(/^role-/, '')]).join(', ')}.`,
     extra.length ? `Drawn but not briefed: ${extra.join(', ')}.` : 'Every glyph has a brief.',
     missing.length ? `Briefed but not drawn: ${missing.join(', ')}.` : '',
     'One 24 px drawing per glyph: the 16 px redraws are not drawn yet, so 16 and 20 here are scaled.'

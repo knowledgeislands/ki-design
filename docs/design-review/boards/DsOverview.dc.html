@@ -236,7 +236,7 @@ class Component extends DCLogic {
     const nest = [
       { name: 'Realm', icon: 'compass', d: 'The governed environment.', st: 'Agreed' },
       { name: 'Known Lands', icon: 'known-lands', d: 'The map: canonical chart of the realm.', st: 'Agreed' },
-      { name: 'Territory', icon: 'archipelago', d: 'An archipelago under one Capital.', st: 'Agreed' },
+      { name: 'Territory', icon: 'archipelago', d: 'An archipelago under one Capital.', st: 'Official' },
       { name: 'Island', icon: 'island', d: 'A body of knowledge: a repository.', st: 'Official' },
       { name: 'Capital', icon: 'capital', d: 'Civic heart: Library and Council Hall, on 7 hexes.', st: 'Official' }
     ].map((n, i, a) => ({
@@ -255,7 +255,7 @@ class Component extends DCLogic {
       { name: '- outbound', icon: 'outbound', d: 'Port departures quay. Not a zone.', st: 'Official' }
     ].map((z, i) => ({ name: z.name, d: z.d, st: z.st, cls: CLS[z.st], icon: this.ico(z.icon, '#0f2440'), edge: i >= 6 ? '#317070' : '#c8963c' }));
 
-    const boards = [["Overview — essence, world, how to read","DESIGN.md, world.md"],["Meaning — the symbol library","meaning.md"],["Colour — day and night","colour.md"],["Type and voice","typography.md, voice.md"],["Icons — all 72 glyphs","iconography.md"],["Tiles, buildings and motion","tiles-and-buildings.md, motion.md"],["Structure — the site (Voyage and Atlas) and the local app (four jobs)","layout.md, components.md"],["Decisions and open questions","docs/decisions/"]].map((b, i) => ({
+    const boards = [["Overview — essence, world, how to read","DESIGN.md, world.md"],["Meaning — the symbol library","meaning.md"],["Colour — day and night","colour.md"],["Type and voice","typography.md, voice.md"],["Icons — all 73 glyphs","iconography.md"],["Tiles, buildings and motion","tiles-and-buildings.md, motion.md"],["Structure — the site (Voyage and Atlas) and the local app (four jobs)","layout.md, components.md"],["Decisions and open questions","docs/decisions/"]].map((b, i) => ({
       n: String(i + 1), t: b[0], src: b[1],
       row: 'display:flex;align-items:center;gap:10px;padding:3px 8px;border-radius:5px;' + (i === 0 ? 'background:#e3e8ef;' : 'border-top:1px solid #efe6d2;')
     }));
