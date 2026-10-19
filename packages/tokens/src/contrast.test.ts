@@ -4,9 +4,11 @@ import { contrastFloor, contrastRatio, relativeLuminance } from './contrast.ts'
 import {
   nightTerrain,
   resolveValue,
+  roleNames,
   terrainNames,
   textRoles,
   themes,
+  tokenDocument,
   tokens,
   washAmount,
   washNames,
@@ -34,6 +36,20 @@ describe('WCAG maths', () => {
     expect(relativeLuminance('#ffffff')).toBe(1)
     expect(contrastRatio('#000000', '#ffffff')).toBe(21)
     expect(contrastRatio('#777777', '#ffffff')).toBeCloseTo(4.48, 2)
+  })
+})
+
+describe('role coverage', () => {
+  // Paper is the ground every floor is measured on; rule is the decorative hairline held to no floor.
+  const unfloored = ['paper', 'rule']
+
+  test('every role is a text role, the boundary, the paper or the rule', () => {
+    const covered = new Set<string>([...textRoles, 'boundary', ...unfloored])
+    expect(roleNames.filter((role) => !covered.has(role))).toEqual([])
+  })
+
+  test.each(themes)('the %s source declares exactly the named roles', (theme) => {
+    expect(Object.keys(tokenDocument.color.role[theme]).sort()).toEqual([...roleNames].sort())
   })
 })
 
