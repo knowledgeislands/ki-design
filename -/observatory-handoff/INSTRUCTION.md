@@ -8,7 +8,7 @@
 
 So this is **apply, don't impose**:
 
-- **Keep everything working.** All fifteen tabs, every route, every `?view=` address and every capability stay working and reachable throughout. Nothing is removed, merged or renamed just because a design board shows it grouped differently.
+- **Keep everything working.** All fifteen tabs (sixteen once the Known Lands chart lands), every route, every `?view=` address and every capability stay working and reachable throughout. Nothing is removed, merged or renamed just because a design board shows it grouped differently.
 - **Apply the design system first.** Tokens, type, glyphs, night and day, pane states and the signal anatomy improve every existing screen without changing what it does.
 - **Converge later.** The four jobs (Observe · Attend · Act · Extend) and the ten-instrument grouping are a destination to move towards in small steps, each agreed with Kit as it comes. They are not a starting rebuild.
 - **The app wins.** Where a board conflicts with something the app already does well, or with the data it actually has, keep the app's behaviour. Record the difference back in ki-design: open an issue, or note it in the hand-off README. The design then follows the real tool.

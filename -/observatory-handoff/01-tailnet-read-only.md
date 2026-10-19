@@ -1,5 +1,7 @@
 # Draft: Reach across the tailnet, read-only
 
+**Status: overtaken, 19 October 2026.** The tailnet listener, `tailscale serve` and the ACLs are connection-critical and belong to the host network Project. The Observatory plans only the app's read-only side, in its own record KI-OBSERVA-OPS-004 (Tailnet read-only appearance). The draft is kept below as written.
+
 **Value.** Kit can open the Observatory from any of his machines.
 
 **Builds on.** The loopback service (OBS-BOUND-001), its Host and Origin checks (OBS-BOUND-012, -013), `tailscale serve`.

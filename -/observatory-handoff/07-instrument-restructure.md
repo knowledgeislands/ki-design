@@ -1,6 +1,6 @@
 # Draft: Instruments grouped by the four jobs
 
-**Value.** Fourteen instruments become ten, grouped by job, so the tab bar shows two to five at a time.
+**Value.** Today's fifteen tabs (sixteen with the Known Lands chart) become ten instruments, grouped by job, so the tab bar shows two to five at a time.
 
 **Builds on.** Every existing instrument and its roadmap items (KI-OBSERVA-VIS-021 to -024).
 
