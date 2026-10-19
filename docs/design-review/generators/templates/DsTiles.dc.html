@@ -34,12 +34,12 @@ button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
 @media (prefers-reduced-motion: reduce){.ki-head,.ki-p{animation:none !important}}
 </style>
 </helmet>
-<div style="width:1440px;height:1100px;box-sizing:border-box;padding:56px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:18px;overflow:hidden">
+<div style="width:1440px;height:@@height@@px;box-sizing:border-box;padding:56px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:18px;overflow:hidden">
 
   <!-- Header -->
   <div style="display:flex;align-items:flex-end;gap:24px">
     <div style="display:flex;flex-direction:column;gap:6px">
-      <div style="font-family:'Cormorant SC',serif;font-weight:600;font-size:15px;letter-spacing:0.2em;color:#8a5a12">Design system · 6 of 8</div>
+      <div style="font-family:'Cormorant SC',serif;font-weight:600;font-size:15px;letter-spacing:0.2em;color:#8a5a12">@@kicker@@</div>
       <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:48px;line-height:1;color:#0f2440">Tiles, buildings and motion</div>
       <div style="font-size:15px;color:#4a5568">One hex geometry, one manifest of ids, any number of skins, one shared clock. These rules let tiles from any set or artist sit on one map.</div>
     </div>
@@ -56,7 +56,7 @@ button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
     <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="4">
       <button type="button" aria-pressed="{{tb.pressed}}" onClick="{{ tb.pick }}" style="{{tb.style}}">{{tb.label}}</button>
     </sc-for>
-    <div style="margin-left:auto;align-self:center;font-size:12px;color:#4a5568">Sources: DESIGN.md §9–§11 · modern/manifest.json · building and animation briefs</div>
+    <div style="margin-left:auto;align-self:center;font-size:12px;color:#4a5568">Sources: tiles-and-buildings.md · motion.md · packages/tiles contract and modern/manifest.json</div>
   </div>
 
   <!-- ============ GEOMETRY ============ -->
@@ -66,14 +66,14 @@ button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
     </div>
     <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px">
       <div class="ki-card" style="padding:16px 18px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ki-h">The cell · §10.1</div><span style="{{chips.agreed}}">Agreed</span><span class="ki-scope">Both</span></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ki-h">The cell · tileGeometry</div><span style="{{chips.agreed}}">Agreed</span><span class="ki-scope">Both</span></div>
         <sc-for list="{{geoFacts}}" as="gf" hint-placeholder-count="8">
           <div class="ki-row"><span style="width:120px;flex:none;font-weight:600;color:#0f2440">{{gf.k}}</span><span>{{gf.v}}</span></div>
         </sc-for>
-        <div style="font-size:11.5px;color:#4a5568;margin-top:8px">§16.5: the hex geometry is agreed, not open.</div>
+        <div style="font-size:11.5px;color:#4a5568;margin-top:8px">The hex geometry is agreed: @@gdr:003@@.</div>
       </div>
       <div class="ki-card" style="padding:16px 18px;flex:1">
-        <div class="ki-h" style="margin-bottom:10px">Footprints · §10.2</div>
+        <div class="ki-h" style="margin-bottom:10px">Footprints</div>
         <div style="display:flex;gap:6px;margin-bottom:12px">
           <sc-for list="{{fps}}" as="fp" hint-placeholder-count="3">
             <button type="button" aria-pressed="{{fp.pressed}}" onClick="{{ fp.pick }}" style="{{fp.style}}">{{fp.label}}</button>
@@ -114,7 +114,7 @@ button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
             <span title="sandstone" style="width:26px;height:26px;border-radius:4px;background:#c4a882"></span>
             <span title="lamp gold" style="width:26px;height:26px;border-radius:4px;background:#c8963c"></span>
           </div>
-          <div style="font-size:12.5px;line-height:1.45;color:#f5efe0">Waiting on ChatGPT art from the prompt pack (§14): master prompt, then the asset template, then the negative list, with the picture of Arcadia as the style reference.</div>
+          <div style="font-size:12.5px;line-height:1.45;color:#f5efe0">Waiting on ChatGPT art from the prompt library (docs/briefs/prompt-library.md): master prompt, then the asset template, then the negative list, with the picture of Arcadia as the style reference.</div>
           <div style="font-size:11px;color:#9fbbd8">Night is a tint layer over the same art, not separate art.</div>
         </div>
       </div>
@@ -134,12 +134,12 @@ button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
     <div style="display:flex;gap:14px;flex:1;min-height:0">
       <!-- Contract -->
       <div class="ki-card" style="width:470px;flex:none;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
-        <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">The open tile-set contract · §10.9</div><span style="{{chips.agreed}}">Agreed</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">The open tile-set contract</div><span style="{{chips.agreed}}">Agreed</span></div>
         <div style="font-size:12.5px;line-height:1.4">A set is a skin over the same manifest ids. Any set, including a community set, is valid when it provides:</div>
         <sc-for list="{{contract}}" as="ct" hint-placeholder-count="8">
           <div style="display:flex;gap:8px;font-size:12.5px;line-height:1.35"><span style="color:#c8963c;font-weight:600">·</span><span>{{ct.t}}</span></div>
         </sc-for>
-        <div class="ki-k" style="margin-top:6px">Where Modern v0 differs from DESIGN.md</div>
+        <div class="ki-k" style="margin-top:6px">Where Modern v0 stands against the contract and the briefs</div>
         <sc-for list="{{gaps}}" as="gx" hint-placeholder-count="5">
           <div style="display:flex;gap:8px;font-size:12px;line-height:1.35"><span style="{{chips.open}};flex:none;height:fit-content">Open</span><span>{{gx.t}}</span></div>
         </sc-for>
@@ -187,7 +187,7 @@ button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
     </div>
     <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px">
       <div class="ki-card" style="padding:16px 18px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div class="ki-h">Building standards · §10.8</div><span class="ki-scope">Both</span></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div class="ki-h">Building standards</div><span class="ki-scope">Both</span></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:22px">
           <sc-for list="{{stds}}" as="sd" hint-placeholder-count="10">
             <div class="ki-row" style="flex-direction:column;gap:2px">
@@ -215,7 +215,7 @@ button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
   <!-- ============ MOTION ============ -->
   <div style="{{motDisp}}">
     <div class="ki-card" style="width:780px;flex:none;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
-      <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">The clock · §11.1</div><span style="{{chips.agreed}}">Agreed</span><span class="ki-scope">Both</span>
+      <div style="display:flex;align-items:center;gap:8px"><div class="ki-h">The clock · @@gdr:005@@</div><span style="{{chips.agreed}}">Agreed</span><span class="ki-scope">Both</span>
         <div style="margin-left:auto;display:flex;border:1px solid #d4c9b4;border-radius:6px;overflow:hidden">
           <sc-for list="{{plays}}" as="pl" hint-placeholder-count="3">
             <button type="button" aria-pressed="{{pl.pressed}}" onClick="{{ pl.pick }}" style="{{pl.style}}">{{pl.label}}</button>
@@ -254,7 +254,7 @@ button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
     </div>
     <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px">
       <div class="ki-card" style="padding:14px 18px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px"><div class="ki-h">What moves · §11.2</div><span class="ki-scope">Site</span></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px"><div class="ki-h">What moves · motion.md</div><span class="ki-scope">Site</span></div>
         <sc-for list="{{moves}}" as="mv" hint-placeholder-count="9">
           <div class="ki-row" style="align-items:center;padding:4px 0">
             <span style="width:18px;flex:none;display:flex;justify-content:center"><span class="{{mv.dotCls}}" style="{{mv.dotStyle}}"></span></span>
@@ -275,7 +275,7 @@ button:focus-visible{outline:2px solid #0f2440;outline-offset:2px}
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":@@height@@}}'>
 class Component extends DCLogic {
   data(){ return @@json:manifest@@; }
 
@@ -325,20 +325,15 @@ class Component extends DCLogic {
 
     // ---- tile sets
     const contract = [
-      'Every contract id: 12 terrain, 17 structures, 4 decals, 4 connectors (37 in all).',
-      'Variants: at least 3 per entry (§10.9).',
+      'Every contract id: @@count:contract.terrain@@ terrain, @@count:contract.structure@@ structures, @@count:contract.decal@@ decals, @@count:contract.connector@@ connectors (@@count:contract@@ in all).',
+      'Variants: at least 1 per entry; the briefs target 3 for terrain and the hero structures.',
       'Four condition rows for structures: thriving, quiet, weathered, ruined.',
       'Frames: 1 (still) or a loop of 4 · 6 · 8 · 12 · 16 · 24 · 48, always at 12 fps.',
       'Rasters at 1× and 2×, plus a flat SVG twin (≤ 4 KB after SVGO).',
       'An anchor in pixels; footprint and orientation; a palette; a family for hero structures.',
       'Pass validateTileSet and the Building standards. The local app defaults to Modern.'
     ].map(t => ({ t: t }));
-    const gaps = [
-      'Variants: manifest has 1 everywhere. DESIGN.md asks 3 for terrain and the five hero structures in the first release.',
-      'Council Hall and Workshop: pair in §10.4, single in the manifest.',
-      'Loops: lighthouse 12 (§11.2 says 24), mill 16 (§11.2 says 12). River and ocean loops declared, not drawn.',
-      'Port is a pair here; §10.4 allows pair or flower.'
-    ].map(t => ({ t: t }));
+    const gaps = @@json:gaps@@.map(t => ({ t: t }));
     const kind = s.kind || 'structure';
     const KL = { terrain: 'terrain', structure: 'structures', decal: 'decals', connector: 'connectors' };
     const kinds = ['terrain','structure','decal','connector'].map(k => ({ n: M.tiles.filter(t => t.k === k).length, label: KL[k], pressed: k === kind ? 'true' : 'false', pick: () => this.setState({ kind: k }), style: this.pill(k === kind) }));
@@ -375,21 +370,13 @@ class Component extends DCLogic {
     ];
     const stds = S.map(r => ({ k: r[0], v: r[1], st: this.label(r[2]), chip: this.chipStyle(r[2]) }));
     const sheets = [
-      ['Variants', 'Brief: 3 for terrain and the five hero structures, 1 for the rest. §10.4 says every structure has 3.', 'open'],
+      ['Variants', 'Brief: 3 for terrain and the five hero structures, 1 for the rest. The contract asks at least 1.', 'agreed'],
       ['Sprite sheets', 'One row per condition state, one column per frame. Frame 0 of each row is the still.', 'agreed'],
       ['Night', 'A tint layer over the same art: the one place a filter is allowed.', 'agreed'],
       ['Flat twin', 'Every structure has a flat SVG twin for UI, print and small sizes; at most 4 KB after SVGO.', 'agreed'],
       ['Ancient forest', 'Never shares a hex with another structure, and is never built on.', 'official']
     ].map(r => ({ k: r[0], v: r[1], st: this.label(r[2]), chip: this.chipStyle(r[2]) }));
-    const fams = [
-      ['Engineering Forge','Industrial vernacular','Slate roofs, stone and timber, chimneys, waterwheels'],
-      ['Research Archipelago','Classical observatory','Pale limestone, domes, colonnades, telescopes'],
-      ['Creative Wilderness','Organic','Thatch, living roofs, treehouses, carved wood'],
-      ['Learning Realm','Collegiate','Cloisters, towers, courtyards, ivy'],
-      ['Enterprise Territory','Civic harbour town','Brick, clock towers, cranes, warehouses'],
-      ['Personal Isle','Cottage','Single hearth, garden wall, a small jetty'],
-      ['Community','Commons','Meeting hall, market square, shared gardens']
-    ].map(r => ({ a: r[0], f: r[1], m: r[2] }));
+    const fams = @@json:families@@.map(r => ({ a: r[0], f: r[1], m: r[2] }));
 
     // ---- motion
     const play = s.play || 'play';
@@ -408,17 +395,7 @@ class Component extends DCLogic {
       const secs = Math.round(n / 12 * 100) / 100;
       return { n: n, sub: secs + ' s · ' + reps + '× per cycle', dotCls: d.cls, dotStyle: d.style, segs: segs };
     });
-    const MV = [
-      ['Sea and tide', 48, 'Slow wave drift and glints; foam breathes in phase', 'agreed'],
-      ['Clouds, fog banks', 48, 'Drift one hex per cycle', 'agreed'],
-      ['Lanterns, windows', 8, 'Gentle flicker, never strobing', 'agreed'],
-      ['Lighthouse lamp', 24, 'Slow sweep', 'agreed'],
-      ['Mill wheel', 12, 'One full turn per loop', 'agreed'],
-      ['Chimney smoke', 16, 'Rise and fade', 'agreed'],
-      ['Sails and flags', 12, 'Light flutter', 'agreed'],
-      ['Airship at mast', 48, 'Slight sway', 'proposed'],
-      ['Vessels on routes', 0, 'Along the lane path, at most 1 hex per 4 s', 'proposed']
-    ];
+    const MV = @@json:motion@@;
     const moves = MV.map(r => { const d = r[1] ? dot(r[1], 12) : { cls: 'ki-still', style: 'display:inline-block;width:12px;height:12px;border-radius:50%;border:1px dashed #8a5a12;box-sizing:border-box' }; return { e: r[0], loop: r[1] ? String(r[1]) : '—', m: r[2], st: this.label(r[3]), chip: this.chipStyle(r[3]), dotCls: d.cls, dotStyle: d.style }; });
     const mrules = [
       ['Character', 'Slow, intentional, fluid, tidal, orbital. Never bouncing, flashy or attention-seeking.', 'Both'],

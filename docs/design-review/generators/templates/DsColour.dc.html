@@ -27,12 +27,12 @@ body{margin:0}
 .dsc-g{display:grid;gap:8px}
 </style>
 </helmet>
-<div style="width:1440px;height:1100px;box-sizing:border-box;padding:48px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:16px;overflow:hidden">
+<div style="width:1440px;height:@@height@@px;box-sizing:border-box;padding:48px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:16px;overflow:hidden">
 
   <!-- Header -->
   <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;height:104px;flex:none">
     <div>
-      <div class="dsc-kick">Design system · 3 of 8</div>
+      <div class="dsc-kick">@@kicker@@</div>
       <div class="dsc-h1">Colour — day and night</div>
       <div class="dsc-lede">One palette, two papers. Night is the reference rendering: judge it first, then check day. Click any swatch for its token, both values and the rule behind it.</div>
     </div>
@@ -42,9 +42,9 @@ body{margin:0}
         <button type="button" class="dsc-btn" aria-pressed="{{nightPressed}}" onClick="{{ toNight }}" style="{{nightBtn}}">Night</button>
       </div>
       <div style="display:flex;gap:6px;align-items:center;font-size:12px;color:#4a5568">
-        <span>Night is reference</span><span class="dsc-chip dsc-agreed">Agreed</span>
+        <span>Night is reference · @@gdr:010@@</span><span class="dsc-chip dsc-agreed">Agreed</span>
         <span style="margin-left:8px">App follows the OS theme</span><span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">App</span>
-        <span style="margin-left:8px">Night on the site</span><span class="dsc-chip dsc-open">Open</span><span class="dsc-chip dsc-scope">Site</span>
+        <span style="margin-left:8px">Night on the site</span><span class="dsc-chip dsc-open">@@open:Night on the public site@@</span><span class="dsc-chip dsc-scope">Site</span>
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@ body{margin:0}
         <div style="font-size:13.5px;line-height:1.5;color:#1a2030">{{detail.note}}</div>
         <div style="font-size:12px;color:#4a5568;margin-top:auto">Source · {{detail.src}}</div>
       </div>
-      <div style="font-size:11px;color:#4a5568;line-height:1.4">Status where DESIGN.md §5 gives none: shown as Agreed (values held in tokens.json, changed only by Kit's approval, §16.1). Terrain night fills and fog come from DESIGN.md §5.6; tokens.json does not yet hold them.</div>
+      <div style="font-size:11px;color:#4a5568;line-height:1.4">Values: packages/tokens/tokens.json; rules: docs/spec/colour.md. Roles, washes, sea and core are Agreed (changed only with Kit's approval); terrain fills, fog and island palettes are Proposed. Night terrain is nightTerrain(); fog is not yet a token.</div>
     </div>
 
     <!-- Right column -->
@@ -183,8 +183,8 @@ body{margin:0}
       <!-- Core palette -->
       <div class="dsc-card" style="padding:12px 16px;display:flex;flex-direction:column;gap:9px">
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <div class="dsc-ch" style="color:#0f2440">Core palette · 15 <span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">Both</span></div>
-          <div style="font-size:12px;color:#4a5568">Same in both themes. Never #000 or #fff. Gold is never text on parchment (2.32:1).</div>
+          <div class="dsc-ch" style="color:#0f2440">Core palette · @@count:core@@ <span class="dsc-chip dsc-agreed">Agreed</span><span class="dsc-chip dsc-scope">Both</span></div>
+          <div style="font-size:12px;color:#4a5568">Same in both themes. Never #000 or #fff. Gold is never text on parchment (@@ratio:color.core.gold,color.core.parchment@@:1).</div>
         </div>
         <div class="dsc-g" style="grid-template-columns:repeat(8,1fr)">
           <sc-for list="{{core}}" as="c" hint-placeholder-count="15">
@@ -211,7 +211,7 @@ body{margin:0}
               <span class="dsc-mono" style="font-size:10.5px;color:#4a5568">{{t.hex}}</span>
             </button>
           </sc-for>
-          <div style="font-size:11.5px;line-height:1.4;color:#9b2c1c;padding:4px 2px">Ocean: the two sources disagree. Click it.</div>
+          <div style="font-size:11.5px;line-height:1.4;color:#9b2c1c;padding:4px 2px">Ocean: isometric water; its token name is open. Click it.</div>
         </div>
       </div>
 
@@ -237,7 +237,7 @@ body{margin:0}
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":@@height@@}}'>
 class Component extends DCLogic {
   constructor(props){ super(props); this.state = { mode: 'night', sel: 'role.warn' }; }
 
@@ -250,91 +250,91 @@ class Component extends DCLogic {
 
   data(){
     if (this._d) return this._d;
-    const P = { light:'#f5efe0', night:'#0f2440' };
+    const P = { light:'@@token:color.role.light.paper@@', night:'@@token:color.role.night.paper@@' };
     const roles = [
-      ['paper','#f5efe0','#0f2440','bg','Page background: parchment by day, navy by night. Every ratio on this board is measured against it.'],
-      ['ink','#1a2030','#f5efe0','text','Body text. Never pure black or white. Held at 4.5:1 or more by test in the app.'],
-      ['muted','#4a5568','#a9b4c4','text','Secondary text and metadata. Night muted is a cool neutral on purpose: sandstone shares gold’s hue, so metadata would read as warning.'],
-      ['accent','#1b3a5c','#9fbbd8','text','Links and primary actions (ocean by day). Also the 2 px focus outline, 2 px offset.'],
-      ['ok','#2d5a3d','#8fc4a0','text','Healthy state (forest by day). Always paired with a word: colour is never the only carrier.'],
-      ['teal','#317070','#7fc2c0','text','Informational highlight. DESIGN.md lists it as “(teal)” with no CSS role name; tokens.json names it role.teal.'],
-      ['warn','#8a5a12','#c8963c','text','Attention: the Lantern. Text gold by day, gold by night. Gold means attention, alone; one brass call to action per view.'],
-      ['bad','#9b2c1c','#f0947a','text','Blocking or failed: the Reef. Rust by day.'],
-      ['rule','#d4c9b4','#24476e','rule','Decorative hairline: table rows, pane edges, frames. No floor; the ratio is recorded so a change is deliberate. Never a control’s edge.'],
-      ['boundary','#9a8358','#5f7896','ctrl','A control’s edge: inputs, selects, buttons, pickers, focusable hexes. Held to 3:1 (WCAG 1.4.11).']
+      ['paper','@@token:color.role.light.paper@@','@@token:color.role.night.paper@@','bg','Page background: parchment by day, navy by night. Every ratio on this board is measured against it.'],
+      ['ink','@@token:color.role.light.ink@@','@@token:color.role.night.ink@@','text','Body text. Never pure black or white. Held at 4.5:1 or more by test in the app.'],
+      ['muted','@@token:color.role.light.muted@@','@@token:color.role.night.muted@@','text','Secondary text and metadata. Night muted is a cool neutral on purpose: sandstone shares gold’s hue, so metadata would read as warning.'],
+      ['accent','@@token:color.role.light.accent@@','@@token:color.role.night.accent@@','text','Links and primary actions (ocean by day). Also the 2 px focus outline, 2 px offset.'],
+      ['ok','@@token:color.role.light.ok@@','@@token:color.role.night.ok@@','text','Healthy state (forest by day). Always paired with a word: colour is never the only carrier.'],
+      ['teal','@@token:color.role.light.teal@@','@@token:color.role.night.teal@@','text','Informational highlight: color.role.teal.'],
+      ['warn','@@token:color.role.light.warn@@','@@token:color.role.night.warn@@','text','Attention: the Lantern. Text gold by day, gold by night. Gold means attention, alone; one brass call to action per view.'],
+      ['bad','@@token:color.role.light.bad@@','@@token:color.role.night.bad@@','text','Blocking or failed: the Reef. Rust by day.'],
+      ['rule','@@token:color.role.light.rule@@','@@token:color.role.night.rule@@','rule','Decorative hairline: table rows, pane edges, frames. No floor; the ratio is recorded so a change is deliberate. Never a control’s edge.'],
+      ['boundary','@@token:color.role.light.boundary@@','@@token:color.role.night.boundary@@','ctrl','A control’s edge: inputs, selects, buttons, pickers, focusable hexes. Held to 3:1 (WCAG 1.4.11).']
     ];
     const items = {};
     roles.forEach(r => {
-      items['role.' + r[0]] = { id:'role.' + r[0], group:'Semantic role', name: r[0], cssVar: r[0] === 'teal' ? '(no CSS role name)' : '--' + r[0],
+      items['role.' + r[0]] = { id:'role.' + r[0], group:'Semantic role', name: r[0], cssVar: '--' + r[0],
         path: 'color.role.light.' + r[0] + '  ·  color.role.night.' + r[0], day: r[1], night: r[2], kind: r[3], note: r[4],
-        status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.2, §5.4 (values from PDR-KI-OBSERVA-002)' };
+        status:'Agreed', scope:'Both', src:'tokens.json color.role; docs/spec/colour.md (semantic roles, rule and boundary)' };
     });
     const washes = [
-      ['ok','#ddddcc','#1e374c','Forest 12 % into paper','thriving'],
-      ['warn','#f1e8d3','#1e2d40','Gold 8 % into paper','Lantern'],
-      ['bad','#ead8c8','#2a3147','Rust 12 % into paper','Reef']
+      ['ok','@@token:color.wash.light.ok@@','@@token:color.wash.night.ok@@','Forest 12 % into paper','thriving'],
+      ['warn','@@token:color.wash.light.warn@@','@@token:color.wash.night.warn@@','Gold 8 % into paper','Lantern'],
+      ['bad','@@token:color.wash.light.bad@@','@@token:color.wash.night.bad@@','Rust 12 % into paper','Reef']
     ];
     washes.forEach(w => {
       items['wash.' + w[0]] = { id:'wash.' + w[0], group:'Wash', name: w[0] + ' wash', cssVar:'--' + w[0] + '-wash', path:'color.wash.light.' + w[0] + '  ·  color.wash.night.' + w[0],
         day: w[1], night: w[2], kind:'wash', role: w[0], sample: w[4],
         note: w[3] + '. Status chips and the Beacon’s severity column are drawn on it, with the role’s own text on top. The mix is the source of truth; the token build emits the hex.',
-        status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.3' };
+        status:'Agreed', scope:'Both', src:'tokens.json color.wash; docs/spec/colour.md (washes)' };
     });
     const sea = [
-      ['deep','--sea-deep','#b9cfd2','#0b1b31','Open ocean far from land.'],
-      ['sea','--sea','#d6e3e1','#0f2440','Default water. By night it is the night paper itself.'],
-      ['shallow','--sea-shallow','#e4ece4','#17345a','Water within one hex of land.'],
-      ['current','--current','#317070','#7fc2c0','Current lines.'],
-      ['lane','--lane','#8a5a12','#c8963c','Trade-route lanes: solid when active, dashed when awaiting reciprocity.']
+      ['deep','--sea-deep','@@token:color.sea.light.deep@@','@@token:color.sea.night.deep@@','Open ocean far from land.'],
+      ['sea','--sea','@@token:color.sea.light.sea@@','@@token:color.sea.night.sea@@','Default water. By night it is the night paper itself.'],
+      ['shallow','--sea-shallow','@@token:color.sea.light.shallow@@','@@token:color.sea.night.shallow@@','Water within one hex of land.'],
+      ['current','--current','@@token:color.sea.light.current@@','@@token:color.sea.night.current@@','Current lines.'],
+      ['lane','--lane','@@token:color.sea.light.lane@@','@@token:color.sea.night.lane@@','Trade-route lanes: solid when active, dashed when awaiting reciprocity.']
     ];
     sea.forEach(s => {
       items['sea.' + s[0]] = { id:'sea.' + s[0], group:'Sea fill', name: s[0], cssVar: s[1], path:'color.sea.light.' + s[0] + '  ·  color.sea.night.' + s[0],
-        day: s[2], night: s[3], kind:'fill', note: s[4], status:'Agreed', scope:'Both', src:'tokens.json; DESIGN.md §5.5' };
+        day: s[2], night: s[3], kind:'fill', note: s[4], status:'Agreed', scope:'Both', src:'tokens.json color.sea; docs/spec/colour.md (sea fills)' };
     });
     const core = [
-      ['navy','#0f2440','Night paper, deep sea, hero ground.'],
-      ['ocean','#1b3a5c','Accent and links by day; open sea.'],
-      ['teal','#317070','Shallows, currents, secondary accent.'],
-      ['mist','#eef1f5','Cool alternate surface. Also the snow terrain.'],
-      ['forest','#2d5a3d','OK by day; forests.'],
-      ['moss','#4a7a5a','Secondary land; young growth.'],
-      ['sandstone','#c4a882','Limestone, sand, warm rules on the hero. Shares gold’s hue, so never night metadata.'],
-      ['parchment','#f5efe0','Light paper; night ink.'],
-      ['ink','#1a2030','Light text. Never pure black.'],
-      ['ink-light','#4a5568','Muted text by day.'],
-      ['border','#d4c9b4','The rule by day. Decorative only.'],
-      ['border-light','#e8e0d0','Faint internal divisions. Site only.'],
-      ['gold','#c8963c','Brass fills, CTAs, lanterns, gold on navy (5.85:1). On parchment it is 2.32:1 and fails: never text there. Ink on a gold button is 6.1:1.'],
-      ['text-gold','#8a5a12','Brass text on parchment: the day warn role.'],
-      ['rust','#9b2c1c','Blocking, reefs: the day bad role.']
+      ['navy','@@token:color.core.navy@@','Night paper, deep sea, hero ground.'],
+      ['ocean','@@token:color.core.ocean@@','Accent and links by day; open sea.'],
+      ['teal','@@token:color.core.teal@@','Shallows, currents, secondary accent.'],
+      ['mist','@@token:color.core.mist@@','Cool alternate surface. Also the snow terrain.'],
+      ['forest','@@token:color.core.forest@@','OK by day; forests.'],
+      ['moss','@@token:color.core.moss@@','Secondary land; young growth.'],
+      ['sandstone','@@token:color.core.sandstone@@','Limestone, sand, warm rules on the hero. Shares gold’s hue, so never night metadata.'],
+      ['parchment','@@token:color.core.parchment@@','Light paper; night ink.'],
+      ['ink','@@token:color.core.ink@@','Light text. Never pure black.'],
+      ['ink-light','@@token:color.core.ink-light@@','Muted text by day.'],
+      ['border','@@token:color.core.border@@','The rule by day. Decorative only.'],
+      ['border-light','@@token:color.core.border-light@@','Faint internal divisions. Site only.'],
+      ['gold','@@token:color.core.gold@@','Brass fills, CTAs, lanterns, gold on navy (@@ratio:color.core.gold,color.core.navy@@:1). On parchment it is @@ratio:color.core.gold,color.core.parchment@@:1 and fails: never text there. Ink on a gold button is @@ratio:color.core.ink,color.core.gold@@:1.'],
+      ['text-gold','@@token:color.core.text-gold@@','Brass text on parchment: the day warn role.'],
+      ['rust','@@token:color.core.rust@@','Blocking, reefs: the day bad role.']
     ];
     core.forEach(c => {
       items['core.' + c[0]] = { id:'core.' + c[0], group:'Core palette', name: c[0], cssVar:'--color-' + c[0], path:'color.core.' + c[0],
         day: c[1], night: c[1], kind:'core', note: c[2] + ' Core colours do not change with the theme; roles pick from them.',
-        status:'Agreed', scope: c[0] === 'border-light' ? 'Site' : 'Both', src:'tokens.json; DESIGN.md §5.1, §5.8' };
+        status:'Agreed', scope: c[0] === 'border-light' ? 'Site' : 'Both', src:'tokens.json color.core; docs/spec/colour.md (core palette, usage rules)' };
     });
     const terr = [
-      ['grassland','#a9b97c','#647661','Sparse grass ticks (ink 40 %).'],
-      ['forest','#4f7a57','#32534d','Small pines (parchment). Parchment on fill is 4.30, just under 4.5, so labels sit on a paper halo.'],
-      ['hills','#b9a56f','#6d6b5a','Contour ticks (ink).'],
-      ['mountain','#8c8577','#54595e','Chevron peaks (ink). Ink on fill is 4.44, under 4.5: labels on a halo.'],
-      ['coastal','#cfc79a','#797e72','Stipple dots (ink 40 %).'],
-      ['cliffs','#a2927c','#606061','Vertical strata under a hard top edge (ink).'],
-      ['sand','#e4d4a6','#848578','Dune arcs (ink 40 %).'],
-      ['river','#6f9db5','#446780','Two flowing lines (parchment).'],
-      ['marsh','#7f9070','#4d5f5a','Short horizontal dashes with reeds (ink).'],
-      ['snow','#eef1f5','#8a95a4','Sparse crosses (ink 30 %). Same as mist.'],
-      ['volcanic','#5b4743','#393742','Radiating cracks (gold).'],
-      ['ocean','#2f5878','#0f2440','Short wave dashes (ink 30 %). Mismatch to reconcile: tokens.json holds #2f5878; DESIGN.md §5.6 says terrain ocean is --sea, #d6e3e1 by day and #0f2440 by night (not mixed).']
+      ['grassland','@@token:color.terrain.grassland@@','@@night:grassland@@','Sparse grass ticks (ink 40 %).'],
+      ['forest','@@token:color.terrain.forest@@','@@night:forest@@','Small pines (parchment). Parchment on fill is 4.30, just under 4.5, so labels sit on a paper halo.'],
+      ['hills','@@token:color.terrain.hills@@','@@night:hills@@','Contour ticks (ink).'],
+      ['mountain','@@token:color.terrain.mountain@@','@@night:mountain@@','Chevron peaks (ink). Ink on fill is 4.44, under 4.5: labels on a halo.'],
+      ['coastal','@@token:color.terrain.coastal@@','@@night:coastal@@','Stipple dots (ink 40 %).'],
+      ['cliffs','@@token:color.terrain.cliffs@@','@@night:cliffs@@','Vertical strata under a hard top edge (ink).'],
+      ['sand','@@token:color.terrain.sand@@','@@night:sand@@','Dune arcs (ink 40 %).'],
+      ['river','@@token:color.terrain.river@@','@@night:river@@','Two flowing lines (parchment).'],
+      ['marsh','@@token:color.terrain.marsh@@','@@night:marsh@@','Short horizontal dashes with reeds (ink).'],
+      ['snow','@@token:color.terrain.snow@@','@@night:snow@@','Sparse crosses (ink 30 %). Same as mist.'],
+      ['volcanic','@@token:color.terrain.volcanic@@','@@night:volcanic@@','Radiating cracks (gold).'],
+      ['ocean','@@token:color.terrain.ocean@@','@@night:ocean@@','Short wave dashes (ink 30 %). The flat chart paints ocean hexes in the theme sea; this token is the Modern isometric water. Its name is open in OPEN.md (The terrain ocean token).']
     ];
     terr.forEach(t => {
-      items['terrain.' + t[0]] = { id:'terrain.' + t[0], group:'Terrain fill', name: t[0], cssVar:'--terrain-' + t[0], path:'color.terrain.' + t[0] + '  (night: build-emitted)',
-        day: t[1], night: t[2], kind:'fill', note: 'Pattern: ' + t[3] + (t[0] === 'ocean' ? '' : ' Night fill is the day fill mixed with navy by the token build.'),
-        status:'Proposed', scope:'Both', src:'tokens.json (day); DESIGN.md §5.6 (night)' };
+      items['terrain.' + t[0]] = { id:'terrain.' + t[0], group:'Terrain fill', name: t[0], cssVar:'--terrain-' + t[0], path:'color.terrain.' + t[0] + '  (night: nightTerrain())',
+        day: t[1], night: t[2], kind:'fill', note: 'Pattern: ' + t[3] + ' Night fill: nightTerrain(), the day fill mixed 45 % into navy.',
+        status:'Proposed', scope:'Both', src:'tokens.json color.terrain; nightTerrain() in packages/tokens; docs/spec/colour.md (terrain fills)' };
     });
     items['terrain.fog'] = { id:'terrain.fog', group:'Map state', name:'fog', cssVar:'--fog', path:'not yet in tokens.json', day:'#cfd3d6', night:'#657384', kind:'fill',
-      note:'Fog is a map state, not a terrain: a diagonal hatch over whatever lies beneath, marking uncharted or unobserved hexes. Its meaning is official (§3.5); the value is proposed.',
-      status:'Proposed', scope:'Both', src:'DESIGN.md §5.6, §3.5' };
+      note:'Fog is a map state, not a terrain: a diagonal hatch over whatever lies beneath, marking uncharted or unobserved hexes. Its meaning is in docs/spec/meaning.md (signals); the value is proposed and not yet a token (OPEN.md).',
+      status:'Proposed', scope:'Both', src:'docs/spec/colour.md (fog); docs/decisions/OPEN.md' };
     const pal = [
       ['archipelago','Archipelago','#1b3a5c','#4a7a5a','#2d5a3d','#e3d3a8','#c8963c','The default. Deep blue sea, green islands, pale sand: the brand at rest.'],
       ['savanna','Savanna','#3f6f7a','#b8a061','#6b7a3e','#a65a3a','#c79a4b','Dry grass, acacia green, terracotta roofs, ochre light.'],
@@ -345,7 +345,7 @@ class Component extends DCLogic {
       items['pal.' + p[0]] = { id:'pal.' + p[0], group:'Island palette', name: p[1], cssVar:'palette = "' + p[1] + '"', path:'tile-set option; not in tokens.json',
         cols: [p[2],p[3],p[4],p[5],p[6]], kind:'palette',
         note: p[7] + ' A palette recolours terrain and buildings in the art; it never changes --ok, --warn or --bad, so signals mean the same on every island.',
-        status:'Proposed', scope:'Both', src:'DESIGN.md §5.7' };
+        status:'Proposed', scope:'Both', src:'docs/spec/colour.md (per-island palettes); not yet tokens' };
     });
     this._d = { P: P, items: items, roles: roles, washes: washes, sea: sea, core: core, terr: terr, pal: pal };
     return this._d;
@@ -433,7 +433,7 @@ class Component extends DCLogic {
     if (it.kind === 'text' || it.kind === 'ctrl' || it.kind === 'rule') {
       ratio = 'day ' + lab(it.kind, this.cr(it.day, D.P.light)) + ' on #f5efe0 · night ' + lab(it.kind, this.cr(it.night, D.P.night)) + ' on #0f2440';
     } else if (it.kind === 'bg') {
-      ratio = 'day ink 14.16:1 · night ink 13.59:1 (the reference pairs)';
+      ratio = 'day ink @@ratio:color.role.light.ink,color.role.light.paper@@:1 · night ink @@ratio:color.role.night.ink,color.role.night.paper@@:1 (the reference pairs)';
     } else if (it.kind === 'wash') {
       const rr = D.roles.filter(r => r[0] === it.role)[0];
       ratio = it.role + ' text on wash · day ' + lab('text', this.cr(rr[1], it.day)) + ' · night ' + lab('text', this.cr(rr[2], it.night));

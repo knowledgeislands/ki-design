@@ -26,15 +26,15 @@ body{margin:0}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
 </style>
 </helmet>
-<div style="width:1440px;height:1000px;box-sizing:border-box;padding:56px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:14px">
+<div style="width:1440px;height:@@height@@px;box-sizing:border-box;padding:56px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:14px">
 
   <header style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:1px solid #d4c9b4;padding-bottom:14px">
     <div style="display:flex;flex-direction:column;gap:6px">
-      <div style="font-family:'Cormorant SC',serif;font-size:17px;font-weight:600;letter-spacing:0.16em;color:#8a5a12">Design system · 1 of 8</div>
+      <div style="font-family:'Cormorant SC',serif;font-size:17px;font-weight:600;letter-spacing:0.16em;color:#8a5a12">@@kicker@@</div>
       <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:46px;line-height:1;color:#0f2440">Overview — essence, world, how to read</h1>
       <p style="margin:0;font-size:15px;line-height:22px;color:#4a5568">What Knowledge Islands is, the world it is drawn as, and how to read the seven boards that follow.</p>
     </div>
-    <div style="font-size:12px;line-height:18px;color:#4a5568;text-align:right;white-space:nowrap">Source: DESIGN.md §1–2, §3.2<br>v0.1.0 draft · 18 October 2026</div>
+    <div style="font-size:12px;line-height:18px;color:#4a5568;text-align:right;white-space:nowrap">Source: DESIGN.md, world.md, meaning.md; statuses from symbols.ts<br>v0.1.0 draft · 18 October 2026</div>
   </header>
 
   <!-- four working principles -->
@@ -53,10 +53,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
   <!-- main three columns -->
   <div style="display:grid;grid-template-columns:430px minmax(0,1fr) 372px;gap:20px;height:384px">
 
-    <!-- left: essence + six canon principles -->
+    <!-- left: essence + six principles -->
     <div style="display:flex;flex-direction:column;gap:12px;min-height:0">
       <div class="ov-card" style="padding:14px 18px;display:flex;flex-direction:column;gap:8px">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="ov-kick">Essence · §1</span><span class="ov-scope">Both</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><span class="ov-kick">Essence · DESIGN.md</span><span class="ov-scope">Both</span></div>
         <p class="ov-p">A model for organising knowledge as a natural, evolving system. An <b style="font-weight:600">island</b> is a self-contained body of knowledge: a repository. <b style="font-weight:600">Arcadia</b> is the origin island; it holds the canonical model.</p>
         <p class="ov-p" style="color:#4a5568"><b style="font-weight:600;color:#1a2030">Posture: calm intelligent infrastructure.</b> A modern atlas, not a software product.</p>
       </div>
@@ -76,7 +76,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
 
     <!-- middle: layers stack -->
     <div class="ov-card" style="padding:12px 18px;display:flex;flex-direction:column;gap:8px;min-height:0">
-      <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="ov-kick">The world in layers · §2.2</span><span class="ov-m">Select a layer</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="ov-kick">The world in layers · world.md</span><span class="ov-m">Select a layer</span></div>
       <div role="group" aria-label="Layers of the world" style="display:flex;flex-direction:column;gap:3px">
         <sc-for list="{{layers}}" as="l" hint-placeholder-count="5">
           <button type="button" aria-pressed="{{l.pressed}}" onClick="{{ l.pick }}" style="{{l.btn}}">
@@ -109,7 +109,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
         <span><span class="ov-chip ov-official">Official</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Ratified in <code>ki-principal</code>; changes only by enactment.</span>
         <span><span class="ov-chip ov-agreed">Agreed</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Agreed with Kit; being enacted into <code>ki-principal</code>. Beats official on conflict.</span>
         <span><span class="ov-chip ov-proposed">Proposed</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Fine in drafts and mockups; never shipped as settled.</span>
-        <span><span class="ov-chip ov-open">Open</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Still a question (§16.5). Draw per §3.9 until agreed.</span>
+        <span><span class="ov-chip ov-open">Open</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">Still a question (OPEN.md). Draw as meaning.md says until agreed.</span>
       </div>
       <div style="border-top:1px solid #d4c9b4;padding-top:9px;display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 10px;align-items:baseline">
         <span><span class="ov-scope">Site</span></span><span class="ov-p" style="font-size:12.5px;line-height:17px">knowledgeislands.info — the <b style="font-weight:600">Chart</b>: illustrated, narrative.</span>
@@ -123,7 +123,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
   <!-- bottom band -->
   <div style="display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:20px;flex:1;min-height:0">
     <div class="ov-card" style="padding:12px 18px;display:flex;flex-direction:column;gap:8px">
-      <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="ov-kick">From realm to island · §2.1</span><span class="ov-m">Repositories are islands; territories are archipelagos.</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="ov-kick">From realm to island · @@gdr:015@@</span><span class="ov-m">Repositories are islands; territories are archipelagos.</span></div>
       <div style="display:flex;align-items:stretch;gap:0">
         <sc-for list="{{nest}}" as="n" hint-placeholder-count="6">
           <div style="display:flex;align-items:center;flex:1;min-width:0">
@@ -136,7 +136,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
           </div>
         </sc-for>
       </div>
-      <div style="display:flex;align-items:baseline;gap:10px"><span class="ov-lbl">Zones on every island · §3.2</span><span class="ov-m">A repository's own folders draw its island. <code>+</code> and <code>-</code> are working areas, never inside the Capital.</span></div>
+      <div style="display:flex;align-items:baseline;gap:10px"><span class="ov-lbl">Zones on every island · meaning.md</span><span class="ov-m">A repository's own folders draw its island. <code>+</code> and <code>-</code> are working areas, never inside the Capital.</span></div>
       <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px 8px">
         <sc-for list="{{zones}}" as="z" hint-placeholder-count="8">
           <div style="display:flex;align-items:center;gap:7px;padding:5px 8px;border-left:2px solid {{z.edge}};background:#f9f3e5;border-radius:0 4px 4px 0;min-width:0">
@@ -160,7 +160,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":@@height@@}}'>
 class Component extends DCLogic {
   icons() { return @@icons@@; }
   ico(name, colour) {
@@ -185,41 +185,41 @@ class Component extends DCLogic {
     ].map(w => Object.assign(w, { cls: CLS[w.st] }));
 
     const L = [
-      { id: 'sky', name: 'Sky', dikw: 'Guidance', icon: 'celestial-guide', bg: '#dfe7ee', fg: '#0f2440', st: 'Official', scope: 'Both',
+      { id: 'sky', name: 'Sky', dikw: 'Guidance', icon: 'celestial-guide', bg: '#dfe7ee', fg: '#0f2440', st: '@@status:celestial-guide@@', scope: 'Both',
         means: 'Long-range guidance: where the realm is heading.',
         lives: 'Celestial Guide, constellations, weather.',
         dikwLong: 'Not one of the four tiers; it steers them.',
         dur: 'Changes slowly; guides everything.',
         where: 'Site: Journey. App: Horizon, the Charter.',
         status: 'Celestial Guide is an official symbol.' },
-      { id: 'forest', name: 'Ancient forest & high stone', dikw: 'Wisdom', icon: 'ancient-forest', bg: '#2d5a3d', fg: '#f5efe0', st: 'Official', scope: 'Site',
+      { id: 'forest', name: 'Ancient forest & high stone', dikw: 'Wisdom', icon: 'ancient-forest', bg: '#2d5a3d', fg: '#f5efe0', st: '@@status:ancient-forest@@', scope: 'Site',
         means: 'Wisdom and continuity.',
         lives: 'Old growth, mountains, one vast old tree.',
         dikwLong: 'Wisdom: the top tier.',
         dur: 'Outlives its makers. Never built on.',
         where: 'Site: Philosophy. Not drawn in the app.',
         status: 'Ancient Forest is official; never built on.' },
-      { id: 'land', name: 'Inhabited land', dikw: 'Knowledge', icon: 'library', bg: '#c4a882', fg: '#1a2030', st: 'Official', scope: 'Both',
+      { id: 'land', name: 'Inhabited land', dikw: 'Knowledge', icon: 'library', bg: '#c4a882', fg: '#1a2030', st: '@@status:island@@', scope: 'Both',
         means: 'Owned knowledge. Height reads as maturity.',
         lives: 'Settlements, roads and the Capital, with its Library and Council Hall.',
         dikwLong: 'Knowledge: information made owned.',
         dur: 'Tended; changes with use.',
         where: 'Site: Model, Arcadia. App: Known Lands.',
         status: 'Island, elevation and the Capital official.' },
-      { id: 'coast', name: 'Coast & shallows', dikw: 'Information', icon: 'port', bg: '#e3d3a8', fg: '#1a2030', st: 'Official', scope: 'Both',
+      { id: 'coast', name: 'Coast & shallows', dikw: 'Information', icon: 'port', bg: '#e3d3a8', fg: '#1a2030', st: '@@status:port@@', scope: 'Both',
         means: 'Where information arrives: Capture.',
         lives: 'Ports and their quays (+ in, − out), reefs.',
         dikwLong: 'Information: arriving, not yet judged.',
         dur: 'Arrives and is sorted.',
         where: 'Site: Capture. App: Waiting for you.',
         status: 'Port official (replaces Harbour); Reef official.' },
-      { id: 'sea', name: 'Sea & currents', dikw: 'Data', icon: 'current', bg: '#1b3a5c', fg: '#f5efe0', st: 'Official', scope: 'Both',
+      { id: 'sea', name: 'Sea & currents', dikw: 'Data', icon: 'current', bg: '#1b3a5c', fg: '#f5efe0', st: '@@status:current@@', scope: 'Both',
         means: 'Raw data; flow between islands.',
         lives: 'Open water, currents; Sessions as vessels.',
         dikwLong: 'Data: the bottom tier.',
         dur: 'Raw; always moving.',
         where: 'Site: the Cycle. App: island links.',
-        status: 'Current is a canon symbol.' }
+        status: 'Current is @@status-lc:current@@.' }
     ];
     const layers = L.map(l => {
       const on = l.id === selId;
@@ -234,37 +234,28 @@ class Component extends DCLogic {
     const sel = Object.assign({}, cur, { cls: CLS[cur.st] });
 
     const nest = [
-      { name: 'Realm', icon: 'compass', d: 'The governed environment.', st: 'Agreed' },
-      { name: 'Known Lands', icon: 'known-lands', d: 'The map: canonical chart of the realm.', st: 'Agreed' },
-      { name: 'Territory', icon: 'archipelago', d: 'An archipelago under one Capital.', st: 'Agreed' },
-      { name: 'Island', icon: 'island', d: 'A body of knowledge: a repository.', st: 'Agreed' },
-      { name: 'Capital', icon: 'council-hall', d: 'Civic heart: Library and Council Hall, on 7 hexes.', st: 'Official' }
+      { name: 'Realm', icon: 'compass', d: 'The governed environment.', st: '@@status:realm@@' },
+      { name: 'Known Lands', icon: 'known-lands', d: 'The map: canonical chart of the realm.', st: '@@status:map-of-known-lands@@' },
+      { name: 'Territory', icon: 'archipelago', d: 'An archipelago under one Capital.', st: '@@status:territory@@' },
+      { name: 'Island', icon: 'island', d: 'A body of knowledge: a repository.', st: '@@status:island@@' },
+      { name: 'Capital', icon: 'capital', d: 'Civic heart: Library and Council Hall, on 7 hexes.', st: '@@status:capital@@' }
     ].map((n, i, a) => ({
       name: n.name, d: n.d, st: n.st, cls: CLS[n.st], icon: this.ico(n.icon, '#0f2440'),
       arrow: i === a.length - 1 ? 'display:none' : 'flex:none;width:16px;text-align:center;font-size:20px;color:#8a5a12'
     }));
 
     const zones = [
-      { name: 'Pillars', icon: 'library', d: 'Canonical knowledge. The Library.', st: 'Official' },
-      { name: 'Calendar', icon: 'calendar', d: 'Time-bound. Clock tower, sundial.', st: 'Official' },
-      { name: 'Resources', icon: 'resources', d: 'External reference. Archive.', st: 'Official' },
-      { name: 'Streams', icon: 'streams', d: 'Knowledge in motion. Rivers.', st: 'Official' },
-      { name: 'Admin/Governance', icon: 'council-hall', d: 'What must hold. Council Hall.', st: 'Official' },
-      { name: 'Admin/Operations', icon: 'mill', d: 'How it runs. Mill: drawing proposed.', st: 'Proposed' },
-      { name: '+ inbound', icon: 'inbound', d: 'Port arrivals quay. Not a zone.', st: 'Official' },
-      { name: '- outbound', icon: 'outbound', d: 'Port departures quay. Not a zone.', st: 'Official' }
+      { name: 'Pillars', icon: 'library', d: 'Canonical knowledge. The Library.', st: '@@status:pillars@@' },
+      { name: 'Calendar', icon: 'calendar', d: 'Time-bound. Clock tower, sundial.', st: '@@status:calendar@@' },
+      { name: 'Resources', icon: 'resources', d: 'External reference. Archive.', st: '@@status:resources@@' },
+      { name: 'Streams', icon: 'streams', d: 'Knowledge in motion. Rivers.', st: '@@status:streams@@' },
+      { name: 'Admin/Governance', icon: 'council-hall', d: 'What must hold. Council Hall.', st: '@@status:admin-governance@@' },
+      { name: 'Admin/Operations', icon: 'mill', d: 'How it runs. Mill: drawing proposed.', st: '@@status:admin-operations@@' },
+      { name: '+ inbound', icon: 'inbound', d: 'Port arrivals quay. Not a zone.', st: '@@status:incoming@@' },
+      { name: '- outbound', icon: 'outbound', d: 'Port departures quay. Not a zone.', st: '@@status:outbound@@' }
     ].map((z, i) => ({ name: z.name, d: z.d, st: z.st, cls: CLS[z.st], icon: this.ico(z.icon, '#0f2440'), edge: i >= 6 ? '#317070' : '#c8963c' }));
 
-    const boards = [
-      ['Overview — essence, world, how to read', '§1–2'],
-      ['Meaning — the symbol library', '§3'],
-      ['Colour — day and night', '§5'],
-      ['Type and voice', '§4, §6'],
-      ['Icons — all 71 glyphs', '§8'],
-      ['Tiles, buildings and motion', '§10–11'],
-      ['Structure — the site and the local app', '§7.7, §12'],
-      ['Decisions and open questions', '§16']
-    ].map((b, i) => ({
+    const boards = @@json:boardList@@.map((b, i) => ({
       n: String(i + 1), t: b[0], src: b[1],
       row: 'display:flex;align-items:center;gap:10px;padding:3px 8px;border-radius:5px;' + (i === 0 ? 'background:#e3e8ef;' : 'border-top:1px solid #efe6d2;')
     }));

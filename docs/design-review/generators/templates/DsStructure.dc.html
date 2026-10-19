@@ -27,11 +27,11 @@ body{margin:0}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
 </style>
 </helmet>
-<div style="width:1440px;height:1100px;box-sizing:border-box;padding:56px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:18px">
+<div style="width:1440px;height:@@height@@px;box-sizing:border-box;padding:56px 64px;background:#f5efe0;color:#1a2030;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:18px">
 
   <header style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:1px solid #d4c9b4;padding-bottom:14px">
     <div style="display:flex;flex-direction:column;gap:6px">
-      <div style="font-family:'Cormorant SC',serif;font-size:17px;font-weight:600;letter-spacing:0.16em;color:#8a5a12">Design system · 7 of 8</div>
+      <div style="font-family:'Cormorant SC',serif;font-size:17px;font-weight:600;letter-spacing:0.16em;color:#8a5a12">@@kicker@@</div>
       <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:46px;line-height:1;color:#0f2440">Structure — the public site and the local app</h1>
       <p style="margin:0;font-size:15px;line-height:22px;color:#4a5568">How each surface is organised: the site as a story plus a reference, the app as four jobs.</p>
     </div>
@@ -41,7 +41,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
           <button type="button" role="tab" aria-selected="{{tb.sel}}" onClick="{{ tb.pick }}" style="{{tb.style}}">{{tb.label}}</button>
         </sc-for>
       </div>
-      <span class="st-m">Source: DESIGN.md §7.7, §9.2, §12, §16.5 · brief, 18 Oct</span>
+      <span class="st-m">Source: layout.md, components.md · @@gdr:011@@, @@gdr:016@@ · OPEN.md</span>
     </div>
   </header>
 
@@ -53,7 +53,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
         <div class="st-card" style="padding:14px 18px;display:flex;flex-direction:column;gap:12px">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span class="st-kick">knowledgeislands.info · two ways to move</span>
-            <span style="display:flex;gap:5px"><span class="st-chip st-proposed">Proposed</span><span class="st-scope">Site</span></span>
+            <span style="display:flex;gap:5px"><span class="st-chip st-agreed">Agreed</span><span class="st-scope">Site</span></span>
           </div>
 
           <div style="display:flex;flex-direction:column;gap:6px">
@@ -104,7 +104,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
             <span class="st-lbl">Art balance</span><span class="st-p">{{page.art}}</span>
             <span class="st-lbl">Note</span><span class="st-p" style="color:#4a5568">{{page.note}}</span>
           </div>
-          <div class="st-m" style="margin-top:auto;border-top:1px solid #e6dcc6;padding-top:8px">Why Proposed: §7.7 sets out the Voyage and the Atlas with no status word, and §16.5 does not list them among the decided items. Treat the whole site structure as proposed until ratified. Kept either way: the Philosophy → Model → Arcadia order and the stable routes.</div>
+          <div class="st-m" style="margin-top:auto;border-top:1px solid #e6dcc6;padding-top:8px">Agreed: @@gdr:011@@ (@@gdr-title:011@@). The page contents below are drafts. Kept either way: the Philosophy → Model → Arcadia order and the stable routes.</div>
         </div>
       </div>
 
@@ -199,7 +199,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
               <sc-for list="{{olds}}" as="o" hint-placeholder-count="14"><span style="{{o.style}}">{{o.t}}</span></sc-for>
             </div>
           </div>
-          <div class="st-m" style="margin-top:auto">Proposal from the 18 Oct brief; open in §16.5 and a PDR in its own right. The job switch shows only that job’s instruments, so the tab bar shrinks from fourteen to two–five. Every existing capability is kept.</div>
+          <div class="st-m" style="margin-top:auto">The four jobs are agreed (@@gdr:016@@); the ten-instrument grouping is open in OPEN.md (@@open:Instrument restructure@@). The job switch shows only that job’s instruments, so the tab bar shrinks from fourteen to two–five. Every existing capability is kept.</div>
         </div>
       </div>
 
@@ -235,7 +235,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":@@height@@}}'>
 class Component extends DCLogic {
   icons() { return @@icons@@; }
   ico(name, colour) {
@@ -258,39 +258,39 @@ class Component extends DCLogic {
 
     /* ---------- site ---------- */
     const PAGES = {
-      home: { name: 'Home', mode: 'Voyage', st: 'Proposed', purpose: 'A one-screen promise, then the journey.',
-        comps: ['Cartographic hero: Arcadia with district cartouches', '“Knowledge is a civilisation question.”', 'Journey rail: The Problem · A New Paradigm · The Islands · Stewardship · Landscapes · Create', 'Principle strip (six canon principles) and the “Tools change. Landscapes endure.” banner'],
+      home: { name: 'Home', mode: 'Voyage', st: 'Agreed', purpose: 'A one-screen promise, then the journey.',
+        comps: ['Painted hero: Arcadia, variation 1, with district cartouches (@@gdr:014@@)', '“Knowledge is a civilisation question.”', 'Journey rail: The Problem · A New Paradigm · The Islands · Stewardship · Landscapes · Create', 'Principle strip (the six principles) and the “Tools change. Landscapes endure.” banner'],
         art: '30 infographic / 70 illustrative — the painting leads here only.', note: 'Hero ≤ 400 KB; a text list of districts sits beneath for no-JS and screen readers.' },
-      philosophy: { name: 'Philosophy', mode: 'Voyage', st: 'Proposed', purpose: 'Information → Knowledge → Wisdom, and the cycle.',
+      philosophy: { name: 'Philosophy', mode: 'Voyage', st: 'Agreed', purpose: 'Information → Knowledge → Wisdom, and the cycle.',
         comps: ['Three-layer island cross-section', 'Tide-cycle diagram of Capture / Connect / Reflect'],
         art: '70 / 30.', note: 'The longer tide loop (Discover → … → Learn) is proposed and never replaces Capture → Connect → Reflect.' },
-      model: { name: 'Model', mode: 'Voyage', st: 'Proposed', purpose: 'Island, Capital, Territory, Archipelago, Agents.',
+      model: { name: 'Model', mode: 'Voyage', st: 'Agreed', purpose: 'Island, Capital, Territory, Archipelago, Agents.',
         comps: ['Living Map with legend', 'Click a structure to read its concept'],
         art: '70 / 30.', note: 'The Living Map is <ki-hexmap>, one of the two shared components (agreed). Its no-JS state is still open.' },
-      arcadia: { name: 'Arcadia', mode: 'Voyage', st: 'Proposed', purpose: 'The reference island.',
+      arcadia: { name: 'Arcadia', mode: 'Voyage', st: 'Agreed', purpose: 'The reference island.',
         comps: ['Arcadia map', 'Districts link to their source repositories'],
         art: '70 / 30.', note: 'Open: build it from live data (roster, freshness) or keep it illustrative.' },
-      landscapes: { name: 'Landscapes', mode: 'Voyage', st: 'Proposed', purpose: 'The archetypes an island can take.',
+      landscapes: { name: 'Landscapes', mode: 'Voyage', st: 'Agreed', purpose: 'The archetypes an island can take.',
         comps: ['Filterable archetype cards: Engineering, Research, Creative, Learning, Enterprise, Personal, Community', 'Filter chips above; no ratings or counts'],
         art: '70 / 30.', note: 'Thumbnails are painted (Ancient set), 4:5.' },
-      create: { name: 'Create', mode: 'Voyage', st: 'Proposed', purpose: 'Start an island.',
+      create: { name: 'Create', mode: 'Voyage', st: 'Agreed', purpose: 'Start an island.',
         comps: ['Six-step wizard: archetype → governance → stewards & agents → landscape → ports → launch', 'Ends in the real bootstrap command'],
         art: '70 / 30.', note: 'Stable routes such as /harness/bootstrap never move.' },
-      guide: { name: 'Field Guide', mode: 'Atlas', st: 'Proposed', purpose: 'The catalogue of symbols, structures, terrain and roles.',
+      guide: { name: 'Field Guide', mode: 'Atlas', st: 'Agreed', purpose: 'The catalogue of symbols, structures, terrain and roles.',
         comps: ['Catalogue pages per symbol, structure, terrain and role', '“How the map works”, from the hex + isometric explainer'],
-        art: '80 / 20.', note: 'Steward roles are proposed; whether they enter canon first is open.' },
-      docs: { name: 'Docs', mode: 'Atlas', st: 'Proposed', purpose: 'Get started, ki, harness, prompting.',
+        art: '80 / 20.', note: 'Steward roles are proposed; whether they enter ki-principal first is open (@@open:Steward roles into canon@@).' },
+      docs: { name: 'Docs', mode: 'Atlas', st: 'Agreed', purpose: 'Get started, ki, harness, prompting.',
         comps: ['Quiet parchment layout', 'Glyph sidebar', 'Section-header illustration only'],
         art: '95 / 5.', note: '/install/ki stays where it is.' },
-      specs: { name: 'Specifications', mode: 'Atlas', st: 'Proposed', purpose: 'The published specifications, at stable routes.',
+      specs: { name: 'Specifications', mode: 'Atlas', st: 'Agreed', purpose: 'The published specifications, at stable routes.',
         comps: ['Routes under /specifications/… that never move'],
-        art: 'Not set in DESIGN.md.', note: 'DESIGN.md gives no page layout beyond the stable routes.' },
-      projects: { name: 'Projects', mode: 'Atlas', st: 'Proposed', purpose: 'Projects / Journal: repositories and updates.',
+        art: 'Not set in the spec.', note: 'layout.md gives no page layout beyond the stable routes.' },
+      projects: { name: 'Projects', mode: 'Atlas', st: 'Agreed', purpose: 'Projects / Journal: repositories and updates.',
         comps: ['A card per project with its structure glyph and condition state'],
-        art: 'Not set in DESIGN.md.', note: 'Condition states read thriving · quiet · weathered · ruined, from evidence freshness.' }
+        art: 'Not set in the spec.', note: 'Condition states read thriving · quiet · weathered · ruined, from evidence freshness.' }
     };
     const pageId = PAGES[s.page] ? s.page : 'home';
-    const vIds = ['home', 'philosophy', 'model', 'arcadia', 'landscapes', 'create'];
+    const vIds = @@json:voyage@@;
     const voyage = vIds.map((id, i) => {
       const on = id === pageId;
       return {
@@ -319,8 +319,8 @@ class Component extends DCLogic {
       rows: [
         { st: 'Proposed', t: 'Nav: Philosophy · Model · Arcadia · Landscapes · Docs · Projects. Enter Arcadia is the one brass call to action.' },
         { st: 'Official', t: 'The logo roundel (island and arch) in the lockup. Never redrawn.' },
-        { st: 'Open', t: 'Roundel or compass rose as the primary mark. Until agreed, never swap in the compass.' },
-        { st: 'Open', t: 'Night on the site: follow the OS, with or without a manual toggle.' },
+        { st: '@@open:The primary mark@@', t: 'Roundel or compass rose as the primary mark. Until agreed, never swap in the compass.' },
+        { st: '@@open:Night on the public site@@', t: 'Night on the site: follow the OS, with or without a manual toggle.' },
         { st: 'Agreed', t: 'Stable routes never move: /install/ki, /harness/bootstrap, /specifications/….' }
       ].map(r => Object.assign(r, { cls: CLS[r.st] }))
     };
@@ -388,7 +388,7 @@ class Component extends DCLogic {
       { name: 'Local browser', auth: 'Full authority', st: 'Agreed', d: 'The primary listener on 127.0.0.1:1675, unchanged; Host and Origin checks stay as they are.' },
       { name: 'Tailnet browser', auth: 'Read-only', st: 'Proposed', d: 'A second, opt-in listener that tailscale serve targets. Page and read routes only: acting routes return 404, so “no Bridge” is structural. Operator’s own devices; Funnel never.' },
       { name: 'Desktop shell', auth: 'As local', st: 'Proposed', d: 'Later: Tauri around the same web app at 127.0.0.1:1675, for tray, notifications, deep links.' },
-      { name: 'Bridge over the tailnet', auth: 'Not yet', st: 'Open', d: 'A later, separate PDR. Receipts always record the way in (“via loopback”, “via tailnet as …”).' }
+      { name: 'Bridge over the tailnet', auth: 'Not yet', st: '@@open:The tailnet design@@', d: 'A later, separate PDR. Receipts always record the way in (“via loopback”, “via tailnet as …”).' }
     ].map(w => Object.assign(w, { cls: CLS[w.st] }));
 
     return {

@@ -618,7 +618,7 @@ const boards: readonly Board[] = [
     n: 1,
     title: 'Overview — essence, world, how to read',
     refs: 'DESIGN.md, world.md',
-    height: 1000,
+    height: 1050,
     data: overviewData
   },
   {
@@ -761,7 +761,7 @@ function render(board: Board, template: string): string {
         throw new Error(`build-boards: unknown marker @@${kind}${arg ? `:${arg}` : ''}@@ in ${board.file}`)
     }
   }
-  const out = template.replace(/@@([a-z-]+)(?::([^@\s]*))?@@/g, (_m, kind: string, arg: string | undefined) =>
+  const out = template.replace(/@@([a-z-]+)(?::([^@\n]*))?@@/g, (_m, kind: string, arg: string | undefined) =>
     resolveMarker(kind, arg ?? '')
   )
   if (out.includes('@@')) throw new Error(`build-boards: unresolved marker left in ${board.file}`)
