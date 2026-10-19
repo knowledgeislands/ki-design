@@ -1,9 +1,6 @@
 # Instruction: apply the Knowledge Islands design to the Observatory
 
-**From:** the Knowledge Islands design thread (`knowledgeislands/ki-design`).
-**To:** the thread that owns the Observatory build (`apps-observatory.local`).
-**Date:** 18 October 2026.
-**Blocking:** no. This is a direction to schedule in the Observatory's own roadmap, under its own process and numbering (`KI-OBSERVA-*`).
+**From:** the Knowledge Islands design thread (`knowledgeislands/ki-design`). **To:** the thread that owns the Observatory build (`apps-observatory.local`). **Date:** 18 October 2026. **Blocking:** no. This is a direction to schedule in the Observatory's own roadmap, under its own process and numbering (`KI-OBSERVA-*`).
 
 ## What Kit wants
 
@@ -23,9 +20,9 @@ So this is **apply, don't impose**:
 | The Observatory design spec. Start with "How to use this spec" | `docs/design-review/observatory/OBSERVATORY-DESIGN.md` |
 | Seven screen boards: the shell, Attend, Observe ×2, Act, Extend, and the tab map | `docs/design-review/observatory/Obs*.dc.html` |
 | The original seven slice drafts, now with an "apply first" note | `-/observatory-handoff/README.md` and `01`–`07` |
-| The design system: Essence §1, Voice §4, Colour §5, Type §6, Space §7, Icons §8, Components §12, Maps §13 | `DESIGN.md` |
+| The design system: the entry point, then the spec files for voice, colour, type, layout, icons, components and maps | `DESIGN.md`, then `docs/spec/` (`voice.md`, `colour.md`, `typography.md`, `layout.md`, `iconography.md`, `components.md`, `maps.md`) |
 | Tokens (DTCG, light and night) | `packages/tokens/tokens.json`; the built `dist/tokens.css` and `dist/theme.css` via `bun run build` |
-| 71 line glyphs (24 px grid) | `packages/icons/svg/` |
+| 72 line glyphs (24 px grid) | `packages/icons/svg/` |
 | Symbol meanings and statuses (Official · Agreed · Proposed) | `packages/symbols/src/symbols.ts` |
 | Flat hex-chart renderer for Known Lands | `packages/hexmap` |
 | A working read-only preview of the new look against the live API | `examples/observatory-preview/`. Run `bun run self:preview` in ki-design; it proxies GET `/api/*` from 127.0.0.1:1675 |
@@ -66,7 +63,7 @@ Each step is shippable on its own, with existing tests passing. Treat this as a 
    - Put the Observatory mark in the top bar and add the status line.
    - Show the pane states: observed, observing, empty, not observed, stale.
    - Add the "filter, not scope" chip.
-   - Add the four jobs as an *optional lens* over the existing tabs, such as a grouped tab bar or a job filter, with every tab still one click away.
+   - Add the four jobs as an _optional lens_ over the existing tabs, such as a grouped tab bar or a job filter, with every tab still one click away.
 3. **Per-tab upgrades in place.** These are independent; take them in whatever order suits the code.
    - Beacon: the signal anatomy (mark, kind, category, condition, freshness, new) and its filters. See `ObsAttend`.
    - Known Lands: the flat hex chart from `@knowledgeislands/hexmap` as a **new** view next to the existing tabs. See `ObsObserve1` and slice 3.
