@@ -1,9 +1,9 @@
 ---
 title: Knowledge Islands Design System
 status: draft
-version: 0.1.0
+version: 0.2.0
 date: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 owner: Kit (Kristopher Brown)
 repository: ki-design
 canon: ki-principal/Pillars/Aesthetics (prose canon); this repository is the machine-readable authority beside it
@@ -48,7 +48,7 @@ This file is the entry point. It holds the essence, the principles, the world in
 
 ## Principles of the design
 
-- **Non-combative.** The symbol language never fortifies: no citadels, towers, keeps or battlements, and no walls around the Capital. The Capital is a civic square, never a fortress. The Lighthouse keeps its tall form because it guides, not guards ([GDR-KI-DESIGN-008](docs/decisions/GDR-KI-DESIGN-008-the-capital-and-non-combative.md)).
+- **Non-combative.** The symbol language never fortifies: no citadels, keeps, battlements or fortified towers, and no walls around the Capital. The Capital is a civic square, never a fortress. The Lighthouse keeps its tall form because it guides, not guards. Civic towers (a clock tower, a cloister tower) may stand as architecture, never fortified and never on the Capital ([GDR-KI-DESIGN-008](docs/decisions/GDR-KI-DESIGN-008-the-capital-and-non-combative.md), [GDR-KI-DESIGN-021](docs/decisions/GDR-KI-DESIGN-021-civic-towers.md)).
 - **The painting is the legend; the chart is the map.** The painted Arcadia leads, as the home and `/arcadia/` hero. The engraved Modern chart follows it: on the site below the painting, in diagrams and in the local app ([GDR-KI-DESIGN-014](docs/decisions/GDR-KI-DESIGN-014-the-painting-as-home-hero.md)).
 - **Hex for logic, isometric for life.** The hex grid is the truth; the isometric painting is how that truth is shown. Every tile is data first and scenery second ([GDR-KI-DESIGN-003](docs/decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md)).
 - **Night is the reference rendering.** Judge night first, then light. Night is the same chart by lantern-light, not a separate theme ([GDR-KI-DESIGN-010](docs/decisions/GDR-KI-DESIGN-010-night-as-reference.md)).
@@ -61,9 +61,10 @@ This file is the entry point. It holds the essence, the principles, the world in
 - **Realm → territory → island → Capital.** The realm is the whole chart. A territory is an archipelago of islands governed together under one Capital. An island is a repository. Its Capital holds the Library and the Council Hall. The Map of Known Lands is the canonical chart of the realm.
 - **Depth.** Elevation reads as maturity. From top to bottom: sky (guidance), ancient forest and high stone (wisdom, never built on), inhabited land (knowledge), coast and shallows (information), sea and currents (data).
 - **The cycle.** **Capture** at the Port, **Connect** along routes and Streams, **Reflect** at the Observatory.
-- **Zones.** A repository's own folders draw its island: Pillars in the Library, Calendar on the Capital square, Resources beside the Library, Streams as rivers, Admin as the Council Hall (Governance) and the Mill (Operations). `+` and `-` are the Port's arrivals and departures quays.
+- **Zones.** A repository's own folders draw its island: Pillars in the Library, Calendar beside the Capital square (a clock tower or sundial), Resources beside the Library, Streams as rivers, Admin as the Council Hall (Governance) and the Mill (Operations). `+` and `-` are the Port's arrivals and departures quays.
 - **The Port** is entry and exchange in any mode, drawn as districts: dock, rail depot, airport (a mooring mast with an airship) and customs house. The Harbour is retired.
 - **The Lighthouse** means guidance. **The Council Hall** means governance. **The Observatory** means insight and is the local app's mark.
+- **The Causeway** is the translation layer. "Bridge" names only the local app's Act command and is never drawn ([GDR-KI-DESIGN-018](docs/decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)). **The Mill** is operational systems, the drawn form of Admin/Operations.
 
 The full world is in [world.md](docs/spec/world.md); every symbol is in [meaning.md](docs/spec/meaning.md).
 
@@ -115,6 +116,7 @@ The labels were Canon and Decided before 18 October 2026. The data keys are `off
 | Meaning | Use only meanings in the symbol library; mark new ones _proposed_ | Invent symbols, or reuse one for a second meaning |
 | Port | Draw a Port with its modes as districts | Write or draw "Harbour" |
 | Capital | An open civic square holding the Library and the Council Hall | Walls, towers, keeps, battlements; "Citadel" |
+| Translation / Act | The Causeway for translation; "Bridge" written only for the Act command | A bridge glyph for Act; "Bridge" for translation |
 | Mark | The canon roundel as the logo | The compass, or the observatory dome, in place of the logo |
 | Terrain | The twelve terrain ids; fog as a map state | Ruins, ancient forest or "uncharted" as terrain |
 | Guidance / governance | Lighthouse = guidance; Council Hall = governance | Use the lighthouse for governance |
@@ -126,7 +128,7 @@ The labels were Canon and Decided before 18 October 2026. The data keys are `off
 | Tables | Drop columns, wrap cells | Turn rows into cards; horizontal scroll |
 | Density | 12 Beacon rows at 800 px; glyphs cost zero rows | Padding that costs rows |
 | Edges | Rule for separation, boundary for controls | Control edges in the rule colour |
-| Icons | 24 grid, 1.5 stroke, round caps, line only | Emoji; filled duotone icons; third-party logos as glyphs |
+| Icons | 24 grid, 1.5 stroke, round caps, line only, single-colour (brass applied by the consumer) | Emoji; filled duotone icons; third-party logos as glyphs |
 | Tiles | Pointy-top hex, 2:1 dimetric, top-left light, hex plinth | Square plinths on the hex map; rotated painted art |
 | Ancient forest | Leave it untouched | Build on it |
 | Retired work | Ruins, honoured | Hide or delete it from the map |
@@ -141,7 +143,7 @@ The labels were Canon and Decided before 18 October 2026. The data keys are `off
 | --- | --- |
 | Tokens: colour, fonts, space, radius, motion | [`packages/tokens/tokens.json`](packages/tokens/tokens.json) |
 | Symbol library: meanings, statuses, glyphs, retired ids | [`packages/symbols/src/symbols.ts`](packages/symbols/src/symbols.ts) |
-| Glyphs (72) | [`packages/icons/svg/`](packages/icons/svg/) |
+| Glyphs (73) | [`packages/icons/svg/`](packages/icons/svg/) |
 | Tile contract and validator | [`packages/tiles/src/contract.ts`](packages/tiles/src/contract.ts) |
 | Modern tile set | [`packages/tiles/sets/modern/manifest.json`](packages/tiles/sets/modern/manifest.json) |
 | Hex map model and renderer | [`packages/hexmap`](packages/hexmap/README.md) |
@@ -174,6 +176,6 @@ The labels were Canon and Decided before 18 October 2026. The data keys are `off
 | --- | --- |
 | Briefs for art and tiles, the prompt library, glyph briefs | [docs/briefs/](docs/briefs/README.md) |
 | Decision records, one per decision | [docs/decisions/](docs/decisions/README.md) |
-| Open questions, with recommendations | [docs/decisions/OPEN.md](docs/decisions/OPEN.md) |
+| Open questions, with recommendations (two, on 19 October) | [docs/decisions/OPEN.md](docs/decisions/OPEN.md) |
 | Review boards and the Observatory design | [docs/design-review/](docs/design-review/README.md) |
 | Prose canon: Visual Style, Symbol Library, Isometric Tiles, Logo | `ki-principal/Pillars/Aesthetics` |

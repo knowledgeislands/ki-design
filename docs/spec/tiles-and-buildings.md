@@ -1,7 +1,7 @@
 ---
 title: Tiles and buildings
 status: draft
-updated: 2026-10-18
+updated: 2026-10-19
 ---
 
 # Tiles and buildings
@@ -27,7 +27,7 @@ The grid is recorded in [GDR-KI-DESIGN-003](../decisions/GDR-KI-DESIGN-003-hex-g
 | Pair | 2 (oriented) | 0–5 (which neighbour) | 1×2 / 2×1 → pair |
 | Flower | 7 (centre + ring) | — | 2×2 to 4×4 → flower; square plinth matted out, hex plinth repainted |
 
-Each set declares each tile's footprint in its manifest. The contract fixes only the Capital's. The Modern set draws every structure on a single hex except the Port (a pair) and the Capital (a flower). The earlier spec suggested other footprints (Council Hall and Workshop as pairs; Library single or pair; Port pair or flower; ancient forest single or flower); whether the contract should fix them is in [OPEN.md](../decisions/OPEN.md).
+Each set declares each tile's footprint in its manifest. **The contract fixes only the Capital's; every other footprint is the set's choice** ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)). The Modern set draws every structure on a single hex except the Port (a pair) and the Capital (a flower). The earlier spec's suggestions (Council Hall and Workshop as pairs; Library single or pair; Port pair or flower; ancient forest single or flower) are options a set may take, not rules.
 
 ### The Capital
 
@@ -43,7 +43,7 @@ The twelve terrain ids are the whole terrain contract. Each has a flat fill ([co
 
 | Terrain | Notes |
 | --- | --- |
-| `ocean` | Includes a deep variant; animated shimmer. The flat chart paints it in the theme's `sea` |
+| `ocean` | Includes a deep variant; animated shimmer. The flat chart paints it in the theme's `sea`; isometric tiles paint their water in `color.tile.water` (`--tile-water`) |
 | `coastal` | Beach and shallows; the water edge is auto-tiled |
 | `grassland` | Default inhabited ground |
 | `forest` | Ordinary woodland. Jungle (emerging knowledge) is a forest variant in tropical palettes, not a separate id |
@@ -63,8 +63,9 @@ The twelve terrain ids are the whole terrain contract. Each has a flat fill ([co
 The sixteen structure ids are in the contract. Their status follows the symbol library. Rules the contract does not carry:
 
 - `ancient-forest` never shares a hex with another structure.
-- `airport` is a mooring mast with an airship; `bridge` is the stone arch as a landmark; `dock` sits on the coast edge; `lighthouse` stands on the coast.
+- `airport` is a mooring mast with an airship; `bridge` draws the **Causeway**, the translation layer, as a low stone way across shallow water (the tile id stays `structure/bridge` until the contract renames it to `structure/causeway` with an alias; [GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)); `dock` sits on the coast edge; `lighthouse` stands on the coast. The Modern v0 tile is still the stone arch and is redrawn with the rename.
 - `cottage` is the generic dwelling.
+- `mill` is the Mill: a stone house with a waterwheel, the drawn form of `Admin/Operations`.
 - The Port draws its modes as districts.
 
 ### Variants and states
@@ -125,12 +126,12 @@ The full brief is [building-standards.md](../briefs/building-standards.md).
 | Engineering Forge | Industrial vernacular | Slate roofs, stone and timber, chimneys, waterwheels |
 | Research Archipelago | Classical observatory | Pale limestone, domes, colonnades, telescopes |
 | Creative Wilderness | Organic | Thatch, living roofs, treehouses, carved wood |
-| Learning Realm | Collegiate | Cloisters, towers, courtyards, ivy |
+| Learning Realm | Collegiate | Cloisters, cloister and college towers, courtyards, ivy |
 | Enterprise Territory | Civic harbour town | Brick, clock towers, cranes, warehouses |
 | Personal Isle | Cottage | Single hearth, garden wall, a small jetty |
 | Community | Commons | Meeting hall, market square, shared gardens |
 
-The Collegiate family lists towers and the Civic harbour town lists clock towers. How they sit with the non-combative principle is not yet stated; it is listed in [OPEN.md](../decisions/OPEN.md). Meanwhile no family may fortify the Capital.
+**Civic towers are allowed as architecture, never fortified and never on the Capital** ([GDR-KI-DESIGN-021](../decisions/GDR-KI-DESIGN-021-civic-towers.md)): a clock tower (which also draws the Calendar zone) in the Civic harbour town, cloister or college towers in the Collegiate family. A civic tower has no battlements, arrow slits, machicolations, curtain wall or gatehouse, never stands on the Capital's flower, and is not a symbol: the retired `tower` stays retired.
 
 ## The tile-set contract
 
@@ -144,7 +145,7 @@ These are _proposed_; a tile set need not cover them, and the contract does not 
 - `prop` tiles (trees, rocks, lamps, barrels, wells, boats, carts, statues; no crystals);
 - ground ribbons `overlay/route`, `overlay/lane` and `overlay/current`;
 - markers `signal/lantern`, `signal/reef`, `signal/fog` and `signal/storm`;
-- manifest fields for the flat SVG twin, the architectural family (hero only), the island palette, and an `edge` footprint for connectors.
+- manifest fields for the flat SVG twin, the architectural family (hero only), the island palette, and an `edge` footprint for connectors. They are added to the contract when the Ancient set needs them ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)).
 
 ## Budgets
 

@@ -1,7 +1,7 @@
 ---
 title: Illustration and art direction
 status: draft
-updated: 2026-10-18
+updated: 2026-10-19
 ---
 
 # Illustration and art direction
@@ -58,8 +58,8 @@ Semi-flat, lightly painterly, premium infographic quality; detailed but clean; a
 
 ## Never draw
 
-Humanoid robots; glowing evil AI; neon; cyberpunk cities; circuit boards; blockchain cubes; node-graph hairballs; crystals; magic glow or spell effects; monsters or creatures (the whale is the one sea creature, and only far out at sea as a signal); temples or religious buildings; fantasy armour; weapons; skulls; game UI (XP bars, health bars, "map completion 34 %", "96 % harmony"); emoji; third-party logos inside the art; text baked into images; photographs of real people; pure black or pure white; walls, towers or battlements around the Capital.
+Humanoid robots; glowing evil AI; neon; cyberpunk cities; circuit boards; blockchain cubes; node-graph hairballs; crystals; magic glow or spell effects; monsters or creatures of any kind, whales included ([GDR-KI-DESIGN-030](../decisions/GDR-KI-DESIGN-030-the-lore-sheet.md)); temples or religious buildings; fantasy armour; weapons; skulls; game UI (XP bars, health bars, "map completion 34 %", "96 % harmony"); emoji; third-party logos inside the art; text baked into images; photographs of real people; pure black or pure white; walls, towers or battlements around the Capital, and fortified towers anywhere (a civic clock or cloister tower is architecture, never on the Capital).
 
 ## Licensing
 
-Treat references and generated art as unlicensed until the art-licensing decision (KI-DESIGN-ART-002) is recorded. Describe the style in our own words; the "Ghibli-like" reference in early material is a style risk to state plainly ([OPEN.md](../decisions/OPEN.md)).
+Treat references and generated art as unlicensed until the art-licensing decision (KI-DESIGN-ART-002) is recorded. Describe the style in our own words; the "Ghibli-like" reference in early material is a style risk to state plainly, and studio names stay out of prompts ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-unlicensed-until-recorded.md)). Who owns the art is still in [OPEN.md](../decisions/OPEN.md).

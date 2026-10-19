@@ -1,7 +1,7 @@
 ---
 title: Glossary
 status: draft
-updated: 2026-10-18
+updated: 2026-10-19
 ---
 
 # Glossary
@@ -19,8 +19,9 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | Attend | The local app's job of noticing: Beacon, Waiting for you |
 | Beacon | The ranked list of what warrants notice; the Observatory's lamp; glyph `beacon` |
 | Boundary | The 3:1 colour role for control edges |
-| Bridge | Canon: translation layer (MCP servers). App: the command path for Act. The clash is open |
+| Bridge | The local app's command path for Act (plan / confirm / receipt). Not a symbol, and never drawn ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)) |
 | Capital | An island's or territory's civic heart; holds the Library and the Council Hall |
+| Causeway | Translation layer: joins two grounds across shallow water; MCP servers in the app. Replaced the Bridge as the symbol |
 | Cartouche | A labelled panel tied to a place on a map (site) |
 | Chart | The site's dialect: atmospheric, illustrated, narrative |
 | Citadel | Retired term (GDR-KI-PRINCIPAL-011); say the Capital |
@@ -40,7 +41,7 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | Known Lands | The canonical chart of the realm; the app's chart instrument |
 | Lighthouse | Guidance; serves others |
 | Living Map | The site's interactive map |
-| Mill / Engine house | Proposed structure for operational systems; id `mill`; name open |
+| Mill | Operational systems: the running of the island; draws `Admin/Operations`; id `mill` |
 | Modern (set) | The engraved, flat-fill tile set; default in the app |
 | Observe | The local app's read-only job: instruments |
 | Official | Status label: ratified in `ki-principal` (formerly _canon_) |
@@ -50,7 +51,7 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | Realm | The governed environment; the Knowledge Islands Realm is the standard |
 | Rule | The receding colour role for separating rows and panes |
 | Ruins | Retired knowledge, honoured |
-| Territory | Islands governed together under one Capital |
+| Territory | Islands governed together under one Capital, drawn as an archipelago |
 | Tile set | A skin over the manifest ids (Modern, Ancient) |
 | Tower | Dropped (GDR-KI-PRINCIPAL-011); the local app's mark is the Observatory |
 | Voyage | The narrative half of the site, read in order |

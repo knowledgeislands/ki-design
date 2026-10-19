@@ -53,5 +53,5 @@ A single line icon for tracing into SVG: {glyph id and one-line drawing from gly
 ## Negative list (append to every prompt)
 
 ```text
-Avoid: humanoid robots, androids, glowing eyes, AI brains, circuit boards, blockchain cubes, node-graph hairballs, cyberpunk, neon, bloom, lens flare, sci-fi HUDs, glossy 3D, plastic render, photorealism, photographs of real people, close-up faces, comic-book style, childish cartoon, clip-art, crystals, magic glow, spells, monsters, dragons, creatures (except a distant whale when asked), temples, religious buildings, fantasy armour, weapons, skulls, game UI, health or XP bars, percentages, scores, emoji, logos, watermarks, signatures, any text or lettering, pure black, pure white, oversaturated RGB colour.
+Avoid: humanoid robots, androids, glowing eyes, AI brains, circuit boards, blockchain cubes, node-graph hairballs, cyberpunk, neon, bloom, lens flare, sci-fi HUDs, glossy 3D, plastic render, photorealism, photographs of real people, close-up faces, comic-book style, childish cartoon, clip-art, crystals, magic glow, spells, monsters, dragons, creatures of any kind, whales included, temples, religious buildings, fantasy armour, weapons, skulls, game UI, health or XP bars, percentages, scores, emoji, logos, watermarks, signatures, any text or lettering, pure black, pure white, oversaturated RGB colour.
 ```

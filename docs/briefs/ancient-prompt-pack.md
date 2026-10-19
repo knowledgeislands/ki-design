@@ -142,10 +142,10 @@ A single isometric game tile for the Knowledge Islands Realm, painted in the sam
 A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference picture of Arcadia: dusk, warm lamp-light, deep navy sea, forest and moss greens, sandstone, restrained brass. Pointy-top hexagonal tile seen in 2:1 dimetric projection, light from the top-left, with a 48-pixel-deep stratified rock plinth, on a plain flat light-grey background so it can be cut out. Subject: a stately customs house with a gateway arch over the road, in the Enterprise Territory architectural family, condition thriving: lit windows, smoke where there is a chimney. Crisp readable silhouette at small size, richly painted detail, no text, no people in close-up, no creatures, no crystals, no magic glow.
 ```
 
-### `structure/bridge`
+### `structure/bridge` (draws the Causeway)
 
 ```text
-A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference picture of Arcadia: dusk, warm lamp-light, deep navy sea, forest and moss greens, sandstone, restrained brass. Pointy-top hexagonal tile seen in 2:1 dimetric projection, light from the top-left, with a 48-pixel-deep stratified rock plinth, on a plain flat light-grey background so it can be cut out. Subject: a stone arch bridge over a river, in the Learning Realm architectural family, condition thriving: lit windows, smoke where there is a chimney. Crisp readable silhouette at small size, richly painted detail, no text, no people in close-up, no creatures, no crystals, no magic glow.
+A single isometric game tile for the Knowledge Islands Realm, painted in the same style, light and palette as the attached reference picture of Arcadia: dusk, warm lamp-light, deep navy sea, forest and moss greens, sandstone, restrained brass. Pointy-top hexagonal tile seen in 2:1 dimetric projection, light from the top-left, with a 48-pixel-deep stratified rock plinth, on a plain flat light-grey background so it can be cut out. Subject: a low stone causeway crossing shallow water between two grounds, its flat paved deck carried on a few small culvert arches, gently sloping down to each shore, in the Learning Realm architectural family, condition thriving: lit windows, smoke where there is a chimney. Crisp readable silhouette at small size, richly painted detail, no text, no people in close-up, no creatures, no crystals, no magic glow.
 ```
 
 ### `structure/workshop`

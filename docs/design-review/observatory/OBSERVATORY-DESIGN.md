@@ -85,8 +85,8 @@ One frame, the same height on every instrument (board 1).
 - Gold means attention, alone. Rust means blocking. A note has no colour and no mark. Every state has its word.
 - Conditions are words on chips: thriving (ok wash), quiet (outline), weathered (dashed outline), ruined (dotted, struck through). Never a score or a percentage.
 - Severity in rows: reef glyph and `blocking` chip; lantern glyph and `attention` chip; `note` as an outline tag.
-- Tab glyphs: Beacon `beacon`, Waiting for you `inbound`, Known Lands `known-lands`, Library `library`, Council `council-hall`, Streams `streams`, Workers `role-steward`, Repositories `workshop`, Machine `machine`, Extensions `workbench`. The bridge glyph never marks Act.
-- Subject glyphs in the Beacon follow how islands are typed: a Capital is drawn as its Library and Council Hall, `tools-*` a workshop, `mcp-*` a bridge, `apps-*` a port, a knowledge base a library, the host a machine.
+- Tab glyphs: Beacon `beacon`, Waiting for you `inbound`, Known Lands `known-lands`, Library `library`, Council `council-hall`, Streams `streams`, Workers `role-steward`, Repositories `workshop`, Machine `machine`, Extensions `workbench`. No bridge glyph marks Act: the Bridge is written, never drawn.
+- Subject glyphs in the Beacon follow how islands are typed: a Capital is drawn as its Library and Council Hall, `tools-*` a workshop, `mcp-*` a causeway, `apps-*` a port, a knowledge base a library, the host a machine.
 
 ## 6. States
 
@@ -160,10 +160,10 @@ Shell routes for every instrument: `/api/instruments`, `/api/scopes`, `/api/obse
 
 ## 11. Open questions
 
-- **Instrument restructure.** Adopt the ten instruments under the four jobs ([OPEN.md](../../decisions/OPEN.md#instrument-restructure))? The boards mark it Open.
+- **Instrument restructure.** Settled on 19 October 2026: the ten instruments under the four jobs, reached by convergence ([GDR-KI-DESIGN-033](../../decisions/GDR-KI-DESIGN-033-instruments-by-convergence.md)).
 - **Fifteen, not fourteen.** The Work instrument landed after the brief. This design folds it into Streams and sends its "with you" view to Waiting for you. Agree, or give Work its own place?
 - **Automation splits in two** (runs to Workers, schedules to Machine). Which one does `?view=automation` land on?
-- **Bridge or Causeway.** The job is written "Act" on screen until the name is settled.
+- **Bridge or Causeway.** Settled on 19 October 2026: the translation symbol is the Causeway, so "Bridge" names only the Act command, written and never drawn ([GDR-KI-DESIGN-018](../../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)). `mcp-*` repositories take the `causeway` glyph.
 - **How Act looks different.** The boards give the Act segment a boundary-colour edge and "governed". Enough, or should Act panes also carry a top rule in the boundary colour (as on boards 4 and 5)?
 - **The Capital glyph.** Settled on 18 October 2026: `packages/icons` now has `capital`, a small dome beside a low colonnaded front on one base. The chart and the Beacon can use it in place of the Library and Council Hall pair.
 - **Stored chart positions.** No endpoint holds island positions today; Known Lands needs one so islands stay where they were learnt.
@@ -172,4 +172,4 @@ Shell routes for every instrument: `/api/instruments`, `/api/scopes`, `/api/obse
 - **Workers chip.** Should it count only agent runs at work, or also people with commits today?
 - **Library search.** Search covers notes today; should the merged reader search documents too?
 - **Narrow width.** Which columns each instrument drops at 760 px still needs declaring per table; the boards show the 1440 layout.
-- **Bridge over the tailnet.** A later, separate decision record; the boards show only the read-only listener.
+- **Bridge over the tailnet.** Read-only over the tailnet; Act stays on loopback until identity is designed ([GDR-KI-DESIGN-034](../../decisions/GDR-KI-DESIGN-034-read-only-over-the-tailnet.md)). The full design is a later Observatory decision record.

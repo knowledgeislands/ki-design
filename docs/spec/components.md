@@ -1,7 +1,7 @@
 ---
 title: Components
 status: draft
-updated: 2026-10-18
+updated: 2026-10-19
 ---
 
 # Components
@@ -51,6 +51,7 @@ Proposed beyond v0, not yet built:
 | **Painted hero** | Full-bleed painting of Arcadia; headline left in Cormorant `display-xl` parchment; brass rule; lead; primary brass call to action plus an outline one; district cartouches; the logo roundel in the header | 400 KB or less; headline never over busy art (scrim from the left at navy 0 → 70 %); a text list of districts beneath for no-JS and screen readers |
 | **Parchment panel** | `--paper` with the deckled hairline frame ([layout.md](layout.md#borders-and-elevation)), Cormorant SC kicker with a brass rule beneath | The default container for Voyage content |
 | **Buttons** | Primary: gold fill, ink text (6.1:1), `--radius-sm`. Secondary: 1 px boundary outline, ink or parchment text | One primary per view; sentence case; no icon-only buttons without labels |
+| **Night toggle** | A small header control drawn with the `theme` glyph, labelled "Night chart" or "Day chart"; sets `data-theme` on the root and remembers the visitor's choice in that browser | Follows the OS until chosen, and can return to it; never brass, never a call to action; hidden without JavaScript ([GDR-KI-DESIGN-025](../decisions/GDR-KI-DESIGN-025-night-on-the-site.md)) |
 
 ## App patterns (Instrument)
 
@@ -65,5 +66,5 @@ Proposed beyond v0, not yet built:
 | **Job switch** | Four text segments **Observe · Attend · Act · Extend**; current in accent text on a gold underline | Shows only that job's instruments; Act is visibly distinct (it mutates). See [GDR-KI-DESIGN-016](../decisions/GDR-KI-DESIGN-016-the-four-jobs.md) |
 | **Instrument tabs** | Text tabs (a 16 px glyph is proposed, pending PDR-007): current = accent text on a gold underline; others muted | One row; scrolls inside its own width with an edge fade; the active tab kept clear of the fade |
 | **Known Lands chart panel** | Flat `<ki-hexmap>` filling the pane; layer toggles and time window (7 / 14 / 30 days) above as controls with boundary edges; legend in the foot-of-view note; isometric toggle | Selecting an island applies the shell's **filter, not a scope**; positions stored; covered by the no-horizontal-scroll test |
-| **Bridge: plan / confirm / receipt** | Plan pane: declared tier, every input visible, effect stated, scope named. Confirm: a single boundary-edged button naming the action ("Pull 3 repositories"). Receipt: outcome, counts, `YYYY-MM-DD HH:MM`, way in ("via loopback" / "via tailnet as …") | Every mutation goes through all three; no mutation from a row click; Act is absent over the tailnet |
+| **Bridge: plan / confirm / receipt** | Plan pane: declared tier, every input visible, effect stated, scope named. Confirm: a single boundary-edged button naming the action ("Pull 3 repositories"). Receipt: outcome, counts, `YYYY-MM-DD HH:MM`, way in ("via loopback" / "via tailnet as …") | Every mutation goes through all three; no mutation from a row click; Act is absent over the tailnet ([GDR-KI-DESIGN-034](../decisions/GDR-KI-DESIGN-034-read-only-over-the-tailnet.md)); "Bridge" is written, never drawn: no bridge glyph ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)) |
 | **Who is working** | A column with role glyph and worker name (`role-archivist` Claude Code) | A column, not a dashboard; evidence-sourced only |

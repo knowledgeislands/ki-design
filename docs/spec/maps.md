@@ -1,7 +1,7 @@
 ---
 title: Maps
 status: draft
-updated: 2026-10-18
+updated: 2026-10-19
 ---
 
 # Maps
@@ -29,7 +29,7 @@ Until the Ancient tiles exist, the site shows the painting as the legend and the
 ## How islands are typed (app)
 
 - A Knowledge Base island shows its zones as structures (Library, Council Hall, Port, Streams).
-- A single-purpose repository is a small isle typed by its dominant building: Capital for a Principal, Workshop for `tools-*`, Bridge for `mcp-*`, Library for knowledge bases, Port for intake-heavy repositories.
+- A single-purpose repository is a small isle typed by its dominant building: Capital for a Principal, Workshop for `tools-*`, Causeway for `mcp-*`, Library for knowledge bases, Port for intake-heavy repositories.
 - Layout is **deterministic**: positions are stored, so a repository stays where the operator learnt it was.
 
 ## Interaction and keyboard
@@ -45,7 +45,7 @@ Until the Ancient tiles exist, the site shows the painting as the legend and the
 - Every map has a **text equivalent** rendered in the page, not only an `aria-label`: a list of territories → islands → structures, each with its condition and signals as words and a link.
 - Terrain is never colour alone (a pattern per terrain); signals are shapes plus words.
 - The twelve terrain fills pass a colour-vision check (deuteranopia, protanopia and tritanopia simulation) for adjacent distinctness with patterns on.
-- The no-JS Living Map is the static SVG plus the district list (confirmation is open; see [OPEN.md](../decisions/OPEN.md)).
+- The no-JS Living Map is the static SVG plus the district list ([GDR-KI-DESIGN-032](../decisions/GDR-KI-DESIGN-032-living-map-without-javascript.md)).
 
 ## The IslandMap model
 

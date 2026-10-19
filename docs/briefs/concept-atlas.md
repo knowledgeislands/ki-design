@@ -7,6 +7,8 @@ exported_at: 2026-10-18T04:03:34Z
 
 > Exported from the living Claude Doc, the source of truth while the brief is in draft. Re-export rather than editing here.
 
+**Dated 18 October 2026 and kept as written.** Kit's later answers win where this differs: the Capital replaced the Citadel and the Tower (GDR-KI-PRINCIPAL-011), the Causeway replaced the Bridge as the translation symbol so that "Bridge" names only the Act command, the Mill replaced the Engine house, and the open questions were answered on 19 October as [GDR-KI-DESIGN-018 to 036](../decisions/README.md).
+
 # Concept atlas
 
 Every Knowledge Islands concept is mapped once here: what it means, where the meaning comes from, and how it is drawn and where it surfaces. Canon wins; rows marked _proposed_ go back to `ki-principal` for adoption.

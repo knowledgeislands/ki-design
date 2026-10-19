@@ -1,7 +1,7 @@
 {
   "name": "@knowledgeislands/design",
   "description": "The machine-readable Knowledge Islands design system: tokens, icons, symbol library, tile sets, hex map engine and web components that every surface renders with.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "kris@kris.me.uk",
   "devDependencies": {
     "@biomejs/biome": "2.5.15",

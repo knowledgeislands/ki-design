@@ -15,8 +15,9 @@ Generated art is treated as unlicensed until the art-licensing decision is recor
 - The Capital is drawn civic (GDR-KI-PRINCIPAL-011): the domed Library and the colonnaded Council Hall face an open paved square with a fountain, a stoa on its east side and trees in its south-east corner, on a low dais with open stairs down both front faces. Nothing fortifies it: no tower, keep, battlements or walls.
 - The manifest's top-level `aliases` maps deprecated keys to their replacements (`structure/citadel` → `structure/capital`, from `tileAliases` in the contract). `TileSet.tile` in `scripts/compose.ts` follows them, so a map that still says `citadel` renders the Capital.
 - Quiet, weathered and ruined are not separate drawings: the top-level `conditions` block says which layer to hide (`[data-state="thriving"]`: lit windows, smoke, lamps, pennants) and which decals to stack. The contract lists states but cannot yet express this composition, so `validateTileSet` checks only that all four are declared.
-- Only frame 0 is drawn; `frames` records the intended loops. No flat SVG twins and no extra variants yet.
-- Fills are CSS custom properties with token fallbacks (`--terrain-*`, `--tile-*`, `--bld-*`), so themes and island palettes can override them.
+- Only frame 0 is drawn; `frames` records the intended loops, which follow the animation standard (the lighthouse 24, the mill 12; GDR-KI-DESIGN-022). No flat SVG twins and no extra variants yet.
+- Fills are CSS custom properties with token fallbacks (`--terrain-*`, `--tile-*`, `--bld-*`), so themes and island palettes can override them. Water in the ocean and coastal tiles is `--tile-water`, from `color.tile.water`.
+- `bridge` draws the Causeway, the translation layer (GDR-KI-DESIGN-018). v0 still draws a stone arch; renaming the id to `causeway`, with `bridge` as an alias, and redrawing it is later work.
 - Without auto-tiled edges, coastal tiles always face the water to the south and rivers run north-east to south-west.
 
 ## Geometry
@@ -31,6 +32,8 @@ A set is valid only when it covers the whole inventory, every structure in every
 - **Structures** (16): capital (the Capital's compound; `citadel` is accepted as a deprecated alias, and the validator counts a tile listed under it as the Capital), library, council-hall, observatory, lighthouse, port, dock, rail-depot, airport, customs-house, bridge, workshop, mill, ruins, ancient-forest, cottage. Each in thriving, quiet, weathered and ruined.
 - **Decals** (4): ivy, cracks, moss, fallen-roof.
 - **Connectors** (4): road, river, bridge-span, quay.
+
+**Footprints are each set's choice, apart from the Capital's flower**, which the contract fixes (GDR-KI-DESIGN-022). Manifest fields for the flat SVG twin, the architectural family, the island palette and an `edge` footprint for connectors are added when the Ancient set needs them.
 
 A tile is identified by kind and id together, so `terrain/river` and `connector/river` are different tiles. Each entry:
 

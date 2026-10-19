@@ -92,23 +92,23 @@ Data won, except where noted.
 | Item | Old DESIGN.md | Data | Now |
 | --- | --- | --- | --- |
 | Night terrain fills | A column of hand-written night values | `nightTerrain()`: each day fill mixed 45 % into navy | The formula; the column is gone |
-| Terrain ocean | `--terrain-ocean` = `--sea` | `color.terrain.ocean` = `#2f5878`; the flat renderer paints ocean in the theme's `sea` | Both stated: flat ocean is `sea`, `#2f5878` is the Modern isometric water. The token's name is in [OPEN.md](../decisions/OPEN.md) |
-| Spacing names | `--space-0` to `--space-10` | `--space-2` to `--space-64`, named by pixels | Pixel names. `space-0` dropped; the 96 px hero step is in OPEN.md |
-| Radius round | `--radius-round` (999) | Not a token | Described, marked not yet a token; in OPEN.md |
-| Fog colour | `--fog` | Not a token | Kept as a proposed value; in OPEN.md |
+| Terrain ocean | `--terrain-ocean` = `--sea` | `color.terrain.ocean` = `#2f5878`; the flat renderer paints ocean in the theme's `sea` | Both stated: flat ocean is `sea`, `#2f5878` is the Modern isometric water. Renamed `color.tile.water`, with `color.terrain.ocean` as its alias ([GDR-KI-DESIGN-023](../decisions/GDR-KI-DESIGN-023-token-additions.md)) |
+| Spacing names | `--space-0` to `--space-10` | `--space-2` to `--space-64`, named by pixels | Pixel names. `space-0` dropped; the 96 px hero step is `space-96` ([GDR-KI-DESIGN-023](../decisions/GDR-KI-DESIGN-023-token-additions.md)) |
+| Radius round | `--radius-round` (999) | Not a token | `radius-round` ([GDR-KI-DESIGN-023](../decisions/GDR-KI-DESIGN-023-token-additions.md)) |
+| Fog colour | `--fog` | Not a token | `color.fog` ([GDR-KI-DESIGN-023](../decisions/GDR-KI-DESIGN-023-token-additions.md)) |
 | Token names | `--ok-wash`, `--terrain-marsh` | `--wash-ok`, `--color-terrain-marsh` | The build's names |
 | App font stacks | `"New York", "Iowan Old Style"` and similar | The stacks in `font.app` and `font.mono` | The token stacks |
-| Symbol statuses | Lantern agreed, Fog official, Bridge official, Storm proposed, Cartographic grid official | Lantern official, Fog proposed, Bridge agreed, Storm official, Cartographic grid agreed | Read from `symbols.ts`; the conflict with `ki-principal` is in OPEN.md |
-| Symbol meanings | Pillars, Streams, Territory, Dock and others worded differently | `symbols.ts` | Meanings read from the data; alignment with `ki-principal` in OPEN.md |
-| Glyph count | 62 + 6 value icons (68) | 72 files, including `capital` | 72; `celestial` is `celestial-guide`; `arrow`, `refresh`, `hourglass` and `lantern` are drawn |
-| Glyph fills | Small brass accents allowed | The lint forbids fills | No fills; the question is in OPEN.md |
+| Symbol statuses | Lantern agreed, Fog official, Bridge official, Storm proposed, Cartographic grid official | Lantern official, Fog proposed, Bridge agreed, Storm official, Cartographic grid agreed | Aligned with `ki-principal`: Causeway (was Bridge) and Cartographic grid official, Lantern agreed, Storm and Fog proposed ([GDR-KI-DESIGN-020](../decisions/GDR-KI-DESIGN-020-symbols-follow-ki-principal.md)) |
+| Symbol meanings | Pillars, Streams, Territory, Dock and others worded differently | `symbols.ts` | `symbols.ts` follows `ki-principal`'s wording ([GDR-KI-DESIGN-020](../decisions/GDR-KI-DESIGN-020-symbols-follow-ki-principal.md)) |
+| Glyph count | 62 + 6 value icons (68) | 72 files, including `capital` | 73 since `causeway` was added; `celestial` is `celestial-guide`; `arrow`, `refresh`, `hourglass` and `lantern` are drawn |
+| Glyph fills | Small brass accents allowed | The lint forbids fills | No fills; consumers apply brass ([GDR-KI-DESIGN-024](../decisions/GDR-KI-DESIGN-024-single-colour-glyphs.md)) |
 | Package name | `@knowledgeislands/glyphs` | `@knowledgeislands/icons` | `icons` |
 | Tile ids | `terrain.marsh` | Keyed `terrain/marsh` | The slash form |
 | Structure count | "17 structures" | 16 in the contract | 16 |
 | Variants | Every structure 3 | Contract at least 1; Modern v0 has 1; briefs: 3 for terrain and hero structures, 1 for others | The briefs' target and the contract's minimum, stated separately |
-| Footprints | Council Hall and Workshop pairs; Library, Port and ancient forest with options | Modern: all single except Port (pair) and Capital (flower); contract fixes only the Capital | Footprints are per set; the question is in OPEN.md |
+| Footprints | Council Hall and Workshop pairs; Library, Port and ancient forest with options | Modern: all single except Port (pair) and Capital (flower); contract fixes only the Capital | Footprints are per set, apart from the Capital ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)) |
 | Manifest fields | `flat`, `family`, `palette`, `fps`, `edge`, anchor as hex + px | The contract's `TileEntry` | The contract; the extra fields are listed as proposed |
-| Loop lengths | Lighthouse 24, mill 12 (as the animation standard) | Manifest: lighthouse 12, mill 16 | Standard kept in motion.md; the manifest fix is in OPEN.md |
+| Loop lengths | Lighthouse 24, mill 12 (as the animation standard) | Manifest: lighthouse 12, mill 16 | The manifest now says 24 and 12 ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)) |
 | `<ki-hexmap>` interface | Attributes `renderer`, `tileset`, `layers`, `window`, `static`; event `ki-hex-select` | v0: `.map`, `src`, `size`, `.selected`, `theme`; event `ki-select` | v0 from the README; the rest listed as proposed |
 | IslandMap model | Territories, islands, cells, structures, workers | v0: id, name, hexes, routes, labels | v0 from `model.ts`; the fuller model kept as proposed |
 | Map keyboard | Home, Escape and Shift-selection | v0: arrows along neighbours, Enter, Space, click | Both stated; the missing keys noted as not yet built |

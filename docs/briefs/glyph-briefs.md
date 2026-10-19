@@ -2,7 +2,7 @@
 
 One line per glyph, saying what to draw. Use it when drawing a new glyph, redrawing one at an optical size, or asking an image model for a tracing reference with the icon prompt in the [prompt library](prompt-library.md#icon-description-for-vector-tracing). The drawn glyphs are the truth: they are in [`packages/icons/svg/`](../../packages/icons/svg/), and the rules every drawing follows are in [docs/spec/iconography.md](../spec/iconography.md).
 
-The inventory is 72 glyphs. It is grouped here as the spec grouped it. Where a brief mentions brass or rust, it describes the accent the earlier spec allowed; the glyph files carry no fills or colours today (see [OPEN.md](../decisions/OPEN.md)). `celestial` is drawn as `celestial-guide`, and `arrow`, `refresh` and `hourglass` were added for the previews.
+The inventory is 73 glyphs. It is grouped here as the spec grouped it. Where a brief mentions brass or rust, it describes an accent the consumer applies; the glyph files stay single-colour ([GDR-KI-DESIGN-024](../decisions/GDR-KI-DESIGN-024-single-colour-glyphs.md)). `celestial` is drawn as `celestial-guide`, and `arrow`, `refresh` and `hourglass` were added for the previews.
 
 ## Symbols
 
@@ -17,7 +17,7 @@ The inventory is 72 glyphs. It is grouped here as the spec grouped it. Where a b
 | `lighthouse` | Tapered tower with a lamp room and two short light rays to one side, on a rock line |
 | `observatory` | Dome on a drum with a vertical slit and a telescope tip emerging |
 | `port` | Anchor whose stock is a short quay line |
-| `bridge` | Stone arch with two piers and a wave line under the arch |
+| `causeway` | Low stone causeway across shallow water: a flat deck sloping down to each shore, two culvert arches, a wave line above and below (the translation layer) |
 | `reef` | Three jagged rocks breaking a single water line |
 | `terrain` | Three stacked contour lines rising to the right |
 | `ancient-forest` | One broad old tree with a heavy trunk and spreading crown, two small conifers behind |
@@ -36,10 +36,11 @@ The inventory is 72 glyphs. It is grouped here as the spec grouped it. Where a b
 | `library` | Small dome over four columns on a stepped base |
 | `council-hall` | Pediment over four columns on a wide stepped base, no dome |
 | `tower` | _Retired_ (GDR-KI-PRINCIPAL-011): kept in the package, mapped to no symbol. Slender square tower with a crenellated top and one lit window (brass dot) |
+| `bridge` | _Unmapped_ (GDR-KI-DESIGN-018): kept in the package, mapped to no symbol; the translation layer is `causeway`, and the Act command is never drawn with it. Stone arch with two piers and a wave line under the arch |
 | `calendar` | Clock face on a short tower top, hands at ten past ten |
 | `resources` | Open archive drawer with two card edges |
 | `streams` | A river branching once and widening to the bottom edge |
-| `mill` | Small gabled house with a waterwheel on its side (proposed; name open: Mill or Engine house) |
+| `mill` | Small gabled house with a waterwheel on its side (the Mill) |
 | `workshop` | Anvil with a hammer above it (proposed; also "forge") |
 | `commons` | Market canopy with three posts over a short ground line (proposed) |
 | `inbound` | Small chevron arrow entering an open square from the left (`+`) |
@@ -70,7 +71,7 @@ The inventory is 72 glyphs. It is grouped here as the spec grouped it. Where a b
 | `lantern-signal` | Hanging lantern, brass fill in the glass (attention marker) |
 | `reef-signal` | Single reef rock with a short rust underline (blocking marker) |
 
-## Steward roles (proposed)
+## Steward roles
 
 | Id | Draw |
 | --- | --- |
@@ -81,7 +82,7 @@ The inventory is 72 glyphs. It is grouped here as the spec grouped it. Where a b
 | `role-navigator` | Sextant arc with its index arm |
 | `role-scout` | Extended spyglass, angled up |
 | `role-historian` | Unrolled scroll with a quill |
-| `role-guardian` | Heater shield with a single vertical band; no weapon |
+| `role-guardian` | _Not adopted_ (GDR-KI-PRINCIPAL-014): kept in the package, mapped to no symbol; boundary-keeping is the Steward. Heater shield with a single vertical band; no weapon |
 
 ## UI basics
 

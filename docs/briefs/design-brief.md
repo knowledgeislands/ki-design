@@ -2,6 +2,8 @@
 
 Oct 18, 2026 · @Kit
 
+> **Dated 18 October 2026 and kept as written.** Kit's later answers win where this differs: the Capital replaced the Citadel and the Tower (GDR-KI-PRINCIPAL-011), the Causeway replaced the Bridge as the translation symbol so that "Bridge" names only the Act command, the Mill replaced the Engine house, and the open questions were answered on 19 October as [GDR-KI-DESIGN-018 to 036](../decisions/README.md).
+
 Knowledge Islands gets one visual world — a hand-drawn, natural archipelago built on a hex grid with isometric structures — expressed in two dialects: a rich, atmospheric public site at knowledgeislands.info and a dense, legible local Observatory. Both draw from one shared token set and one tile kit.
 
 Every concept is mapped once in the Concept atlas tab.

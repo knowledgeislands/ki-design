@@ -1,7 +1,7 @@
 ---
 title: Space, shape and layout
 status: draft
-updated: 2026-10-18
+updated: 2026-10-19
 ---
 
 # Space, shape and layout
@@ -23,20 +23,20 @@ The scale is 4 / 8 based and each step is named by its size in pixels: `--space-
 | `space-32` | Between groups |
 | `space-48` | Section padding on phones |
 | `space-64` | Section padding on desktop |
-| 96 px | Hero rhythm, "open sea" between Voyage chapters (not yet a token; see [OPEN.md](../decisions/OPEN.md)) |
+| `space-96` | Hero rhythm, "open sea" between Voyage chapters |
 
 In the app, never add space that costs Beacon rows.
 
 ## Radii
 
-`--radius-sm` (4 px), `--radius-md` (8 px) and `--radius-lg` (16 px) are tokens.
+`--radius-sm` (4 px), `--radius-md` (8 px), `--radius-lg` (16 px) and `--radius-round` (999 px) are tokens.
 
 | Radius | Use |
 | --- | --- |
 | `sm` | Chips, tags, inputs, buttons (app and site) |
 | `md` | Site cards, panels, popovers |
 | `lg` | Site feature panels, archetype cards, illustration frames |
-| round (999 px) | Glyph roundels, journey step markers (not yet a token; see [OPEN.md](../decisions/OPEN.md)) |
+| `round` | Glyph roundels, journey step markers |
 
 The app uses `sm` almost exclusively; tables and panes are square-edged.
 

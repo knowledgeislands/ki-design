@@ -1,7 +1,7 @@
 ---
 title: Iconography
 status: draft
-updated: 2026-10-18
+updated: 2026-10-19
 ---
 
 # Iconography
@@ -16,7 +16,7 @@ Glyphs are engraved, cartographic line drawings on a 24 px grid, in `currentColo
 | Stroke | 1.5 px at 24 px, round caps and round joins; the stroke scales with the glyph (enforced by `lintIcon`) |
 | Optical sizes | **16, 20 and 24 px**. At 16 px redraw with fewer details (drop windows and inner lines) and stroke 1.25 px, snapped to the pixel grid; at 20 px stroke 1.5 px; never scale a 24 px drawing below 20 px. Only the 24 px drawings exist today |
 | Colour | `currentColor`: **ink on paper** in light; **parchment on navy** at night |
-| Fills | **None** in the glyph files (enforced by `lintIcon`). The earlier spec allowed small brass accents (a lamp, a flame, a star point) of up to 10 % of the live area; whether to bring them back is in [OPEN.md](../decisions/OPEN.md) |
+| Fills | **None** in the glyph files (enforced by `lintIcon`): glyphs stay single-colour. Where a brass accent matters (the Beacon's flame, a lamp, a star point; up to 10 % of the live area), the **consumer** applies it, never the glyph file ([GDR-KI-DESIGN-024](../decisions/GDR-KI-DESIGN-024-single-colour-glyphs.md)) |
 | Style | Engraved, cartographic: straight sides and gentle arcs. Perspective is front elevation or slight three-quarter, never isometric. No gradients, no shading, no outline-plus-fill duotone |
 | Forbidden | Emoji; brand logos of third parties in the glyph set; weapons; faces with expressions; robot heads |
 | Delivery | One SVG sprite (`<symbol id="ki-…">`) with a typed name union; `<ki-glyph>` renders it ([components.md](components.md)) |

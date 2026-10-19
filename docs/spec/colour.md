@@ -1,7 +1,7 @@
 ---
 title: Colour
 status: draft
-updated: 2026-10-18
+updated: 2026-10-19
 ---
 
 # Colour
@@ -35,7 +35,7 @@ The site's palette is kept verbatim and the local app's derived values are promo
 Each role maps to a core colour in light (ink, muted, accent = ocean, ok = forest, teal, warn = text gold, bad = rust) and has its own night value. Every foreground role holds 4.5:1 on its paper in both themes. The values match PDR-KI-OBSERVA-002, which calls night "dark".
 
 - **Night is the reference rendering** ([GDR-KI-DESIGN-010](../decisions/GDR-KI-DESIGN-010-night-as-reference.md)). Mock up and judge night first, then check light.
-- The app shell follows the OS theme (`prefers-color-scheme`). The site's behaviour is open ([OPEN.md](../decisions/OPEN.md)).
+- The app shell follows the OS theme (`prefers-color-scheme`). The site follows it too, with a small manual toggle that sets `data-theme` ([GDR-KI-DESIGN-025](../decisions/GDR-KI-DESIGN-025-night-on-the-site.md)).
 - Night muted is a cool neutral on purpose. Sandstone shares gold's hue, so metadata in sandstone would read as warning. Gold means attention, alone.
 
 ## Washes
@@ -58,7 +58,7 @@ Never draw a control's edge in the rule colour.
 
 `color.sea` holds five fills per theme: `deep` for open ocean far from land, `sea` for default water, `shallow` for water within one hex of land, `current` for current lines and `lane` for trade-route lanes. Night `sea` is the night paper.
 
-**On the flat chart, ocean hexes take the theme's `sea`.** The renderer paints them so unless a caller supplies its own ocean colour. `color.terrain.ocean` (a deeper blue) is the water of the Modern isometric tiles; it is not the flat chart's sea. Whether to rename it is listed in [OPEN.md](../decisions/OPEN.md).
+**On the flat chart, ocean hexes take the theme's `sea`.** The renderer paints them so unless a caller supplies its own ocean colour. `color.tile.water` (a deeper blue) is the water of the isometric tiles only; it is never the flat chart's sea. `color.terrain.ocean` is its deprecated alias ([GDR-KI-DESIGN-023](../decisions/GDR-KI-DESIGN-023-token-additions.md)).
 
 ## Terrain fills (flat)
 
@@ -71,7 +71,7 @@ Never draw a control's edge in the rule colour.
 
 ### Fog
 
-**Fog is a map state, not a terrain.** It is a diagonal hatch laid over whatever lies beneath, marking uncharted or unobserved hexes. Its proposed colour is `#cfd3d6` in light (ink on it 10.78:1) and `#657384` at night. Fog is not yet a token; adding it is listed in [OPEN.md](../decisions/OPEN.md).
+**Fog is a map state, not a terrain.** It is a diagonal hatch laid over whatever lies beneath, marking uncharted or unobserved hexes. Its colour is the token `color.fog`: `#cfd3d6` in light (ink on it 10.78:1) and `#657384` at night, as `--fog` ([GDR-KI-DESIGN-023](../decisions/GDR-KI-DESIGN-023-token-additions.md)).
 
 ## Per-island palettes
 

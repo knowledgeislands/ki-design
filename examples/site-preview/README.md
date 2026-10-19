@@ -33,7 +33,7 @@ Both scripts import package source by relative path (`packages/hexmap/src/geomet
 8. The journey rail (The Problem · A New Paradigm · The Islands · Stewardship · Landscapes · Create), the six canon principles in canon words and order, and the closing "Tools change. Landscapes endure."
 9. Footer split into the Voyage and the Atlas.
 
-**`field-guide.html` — the Atlas's Field Guide.** One card per entry in `packages/symbols` (54), grouped by category with a filter (toggle buttons; without JavaScript every group shows): glyph roundel, name, status badge (Official · Agreed · Proposed, proposed dashed), id, meaning and notes. Entries without a glyph show a dashed empty roundel and say "No glyph yet". Each group links back to where the Voyage explains it. It ends with "How the map works": hex topology → data and layers → isometric render → the map, all drawn from the Arcadia data.
+**`field-guide.html` — the Atlas's Field Guide.** One card per entry in `packages/symbols` (50), grouped by category with a filter (toggle buttons; without JavaScript every group shows): glyph roundel, name, status badge (Official · Agreed · Proposed, proposed dashed), id, meaning and notes. Entries without a glyph show a dashed empty roundel and say "No glyph yet". Each group links back to where the Voyage explains it. It ends with "How the map works": hex topology → data and layers → isometric render → the map, all drawn from the Arcadia data.
 
 Screenshots at 1440 and 390 px are in `screenshots/`.
 
@@ -59,5 +59,5 @@ Screenshots at 1440 and 390 px are in `screenshots/`.
 ## Notes for the design system
 
 - GDR-KI-PRINCIPAL-011: the hero chart's cartouche, alt text and glyph show the Capital (Library · Council Hall), drawn with the `capital` glyph, and the site vendors that chart. The districts list, the Foundation, the Cycle, the Home plate and the Territory card use the `capital` glyph and the Capital's words too; no Citadel or Tower remains.
-- Some `packages/symbols` meanings and statuses differ from `ki-principal` and from the earlier DESIGN.md wording; they are listed under "Drift needing a decision" in `docs/decisions/OPEN.md`. The Field Guide renders the package as it stands; reconciling them is a symbols change.
+- The Field Guide renders `packages/symbols` 0.2.0, whose statuses and meanings follow `ki-principal` (GDR-KI-DESIGN-020): the Causeway in place of the Bridge, the Mill and the seven roles official, the Guardian and Whale song retired.
 - No horizontal scroll at 390 px (16 px gutters); the Field Guide's filter row scrolls inside its own width. Reduced motion stops the lamps and the scroll reveal. Text pairs meet 4.5:1.

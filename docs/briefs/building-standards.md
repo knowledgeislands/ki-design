@@ -40,10 +40,12 @@ Applied to the five hero structures (Capital, Library, Council Hall, Port, Light
 | Engineering Forge | Industrial vernacular | Slate roofs, stone and timber, chimneys, waterwheels |
 | Research Archipelago | Classical observatory | Pale limestone, domes, colonnades, telescopes |
 | Creative Wilderness | Organic | Thatch, living roofs, treehouses, carved wood |
-| Learning Realm | Collegiate | Cloisters, towers, courtyards, ivy |
+| Learning Realm | Collegiate | Cloisters, cloister and college towers, courtyards, ivy |
 | Enterprise Territory | Civic harbour town | Brick, clock towers, cranes, warehouses |
 | Personal Isle | Cottage | Single hearth, garden wall, a small jetty |
 | Community | Commons | Meeting hall, market square, shared gardens |
+
+**Civic towers** (GDR-KI-DESIGN-021) are architecture, never fortifications: a clock tower, which also draws the Calendar zone, and cloister or college towers. They have no battlements, arrow slits, machicolations, curtain walls or gatehouses, and they never stand on the Capital's flower. A tower is never a symbol.
 
 ## Terrain transitions
 

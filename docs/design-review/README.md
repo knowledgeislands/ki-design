@@ -27,7 +27,7 @@ The boards are built from the repository's data and decision records, so the rev
 
 `canvas.json` keeps every board's position and the canvas order; the generator sets only each generated board's title and height.
 
-A template is the board's own markup and logic with every value from data written as a marker, `@@kind:argument@@`: for example `@@token:color.role.night.warn@@`, `@@status:capital@@`, `@@json:symbols@@` or `@@open:The tailnet design@@`. The generator fails on a marker it cannot resolve, so a renamed token, a removed symbol or an answered open question breaks the build instead of leaving a stale board.
+A template is the board's own markup and logic with every value from data written as a marker, `@@kind:argument@@`: for example `@@token:color.role.night.warn@@`, `@@status:capital@@`, `@@json:symbols@@` or `@@gdr-title:018@@`. The generator fails on a marker it cannot resolve, so a renamed token, a removed symbol or an answered open question breaks the build instead of leaving a stale board.
 
 ## Regenerate and check
 
