@@ -9,13 +9,13 @@ component: observatory
 priority: medium
 size: s
 horizon: now
-status: draft
+status: awaiting-review
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: 2ada5be5ce278e3f988e1e2c5147a3831ca20cba
 transferred_from: knowledgeislands/apps-observatory.local design hand-off, 19 October 2026
 created_at: 2026-10-19T11:30:00Z
-updated_at: 2026-10-19T11:30:00Z
+updated_at: 2026-10-19T11:45:00Z
 ---
 
 # Switchboard draft overtaken
@@ -40,8 +40,8 @@ The design spec's Extend board keeps its look; ki-design does not design the ada
 
 ## Steps
 
-- [ ] Mark draft 5 as overtaken in the draft and the README.
-- [ ] Note in the design spec's §9 that the switchboard is now the inbound live-artifact adapter, with an outbound adapter beside it.
+- [x] Mark draft 5 as overtaken in the draft and the README.
+- [x] Note in the design spec's §9 that the switchboard is now the inbound live-artifact adapter, with an outbound adapter beside it.
 
 ## Files touched
 
@@ -72,6 +72,32 @@ No guide change: no contributor procedure changes.
 ### Roadmap
 
 None: no follow-on work in ki-design.
+
+## Review
+
+### Delivered
+
+Within the boundary above, from baseline `2ada5be`, in `327f8b8` (spec, boards, decisions and brief) and `b34e89f` (hand-off drafts), pushed to `main`. ki-design followed the app; nothing was decided on the Observatory's behalf.
+
+### Change Summary
+
+`-/observatory-handoff/05-extensions-switchboard.md` and `README.md` (overtaken), `OBSERVATORY-DESIGN.md` §9 (the inbound and outbound live-artifact adapters).
+
+### Verification
+
+Draft 5, the README and §9 point to the adapters. `bun run test` (package suites and the 86 generator and preview tests) passes; `bun run self:typecheck` passes; `bunx biome check .`, `bunx rumdl check .` (the `-/` hand-off files included) and `bunx knip` report no issue; `bun docs/design-review/generators/build-boards.ts --check` reports the ten generated boards match their sources; `ki repo audit --skill ki-work-roadmap` and `--skill ki-authoring` add no finding (the existing warnings are older records without `size` and the `.rumdl.toml` template drift).
+
+### Outstanding concerns
+
+None.
+
+### Post-change review
+
+The change is documentation and hand-drawn boards only: no token value, glyph drawing or package code changed, so no consumer is affected until it chooses to read the corrected spec. The boards stay within their fixed sizes.
+
+### Mini recap
+
+The design now follows the app on this point, verified by the gates above. Ready for Kit's acceptance.
 
 ## Discussion
 

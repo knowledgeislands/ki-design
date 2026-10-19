@@ -9,13 +9,13 @@ component: observatory
 priority: medium
 size: s
 horizon: now
-status: draft
+status: awaiting-review
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: 2ada5be5ce278e3f988e1e2c5147a3831ca20cba
 transferred_from: knowledgeislands/apps-observatory.local design hand-off, 19 October 2026
 created_at: 2026-10-19T11:30:00Z
-updated_at: 2026-10-19T11:30:00Z
+updated_at: 2026-10-19T11:45:00Z
 ---
 
 # Subject glyphs
@@ -40,8 +40,8 @@ ki-design does not ask `ki` for the contract here; it marks kind-typed subjects 
 
 ## Steps
 
-- [ ] Restate the subject rule in the design spec's §5 as island, machine and archipelago, with name-prefix typing marked as future work that depends on a `ki` contract.
-- [ ] Make the Beacon board draw island or machine only.
+- [x] Restate the subject rule in the design spec's §5 as island, machine and archipelago, with name-prefix typing marked as future work that depends on a `ki` contract.
+- [x] Make the Beacon board draw island or machine only.
 
 ## Files touched
 
@@ -72,6 +72,32 @@ No guide change: no contributor procedure changes.
 ### Roadmap
 
 None in ki-design. Kind-typed subjects wait on a `ki` contract stating a repository's kind; that is `ki`'s to schedule.
+
+## Review
+
+### Delivered
+
+Within the boundary above, from baseline `2ada5be`, in `327f8b8` (spec, boards, decisions and brief), pushed to `main`. ki-design followed the app; nothing was decided on the Observatory's behalf.
+
+### Change Summary
+
+`OBSERVATORY-DESIGN.md` §5 and §11 (island, machine and archipelago; kind typing as future work that depends on a `ki` contract), `ObsAttend.dc.html` (`glyphFor` draws island or machine only).
+
+### Verification
+
+No rule in the spec or the boards types a subject by its name. `bun run test` (package suites and the 86 generator and preview tests) passes; `bun run self:typecheck` passes; `bunx biome check .`, `bunx rumdl check .` (the `-/` hand-off files included) and `bunx knip` report no issue; `bun docs/design-review/generators/build-boards.ts --check` reports the ten generated boards match their sources; `ki repo audit --skill ki-work-roadmap` and `--skill ki-authoring` add no finding (the existing warnings are older records without `size` and the `.rumdl.toml` template drift).
+
+### Outstanding concerns
+
+Kind-typed subjects wait on a `ki` contract stating a repository's kind; that is `ki`'s to schedule, not ki-design's.
+
+### Post-change review
+
+The change is documentation and hand-drawn boards only: no token value, glyph drawing or package code changed, so no consumer is affected until it chooses to read the corrected spec. The boards stay within their fixed sizes.
+
+### Mini recap
+
+The design now follows the app on this point, verified by the gates above. Ready for Kit's acceptance.
 
 ## Discussion
 

@@ -9,13 +9,13 @@ component: observatory
 priority: medium
 size: s
 horizon: now
-status: draft
+status: awaiting-review
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: 2ada5be5ce278e3f988e1e2c5147a3831ca20cba
 transferred_from: knowledgeislands/apps-observatory.local design hand-off, 19 October 2026
 created_at: 2026-10-19T11:30:00Z
-updated_at: 2026-10-19T11:30:00Z
+updated_at: 2026-10-19T11:45:00Z
 ---
 
 # Git tracker overtaken
@@ -40,8 +40,8 @@ The design spec's Repositories instrument keeps its place; ki-design does not re
 
 ## Steps
 
-- [ ] Mark draft 2 as overtaken in the draft and the README.
-- [ ] Note in the design spec's §9 that the Observatory plans a Git view to replace Repositories.
+- [x] Mark draft 2 as overtaken in the draft and the README.
+- [x] Note in the design spec's §9 that the Observatory plans a Git view to replace Repositories.
 
 ## Files touched
 
@@ -72,6 +72,32 @@ No guide change: no contributor procedure changes.
 ### Roadmap
 
 None: no follow-on work in ki-design.
+
+## Review
+
+### Delivered
+
+Within the boundary above, from baseline `2ada5be`, in `327f8b8` (spec, boards, decisions and brief) and `b34e89f` (hand-off drafts), pushed to `main`. ki-design followed the app; nothing was decided on the Observatory's behalf.
+
+### Change Summary
+
+`-/observatory-handoff/02-git-tracker-parity.md` and `README.md` (overtaken), `OBSERVATORY-DESIGN.md` §9 (the planned Git view).
+
+### Verification
+
+Draft 2 and the README say overtaken and point to the Observatory's Git view work. `bun run test` (package suites and the 86 generator and preview tests) passes; `bun run self:typecheck` passes; `bunx biome check .`, `bunx rumdl check .` (the `-/` hand-off files included) and `bunx knip` report no issue; `bun docs/design-review/generators/build-boards.ts --check` reports the ten generated boards match their sources; `ki repo audit --skill ki-work-roadmap` and `--skill ki-authoring` add no finding (the existing warnings are older records without `size` and the `.rumdl.toml` template drift).
+
+### Outstanding concerns
+
+None.
+
+### Post-change review
+
+The change is documentation and hand-drawn boards only: no token value, glyph drawing or package code changed, so no consumer is affected until it chooses to read the corrected spec. The boards stay within their fixed sizes.
+
+### Mini recap
+
+The design now follows the app on this point, verified by the gates above. Ready for Kit's acceptance.
 
 ## Discussion
 

@@ -9,13 +9,13 @@ component: observatory
 priority: medium
 size: s
 horizon: now
-status: draft
+status: awaiting-review
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: 2ada5be5ce278e3f988e1e2c5147a3831ca20cba
 transferred_from: knowledgeislands/apps-observatory.local design hand-off, 19 October 2026
 created_at: 2026-10-19T11:30:00Z
-updated_at: 2026-10-19T11:30:00Z
+updated_at: 2026-10-19T11:45:00Z
 ---
 
 # Row and type scale
@@ -40,11 +40,11 @@ The app's values are copied as reference values, not made into tokens; `tokens.j
 
 ## Steps
 
-- [ ] Restate the shell bands and the row arithmetic in the design spec's §2 and §4 from the app's scale.
-- [ ] Replace the app type scale table in `docs/spec/typography.md` with the app's published sizes and leadings.
-- [ ] Restate the row and control height in `docs/spec/layout.md`.
-- [ ] Set the boards' table rows to 13/16 with 4 px padding and their instrument titles to 19/24, within each board's fixed size.
-- [ ] Regenerate the `Ds*` boards and confirm the drift check passes.
+- [x] Restate the shell bands and the row arithmetic in the design spec's §2 and §4 from the app's scale.
+- [x] Replace the app type scale table in `docs/spec/typography.md` with the app's published sizes and leadings.
+- [x] Restate the row and control height in `docs/spec/layout.md`.
+- [x] Set the boards' table rows to 13/16 with 4 px padding and their instrument titles to 19/24, within each board's fixed size.
+- [x] Regenerate the `Ds*` boards and confirm the drift check passes.
 
 ## Files touched
 
@@ -75,6 +75,32 @@ No guide change: no contributor procedure changes.
 ### Roadmap
 
 None: no follow-on work in ki-design.
+
+## Review
+
+### Delivered
+
+Within the boundary above, from baseline `2ada5be`, in `327f8b8` (spec, boards, decisions and brief), pushed to `main`. ki-design followed the app; nothing was decided on the Observatory's behalf.
+
+### Change Summary
+
+`docs/design-review/observatory/OBSERVATORY-DESIGN.md` (§2 bands from the app's scale, §4 25 px rows), `docs/spec/typography.md` (the app's published sizes and leadings), `docs/spec/layout.md` (25 px row, 22 px control), every `Obs*` board (rows at 13/16 with 4 px padding, titles 19/24), `docs/design-review/generators/templates/DsType.dc.html` and the regenerated `docs/design-review/boards/DsType.dc.html`.
+
+### Verification
+
+No 31 px, 14/20 or 20/26 app value remains in the spec, the spec files or the `Obs*` boards. `bun run test` (package suites and the 86 generator and preview tests) passes; `bun run self:typecheck` passes; `bunx biome check .`, `bunx rumdl check .` (the `-/` hand-off files included) and `bunx knip` report no issue; `bun docs/design-review/generators/build-boards.ts --check` reports the ten generated boards match their sources; `ki repo audit --skill ki-work-roadmap` and `--skill ki-authoring` add no finding (the existing warnings are older records without `size` and the `.rumdl.toml` template drift).
+
+### Outstanding concerns
+
+The shell board keeps its illustrative band heights inside its fixed 560 px frame; the spec no longer quotes fixed band heights, so no further work is owed.
+
+### Post-change review
+
+The change is documentation and hand-drawn boards only: no token value, glyph drawing or package code changed, so no consumer is affected until it chooses to read the corrected spec. The boards stay within their fixed sizes.
+
+### Mini recap
+
+The design now follows the app on this point, verified by the gates above. Ready for Kit's acceptance.
 
 ## Discussion
 

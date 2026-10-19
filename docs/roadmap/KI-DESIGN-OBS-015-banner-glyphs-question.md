@@ -19,7 +19,7 @@ blocked_by: []
 baseline_ref: null
 transferred_from: knowledgeislands/apps-observatory.local design hand-off, 19 October 2026
 created_at: 2026-10-19T11:30:00Z
-updated_at: 2026-10-19T11:30:00Z
+updated_at: 2026-10-19T11:45:00Z
 ---
 
 # Banner glyphs question
@@ -40,13 +40,13 @@ ki-design draws candidates and asks; it does not switch anything over, does not 
 
 ## Current state
 
-The question is not yet in `docs/decisions/OPEN.md`, and no candidate glyphs exist.
+The question is in `docs/decisions/OPEN.md` ("Banner glyphs") with options and a recommendation, and five candidate glyphs are drawn, marked proposed, in `docs/briefs/banner-glyph-candidates.md` and `docs/briefs/banner-glyphs/` (`992326d`); each passes `lintIcon`. The hand-off text for `ki-agentic-harness` is in `-/observatory-handoff/ANSWER-2026-10-19.md`. Nothing is switched over. The record waits on Kit's answer.
 
 ## Steps
 
-- [ ] Add the question to `docs/decisions/OPEN.md` with options and a recommendation.
-- [ ] Draw five candidate line glyphs in the house style, marked proposed, under `docs/briefs/`.
-- [ ] Write the hand-off text for `ki-agentic-harness` into the answer file.
+- [x] Add the question to `docs/decisions/OPEN.md` with options and a recommendation.
+- [x] Draw five candidate line glyphs in the house style, marked proposed, under `docs/briefs/`.
+- [x] Write the hand-off text for `ki-agentic-harness` into the answer file.
 - [ ] Once Kit answers, record the answer as a decision record and carry any change to the `ki-coordination` standard.
 
 ## Files touched
