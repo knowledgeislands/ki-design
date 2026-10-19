@@ -87,6 +87,7 @@ components = [
   "hexmap",
   "elements",
   "art",
+  "observatory",
 ]
 
 [skills.ki-work-roadmap.areas]
@@ -97,6 +98,7 @@ TIL = "Tile sets"
 MAP = "Hex map engine"
 ELE = "Web components"
 ART = "Art direction and production"
+OBS = "Observatory app design"
 
 # -----------------------------------------------------------------------------
 # Relationships

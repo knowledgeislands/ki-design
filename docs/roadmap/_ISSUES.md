@@ -1,5 +1,5 @@
 ---
-areas: { ART: 2, ELE: 1, ICO: 1, MAP: 2, SYM: 1, TIL: 2, TOK: 1 }
+areas: { ART: 2, ELE: 1, ICO: 1, MAP: 2, OBS: 15, SYM: 1, TIL: 2, TOK: 1 }
 ---
 
 # Roadmap issue ledger
@@ -10,6 +10,7 @@ This ledger reserves fixed issuing-area namespaces. Allocate the next work item 
 - `ELE` reserves through `001`.
 - `ICO` reserves through `001`.
 - `MAP` reserves through `002`.
+- `OBS` reserves through `015`.
 - `SYM` reserves through `001`.
 - `TIL` reserves through `002`.
 - `TOK` reserves through `001`.
