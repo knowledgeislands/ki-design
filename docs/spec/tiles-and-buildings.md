@@ -63,7 +63,7 @@ The twelve terrain ids are the whole terrain contract. Each has a flat fill ([co
 The sixteen structure ids are in the contract. Their status follows the symbol library. Rules the contract does not carry:
 
 - `ancient-forest` never shares a hex with another structure.
-- `airport` is a mooring mast with an airship; `bridge` draws the **Causeway**, the translation layer, as a low stone way across shallow water (the tile id stays `structure/bridge` until the contract renames it to `structure/causeway` with an alias; [GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)); `dock` sits on the coast edge; `lighthouse` stands on the coast. The Modern v0 tile is still the stone arch and is redrawn with the rename.
+- `airport` is a mooring mast with an airship; `causeway` is the **Causeway**, the translation layer: a low stone way on culvert arches joining two grounds across shallow water, so that what crosses keeps its footing on both sides. It is civic, never fortified. `structure/bridge` is its deprecated alias, as `structure/citadel` is the Capital's ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)). `dock` sits on the coast edge; `lighthouse` stands on the coast.
 - `cottage` is the generic dwelling.
 - `mill` is the Mill: a stone house with a waterwheel, the drawn form of `Admin/Operations`.
 - The Port draws its modes as districts.

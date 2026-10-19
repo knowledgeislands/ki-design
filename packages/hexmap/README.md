@@ -31,7 +31,7 @@ interface IslandMap {
 
 `validateIslandMap(value)` collects every problem (`{ ok: true, map } | { ok: false, errors }`); `assertIslandMap` throws instead.
 
-`structureAliases` maps deprecated structure ids to their replacements (`citadel` is `capital`, GDR-KI-PRINCIPAL-011) and `resolveStructure(id)` follows them; the renderer resolves before asking for a glyph or a name, so an older map that still says `citadel` draws the Capital.
+`structureAliases` maps deprecated structure ids to their replacements (`citadel` is `capital`, GDR-KI-PRINCIPAL-011; `bridge` is `causeway`, GDR-KI-DESIGN-018) and `resolveStructure(id)` follows them; the renderer resolves before asking for a glyph or a name, so an older map that still says `citadel` draws the Capital and one that says `bridge` draws the Causeway.
 
 ## Rendering
 

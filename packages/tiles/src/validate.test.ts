@@ -42,6 +42,14 @@ describe('inventory', () => {
     expect(resolveTileKey('structure/library')).toBe('structure/library')
   })
 
+  test('the Causeway is required, and bridge is only its deprecated alias (GDR-KI-DESIGN-018)', () => {
+    expect(requiredIds).toContain('structure/causeway')
+    expect(requiredIds).not.toContain('structure/bridge')
+    expect(requiredIds).toContain('connector/bridge-span')
+    expect(resolveTileKey('structure/bridge')).toBe('structure/causeway')
+    expect(resolveTileKey('connector/bridge-span')).toBe('connector/bridge-span')
+  })
+
   test('geometry is consistent', () => {
     expect<number>(tileGeometry.cell.height).toBe(tileGeometry.height + tileGeometry.plinth)
     expect<number>(tileGeometry.oddRowOffset).toBe(tileGeometry.width / 2)
@@ -112,6 +120,14 @@ describe('validateTileSet', () => {
       tiles: [...modern.tiles, ...old.tiles.filter((t) => t.id === 'citadel')]
     })
     expect(both.errors).toEqual(['structure/citadel is listed twice (as structure/capital)'])
+  })
+
+  test('a set drawn under the deprecated bridge id still covers the Causeway', () => {
+    const old = withTile(modern, 'structure/causeway', (t) => ({ ...t, id: 'bridge' }))
+    const report = validateTileSet(old)
+    expect(report.ok).toBe(true)
+    expect(report.missing).toEqual([])
+    expect(report.extras).toEqual([])
   })
 
   test('rejects non-manifests', () => {

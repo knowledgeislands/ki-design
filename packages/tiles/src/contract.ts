@@ -74,7 +74,8 @@ export const tileKey = (tile: Pick<TileEntry, 'kind' | 'id'>): TileKey => `${til
 /**
  * `capital` is the Capital's compound: the Library and the Council Hall around an open civic square on a 7-hex flower
  * (GDR-KI-PRINCIPAL-011). Its old id, `citadel`, is a deprecated alias (see `tileAliases`). The Tower is no longer
- * required: a set may still carry its drawing as an extra.
+ * required: a set may still carry its drawing as an extra. `causeway` is the translation layer, a low stone way across
+ * shallow water (GDR-KI-DESIGN-018); its old id, `bridge`, is a deprecated alias.
  */
 const structureIds = [
   'capital',
@@ -87,7 +88,7 @@ const structureIds = [
   'rail-depot',
   'airport',
   'customs-house',
-  'bridge',
+  'causeway',
   'workshop',
   'mill',
   'ruins',
@@ -111,7 +112,8 @@ export const requiredInventory: Readonly<Record<TileKind, readonly string[]>> = 
  * replacement.
  */
 export const tileAliases: Readonly<Record<string, TileKey>> = {
-  'structure/citadel': 'structure/capital'
+  'structure/citadel': 'structure/capital',
+  'structure/bridge': 'structure/causeway'
 }
 
 /** The current key for a tile key, following a deprecated alias when there is one. */

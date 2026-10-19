@@ -86,11 +86,11 @@ Also mark ART-001 (the picture of Arcadia) done, since variation 1 has been chos
 
 Done since 18 October: the painting second round (Kit kept the original), the Capital and Official/Agreed decisions, the Capital glyph and Modern Capital tile, the DESIGN.md restructure (entry point, `docs/spec/`, GDR-KI-DESIGN-003 to 017, `OPEN.md`), boards generated from data (`bun run self:boards`, drift-checked in `bun run test`), the Observatory design boards and the apply-first hand-off to the Observatory thread (`-/observatory-handoff/INSTRUCTION.md`), and the site polish pass.
 
-Done on 19 October: Kit's answers enacted as GDR-KI-DESIGN-018 to 036, with the symbols, glyph, tokens and manifest changes and regenerated boards.
+Done on 19 October: Kit's answers enacted as GDR-KI-DESIGN-018 to 036, with the symbols, glyph, tokens and manifest changes and regenerated boards. The Modern set now draws the Causeway as `structure/causeway`, with `bridge` as its alias.
 
 1. **Republish the canvas** from the regenerated boards.
 2. **Website re-sync.** The KI Website takes the `causeway` id (from `bridge`), the new statuses, `--color-tile-water` (from `--color-terrain-ocean`), the token digest of tokens 0.2.0, and adds the night toggle (GDR-KI-DESIGN-025).
-3. **Tile contract follow-ups:** rename `structure/bridge` to `structure/causeway` with an alias and redraw the Modern tile as a causeway; add the flat-twin, family, palette and `edge` fields when the Ancient set needs them.
+3. **Tile contract follow-ups:** add the flat-twin, family, palette and `edge` fields when the Ancient set needs them.
 4. **Ancient tile set** from the original painting's atmosphere, following `docs/briefs/tile-set-ancient.md` and `ancient-prompt-pack.md` (ChatGPT drops candidates in `+/art/`).
 5. **Site.** The v1 copy left out still needs Kit's words (the six principles, "Tools change. Landscapes endure."); `/docs/` heading order (h1 to h3); faint chart cartouche labels on dark; moving the Model and Philosophy inline styles into classes.
 6. **Observatory.** The build thread applies the design; fold its feedback back into `docs/design-review/observatory/`.

@@ -827,98 +827,177 @@ export function customsHouse(iso: Iso): Parts {
   return p
 }
 
-export function bridge(iso: Iso): Parts {
+/**
+ * The Causeway (tile id `causeway`; `bridge` is a deprecated alias, GDR-KI-DESIGN-018): a low stone way joining two
+ * grounds across shallow water, carried on culvert arches, so that what crosses keeps its footing on both sides. It is
+ * civic, not military: a level paved deck between low parapets, cutwaters, lamps and a waymark at each landing.
+ */
+export function causeway(iso: Iso): Parts {
   const p = parts()
-  const L = 84
-  const halfW = 12
-  const span = 38
-  const deck = (v: number) => 6 + 16 * (1 - (v / L) ** 2)
-  const archZ = (v: number) => 1 + 18 * Math.sqrt(Math.max(0, 1 - (v / span) ** 2))
-  const N = 28
-  const vs = Array.from({ length: N + 1 }, (_, i) => -L + (2 * L * i) / N)
-  const arcVs = Array.from({ length: 21 }, (_, i) => span - (2 * span * i) / 20)
-  p.body.push(shadow([iso.p(-halfW, -L), iso.p(halfW, -L), iso.p(halfW, L), iso.p(-halfW, L)], 18, 0.12))
-  // Soffit seen through the arch.
-  const near = arcVs.map((v) => iso.p(-halfW, v, archZ(v)))
-  const far = arcVs.map((v) => iso.p(halfW, v, archZ(v)))
-  p.body.push(polygon([...near, ...[...far].reverse()], { fill: mat.limestone }))
-  p.body.push(polygon([...near, ...[...far].reverse()], { fill: ink, stroke: false, fillOpacity: 0.38 }))
-  // Far parapet's inner face and the deck.
+  /** Half-length, half-length of the level deck, deck height, half-width and parapet height. */
+  const L = 90
+  const F = 46
+  const H = 12
+  const hw = 10
+  const P = 4
+  const deck = (v: number) => (Math.abs(v) <= F ? H : (H * (L - Math.abs(v))) / (L - F))
+  const N = 30
+  const vs = Array.from({ length: N + 1 }, (_, i) => L - (2 * L * i) / N)
+  const culverts = [-28, 0, 28]
+  const r = 7.5
+
+  // Shallow water across the way. It runs edge to edge where a river runs (edges 1 and 4), meets a neighbouring river
+  // at its banks and widens into shallows under the causeway, so the tile also reads on dry ground.
+  const flat = new Iso(iso.ox, iso.oy)
+  const axis: Pt = [Math.cos(-Math.PI / 3), Math.sin(-Math.PI / 3)]
+  const across: Pt = [-axis[1], axis[0]]
+  const shallows = (edge: number, middle: number): Pt[] => {
+    const one: Pt[] = []
+    const other: Pt[] = []
+    for (let i = 0; i <= 24; i++) {
+      const s = -128 + (256 * i) / 24
+      const half =
+        edge + (middle - edge) * Math.cos((Math.PI * s) / 256) ** 2 + Math.sin(i * 0.9) * Math.sin((Math.PI * i) / 24)
+      const c: Pt = [axis[0] * s, axis[1] * s]
+      one.push(flat.g(c[0] + across[0] * half, c[1] + across[1] * half))
+      other.push(flat.g(c[0] - across[0] * half, c[1] - across[1] * half))
+    }
+    return [...one, ...other.reverse()]
+  }
+  p.body.push(polygon(shallows(38, 56), { fill: terrainFill('sand'), width: 1.1 }))
+  p.body.push(polygon(shallows(34, 50), { fill: terrainFill('river'), stroke: ink, width: 0.8, strokeOpacity: 0.5 }))
+  const ripples: string[] = []
+  for (const [s, t, len] of [
+    [-92, 14, 14],
+    [-70, -22, 12],
+    [-48, 30, 10],
+    [-36, -38, 9],
+    [44, 34, 9],
+    [56, -30, 12],
+    [78, 12, 14],
+    [96, -14, 10]
+  ] as const) {
+    const a = flat.g(axis[0] * s + across[0] * t, axis[1] * s + across[1] * t)
+    const b = flat.g(axis[0] * (s + len) + across[0] * t, axis[1] * (s + len) + across[1] * t)
+    ripples.push(`M${pts([a])}L${pts([b])}`)
+  }
+  p.body.push(path(ripples.join(''), { stroke: paper, width: 1, strokeOpacity: 0.75 }))
+
+  p.body.push(shadow([iso.p(-hw, -L), iso.p(hw, -L), iso.p(hw, L), iso.p(-hw, L)], 16, 0.12))
+
+  // Far parapet's inner face, then the paved deck.
   p.body.push(
     face(
-      [...vs.map((v) => iso.p(halfW, v, deck(v))), ...[...vs].reverse().map((v) => iso.p(halfW, v, deck(v) + 6))],
+      [...vs.map((v) => iso.p(hw, v, deck(v))), ...[...vs].reverse().map((v) => iso.p(hw, v, deck(v) + P))],
       mat.limestone,
       'lit'
     )
   )
   p.body.push(
     face(
-      [...vs.map((v) => iso.p(-halfW, v, deck(v))), ...[...vs].reverse().map((v) => iso.p(halfW, v, deck(v)))],
+      [...vs.map((v) => iso.p(-hw, v, deck(v))), ...[...vs].reverse().map((v) => iso.p(hw, v, deck(v)))],
       mat.sandstone,
       'top'
     )
   )
   const setts: string[] = []
   for (const v of vs.filter((_, i) => i % 2 === 1))
-    setts.push(`M${pts([iso.p(-halfW, v, deck(v))])}L${pts([iso.p(halfW, v, deck(v))])}`)
-  p.body.push(path(setts.join(''), { width: 0.5, strokeOpacity: 0.35 }))
-  // Near elevation with the arch cut out.
-  const top = vs.map((v) => iso.p(-halfW, v, deck(v) + 6))
-  const bottom: Pt[] = [
-    iso.p(-halfW, L, 0),
-    iso.p(-halfW, span, 1),
-    ...arcVs.map((v) => iso.p(-halfW, v, archZ(v))),
-    iso.p(-halfW, -span, 1),
-    iso.p(-halfW, -L, 0)
-  ]
-  const elev = [...top, ...bottom]
+    setts.push(`M${pts([iso.p(-hw, v, deck(v))])}L${pts([iso.p(hw, v, deck(v))])}`)
+  setts.push(`M${pts(vs.map((v) => iso.p(0, v, deck(v))))}`.replace(/ /g, 'L'))
+  p.body.push(path(setts.join(''), { width: 0.5, strokeOpacity: 0.32 }))
+
+  // Near elevation: coursed limestone from the water to the parapet's coping.
+  const top = vs.map((v) => iso.p(-hw, v, deck(v) + P))
+  const elev = [...top, iso.p(-hw, -L, 0), iso.p(-hw, L, 0)]
   p.body.push(face(elev, mat.limestone, 'lit'))
-  // String course, voussoirs and the parapet coping.
   p.body.push(
-    path(`M${pts(vs.map((v) => iso.p(-halfW, v, deck(v))))}`.replace(/ /g, 'L'), { width: 0.7, strokeOpacity: 0.5 })
+    path(`M${pts(vs.map((v) => iso.p(-hw, v, deck(v))))}`.replace(/ /g, 'L'), { width: 0.7, strokeOpacity: 0.5 })
   )
-  const vous: string[] = []
-  for (let i = 1; i < 12; i++) {
-    const t = Math.PI * (i / 12)
-    const v = span * Math.cos(t)
-    const z = 1 + 18 * Math.sin(t)
-    const v2 = (span + 7) * Math.cos(t)
-    const z2 = 1 + (18 + 6) * Math.sin(t)
-    vous.push(`M${pts([iso.p(-halfW, v, z)])}L${pts([iso.p(-halfW, v2, z2)])}`)
+  p.body.push(
+    path(`M${pts(vs.map((v) => iso.p(-hw, v, deck(v) + P - 1.2)))}`.replace(/ /g, 'L'), {
+      width: 0.5,
+      strokeOpacity: 0.4
+    })
+  )
+  // Ashlar joints between the culverts.
+  const joints: string[] = []
+  for (const v of [-62, -48, -40, -16, -12, 12, 16, 40, 48, 62]) {
+    const z = Math.min(deck(v), H) * 0.5
+    if (z > 1.5) joints.push(`M${pts([iso.p(-hw, v, z)])}L${pts([iso.p(-hw, v, Math.min(deck(v), z * 2))])}`)
   }
-  p.body.push(path(vous.join(''), { width: 0.6, strokeOpacity: 0.55 }))
-  p.body.push(
-    path(
-      `M${pts(Array.from({ length: 13 }, (_, i) => Math.PI * (i / 12)).map((t) => iso.p(-halfW, (span + 7) * Math.cos(t), 1 + 24 * Math.sin(t))))}`.replace(
-        / /g,
-        'L'
-      ),
-      { width: 0.7, strokeOpacity: 0.55 }
+  joints.push(`M${pts([iso.p(-hw, -F - 14, H * 0.45)])}L${pts([iso.p(-hw, F + 14, H * 0.45)])}`)
+  p.body.push(path(joints.join(''), { width: 0.5, strokeOpacity: 0.3, dash: '6 3' }))
+
+  // Culverts: dark barrels with water at the sill and a voussoir ring.
+  for (const c of culverts) {
+    const arc = (rad: number, z0: number) =>
+      Array.from({ length: 13 }, (_, i) => Math.PI * (i / 12)).map((t) =>
+        iso.p(-hw, c + rad * Math.cos(t), z0 + rad * Math.sin(t))
+      )
+    p.body.push(polygon(arc(r, 0.5), { fill: ink, fillOpacity: 0.78, width: 0.9 }))
+    p.body.push(
+      polygon(
+        [iso.p(-hw, c - r, 0.5), iso.p(-hw, c + r, 0.5), iso.p(-hw, c + r * 0.9, 2), iso.p(-hw, c - r * 0.9, 2)],
+        {
+          fill: mat.water,
+          stroke: false,
+          fillOpacity: 0.9
+        }
+      )
     )
-  )
-  // Cutwaters.
-  for (const v of [-span - 6, span + 6]) {
+    p.body.push(path(`M${pts(arc(r + 2.6, 0.5))}`.replace(/ /g, 'L'), { width: 0.6, strokeOpacity: 0.55 }))
+    const vous: string[] = []
+    for (let i = 1; i < 8; i++) {
+      const t = Math.PI * (i / 8)
+      vous.push(
+        `M${pts([iso.p(-hw, c + r * Math.cos(t), 0.5 + r * Math.sin(t))])}L${pts([iso.p(-hw, c + (r + 2.6) * Math.cos(t), 0.5 + (r + 2.6) * Math.sin(t))])}`
+      )
+    }
+    p.body.push(path(vous.join(''), { width: 0.5, strokeOpacity: 0.5 }))
+  }
+  // Cutwaters on the near (upstream) face, between the culverts.
+  for (const v of [-14, 14]) {
     p.body.push(
       face(
-        [iso.p(-halfW, v - 6, 0), iso.p(-halfW - 8, v, 0), iso.p(-halfW - 8, v, 10), iso.p(-halfW, v - 6, 13)],
+        [iso.p(-hw, v - 5, 0), iso.p(-hw - 7, v, 0), iso.p(-hw - 7, v, 6), iso.p(-hw, v - 5, 8.5)],
         mat.limestone,
         'shade'
       )
     )
     p.body.push(
       face(
-        [iso.p(-halfW - 8, v, 0), iso.p(-halfW, v + 6, 0), iso.p(-halfW, v + 6, 13), iso.p(-halfW - 8, v, 10)],
+        [iso.p(-hw - 7, v, 0), iso.p(-hw, v + 5, 0), iso.p(-hw, v + 5, 8.5), iso.p(-hw - 7, v, 6)],
         mat.limestone,
         'lit'
       )
     )
-    p.body.push(face([iso.p(-halfW, v - 6, 13), iso.p(-halfW - 8, v, 10), iso.p(-halfW, v + 6, 13)], mat.stone, 'top'))
+    p.body.push(face([iso.p(-hw, v - 5, 8.5), iso.p(-hw - 7, v, 6), iso.p(-hw, v + 5, 8.5)], mat.stone, 'top'))
   }
-  // Lamps at the crown.
-  for (const v of [10, -10]) {
-    const base = iso.p(-halfW, v, deck(v) + 6)
-    p.body.push(seg(base, [base[0], base[1] - 12], { width: 1.1 }))
-    p.lit.push(ellipse([base[0], base[1] - 13], 2.2, 2.2, { fill: mat.brass, width: 0.8 }))
+
+  // Waymarks at both landings: a short squared stone with a brass band, one on each ground.
+  for (const v of [-L + 8, L - 8]) {
+    const m = { u: -hw - 7, v, w: 5, d: 5, h: 9 }
+    p.body.push(box(iso, { ...m, fill: mat.stone }))
+    p.body.push(
+      face(
+        [
+          iso.p(-hw - 9.5, v - 2.5, 6),
+          iso.p(-hw - 9.5, v + 2.5, 6),
+          iso.p(-hw - 9.5, v + 2.5, 7.4),
+          iso.p(-hw - 9.5, v - 2.5, 7.4)
+        ],
+        mat.brass,
+        'lit',
+        0.5
+      )
+    )
+  }
+  // Lamps where the level deck begins, one on each side of the water.
+  for (const v of [F, -F]) {
+    const base = iso.p(-hw, v, deck(v) + P)
+    p.body.push(seg(base, [base[0], base[1] - 13], { width: 1.1 }))
+    p.body.push(seg([base[0] - 2, base[1] - 13], [base[0] + 2, base[1] - 13], { width: 1 }))
+    p.lit.push(ellipse([base[0], base[1] - 15], 2.2, 2.2, { fill: mat.brass, width: 0.8 }))
   }
   return p
 }
@@ -1589,7 +1668,7 @@ export const structureDrawers: Record<string, () => Structure> = {
   'rail-depot': () => single(railDepot(at()), 4),
   airport: () => single(airport(at()), 136),
   'customs-house': () => single(customsHouse(at()), 36),
-  bridge: () => single(bridge(at()), 0),
+  causeway: () => single(causeway(at()), 4),
   workshop: () => single(workshop(at()), 52),
   mill: () => single(mill(at()), 10),
   ruins: () => single(ruins(at()), 0),

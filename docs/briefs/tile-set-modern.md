@@ -16,7 +16,7 @@ The clean, engraved tile set: crisp at any size, drawn from the tokens, and the 
 | Kind | Ids |
 | --- | --- |
 | Terrain (12) | `grassland`, `forest`, `hills`, `mountain`, `coastal`, `cliffs`, `sand`, `river`, `marsh`, `snow`, `volcanic`, `ocean` |
-| Structures (16) | `capital` (the Capital: Library + Council Hall around an open square, 7-hex flower, no tower; `citadel` is a deprecated alias), `library`, `council-hall`, `observatory`, `lighthouse`, `port`, `dock`, `rail-depot`, `airport`, `customs-house`, `bridge` (draws the Causeway, the translation layer; GDR-KI-DESIGN-018), `workshop`, `mill`, `ruins`, `ancient-forest`, `cottage` |
+| Structures (16) | `capital` (the Capital: Library + Council Hall around an open square, 7-hex flower, no tower; `citadel` is a deprecated alias), `library`, `council-hall`, `observatory`, `lighthouse`, `port`, `dock`, `rail-depot`, `airport`, `customs-house`, `causeway` (the Causeway, the translation layer: a low stone way on culverts across shallow water, never fortified; `bridge` is a deprecated alias; GDR-KI-DESIGN-018), `workshop`, `mill`, `ruins`, `ancient-forest`, `cottage` |
 | Decals (4) | `ivy`, `cracks`, `moss`, `fallen-roof` |
 | Connectors (4) | `road`, `river`, `bridge-span`, `quay` |
 

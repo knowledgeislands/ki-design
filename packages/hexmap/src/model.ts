@@ -13,9 +13,10 @@ export type { TerrainName }
 
 /**
  * Deprecated structure ids and the id that replaced each. `citadel` was the Capital's tile id until
- * GDR-KI-PRINCIPAL-011; maps that still say `citadel` render as the Capital.
+ * GDR-KI-PRINCIPAL-011, and `bridge` the Causeway's until GDR-KI-DESIGN-018; maps that still say either render as the
+ * structure that replaced it.
  */
-export const structureAliases: Readonly<Record<string, string>> = { citadel: 'capital' }
+export const structureAliases: Readonly<Record<string, string>> = { citadel: 'capital', bridge: 'causeway' }
 
 /** The current id for a structure id, following a deprecated alias when there is one. */
 export const resolveStructure = (id: string): string => structureAliases[id] ?? id

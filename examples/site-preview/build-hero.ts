@@ -146,8 +146,12 @@ export const districts: District[] = [
   { name: 'The Port', sub: 'Capture · entry & exchange', at: { q: -1, r: 3 }, dx: -170, dy: 70, anchor: 'end' }
 ]
 
-/** `citadel` is the Capital's deprecated tile id (hexmap's `structureAliases`, inlined to keep this script install-free). */
-const resolveStructure = (id: string): string => (id === 'citadel' ? 'capital' : id)
+/**
+ * Deprecated tile ids: `citadel` is the Capital and `bridge` the Causeway (hexmap's `structureAliases`, inlined to keep
+ * this script install-free).
+ */
+const structureAliases: Readonly<Record<string, string>> = { citadel: 'capital', bridge: 'causeway' }
+const resolveStructure = (id: string): string => structureAliases[id] ?? id
 
 const structureGlyph: Record<string, IconName> = {
   capital: 'capital', // the Capital's compound: the Library's dome beside the Council Hall's colonnade
@@ -159,6 +163,7 @@ const structureGlyph: Record<string, IconName> = {
   mill: 'mill',
   ruins: 'ruins',
   'ancient-forest': 'ancient-forest',
+  causeway: 'causeway',
   cottage: 'tower' // no cottage glyph yet; never drawn on the hero (see below)
 }
 

@@ -80,6 +80,19 @@ describe('Arcadia', () => {
     expect(seen).not.toContain('citadel')
   })
 
+  test('draws a map that still says bridge as the Causeway', () => {
+    const old: IslandMap = { ...arcadia, hexes: [{ q: 0, r: 0, terrain: 'river', structure: 'bridge' }] }
+    const seen: string[] = []
+    const svg = renderFlatSvg(old, {
+      glyph: (id) => {
+        seen.push(id)
+        return undefined
+      }
+    })
+    expect(svg).toContain('<title>Causeway</title>')
+    expect(seen).toEqual(['causeway'])
+  })
+
   test('is deterministic regardless of hex order', () => {
     const shuffled: IslandMap = { ...arcadia, hexes: [...arcadia.hexes].reverse() }
     expect(renderFlatSvg(shuffled)).toBe(renderFlatSvg(arcadia))

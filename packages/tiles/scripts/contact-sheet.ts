@@ -73,7 +73,7 @@ const homes: Record<string, string> = {
   'rail-depot': 'grassland',
   airport: 'grassland',
   'customs-house': 'grassland',
-  bridge: 'river',
+  causeway: 'river',
   workshop: 'grassland',
   mill: 'river',
   ruins: 'hills',

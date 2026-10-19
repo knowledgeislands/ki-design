@@ -10,11 +10,12 @@
     "format": "svg",
     "anchorNote": "`anchor` is in cell pixels (the 256 × 196 cell of the anchor hex); `art.anchor` is the same point in the canvas pixels of the SVG, whose view box extends above (and, for pair and flower footprints, beside) the cell.",
     "themeNote": "Fills are CSS custom properties with token fallbacks: --terrain-<name>, --tile-water (the ocean and coastal water, from color.tile.water), --tile-ink, --tile-paper, --tile-plinth, --tile-deep, --tile-pine, --tile-leaf, --bld-limestone, --bld-slate, --bld-timber, --bld-brick, --bld-thatch, --bld-brass, --bld-stone.",
-    "aliasesNote": "`aliases` maps deprecated tile keys to their replacements (`structure/citadel` is `structure/capital`); renderers resolve them so older maps keep working.",
+    "aliasesNote": "`aliases` maps deprecated tile keys to their replacements (`structure/citadel` is `structure/capital`, `structure/bridge` is `structure/causeway`); renderers resolve them so older maps keep working.",
     "framesNote": "v0 draws frame 0 (the still) only; animated loops are declared in `frames` and not yet drawn."
   },
   "aliases": {
-    "structure/citadel": "structure/capital"
+    "structure/citadel": "structure/capital",
+    "structure/bridge": "structure/causeway"
   },
   "conditions": {
     "note": "Every structure is drawn once (thriving). The other states are compositions of that drawing and the decals, under the same light.",
@@ -562,7 +563,7 @@
       }
     },
     {
-      "id": "bridge",
+      "id": "causeway",
       "kind": "structure",
       "footprint": "single",
       "orientation": 0,
@@ -575,12 +576,12 @@
       "scales": [1, 2],
       "status": "draft",
       "art": {
-        "path": "structures/bridge.svg",
+        "path": "structures/causeway.svg",
         "width": 256,
-        "height": 196,
+        "height": 200,
         "anchor": {
           "x": 128,
-          "y": 74
+          "y": 78
         },
         "framesDrawn": 1
       }

@@ -275,7 +275,7 @@ export function layoutFlat(map: IslandMap, options: FlatOptions = {}): FlatLayou
   const glyphSize = radius * 1.38
   const structures = hexes.flatMap(({ hex, key, centre }): LaidOutStructure[] => {
     if (!hex.structure) return []
-    // A deprecated id (`citadel`) draws and names the structure that replaced it.
+    // A deprecated id (`citadel`, `bridge`) draws and names the structure that replaced it.
     const id = resolveStructure(hex.structure)
     const glyph = options.glyph?.(id)
     const k = glyphSize / 24

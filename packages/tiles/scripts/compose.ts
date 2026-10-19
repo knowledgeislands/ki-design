@@ -36,7 +36,7 @@ export class TileSet {
     this.manifest = JSON.parse(readFileSync(join(dir, 'manifest.json'), 'utf8')) as Manifest
   }
 
-  /** The tile for `kind/id`, following a deprecated alias (`structure/citadel` is `structure/capital`). */
+  /** The tile for `kind/id`, following a deprecated alias (`structure/citadel` is `structure/capital`, `structure/bridge` is `structure/causeway`). */
   tile(kind: string, id: string): ManifestTile | undefined {
     const exact = this.manifest.tiles.find((t) => t.kind === kind && t.id === id)
     if (exact) return exact

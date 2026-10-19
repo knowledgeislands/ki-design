@@ -28,7 +28,7 @@ The open question recommended renaming the translation symbol Causeway. On 19 Oc
 
 - `@knowledgeislands/symbols` 0.2.0 carries `causeway` and the `bridge` alias; `@knowledgeislands/icons` 0.2.0 adds the `causeway` glyph.
 - `mcp-*` repositories, the translation layer in the app, are typed and drawn as the Causeway.
-- The tile id is still `structure/bridge`. Renaming it to `structure/causeway`, with `structure/bridge` as a deprecated alias in `tileAliases` as the Capital's `citadel` is, is later work for the tile contract, alongside a redrawn Modern tile.
+- The tile id is `structure/causeway`, with `structure/bridge` as a deprecated alias in `tileAliases` and hexmap's `structureAliases`, as the Capital's `citadel` is. The Modern set draws it as a low stone causeway on culverts across shallow water.
 - The KI Website renames the symbol in its Field Guide when it next syncs the symbol library.
 
 ## References
