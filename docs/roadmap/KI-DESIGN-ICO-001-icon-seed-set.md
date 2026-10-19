@@ -7,12 +7,12 @@ purpose: capability
 project: ki-design
 component: icons
 horizon: now
-status: draft
+status: ready
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T09:50:00Z
+updated_at: 2026-10-19T23:14:00Z
 ---
 
 # Icon seed set
@@ -31,24 +31,30 @@ Glyphs only; no new meanings. Steward-role glyphs wait for the roles to enter ca
 
 ## Current state
 
-v0 landed in `04b2761`: 71 glyphs in `packages/icons/svg`, a sprite and a typed name list, with SVG-contract tests. Coverage of every canon and decided symbol is not yet checked by a test.
+v0 landed in `04b2761`: 71 glyphs in `packages/icons/svg`, a sprite and a typed name list, with SVG-contract tests. Coverage of every canon and decided symbol is not yet checked by a test. Canon and decided are now Official and Agreed (GDR-KI-DESIGN-002).
+
+On 20 October 2026, six of the 46 Official or Agreed symbols in `packages/symbols` named no glyph: `territory`, `realm` (Agreed), `pillars`, and the conditions `thriving`, `quiet` and `weathered`; `ruined` draws `ruins`. Proposed `storm` has none either and stays outside this check.
+
+**Decision before delivery.** The conditions are also drawn as building states on tiles ([tiles-and-buildings.md](../spec/tiles-and-buildings.md)), so whether each needs a line glyph is the owner's call. This plan follows the recommendation in the run report: every Official or Agreed symbol gets a glyph, with no exemptions. If the owner exempts the conditions instead, the exemption list goes into the test and Step 3 draws only `realm` and `pillars`.
 
 ## Steps
 
-- [ ] Add a test that every canon or decided symbol in `packages/symbols` names an existing glyph.
-- [ ] Draw any glyph the test finds missing.
+- [ ] Add a test in `packages/symbols/src/symbols.test.ts` that every Official or Agreed symbol names an existing glyph; this is the test KI-DESIGN-SYM-001 shares.
+- [ ] Point `territory` at the existing `archipelago` glyph, since a territory is drawn as an archipelago (GDR-KI-DESIGN-015).
+- [ ] Draw `realm`, `pillars`, `thriving`, `quiet` and `weathered` to the glyph contract (24 grid, 1.5 stroke, round caps), following the icons README: draw, build (which lints), test, regenerate the contact sheet, and name each in the symbol data.
+- [ ] Run the package tests, typecheck, lint and roadmap audit.
 
 ## Files touched
 
-`packages/icons/`, `packages/symbols/src/symbols.test.ts`
+`packages/icons/` (new SVGs, the sprite, the generated name list, the contact sheet), `packages/symbols/src/symbols.ts`, `packages/symbols/src/symbols.test.ts`
 
 ## Verify
 
-Every symbol with status canon or decided in the symbol library has a glyph; tests check the SVG contract.
+Every symbol with status Official or Agreed in the symbol library names an existing glyph, by test; the icons package's SVG-contract tests and lint pass for the new glyphs; the owner reviews the drawings on the contact sheet.
 
 ## Dependencies / blocks
 
-Shares the glyph-coverage test with KI-DESIGN-SYM-001.
+Shares the glyph-coverage test with KI-DESIGN-SYM-001; deliver this item first, and SYM-001 then confirms the test. Waits on the owner's answer on condition glyphs.
 
 ## Documentation impact
 
