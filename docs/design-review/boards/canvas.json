@@ -47,7 +47,7 @@
       "y": 2440,
       "w": 1440,
       "h": 1100,
-      "title": "5 · Icons — all 73 glyphs",
+      "title": "5 · Icons — all 72 glyphs",
       "is_interactive": true
     },
     "DsTiles.dc.html": {
@@ -62,7 +62,7 @@
       "x": 0,
       "y": 3660,
       "w": 1440,
-      "h": 1900,
+      "h": 1450,
       "title": "8 · Decisions and open questions",
       "is_interactive": true
     },
@@ -83,7 +83,7 @@
     },
     "ObsShell.dc.html": {
       "x": 0,
-      "y": 5180,
+      "y": 5530,
       "w": 1440,
       "h": 1000,
       "title": "Observatory 1 · The app shell — four jobs, ten instruments",
@@ -91,7 +91,7 @@
     },
     "ObsAttend.dc.html": {
       "x": 1520,
-      "y": 5180,
+      "y": 5530,
       "w": 1440,
       "h": 1200,
       "title": "Observatory 2 · Attend — the Beacon and Waiting for you",
@@ -99,7 +99,7 @@
     },
     "ObsObserve1.dc.html": {
       "x": 3040,
-      "y": 5180,
+      "y": 5530,
       "w": 1440,
       "h": 1340,
       "title": "Observatory 3 · Observe — Known Lands, Library, Council",
@@ -107,7 +107,7 @@
     },
     "ObsObserve2.dc.html": {
       "x": 0,
-      "y": 6640,
+      "y": 6990,
       "w": 1440,
       "h": 1260,
       "title": "Observatory 4 · Observe — Streams, Workers, Repositories, Machine",
@@ -115,7 +115,7 @@
     },
     "ObsAct.dc.html": {
       "x": 1520,
-      "y": 6640,
+      "y": 6990,
       "w": 1440,
       "h": 980,
       "title": "Observatory 5 · Act — declare, confirm, receipt",
@@ -123,7 +123,7 @@
     },
     "ObsExtend.dc.html": {
       "x": 3040,
-      "y": 6640,
+      "y": 6990,
       "w": 1440,
       "h": 940,
       "title": "Observatory 6 · Extend — extensions and live artifacts",
@@ -131,7 +131,7 @@
     },
     "ObsMap.dc.html": {
       "x": 0,
-      "y": 8020,
+      "y": 8370,
       "w": 1440,
       "h": 890,
       "title": "Observatory 7 · The restructure map",
@@ -166,7 +166,7 @@
     },
     "obstitle": {
       "x": 0,
-      "y": 4880,
+      "y": 5230,
       "text": "Observatory overhaul — design",
       "kind": "title1",
       "maxW": 4480
