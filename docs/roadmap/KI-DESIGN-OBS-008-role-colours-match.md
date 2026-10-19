@@ -8,14 +8,13 @@ project: ki-design
 component: observatory
 priority: medium
 size: s
-horizon: now
-status: awaiting-review
+status: done
 blocks: []
 blocked_by: []
 baseline_ref: 2ada5be5ce278e3f988e1e2c5147a3831ca20cba
 transferred_from: knowledgeislands/apps-observatory.local design hand-off, 19 October 2026
 created_at: 2026-10-19T11:30:00Z
-updated_at: 2026-10-19T11:45:00Z
+updated_at: 2026-10-19T22:17:32Z
 ---
 
 # Role colours match
@@ -97,6 +96,10 @@ The change is documentation and hand-drawn boards only: no token value, glyph dr
 ### Mini recap
 
 The design now follows the app on this point, verified by the gates above. Ready for Kit's acceptance.
+
+## Done
+
+Accepted 2026-10-19 by Kris Brown on the review packet above. Kris said, on 19 October, "I think we should accept all the awaiting reviews."
 
 ## Discussion
 
