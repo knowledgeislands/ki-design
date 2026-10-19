@@ -23,6 +23,9 @@ Status: **ready to run, not yet run.** As with batch 1, the art is unlicensed un
 | --- | --- | --- |
 | `docs/briefs/references/ancient-tile-template-terrain.png` | 1024 × 1024, transparent | Terrain |
 | `docs/briefs/references/ancient-tile-template-structure.png` | 1024 × 1536, transparent | Single-hex structures |
+| `docs/briefs/references/arcadia-reference-small.jpg` | 1024 × 576 | The painting, small, as the style and light reference |
+
+The run attaches only these small images. A first attempt hit the generator's 100 MB request limit, because a thread re-sends every image it has seen with each request.
 
 Each template shows a square tile in 2:1 isometric projection:
 
@@ -39,14 +42,16 @@ Paste everything in the block into the ChatGPT or Codex app with the repository 
 ```text
 You are working in my local checkout of the Knowledge Islands design repository, ki-design (on my Mac at ~/workspaces/knowledge-islands/ki-design). Paint six Ancient isometric tiles on the templates, save them unaltered with notes, commit only that folder and push. Work from the repository root throughout.
 
-STEP 1: READ FIRST.
-- docs/briefs/ancient-batch-1b.md (this brief) and docs/briefs/ancient-batch-1.md (the first batch's instruction; its rules still apply except where this one changes them)
-- +/art/2026-10-19-ancient-batch-1/NOTES.md (what went wrong in batch 1)
-- +/art/2026-10-19-ancient-batch-1-hexed/NOTES.md (how the hex is cut out afterwards)
-Then look at these images:
-- docs/briefs/references/arcadia.png: THE style and light reference. Attach it to every generation.
-- docs/briefs/references/ancient-tile-template-terrain.png and docs/briefs/references/ancient-tile-template-structure.png: THE geometry. Attach the matching one to every generation.
-- +/art/2026-10-19-ancient-batch-1/terrain-grassland.png and structure-library.png: batch 1's style is right; keep it. Its light is too bright and too early in the day.
+STEP 0: KEEP THE THREAD SMALL. Run this in a new, empty thread. The request size limit is 100 MB and every image in the thread is re-sent with each request, so:
+- attach exactly two images to each generation: docs/briefs/references/arcadia-reference-small.jpg and the matching template; never the full-size arcadia.png;
+- do not open, view or attach any other image in the repository, including batch 1's tiles;
+- after saving a generated image, do not open it again to inspect it; measure it with `sips -g pixelWidth -g pixelHeight <file>` and judge it from the generation you already saw;
+- read no other brief: everything needed is in this block.
+
+STEP 1: READ FIRST. Read only +/art/2026-10-19-ancient-batch-1/NOTES.md (what went wrong in batch 1: the light was golden hour and the tiles were square, not hex; the style was right and is kept).
+The two images to attach to every generation:
+- docs/briefs/references/arcadia-reference-small.jpg: THE style and light reference, a small copy of the painting of Arcadia.
+- docs/briefs/references/ancient-tile-template-terrain.png (for terrain) or docs/briefs/references/ancient-tile-template-structure.png (for structures): THE geometry.
 
 STEP 2: THE GEOMETRY. Do not try to paint a hexagon. Paint the square isometric tile shown in the template, and keep to it exactly:
 - Same camera as the template: a straight-on 2:1 isometric view. The left and right corners of the top face sit at the same height, and the top corner is exactly above the bottom corner. No rotation, no tilt, no perspective.
@@ -87,11 +92,16 @@ STEP 8: COMMIT ONLY THAT FOLDER AND PUSH.
 - `git commit -m "docs(art): add the Ancient tile batch 1b candidates" -- "+/art/<date>-ancient-batch-1b"`
 - `git pull --rebase origin main`, then `git push origin main`. Do not open a pull request or force-push. If the push fails, leave the commit and tell me the SHA and the error.
 
-Rules for every image: keep studio, artist and game names out of every prompt and note. No creatures of any kind, no magic, no crystals, no text, lettering or numbers.
+Rules for every image: keep studio, artist and game names out of every prompt and note. No creatures of any kind, no magic, no crystals, no text, lettering or numbers. Fine outlines in a darkened local colour, never black. Buildings must read as crisp silhouettes when shrunk to 25 %.
 
 FINALLY: reply with the folder path, a table of the six files with pixel sizes and deviations, the commit SHA and whether the push succeeded.
 ```
 
 ## After the run
 
-The design thread re-projects the six through `_hexify.py`, puts them in the island test beside batch 1, and shows Kit. If the template method and the dusk light both hold, the rest of the set is repainted the same way from the [prompt pack](ancient-prompt-pack.md). Then the cut tiles are written into `packages/tiles/sets/ancient/manifest.json`, with `licence: "UNLICENSED"` until ART-002 is decided.
+The design thread re-projects the six through `_hexify.py`, puts them in the island test beside batch 1, and shows Kit.
+
+**The gate.** Kit's rule (19 October 2026): if good hex tiles can't be had this way, the painted set goes back to simpler geometry. Batch 1b decides it.
+
+- **Template method and dusk light both hold:** the rest of the set is repainted the same way from the [prompt pack](ancient-prompt-pack.md).
+- **They don't hold:** the painted Ancient style keeps its natural square isometric tile. The map, the chart and the Modern set stay hex, since they are drawn in code and cost nothing either way. The painted style then appears as square tiles or as rectangular vignettes, not on the hex map. Then the cut tiles are written into `packages/tiles/sets/ancient/manifest.json`, with `licence: "UNLICENSED"` until ART-002 is decided.
