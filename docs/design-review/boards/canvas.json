@@ -14,7 +14,7 @@
       "x": 0,
       "y": 0,
       "w": 1440,
-      "h": 1050,
+      "h": 1000,
       "title": "1 · Overview — essence, world, how to read",
       "is_interactive": true
     },
@@ -47,7 +47,7 @@
       "y": 2440,
       "w": 1440,
       "h": 1100,
-      "title": "5 · Icons — all 72 glyphs",
+      "title": "5 · Icons — all 71 glyphs",
       "is_interactive": true
     },
     "DsTiles.dc.html": {
@@ -62,7 +62,7 @@
       "x": 0,
       "y": 3660,
       "w": 1440,
-      "h": 1450,
+      "h": 1100,
       "title": "8 · Decisions and open questions",
       "is_interactive": true
     },
@@ -80,6 +80,62 @@
       "w": 1440,
       "h": 1100,
       "title": "Arcadia — the reference painting"
+    },
+    "ObsShell.dc.html": {
+      "x": 0,
+      "y": 5180,
+      "w": 1440,
+      "h": 1000,
+      "title": "Observatory 1 · The app shell — four jobs, ten instruments",
+      "is_interactive": true
+    },
+    "ObsAttend.dc.html": {
+      "x": 1520,
+      "y": 5180,
+      "w": 1440,
+      "h": 1200,
+      "title": "Observatory 2 · Attend — the Beacon and Waiting for you",
+      "is_interactive": true
+    },
+    "ObsObserve1.dc.html": {
+      "x": 3040,
+      "y": 5180,
+      "w": 1440,
+      "h": 1340,
+      "title": "Observatory 3 · Observe — Known Lands, Library, Council",
+      "is_interactive": true
+    },
+    "ObsObserve2.dc.html": {
+      "x": 0,
+      "y": 6640,
+      "w": 1440,
+      "h": 1260,
+      "title": "Observatory 4 · Observe — Streams, Workers, Repositories, Machine",
+      "is_interactive": true
+    },
+    "ObsAct.dc.html": {
+      "x": 1520,
+      "y": 6640,
+      "w": 1440,
+      "h": 980,
+      "title": "Observatory 5 · Act — declare, confirm, receipt",
+      "is_interactive": true
+    },
+    "ObsExtend.dc.html": {
+      "x": 3040,
+      "y": 6640,
+      "w": 1440,
+      "h": 940,
+      "title": "Observatory 6 · Extend — extensions and live artifacts",
+      "is_interactive": true
+    },
+    "ObsMap.dc.html": {
+      "x": 0,
+      "y": 8020,
+      "w": 1440,
+      "h": 890,
+      "title": "Observatory 7 · The restructure map",
+      "is_interactive": true
     }
   },
   "order": [
@@ -91,13 +147,27 @@
     "DsTiles.dc.html",
     "DsStructure.dc.html",
     "DsDecisions.dc.html",
-    "DsArcadia.dc.html"
+    "DsArcadia.dc.html",
+    "ObsShell.dc.html",
+    "ObsAttend.dc.html",
+    "ObsObserve1.dc.html",
+    "ObsObserve2.dc.html",
+    "ObsAct.dc.html",
+    "ObsExtend.dc.html",
+    "ObsMap.dc.html"
   ],
   "notes": {
     "dstitle": {
       "x": 0,
       "y": -300,
       "text": "Knowledge Islands design system — review",
+      "kind": "title1",
+      "maxW": 4480
+    },
+    "obstitle": {
+      "x": 0,
+      "y": 4880,
+      "text": "Observatory overhaul — design",
       "kind": "title1",
       "maxW": 4480
     }
