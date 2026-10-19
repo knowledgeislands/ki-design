@@ -6,7 +6,7 @@ The painted, dusk-lit tile set for the public hero, the Living Map, the Arcadia 
 
 ## Geometry and composition research
 
-The [hex terrain composition proposal](../spec/hex-terrain-composition.md) separates this surface style from ground heights, irregular object footprints and exposed-edge construction. It records the owner’s composition direction and the implementation choices still under review; it does not change the current tile contract. Use the [local Arcadia studies](../../+/art/2026-10-19-arcadia-hex-composition-study/NOTES.md) as extraction evidence, not as finished reusable tiles.
+The [hex terrain composition proposal](../spec/hex-terrain-composition.md) separates this surface style from ground heights, irregular object footprints and exposed-edge construction. It concerns the isometric, painted Island Map only: ground inside one island. The flat, top-down Territory Map stays as it is; see [the two map scales](../spec/maps.md#two-scales-the-territory-map-and-the-island-map). It records the owner’s composition direction and the implementation choices still under review; it does not change the current tile contract. Use the [local Arcadia studies](../../+/art/2026-10-19-arcadia-hex-composition-study/NOTES.md) as extraction evidence, not as finished reusable tiles.
 
 ## Reusable surface style guidance
 
@@ -18,7 +18,7 @@ A calm, inhabited landscape painted as a miniature world: natural greens, deep b
 
 ### Reference and lighting
 
-The selected Arcadia painting is the visual reference. Attach `references/arcadia-reference-small.jpg` for generation; it is the small copy of the selected painting, not an alternative treatment. Use a matching geometry template as a separate reference when the production method calls for one. Keep reference roles explicit: the painting supplies surface style and light; the template supplies camera, placement and footprint.
+The selected Arcadia painting is the visual reference. Attach `references/arcadia-reference-small.jpg` for generation; it is the small copy of the selected painting, not an alternative treatment. Use a matching hex geometry reference only when the production brief permits one; the lighting study attaches only the painting. Keep reference roles explicit: the painting supplies surface style and light; any permitted geometry reference supplies camera, placement and footprint.
 
 The established baseline is late, calm dusk. A low sun illuminates from the upper left, with warm light catching selected roofs, upper foliage, sun-facing slopes and stone edges. Shadows fall towards the lower right, cooled and desaturated but keeping their local colour: greener in woodland, browner on rock, blue-grey on snow, stone in distance and water. They are deep but soft enough to retain material detail. A thin haze gently compresses contrast and softens distant or recessed detail without blurring the whole tile.
 
@@ -35,9 +35,9 @@ The comparison that settles the open choice. It changes nothing in the baseline 
 - **Subjects:** `terrain/grassland`, `terrain/snow` and `structure/council-hall`. They are the most light-sensitive: grass turns to straw, snow turns peach, and limestone burns out first.
 - **Variant A, Arcadia dusk:** the per-tile prompt below, unchanged.
 - **Variant B, golden sunlight:** the same prompt with its light sentence replaced by: "late-afternoon golden sunlight, the sun higher in the upper left, a stronger warm key light on every sun-facing surface, crisper shadows towards the lower right and little haze". Everything else, including no bloom and no amber wash of the whole tile, stays.
-- **Same subject, camera and materials:** paint A on the matching template, then make B as an edit of A that changes only the light. Do not generate B from scratch, which would change the landform and the camera as well.
+- **Same subject, camera and materials:** paint directly on a seven-hex flower: one centre hex and its six neighbours, pointy-top, in straight-on 2:1 isometric projection, with a hex rock plinth beneath every exposed outer edge. Use level grassland beneath the Council Hall, with no dome. Normally make B as a lighting-only edit of A. For the 19 October study, attach only the small Arcadia painting to each generation, as the owner requested; generate B separately with the same subject and geometry wording, and record composition drift as a comparison limitation.
 - **Judging:** set each pair side by side at working size and at 25 %, and in the island test beside neighbouring tiles. Check terrain identity (grassland beside sand and hills), seams and repetition across several copies, silhouettes, and how a condition decal would read on top.
-- **Record:** both prompts verbatim, the edit instruction, and the measured share of bright warm surface for each image against the reference, in `+/art/<date>-ancient-light-study/NOTES.md`.
+- **Record:** both prompts verbatim, any edit instruction or reason for separate generation, and the measured share of bright warm surface for each image against the reference, in `+/art/<date>-lighting-study/NOTES.md`. Record measured pixel sizes, transparency, attempts and deviations; retain all six generated originals unaltered.
 
 ### Palette and materials
 
@@ -53,13 +53,13 @@ Keep the requested landform and feature count. Gentle grassland remains gentle g
 
 Use a clear hierarchy: the main landform or building first, secondary planting and paths next, fine texture last. Structures must read as crisp silhouettes at 25% scale. Edges use a darkened local colour, never pure black; exact outline sizing remains in the tile specification. Do not add decorative structures or dense vegetation that change the subject or obscure its silhouette.
 
-For a template-and-trim workflow, keep every important feature inside the retained area. Continue simple ground or water across the trim band, with no essential tree, building, shoreline turn or channel detail there. Do not paint the template's guide lines or colours.
+Paint candidates directly as hexes on connected multi-hex footprints, with complete subjects and clean outer boundaries. Square-then-crop is rejected: cutting a hex out of a square gives the wrong composition. Do not use a square intermediate or a trim band, and do not paint guide lines or template colours.
 
 ### Shape and background
 
-The surface treatment does not decide square versus hex. The canonical map contract is hexagonal; batch 1b deliberately generates square diamonds for later cutting and re-projection. A square candidate is an intermediate production image, not a change to the map contract. Follow the specific production brief and matching template; keep the prescribed straight-on 2:1 camera and consistent placement.
+Paint the hexagonal footprint directly, with the prescribed straight-on 2:1 camera and consistent placement. Single-hex requests have returned square diamonds, while multi-hex requests have returned recognisable hexes; use connected multi-hex footprints. The rejected Capital and Port attempts at `+/art/2026-10-19-ancient-batch-1/_rejected/structure-capital-attempt-1.png` and `structure-port-attempt-1.png` are textual evidence references, not style masters. For this lighting study, use a seven-hex flower rather than a single tile.
 
-The rock plinth supports the surface and shares its light and palette, but its construction is specified separately. Do not invent extra cliffs or raise the ground simply to make the tile more dramatic. The plinth faces carry rock strata only. Water, surf, shoreline and planting stop at the top edge and never wrap down the plinth; a coastal subject draws its water on the top face. Outside the tile, use genuine transparency. If a production brief permits flat grey instead, use exactly its specified grey. Haze belongs within the painted scene: it must not become a coloured halo, gradient backdrop or cast shadow outside the cutout. A generator's preview can show a glow that the saved file does not, or the reverse, so check the saved file against a saturated backdrop such as magenta and reject any fringe. Measure the saved canvas before cutting: batch 1b's terrain came back at 1254 px square against a 1024 px template.
+The rock plinth supports the surface and shares its light and palette, but its construction is specified separately. Do not invent extra cliffs or raise the ground simply to make the tile more dramatic. The plinth faces carry rock strata only. Water, surf, shoreline and planting stop at the top edge and never wrap down the plinth; a coastal subject draws its water on the top face. Outside the tile, use genuine transparency. If a production brief permits flat grey instead, use exactly its specified grey. Haze belongs within the painted scene: it must not become a coloured halo, gradient backdrop or cast shadow outside the cutout. A generator's preview can show a glow that the saved file does not, or the reverse, so where image inspection is permitted, check the saved file against a saturated backdrop such as magenta and reject any fringe. Measure the saved canvas rather than assuming the requested size; retain study originals unaltered.
 
 ### Subject constraints
 
@@ -74,7 +74,7 @@ Judge a candidate beside the Arcadia reference and neighbouring tiles at both wo
 - Light: the same upper-left source, selective warmth, cool readable shadows and restrained contrast. If in doubt, compare the share of bright warm surface and the spread of light and dark with the reference.
 - Materials: consistent greens, navy water and pale warm stone, with matte brushwork and no overall amber wash.
 - Subject: the requested landform, feature count and civic silhouette, with no invented dramatic terrain or architecture.
-- Geometry: the production template's camera, surface position, retained area and plinth depth.
+- Geometry: the active production brief's camera, connected hex footprint, surface position and plinth depth.
 - Cutout: a clean transparent exterior with no halo, guide lines or painted background.
 
 Batch 1b is evidence of failure modes, not the style master: its broad golden highlights, mountainous additions, inconsistent geometry and structural halos must not become requirements by imitation. Preserve useful material texture and readable detail while correcting those deviations. The batch notes record the individual issues.
@@ -82,8 +82,8 @@ Batch 1b is evidence of failure modes, not the style master: its broad golden hi
 ## Sequence
 
 1. Produce the picture of Arcadia first; it fixes light, palette and detail.
-2. Generate each tile against the same light, using the per-tile prompt below, at the size the active production brief sets (batch 1b: a square 1000 × 500 diamond on its template). The 512 × 296 hex top face at 2× is the size after cutting, not a generation instruction.
-3. Normalise to the geometry in the [building standards](building-standards.md): cut to the hex template, remove the background, repaint plinths as hex, record anchor and footprint.
+2. Generate each candidate directly on its connected hex footprint against the same light, using the per-tile prompt below and the active production brief's size and camera.
+3. Check the directly painted geometry against the [building standards](building-standards.md); record the anchor and footprint. Retain original candidates unaltered and record any separately approved production normalisation.
 4. Paint condition decals (ivy, cracks, moss, fallen roof) as separate overlays under the same light.
 5. Animate only what the [animation standard](animation-standard.md) lists, as sprite sheets.
 6. Pack into atlases; write `packages/tiles/sets/ancient/manifest.json`.
@@ -101,14 +101,14 @@ The same contract as the Modern set, id for id:
 
 ## Per-tile prompt template
 
-Attach the small Arcadia painting as the style reference and, where applicable, exactly the matching production template as the geometry reference. Replace the fields below from the inventory, architectural families and active production brief. Describe the required shape explicitly in `<GEOMETRY>`; this template does not itself choose square or hex.
+Attach the small Arcadia painting as the style reference and, only where the active production brief permits it, a matching hex geometry reference. The lighting study attaches only the painting. Replace the fields below from the inventory, architectural families and active production brief. Describe the directly painted connected hex footprint explicitly in `<GEOMETRY>`.
 
 ```text
 A single painted Ancient tile for the Knowledge Islands Realm. Match the attached Arcadia painting for surface style, palette and light: late calm dusk, a low sun from the upper left, selective warm highlights on sun-facing tops and edges, cool soft blue-grey shadows towards the lower right, and thin haze that gently lowers contrast. Deep navy water, forest and moss greens, pale warm limestone and sandstone, muted roofs and restrained brass, within the applicable island palette. Matte tactile brushwork, grouped readable forms, fine selective detail and outlines in darkened local colours, never pure black. Small warm window or landing lights only where appropriate; no bloom, broad amber wash or blazing reflections.
 
 Subject: <SUBJECT>. Architectural family and materials: <FAMILY AND MATERIALS, OR NOT APPLICABLE>. Condition and frame: <STATE AND FRAME>. Keep the specified landform and feature count; do not add dramatic hills, cliffs, buildings or planting. Preserve a crisp subject silhouette at 25% scale.
 
-Geometry and placement: <GEOMETRY FROM THE ACTIVE PRODUCTION BRIEF>. Where attached, the geometry template controls the camera, top surface, placement, retained area and plinth; the painting controls appearance only. Keep essential features inside the retained area and the trim band plain. Never paint guide lines or template colours. The plinth shares the surface light without adding height or landforms. Genuine transparent exterior, with no halo, gradient or cast shadow outside the tile.
+Geometry and placement: <DIRECTLY PAINTED HEX GEOMETRY FROM THE ACTIVE PRODUCTION BRIEF>. Where permitted and attached, the hex geometry reference controls the camera, top surface, placement and plinth; the painting controls appearance only. Paint the complete connected hex footprint directly, with no square intermediate, cropping or trim band. Never paint guide lines or template colours. The plinth shares the surface light without adding height or landforms. Genuine transparent exterior, with no halo, gradient or cast shadow outside the tile.
 
 No text, lettering, numbers, logos, close-up people, creatures, animals, crystals, magic glow, weapons or fortifications.
 ```
