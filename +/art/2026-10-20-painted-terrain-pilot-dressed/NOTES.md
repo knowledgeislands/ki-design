@@ -1,0 +1,45 @@
+# Painted terrain pilot, dressed — 20 October 2026
+
+This is an experimental review of the Island Map, not a production tile set. It extends the [first painted pilot](../2026-10-20-painted-terrain-pilot/NOTES.md), which stays unchanged, with the [dressing candidates](../2026-10-20-pilot-dressing/NOTES.md). Kit judged the first pilot "pretty boring as flat untextured grass". This version tests the fix: richer ground and upright props, with every hex still independent. No package, contract, manifest, renderer or Territory Map was changed.
+
+Open `dressed-terrain-pilot.html` in a browser. It is self-contained, with every image embedded.
+
+## What changed from the first pilot
+
+- **Four real ground variants.** Each hex's boundary collar is the same base turf, the interior of the stony-turf material, so any two hexes join without a seam. Its interior is its own material: meadow, stony turf, worn ground or lush turf with hollows. Only the inner 76 % of each material is used, because each was painted inside a plain square frame. In the first pilot the four variants were offsets of one swatch.
+- **Dressing.** 24 props cut from the props sheet: shrubs, cypresses, olive trees, rock outcrops, wildflowers, tall grass and a stump. Each ground variant carries its own planting: flowers and grass on meadow, rocks and shrubs on stony turf, a stump and grass on worn ground, olives and cypresses on lush turf. Props gather around a first anchor prop, as planting does.
+- **Placement rules.**
+  - Props are placed from a generator seeded by the hex's address, its variant and the scene seed. A hex therefore always carries the same dressing, whatever its neighbours.
+  - Each prop stays inside its hex, clear of the boundary.
+  - Each prop stands on the sloped ground: its height comes from `groundAt`, the mean-centre fan.
+  - Props are never warped.
+- **Draw order.** Row by row: every top surface and visible face in the row, then that row's props from back to front, then the Hall after row 1. A prop's crown may rise over the row behind; its base never crosses into the row in front.
+- **The Hall's pad.** The centre hex stays clear. The six surrounding pad hexes plant only outside an ellipse around the building, which gives cypresses beside the Hall and an open forecourt.
+- **Controls.** A new **Dressing** switch. **Rearrange ground and props** changes the variants and the seed together.
+
+## Inputs and transformations
+
+All inputs are read, never altered.
+
+- `../2026-10-20-pilot-dressing/props-sheet.png`.
+  - The 24 props are found as separate alpha regions, after a small dilation that keeps each rock cluster whole.
+  - They are matched to the sheet's recorded row order.
+  - The generator's alpha, which peaks at 254, is firmed: below 24 becomes 0, then a linear stretch.
+  - Each prop is trimmed and scaled by kind. In world pixels per sheet pixel: shrub 0.30, cypress 0.36, olive 0.42, rock 0.34, flowers 0.27, tall grass 0.25, stump 0.25. The hex top face is 256 world pixels wide. Props are authored at twice that size for sharp display.
+- `../2026-10-20-pilot-dressing/grass-*.png`: the inner 76 % of each, resized to 512 × 512.
+- `../2026-10-20-painted-terrain-pilot/originals/hall.png` and `stone.png`: the first pilot's Hall and rock, processed as there.
+
+`build.py` rebuilds the bundle and the page with Python, Pillow and Bun. `bun test ./+/art/2026-10-20-painted-terrain-pilot-dressed/terrain.test.js` runs 12 tests. They cover the first pilot's geometry checks, plus two new ones: ground height at the fan's corners, centre and edges; and deterministic dressing that stays inside the hex on sloped cells. Browser review covered the slopes, flat and crossing-profile scenes, the Hall on and off, and rearranging, with no runtime errors.
+
+## Review
+
+- **Better:** the island now reads as a place. There is grouped planting, there are rock outcrops and groves, and the props are in the Council Hall A finish. Joins stay seamless, and rearranging still moves nothing but variants and props.
+- **Ground:** the four interiors differ, but subtly. All are golden and lighter than Council Hall A's own grass. The worn bare patch is the clearest; the others read as one lawn from a distance.
+- **Props:** clean silhouettes. They work best grouped; singles look scattered. Only 24 sprites means repeats are visible across 19 hexes.
+- **Still missing:** paths, low walls or hedges, water, a river, a waterfall, snow, and other materials. East and west steps still read as a texture offset. The rock faces still read partly as masonry.
+
+## What would improve it next
+
+1. Ground interiors without a square frame, deeper and less yellow, with stronger differences visible at map scale.
+2. A second props sheet, for variety and larger groups: hedgerow segments, a field wall, more olive and cypress poses, reeds and a small pond.
+3. A rock-face material that reads as natural stratified rock, not masonry.
