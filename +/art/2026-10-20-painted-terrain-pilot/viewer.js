@@ -47,7 +47,7 @@ function periodicSwatch(image) {
   return {pixels:out,size}
 }
 function makeTiles(image) {
-  const {pixels,size}=periodicSwatch(image),dpr=2,w=W*dpr,h=H*dpr
+  const {pixels,size}=periodicSwatch(image),dpr=2,padding=2,w=W*dpr+padding*2,h=H*dpr+padding*2
   const sample=(u,v,k)=>{
     const xx=u*(size-1),yy=v*(size-1),x=Math.floor(xx),y=Math.floor(yy)
     const x1=Math.min(size-1,x+1),y1=Math.min(size-1,y+1)
@@ -57,7 +57,7 @@ function makeTiles(image) {
   for(let variant=0;variant<4;variant++){
     const c=createCanvas(w,h),cc=c.getContext('2d'),raw=cc.createImageData(w,h)
     for(let y=0;y<h;y++)for(let x=0;x<w;x++){
-      const px=(x+.5)/dpr-W/2,py=(y+.5)/dpr-H/2
+      const px=(x-padding+.5)/dpr-W/2,py=(y-padding+.5)/dpr-H/2
       const [u,v]=uv(px,py),distance=boundaryDistance(px,py)
       const interior=Math.min(1,Math.max(0,(distance-10)/30))
       const blend=interior*interior*(3-2*interior)*.72
@@ -93,14 +93,14 @@ function slopeShade(cell,i,dest) {
 }
 function drawTop(cell) {
   const image=tiles[cell.variant]
-  const source=[W,H]
+  const source=[W+2,H+2]
   const centerSource=source
   const destCenter=centre(cell)
   for(let i=0;i<6;i++){
     const j=(i+1)%6
     const src=[centerSource,
-      [W+W*offsets[i][0],H+H*offsets[i][1]/2],
-      [W+W*offsets[j][0],H+H*offsets[j][1]/2]]
+      [W+2+W*offsets[i][0],H+2+H*offsets[i][1]/2],
+      [W+2+W*offsets[j][0],H+2+H*offsets[j][1]/2]]
     const dest=[destCenter,corner(cell,i),corner(cell,j)]
     warp(image,src,dest);slopeShade(cell,i,dest)
   }
