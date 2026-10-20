@@ -53,6 +53,8 @@ Keep the requested landform and feature count. Gentle grassland remains gentle g
 
 Use a clear hierarchy: the main landform or building first, secondary planting and paths next, fine texture last. Structures must read as crisp silhouettes at 25% scale. Edges use a darkened local colour, never pure black; exact outline sizing remains in the tile specification. Do not add decorative structures or dense vegetation that change the subject or obscure its silhouette.
 
+For independently composable ground hexes, the edge treatment above applies to actual subject silhouettes, not the addressable cell boundary. Do not artificially highlight, outline, bevel, groove or shadow an ordinary shared hex edge. Each hex remains independent, with compatible material treatment and lighting so that neighbours sit naturally together; do not substitute a single painted scene across the map. Real height discontinuities can expose their actual faces. When hexes need to be visible, project a separate grid overlay onto the current terrain surface and heights rather than baking a grid into the art.
+
 Paint candidates directly as hexes on connected multi-hex footprints, with complete subjects and clean outer boundaries. Square-then-crop is rejected: cutting a hex out of a square gives the wrong composition. Do not use a square intermediate or a trim band, and do not paint guide lines or template colours.
 
 ### Shape and background

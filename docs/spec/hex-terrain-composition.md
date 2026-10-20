@@ -120,6 +120,8 @@ A compound stores a stable id, anchor cell, occupied axial offsets and artwork p
 
 One continuous artwork can cover the compound, or separate ground, structures and details can be assembled there. Occupancy, visual overhang, ground contact and interaction bounds are distinct. A canopy extending beyond its trunk's contact patch does not automatically make every overhung cell impassable. Their exact occupancy policy must be explicit before implementation; existing overhang limits still apply to current production art.
 
+For ground materials, the owner clarified on 20 October 2026 that each hex remains independent and must compose with compatible neighbours, without artificial highlighting of its edges. This is not a request for a scene-wide seamless painting. The display grid is a separate overlay projected onto the viewed terrain and its heights; it is not painted into the cells. Continuous upright compound artwork remains distinct from the independent ground underneath it.
+
 Draw a compound in the pass of its front-most row. For the pilot, that requires the cells just in front of its members, within its rows, to be neither raised above its base nor occupied; the [draw order](hex-terrain-mathematics.md#draw-order) states the rule, and per-row slicing of compound art is the general alternative. Footprints with holes are rejected in the pilot.
 
 Place and move the compound as one object while testing occupancy and connections for every member cell. Handle external boundary edges individually. A shared placement elevation may raise the whole compound; member surfaces still normalise their local corner heights. A common building foundation spanning several cells must not be independently warped by each member cell.
@@ -188,6 +190,8 @@ Its output is one review board. It proves the geometry, the visibility rules and
 ### Later stages
 
 Pilot 1 warps flat-painted Ancient materials onto the same fixture and judges whether the painting survives the slopes; that is the result that decides whether this model suits the painted style. Pilot 2 adds an Arcadia-derived patch beside new material. Chunking, depth-aware picking on raised terrain, continuous heights, layered occupancy and compound rotation stay out of the pilots until a need appears.
+
+An owner-requested [standalone painted review pilot](../../+/art/2026-10-20-painted-terrain-pilot/NOTES.md) now explores a bounded subset: independent grass cells, equal joins, sloping fans, front steps, crossing edge profiles, an upright Hall on a seven-cell level pad and a projected grid toggle. It does not implement the package-level Pilot 0, complete the seven acceptance checks below or approve a production migration. Its source, preserved art, exact prompts, checks and limitations are kept with the review.
 
 Before changing a production schema, demonstrate all of the following with hex-only examples:
 

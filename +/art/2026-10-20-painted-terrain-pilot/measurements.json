@@ -1,0 +1,32 @@
+{
+  "grass.png": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "sha256": "56b522d30b3c25fadaa514408132203441836546b05064001184ee14c4fcccd9"
+  },
+  "hall.png": {
+    "width": 1774,
+    "height": 887,
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "4ea39604bd603ec4b157b0e78a4b027aba7d47b83ae72ba730f8eb58ee06570b"
+  },
+  "stone.png": {
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGB",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "sha256": "c0992bb37c2f12f4465be5fa6e41552bf8285b199e73b8ad14e1603930870463"
+  }
+}
