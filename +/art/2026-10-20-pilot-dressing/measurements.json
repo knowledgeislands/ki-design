@@ -1,0 +1,194 @@
+{
+  "images": [
+    {
+      "file": "grass-lush-hollows.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "nonopaque_pixels": 0,
+      "sha256": "1a209f57c2ca3d4ea78859e676c6307e3be345ec08a82c2e1fb8141bfbd4123c",
+      "outer_tenth": {
+        "band_width_x": 126,
+        "band_width_y": 126,
+        "mean_rgb": [
+          118.601,
+          123.121,
+          53.552
+        ],
+        "std_rgb": [
+          16.501,
+          10.219,
+          5.195
+        ],
+        "min_rgb": [
+          50,
+          69,
+          16
+        ],
+        "max_rgb": [
+          255,
+          233,
+          124
+        ]
+      }
+    },
+    {
+      "file": "grass-meadow.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "nonopaque_pixels": 0,
+      "sha256": "c474a0c87dcde14bfc8ba628641bcc2847fa2382e026e1fdaf0a0bdd64659060",
+      "outer_tenth": {
+        "band_width_x": 126,
+        "band_width_y": 126,
+        "mean_rgb": [
+          124.363,
+          123.85,
+          54.033
+        ],
+        "std_rgb": [
+          18.249,
+          11.185,
+          6.345
+        ],
+        "min_rgb": [
+          34,
+          53,
+          2
+        ],
+        "max_rgb": [
+          255,
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "file": "grass-stony-turf.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "nonopaque_pixels": 0,
+      "sha256": "36641f4da4434ce803c43ad442984f25a5599579a7e43f6187ed3b8b0ae3aede",
+      "outer_tenth": {
+        "band_width_x": 126,
+        "band_width_y": 126,
+        "mean_rgb": [
+          114.977,
+          116.601,
+          56.322
+        ],
+        "std_rgb": [
+          15.666,
+          9.404,
+          5.644
+        ],
+        "min_rgb": [
+          57,
+          64,
+          25
+        ],
+        "max_rgb": [
+          255,
+          244,
+          193
+        ]
+      }
+    },
+    {
+      "file": "grass-worn.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "nonopaque_pixels": 0,
+      "sha256": "53525bbd8326440a73a9e32328fea792b122c70a743126615df055b3442faa49",
+      "outer_tenth": {
+        "band_width_x": 126,
+        "band_width_y": 126,
+        "mean_rgb": [
+          116.921,
+          121.788,
+          52.276
+        ],
+        "std_rgb": [
+          12.635,
+          9.413,
+          4.843
+        ],
+        "min_rgb": [
+          60,
+          69,
+          26
+        ],
+        "max_rgb": [
+          255,
+          252,
+          170
+        ]
+      }
+    },
+    {
+      "file": "props-sheet.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "transparent_pixels": 825749,
+      "nonopaque_pixels": 1572864,
+      "sha256": "fadecdb9df242f74a2e587ac288d647419afd5e875b983a71ef2bb82265651b4"
+    }
+  ],
+  "border_comparisons": [
+    {
+      "a": "grass-lush-hollows.png",
+      "b": "grass-meadow.png",
+      "outer_tenth_pixel_equal": false,
+      "outer_tenth_mean_absolute_rgb_difference": 8.989
+    },
+    {
+      "a": "grass-lush-hollows.png",
+      "b": "grass-stony-turf.png",
+      "outer_tenth_pixel_equal": false,
+      "outer_tenth_mean_absolute_rgb_difference": 9.337
+    },
+    {
+      "a": "grass-lush-hollows.png",
+      "b": "grass-worn.png",
+      "outer_tenth_pixel_equal": false,
+      "outer_tenth_mean_absolute_rgb_difference": 8.899
+    },
+    {
+      "a": "grass-meadow.png",
+      "b": "grass-stony-turf.png",
+      "outer_tenth_pixel_equal": false,
+      "outer_tenth_mean_absolute_rgb_difference": 10.705
+    },
+    {
+      "a": "grass-meadow.png",
+      "b": "grass-worn.png",
+      "outer_tenth_pixel_equal": false,
+      "outer_tenth_mean_absolute_rgb_difference": 10.138
+    },
+    {
+      "a": "grass-stony-turf.png",
+      "b": "grass-worn.png",
+      "outer_tenth_pixel_equal": false,
+      "outer_tenth_mean_absolute_rgb_difference": 9.594
+    }
+  ],
+  "method": "Pillow decoded RGBA; alpha measured on full original. Outer tenth union uses ceil(10% of each dimension); RGB comparisons at matching pixel coordinates. No images changed or rendered."
+}
