@@ -6,13 +6,14 @@ kind: deliver
 purpose: capability
 project: ki-design
 component: art
+size: s
 horizon: now
 status: draft
-blocks: []
+blocks: [KI-DESIGN-TIL-002]
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T09:50:00Z
+updated_at: 2026-10-20T22:22:00Z
 ---
 
 # Art-licensing decision
@@ -48,7 +49,7 @@ A decision record exists, and the README's licence section and the briefs follow
 
 ## Dependencies / blocks
 
-None. Should land before KI-DESIGN-ART-001 chooses the reference picture.
+Depends on nothing. Blocks KI-DESIGN-TIL-002, the Ancient tile set, which is held until this record lands. [KI-DESIGN-ART-001](https://github.com/knowledgeislands/ki-design/blob/b7d3467c1613a0ebfec2fa6735d9b690e35225aa/docs/roadmap/KI-DESIGN-ART-001-picture-of-arcadia.md), the picture of Arcadia, is done.
 
 ## Documentation impact
 
@@ -66,7 +67,7 @@ No guide change: the developer guide already covers running the checks and previ
 
 ### Roadmap
 
-Unblocks KI-DESIGN-ART-001 and KI-DESIGN-TIL-002.
+Unblocks KI-DESIGN-TIL-002.
 
 ## Discussion
 

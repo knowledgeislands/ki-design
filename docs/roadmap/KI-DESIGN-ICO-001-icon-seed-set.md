@@ -6,13 +6,14 @@ kind: deliver
 purpose: capability
 project: ki-design
 component: icons
+size: s
 horizon: now
 status: awaiting-review
 blocks: []
 blocked_by: []
 baseline_ref: f41cbc5621f6c260b965c877d4126edf37b3147b
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-19T23:37:57Z
+updated_at: 2026-10-20T22:22:00Z
 ---
 
 # Icon seed set

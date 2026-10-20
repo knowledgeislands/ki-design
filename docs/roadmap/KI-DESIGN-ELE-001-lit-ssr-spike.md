@@ -6,13 +6,14 @@ kind: deliver
 purpose: capability
 project: ki-design
 component: elements
+size: m
 horizon: now
 status: draft
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-18T09:50:00Z
+updated_at: 2026-10-20T22:22:00Z
 ---
 
 # Lit SSR spike

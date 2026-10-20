@@ -6,13 +6,17 @@ kind: deliver
 purpose: capability
 project: ki-design
 component: tiles
-horizon: next
+size: xl
+horizon: hold
+hold:
+  reason: waiting-for
+  condition: the art-licensing Decision Record (KI-DESIGN-ART-002) lands
 status: draft
 blocks: []
-blocked_by: []
+blocked_by: [KI-DESIGN-ART-002]
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-19T18:00:00Z
+updated_at: 2026-10-20T22:22:00Z
 ---
 
 # Ancient tile set
@@ -27,7 +31,7 @@ Kit's mood boards set the bar: painted, lamp-lit, buildings readable as silhouet
 
 ## Boundary
 
-Waits on ART-001 (the picture of Arcadia) and ART-002 (licensing).
+Waits on ART-002 (licensing) alone.
 
 ## Current state
 
@@ -53,7 +57,7 @@ The set passes the contract and sits seamlessly on the Arcadia map.
 
 ## Dependencies / blocks
 
-Waits on the picture of Arcadia (KI-DESIGN-ART-001) and the art-licensing decision (KI-DESIGN-ART-002).
+Blocked by the art-licensing decision (KI-DESIGN-ART-002) only, and held until it lands. The picture of Arcadia ([KI-DESIGN-ART-001](https://github.com/knowledgeislands/ki-design/blob/b7d3467c1613a0ebfec2fa6735d9b690e35225aa/docs/roadmap/KI-DESIGN-ART-001-picture-of-arcadia.md)) is done. Replanned on 20 October 2026 (DESIGN-DISPOSITIONS a). At `xl` the record is to be split before it becomes Ready.
 
 ## Documentation impact
 
