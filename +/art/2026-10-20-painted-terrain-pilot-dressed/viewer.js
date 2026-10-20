@@ -29,6 +29,7 @@ const createCanvas=(w,h)=>{
   const c=document.createElement('canvas');c.width=w;c.height=h;return c
 }
 const mix=(a,b,t)=>a*(1-t)+b*t
+const BASE_VARIANT=3  // lush dark turf leads; the others appear as patches within it
 function periodicSwatch(image) {
   const size=256, c=createCanvas(size,size),cctx=c.getContext('2d')
   cctx.drawImage(image,0,0,size,size)
@@ -46,6 +47,30 @@ function periodicSwatch(image) {
   cctx.putImageData(raw,0,0)
   return {pixels:out,size}
 }
+// Light-catching relief from a swatch's own brushwork: the luminance gradient towards the
+// upper-left light, at a fine scale (clumps) and a broad one (undulation). Computed with
+// wrap-around in swatch space, so it is periodic like the colour and joins between cells.
+function reliefMaps({pixels,size}) {
+  const L=new Float32Array(size*size)
+  for(let i=0;i<size*size;i++)L[i]=(.2126*pixels[i*4]+.7152*pixels[i*4+1]+.0722*pixels[i*4+2])/255
+  const at=(a,x,y)=>a[((y+size)%size)*size+((x+size)%size)]
+  const blur=(a,r)=>{
+    const t=new Float32Array(size*size),o=new Float32Array(size*size)
+    for(let y=0;y<size;y++)for(let x=0;x<size;x++){let s=0;for(let k=-r;k<=r;k++)s+=at(a,x+k,y);t[y*size+x]=s/(2*r+1)}
+    for(let y=0;y<size;y++)for(let x=0;x<size;x++){let s=0;for(let k=-r;k<=r;k++)s+=at(t,x,y+k);o[y*size+x]=s/(2*r+1)}
+    return o
+  }
+  const grad=(a,d)=>{
+    const g=new Float32Array(size*size)
+    for(let y=0;y<size;y++)for(let x=0;x<size;x++)g[y*size+x]=at(a,x-d,y-d)-at(a,x+d,y+d)
+    return g
+  }
+  const fine=grad(blur(L,1),2),broad=grad(blur(L,10),12)
+  // A broad, soft patch field for placing a variant's material within the dominant turf.
+  const field=blur(L,18);let lo=1,hi=0;for(const v of field){lo=Math.min(lo,v);hi=Math.max(hi,v)}
+  for(let i=0;i<field.length;i++)field[i]=(field[i]-lo)/Math.max(1e-6,hi-lo)
+  return {fine,broad,field,size}
+}
 function makeTiles(base,variants) {
   const dpr=2,padding=2,w=W*dpr+padding*2,h=H*dpr+padding*2
   const swatches=[periodicSwatch(base),...variants.map(periodicSwatch)]
@@ -56,8 +81,18 @@ function makeTiles(base,variants) {
     return mix(mix(value(x,y),value(x1,y),xx-x),mix(value(x,y1),value(x1,y1),xx-x),yy-y)
   }
   const sample=sampler(swatches[0])
+  const relief=swatches.map(reliefMaps)
+  const scalar=({size},map)=>(u,v)=>{
+    const xx=u*(size-1),yy=v*(size-1),x=Math.floor(xx),y=Math.floor(yy)
+    const x1=Math.min(size-1,x+1),y1=Math.min(size-1,y+1),val=(px,py)=>map[py*size+px]
+    return mix(mix(val(x,y),val(x1,y),xx-x),mix(val(x,y1),val(x1,y1),xx-x),yy-y)
+  }
+  const baseFine=scalar(relief[0],relief[0].fine),baseBroad=scalar(relief[0],relief[0].broad)
   for(let variant=0;variant<variants.length;variant++){
-    const inner=sampler(swatches[variant+1])
+    const inner=sampler(swatches[variant+1]),r=relief[variant+1]
+    const innerFine=scalar(r,r.fine),innerBroad=scalar(r,r.broad),patch=scalar(r,r.field)
+    // The dominant turf is the base itself; other materials appear as broad patches within it.
+    const own=variant===BASE_VARIANT
     const c=createCanvas(w,h),cc=c.getContext('2d'),raw=cc.createImageData(w,h)
     for(let y=0;y<h;y++)for(let x=0;x<w;x++){
       const px=(x-padding+.5)/dpr-W/2,py=(y-padding+.5)/dpr-H/2
@@ -68,8 +103,13 @@ function makeTiles(base,variants) {
       const interior=Math.min(1,Math.max(0,(distance-6-Math.max(0,n)*34)/26))
       // Every cell's boundary collar is the shared base turf, so any two cells join;
       // the interior is the variant's own material.
-      const blend=interior*interior*(3-2*interior)
-      for(let k=0;k<3;k++)raw.data[(y*w+x)*4+k]=mix(sample(u,v,k),inner(u,v,k),blend)
+      const ou=((u+variant*.37)%1+1)%1,ov=((v+variant*.23)%1+1)%1
+      const p=own?0:Math.min(1,Math.max(0,(patch(ou,ov)-.38)/.24))
+      const edge=interior*interior*(3-2*interior),blend=edge*p*p*(3-2*p)
+      const fine=mix(baseFine(u,v),innerFine(u,v),blend),broad=mix(baseBroad(u,v),innerBroad(u,v),blend)
+      // Upper-left light on the brushwork: lift the sunward side of each clump and swell.
+      const shade=Math.max(.64,Math.min(1.4,1+fine*2.6+broad*2.2))
+      for(let k=0;k<3;k++)raw.data[(y*w+x)*4+k]=mix(sample(u,v,k),inner(u,v,k),blend)*shade
       raw.data[(y*w+x)*4+3]=255
     }
     cc.putImageData(raw,0,0);tiles.push(c)
@@ -122,7 +162,27 @@ function drawFace(cell,face) {
   const ox=wrap(cell.q*37+cell.r*91+face.edge*53)/100*(image.width-sw),oy=wrap(cell.q*13+cell.r*29)/100*(image.height-sh)
   warp(image,[[ox,oy],[ox+sw,oy],[ox+sw,oy+sh]],[p[0],p[1],p[2]])
   warp(image,[[ox,oy],[ox+sw,oy+sh],[ox,oy+sh]],[p[0],p[2],p[3]])
-  ctx.save();path(p);ctx.clip();ctx.fillStyle=face.edge===2?'rgba(25,37,48,.34)':'rgba(30,36,40,.08)';ctx.fill();ctx.restore()
+  ctx.save();path(p);ctx.clip()
+  ctx.fillStyle=face.edge===2?'rgba(22,32,44,.46)':'rgba(40,36,30,.14)';ctx.fill()
+  // Shadow just under the turf: the overhang shades the top of every face.
+  const top=Math.min(p[0][1],p[1][1]),g=ctx.createLinearGradient(0,top,0,top+16)
+  g.addColorStop(0,'rgba(12,18,16,.55)');g.addColorStop(1,'rgba(12,18,16,0)')
+  ctx.fillStyle=g;ctx.fill();ctx.restore()
+  turfLip(cell,p)
+}
+// A ragged fringe of the cell's own turf hanging over an exposed edge.
+function turfLip(cell,p) {
+  const [a,b]=[p[0],p[1]],length=Math.hypot(b[0]-a[0],b[1]-a[1])
+  let s=(cell.q*928371+cell.r*12345+Math.round(a[0]))>>>0
+  const rnd=()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296}
+  // Irregular tufts: uneven spacing and depth, mostly shallow with the odd longer hang.
+  ctx.save();ctx.beginPath();ctx.moveTo(a[0],a[1]-1.5)
+  for(let d=0;d<length;d+=1.2+rnd()*2.8){
+    const t=d/length,hang=rnd()<.15?2.5+rnd()*3:.6+rnd()*1.8
+    ctx.lineTo(a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t+hang)
+  }
+  ctx.lineTo(b[0],b[1]+.8);ctx.lineTo(b[0],b[1]-1.5);ctx.closePath()
+  ctx.fillStyle=ctx.createPattern(tiles[BASE_VARIANT],'repeat');ctx.fill();ctx.restore()
 }
 const pad=['0,0',...neighbours.map(d=>key(...d))]
 const sizes={}
@@ -208,6 +268,6 @@ Promise.all([
     images.props={}
     for(const p of list){(images.props[p.kind]||=[]).push({image:p.image,size:{w:p.w,h:p.h}});(sizes[p.kind]||=[]).push({w:p.w,h:p.h})}
   }),
-]).then(()=>{makeTiles(images.materials[1],images.materials);ready=true;draw()}).catch(()=>{
+]).then(()=>{makeTiles(images.materials[BASE_VARIANT],images.materials);ready=true;draw()}).catch(()=>{
   status.textContent='Painted materials could not be loaded.';status.setAttribute('role','alert')
 })

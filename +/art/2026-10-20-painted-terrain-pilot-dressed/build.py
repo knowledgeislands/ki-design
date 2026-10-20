@@ -95,6 +95,16 @@ def props():
     return out
 
 
+def relief(im: Image.Image) -> Image.Image:
+    """Emboss-style lighting from the upper left, from the image's own luminance."""
+    import numpy as np
+    a = np.asarray(im).astype(float) / 255
+    L = np.asarray(im.convert('L').filter(ImageFilter.GaussianBlur(2))).astype(float) / 255
+    g = np.roll(np.roll(L, 3, 0), 3, 1) - np.roll(np.roll(L, -3, 0), -3, 1)
+    shade = np.clip(1 + g * 2.2, .6, 1.45)[..., None]
+    return Image.fromarray((np.clip(a * shade, 0, 1) * 255).round().astype('uint8'))
+
+
 def materials():
     out = []
     for name in MATERIALS:
@@ -109,6 +119,7 @@ def main():
     images = {'materials': materials(), 'props': props()}
     with Image.open(DRESSING2 / 'rock-face-stratified.png') as im:
         im = im.convert('RGB')
+        im = relief(im)
         im.thumbnail((384, 384), Image.Resampling.LANCZOS)
         images['stone'] = data_uri(im)
     with Image.open(ORIGINALS / 'hall.png') as im:

@@ -68,3 +68,14 @@ The 12 tests pass, and the browser review showed no runtime errors. `review-reli
 - The rock faces read as natural strata. They are a little pale against the ground's darker greens.
 - Walls and hedges are placed freely, not along field lines, so they look scattered rather than enclosing anything. A next step would align them to hex edges, to suggest field boundaries.
 - With the Hall standing, the pad's clearing still makes the centre plainer than Council Hall A's dense surroundings.
+
+## Round 3, 20 October 2026: depth on the surface and sides
+
+Kit compared the pilot with the ChatGPT flowers. The props were no longer the problem; the tile body was. The flowers' surfaces and sides have dimension, and the pilot's ground read as a flat print. Kit confirmed that ordinary joins stay seamless, with no grooves or outlines.
+
+- **The lush dark turf leads.** It is now the base and collar of every cell. Meadow, stony turf and worn earth appear as broad, soft patches within it, placed by a heavily blurred field of each material's own light and dark, offset per variant. They no longer fill whole cells, so the island reads as one deep-green upland.
+- **Relief on the surface.** For every material, the luminance gradient towards the upper-left light is precomputed in swatch space, with wrap-around: fine (clumps, about 2 px) and broad (swells, about 12 px). It lightens the sunward side of each clump and swell and shades the other. It is periodic, and mixed by the same blend as the colour, so cells still join seamlessly.
+- **Relief on the sides.** `build.py` lights the rock face from its own luminance, also from the upper left. Each visible face gets a shadow in its top 16 px, under the overhanging turf. The shaded e2 faces are darker, and the lit e3 faces slightly toned down so they no longer read pale.
+- **A turf lip.** Every visible exposed edge carries an irregular fringe of the lush turf, mostly shallow, with the odd longer tuft. It is on exposed edges only, never at ordinary joins.
+
+`review-relief.webp`, `review-seed-1.webp` and the close-up `review-detail.webp` show the result. The tests pass, and the browser review showed no runtime errors.
