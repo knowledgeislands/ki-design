@@ -9,10 +9,9 @@ The repository is a Bun workspace. `mise` pins Bun and Node, so with `mise` inst
 ```bash
 mise install
 bun install
-git config core.hooksPath .githooks
 ```
 
-The last line binds the committed commit gate in `.githooks/`, which runs the Husky hooks once `bun install` has put their tools in `node_modules/.bin`. Without that install the gate refuses the commit rather than letting it through unchecked.
+`bun install` runs the `prepare` script, which binds the committed commit gate in `.githooks/` with `git config core.hooksPath .githooks`. The gate runs lint-staged, the Syncpack format check and Commitlint from `node_modules/.bin`; without that install it refuses the commit rather than letting it through unchecked.
 
 ## Check before you commit
 
