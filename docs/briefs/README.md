@@ -14,6 +14,7 @@ Task briefs that a person, the local app or an AI designer (Claude, ChatGPT) can
 | [Ancient prompt pack](ancient-prompt-pack.md) | One ready-to-paste image prompt per tile in the contract | Ready to run |
 | [Ancient tiles, batch 1](ancient-batch-1.md) | One copy-paste instruction for the ChatGPT or Codex app: the 12 terrains and the hero structures, saved unaltered to `+/art/` with notes | Run 19 Oct 2026; painted squares, re-projected onto the hex |
 | [Ancient tiles, batch 1b](ancient-batch-1b.md) | Six tiles painted on a geometry template, testing the template method and the dusk light | Ready to run |
+| [Island Map asset kit](island-map-asset-kit.md) | What the image generator paints for the Island Map framework: ground, patch and side materials, props sheets, buildings | Proposed |
 | [Building standards](building-standards.md) | The rules every building and tile follows | Draft standard |
 | [Animation standard](animation-standard.md) | The shared clock all animated tiles follow | Draft standard |
 | [Illustrated explainer style](explainer-style.md) | Posters, explainers and the Field Guide's "How the map works" | Ready |
