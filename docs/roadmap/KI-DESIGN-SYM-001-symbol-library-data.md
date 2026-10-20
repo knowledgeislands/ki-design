@@ -6,13 +6,12 @@ kind: deliver
 purpose: capability
 project: ki-design
 component: symbols
-horizon: now
-status: awaiting-review
+status: done
 blocks: []
 blocked_by: []
 baseline_ref: a3034a320e748594bb8e6a8033e50b4c111889cb
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-19T23:38:31Z
+updated_at: 2026-10-20T04:23:51Z
 ---
 
 # Symbol library as data
@@ -98,8 +97,16 @@ Goal met: the symbol library is typed data that the Field Guide reads, and a tes
 
 Confirmed the shared coverage test fails when a glyph is missing, and that the Field Guide regenerates from the data unchanged. No learning to route.
 
+## Done
+
+Accepted 2026-10-20 by Kris Brown on the review packet above.
+
 ## Discussion
 
 ### Origin
 
 Captured with the design system on 18 Oct 2026; the original "Done when" line is now the Verify section.
+
+### Acceptance
+
+Accepted on 20 October 2026 under ACCEPT-BUNDLE, SWEEP-ACCEPT-OBSERVATORY a), as recorded in Knowledge Islands Principal `+/_WORK/ki.ways-of-working/decisions.md` (05:20 BST). Kris: "let's sweep through all the acceptance of the observatory, and then get everything that's been accepted so far pruned." The bundle covered exactly KI-OBSERVA-VIS-022, KI-OBSERVA-APP-045, KI-OBSERVA-VIS-041, KI-OBSERVA-VIS-043, KI-OBSERVA-VIS-044, KI-OBSERVA-APP-046, KI-DESIGN-TOK-001, KI-DESIGN-MAP-001, KI-DESIGN-OBS-015, KI-DESIGN-SYM-001 and KI-DESIGN-TIL-001, after a blind review of each packet; the six exceptions it named stay open.

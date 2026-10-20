@@ -8,14 +8,13 @@ project: ki-design
 component: icons
 priority: medium
 size: s
-horizon: now
-status: awaiting-review
+status: done
 blocks: []
 blocked_by: []
 baseline_ref: 90c315d6637703d43849f6585a2f097285275dc6
 transferred_from: knowledgeislands/apps-observatory.local design hand-off, 19 October 2026
 created_at: 2026-10-19T11:30:00Z
-updated_at: 2026-10-19T23:33:19Z
+updated_at: 2026-10-20T04:23:51Z
 ---
 
 # Banner glyphs question
@@ -103,6 +102,10 @@ The goal is met: Kit decided with the options and candidates in front of him, an
 
 Recorded the banner-glyph answer as GDR-KI-DESIGN-037 and retired the open question. Learning route: once the harness standard admits the rendered form, capture the ICO record that moves the glyphs into the icon package.
 
+## Done
+
+Accepted 2026-10-20 by Kris Brown on the review packet above.
+
 ## Discussion
 
 ### Origin
@@ -116,3 +119,7 @@ Keep the emoji as the only notation; keep the emoji as the standard's text notat
 ### Recommendation
 
 Keep the emoji as the standard's text notation, which reads in any terminal, report or commit, and offer the five line glyphs as an optional rendered form that a surface such as the Work tab may draw, with the state's words beside them. The standard decides first; the Work tab follows.
+
+### Acceptance
+
+Accepted on 20 October 2026 under ACCEPT-BUNDLE, SWEEP-ACCEPT-OBSERVATORY a), as recorded in Knowledge Islands Principal `+/_WORK/ki.ways-of-working/decisions.md` (05:20 BST). Kris: "let's sweep through all the acceptance of the observatory, and then get everything that's been accepted so far pruned." The bundle covered exactly KI-OBSERVA-VIS-022, KI-OBSERVA-APP-045, KI-OBSERVA-VIS-041, KI-OBSERVA-VIS-043, KI-OBSERVA-VIS-044, KI-OBSERVA-APP-046, KI-DESIGN-TOK-001, KI-DESIGN-MAP-001, KI-DESIGN-OBS-015, KI-DESIGN-SYM-001 and KI-DESIGN-TIL-001, after a blind review of each packet; the six exceptions it named stay open.

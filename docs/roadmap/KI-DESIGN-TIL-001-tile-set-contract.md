@@ -6,13 +6,12 @@ kind: deliver
 purpose: capability
 project: ki-design
 component: tiles
-horizon: now
-status: awaiting-review
+status: done
 blocks: []
 blocked_by: []
 baseline_ref: 09e001fc9825da6c0dfa742f71aa7c6c05855633
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-19T23:40:34Z
+updated_at: 2026-10-20T04:23:51Z
 ---
 
 # Tile-set contract, Modern set
@@ -102,8 +101,16 @@ Goal met within the answered scope: the contract, inventory and validator stand,
 
 Confirmed the Modern set validates and added the flat-chart inventory check; moved the decal and connector check to MAP-002. Learning route: a `cottage` glyph would remove the chart's only neutral marker; capture it with `ki-next` if wanted.
 
+## Done
+
+Accepted 2026-10-20 by Kris Brown on the review packet above.
+
 ## Discussion
 
 ### Origin
 
 Captured with the design system on 18 Oct 2026; the original "Done when" line is now the Verify section.
+
+### Acceptance
+
+Accepted on 20 October 2026 under ACCEPT-BUNDLE, SWEEP-ACCEPT-OBSERVATORY a), as recorded in Knowledge Islands Principal `+/_WORK/ki.ways-of-working/decisions.md` (05:20 BST). Kris: "let's sweep through all the acceptance of the observatory, and then get everything that's been accepted so far pruned." The bundle covered exactly KI-OBSERVA-VIS-022, KI-OBSERVA-APP-045, KI-OBSERVA-VIS-041, KI-OBSERVA-VIS-043, KI-OBSERVA-VIS-044, KI-OBSERVA-APP-046, KI-DESIGN-TOK-001, KI-DESIGN-MAP-001, KI-DESIGN-OBS-015, KI-DESIGN-SYM-001 and KI-DESIGN-TIL-001, after a blind review of each packet; the six exceptions it named stay open.
