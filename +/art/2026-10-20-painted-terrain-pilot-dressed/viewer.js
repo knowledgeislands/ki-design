@@ -62,7 +62,10 @@ function makeTiles(base,variants) {
     for(let y=0;y<h;y++)for(let x=0;x<w;x++){
       const px=(x-padding+.5)/dpr-W/2,py=(y-padding+.5)/dpr-H/2
       const [u,v]=uv(px,py),distance=boundaryDistance(px,py)
-      const interior=Math.min(1,Math.max(0,(distance-10)/30))
+      // An irregular transition: the collar's inner edge follows the base texture's own
+      // light and dark, so hexes never show a neat ring. It depends only on local coordinates.
+      const n=(sample(u,v,1)/255-.35)*2
+      const interior=Math.min(1,Math.max(0,(distance-6-Math.max(0,n)*34)/26))
       // Every cell's boundary collar is the shared base turf, so any two cells join;
       // the interior is the variant's own material.
       const blend=interior*interior*(3-2*interior)
@@ -111,8 +114,14 @@ function drawTop(cell) {
 }
 function drawFace(cell,face) {
   const p=facePoints(cell,face),image=images.stone
-  warp(image,[[0,0],[image.width,0],[image.width,image.height]],[p[0],p[1],p[2]])
-  warp(image,[[0,0],[image.width,image.height],[0,image.height]],[p[0],p[2],p[3]])
+  // Keep the rock's proportions: take a strip of the material as tall, relative to its
+  // width, as the face is. Faces of one cell start at different offsets along the strata.
+  const fw=Math.hypot(p[1][0]-p[0][0],p[1][1]-p[0][1]),fh=Math.max(1,Math.abs(p[3][1]-p[0][1]),Math.abs(p[2][1]-p[1][1]))
+  const sw=Math.min(image.width,image.width*.55),sh=Math.min(image.height,sw*fh/fw*1.6)
+  const wrap=v=>((v%100)+100)%100  // non-negative for cells at negative coordinates
+  const ox=wrap(cell.q*37+cell.r*91+face.edge*53)/100*(image.width-sw),oy=wrap(cell.q*13+cell.r*29)/100*(image.height-sh)
+  warp(image,[[ox,oy],[ox+sw,oy],[ox+sw,oy+sh]],[p[0],p[1],p[2]])
+  warp(image,[[ox,oy],[ox+sw,oy+sh],[ox,oy+sh]],[p[0],p[2],p[3]])
   ctx.save();path(p);ctx.clip();ctx.fillStyle=face.edge===2?'rgba(25,37,48,.34)':'rgba(30,36,40,.08)';ctx.fill();ctx.restore()
 }
 const pad=['0,0',...neighbours.map(d=>key(...d))]
@@ -130,6 +139,7 @@ function dressingFor(cell) {
 }
 function drawProp(p) {
   const sprite=images.props[p.kind][p.index],{w,h}=sprite.size
+  if(p.flat){ctx.drawImage(sprite.image,p.sx-w/2,p.sy-h*.6,w,h);return}
   // Soft contact shadow, offset away from the upper-left light.
   ctx.save();ctx.fillStyle='rgba(18,28,24,.16)';ctx.beginPath()
   ctx.ellipse(p.sx+w*.1,p.sy+1,w*.34,w*.34*H/W,0,0,Math.PI*2);ctx.fill();ctx.restore()
@@ -165,7 +175,7 @@ function draw() {
     for(const face of faces(cell,map))drawFace(cell,face)
     row.push(...dressingFor(cell))
     if(cells[index+1]?.r!==cell.r){
-      row.sort((a,b)=>a.sy-b.sy).forEach(drawProp);row=[]
+      row.sort((a,b)=>(b.flat?1:0)-(a.flat?1:0)||a.sy-b.sy).forEach(drawProp);row=[]
       if(cell.r===1)drawHall(cells)
     }
   }

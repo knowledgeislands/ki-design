@@ -1,8 +1,9 @@
 """Rebuild the dressed review fragment from preserved inputs.
 
 Inputs are read, never altered:
-- ../2026-10-20-pilot-dressing/props-sheet.png and the four grass-*.png materials;
-- ../2026-10-20-painted-terrain-pilot/originals/hall.png and stone.png, from the first pilot.
+- ../2026-10-20-pilot-dressing/props-sheet.png;
+- ../2026-10-20-painted-terrain-pilot/originals/hall.png, from the first pilot;
+- ../2026-10-20-pilot-dressing-2/: the four ground materials, the rock face and the second props sheet.
 
 Run from anywhere with Python 3, Pillow and Bun on the path.
 """
@@ -13,19 +14,29 @@ import base64, collections, io, json, subprocess
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[2]
 DRESSING = HERE.parent / '2026-10-20-pilot-dressing'
+DRESSING2 = HERE.parent / '2026-10-20-pilot-dressing-2'
 ORIGINALS = HERE.parent / '2026-10-20-painted-terrain-pilot' / 'originals'
 
 # Sheet order, row by row, as the dressing NOTES.md records it.
-SHEET_ROWS = [
-    ['shrub'] * 6,
-    ['cypress'] * 4 + ['olive'] * 2,
-    ['olive'] + ['rock'] * 4 + ['flowers'],
-    ['flowers'] * 3 + ['grass'] * 2 + ['stump'],
+SHEETS = [
+    (DRESSING / 'props-sheet.png', [
+        ['shrub'] * 6,
+        ['cypress'] * 4 + ['olive'] * 2,
+        ['olive'] + ['rock'] * 4 + ['flowers'],
+        ['flowers'] * 3 + ['grass'] * 2 + ['stump'],
+    ]),
+    (DRESSING2 / 'props-sheet-2.png', [
+        ['hedge'] * 6,
+        ['wall'] * 6,
+        ['olive'] * 3 + ['cypress'] * 3,
+        ['reeds', 'pond', 'shrub', 'shrub', 'rock', 'rock'],
+    ]),
 ]
 # World pixels per sheet pixel. The hex top face is 256 world pixels wide.
-SCALE = {'shrub': .3, 'cypress': .36, 'olive': .42, 'rock': .34, 'flowers': .27, 'grass': .25, 'stump': .25}
-MATERIALS = ['grass-meadow', 'grass-stony-turf', 'grass-worn', 'grass-lush-hollows']
-INTERIOR = .76  # keep the inner 76 %: each material's outer band is a plain frame
+SCALE = {'shrub': .3, 'cypress': .36, 'olive': .42, 'rock': .34, 'flowers': .27, 'grass': .25, 'stump': .25,
+         'hedge': .5, 'wall': .5, 'reeds': .27, 'pond': .42}
+MATERIALS = ['ground-flowering-meadow', 'ground-short-stony-turf', 'ground-worn-bare-earth', 'ground-lush-dark-turf']
+INTERIOR = .96  # painted edge to edge; trim a thin margin of edge artefacts
 
 
 def data_uri(im: Image.Image, quality=86) -> str:
@@ -63,32 +74,31 @@ def components(alpha: Image.Image):
 
 
 def props():
-    sheet = Image.open(DRESSING / 'props-sheet.png').convert('RGBA')
-    alpha = sheet.getchannel('A')
-    boxes = components(alpha)
-    assert len(boxes) == 24, len(boxes)
-    centres = sorted({round(((b[1] + b[3]) / 2) / sheet.height * 4 - .5) for b in boxes})
-    assert len(centres) == 4, centres
-    rows = [sorted([b for b in boxes if round(((b[1] + b[3]) / 2) / sheet.height * 4 - .5) == r]) for r in centres]
     out = []
-    for kinds, row in zip(SHEET_ROWS, rows):
-        assert len(kinds) == len(row), (kinds, row)
-        for kind, box in zip(kinds, row):
-            sprite = sheet.crop(box)
-            # Firm the generator's near-opaque alpha (max 254) and drop faint fringes.
-            a = sprite.getchannel('A').point(lambda v: 0 if v < 24 else min(255, round((v - 24) * 255 / 200)))
-            sprite.putalpha(a)
-            sprite = sprite.crop(a.getbbox())
-            s = SCALE[kind] * 2  # authored at 2x the world size, for sharp display
-            sprite = sprite.resize((max(1, round(sprite.width * s)), max(1, round(sprite.height * s))), Image.Resampling.LANCZOS)
-            out.append({'kind': kind, 'w': sprite.width / 2, 'h': sprite.height / 2, 'src': data_uri(sprite, 88)})
+    for path, sheet_rows in SHEETS:
+        sheet = Image.open(path).convert('RGBA')
+        boxes = components(sheet.getchannel('A'))
+        assert len(boxes) == sum(len(r) for r in sheet_rows), (path.name, len(boxes))
+        row_of = lambda b: round(((b[1] + b[3]) / 2) / sheet.height * 4 - .5)
+        rows = [sorted(b for b in boxes if row_of(b) == r) for r in range(4)]
+        for kinds, row in zip(sheet_rows, rows):
+            assert len(kinds) == len(row), (path.name, kinds, row)
+            for kind, box in zip(kinds, row):
+                sprite = sheet.crop(box)
+                # Firm the generator's near-opaque alpha (max 254) and drop faint fringes.
+                a = sprite.getchannel('A').point(lambda v: 0 if v < 24 else min(255, round((v - 24) * 255 / 200)))
+                sprite.putalpha(a)
+                sprite = sprite.crop(a.getbbox())
+                s = SCALE[kind] * 2  # authored at 2x the world size, for sharp display
+                sprite = sprite.resize((max(1, round(sprite.width * s)), max(1, round(sprite.height * s))), Image.Resampling.LANCZOS)
+                out.append({'kind': kind, 'w': sprite.width / 2, 'h': sprite.height / 2, 'src': data_uri(sprite, 88)})
     return out
 
 
 def materials():
     out = []
     for name in MATERIALS:
-        im = Image.open(DRESSING / f'{name}.png').convert('RGB')
+        im = Image.open(DRESSING2 / f'{name}.png').convert('RGB')
         m = round(im.width * (1 - INTERIOR) / 2)
         im = im.crop((m, m, im.width - m, im.height - m)).resize((512, 512), Image.Resampling.LANCZOS)
         out.append(data_uri(im))
@@ -97,7 +107,7 @@ def materials():
 
 def main():
     images = {'materials': materials(), 'props': props()}
-    with Image.open(ORIGINALS / 'stone.png') as im:
+    with Image.open(DRESSING2 / 'rock-face-stratified.png') as im:
         im = im.convert('RGB')
         im.thumbnail((384, 384), Image.Resampling.LANCZOS)
         images['stone'] = data_uri(im)

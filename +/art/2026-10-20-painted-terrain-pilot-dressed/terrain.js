@@ -122,17 +122,20 @@ export function random(q,r,seed) {
   return ()=>{s=(s+0x6D2B79F5)>>>0;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}
 }
 // What each ground variant carries. Kinds name sprites on the props sheet.
+// Each variant has alternative plantings; a cell picks one from its own seed.
 export const dressingByVariant=[
-  ['shrub','flowers','flowers','flowers','grass','grass','flowers'],
-  ['rock','shrub','rock','shrub','flowers','grass'],
-  ['stump','shrub','grass','shrub','grass','flowers'],
-  ['olive','cypress','shrub','cypress','shrub','shrub'],
+  [['shrub','flowers','flowers','flowers','grass','grass'],['hedge','flowers','flowers','grass','shrub']],
+  [['rock','shrub','rock','flowers','grass'],['wall','rock','shrub','flowers']],
+  [['stump','shrub','grass','grass','flowers'],['wall','shrub','grass','stump']],
+  [['olive','cypress','shrub','cypress','shrub'],['olive','shrub','shrub','cypress'],['pond','reeds','reeds','shrub','cypress']],
 ]
+const flat=new Set(['pond'])
 // Place props inside the hex, clear of its boundary and of each other.
 // sizes: kind -> list of {w,h} sprite sizes in world pixels.
 export function placeDressing(cell,sizes,seed=0) {
   const rnd=random(cell.q,cell.r,seed+cell.variant*7),out=[]
-  for(const kind of dressingByVariant[cell.variant]){
+  const options=dressingByVariant[cell.variant],plan=options[Math.floor(rnd()*options.length)]
+  for(const kind of plan){
     const list=sizes[kind]; if(!list?.length)continue
     const index=Math.floor(rnd()*list.length),{w}=list[index],radius=w*.42
     // The first prop anchors a group; the rest gather near it, as planting does.
@@ -142,8 +145,10 @@ export function placeDressing(cell,sizes,seed=0) {
       const x=(near&&attempt<20?near.x:0)+(rnd()-.5)*W*spread,y=(near&&attempt<20?near.y:0)+(rnd()-.5)*H*spread
       if(boundaryDistance(x,y)<radius*.35+8)continue
       if(out.some(o=>Math.hypot((o.x-x),(o.y-y)*1.6)<(o.radius+radius)*.62))continue
-      out.push({kind,index,x,y,radius,z:groundAt(cell,x,y)});break
+      // A pond needs nearly level ground.
+      if(flat.has(kind)&&Math.max(...cell.h)>1)break
+      out.push({kind,index,x,y,radius,z:groundAt(cell,x,y),flat:flat.has(kind)});break
     }
   }
-  return out.sort((a,b)=>a.y-b.y)
+  return out.sort((a,b)=>(b.flat?1:0)-(a.flat?1:0)||a.y-b.y)
 }

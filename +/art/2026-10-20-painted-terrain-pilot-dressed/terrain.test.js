@@ -103,7 +103,8 @@ test('ground height matches corners, centre and edges of the fan',()=>{
 })
 test('dressing is deterministic, stays inside the hex and keeps its props apart',()=>{
   const sizes={shrub:[{w:40,h:30},{w:30,h:24}],flowers:[{w:30,h:24}],grass:[{w:28,h:30}],rock:[{w:50,h:36}],
-    stump:[{w:24,h:20}],olive:[{w:90,h:80}],cypress:[{w:22,h:76}]}
+    stump:[{w:24,h:20}],olive:[{w:90,h:80}],cypress:[{w:22,h:76}],hedge:[{w:70,h:30}],wall:[{w:70,h:30}],
+    reeds:[{w:30,h:30}],pond:[{w:80,h:40}]}
   for(let v=0;v<dressingByVariant.length;v++)for(let q=-2;q<=2;q++)for(let r=-2;r<=2;r++){
     const cell={...normalise(q,r,[0,1,1,0,0,0]),variant:v}
     const a=placeDressing(cell,sizes,3),b=placeDressing(cell,sizes,3)

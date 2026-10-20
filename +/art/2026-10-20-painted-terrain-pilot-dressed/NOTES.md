@@ -43,3 +43,28 @@ All inputs are read, never altered.
 1. Ground interiors without a square frame, deeper and less yellow, with stronger differences visible at map scale.
 2. A second props sheet, for variety and larger groups: hedgerow segments, a field wall, more olive and cypress poses, reeds and a small pond.
 3. A rock-face material that reads as natural stratified rock, not masonry.
+
+## Round 2, 20 October 2026
+
+The [second dressing set](../2026-10-20-pilot-dressing-2/NOTES.md) replaces the ground and rock, and adds a second props sheet. `build.py` now reads both sheets.
+
+- **Ground.** Four new materials, painted edge to edge with no frame: flowering meadow, short stony turf, worn bare earth and lush dark turf. They are deeper, less yellow and clearly distinct at map scale. The inner 96 % is used. Short stony turf is the shared collar.
+- **An irregular collar edge.** With such different interiors, a clean collar would draw every hex as a ring. The collar's inner edge now follows the base texture's own light and dark, between 6 and 40 px in from the boundary, so variants meet in painted, ragged patches. It depends only on each cell's local coordinates, so joins stay seamless and cells stay independent.
+- **Rock.** The new face-on stratified rock replaces the reused masonry-like stone. Each face takes a strip of the material in the face's own proportions, offset per face, so the strata keep their natural thickness and do not repeat cell to cell.
+- **Props.** 48 sprites in total. The second sheet adds hedgerow segments, dry-stone wall pieces, three olives, three cypresses (one a group), reeds, a pond, two shrub groups and two boulder groups. Walls and hedges are drawn at 0.5 world pixels per sheet pixel.
+- **Plantings.** Each variant now has two or three alternative plantings, and each cell picks one from its own seed:
+  - meadow: hedgerows or flower beds;
+  - stony turf: walls or rocks;
+  - worn ground: a stump or a wall;
+  - lush turf: an olive grove, or a pond with reeds.
+- **Ponds** need nearly level ground (a corner range of one unit at most). They are drawn flat, before the row's upright props.
+- **Fixed:** rock faces on cells at negative coordinates took their strip offset from a negative remainder, and left an unpainted slit.
+
+The 12 tests pass, and the browser review showed no runtime errors. `review-relief.webp` and `review-seed-1.webp` show the slopes scene before and after one rearrangement. The page is about 1.5 MB.
+
+### Review
+
+- The island now reads as a cultivated Mediterranean upland. Walls, ponds, groves and worn earth give it structure, and the ragged collar hides the hex boundaries.
+- The rock faces read as natural strata. They are a little pale against the ground's darker greens.
+- Walls and hedges are placed freely, not along field lines, so they look scattered rather than enclosing anything. A next step would align them to hex edges, to suggest field boundaries.
+- With the Hall standing, the pad's clearing still makes the centre plainer than Council Hall A's dense surroundings.
