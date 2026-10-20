@@ -9,6 +9,8 @@
     "build": { "dependsOn": ["^build"], "inputs": ["$TURBO_DEFAULT$"], "outputs": ["dist/**"] },
     "typecheck": { "dependsOn": ["^build"], "inputs": ["$TURBO_DEFAULT$"], "outputs": [] },
     "test": { "dependsOn": ["^build"], "inputs": ["$TURBO_DEFAULT$"], "outputs": [] },
+    // The boundary suite reads the whole repository, including preview and authoring commands.
+    "@knowledgeislands/design-boundaries#test": { "cache": false },
     "clean": { "cache": false }
   }
 }

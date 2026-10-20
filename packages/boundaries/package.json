@@ -1,0 +1,14 @@
+{
+  "name": "@knowledgeislands/design-boundaries",
+  "description": "Executable proof that the design system module boundaries resolve and reject forbidden imports.",
+  "version": "0.0.0",
+  "devDependencies": {
+    "vitest": "^5.0.5"
+  },
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "type": "module"
+}

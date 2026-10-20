@@ -1,0 +1,6 @@
+{
+  "extends": "../../tsconfig.json",
+  "display": "Design boundary checks",
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
