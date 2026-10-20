@@ -1,0 +1,26 @@
+<div id="painted-terrain-pilot">
+  <style>
+    #painted-terrain-pilot { width: 100%; color: var(--foreground); }
+    #painted-terrain-pilot .pilot-stage { width: 100%; display: block; aspect-ratio: 1.65; }
+    #painted-terrain-pilot .pilot-toolbar { display: flex; align-items: end; gap: 12px; flex-wrap: wrap; padding-right: 90px; }
+    #painted-terrain-pilot .pilot-status { min-height: 1.5em; }
+    @media (max-width: 460px) { #painted-terrain-pilot .pilot-stage { aspect-ratio: 1.15; } }
+  </style>
+  <h3>Painted terrain pilot</h3>
+  <div class="pilot-toolbar viz-controls">
+    <label class="form-label">Ground
+      <select class="form-select" data-scene>
+        <option value="relief">Slopes and steps</option>
+        <option value="flat">Flat joins</option>
+        <option value="stress">Crossing edge profiles</option>
+      </select>
+    </label>
+    <label class="form-check"><input class="form-check-input" type="checkbox" data-grid><span class="form-check-label">Project grid</span></label>
+    <label class="form-check"><input class="form-check-input" type="checkbox" data-hall checked><span class="form-check-label">Council Hall</span></label>
+    <button type="button" class="btn" data-rearrange>Rearrange ground tiles</button>
+  </div>
+  <canvas class="pilot-stage" role="img" aria-label="Nineteen independently painted pointy-top hexes, joined by corner height, with a separate upright civic hall and optional grid overlay.">Painted terrain preview</canvas>
+  <div class="pilot-status text-small" aria-live="polite" data-status>Loading painted materials…</div>
+  <script data-assets type="application/json">__PILOT_ASSETS__</script>
+  <script>__PILOT_BUNDLE__</script>
+</div>
