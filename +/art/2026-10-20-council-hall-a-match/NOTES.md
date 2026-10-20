@@ -55,3 +55,12 @@ Genuine transparent exterior, no painted checkerboard, background colour, halo, 
 
 - grassland.png: `054680d3a51028fba40857bdf98a7c0d679de1134c2a4f3c6f8d54e4d4a67b65`.
 - snow.png: `8708275758b6d5b367615a688421f6757cc16092a824399ff039e578c0b2f33a`.
+
+## Design review, 20 October 2026
+
+Claude reviewed both candidates beside Council Hall A and the 19 October study.
+
+- **Light: a good match.** Both carry the Hall's warm upper-left key, green grass and cool shadows. The grassland runs brighter and warmer than the Hall's own grass: mean brightness of green pixels 0.32 against 0.21, and highlight warmth (red minus blue) +0.33 against +0.13. Hold the next grassland to the Hall, not above it.
+- **Orientation: wrong, inherited from the reference.** Council Hall A and both candidates are painted with flat-top hexes: each cell has horizontal top and bottom edges and points left and right. The contract and every renderer use pointy-top hexes, with vertical left and right sides. The 19 October grassland A and snow A were pointy-top. With the Hall as the only reference, the candidates copied its orientation. Council Hall A therefore sets light and finish only; see the [Ancient brief](../../../docs/briefs/tile-set-ancient.md#reference-and-lighting).
+- **Seams and plinths.** The internal cell seams are drawn as grooves, where they should be faint or absent inside one painted flower. The snow plinth is craggy and overhung, and the grass plinth is taller than the Hall's.
+- **Next run.** Repaint grassland and snow, and the Council Hall itself, as pointy-top flowers. Attach Council Hall A for light and finish together with a pointy-top flower for geometry only, such as the 19 October grassland A, and state each reference's role in the prompt.
