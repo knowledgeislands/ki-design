@@ -3,7 +3,8 @@
 Inputs are read, never altered:
 - ../2026-10-20-pilot-dressing/props-sheet.png;
 - ../2026-10-20-painted-terrain-pilot/originals/hall.png, from the first pilot;
-- ../2026-10-20-pilot-dressing-2/: the four ground materials, the rock face and the second props sheet.
+- ../2026-10-20-pilot-dressing-2/: three ground materials, the rock face and the second props sheet;
+- ../2026-10-20-seamless-flowers/grass-closeup.png: the leading grass.
 
 Run from anywhere with Python 3, Pillow and Bun on the path.
 """
@@ -35,7 +36,7 @@ SHEETS = [
 # World pixels per sheet pixel. The hex top face is 256 world pixels wide.
 SCALE = {'shrub': .3, 'cypress': .36, 'olive': .42, 'rock': .34, 'flowers': .27, 'grass': .25, 'stump': .25,
          'hedge': .5, 'wall': .5, 'reeds': .27, 'pond': .42}
-MATERIALS = ['ground-flowering-meadow', 'ground-short-stony-turf', 'ground-worn-bare-earth', 'ground-lush-dark-turf']
+MATERIALS = ['ground-flowering-meadow', 'ground-short-stony-turf', 'ground-worn-bare-earth', 'grass-closeup']
 INTERIOR = .96  # painted edge to edge; trim a thin margin of edge artefacts
 
 
@@ -105,10 +106,22 @@ def relief(im: Image.Image) -> Image.Image:
     return Image.fromarray((np.clip(a * shade, 0, 1) * 255).round().astype('uint8'))
 
 
+SEAMLESS = HERE.parent / '2026-10-20-seamless-flowers'
+
+
 def materials():
+    """The seamless-flowers grass close-up leads; the others are brought to its brightness,
+    a shade darker, so they read as patches within it rather than a different light."""
+    import numpy as np
+    sources = [DRESSING2 / f'{name}.png' for name in MATERIALS[:3]] + [SEAMLESS / 'grass-closeup.png']
+    images = [Image.open(path).convert('RGB') for path in sources]
+    lum = lambda im: np.asarray(im.convert('L')).astype(float).mean()
+    lead = lum(images[-1])
     out = []
-    for name in MATERIALS:
-        im = Image.open(DRESSING2 / f'{name}.png').convert('RGB')
+    for i, im in enumerate(images):
+        if i < 3:
+            gain = lead * .9 / lum(im)
+            im = Image.fromarray(np.clip(np.asarray(im).astype(float) * gain, 0, 255).round().astype('uint8'))
         m = round(im.width * (1 - INTERIOR) / 2)
         im = im.crop((m, m, im.width - m, im.height - m)).resize((512, 512), Image.Resampling.LANCZOS)
         out.append(data_uri(im))

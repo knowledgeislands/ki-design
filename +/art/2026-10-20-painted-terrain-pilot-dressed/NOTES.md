@@ -79,3 +79,13 @@ Kit compared the pilot with the ChatGPT flowers. The props were no longer the pr
 - **A turf lip.** Every visible exposed edge carries an irregular fringe of the lush turf, mostly shallow, with the odd longer tuft. It is on exposed edges only, never at ordinary joins.
 
 `review-relief.webp`, `review-seed-1.webp` and the close-up `review-detail.webp` show the result. The tests pass, and the browser review showed no runtime errors.
+
+## Round 4, 20 October 2026: the seamless-flowers grass leads
+
+The [seamless flowers](../2026-10-20-seamless-flowers/NOTES.md) set the target for depth: continuous turf with no cell seams, painted clumps catching the light, a turf lip and dressed-stone sides. Their grass close-up is now the leading ground.
+
+- **The lead grass** is `grass-closeup.png`. It repeats twice per cell, so its clumps sit at the scale of the props; at one repeat per cell a single clump was the size of a shrub. The repeat is a whole number, so the material stays periodic and joins stay seamless. Its fine relief is reduced, because it already paints its own clump light.
+- **The patches**, meadow, stony turf and worn earth, are scaled in `build.py` to 90 % of the lead grass's mean brightness, keeping their hue. They read as patches in the same light, not a different light.
+- **Still to do.** The sides are still stratified rock, while the seamless flowers use dressed-stone blocks. A face-on dressed-stone material in the same finish would let the sides match.
+
+`review-relief.webp` and `review-detail.webp` show this round.

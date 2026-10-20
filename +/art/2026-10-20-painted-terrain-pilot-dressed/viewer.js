@@ -29,7 +29,7 @@ const createCanvas=(w,h)=>{
   const c=document.createElement('canvas');c.width=w;c.height=h;return c
 }
 const mix=(a,b,t)=>a*(1-t)+b*t
-const BASE_VARIANT=3  // lush dark turf leads; the others appear as patches within it
+const BASE_VARIANT=3  // the seamless-flowers grass leads; the others appear as patches within it
 function periodicSwatch(image) {
   const size=256, c=createCanvas(size,size),cctx=c.getContext('2d')
   cctx.drawImage(image,0,0,size,size)
@@ -80,19 +80,23 @@ function makeTiles(base,variants) {
     const value=(px,py)=>pixels[(py*size+px)*4+k]
     return mix(mix(value(x,y),value(x1,y),xx-x),mix(value(x,y1),value(x1,y1),xx-x),yy-y)
   }
-  const sample=sampler(swatches[0])
+  // The lead grass repeats a whole number of times per cell, so its clumps sit at the scale
+  // of the props; an integer repeat keeps it periodic, and joins stay seamless.
+  const REPEAT=2,rep=f=>(u,v,...k)=>f((u*REPEAT)%1,(v*REPEAT)%1,...k)
+  const sample=rep(sampler(swatches[0]))
   const relief=swatches.map(reliefMaps)
   const scalar=({size},map)=>(u,v)=>{
     const xx=u*(size-1),yy=v*(size-1),x=Math.floor(xx),y=Math.floor(yy)
     const x1=Math.min(size-1,x+1),y1=Math.min(size-1,y+1),val=(px,py)=>map[py*size+px]
     return mix(mix(val(x,y),val(x1,y),xx-x),mix(val(x,y1),val(x1,y1),xx-x),yy-y)
   }
-  const baseFine=scalar(relief[0],relief[0].fine),baseBroad=scalar(relief[0],relief[0].broad)
+  const baseFine=rep(scalar(relief[0],relief[0].fine)),baseBroad=rep(scalar(relief[0],relief[0].broad))
   for(let variant=0;variant<variants.length;variant++){
     const inner=sampler(swatches[variant+1]),r=relief[variant+1]
     const innerFine=scalar(r,r.fine),innerBroad=scalar(r,r.broad),patch=scalar(r,r.field)
     // The dominant turf is the base itself; other materials appear as broad patches within it.
     const own=variant===BASE_VARIANT
+    const innerSample=own?sample:inner
     const c=createCanvas(w,h),cc=c.getContext('2d'),raw=cc.createImageData(w,h)
     for(let y=0;y<h;y++)for(let x=0;x<w;x++){
       const px=(x-padding+.5)/dpr-W/2,py=(y-padding+.5)/dpr-H/2
@@ -108,8 +112,8 @@ function makeTiles(base,variants) {
       const edge=interior*interior*(3-2*interior),blend=edge*p*p*(3-2*p)
       const fine=mix(baseFine(u,v),innerFine(u,v),blend),broad=mix(baseBroad(u,v),innerBroad(u,v),blend)
       // Upper-left light on the brushwork: lift the sunward side of each clump and swell.
-      const shade=Math.max(.64,Math.min(1.4,1+fine*2.6+broad*2.2))
-      for(let k=0;k<3;k++)raw.data[(y*w+x)*4+k]=mix(sample(u,v,k),inner(u,v,k),blend)*shade
+      const shade=Math.max(.68,Math.min(1.35,1+fine*1.6+broad*2.2))  // the lead grass carries its own clump light
+      for(let k=0;k<3;k++)raw.data[(y*w+x)*4+k]=mix(sample(u,v,k),innerSample(u,v,k),blend)*shade
       raw.data[(y*w+x)*4+3]=255
     }
     cc.putImageData(raw,0,0);tiles.push(c)
