@@ -140,7 +140,7 @@ The full brief is [building-standards.md](../briefs/building-standards.md).
 
 ## The tile-set contract
 
-A tile set is a skin over the same ids. Two sets are planned: **Modern** (v0 drawn) and **Ancient** (waits on the painting). A community set is valid when it covers every contract id and passes `validateTileSet` and the building standards; a set is _complete_ when it is valid and every tile is final. Extra tiles are welcome and are reported as extras. An island may adopt any valid set as local character; the local app defaults to Modern.
+A tile set is a skin over the same ids. Two sets exist: **Modern** (v0 drawn, now frozen as the contract's reference and test fixture) and **Ancient**, the only isometric set going forward ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)). A community set is valid when it covers every contract id and passes `validateTileSet` and the building standards; a set is _complete_ when it is valid and every tile is final. Extra tiles are welcome and are reported as extras. An island may adopt any valid set as local character; the local app's flat chart keeps the engraved flat treatment.
 
 ### Optional manifest fields
 

@@ -7,7 +7,7 @@ Task briefs that a person, the local app or an AI designer (Claude, ChatGPT) can
 | Brief | Produces | Status |
 | --- | --- | --- |
 | [Picture of Arcadia](arcadia-picture.md) | Ancient art reference | [Variation 1 chosen](arcadia-handoff.md) |
-| [Tile set: Modern](tile-set-modern.md) | The clean, engraved, flat tile set used by the local app, docs and small sizes | v0 drawn: `packages/tiles/sets/modern/` |
+| [Tile set: Modern](tile-set-modern.md) | The clean, engraved, flat tile set used by the local app, docs and small sizes | v0 drawn and frozen: Ancient is the only isometric set ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)) |
 | [Tile set: Ancient](tile-set-ancient.md) | Painted tiles for site and posters | Reference chosen; see [handoff](arcadia-handoff.md) |
 | [Hex terrain research](hex-terrain-research.md) | Sources, local evidence and composition rationale | Proposed |
 | [Hex terrain Claude handoff](hex-terrain-claude-handoff.md) | Review request for the proposed composition model | Ready for review |

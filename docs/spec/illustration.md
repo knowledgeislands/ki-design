@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Illustration and art direction
 
-The world has three looks: the **Modern** tile set (engraved line, flat fills), the **Ancient** tile set (painted, dusk-lit atlas art) and the **Illustrated explainer** diagram style (daylight watercolour). The canon balance is 70 % infographic clarity to 30 % illustrative warmth. AI is drawn as infrastructure, never as a humanoid, and people are drawn small and grounded. This file sets the directions, the balance per surface, how agents are shown and what is never drawn. Copy-paste prompts are in the [prompt library](../briefs/prompt-library.md); the briefs that commission art are in [docs/briefs/](../briefs/README.md).
+The world has three looks: the **Modern** tile set (engraved line, flat fills), the **Ancient** tile set (painted, dusk-lit atlas art) and the **Illustrated explainer** diagram style (daylight watercolour). The canon balance is 70 % infographic clarity to 30 % illustrative warmth. AI is drawn as infrastructure, never as a humanoid, and people are drawn small and grounded. Since 20 October 2026, Ancient is the only isometric tile set; Modern's engraved line and flat fills remain for flat top-down charts and diagrams, and its isometric tiles are frozen ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)). This file sets the directions, the balance per surface, how agents are shown and what is never drawn. Copy-paste prompts are in the [prompt library](../briefs/prompt-library.md); the briefs that commission art are in [docs/briefs/](../briefs/README.md).
 
 ## The three directions
 

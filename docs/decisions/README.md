@@ -41,6 +41,7 @@ Decision records for Knowledge Islands Design, following the Knowledge Islands d
 35. [GDR-KI-DESIGN-035](GDR-KI-DESIGN-035-art-unlicensed-until-recorded.md) - art is unlicensed until its licensing is recorded.
 36. [GDR-KI-DESIGN-036](GDR-KI-DESIGN-036-the-history-stays.md) - the ki-design history stays as it is.
 37. [GDR-KI-DESIGN-037](GDR-KI-DESIGN-037-banner-emoji-stay-the-notation.md) - the banner emoji stay the written notation; line glyphs may be a rendered form.
+38. [GDR-KI-DESIGN-038](GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md) - Ancient is the only isometric tile set; the flat chart keeps its engraved treatment.
 
 ## Open questions
 

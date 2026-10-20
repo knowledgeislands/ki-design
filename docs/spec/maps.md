@@ -28,10 +28,10 @@ Agreed with the owner on 19 October 2026. Every map is drawn at one of two scale
 | Map | Surface | Shows | Renderer | Interaction |
 | --- | --- | --- | --- | --- |
 | **Map of Known Lands** | Canon artefact; Field Guide; posters | The whole realm: territories as sea regions, islands, Capitals, trade lanes, fog at the edge | Either | Static or read-only zoom |
-| **Living Map** | Site (Model, Arcadia, Landscapes) | An island or archipelago with structures and a legend; click a structure to read its concept | Isometric (Ancient) by default; the viewer may switch to Modern | Zoom island → archipelago; select to read; set switcher |
-| **Known Lands chart** | Local app instrument | The selected scope: each registered repository an island, zones as structures, condition states, Beacon signals, trade lanes, who is working | Flat SVG (Modern) by default; isometric toggle | Select = filter; layers; time window |
+| **Living Map** | Site (Model, Arcadia, Landscapes) | An island or archipelago with structures and a legend; click a structure to read its concept | Isometric, Ancient only | Zoom island → archipelago; select to read |
+| **Known Lands chart** | Local app instrument | The selected scope: each registered repository an island, zones as structures, condition states, Beacon signals, trade lanes, who is working | Flat SVG (the engraved flat treatment) by default; an isometric toggle draws Ancient | Select = filter; layers; time window |
 
-Until the Ancient tiles exist, the site shows the painting as the legend and the Modern chart as the map ([GDR-KI-DESIGN-014](../decisions/GDR-KI-DESIGN-014-the-painting-as-home-hero.md)).
+Until the Ancient tiles exist, the site shows the painting as the legend and the engraved isometric chart as an interim map ([GDR-KI-DESIGN-014](../decisions/GDR-KI-DESIGN-014-the-painting-as-home-hero.md)). Ancient is the only isometric tile set; the engraved Modern treatment remains for flat top-down charts ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)).
 
 ## Layers
 

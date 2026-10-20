@@ -32,7 +32,7 @@ The v0 interface is in the elements README: `<ki-glyph name size label>`, and `<
 Proposed beyond v0, not yet built:
 
 - `<ki-glyph tone>`: `ink` · `muted` · `accent` · `warn` · `bad`.
-- `<ki-hexmap>`: `renderer` (`flat` · `iso`), `tileset` (`modern` · `ancient`), `palette`, `layers` (space-separated: `terrain routes currents influence signals labels workers`), `window` (`7` · `14` · `30` days), `static` (no interaction), and `ki-hex-focus` and `ki-layer-change` events alongside selection.
+- `<ki-hexmap>`: `renderer` (`flat` · `iso`), `tileset` (`ancient`; `modern` only for the frozen fixture and the flat renderer, [GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)), `palette`, `layers` (space-separated: `terrain routes currents influence signals labels workers`), `window` (`7` · `14` · `30` days), `static` (no interaction), and `ki-hex-focus` and `ki-layer-change` events alongside selection.
 
 ### What stays outside the kit
 

@@ -12,7 +12,7 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | --- | --- |
 | Act | The local app's mutating job, through the Bridge (plan / confirm / receipt) |
 | Agreed | Status label: agreed with the owner, being enacted into `ki-principal` (formerly _decided_) |
-| Ancient (set) | The painted, dusk-lit tile set for the hero, the Living Map and posters |
+| Ancient (set) | The painted tile set: the only isometric set, for the Island Map, the Living Map, the hero and posters |
 | Arcadia | Knowledge Islands Principal as the origin island and reference Capital |
 | Archipelago | How a territory is drawn and named: its islands in one sea region |
 | Atlas | The reference half of the site: Field Guide, Docs, Specifications, Projects |
@@ -43,7 +43,7 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | Lighthouse | Guidance; serves others |
 | Living Map | The site's interactive map |
 | Mill | Operational systems: the running of the island; draws `Admin/Operations`; id `mill` |
-| Modern (set) | The engraved, flat-fill tile set; default in the app |
+| Modern (set) | The engraved, flat-fill treatment, kept for flat top-down charts; its isometric tiles are frozen, and Ancient is the only isometric set ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)) |
 | Observe | The local app's read-only job: instruments |
 | Official | Status label: ratified in `ki-principal` (formerly _canon_) |
 | Open | Status label for a question still to answer; listed in [OPEN.md](../decisions/OPEN.md) |
