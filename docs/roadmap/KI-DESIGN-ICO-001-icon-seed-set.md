@@ -7,13 +7,12 @@ purpose: capability
 project: ki-design
 component: icons
 size: s
-horizon: now
-status: awaiting-review
+status: done
 blocks: []
 blocked_by: []
 baseline_ref: f41cbc5621f6c260b965c877d4126edf37b3147b
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-21T13:30:35Z
+updated_at: 2026-10-21T13:40:12Z
 ---
 
 # Icon seed set
@@ -113,7 +112,25 @@ Goal met: every Official or Agreed symbol names an existing glyph by test, the n
 
 Delivered the five glyphs, territory mapping and shared coverage test, then corrected the returned inventory count and made review-image rasterisation repeatable. The regenerated sheet exactly matches the committed PNG. Required tests, lint and focused audits pass with unchanged baseline warnings; unrelated full-audit failures remain attributed. The local renderer prerequisites now live in the icons README. Awaiting independent review, not accepted.
 
+## Done
+
+Accepted 21 October 2026 by GPT-6 (wow-day-ico-001-accept-b), under Kris's explicit authority, on the review packet above.
+
 ## Discussion
+
+### Fresh independent acceptance - 21 October 2026
+
+Independently reviewed the complete original 22-file delivery from `f41cbc5621f6c260b965c877d4126edf37b3147b` through `a3034a320e748594bb8e6a8033e50b4c111889cb`, the original acceptance findings, and the three-file correction `8515cb9c044af55b78edb2ac2dbced8fedb23ea3`, against unchanged local main at that correction. All planned Steps are complete; the six-part Review packet is present. The original baseline remains unchanged.
+
+Kris explicitly authorised independent acceptance of KI-DESIGN-ICO-001 in ki-principal's `+/_WORK/ki.ways-of-working/decisions.md`, "owner answers" and "mark, afternoon unattended run", on 21 October 2026, under their 01:55 BST grant. Their answer, "I think on the design icons we can just go with it, and then I can take a look", waives the pre-acceptance contact-sheet look for this record only. They will look after acceptance, with any redraw as new work. This acceptance uses that specific override of the standing prohibition on accepting work records.
+
+The returned findings are resolved: an exact inventory comparison confirms the README lists all 78 committed SVG names and states 78. A fresh offline run of the ordinary contact-sheet generator, with the five new glyphs highlighted and the corrected software renderer, reproduces the committed PNG byte for byte: 2492 by 3014 pixels, SHA-256 `0dde8101079637aa7b9f6573f03c35274e27d3675202bae33985bc6f96d5d3ef`. Independent visual inspection confirms the inventory, four sizes, navy strip and five brass borders; the known small-size distinction between `thriving` and `quiet` remains for Kris's later look.
+
+Fresh offline uncached workspace tests, boundary tests, preview and generator tests, typecheck, Biome, rumdl, Knip, icon build, site-page generation and boards check all pass. Generated source, site pages and contact sheet remain unchanged. External IP traffic was denied throughout; only test fixtures were allowed loopback traffic. No dependency was installed.
+
+The governing roadmap and authoring audits have zero failures in a fresh copied audit home with both Capitals registered read-only. The same five project-registry warnings and one authoring-configuration warning occur on the unchanged baseline and pass under the recorded pre-existing-warnings decision. The additional full repository audit still fails with the same attributed 119 baseline failures and nine warnings: 116 decision-record findings, one retired documentation-root finding and two isolated-home or borrowed-dependency findings. Their responsible tracked sources are unchanged; those unrelated failures are not waived or reported as passing.
+
+The goal and drawing contract are met, the symbol mappings preserve meaning, and the shared coverage test enforces Official and Agreed coverage. No further delivery blocker was found. The record is accepted and retained; there is no pruning, tag, publication or release.
 
 ### Independent review - 21 October 2026
 
