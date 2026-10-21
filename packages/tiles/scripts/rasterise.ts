@@ -5,7 +5,7 @@
 import { existsSync, writeFileSync } from 'node:fs'
 
 interface Chromium {
-  launch(options: { executablePath?: string }): Promise<{
+  launch(options: { executablePath?: string; args: string[] }): Promise<{
     newPage(options: { viewport: { width: number; height: number }; deviceScaleFactor: number }): Promise<{
       setContent(html: string): Promise<void>
       screenshot(options: { omitBackground: boolean; fullPage: boolean }): Promise<Uint8Array>
@@ -23,7 +23,8 @@ export async function rasterise(svg: string, out: string, scale = 1, background 
   const { chromium } = (await import(name)) as { chromium: Chromium }
   const fallback = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'
   const executablePath = process.env['KI_CHROMIUM'] ?? (existsSync(fallback) ? fallback : undefined)
-  const browser = await chromium.launch(executablePath ? { executablePath } : {})
+  // Use software rendering so repeated review images have identical rasterisation.
+  const browser = await chromium.launch({ executablePath, args: ['--disable-gpu'] })
   try {
     const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: scale })
     await page.setContent(

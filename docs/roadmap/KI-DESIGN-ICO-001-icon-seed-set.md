@@ -8,12 +8,12 @@ project: ki-design
 component: icons
 size: s
 horizon: now
-status: in-progress
+status: awaiting-review
 blocks: []
 blocked_by: []
 baseline_ref: f41cbc5621f6c260b965c877d4126edf37b3147b
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-21T13:17:32Z
+updated_at: 2026-10-21T13:30:35Z
 ---
 
 # Icon seed set
@@ -79,34 +79,39 @@ None.
 
 ### Delivered
 
-Within the boundary above, from baseline `f41cbc5`: five new single-colour line glyphs, `realm`, `pillars`, `thriving`, `quiet` and `weathered`, each passing `lintIcon`; `territory` drawn with `archipelago`; and the shared test that every Official or Agreed symbol names an existing glyph. No new meanings; steward-role glyphs untouched; Proposed `storm` stays without a glyph.
+Within the boundary above, from baseline `f41cbc5621f6c260b965c877d4126edf37b3147b`: five new single-colour line glyphs, `realm`, `pillars`, `thriving`, `quiet` and `weathered`, each passing `lintIcon`; `territory` drawn with `archipelago`; and the shared test that every Official or Agreed symbol names an existing glyph. No new meanings; steward-role glyphs untouched; Proposed `storm` stays without a glyph.
 
 ### Change Summary
 
 - `packages/icons/svg/`: `realm` (a globe), `pillars` (three free-standing columns with capitals and bases, no pediment, so it never reads as the Council Hall), and the condition family: one gabled house with chimney, window and door; `thriving` adds chimney smoke, `quiet` is the house unlit, `weathered` breaks the roof line and cracks the wall; `ruined` keeps `ruins`.
-- `packages/icons/src/icons.generated.ts` rebuilt (78 glyphs); `src/icons.test.ts` coverage list extended; `contact-sheet.png` regenerated with the five new glyphs bordered in brass; README count, list and "Adding a glyph" step updated.
+- `packages/icons/src/icons.generated.ts` rebuilt (78 glyphs); `src/icons.test.ts` coverage list extended; `contact-sheet.png` regenerated with the five new glyphs bordered in brass; README list and "Adding a glyph" step updated; the returned inventory paragraph is now corrected from 73 to 78 against all 78 committed SVG names.
 - `packages/symbols/src/symbols.ts`: `icon` set for territory (`archipelago`), realm, pillars, thriving, quiet and weathered; `symbols.test.ts` gains `every Official or Agreed symbol names a glyph`.
 - Generated outputs rebuilt from the data: `examples/site-preview/index.html` and `field-guide.html`, and the `DsIcons`, `DsMeaning`, `DsOverview` boards with `canvas.json`.
 - Docs: glyph briefs for the five glyphs and the territory note; counts corrected from 72 or 73 to 78 in `docs/spec/iconography.md`, `docs/briefs/README.md` and `-/observatory-handoff/INSTRUCTION.md`; iconography gains the coverage rule.
-- Tooling note: Playwright is not a dependency, so the contact sheet was rendered with `NODE_PATH` pointing at a local checkout's existing Playwright install; nothing was installed or added to `package.json`.
+- `packages/tiles/scripts/rasterise.ts`: launch Chromium with `--disable-gpu` to remove the observed variation between GPU renderings. This shared review-image helper has no runtime role. The icons README documents the local `NODE_PATH` and `KI_CHROMIUM` prerequisites; no dependency was installed.
+- Returned findings corrected from resubmission baseline `38965f001e91bb23046637d9dcec505b19864620`: the source-fixed generator reproduces the committed `contact-sheet.png` byte for byte on three consecutive runs, so the regenerated PNG has no Git diff.
 
 ### Verification
 
-- `bun run test`: every package passes (icons 89, symbols 18, tiles 20, tokens 55, hexmap 66, elements 11), and the preview and generator tests pass (87).
-- `bun run self:typecheck`, `biome check .`, `rumdl check .`, `knip` and `build-boards.ts --check` pass.
-- `ki repo audit` for `ki-work-roadmap` and `ki-authoring`: FAIL=0, no new warning.
+- Offline, uncached `bun node_modules/turbo/bin/turbo run test --force`: PASS, icons 89, symbols 18, tiles 20, tokens 55, hexmap 66 and elements 11; all 10 workspace tasks pass. `bun test packages/boundaries`: PASS, 17 tests.
+- Offline `bun test examples/observatory-preview docs/design-review/generators`: PASS, 90 tests, with only loopback IP traffic allowed for their temporary HTTP fixtures; external IP traffic remains denied.
+- Offline, uncached `bun node_modules/turbo/bin/turbo run typecheck --force`, `node_modules/.bin/biome check .`, `node_modules/.bin/rumdl check .`, `node_modules/.bin/knip` and `bun docs/design-review/generators/build-boards.ts --check`: PASS.
+- Offline `bun packages/icons/src/build.ts` and `bun examples/site-preview/build-pages.ts`: PASS; committed generated source and site pages remain unchanged.
+- Offline `bun packages/icons/scripts/contact-sheet.ts --new realm,pillars,thriving,quiet,weathered`: PASS on three consecutive source-fixed runs with installed Playwright 1.64.1 and Google Chrome for Testing 156.0.8078.4. Each 2492 by 3014 PNG has SHA-256 `0dde8101079637aa7b9f6573f03c35274e27d3675202bae33985bc6f96d5d3ef`, exactly matching the previously committed sheet. The second run is byte-stable; visual inspection confirms the 78 glyphs, four sizes, navy strip and five brass borders.
+- Offline roadmap and authoring audits in a fresh seed copy, with both Capitals registered read-only: zero failures, with the same five ITEM-2 project-registry warnings and one OWN-1 configuration warning as the unchanged baseline. They pass under the recorded pre-existing-warnings decision; every diagnostic matches the baseline exactly.
+- Full offline repository audit: FAIL on both baseline and candidate, with exactly the same 119 failures and nine warnings. The failures comprise 116 pre-existing decision-record findings, one retired documentation-root finding and two isolated setup findings for the borrowed dependency link and memory scope. None is attributed to this correction or treated as passing; the responsible tracked files are unchanged.
 
 ### Outstanding concerns
 
-The drawings need the owner's eye on `packages/icons/contact-sheet.png`. In particular, `thriving` and `quiet` differ only by chimney smoke, which is faint at 16 px, and `realm` is a conventional globe. Redraws are cheap if the owner wants a stronger mark.
+No delivery blocker remains from the independent review. Kris's 21 October waiver of the pre-acceptance contact-sheet look stands: they will look after acceptance, and any redraw is new work. The known visual points remain that `thriving` and `quiet` differ only by chimney smoke, faint at 16 px, and `realm` is a conventional globe. This run does not accept the record. The unrelated full-audit failures remain as attributed above.
 
 ### Post-change review
 
-Goal met: every Official or Agreed symbol names an existing glyph, by test, and the new glyphs pass the drawing contract. Scope held to glyphs and their data. Regression risk is low: generated pages and boards changed only by the new glyphs. Ready for review of the drawings.
+Goal met: every Official or Agreed symbol names an existing glyph by test, the new glyphs pass the drawing contract, the README inventory agrees with the committed sources, and the repository generator now reproduces the committed review image exactly. Scope held to the returned findings and the shared review-image renderer; no glyph, meaning, runtime behaviour or dependency changed in this correction. The renderer also serves tile review images, whose PNGs were not regenerated; its software rendering was exercised directly by three full icon-sheet runs. Ready for independent review under the owner's standing waiver.
 
 ### Mini recap
 
-Drew five glyphs, pointed `territory` at `archipelago`, and added the shared glyph-coverage test. Learning route: the icons README could name how to render the contact sheet when Playwright is not installed (a `KI_CHROMIUM` or `NODE_PATH` note); not promoted here.
+Delivered the five glyphs, territory mapping and shared coverage test, then corrected the returned inventory count and made review-image rasterisation repeatable. The regenerated sheet exactly matches the committed PNG. Required tests, lint and focused audits pass with unchanged baseline warnings; unrelated full-audit failures remain attributed. The local renderer prerequisites now live in the icons README. Awaiting independent review, not accepted.
 
 ## Discussion
 
@@ -121,6 +126,10 @@ Kris waived the pre-acceptance contact-sheet look on 21 October 2026: "I think o
 - Uncached package tests pass: icons 89, symbols 18, tiles 20, tokens 55, hexmap 66, elements 11 and boundary tests 17. The 90 preview and generator tests pass with external IP traffic denied and loopback allowed for their temporary HTTP fixtures. The seed's stricter network denial prevented those fixtures from binding; that setup failure is not a product regression.
 - Uncached typecheck, Biome, rumdl, Knip, icon build, site-page generation and the boards check pass. Rebuilding icon source and site pages leaves their committed outputs unchanged.
 - The governing roadmap and authoring audits have zero failures on the unchanged baseline, with pre-existing warnings for the unresolved project registry entry and authoring configuration drift. A full baseline audit also reports existing decision-record and retired-documentation-root failures, plus isolated-home and dependency-link findings; these are not treated as passing audits. No unrelated file is repaired or accepted here.
+
+### Reproducible review rendering
+
+The returned evidence problem was reproduced: two fresh default Chromium runs produced different PNG bytes from the same committed glyphs, including one with the reviewer's regenerated SHA-256. Disabling GPU rendering yielded three identical images in an isolated experiment; after putting `--disable-gpu` in the repository's shared rasteriser, three further runs with the ordinary generator and the real Chromium executable again yielded identical bytes. Their SHA-256 is `0dde8101079637aa7b9f6573f03c35274e27d3675202bae33985bc6f96d5d3ef`, which also matches the existing committed PNG. The regenerated image therefore needs no artificial content change. Reproduction is established for the recorded browser, installed fonts and scale; cross-platform byte identity is not claimed.
 
 ### Origin
 
