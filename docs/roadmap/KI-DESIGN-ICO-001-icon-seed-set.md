@@ -8,12 +8,12 @@ project: ki-design
 component: icons
 size: s
 horizon: now
-status: awaiting-review
+status: in-progress
 blocks: []
 blocked_by: []
 baseline_ref: f41cbc5621f6c260b965c877d4126edf37b3147b
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-20T22:22:00Z
+updated_at: 2026-10-21T13:17:32Z
 ---
 
 # Icon seed set
@@ -109,6 +109,18 @@ Goal met: every Official or Agreed symbol names an existing glyph, by test, and 
 Drew five glyphs, pointed `territory` at `archipelago`, and added the shared glyph-coverage test. Learning route: the icons README could name how to render the contact sheet when Playwright is not installed (a `KI_CHROMIUM` or `NODE_PATH` note); not promoted here.
 
 ## Discussion
+
+### Independent review - 21 October 2026
+
+Returned to In Progress by the independent reviewer, wow-day-ico-001-accept, after reviewing the complete delivery from `f41cbc5621f6c260b965c877d4126edf37b3147b` to `a3034a320e748594bb8e6a8033e50b4c111889cb` against local main `bfb6a45aadd1dd4e4b782cf35a0ec6cd1e9309bf`. The delivery baseline remains unchanged in frontmatter.
+
+Kris waived the pre-acceptance contact-sheet look on 21 October 2026: "I think on the design icons we can just go with it, and then I can take a look." This authority is recorded in ki-principal's `+/_WORK/ki.ways-of-working/decisions.md`, "owner answers" and "mark, afternoon unattended run". They will look after acceptance, with any redraw as new work. This failed review concerns the delivered evidence, not that deferred look.
+
+- The inventory paragraph in [the icons README](../../packages/icons/README.md) still says 73 glyphs, although its opening paragraph, generated name list and SVG inventory contain 78. The stale count is present in the delivery commit and must be corrected before resubmission.
+- The contact sheet regenerated offline with `--new realm,pillars,thriving,quiet,weathered`, existing Playwright and installed Chromium. Both copies are 2492 by 3014 pixels and visually show the same glyphs, order, sizes and brass borders, but they are not pixel-identical: 435,810 of 7,510,888 pixels differ. The committed PNG SHA-256 is `0dde8101079637aa7b9f6573f03c35274e27d3675202bae33985bc6f96d5d3ef`; the regenerated PNG is `b95420fb41e0a6922143b892422cef7e083579f3b5660ed54dedacb695a41b9b`. Establish the rendering difference or a reproducible renderer before claiming an exact match. The committed image is retained.
+- Uncached package tests pass: icons 89, symbols 18, tiles 20, tokens 55, hexmap 66, elements 11 and boundary tests 17. The 90 preview and generator tests pass with external IP traffic denied and loopback allowed for their temporary HTTP fixtures. The seed's stricter network denial prevented those fixtures from binding; that setup failure is not a product regression.
+- Uncached typecheck, Biome, rumdl, Knip, icon build, site-page generation and the boards check pass. Rebuilding icon source and site pages leaves their committed outputs unchanged.
+- The governing roadmap and authoring audits have zero failures on the unchanged baseline, with pre-existing warnings for the unresolved project registry entry and authoring configuration drift. A full baseline audit also reports existing decision-record and retired-documentation-root failures, plus isolated-home and dependency-link findings; these are not treated as passing audits. No unrelated file is repaired or accepted here.
 
 ### Origin
 
