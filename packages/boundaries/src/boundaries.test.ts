@@ -7,7 +7,7 @@ import { afterAll, beforeAll, expect, test } from 'vitest'
 
 const execute = promisify(execFile)
 const root = resolve(import.meta.dirname, '../../..')
-const tooling = join(root, 'tooling/boundaries')
+const tooling = join(root, 'tooling/depcruise')
 const checker = join(tooling, 'node_modules/.bin/depcruise')
 
 interface Edge {

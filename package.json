@@ -47,7 +47,7 @@
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "ki:deps:update": "bun update --latest",
-    "prepare": "git config core.hooksPath .githooks && bun install --frozen-lockfile --cwd tooling/boundaries",
+    "prepare": "git config core.hooksPath .githooks && bun install --frozen-lockfile --cwd tooling/depcruise",
     "self:boards": "bun docs/design-review/generators/build-boards.ts",
     "self:preview": "bun examples/observatory-preview/server.ts",
     "self:typecheck": "turbo run typecheck",
