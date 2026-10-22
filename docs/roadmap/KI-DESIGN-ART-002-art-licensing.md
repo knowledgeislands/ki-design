@@ -4,7 +4,6 @@ area: ART
 title: Art-licensing decision
 kind: deliver
 purpose: capability
-project: ki-design
 component: art
 size: s
 horizon: now
@@ -13,7 +12,7 @@ blocks: [KI-DESIGN-TIL-002]
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-20T22:22:00Z
+updated_at: 2026-10-22T07:37:07Z
 ---
 
 # Art-licensing decision

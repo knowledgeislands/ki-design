@@ -4,7 +4,6 @@ area: TIL
 title: Ancient tile set
 kind: deliver
 purpose: capability
-project: ki-design
 component: tiles
 size: xl
 horizon: hold
@@ -16,7 +15,7 @@ blocks: []
 blocked_by: [KI-DESIGN-ART-002]
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-20T22:22:00Z
+updated_at: 2026-10-22T07:37:07Z
 ---
 
 # Ancient tile set

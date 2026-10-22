@@ -4,7 +4,6 @@ area: MAP
 title: Isometric renderer
 kind: deliver
 purpose: capability
-project: ki-design
 component: hexmap
 size: l
 horizon: hold
@@ -16,7 +15,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-20T22:22:00Z
+updated_at: 2026-10-22T07:37:07Z
 ---
 
 # Isometric renderer
