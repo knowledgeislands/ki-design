@@ -12,7 +12,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-10-18T03:35:00Z
-updated_at: 2026-10-22T09:04:26Z
+updated_at: 2026-10-23T01:19:24Z
 ---
 
 # Lit SSR spike
@@ -36,6 +36,8 @@ Do not change any production page, deployment, publication, release, `sync:desig
 Keep generated bundles and installation artefacts in the disposable fixture, uncommitted. Home the complete reproducible fixture sources, commands and findings in ki-design, and complete the supervisor’s independent final review before removing the fixture. On blocked, preserve the fixture and evidence until the supervisor decides the retry, replan or cleanup in the report’s Queries; the normal cleanup sequence below does not apply. Then remove only the owned scratch files and any disposable worktree and branch; do not merge the site branch. Confirm that the primary site checkout remains on its recorded original HEAD and branch. Stop if cleanup would remove unrelated work or restoring the checkout would overwrite another actor’s changes.
 
 ## Current state
+
+Parked as Draft on 23 October 2026 under Kris’s authority, after ten review rounds failed to converge, until Kris takes up the Lit SSR spike. The full plan and the tenth-round findings below are retained; this parking grants no execution authority.
 
 Not started; Draft and `baseline_ref: null`. At the In progress transition, set an immutable ki-design baseline and record the site's corresponding full HEAD in this record’s `## Review` packet, the evidence note defined under Files touched. The planning observations were ki-design `8cf04f4c491d42ba90e817d940961f69f10c868f` and site `31d02de84d91c89452a1de3dad5c764bc3da11f5`; recheck both before execution.
 
@@ -169,6 +171,12 @@ On go, update the existing `docs/spec/components.md` toolkit wording only with e
 A go returns proposed follow-up only in the report’s Queries for supervisor capture under `ki-next` to ship server-rendered elements and refines the owning decision in place; conditional go additionally returns the site runtime proposal, and no-go identifies the diagnosed limitation and proposes the alternative work. Go preserves proposed status for both Lit and the evidenced route; every go-path edit is evidence and a recommendation only, never adoption. Settlement is returned through the report’s Queries; any settlement, conditional-go, no-go or other direction-changing owning-record edit and its matching specification, guide and README wording remain proposals in the report’s Queries for owner approval under Decision Records above; new record requires an independent durable decision. Route site-owned follow-up proposals only through the run report's Queries under the Delegation contract above. This record delivers findings only and stays Draft until the three-reviewer gate is met and the supervisor records the separate readiness approval. On blocked, preserve the pending-spike documentation and fixture, record the diagnosis and proposed next action in Review and the report’s Queries, and stay In progress for the supervisor’s decision rather than claiming completed delivery.
 
 ## Discussion
+
+### Tenth-round findings
+
+The tenth round returned one high-confidence READY and two high-confidence NOT READY reviews. The unresolved findings concern whether plugin VM diagnostics affect the outcome classification; who resumes after the supervisor’s independent review to clean up, complete the six-part Review packet and move the record to Awaiting review; and ownership and cleanup of the site TypeScript scratch output in either checkout arrangement.
+
+The reviewers also found two stale repository facts: the boundaries test passed at the reviewed revision despite being described as a known failure, and the site’s default `apps/site/tsconfig.tsbuildinfo` is gitignored rather than tracked. These findings are retained for Kris’s next pass; the plan has not been amended to resolve them.
 
 ### Review reconciliation
 
