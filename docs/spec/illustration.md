@@ -6,11 +6,11 @@ updated: 2026-10-19
 
 # Illustration and art direction
 
-The world has three looks: the **Modern** tile set (engraved line, flat fills), the **Ancient** tile set (painted, dusk-lit atlas art) and the **Illustrated explainer** diagram style (daylight watercolour). The canon balance is 70 % infographic clarity to 30 % illustrative warmth. AI is drawn as infrastructure, never as a humanoid, and people are drawn small and grounded. Since 20 October 2026, Ancient is the only isometric tile set; Modern's engraved line and flat fills remain for flat top-down charts and diagrams, and its isometric tiles are frozen ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)). This file sets the directions, the balance per surface, how agents are shown and what is never drawn. Copy-paste prompts are in the [prompt library](../briefs/prompt-library.md); the briefs that commission art are in [docs/briefs/](../briefs/README.md).
+The world has three looks: the **Modern** tile set (engraved line, flat fills), the **Ancient** tile set (painted, dusk-lit atlas art) and the **Illustrated explainer** diagram style (daylight watercolour). The canon balance is 70 % infographic clarity to 30 % illustrative warmth. AI is drawn as infrastructure, never as a humanoid, and people are drawn small and grounded. Since 20 October 2026, Ancient is the only isometric tile set; Modern's engraved line and flat fills remain for flat top-down charts and diagrams, and its isometric tiles are frozen ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-only-isometric-tile-set-the-flat-chart-keeps-its-engraved-treatment.md)). This file sets the directions, the balance per surface, how agents are shown and what is never drawn. Copy-paste prompts are in the [prompt library](../briefs/prompt-library.md); the briefs that commission art are in [docs/briefs/](../briefs/README.md).
 
 ## The three directions
 
-The two tile sets and the explainer style are recorded in [GDR-KI-DESIGN-004](../decisions/GDR-KI-DESIGN-004-tile-sets-and-explainer-style.md).
+The two tile sets and the explainer style are recorded in [GDR-KI-DESIGN-004](../decisions/GDR-KI-DESIGN-004-two-tile-sets-and-the-illustrated-explainer-style.md).
 
 | | **Modern** (tile set) | **Ancient** (tile set) | **Illustrated explainer** (diagram style) |
 | --- | --- | --- | --- |
@@ -24,7 +24,7 @@ The two tile sets and the explainer style are recorded in [GDR-KI-DESIGN-004](..
 
 ## The painting is the legend; the chart is the map
 
-The painting leads and the chart follows ([GDR-KI-DESIGN-014](../decisions/GDR-KI-DESIGN-014-the-painting-as-home-hero.md)). The painted Arcadia is the home hero and the `/arcadia/` hero. The engraved Modern chart follows it: the Arcadia section on the home page, the chart on `/arcadia/`, diagrams and the local app. A chart / painting switch comes later, once the Ancient tiles exist.
+The painting leads and the chart follows ([GDR-KI-DESIGN-014](../decisions/GDR-KI-DESIGN-014-the-painting-as-the-home-hero.md)). The painted Arcadia is the home hero and the `/arcadia/` hero. The engraved Modern chart follows it: the Arcadia section on the home page, the chart on `/arcadia/`, diagrams and the local app. A chart / painting switch comes later, once the Ancient tiles exist.
 
 ## Reference images, in words
 
@@ -58,8 +58,8 @@ Semi-flat, lightly painterly, premium infographic quality; detailed but clean; a
 
 ## Never draw
 
-Humanoid robots; glowing evil AI; neon; cyberpunk cities; circuit boards; blockchain cubes; node-graph hairballs; crystals; magic glow or spell effects; monsters or creatures of any kind, whales included ([GDR-KI-DESIGN-030](../decisions/GDR-KI-DESIGN-030-the-lore-sheet.md)); temples or religious buildings; fantasy armour; weapons; skulls; game UI (XP bars, health bars, "map completion 34 %", "96 % harmony"); emoji; third-party logos inside the art; text baked into images; photographs of real people; pure black or pure white; walls, towers or battlements around the Capital, and fortified towers anywhere (a civic clock or cloister tower is architecture, never on the Capital).
+Humanoid robots; glowing evil AI; neon; cyberpunk cities; circuit boards; blockchain cubes; node-graph hairballs; crystals; magic glow or spell effects; monsters or creatures of any kind, whales included ([GDR-KI-DESIGN-030](../decisions/GDR-KI-DESIGN-030-the-lore-sheet-following-gdr-ki-principal-015.md)); temples or religious buildings; fantasy armour; weapons; skulls; game UI (XP bars, health bars, "map completion 34 %", "96 % harmony"); emoji; third-party logos inside the art; text baked into images; photographs of real people; pure black or pure white; walls, towers or battlements around the Capital, and fortified towers anywhere (a civic clock or cloister tower is architecture, never on the Capital).
 
 ## Licensing
 
-Treat references and generated art as unlicensed until the art-licensing decision (KI-DESIGN-ART-002) is recorded. Describe the style in our own words; the "Ghibli-like" reference in early material is a style risk to state plainly, and studio names stay out of prompts ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-unlicensed-until-recorded.md)). Who owns the art is still in [OPEN.md](../decisions/OPEN.md).
+Treat references and generated art as unlicensed until the art-licensing decision (KI-DESIGN-ART-002) is recorded. Describe the style in our own words; the "Ghibli-like" reference in early material is a style risk to state plainly, and studio names stay out of prompts ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-is-unlicensed-until-its-licensing-is-recorded.md)). Who owns the art is still in [OPEN.md](../decisions/OPEN.md).

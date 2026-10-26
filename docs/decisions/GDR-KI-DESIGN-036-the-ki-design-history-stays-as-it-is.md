@@ -24,4 +24,4 @@ The repository's history still contains Observatory screenshots with private rep
 
 ## References
 
-- [examples/observatory-preview/README.md](../../examples/observatory-preview/README.md).
+- examples/observatory-preview/README.md.

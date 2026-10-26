@@ -24,4 +24,4 @@ Kit wants to open the local app from his other machines over his tailnet. Act mu
 
 ## References
 
-- [docs/design-review/observatory/OBSERVATORY-DESIGN.md](../design-review/observatory/OBSERVATORY-DESIGN.md) and [docs/spec/components.md](../spec/components.md).
+- docs/design-review/observatory/OBSERVATORY-DESIGN.md and docs/spec/components.md.

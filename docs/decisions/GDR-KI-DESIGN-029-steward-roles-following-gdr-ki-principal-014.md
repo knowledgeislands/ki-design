@@ -28,4 +28,4 @@ The design drew workers on the map by role: Steward, Archivist, Cartographer, Bu
 ## References
 
 - GDR-KI-PRINCIPAL-014, _Steward roles_, and the Agents chapter, in `ki-principal`.
-- [docs/spec/meaning.md](../spec/meaning.md#workers-and-steward-roles).
+- docs/spec/meaning.md.

@@ -20,7 +20,7 @@ Illustrations and copy reach for the same world, but nothing named which motifs 
 ## Consequences
 
 - The `whale-song` signal is retired in `retiredSymbols`; no art draws a whale.
-- The never-draw list in [docs/spec/illustration.md](../spec/illustration.md#never-draw) names creatures without exception.
+- The never-draw list in docs/spec/illustration.md names creatures without exception.
 - A new motif needs a later decision in `ki-principal` first.
 
 ## References

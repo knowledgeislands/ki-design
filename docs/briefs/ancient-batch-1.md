@@ -2,7 +2,7 @@
 
 The first batch of the Ancient tile set is one instruction, ready to paste into the ChatGPT or Codex app working on the local `ki-design` checkout. It paints the 12 terrains and the eight hero structures of the [Ancient set brief](tile-set-ancient.md) against the chosen painting of Arcadia, saves every image unaltered in the inbound area, records exactly how each was made, and commits only that folder.
 
-Status: **run on 19 October 2026.** The candidates and their notes are in `+/art/2026-10-19-ancient-batch-1/`. The style held, but the generator painted square diamonds despite the exact hex geometry below, so the hex is now cut out afterwards (`+/art/2026-10-19-ancient-batch-1-hexed/`) and the next run, [batch 1b](ancient-batch-1b.md), paints on a template instead. The art it produces is unlicensed until KI-DESIGN-ART-002 is decided ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-unlicensed-until-recorded.md)), and it is a set of candidates for review, not the Ancient set: normalising, choosing and writing `packages/tiles/sets/ancient/manifest.json` come after.
+Status: **run on 19 October 2026.** The candidates and their notes are in `+/art/2026-10-19-ancient-batch-1/`. The style held, but the generator painted square diamonds despite the exact hex geometry below, so the hex is now cut out afterwards (`+/art/2026-10-19-ancient-batch-1-hexed/`) and the next run, [batch 1b](ancient-batch-1b.md), paints on a template instead. The art it produces is unlicensed until KI-DESIGN-ART-002 is decided ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-is-unlicensed-until-its-licensing-is-recorded.md)), and it is a set of candidates for review, not the Ancient set: normalising, choosing and writing `packages/tiles/sets/ancient/manifest.json` come after.
 
 ## What the batch paints
 
@@ -13,7 +13,7 @@ Status: **run on 19 October 2026.** The candidates and their notes are in `+/art
 | Port | `structure/port` | East–west pair, drawn at 3× |
 | Lighthouse, Observatory, Library, Council Hall, Mill, Causeway | `structure/lighthouse`, `structure/observatory`, `structure/library`, `structure/council-hall`, `structure/mill`, `structure/causeway` | Single hex, drawn at 4× |
 
-Every structure is drawn once, in the thriving state, frame 0 only. Footprints follow the Modern set's choices, which the contract leaves to each set except the Capital's flower ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)).
+Every structure is drawn once, in the thriving state, frame 0 only. Footprints follow the Modern set's choices, which the contract leaves to each set except the Capital's flower ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-follow-the-animation-standard-footprints-are-each-set-s-choice.md)).
 
 ## The instruction
 

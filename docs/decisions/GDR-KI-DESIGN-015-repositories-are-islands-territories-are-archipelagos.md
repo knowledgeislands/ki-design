@@ -22,10 +22,10 @@ In `ki-principal`, SDR-KI-PRINCIPAL-005 (11 October 2026) described an archipela
 ## Consequences
 
 - The Known Lands chart, the scope picker and the symbol rows draw territories as archipelagos.
-- The decision is _official_: SDR-KI-PRINCIPAL-005 was amended on 19 October 2026, and the Symbol Library defines the Archipelago as "A territory, drawn; federated knowledge ecosystem". The Territory and Archipelago symbols use these words ([GDR-KI-DESIGN-020](GDR-KI-DESIGN-020-symbols-follow-ki-principal.md)).
+- The decision is _official_: SDR-KI-PRINCIPAL-005 was amended on 19 October 2026, and the Symbol Library defines the Archipelago as "A territory, drawn; federated knowledge ecosystem". The Territory and Archipelago symbols use these words.
 - Islands that share a subject or character across territories are described in words, never drawn as a second grouping.
 
 ## References
 
-- [docs/spec/world.md](../spec/world.md#from-realm-to-island).
+- docs/spec/world.md.
 - SDR-KI-PRINCIPAL-005, _Territories, Archipelagos, and the Constitutional Layer_, in `ki-principal`.

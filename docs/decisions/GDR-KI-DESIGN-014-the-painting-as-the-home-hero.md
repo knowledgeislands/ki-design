@@ -28,5 +28,5 @@ The site needs one image that makes the world legible at first sight. The painte
 
 ## References
 
-- [docs/spec/illustration.md](../spec/illustration.md#the-painting-is-the-legend-the-chart-is-the-map).
-- [Arcadia handoff](../briefs/arcadia-handoff.md) and `docs/briefs/references/arcadia.png`.
+- docs/spec/illustration.md.
+- Arcadia handoff and `docs/briefs/references/arcadia.png`.

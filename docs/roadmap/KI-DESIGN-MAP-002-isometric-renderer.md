@@ -36,7 +36,7 @@ Canvas 2D only (no PixiJS) so the local app can inline it if it ever wants it.
 
 Not started. The flat renderer exists; there is no Canvas 2D renderer.
 
-**On hold behind composition Pilot 0.** On 20 October 2026 the owner held this record (DESIGN-DISPOSITIONS a) until [Pilot 0](../spec/hex-terrain-composition.md#pilot-0-the-smallest-useful-test), the flat-colour `renderTerrainSvg` and its 19-cell fixture, has proved the terrain geometry, visibility and draw order. On release it is to be replanned against an atlas format and the Ancient isometric set ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)), which makes Ancient the only isometric set and freezes the Modern isometric tiles as a fixture; the Steps and Verify below still name the Modern set and are superseded by that replan.
+**On hold behind composition Pilot 0.** On 20 October 2026 the owner held this record (DESIGN-DISPOSITIONS a) until [Pilot 0](../spec/hex-terrain-composition.md#pilot-0-the-smallest-useful-test), the flat-colour `renderTerrainSvg` and its 19-cell fixture, has proved the terrain geometry, visibility and draw order. On release it is to be replanned against an atlas format and the Ancient isometric set ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-only-isometric-tile-set-the-flat-chart-keeps-its-engraved-treatment.md)), which makes Ancient the only isometric set and freezes the Modern isometric tiles as a fixture; the Steps and Verify below still name the Modern set and are superseded by that replan.
 
 ## Steps
 

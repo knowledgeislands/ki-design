@@ -32,11 +32,11 @@ The grid is recorded in [GDR-KI-DESIGN-003](../decisions/GDR-KI-DESIGN-003-hex-g
 | Flower | 7 (centre + ring) | — | 2×2 to 4×4 → flower; square plinth matted out, hex plinth repainted |
 | Edge | Along one edge of a hex | 0–5 (which edge) | Connectors only: a river, road or quay drawn along a hex edge rather than across the hex |
 
-Each set declares each tile's footprint in its manifest. The `edge` footprint is for connectors only; the validator rejects it on any other kind. **The contract fixes only the Capital's; every other footprint is the set's choice** ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)). The Modern set draws every structure on a single hex except the Port (a pair) and the Capital (a flower). The earlier spec's suggestions (Council Hall and Workshop as pairs; Library single or pair; Port pair or flower; ancient forest single or flower) are options a set may take, not rules.
+Each set declares each tile's footprint in its manifest. The `edge` footprint is for connectors only; the validator rejects it on any other kind. **The contract fixes only the Capital's; every other footprint is the set's choice** ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-follow-the-animation-standard-footprints-are-each-set-s-choice.md)). The Modern set draws every structure on a single hex except the Port (a pair) and the Capital (a flower). The earlier spec's suggestions (Council Hall and Workshop as pairs; Library single or pair; Port pair or flower; ancient forest single or flower) are options a set may take, not rules.
 
 ### The Capital
 
-The Capital (`structure/capital`; `structure/citadel` is a deprecated alias that renderers and the validator still resolve) is always a compound across a **7-hex flower**: the Library and the Council Hall around an open civic square ([GDR-KI-DESIGN-008](../decisions/GDR-KI-DESIGN-008-the-capital-and-non-combative.md)).
+The Capital (`structure/capital`; `structure/citadel` is a deprecated alias that renderers and the validator still resolve) is always a compound across a **7-hex flower**: the Library and the Council Hall around an open civic square ([GDR-KI-DESIGN-008](../decisions/GDR-KI-DESIGN-008-the-capital-and-the-non-combative-principle.md)).
 
 - It may be drawn as one sprite spanning the flower (as the Modern set does) or as separate buildings on ring hexes, but never as a single-hex building and never walled.
 - Each set draws it its own way: a civic quarter and square in Modern, a hilltop forum or acropolis in Ancient.
@@ -68,7 +68,7 @@ The twelve terrain ids are the whole terrain contract. Each has a flat fill ([co
 The sixteen structure ids are in the contract. Their status follows the symbol library. Rules the contract does not carry:
 
 - `ancient-forest` never shares a hex with another structure.
-- `airport` is a mooring mast with an airship; `causeway` is the **Causeway**, the translation layer: a low stone way on culvert arches joining two grounds across shallow water, so that what crosses keeps its footing on both sides. It is civic, never fortified. `structure/bridge` is its deprecated alias, as `structure/citadel` is the Capital's ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)). `dock` sits on the coast edge; `lighthouse` stands on the coast.
+- `airport` is a mooring mast with an airship; `causeway` is the **Causeway**, the translation layer: a low stone way on culvert arches joining two grounds across shallow water, so that what crosses keeps its footing on both sides. It is civic, never fortified. `structure/bridge` is its deprecated alias, as `structure/citadel` is the Capital's ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-is-the-translation-symbol-bridge-names-the-act-command.md)). `dock` sits on the coast edge; `lighthouse` stands on the coast.
 - `cottage` is the generic dwelling.
 - `mill` is the Mill: a stone house with a waterwheel, the drawn form of `Admin/Operations`.
 - The Port draws its modes as districts.
@@ -136,15 +136,15 @@ The full brief is [building-standards.md](../briefs/building-standards.md).
 | Personal Isle | Cottage | Single hearth, garden wall, a small jetty |
 | Community | Commons | Meeting hall, market square, shared gardens |
 
-**Civic towers are allowed as architecture, never fortified and never on the Capital** ([GDR-KI-DESIGN-021](../decisions/GDR-KI-DESIGN-021-civic-towers.md)): a clock tower (which also draws the Calendar zone) in the Civic harbour town, cloister or college towers in the Collegiate family. A civic tower has no battlements, arrow slits, machicolations, curtain wall or gatehouse, never stands on the Capital's flower, and is not a symbol: the retired `tower` stays retired.
+**Civic towers are allowed as architecture, never fortified and never on the Capital** ([GDR-KI-DESIGN-021](../decisions/GDR-KI-DESIGN-021-civic-towers-in-the-architectural-families.md)): a clock tower (which also draws the Calendar zone) in the Civic harbour town, cloister or college towers in the Collegiate family. A civic tower has no battlements, arrow slits, machicolations, curtain wall or gatehouse, never stands on the Capital's flower, and is not a symbol: the retired `tower` stays retired.
 
 ## The tile-set contract
 
-A tile set is a skin over the same ids. Two sets exist: **Modern** (v0 drawn, now frozen as the contract's reference and test fixture) and **Ancient**, the only isometric set going forward ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)). A community set is valid when it covers every contract id and passes `validateTileSet` and the building standards; a set is _complete_ when it is valid and every tile is final. Extra tiles are welcome and are reported as extras. An island may adopt any valid set as local character; the local app's flat chart keeps the engraved flat treatment.
+A tile set is a skin over the same ids. Two sets exist: **Modern** (v0 drawn, now frozen as the contract's reference and test fixture) and **Ancient**, the only isometric set going forward ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-only-isometric-tile-set-the-flat-chart-keeps-its-engraved-treatment.md)). A community set is valid when it covers every contract id and passes `validateTileSet` and the building standards; a set is _complete_ when it is valid and every tile is final. Extra tiles are welcome and are reported as extras. An island may adopt any valid set as local character; the local app's flat chart keeps the engraved flat treatment.
 
 ### Optional manifest fields
 
-Four fields describe how a tile was drawn rather than what it is. They are optional, so a set without them stays valid; `validateTileSet` checks them only when they are present ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md)).
+Four fields describe how a tile was drawn rather than what it is. They are optional, so a set without them stays valid; `validateTileSet` checks them only when they are present ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-follow-the-animation-standard-footprints-are-each-set-s-choice.md)).
 
 | Field | Where | Values | Rule |
 | --- | --- | --- | --- |

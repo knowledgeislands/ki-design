@@ -29,4 +29,4 @@ The design brief left the display face open: keep Playfair Display, or move to a
 
 ## References
 
-- [docs/spec/typography.md](../spec/typography.md).
+- docs/spec/typography.md.

@@ -19,7 +19,7 @@ Type has two dialects. The **Chart** (the public site) sets Cormorant Garamond f
 | Leading | Ratio (unitless) | **Fixed pixel** leading |
 | Loading | Google Fonts or self-hosted WOFF2, `font-display: swap`, subset Latin | **Nothing fetched or bundled** |
 
-The exact fallback stacks are the token values, which are authoritative: prose quotes them, never the other way round ([GDR-KI-DESIGN-023](../decisions/GDR-KI-DESIGN-023-token-additions.md)). Cormorant replaces Playfair Display on the site. Cormorant's small x-height makes it unfit below 24 px: never set body, buttons or table text in it.
+The exact fallback stacks are the token values, which are authoritative: prose quotes them, never the other way round ([GDR-KI-DESIGN-023](../decisions/GDR-KI-DESIGN-023-token-additions-and-the-isometric-water-token-tokens-0-2-0.md)). Cormorant replaces Playfair Display on the site. Cormorant's small x-height makes it unfit below 24 px: never set body, buttons or table text in it.
 
 ## Site type scale
 

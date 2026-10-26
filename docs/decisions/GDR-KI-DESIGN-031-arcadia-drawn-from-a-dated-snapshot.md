@@ -25,4 +25,4 @@ The site's Arcadia page could publish the territory roster and freshness from li
 
 ## References
 
-- [docs/spec/maps.md](../spec/maps.md) and [GDR-KI-DESIGN-014](GDR-KI-DESIGN-014-the-painting-as-home-hero.md).
+- docs/spec/maps.md and [GDR-KI-DESIGN-014](GDR-KI-DESIGN-014-the-painting-as-the-home-hero.md).

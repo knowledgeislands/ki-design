@@ -19,7 +19,7 @@ Knowledge Islands draws knowledge as a natural world. The realm holds territorie
 | **Capital** | An island's (or a territory's) civic heart: **Library + Council Hall** (GDR-KI-PRINCIPAL-011); the Principal island holds the territory's governance | A civic square, never a fortress, on a 7-hex footprint; never a single-hex building | Territory Principal repository |
 
 - "Estate" is only Kit's local word for the places he visits most often. Display copy says **realm**.
-- **Repositories are islands; territories are archipelagos** ([GDR-KI-DESIGN-015](../decisions/GDR-KI-DESIGN-015-islands-and-archipelagos.md)). An earlier draft made the archipelago a non-governing "character" grouping. That reading is withdrawn, so never draw a second grouping line that crosses territories.
+- **Repositories are islands; territories are archipelagos** ([GDR-KI-DESIGN-015](../decisions/GDR-KI-DESIGN-015-repositories-are-islands-territories-are-archipelagos.md)). An earlier draft made the archipelago a non-governing "character" grouping. That reading is withdrawn, so never draw a second grouping line that crosses territories.
 - Knowledge Islands Principal is the island called **Arcadia**: the Knowledge Island of Knowledge Islands, the legendary origin that holds the canonical model every other island derives its baseline from.
 
 ## One plan, local character

@@ -28,5 +28,5 @@ Both surfaces must render from the same values. The local app fetches nothing at
 
 ## References
 
-- [docs/spec/governance.md](../spec/governance.md#versioning).
-- [`packages/tokens`](../../packages/tokens/README.md).
+- docs/spec/governance.md.
+- `packages/tokens`.

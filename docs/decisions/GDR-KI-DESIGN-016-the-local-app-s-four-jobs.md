@@ -1,6 +1,6 @@
 ---
 id: GDR-KI-DESIGN-016
-title: 'The local app''s four jobs'
+title: "The local app's four jobs"
 date: 2026-10-18
 status: current
 decision_type: governance
@@ -26,9 +26,9 @@ The local app is about people's interaction with the knowledge and the work; age
 
 - The job switch shows only the current job's instruments.
 - Act is absent over the tailnet.
-- The instruments group as ten under the jobs, reached by convergence ([GDR-KI-DESIGN-033](GDR-KI-DESIGN-033-instruments-by-convergence.md)); the Observatory's own records own the instruments.
+- The instruments group as ten under the jobs, reached by convergence; the Observatory's own records own the instruments.
 
 ## References
 
-- [docs/spec/components.md](../spec/components.md#app-patterns-instrument).
-- [Observatory design](../design-review/observatory/OBSERVATORY-DESIGN.md).
+- docs/spec/components.md.
+- Observatory design.

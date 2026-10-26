@@ -29,5 +29,5 @@ The public site has two kinds of reading: a story read once, in order, and a ref
 
 ## References
 
-- [docs/spec/layout.md](../spec/layout.md#site-structure-the-voyage-and-the-atlas).
-- [Design brief](../briefs/design-brief.md), "Public site".
+- docs/spec/layout.md.
+- Design brief, "Public site".

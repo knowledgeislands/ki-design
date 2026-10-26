@@ -24,4 +24,4 @@ The Living Map is interactive. The question was what it shows without JavaScript
 
 ## References
 
-- [docs/spec/maps.md](../spec/maps.md) and [GDR-KI-DESIGN-012](GDR-KI-DESIGN-012-shared-web-components.md).
+- docs/spec/maps.md and [GDR-KI-DESIGN-012](GDR-KI-DESIGN-012-only-two-shared-web-components.md).

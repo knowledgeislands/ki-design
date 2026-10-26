@@ -26,5 +26,5 @@ The canon logo is a roundel, an island and an arch (`ki-principal/Pillars/Aesthe
 
 ## References
 
-- [GDR-KI-DESIGN-009](GDR-KI-DESIGN-009-the-observatory-mark.md) - the Observatory as the app's mark.
-- [docs/spec/meaning.md](../spec/meaning.md#the-capital-and-other-structures).
+- [GDR-KI-DESIGN-009](GDR-KI-DESIGN-009-the-observatory-as-the-local-app-s-mark.md) - the Observatory as the app's mark.
+- docs/spec/meaning.md.

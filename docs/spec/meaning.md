@@ -16,7 +16,7 @@ Every visual element that carries meaning is a symbol, and each symbol means one
 4. **The status word is the data's.** Read a symbol's status from `symbols.ts`, and show it with the four labels in [DESIGN.md](../../DESIGN.md#status-vocabulary). Where a row below has no entry in `symbols.ts`, its status is given in the table.
 5. **Retired ids are never reused.** `harbour`, `citadel`, `tower`, `guardian` and `whale-song` are retired. The `citadel`, `tower` and `role-guardian` glyphs stay in the icon package, mapped to no symbol. An alias, such as `bridge` for `causeway`, resolves to the symbol that replaced it and is never reused either.
 
-Statuses and meanings follow `ki-principal` ([GDR-KI-DESIGN-020](../decisions/GDR-KI-DESIGN-020-symbols-follow-ki-principal.md)). Where `symbols.ts` and `ki-principal` disagree, the question is listed in [OPEN.md](../decisions/OPEN.md) rather than settled here.
+Statuses and meanings follow `ki-principal` ([GDR-KI-DESIGN-020](../decisions/GDR-KI-DESIGN-020-symbol-statuses-and-meanings-follow-ki-principal.md)). Where `symbols.ts` and `ki-principal` disagree, the question is listed in [OPEN.md](../decisions/OPEN.md) rather than settled here.
 
 ### What the Port and the Capital superseded
 
@@ -28,7 +28,7 @@ GDR-KI-PRINCIPAL-010 (The Port) superseded three earlier canon rows:
 
 GDR-KI-PRINCIPAL-011 (The Capital) retired "Citadel" as a term and dropped the Tower. The Capital holds the Library and the Council Hall, and the Observatory is the local app's mark.
 
-GDR-KI-PRINCIPAL-013 (The Causeway and the Mill) replaced the Bridge with the Causeway as the translation layer, so "Bridge" now names only the local app's Act command, and made the Mill official ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md), [GDR-KI-DESIGN-019](../decisions/GDR-KI-DESIGN-019-the-mill.md)). See [GDR-KI-DESIGN-007](../decisions/GDR-KI-DESIGN-007-the-port.md), [GDR-KI-DESIGN-008](../decisions/GDR-KI-DESIGN-008-the-capital-and-non-combative.md) and [GDR-KI-DESIGN-009](../decisions/GDR-KI-DESIGN-009-the-observatory-mark.md).
+GDR-KI-PRINCIPAL-013 (The Causeway and the Mill) replaced the Bridge with the Causeway as the translation layer, so "Bridge" now names only the local app's Act command, and made the Mill official ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-is-the-translation-symbol-bridge-names-the-act-command.md), [GDR-KI-DESIGN-019](../decisions/GDR-KI-DESIGN-019-the-mill.md)). See [GDR-KI-DESIGN-007](../decisions/GDR-KI-DESIGN-007-the-port.md), [GDR-KI-DESIGN-008](../decisions/GDR-KI-DESIGN-008-the-capital-and-the-non-combative-principle.md) and [GDR-KI-DESIGN-009](../decisions/GDR-KI-DESIGN-009-the-observatory-as-the-local-app-s-mark.md).
 
 ## The canonical symbols: how they are drawn
 
@@ -65,7 +65,7 @@ Each canonical zone of a Knowledge Base is a place on its island, so a repositor
 | Zone or area | Drawn as | App |
 | --- | --- | --- |
 | `Pillars` (internal knowledge, canonical) | The Library's hall of pillars, in the Capital | Knowledge Bases, Documents |
-| `Calendar` (time-based notes) | A civic clock tower or a sundial beside the Capital square, never on the Capital's flower ([GDR-KI-DESIGN-021](../decisions/GDR-KI-DESIGN-021-civic-towers.md)) | Activity, automation timing |
+| `Calendar` (time-based notes) | A civic clock tower or a sundial beside the Capital square, never on the Capital's flower ([GDR-KI-DESIGN-021](../decisions/GDR-KI-DESIGN-021-civic-towers-in-the-architectural-families.md)) | Activity, automation timing |
 | `Resources` (external reference) | Archive and reading room beside the Library | Artifacts, references |
 | `Streams` (knowledge in motion: finite work, recurring runs and their evidence) | Rivers and canals running to the sea | Roadmap, Sessions |
 | `Admin/Governance` (what must hold: Charter, Known Lands, policies, decisions) | Council Hall, in the Capital | Decisions |
@@ -93,7 +93,7 @@ The full tile inventory is in [tiles-and-buildings.md](tiles-and-buildings.md).
 
 **The Observatory is the app's mark.** The Observatory means insight (Activity), and the local app is the Observatory, so the domed observatory is its mark. The Beacon is the Observatory's lamp.
 
-**Non-combative.** The symbol language never fortifies: no citadels, keeps, battlements or fortified towers, and no walls around the Capital. The Lighthouse keeps its tall form because it guides, not guards. Civic towers (a clock tower, a cloister tower) may stand as architecture, never fortified and never on the Capital ([GDR-KI-DESIGN-021](../decisions/GDR-KI-DESIGN-021-civic-towers.md)). No **curtain wall** is drawn around a Principal repository's knowledge base ([GDR-KI-DESIGN-027](../decisions/GDR-KI-DESIGN-027-no-curtain-wall-for-now.md)).
+**Non-combative.** The symbol language never fortifies: no citadels, keeps, battlements or fortified towers, and no walls around the Capital. The Lighthouse keeps its tall form because it guides, not guards. Civic towers (a clock tower, a cloister tower) may stand as architecture, never fortified and never on the Capital ([GDR-KI-DESIGN-021](../decisions/GDR-KI-DESIGN-021-civic-towers-in-the-architectural-families.md)). No **curtain wall** is drawn around a Principal repository's knowledge base ([GDR-KI-DESIGN-027](../decisions/GDR-KI-DESIGN-027-no-curtain-wall-for-now.md)).
 
 ## Port modes
 
@@ -130,7 +130,7 @@ Condition is driven by evidence freshness. This is where beauty meets truth: a s
 
 ## Workers and steward roles
 
-Workers are people or AI agents acting in the same cycle. Seven roles are **official** (GDR-KI-PRINCIPAL-014, [GDR-KI-DESIGN-029](../decisions/GDR-KI-DESIGN-029-steward-roles.md)). A role is a hat, not a species: the same role can be worn by a person or an agent, and it grants no authority.
+Workers are people or AI agents acting in the same cycle. Seven roles are **official** (GDR-KI-PRINCIPAL-014, [GDR-KI-DESIGN-029](../decisions/GDR-KI-DESIGN-029-steward-roles-following-gdr-ki-principal-014.md)). A role is a hat, not a species: the same role can be worn by a person or an agent, and it grants no authority.
 
 | Role | Does | Drawn as (illustration) | Glyph |
 | --- | --- | --- | --- |
@@ -164,7 +164,7 @@ The questions themselves, with their recommendations, are in [OPEN.md](../decisi
 | --- | --- |
 | Commons, Ruins, Workshop, Fog, Storm, tide lines | Usable in drafts and mockups, marked proposed; never shipped as settled |
 | Lantern | Agreed: usable, awaiting a name in `ki-principal` |
-| The Act command | Write "Bridge" or "Act"; draw no bridge for it ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)) |
-| The local app's name | Write "Observatory" until Gate B; its mark is the domed Observatory ([GDR-KI-DESIGN-028](../decisions/GDR-KI-DESIGN-028-observatory-name-until-gate-b.md)) |
+| The Act command | Write "Bridge" or "Act"; draw no bridge for it ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-is-the-translation-symbol-bridge-names-the-act-command.md)) |
+| The local app's name | Write "Observatory" until Gate B; its mark is the domed Observatory ([GDR-KI-DESIGN-028](../decisions/GDR-KI-DESIGN-028-observatory-stays-the-local-app-s-name-until-gate-b.md)) |
 
 The terms used here are defined in the [glossary](glossary.md).

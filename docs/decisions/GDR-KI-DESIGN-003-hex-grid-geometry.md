@@ -33,6 +33,6 @@ On 18 October 2026 Kit chose a hex grid for Knowledge Islands maps, reusing the 
 
 ## References
 
-- [docs/spec/tiles-and-buildings.md](../spec/tiles-and-buildings.md) - geometry, footprints, auto-tiling and layering.
-- [docs/spec/world.md](../spec/world.md) - hex for logic, isometric for life.
-- [Building standards](../briefs/building-standards.md).
+- docs/spec/tiles-and-buildings.md - geometry, footprints, auto-tiling and layering.
+- docs/spec/world.md - hex for logic, isometric for life.
+- Building standards.

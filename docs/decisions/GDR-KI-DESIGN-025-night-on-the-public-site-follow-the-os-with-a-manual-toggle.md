@@ -11,7 +11,7 @@ decision_type_url: https://knowledgeislands.info/specifications/decision-records
 
 ## Context
 
-Night is the reference rendering ([GDR-KI-DESIGN-010](GDR-KI-DESIGN-010-night-as-reference.md)), and the app shell follows the operating system's theme. The public site is where most people first meet night, and a `theme` glyph already exists. The question was whether the site follows the OS alone or adds a manual toggle. On 19 October 2026 Kit chose the toggle and confirmed it explicitly.
+Night is the reference rendering ([GDR-KI-DESIGN-010](GDR-KI-DESIGN-010-night-as-the-reference-rendering.md)), and the app shell follows the operating system's theme. The public site is where most people first meet night, and a `theme` glyph already exists. The question was whether the site follows the OS alone or adds a manual toggle. On 19 October 2026 Kit chose the toggle and confirmed it explicitly.
 
 ## Decision
 
@@ -29,4 +29,4 @@ Night is the reference rendering ([GDR-KI-DESIGN-010](GDR-KI-DESIGN-010-night-as
 
 ## References
 
-- [docs/spec/colour.md](../spec/colour.md#semantic-roles) and [GDR-KI-DESIGN-010](GDR-KI-DESIGN-010-night-as-reference.md).
+- docs/spec/colour.md and [GDR-KI-DESIGN-010](GDR-KI-DESIGN-010-night-as-the-reference-rendering.md).

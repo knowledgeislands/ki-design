@@ -73,7 +73,7 @@ The app uses `sm` almost exclusively; tables and panes are square-edged.
 
 ## Site structure: the Voyage and the Atlas
 
-The site has two halves ([GDR-KI-DESIGN-011](../decisions/GDR-KI-DESIGN-011-voyage-and-atlas.md)). Navigation: **Philosophy · Model · Arcadia · Landscapes · Docs · Projects**, with **Enter Arcadia** as the one brass call to action. Stable routes (`/install/ki`, `/harness/bootstrap`, `/specifications/…`) never move.
+The site has two halves ([GDR-KI-DESIGN-011](../decisions/GDR-KI-DESIGN-011-voyage-and-atlas-site-navigation.md)). Navigation: **Philosophy · Model · Arcadia · Landscapes · Docs · Projects**, with **Enter Arcadia** as the one brass call to action. Stable routes (`/install/ki`, `/harness/bootstrap`, `/specifications/…`) never move.
 
 | Half | Read how | Pages |
 | --- | --- | --- |
@@ -84,7 +84,7 @@ Every Voyage page links to the Atlas entries it mentions; every Atlas entry link
 
 | Page | Purpose | Key components |
 | --- | --- | --- |
-| Home | One-screen promise, then the journey | The painting as hero ([GDR-KI-DESIGN-014](../decisions/GDR-KI-DESIGN-014-the-painting-as-home-hero.md)) with district cartouches; "Knowledge is a civilisation question."; journey rail (The Problem · A New Paradigm · The Islands · Stewardship · Landscapes · Create); principle strip (six principles); "Tools change. Landscapes endure." banner |
+| Home | One-screen promise, then the journey | The painting as hero ([GDR-KI-DESIGN-014](../decisions/GDR-KI-DESIGN-014-the-painting-as-the-home-hero.md)) with district cartouches; "Knowledge is a civilisation question."; journey rail (The Problem · A New Paradigm · The Islands · Stewardship · Landscapes · Create); principle strip (six principles); "Tools change. Landscapes endure." banner |
 | Philosophy | Information → Knowledge → Wisdom; the cycle | Three-layer island cross-section; tide-cycle diagram of Capture / Connect / Reflect |
 | Model | Island, Capital, Territory, Archipelago, Agents | Living Map with legend; click a structure to read its concept |
 | Arcadia | The reference island | The painting, then the Arcadia chart; districts link to source repositories |

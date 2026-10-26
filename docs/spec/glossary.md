@@ -19,7 +19,7 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | Attend | The local app's job of noticing: Beacon, Waiting for you |
 | Beacon | The ranked list of what warrants notice; the Observatory's lamp; glyph `beacon` |
 | Boundary | The 3:1 colour role for control edges |
-| Bridge | The local app's command path for Act (plan / confirm / receipt). Not a symbol, and never drawn ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)) |
+| Bridge | The local app's command path for Act (plan / confirm / receipt). Not a symbol, and never drawn ([GDR-KI-DESIGN-018](../decisions/GDR-KI-DESIGN-018-the-causeway-is-the-translation-symbol-bridge-names-the-act-command.md)) |
 | Capital | An island's or territory's civic heart; holds the Library and the Council Hall |
 | Causeway | Translation layer: joins two grounds across shallow water; MCP servers in the app. Replaced the Bridge as the symbol |
 | Cartouche | A labelled panel tied to a place on a map (site) |
@@ -43,7 +43,7 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | Lighthouse | Guidance; serves others |
 | Living Map | The site's interactive map |
 | Mill | Operational systems: the running of the island; draws `Admin/Operations`; id `mill` |
-| Modern (set) | The engraved, flat-fill treatment, kept for flat top-down charts; its isometric tiles are frozen, and Ancient is the only isometric set ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)) |
+| Modern (set) | The engraved, flat-fill treatment, kept for flat top-down charts; its isometric tiles are frozen, and Ancient is the only isometric set ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-only-isometric-tile-set-the-flat-chart-keeps-its-engraved-treatment.md)) |
 | Observe | The local app's read-only job: instruments |
 | Official | Status label: ratified in `ki-principal` (formerly _canon_) |
 | Open | Status label for a question still to answer; listed in [OPEN.md](../decisions/OPEN.md) |

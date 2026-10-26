@@ -14,7 +14,7 @@ This proposal is about the **Island Map**: one island's ground, drawn isometric,
 
 ## Authority and current compatibility
 
-The current [tile contract](../../packages/tiles/src/contract.ts), [tile specification](tiles-and-buildings.md), [geometry decision](../decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md) and [footprint decision](../decisions/GDR-KI-DESIGN-022-tile-loops-and-footprints.md) remain authoritative. Their existing geometry, footprint union, plinth and validation have not changed. In particular, a new irregular footprint cannot currently be written into a production manifest and pass the existing validator.
+The current [tile contract](../../packages/tiles/src/contract.ts), [tile specification](tiles-and-buildings.md), [geometry decision](../decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md) and [footprint decision](../decisions/GDR-KI-DESIGN-022-tile-loops-follow-the-animation-standard-footprints-are-each-set-s-choice.md) remain authoritative. Their existing geometry, footprint union, plinth and validation have not changed. In particular, a new irregular footprint cannot currently be written into a production manifest and pass the existing validator.
 
 The owner confirmed the following direction on 19 October 2026: use hexes; investigate smaller construction cells for more flexible composition; describe height at each corner relative to a lowest corner of zero; raise a whole tile independently; support irregular compounds such as the Great Tree; derive exposed edges and waterfalls from neighbouring heights and connections; and keep the specification and supporting knowledge in `ki-design`. These directions are captured here without claiming formal **Agreed** status or a completed implementation.
 
@@ -203,7 +203,7 @@ Before changing a production schema, demonstrate all of the following with hex-o
 6. An Arcadia-derived patch beside newly painted material, with consistent light, scale and edge treatment.
 7. Terrain and crossings that remain identical when divided into different render chunks, with deterministic ownership and acceptable rendering cost.
 
-The pilot must make the limitations visible. Archive original art separately from repaired derivatives and record source, prompt where applicable, transformation, dimensions, anchors and deviations. Art remains unlicensed under [GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-unlicensed-until-recorded.md).
+The pilot must make the limitations visible. Archive original art separately from repaired derivatives and record source, prompt where applicable, transformation, dimensions, anchors and deviations. Art remains unlicensed under [GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-is-unlicensed-until-its-licensing-is-recorded.md).
 
 ## Knowledge and review routes
 

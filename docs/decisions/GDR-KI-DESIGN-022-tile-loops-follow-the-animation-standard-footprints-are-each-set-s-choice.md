@@ -1,6 +1,6 @@
 ---
 id: GDR-KI-DESIGN-022
-title: 'Tile loops follow the animation standard; footprints are each set''s choice'
+title: "Tile loops follow the animation standard; footprints are each set's choice"
 date: 2026-10-19
 status: current
 decision_type: governance
@@ -26,10 +26,10 @@ The contract fixes only the Capital's footprint, a 7-hex flower. The old DESIGN.
 ## Consequences
 
 - `sets/modern/manifest.json` declares `structure/lighthouse` 24 and `structure/mill` 12 (`@knowledgeislands/tiles` 0.1.1).
-- The contract notes in [docs/spec/tiles-and-buildings.md](../spec/tiles-and-buildings.md#footprints) and the [tiles README](../../packages/tiles/README.md) say footprints are per set.
-- The flat SVG twin (`flat`), the family (`family`, hero structures only), the palette (`palette`, on the set and per tile) and the `edge` footprint (connectors only) were added to the contract as optional fields ahead of the first Ancient batch (`@knowledgeislands/tiles` 0.2.0). The Modern manifest declares its palette and the families it plainly draws; see [Optional manifest fields](../spec/tiles-and-buildings.md#optional-manifest-fields).
+- The contract notes in docs/spec/tiles-and-buildings.md and the tiles README say footprints are per set.
+- The flat SVG twin (`flat`), the family (`family`, hero structures only), the palette (`palette`, on the set and per tile) and the `edge` footprint (connectors only) were added to the contract as optional fields ahead of the first Ancient batch (`@knowledgeislands/tiles` 0.2.0). The Modern manifest declares its palette and the families it plainly draws; see Optional manifest fields.
 
 ## References
 
-- [docs/spec/motion.md](../spec/motion.md#what-moves) and the [animation standard](../briefs/animation-standard.md).
-- [GDR-KI-DESIGN-005](GDR-KI-DESIGN-005-animation-clock.md).
+- docs/spec/motion.md and the animation standard.
+- [GDR-KI-DESIGN-005](GDR-KI-DESIGN-005-the-animation-clock.md).

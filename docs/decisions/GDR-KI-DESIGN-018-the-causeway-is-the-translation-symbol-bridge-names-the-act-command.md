@@ -34,5 +34,5 @@ The open question recommended renaming the translation symbol Causeway. On 19 Oc
 ## References
 
 - GDR-KI-PRINCIPAL-013, _The Causeway and the Mill_, in `ki-principal`.
-- [docs/spec/meaning.md](../spec/meaning.md#the-canonical-symbols-how-they-are-drawn).
-- [`@knowledgeislands/symbols`](../../packages/symbols/README.md).
+- docs/spec/meaning.md.
+- `@knowledgeislands/symbols`.

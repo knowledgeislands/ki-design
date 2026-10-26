@@ -164,7 +164,7 @@ export function wrapLabel(text: string, width: number): string[] {
   return lines
 }
 
-/** The Capital's 7-hex flower ([GDR-KI-DESIGN-008](../../../docs/decisions/GDR-KI-DESIGN-008-the-capital-and-non-combative.md)). */
+/** The Capital's 7-hex flower ([GDR-KI-DESIGN-008](../../../docs/decisions/GDR-KI-DESIGN-008-the-capital-and-the-non-combative-principle.md)). */
 const flower = (c: Axial): Axial[] => spiral(c, 1)
 
 /**
@@ -499,7 +499,7 @@ export function renderArchipelagoLayers(layout: ArchipelagoLayout): string {
 /**
  * Renders an archipelago as a standalone, deterministic SVG string with no script. The root is a labelled group, not
  * an image, so each island's link stays reachable; a page should still list the islands in text beside it
- * ([GDR-KI-DESIGN-032](../../../docs/decisions/GDR-KI-DESIGN-032-living-map-without-javascript.md)).
+ * ([GDR-KI-DESIGN-032](../../../docs/decisions/GDR-KI-DESIGN-032-the-living-map-without-javascript.md)).
  */
 export function renderArchipelagoSvg(archipelago: Archipelago, options: ArchipelagoOptions = {}): string {
   const layout = layoutArchipelago(archipelago, options)

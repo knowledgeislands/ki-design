@@ -1,6 +1,6 @@
 ---
 id: GDR-KI-DESIGN-028
-title: 'Observatory stays the local app''s name until Gate B'
+title: "Observatory stays the local app's name until Gate B"
 date: 2026-10-19
 status: current
 decision_type: governance
@@ -11,7 +11,7 @@ decision_type_url: https://knowledgeislands.info/specifications/decision-records
 
 ## Context
 
-Kit has said the local app will act, not only observe, so "Observatory" may be the wrong name. The Tower is no longer a candidate, and the app's mark is the Observatory whatever it is called ([GDR-KI-DESIGN-009](GDR-KI-DESIGN-009-the-observatory-mark.md)). On 19 October 2026 Kit accepted the recommendation not to rename it now.
+Kit has said the local app will act, not only observe, so "Observatory" may be the wrong name. The Tower is no longer a candidate, and the app's mark is the Observatory whatever it is called ([GDR-KI-DESIGN-009](GDR-KI-DESIGN-009-the-observatory-as-the-local-app-s-mark.md)). On 19 October 2026 Kit accepted the recommendation not to rename it now.
 
 ## Decision
 
@@ -28,4 +28,4 @@ The Observatory reaches Gate B, when there is evidence of how the app is used to
 
 ## References
 
-- [GDR-KI-DESIGN-009](GDR-KI-DESIGN-009-the-observatory-mark.md) and [GDR-KI-DESIGN-016](GDR-KI-DESIGN-016-the-four-jobs.md).
+- [GDR-KI-DESIGN-009](GDR-KI-DESIGN-009-the-observatory-as-the-local-app-s-mark.md) and [GDR-KI-DESIGN-016](GDR-KI-DESIGN-016-the-local-app-s-four-jobs.md).

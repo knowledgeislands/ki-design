@@ -38,5 +38,5 @@ The old DESIGN.md used values that were not tokens: a 96 px hero step, a round r
 
 ## References
 
-- [`packages/tokens/README.md`](../../packages/tokens/README.md) and [docs/spec/colour.md](../spec/colour.md).
-- [GDR-KI-DESIGN-013](GDR-KI-DESIGN-013-tokens-vendored-by-digest.md).
+- `packages/tokens/README.md` and docs/spec/colour.md.
+- [GDR-KI-DESIGN-013](GDR-KI-DESIGN-013-dtcg-tokens-vendored-by-digest.md).

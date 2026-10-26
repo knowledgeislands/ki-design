@@ -19,11 +19,11 @@ The work model's banner shows each piece of work's state with five emoji: the wo
 
 ## Consequences
 
-- The five candidates in [docs/briefs/banner-glyph-candidates.md](../briefs/banner-glyph-candidates.md) stay proposed and outside `@knowledgeislands/icons` until the `ki-coordination` standard admits the rendered form. A hand-off to `ki-agentic-harness` asks it to.
+- The five candidates in docs/briefs/banner-glyph-candidates.md stay proposed and outside `@knowledgeislands/icons` until the `ki-coordination` standard admits the rendered form. A hand-off to `ki-agentic-harness` asks it to.
 - Once the standard admits it, the glyphs move into `@knowledgeislands/icons` under a new ICO record, `docs/spec/iconography.md` gains them, and the Work tab follows the standard.
 - Until then, the Work tab keeps printing the standard's emoji, the one known exception to "no emoji" in the Observatory design.
 
 ## References
 
-- [KI-DESIGN-OBS-015](../roadmap/KI-DESIGN-OBS-015-banner-glyphs-question.md).
-- [docs/briefs/banner-glyph-candidates.md](../briefs/banner-glyph-candidates.md).
+- KI-DESIGN-OBS-015.
+- docs/briefs/banner-glyph-candidates.md.

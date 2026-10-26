@@ -22,7 +22,7 @@ On 18 October 2026 Kit (Kris Brown) accepted the proposal to rename the labels t
 - **Official** - ratified in `ki-principal`. Formerly _canon_.
 - **Agreed** - agreed with the owner and being enacted into `ki-principal`. Formerly _decided_; where an official and an agreed item conflict, the agreed one wins.
 - **Proposed** - usable in drafts and mockups, never shipped as settled.
-- **Open** - a question still to answer, listed in [OPEN.md](OPEN.md) and drawn as [meaning.md](../spec/meaning.md#open-items-how-to-draw-until-decided) says until it is answered.
+- **Open** - a question still to answer, listed in OPEN.md and drawn as meaning.md says until it is answered.
 
 The data keys change with the labels. `@knowledgeislands/symbols` uses `official`, `agreed` and `proposed`; Open belongs to questions rather than symbols, so it is not a symbol status.
 
@@ -36,6 +36,6 @@ The rename covers status labels only. Knowledge Islands Principal keeps its own 
 
 ## References
 
-- [DESIGN.md](../../DESIGN.md#status-vocabulary) - the status vocabulary.
-- [docs/spec/meaning.md](../spec/meaning.md) - meaning, and how to draw open items.
-- [`@knowledgeislands/symbols`](../../packages/symbols/README.md) - the statuses as data.
+- DESIGN.md - the status vocabulary.
+- docs/spec/meaning.md - meaning, and how to draw open items.
+- `@knowledgeislands/symbols` - the statuses as data.

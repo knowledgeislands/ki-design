@@ -11,7 +11,7 @@ decision_type_url: https://knowledgeislands.info/specifications/decision-records
 
 ## Context
 
-Kit once liked the idea of a low wall with open gates around the knowledge base in a territory's Principal repository: the line between settled knowledge and work in motion, with the Enactment Process as its gate. It was not adopted with the Capital ([GDR-KI-DESIGN-008](GDR-KI-DESIGN-008-the-capital-and-non-combative.md)), because a wall reads as a fortification. On 19 October 2026 Kit accepted the recommendation to revisit it only in a form that does not.
+Kit once liked the idea of a low wall with open gates around the knowledge base in a territory's Principal repository: the line between settled knowledge and work in motion, with the Enactment Process as its gate. It was not adopted with the Capital ([GDR-KI-DESIGN-008](GDR-KI-DESIGN-008-the-capital-and-the-non-combative-principle.md)), because a wall reads as a fortification. On 19 October 2026 Kit accepted the recommendation to revisit it only in a form that does not.
 
 ## Decision
 
@@ -28,4 +28,4 @@ A form is proposed that marks the line between settled knowledge and work in mot
 
 ## References
 
-- [GDR-KI-DESIGN-008](GDR-KI-DESIGN-008-the-capital-and-non-combative.md) and GDR-KI-PRINCIPAL-011 in `ki-principal`.
+- [GDR-KI-DESIGN-008](GDR-KI-DESIGN-008-the-capital-and-the-non-combative-principle.md) and GDR-KI-PRINCIPAL-011 in `ki-principal`.

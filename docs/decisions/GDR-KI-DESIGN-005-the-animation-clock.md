@@ -30,5 +30,5 @@ Animated tiles sit side by side on one map. If each loop kept its own time, neig
 
 ## References
 
-- [docs/spec/motion.md](../spec/motion.md).
-- [Animation standard](../briefs/animation-standard.md).
+- docs/spec/motion.md.
+- Animation standard.

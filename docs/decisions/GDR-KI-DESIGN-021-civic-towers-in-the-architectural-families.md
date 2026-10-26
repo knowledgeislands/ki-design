@@ -23,10 +23,10 @@ The architectural families give each archetype its materials and silhouette. The
 
 ## Consequences
 
-- [docs/spec/tiles-and-buildings.md](../spec/tiles-and-buildings.md#building-standards) and the [building standards](../briefs/building-standards.md) record the conditions.
+- docs/spec/tiles-and-buildings.md and the building standards record the conditions.
 - The non-combative principle reads: no citadels, keeps, battlements or fortified towers, and no walls around the Capital.
 
 ## References
 
 - GDR-KI-PRINCIPAL-011, _The Capital_ (amended 19 October 2026), in `ki-principal`.
-- [GDR-KI-DESIGN-008](GDR-KI-DESIGN-008-the-capital-and-non-combative.md).
+- [GDR-KI-DESIGN-008](GDR-KI-DESIGN-008-the-capital-and-the-non-combative-principle.md).

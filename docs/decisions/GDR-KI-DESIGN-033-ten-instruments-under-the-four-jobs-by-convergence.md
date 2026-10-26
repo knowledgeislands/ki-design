@@ -11,7 +11,7 @@ decision_type_url: https://knowledgeislands.info/specifications/decision-records
 
 ## Context
 
-The Observatory design groups the app's fifteen tabs into ten instruments under the four jobs, Observe · Attend · Act · Extend ([GDR-KI-DESIGN-016](GDR-KI-DESIGN-016-the-four-jobs.md)). Kit's approach to the overhaul is to apply the design to the app as it is without losing anything, then converge. On 19 October 2026 Kit accepted the recommendation.
+The Observatory design groups the app's fifteen tabs into ten instruments under the four jobs, Observe · Attend · Act · Extend ([GDR-KI-DESIGN-016](GDR-KI-DESIGN-016-the-local-app-s-four-jobs.md)). Kit's approach to the overhaul is to apply the design to the app as it is without losing anything, then converge. On 19 October 2026 Kit accepted the recommendation.
 
 ## Decision
 
@@ -24,4 +24,4 @@ The Observatory design groups the app's fifteen tabs into ten instruments under 
 
 ## References
 
-- [docs/design-review/observatory/OBSERVATORY-DESIGN.md](../design-review/observatory/OBSERVATORY-DESIGN.md).
+- docs/design-review/observatory/OBSERVATORY-DESIGN.md.

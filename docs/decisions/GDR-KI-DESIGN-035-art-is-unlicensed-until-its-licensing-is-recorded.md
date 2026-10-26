@@ -23,8 +23,8 @@ Who owns AI-generated art, and under which generator terms, is not yet known; th
 ## Consequences
 
 - Manifests of generated sets carry `"licence": "UNLICENSED"` until ART-002 is recorded.
-- Who owns the art, and where the further reference images are, stay in [OPEN.md](OPEN.md).
+- Who owns the art, and where the further reference images are, stay in OPEN.md.
 
 ## References
 
-- [docs/spec/illustration.md](../spec/illustration.md) and the [prompt library](../briefs/prompt-library.md).
+- docs/spec/illustration.md and the prompt library.

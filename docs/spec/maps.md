@@ -31,7 +31,7 @@ Agreed with the owner on 19 October 2026. Every map is drawn at one of two scale
 | **Living Map** | Site (Model, Arcadia, Landscapes) | An island or archipelago with structures and a legend; click a structure to read its concept | Isometric, Ancient only | Zoom island → archipelago; select to read |
 | **Known Lands chart** | Local app instrument | The selected scope: each registered repository an island, zones as structures, condition states, Beacon signals, trade lanes, who is working | Flat SVG (the engraved flat treatment) by default; an isometric toggle draws Ancient | Select = filter; layers; time window |
 
-Until the Ancient tiles exist, the site shows the painting as the legend and the engraved isometric chart as an interim map ([GDR-KI-DESIGN-014](../decisions/GDR-KI-DESIGN-014-the-painting-as-home-hero.md)). Ancient is the only isometric tile set; the engraved Modern treatment remains for flat top-down charts ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)).
+Until the Ancient tiles exist, the site shows the painting as the legend and the engraved isometric chart as an interim map ([GDR-KI-DESIGN-014](../decisions/GDR-KI-DESIGN-014-the-painting-as-the-home-hero.md)). Ancient is the only isometric tile set; the engraved Modern treatment remains for flat top-down charts ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-only-isometric-tile-set-the-flat-chart-keeps-its-engraved-treatment.md)).
 
 ## Layers
 
@@ -61,7 +61,7 @@ Until the Ancient tiles exist, the site shows the painting as the legend and the
 - Every map has a **text equivalent** rendered in the page, not only an `aria-label`: a list of territories → islands → structures, each with its condition and signals as words and a link.
 - Terrain is never colour alone (a pattern per terrain); signals are shapes plus words.
 - The twelve terrain fills pass a colour-vision check (deuteranopia, protanopia and tritanopia simulation) for adjacent distinctness with patterns on.
-- The no-JS Living Map is the static SVG plus the district list ([GDR-KI-DESIGN-032](../decisions/GDR-KI-DESIGN-032-living-map-without-javascript.md)).
+- The no-JS Living Map is the static SVG plus the district list ([GDR-KI-DESIGN-032](../decisions/GDR-KI-DESIGN-032-the-living-map-without-javascript.md)).
 
 ## The IslandMap model
 

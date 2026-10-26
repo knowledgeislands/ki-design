@@ -32,6 +32,6 @@ A tile set is a skin over one inventory of ids. Any set, including a community s
 
 ## References
 
-- [docs/spec/illustration.md](../spec/illustration.md) - the three directions and the 70 / 30 balance.
-- [docs/spec/tiles-and-buildings.md](../spec/tiles-and-buildings.md) - the contract.
-- [Tile set: Modern](../briefs/tile-set-modern.md), [Tile set: Ancient](../briefs/tile-set-ancient.md), [Illustrated explainer style](../briefs/explainer-style.md).
+- docs/spec/illustration.md - the three directions and the 70 / 30 balance.
+- docs/spec/tiles-and-buildings.md - the contract.
+- Tile set: Modern, Tile set: Ancient, Illustrated explainer style.

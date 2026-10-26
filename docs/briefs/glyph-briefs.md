@@ -2,7 +2,7 @@
 
 One line per glyph, saying what to draw. Use it when drawing a new glyph, redrawing one at an optical size, or asking an image model for a tracing reference with the icon prompt in the [prompt library](prompt-library.md#icon-description-for-vector-tracing). The drawn glyphs are the truth: they are in [`packages/icons/svg/`](../../packages/icons/svg/), and the rules every drawing follows are in [docs/spec/iconography.md](../spec/iconography.md).
 
-The inventory is 78 glyphs. It is grouped here as the spec grouped it. Where a brief mentions brass or rust, it describes an accent the consumer applies; the glyph files stay single-colour ([GDR-KI-DESIGN-024](../decisions/GDR-KI-DESIGN-024-single-colour-glyphs.md)). `celestial` is drawn as `celestial-guide`, `arrow`, `refresh` and `hourglass` were added for the previews, and `realm`, `pillars` and the three conditions so that every Official or Agreed symbol has a glyph; a territory is drawn with `archipelago`.
+The inventory is 78 glyphs. It is grouped here as the spec grouped it. Where a brief mentions brass or rust, it describes an accent the consumer applies; the glyph files stay single-colour ([GDR-KI-DESIGN-024](../decisions/GDR-KI-DESIGN-024-glyphs-stay-single-colour.md)). `celestial` is drawn as `celestial-guide`, `arrow`, `refresh` and `hourglass` were added for the previews, and `realm`, `pillars` and the three conditions so that every Official or Agreed symbol has a glyph; a territory is drawn with `archipelago`.
 
 ## Symbols
 

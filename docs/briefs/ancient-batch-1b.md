@@ -7,7 +7,7 @@ Batch 1b is a small second run of the Ancient tile set: six tiles. It tests two 
 
 It also repaints two structures. The **Council Hall** gets no dome, so it stops reading as a second Library. The **Causeway** gets a straight-on camera.
 
-Status: **ready to run, not yet run.** As with batch 1, the art is unlicensed until KI-DESIGN-ART-002 is decided ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-unlicensed-until-recorded.md)). These are candidates for review.
+Status: **ready to run, not yet run.** As with batch 1, the art is unlicensed until KI-DESIGN-ART-002 is decided ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-is-unlicensed-until-its-licensing-is-recorded.md)). These are candidates for review.
 
 ## What the batch paints
 

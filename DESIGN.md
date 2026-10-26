@@ -48,10 +48,10 @@ This file is the entry point. It holds the essence, the principles, the world in
 
 ## Principles of the design
 
-- **Non-combative.** The symbol language never fortifies: no citadels, keeps, battlements or fortified towers, and no walls around the Capital. The Capital is a civic square, never a fortress. The Lighthouse keeps its tall form because it guides, not guards. Civic towers (a clock tower, a cloister tower) may stand as architecture, never fortified and never on the Capital ([GDR-KI-DESIGN-008](docs/decisions/GDR-KI-DESIGN-008-the-capital-and-non-combative.md), [GDR-KI-DESIGN-021](docs/decisions/GDR-KI-DESIGN-021-civic-towers.md)).
-- **The painting is the legend; the chart is the map.** The painted Arcadia leads, as the home and `/arcadia/` hero. The engraved Modern chart follows it: on the site below the painting, in diagrams and in the local app ([GDR-KI-DESIGN-014](docs/decisions/GDR-KI-DESIGN-014-the-painting-as-home-hero.md)). Ancient is the only isometric tile set; the engraved treatment stays for flat top-down charts ([GDR-KI-DESIGN-038](docs/decisions/GDR-KI-DESIGN-038-ancient-is-the-isometric-set.md)).
+- **Non-combative.** The symbol language never fortifies: no citadels, keeps, battlements or fortified towers, and no walls around the Capital. The Capital is a civic square, never a fortress. The Lighthouse keeps its tall form because it guides, not guards. Civic towers (a clock tower, a cloister tower) may stand as architecture, never fortified and never on the Capital ([GDR-KI-DESIGN-008](docs/decisions/GDR-KI-DESIGN-008-the-capital-and-the-non-combative-principle.md), [GDR-KI-DESIGN-021](docs/decisions/GDR-KI-DESIGN-021-civic-towers-in-the-architectural-families.md)).
+- **The painting is the legend; the chart is the map.** The painted Arcadia leads, as the home and `/arcadia/` hero. The engraved Modern chart follows it: on the site below the painting, in diagrams and in the local app ([GDR-KI-DESIGN-014](docs/decisions/GDR-KI-DESIGN-014-the-painting-as-the-home-hero.md)). Ancient is the only isometric tile set; the engraved treatment stays for flat top-down charts ([GDR-KI-DESIGN-038](docs/decisions/GDR-KI-DESIGN-038-ancient-is-the-only-isometric-tile-set-the-flat-chart-keeps-its-engraved-treatment.md)).
 - **Hex for logic, isometric for life.** The hex grid is the truth; the isometric painting is how that truth is shown. Every tile is data first and scenery second ([GDR-KI-DESIGN-003](docs/decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md)).
-- **Night is the reference rendering.** Judge night first, then light. Night is the same chart by lantern-light, not a separate theme ([GDR-KI-DESIGN-010](docs/decisions/GDR-KI-DESIGN-010-night-as-reference.md)).
+- **Night is the reference rendering.** Judge night first, then light. Night is the same chart by lantern-light, not a separate theme ([GDR-KI-DESIGN-010](docs/decisions/GDR-KI-DESIGN-010-night-as-the-reference-rendering.md)).
 - **Beauty meets truth.** Condition comes from evidence: a stale repository's workshop visibly weathers, so the map reports health without a chart. Condition is never a score.
 - **70 % infographic clarity, 30 % illustrative warmth.** The home hero is the one place the painting leads; the local app is all clarity.
 - **AI is infrastructure.** Show AI work as the things it moves and tends: vessels, lanterns, a turning waterwheel, an airship at its mast. Never a humanoid.
@@ -64,7 +64,7 @@ This file is the entry point. It holds the essence, the principles, the world in
 - **Zones.** A repository's own folders draw its island: Pillars in the Library, Calendar beside the Capital square (a clock tower or sundial), Resources beside the Library, Streams as rivers, Admin as the Council Hall (Governance) and the Mill (Operations). `+` and `-` are the Port's arrivals and departures quays.
 - **The Port** is entry and exchange in any mode, drawn as districts: dock, rail depot, airport (a mooring mast with an airship) and customs house. The Harbour is retired.
 - **The Lighthouse** means guidance. **The Council Hall** means governance. **The Observatory** means insight and is the local app's mark.
-- **The Causeway** is the translation layer. "Bridge" names only the local app's Act command and is never drawn ([GDR-KI-DESIGN-018](docs/decisions/GDR-KI-DESIGN-018-the-causeway-and-the-bridge.md)). **The Mill** is operational systems, the drawn form of Admin/Operations.
+- **The Causeway** is the translation layer. "Bridge" names only the local app's Act command and is never drawn ([GDR-KI-DESIGN-018](docs/decisions/GDR-KI-DESIGN-018-the-causeway-is-the-translation-symbol-bridge-names-the-act-command.md)). **The Mill** is operational systems, the drawn form of Admin/Operations.
 
 The full world is in [world.md](docs/spec/world.md); every symbol is in [meaning.md](docs/spec/meaning.md).
 
@@ -88,7 +88,7 @@ The full world is in [world.md](docs/spec/world.md); every symbol is in [meaning
 
 ## Status vocabulary
 
-Every symbol, tile and decision carries one of four labels, always in this order: **Official · Agreed · Proposed · Open** ([GDR-KI-DESIGN-002](docs/decisions/GDR-KI-DESIGN-002-status-labels.md)).
+Every symbol, tile and decision carries one of four labels, always in this order: **Official · Agreed · Proposed · Open** ([GDR-KI-DESIGN-002](docs/decisions/GDR-KI-DESIGN-002-status-labels-official-agreed-proposed-open.md)).
 
 | Label | Meaning |
 | --- | --- |

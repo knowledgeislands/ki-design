@@ -66,7 +66,7 @@ const svg = renderFlatSvg(assertIslandMap(arcadia), {
 
 ## Archipelago charts
 
-A territory drawn as an archipelago ([GDR-KI-DESIGN-015](../../docs/decisions/GDR-KI-DESIGN-015-islands-and-archipelagos.md)), laid out from a list of islands rather than hand-placed hexes:
+A territory drawn as an archipelago ([GDR-KI-DESIGN-015](../../docs/decisions/GDR-KI-DESIGN-015-repositories-are-islands-territories-are-archipelagos.md)), laid out from a list of islands rather than hand-placed hexes:
 
 ```ts
 import { renderArchipelagoSvg } from '@knowledgeislands/hexmap'
@@ -85,10 +85,10 @@ const svg = renderArchipelagoSvg(
 )
 ```
 
-- **Layout** is deterministic. The Capital sits at the centre as a 7-hex flower ([GDR-KI-DESIGN-008](../../docs/decisions/GDR-KI-DESIGN-008-the-capital-and-non-combative.md)); without a Capital the first island takes the centre. The rest sit on a coarse lattice `spacing` hexes apart (default 4), filled ring by ring and clockwise from north in list order, so islands listed together sit together. `aspect` stretches the rings: 1 (the default) is a round cluster, below 1 stacks it tall for a narrow screen. `archipelagoSlots` returns the positions alone.
+- **Layout** is deterministic. The Capital sits at the centre as a 7-hex flower ([GDR-KI-DESIGN-008](../../docs/decisions/GDR-KI-DESIGN-008-the-capital-and-the-non-combative-principle.md)); without a Capital the first island takes the centre. The rest sit on a coarse lattice `spacing` hexes apart (default 4), filled ring by ring and clockwise from north in list order, so islands listed together sit together. `aspect` stretches the rings: 1 (the default) is a round cluster, below 1 stacks it tall for a narrow screen. `archipelagoSlots` returns the positions alone.
 - **Islands** are small isles of two or three hexes whose shape follows the island's id, never its place in the list, with nothing south of the centre so the label below stays on open sea. Each has its glyph on a parchment roundel and its name in small capitals on a paper halo, broken after hyphens (`labelWrap`, default 18 characters).
 - **The sea region** is every hex within `margin` (default 2) of an island, any enclosed lake filled, edged by one tinted border.
-- **Links.** An island with an `href` is an `<a>` with a `<title>` and `aria-label` (its `title`, or `name — role`); a hover or keyboard focus rings it in gold. The root is `role="group"` with a `<title>` (and `<desc>` from `description`), not `role="img"`, so the links stay reachable. There is no script. A page still lists the islands in text beside it ([GDR-KI-DESIGN-032](../../docs/decisions/GDR-KI-DESIGN-032-living-map-without-javascript.md)).
+- **Links.** An island with an `href` is an `<a>` with a `<title>` and `aria-label` (its `title`, or `name — role`); a hover or keyboard focus rings it in gold. The root is `role="group"` with a `<title>` (and `<desc>` from `description`), not `role="img"`, so the links stay reachable. There is no script. A page still lists the islands in text beside it ([GDR-KI-DESIGN-032](../../docs/decisions/GDR-KI-DESIGN-032-the-living-map-without-javascript.md)).
 - **Theme.** `day` and `night` pin the token colours, as the flat chart does. `auto` follows the page: the chart's colours (`archipelagoColours`) are custom properties `--ki-chart-*` set with the token stylesheet's own selectors, so the nearest `data-theme` surface or the OS scheme decides. `frame: false` leaves the paper out so the page shows through; `variant` keeps ids apart when one archipelago is drawn twice, a wide and a tall layout say.
 
 `layoutArchipelago` returns the same geometry as data. `examples/arcadia-territory.archipelago.json` is Arcadia's public islands as the website charted them on 19 October 2026, with the glyphs [maps.md](../../docs/spec/maps.md#how-islands-are-typed-app) gives single-purpose islands; `bun run build` renders `examples/arcadia-territory.svg` and `-night.svg`, a test checks they are current, and the PNGs are Chromium renders for review.

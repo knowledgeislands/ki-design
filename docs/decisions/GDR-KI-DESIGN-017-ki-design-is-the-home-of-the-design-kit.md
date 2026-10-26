@@ -29,4 +29,4 @@ The shared design kit needed a home. Kit first chose `apps-common`. The review r
 
 ## References
 
-- [README](../../README.md) and [docs/spec/governance.md](../spec/governance.md).
+- README and docs/spec/governance.md.

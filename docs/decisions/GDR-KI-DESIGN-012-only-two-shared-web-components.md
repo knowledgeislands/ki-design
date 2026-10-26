@@ -29,5 +29,5 @@ PDR-KI-OBSERVA-002 in the Observatory says "shared values, never shared renderin
 
 ## References
 
-- [docs/spec/components.md](../spec/components.md).
-- [`packages/elements`](../../packages/elements/README.md).
+- docs/spec/components.md.
+- `packages/elements`.

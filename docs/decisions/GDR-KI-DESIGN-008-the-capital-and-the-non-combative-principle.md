@@ -19,18 +19,17 @@ The design work had drawn an island's civic heart as a walled Citadel and given 
 
 - The Capital holds the Library (canonical knowledge) and the Council Hall (governance).
 - It is drawn as a civic square, open and welcoming, never a fortress: a civic quarter and square in Modern, a hilltop forum or acropolis in Ancient. It always spans a 7-hex flower and is never a single-hex building.
-- Nothing fortifies: no citadels, keeps, battlements or fortified towers, and no walls around the Capital. The Lighthouse keeps its tall form because it guides, not guards. Civic towers, a clock tower or a cloister tower, may stand as architecture, never fortified and never on the Capital ([GDR-KI-DESIGN-021](GDR-KI-DESIGN-021-civic-towers.md)).
+- Nothing fortifies: no citadels, keeps, battlements or fortified towers, and no walls around the Capital. The Lighthouse keeps its tall form because it guides, not guards. Civic towers, a clock tower or a cloister tower, may stand as architecture, never fortified and never on the Capital.
 - "Citadel" is retired as a term and the Tower is dropped.
 
 ## Consequences
 
 - The tile id is `structure/capital`; `structure/citadel` stays as a deprecated alias that renderers and the validator resolve. The hex map model resolves `citadel` to `capital` too.
 - The Capital has its own civic glyph, `capital`. The `citadel` and `tower` glyphs stay in the icon package, mapped to no symbol.
-- No curtain wall is drawn around a territory's Principal knowledge base; it is revisited only in a form that does not read as a fortification ([GDR-KI-DESIGN-027](GDR-KI-DESIGN-027-no-curtain-wall-for-now.md)).
-- The Arcadia painting keeps variation 1 unchanged. A repaint that painted the Capital civic lost the original's haze and mood, so Kit kept the original; its tower beside the Library is part of the picture, not the retired Tower symbol ([Arcadia handoff](../briefs/arcadia-handoff.md#second-round-reviewed-original-kept-18-october-2026)).
+- No curtain wall is drawn around a territory's Principal knowledge base; it is revisited only in a form that does not read as a fortification.
+- The Arcadia painting keeps variation 1 unchanged. A repaint that painted the Capital civic lost the original's haze and mood, so Kit kept the original; its tower beside the Library is part of the picture, not the retired Tower symbol (Arcadia handoff).
 
 ## References
 
 - GDR-KI-PRINCIPAL-011, _The Capital_, in `ki-principal` (`Admin/Governance/Decisions/`).
-- [GDR-KI-DESIGN-009](GDR-KI-DESIGN-009-the-observatory-mark.md) - the Observatory as the app's mark.
-- [docs/spec/meaning.md](../spec/meaning.md) and [docs/spec/tiles-and-buildings.md](../spec/tiles-and-buildings.md#the-capital).
+- docs/spec/meaning.md and docs/spec/tiles-and-buildings.md.

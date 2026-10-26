@@ -25,4 +25,4 @@ The old DESIGN.md allowed small brass accents in glyphs (a lamp, a flame, a star
 
 ## References
 
-- [docs/spec/iconography.md](../spec/iconography.md) and the [icons README](../../packages/icons/README.md).
+- docs/spec/iconography.md and the icons README.

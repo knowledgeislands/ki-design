@@ -614,7 +614,7 @@ function overviewData(): Record<string, unknown> {
 }
 
 function structureData(): Record<string, unknown> {
-  const md = read('docs/decisions/GDR-KI-DESIGN-011-voyage-and-atlas.md')
+  const md = read('docs/decisions/GDR-KI-DESIGN-011-voyage-and-atlas-site-navigation.md')
   const line = need(/\*\*Voyage\*\*.*?: (.+?)\.?$/m.exec(md)?.[1], 'the Voyage order in GDR-KI-DESIGN-011')
   return { voyage: line.split('→').map((page) => plain(page).toLowerCase()) }
 }

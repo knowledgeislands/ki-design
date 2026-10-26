@@ -23,9 +23,9 @@ On 19 October 2026 Kit accepted the recommendation, and `ki-principal` enacted i
 
 - The `mill` symbol is named Mill and is official; the `mill` glyph and `structure/mill` tile keep their ids.
 - Copy writes "Mill", never "Mill / Engine house" or "Mill (proposed)".
-- The mill wheel loops at 12 frames, one turn per loop ([GDR-KI-DESIGN-022](GDR-KI-DESIGN-022-tile-loops-and-footprints.md)).
+- The mill wheel loops at 12 frames, one turn per loop.
 
 ## References
 
 - GDR-KI-PRINCIPAL-013, _The Causeway and the Mill_, in `ki-principal`.
-- [docs/spec/meaning.md](../spec/meaning.md#the-capital-and-other-structures).
+- docs/spec/meaning.md.
