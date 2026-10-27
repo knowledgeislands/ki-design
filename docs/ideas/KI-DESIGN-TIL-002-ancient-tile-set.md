@@ -18,6 +18,8 @@ created_at: 2026-10-18T03:35:00Z
 updated_at: 2026-10-22T07:37:07Z
 ---
 
+> **Idea, not on the roadmap.** Produce the painted, dusk-lit Ancient tile set from the picture of Arcadia; waits on the art-licensing decision. Moved out of `docs/roadmap/` on 27 October 2026 under the roadmap sweep, with its record kept in full here so that it can return when Kris brings it back; it was `KI-DESIGN-TIL-002`.
+
 # Ancient tile set
 
 ## Goal

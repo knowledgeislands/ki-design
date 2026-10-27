@@ -18,6 +18,8 @@ created_at: 2026-10-18T03:35:00Z
 updated_at: 2026-10-22T07:37:07Z
 ---
 
+> **Idea, not on the roadmap.** Render an IslandMap isometrically from a tile set's atlas in Canvas 2D; needs the tile set first. Moved out of `docs/roadmap/` on 27 October 2026 under the roadmap sweep, with its record kept in full here so that it can return when Kris brings it back; it was `KI-DESIGN-MAP-002`.
+
 # Isometric renderer
 
 ## Goal
