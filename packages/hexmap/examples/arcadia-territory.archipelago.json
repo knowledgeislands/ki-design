@@ -76,12 +76,6 @@
       "glyph": "causeway"
     },
     {
-      "id": "mcp-ki-kb-notion-mirror",
-      "role": "MCP",
-      "href": "https://github.com/knowledgeislands/mcp-ki-kb-notion-mirror",
-      "glyph": "causeway"
-    },
-    {
       "id": "mcp-m365",
       "role": "MCP",
       "href": "https://github.com/knowledgeislands/mcp-m365",

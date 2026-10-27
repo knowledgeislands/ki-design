@@ -148,7 +148,7 @@ describe('renderArchipelagoSvg', () => {
         /<a class="ki-island" data-island="([^"]+)"[^>]* href="([^"]+)" aria-label="([^"]+)">\n<title>([^<]+)<\/title>/g
       )
     ]
-    expect(links).toHaveLength(19)
+    expect(links).toHaveLength(18)
     const capital = links.find((m) => m[1] === 'ki-principal')
     expect(capital?.[2]).toBe('https://github.com/knowledgeislands/ki-principal')
     expect(capital?.[3]).toBe('ki-principal — Capital')
