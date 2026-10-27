@@ -20,7 +20,7 @@ This file is the entry point. It holds the essence, the principles, the world in
 
 1. **Everyone:** read this file first. Then read only the spec file for the area you are working in; each is self-contained and opens with a summary. The [map at the end](#where-everything-lives) says which file holds what.
 2. **AI designers (ChatGPT, Claude): read this file, then [world](docs/spec/world.md), [meaning](docs/spec/meaning.md) and [voice](docs/spec/voice.md), before producing anything.** Use the [prompt library](docs/briefs/prompt-library.md) for imagery. **Never invent meaning.** If a thing you want to draw has no entry in the symbol library, do not draw it; propose it, marked _proposed_.
-3. **Data is the source of truth.** Token values, symbols, glyphs and tiles live in the packages. Prose points to them and never copies their tables. Where prose and data disagree, the data wins, unless a decision record says otherwise; open conflicts are listed in [OPEN.md](docs/decisions/OPEN.md).
+3. **Data is the source of truth.** Token values, symbols, glyphs and tiles live in the packages. Prose points to them and never copies their tables. Where prose and data disagree, the data wins, unless a decision record says otherwise; open conflicts are listed in [OPEN.md](docs/OPEN.md).
 4. **Status words are binding.** Use the four labels in [Status vocabulary](#status-vocabulary), always in that order.
 5. **Pick a dialect first.** Site work follows the Chart; local-app work follows the Instrument and PDR-KI-OBSERVA-002, which is law for that dialect. Never mix them on one surface.
 6. **Judge every output** against [Do and don't](#do-and-dont) and the contrast floors in [accessibility](docs/spec/accessibility.md) before calling it done.
@@ -95,7 +95,7 @@ Every symbol, tile and decision carries one of four labels, always in this order
 | **Official** | Ratified in `ki-principal` |
 | **Agreed** | Agreed with the owner (most in the 18 October 2026 brief), being enacted into `ki-principal`. Where an official and an agreed item conflict, the agreed one wins |
 | **Proposed** | May be used in drafts and mockups, never shipped as settled |
-| **Open** | A question still to answer, listed in [OPEN.md](docs/decisions/OPEN.md), and drawn as [meaning.md](docs/spec/meaning.md#open-items-how-to-draw-until-decided) says meanwhile |
+| **Open** | A question still to answer, listed in [OPEN.md](docs/OPEN.md), and drawn as [meaning.md](docs/spec/meaning.md#open-items-how-to-draw-until-decided) says meanwhile |
 
 The labels were Canon and Decided before 18 October 2026. The data keys are `official`, `agreed` and `proposed`; Open belongs to questions, not symbols. "Canonical knowledge" stays the Knowledge Islands term for ratified knowledge.
 
@@ -176,6 +176,6 @@ The labels were Canon and Decided before 18 October 2026. The data keys are `off
 | --- | --- |
 | Briefs for art and tiles, the prompt library, glyph briefs | [docs/briefs/](docs/briefs/README.md) |
 | Decision records, one per decision | [docs/decisions/](docs/decisions/README.md) |
-| Open questions, with recommendations (two, on 19 October) | [docs/decisions/OPEN.md](docs/decisions/OPEN.md) |
+| Open questions, with recommendations (two, on 19 October) | [docs/OPEN.md](docs/OPEN.md) |
 | Review boards and the Observatory design | [docs/design-review/](docs/design-review/README.md) |
 | Prose canon: Visual Style, Symbol Library, Isometric Tiles, Logo | `ki-principal/Pillars/Aesthetics` |

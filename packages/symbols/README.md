@@ -8,7 +8,7 @@ Meaning is ratified in `ki-principal`; this package mirrors it. Statuses, displa
 - `agreed`: agreed with the owner, awaiting enactment.
 - `proposed`: open for discussion (for example the Workshop, Ruins, Fog and Storm).
 
-The fourth label, **Open**, belongs to open questions rather than symbols; they sit in `notes` and in [docs/decisions/OPEN.md](../../docs/decisions/OPEN.md). How each symbol is drawn is in [docs/spec/meaning.md](../../docs/spec/meaning.md).
+The fourth label, **Open**, belongs to open questions rather than symbols; they sit in `notes` and in [docs/OPEN.md](../../docs/OPEN.md). How each symbol is drawn is in [docs/spec/meaning.md](../../docs/spec/meaning.md).
 
 Meanings mirror `ki-principal`'s wording (GDR-KI-DESIGN-020): where its Symbol Library, Structure chapter or Agents chapter gives a meaning, the entry starts from it.
 

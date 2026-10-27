@@ -46,7 +46,7 @@ The words of the Knowledge Islands design system, in one list. Each definition i
 | Modern (set) | The engraved, flat-fill treatment, kept for flat top-down charts; its isometric tiles are frozen, and Ancient is the only isometric set ([GDR-KI-DESIGN-038](../decisions/GDR-KI-DESIGN-038-ancient-is-the-only-isometric-tile-set-the-flat-chart-keeps-its-engraved-treatment.md)) |
 | Observe | The local app's read-only job: instruments |
 | Official | Status label: ratified in `ki-principal` (formerly _canon_) |
-| Open | Status label for a question still to answer; listed in [OPEN.md](../decisions/OPEN.md) |
+| Open | Status label for a question still to answer; listed in [OPEN.md](../OPEN.md) |
 | Port | Entry and exchange in any mode: dock, rail depot, airport, customs house |
 | Proposed | Status label: usable in drafts and mockups, never shipped as settled |
 | Realm | The governed environment; the Knowledge Islands Realm is the standard |

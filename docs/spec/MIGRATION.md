@@ -23,7 +23,7 @@ On 18 October 2026 the single-file DESIGN.md (about 17,400 words, sections 1–1
 | 3.6 Condition states | [meaning.md](meaning.md#condition-states) |
 | 3.7 Workers and steward roles | [meaning.md](meaning.md#workers-and-steward-roles) |
 | 3.8 Physical places | [meaning.md](meaning.md#physical-places-never-drawn-as-land) |
-| 3.9 Open items in meaning | [meaning.md](meaning.md#open-items-how-to-draw-until-decided); the questions in [OPEN.md](../decisions/OPEN.md) |
+| 3.9 Open items in meaning | [meaning.md](meaning.md#open-items-how-to-draw-until-decided); the questions in [OPEN.md](../OPEN.md) |
 | 4.1–4.5 Voice and copy | [voice.md](voice.md) |
 | 5.1 Core palette | Values: `tokens.json` `color.core`. Use: [colour.md](colour.md#the-core-palette-what-each-colour-is-for) |
 | 5.2 Semantic roles | Values: `color.role`; ratios: tokens README. Rules: [colour.md](colour.md#semantic-roles); [GDR-KI-DESIGN-010](../decisions/GDR-KI-DESIGN-010-night-as-the-reference-rendering.md) |
@@ -80,7 +80,7 @@ On 18 October 2026 the single-file DESIGN.md (about 17,400 words, sections 1–1
 | 16.2 How meaning changes | [governance.md](governance.md#how-meaning-changes) |
 | 16.3 Versioning | [governance.md](governance.md#versioning) |
 | 16.4 How designs are judged | [governance.md](governance.md#how-designs-are-judged) |
-| 16.5 Open questions | [docs/decisions/OPEN.md](../decisions/OPEN.md) |
+| 16.5 Open questions | [docs/OPEN.md](../OPEN.md) |
 | 16.5 Decided items | One record each in [docs/decisions/](../decisions/README.md), GDR-KI-DESIGN-003 to 017 |
 | Appendix A: Do / Don't | [DESIGN.md](../../DESIGN.md#do-and-dont) |
 | Appendix B: Glossary | [glossary.md](glossary.md) |

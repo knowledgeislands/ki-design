@@ -5,7 +5,7 @@
 ## Working contract
 
 - Meaning is canon. A symbol's meaning, a zone's name or a concept's definition changes in `ki-principal` (Philosophy or Aesthetics) through its Enactment Process first; this repository then follows. Never invent meaning here.
-- Data is the source of truth. `tokens.json`, `symbols.ts`, the glyph SVGs and the tile contract and manifests hold the values; the spec in `docs/spec/` points to them and never restates their tables. Where prose and data disagree, fix the prose, or list the question in `docs/decisions/OPEN.md` when a decision is needed.
+- Data is the source of truth. `tokens.json`, `symbols.ts`, the glyph SVGs and the tile contract and manifests hold the values; the spec in `docs/spec/` points to them and never restates their tables. Where prose and data disagree, fix the prose, or list the question in `docs/OPEN.md` when a decision is needed.
 - One decision, one record in `docs/decisions/`. Open questions are not records; they live in `OPEN.md` until answered.
 - Values and drawings are authoritative here. Token values, glyph drawings, tile manifests and component behaviour are changed here and released; consumers take a tagged release.
 - Keep the charter: things both surfaces render with. No app code, no data access, no instruments, no network calls at runtime.

@@ -62,4 +62,4 @@ Humanoid robots; glowing evil AI; neon; cyberpunk cities; circuit boards; blockc
 
 ## Licensing
 
-Treat references and generated art as unlicensed until the art-licensing decision (KI-DESIGN-ART-002) is recorded. Describe the style in our own words; the "Ghibli-like" reference in early material is a style risk to state plainly, and studio names stay out of prompts ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-is-unlicensed-until-its-licensing-is-recorded.md)). Who owns the art is still in [OPEN.md](../decisions/OPEN.md).
+Treat references and generated art as unlicensed until the art-licensing decision (KI-DESIGN-ART-002) is recorded. Describe the style in our own words; the "Ghibli-like" reference in early material is a style risk to state plainly, and studio names stay out of prompts ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-is-unlicensed-until-its-licensing-is-recorded.md)). Who owns the art is still in [OPEN.md](../OPEN.md).

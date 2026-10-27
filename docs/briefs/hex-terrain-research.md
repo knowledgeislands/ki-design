@@ -54,4 +54,4 @@ Treat the source painting as valuable visual evidence and raw material. A unifor
 
 Failure to retain material quality on sloping surfaces would favour more precomposed terrain variants. Unmanageable compound boundaries would favour a restricted first library of connected shapes, while retaining arbitrary footprints in the long-term model. Poor interaction at the proposed overview size would require simplification or a larger selection view, not automatically a larger logical cell.
 
-Review these trade-offs with the [pilot cases](../spec/hex-terrain-composition.md#pilot-and-acceptance) before implementing a schema migration. Keep unsettled numerical choices in [OPEN.md](../decisions/OPEN.md#hex-terrain-composition).
+Review these trade-offs with the [pilot cases](../spec/hex-terrain-composition.md#pilot-and-acceptance) before implementing a schema migration. Keep unsettled numerical choices in [OPEN.md](../OPEN.md#hex-terrain-composition).

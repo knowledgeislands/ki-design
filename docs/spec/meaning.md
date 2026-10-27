@@ -16,7 +16,7 @@ Every visual element that carries meaning is a symbol, and each symbol means one
 4. **The status word is the data's.** Read a symbol's status from `symbols.ts`, and show it with the four labels in [DESIGN.md](../../DESIGN.md#status-vocabulary). Where a row below has no entry in `symbols.ts`, its status is given in the table.
 5. **Retired ids are never reused.** `harbour`, `citadel`, `tower`, `guardian` and `whale-song` are retired. The `citadel`, `tower` and `role-guardian` glyphs stay in the icon package, mapped to no symbol. An alias, such as `bridge` for `causeway`, resolves to the symbol that replaced it and is never reused either.
 
-Statuses and meanings follow `ki-principal` ([GDR-KI-DESIGN-020](../decisions/GDR-KI-DESIGN-020-symbol-statuses-and-meanings-follow-ki-principal.md)). Where `symbols.ts` and `ki-principal` disagree, the question is listed in [OPEN.md](../decisions/OPEN.md) rather than settled here.
+Statuses and meanings follow `ki-principal` ([GDR-KI-DESIGN-020](../decisions/GDR-KI-DESIGN-020-symbol-statuses-and-meanings-follow-ki-principal.md)). Where `symbols.ts` and `ki-principal` disagree, the question is listed in [OPEN.md](../OPEN.md) rather than settled here.
 
 ### What the Port and the Capital superseded
 
@@ -158,7 +158,7 @@ Explainer-board roles map onto these: Curator → Archivist; Gardener → Stewar
 
 ## Open items: how to draw until decided
 
-The questions themselves, with their recommendations, are in [OPEN.md](../decisions/OPEN.md); none of them is about a symbol. Items that are usable but not settled:
+The questions themselves, with their recommendations, are in [OPEN.md](../OPEN.md); none of them is about a symbol. Items that are usable but not settled:
 
 | Item | Until decided |
 | --- | --- |

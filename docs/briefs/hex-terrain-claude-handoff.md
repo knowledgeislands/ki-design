@@ -1,6 +1,6 @@
 # Claude Design review of hex terrain composition
 
-Review the proposed hex terrain model in `knowledgeislands/ki-design`. Pull main, then read `docs/spec/hex-terrain-composition.md`, `docs/spec/hex-terrain-mathematics.md`, `docs/briefs/hex-terrain-research.md`, `+/art/2026-10-19-arcadia-hex-composition-study/NOTES.md` and the linked diagrams. Read `docs/briefs/tile-set-ancient.md` for the separate surface style guidance and `docs/decisions/OPEN.md` for unresolved choices.
+Review the proposed hex terrain model in `knowledgeislands/ki-design`. Pull main, then read `docs/spec/hex-terrain-composition.md`, `docs/spec/hex-terrain-mathematics.md`, `docs/briefs/hex-terrain-research.md`, `+/art/2026-10-19-arcadia-hex-composition-study/NOTES.md` and the linked diagrams. Read `docs/briefs/tile-set-ancient.md` for the separate surface style guidance and `docs/OPEN.md` for unresolved choices.
 
 The owner wants small hexagonal ground cells, six corner heights normalised so at least one is zero, a separate whole-cell elevation, connections based on neighbouring edge heights, and arbitrary connected compounds. The Great Tree may be one continuous artwork across an irregular group of hexes. Buildings and civic complexes can span multiple cells. A river crossing a drop may form a waterfall when its position, width, water levels and receiving reach agree.
 

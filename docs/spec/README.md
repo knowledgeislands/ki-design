@@ -30,5 +30,5 @@ The values are data, not prose: the tokens, the symbol library, the glyphs, the 
 ## Elsewhere
 
 - **Prompts and art briefs:** [docs/briefs/](../briefs/README.md), including the [prompt library](../briefs/prompt-library.md) and the [glyph briefs](../briefs/glyph-briefs.md).
-- **Decisions:** [docs/decisions/](../decisions/README.md), one record per decision; open questions in [OPEN.md](../decisions/OPEN.md).
+- **Decisions:** [docs/decisions/](../decisions/README.md), one record per decision; open questions in [OPEN.md](../OPEN.md).
 - **Meaning canon:** `ki-principal/Pillars/Aesthetics` and `Pillars/Philosophy`.

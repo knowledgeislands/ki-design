@@ -13,7 +13,7 @@ Start here, then read [`DESIGN.md`](../../DESIGN.md), the short entry point, and
 | Briefs for art and ChatGPT | `docs/briefs/` (README, picture of Arcadia, tile sets, prompt pack, Ancient batch 1, prompt library, glyph briefs, building and animation standards, explainer style) |
 | Chosen Arcadia painting | `docs/briefs/references/arcadia.png` (variation 1). Handoff and the fixes still to make: `docs/briefs/arcadia-handoff.md` |
 | Review boards, saved | `docs/design-review/` (nine boards, early explorations, generator scripts) |
-| Decision records | `docs/decisions/` (GDR-KI-DESIGN-001 to 036); the two questions still open in `docs/decisions/OPEN.md` |
+| Decision records | `docs/decisions/` (GDR-KI-DESIGN-001 to 036); the two questions still open in `docs/OPEN.md` |
 | Roadmap | `ROADMAP.md`, `docs/roadmap/` |
 | Observatory handoff drafts | `-/observatory-handoff/` |
 
@@ -66,7 +66,7 @@ All are private to Kit's account and show in his artifacts list.
 
 ## Open: Kit to answer
 
-Only two items remain in `docs/decisions/OPEN.md`, and both wait on facts rather than a choice:
+Only two items remain in `docs/OPEN.md`, and both wait on facts rather than a choice:
 
 1. **Art ownership** and the generator terms (KI-DESIGN-ART-002). Until then all art is unlicensed (GDR-KI-DESIGN-035).
 2. **Where the further isometric references are.** They are to be filed into `ki-principal`'s `Pillars/Aesthetics/Isometric Tiles` as references once Kit points to them.

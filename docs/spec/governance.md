@@ -25,7 +25,7 @@ Meaning never changes in `ki-design` first. A new symbol, a renamed concept (Har
 ## How this repository records decisions
 
 - Each significant design decision has one record in [`docs/decisions/`](../decisions/README.md), following [GDR-KI-DESIGN-001](../decisions/GDR-KI-DESIGN-001-adopting-decision-records.md). Records are living present-state documents: when a decision changes, its record is updated in place.
-- An open question is not a record. It is listed in [`docs/decisions/OPEN.md`](../decisions/OPEN.md) with its recommendation and how to draw meanwhile, until Kit answers it; the answer then becomes a record.
+- An open question is not a record. It is listed in [`docs/OPEN.md`](../OPEN.md) with its recommendation and how to draw meanwhile, until Kit answers it; the answer then becomes a record.
 - A decision about meaning is carried into `ki-principal` as well; the record here points to the principal record.
 
 ## Data is the source of truth

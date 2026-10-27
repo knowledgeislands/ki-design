@@ -18,7 +18,7 @@ The current [tile contract](../../packages/tiles/src/contract.ts), [tile specifi
 
 The owner confirmed the following direction on 19 October 2026: use hexes; investigate smaller construction cells for more flexible composition; describe height at each corner relative to a lowest corner of zero; raise a whole tile independently; support irregular compounds such as the Great Tree; derive exposed edges and waterfalls from neighbouring heights and connections; and keep the specification and supporting knowledge in `ki-design`. These directions are captured here without claiming formal **Agreed** status or a completed implementation.
 
-The endpoint numbering, profile interpolation, suggested display sizes and illustrative record below are recommendations for review. Open implementation choices are tracked in [OPEN.md](../decisions/OPEN.md#hex-terrain-composition). Meaning changes still follow `ki-principal`. The Capital's existing seven-hex flower is preserved; an extraction study does not redefine that requirement.
+The endpoint numbering, profile interpolation, suggested display sizes and illustrative record below are recommendations for review. Open implementation choices are tracked in [OPEN.md](../OPEN.md#hex-terrain-composition). Meaning changes still follow `ki-principal`. The Capital's existing seven-hex flower is preserved; an extraction study does not redefine that requirement.
 
 ## Model and terminology
 
@@ -210,5 +210,5 @@ The pilot must make the limitations visible. Archive original art separately fro
 - [Research and design rationale](../briefs/hex-terrain-research.md): primary references, adaptations, evidence and limitations.
 - [Ancient surface style](../briefs/tile-set-ancient.md): palette, lighting, material and silhouette guidance.
 - [Local extraction and edge diagrams](../../+/art/2026-10-19-arcadia-hex-composition-study/NOTES.md): source metadata and reproducible geometry.
-- [Open choices](../decisions/OPEN.md#hex-terrain-composition): what still needs evidence or a decision.
+- [Open choices](../OPEN.md#hex-terrain-composition): what still needs evidence or a decision.
 - [Claude Design handoff](../briefs/hex-terrain-claude-handoff.md): review scope and steering request.

@@ -22,7 +22,7 @@
     <div style="display:flex;flex-direction:column;gap:4px">
       <div style="font-family:'Cormorant SC',serif;font-size:16px;font-weight:600;letter-spacing:0.14em;color:#8a5a12">@@kicker@@</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;line-height:1.05;color:#0f2440">@@title@@</div>
-      <div style="font-size:15px;color:#4a5568">What is settled, and what still needs Kit. Agreed: one record each in docs/decisions/. Open: docs/decisions/OPEN.md, each with its recommendation.</div>
+      <div style="font-size:15px;color:#4a5568">What is settled, and what still needs Kit. Agreed: one record each in docs/decisions/. Open: docs/OPEN.md, each with its recommendation.</div>
     </div>
     <div style="display:flex;gap:10px">
       <div style="background:#dfe9e1;border-radius:8px;padding:10px 16px;min-width:92px"><div class="dd-n" style="color:#2d5a3d">{{c.agreed}}</div><div style="font-size:12px;font-weight:600;color:#2d5a3d">agreed</div></div>
@@ -157,7 +157,7 @@ class Component extends DCLogic {
         yes: () => setAns('yes'), no: () => setAns('no'),
         ans: a === 'yes' ? 'Kit: yes' : (a === 'no' ? 'Kit: no' : ''), ansDisp: a ? 'inline-block' : 'none',
         ansStyle: 'font-size:10.5px;font-weight:600;padding:3px 6px;border-radius:4px;white-space:nowrap;' + (a === 'yes' ? 'color:#2d5a3d;background:#dfe9e1;' : 'color:#9b2c1c;background:#f3dfd9;'),
-        facts: facts, src: 'docs/decisions/OPEN.md · ' + x.group
+        facts: facts, src: 'docs/OPEN.md · ' + x.group
       });
     });
     const showD = kind !== 'open', showO = kind !== 'agreed';

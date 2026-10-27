@@ -10,7 +10,7 @@ Knowledge Islands Design is the machine-readable design system for every Knowled
 | --- | --- |
 | A person or an AI designer (Claude, ChatGPT, a design tool) picking this up cold | [DESIGN.md](DESIGN.md) — the short entry point: essence, principles, hard rules, status words and a map of the rest |
 | Working on one area (colour, type, tiles, maps…) | [docs/spec/](docs/spec/README.md) — one self-contained file per area |
-| Looking for why something was decided, or what is still open | [docs/decisions/](docs/decisions/README.md) and [OPEN.md](docs/decisions/OPEN.md) |
+| Looking for why something was decided, or what is still open | [docs/decisions/](docs/decisions/README.md) and [OPEN.md](docs/OPEN.md) |
 | Producing art or tiles | [docs/briefs/](docs/briefs/README.md) — the tile-set, building, animation and Arcadia briefs, the prompt library and the glyph briefs, with the reference images |
 | Wondering why it looks this way | [docs/briefs/design-brief.md](docs/briefs/design-brief.md) and [docs/briefs/concept-atlas.md](docs/briefs/concept-atlas.md) |
 | Building with the toolkit | [packages/](#packages) below |

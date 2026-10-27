@@ -17,7 +17,7 @@ The boards are built from the repository's data and decision records, so the rev
 | --- | --- | --- |
 | Icons | Every glyph in `packages/icons/svg/`; groups and briefs from `docs/briefs/glyph-briefs.md`; meanings and statuses from `symbols.ts`; value icons and the glyph rules from `docs/spec/iconography.md` | The layout and controls |
 | Meaning | Every symbol in `symbols.ts` (meaning, status, category, glyph, site, app, notes) and its retired ids; "Drawn as" from the tables in `docs/spec/meaning.md` | The layout and controls |
-| Decisions | Agreed: each `docs/decisions/GDR-KI-DESIGN-*.md` (title, summary, decision, date, path). Open: each question in `docs/decisions/OPEN.md` (question, recommendation, meanwhile, affects) | The layout and controls |
+| Decisions | Agreed: each `docs/decisions/GDR-KI-DESIGN-*.md` (title, summary, decision, date, path). Open: each question in `docs/OPEN.md` (question, recommendation, meanwhile, affects) | The layout and controls |
 | Colour | Every role, wash, sea, core and terrain value from `tokens.json`; night terrain from `nightTerrain()`; contrast ratios | The notes on each colour, fog and the island palettes |
 | Type and voice | Font stacks from `tokens.json`; both type scales from `docs/spec/typography.md` | Specimens, voice rules and the do and don't pairs |
 | Tiles | The Modern manifest (tiles, footprints, loops, conditions, aliases); contract counts from `packages/tiles`; what moves from `docs/spec/motion.md`; families from `docs/spec/tiles-and-buildings.md` | Geometry and building drawings, the standards |

@@ -10,7 +10,7 @@
  * replaces each marker from the sources below, and fails on a marker it cannot resolve.
  *
  * Sources: packages/tokens (tokens.json), packages/symbols (symbols.ts), packages/icons/svg, packages/tiles (the
- * contract and the Modern manifest), docs/decisions (GDR-KI-DESIGN-*.md and OPEN.md), docs/spec and docs/briefs.
+ * contract and the Modern manifest), docs/decisions (GDR-KI-DESIGN-*.md), docs/OPEN.md, docs/spec and docs/briefs.
  */
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
@@ -231,11 +231,11 @@ interface OpenQuestion {
   readonly status: string
 }
 
-/** The open questions in docs/decisions/OPEN.md, in order. */
+/** The open questions in docs/OPEN.md, in order. */
 const openQuestions: readonly OpenQuestion[] = (() => {
   const out: OpenQuestion[] = []
   let group = ''
-  for (const s of sections(read('docs/decisions/OPEN.md'))) {
+  for (const s of sections(read('docs/OPEN.md'))) {
     if (s.level === 2) group = s.title
     if (s.level !== 3) continue
     const bullet = (label: string): string => {
