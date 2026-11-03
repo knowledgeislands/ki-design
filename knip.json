@@ -9,5 +9,6 @@
       "husky": { "config": [".githooks/pre-commit", ".githooks/commit-msg"] }
     },
     "packages/*": { "entry": ["src/index.ts", "src/**/*.test.ts"], "project": ["src/**/*.ts"] }
-  }
+  },
+  "husky": { "config": [".githooks/pre-commit", ".githooks/commit-msg"] }
 }
