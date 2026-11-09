@@ -1,5 +1,6 @@
 ---
 areas: { ART: 2, ELE: 1, ICO: 1, MAP: 2, OBS: 15, SYM: 1, TIL: 2, TOK: 1 }
+work: ki.reg.guilds
 ---
 
 # Roadmap issue ledger
