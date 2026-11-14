@@ -25,9 +25,9 @@ The contract fixes only the Capital's footprint, a 7-hex flower. The old DESIGN.
 
 ## Consequences
 
-- `sets/modern/manifest.json` declares `structure/lighthouse` 24 and `structure/mill` 12 (`@knowledgeislands/tiles` 0.1.1).
+- `sets/modern/manifest.json` declares `structure/lighthouse` 24 and `structure/mill` 12 (`tessera-tiles` 0.1.1).
 - The contract notes in docs/spec/tiles-and-buildings.md and the tiles README say footprints are per set.
-- The flat SVG twin (`flat`), the family (`family`, hero structures only), the palette (`palette`, on the set and per tile) and the `edge` footprint (connectors only) were added to the contract as optional fields ahead of the first Ancient batch (`@knowledgeislands/tiles` 0.2.0). The Modern manifest declares its palette and the families it plainly draws; see Optional manifest fields.
+- The flat SVG twin (`flat`), the family (`family`, hero structures only), the palette (`palette`, on the set and per tile) and the `edge` footprint (connectors only) were added to the contract as optional fields ahead of the first Ancient batch (`tessera-tiles` 0.2.0). The Modern manifest declares its palette and the families it plainly draws; see Optional manifest fields.
 
 ## References
 

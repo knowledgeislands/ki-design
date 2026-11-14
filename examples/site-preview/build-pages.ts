@@ -6,21 +6,21 @@
  *
  *   bun examples/site-preview/build-pages.ts      (run build-hero.ts first for the hero map)
  *
- * Glyphs come from @knowledgeislands/icons, symbol cards from @knowledgeislands/symbols, maps from build-hero.ts
- * (which uses @knowledgeislands/hexmap geometry). Imports are relative source paths so no workspace install is needed.
+ * Glyphs come from tessera-icons, symbol cards from tessera-symbols, maps from build-hero.ts
+ * (which uses tessera-hexmap geometry). Imports are relative source paths so no workspace install is needed.
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { hexCorners, toPixel } from '../../packages/hexmap/src/geometry.ts'
-import { iconBodies, iconNames } from '../../packages/icons/src/icons.generated.ts'
-import { symbols } from '../../packages/symbols/src/symbols.ts'
-import { symbolCategories } from '../../packages/symbols/src/types.ts'
+import { hexCorners, toPixel } from '../../packages/tessera-hexmap/src/geometry.ts'
+import { iconBodies, iconNames } from '../../packages/tessera-icons/src/icons.generated.ts'
+import { symbols } from '../../packages/tessera-symbols/src/symbols.ts'
+import { symbolCategories } from '../../packages/tessera-symbols/src/types.ts'
 import { arcadia, mix, renderIso, splice } from './build-hero.ts'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const root = join(here, '..', '..')
-const tokens = JSON.parse(readFileSync(join(root, 'packages/tokens/tokens.json'), 'utf8'))
+const tokens = JSON.parse(readFileSync(join(root, 'packages/tessera-tokens/tokens.json'), 'utf8'))
 const terrainFill: Record<string, string> = Object.fromEntries(
   Object.entries(tokens.color.terrain as Record<string, { $value: string }>).map(([k, v]) => [k, v.$value])
 )
@@ -30,7 +30,7 @@ const esc = (t: string): string =>
 const f = (n: number): string => (Math.round(n * 100) / 100).toString()
 
 // ---------------------------------------------------------------------------------------------------------------
-// Sprite: every glyph in packages/icons; the preview draws none of its own.
+// Sprite: every glyph in packages/tessera-icons; the preview draws none of its own.
 
 function sprite(): string {
   const parts = [
@@ -341,4 +341,4 @@ guide = splice(guide, 'symbols', sections)
 guide = splice(guide, 'howmap', howMap())
 writeFileSync(guidePath, guide)
 
-console.log(`index.html and field-guide.html: ${symbols.length} symbols, ${iconNames.length} glyphs from packages/icons`)
+console.log(`index.html and field-guide.html: ${symbols.length} symbols, ${iconNames.length} glyphs from packages/tessera-icons`)

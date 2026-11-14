@@ -17,14 +17,14 @@ bun examples/site-preview/build-hero.ts    # hero-arcadia.svg, spliced into inde
 bun examples/site-preview/build-pages.ts   # sprite, header, footer, rail, plates, Field Guide cards and panels
 ```
 
-Both scripts import package source by relative path (`packages/hexmap/src/geometry.ts`, `packages/icons/src/icons.generated.ts`, `packages/symbols/src/symbols.ts`, `packages/tokens/tokens.json`), so they need no workspace install. They only rewrite the blocks between `<!-- name:start -->` and `<!-- name:end -->` markers; everything else in the HTML is hand-written. `assets/tokens.css` is a copy of `packages/tokens/dist/tokens.css` (run `bun run build` in `packages/tokens` and copy it again if the tokens change).
+Both scripts import package source by relative path (`packages/tessera-hexmap/src/geometry.ts`, `packages/tessera-icons/src/icons.generated.ts`, `packages/tessera-symbols/src/symbols.ts`, `packages/tessera-tokens/tokens.json`), so they need no workspace install. They only rewrite the blocks between `<!-- name:start -->` and `<!-- name:end -->` markers; everything else in the HTML is hand-written. `assets/tokens.css` is a copy of `packages/tessera-tokens/dist/tokens.css` (run `bun run build` in `packages/tessera-tokens` and copy it again if the tokens change).
 
 ## What it shows
 
 **`index.html` — the Voyage home.** The live site's copy, in its order, as the spine:
 
 1. Header: the canon logo roundel (cropped from `ki-principal/Pillars/Aesthetics/Logo/logo.png`, not redrawn) and wordmark; the **Voyage** group (Philosophy · Model · Arcadia · Landscapes · Create) and the **Atlas** group (Field Guide · Docs · Specifications · Projects); the one brass **Enter Arcadia** button. Below 1260 px it collapses into a Menu disclosure that works without JavaScript.
-2. Hero: "Knowledge is a civilisation question." with the real sub-copy and two buttons; on the right, Arcadia drawn from `packages/hexmap/examples/arcadia.islandmap.json` in the Modern set — pointy-top hexes in 2:1 dimetric (top face 256 × 148 scaled to 88 px, row step 111, odd rows offset 128, 48 px plinth with strata), light from the top-left, terrain motifs, structure glyphs from `packages/icons` on a paper halo, brass lamps (8-frame flicker, still under reduced motion), sea lanes with vessels, fog at the edge, and five cartouches with leader lines (the Capital, the Port, the Observatory, the Streams, the Ancient Forest). Beneath it, the districts as a text list: the map's text equivalent and, at phone width, where the cartouches go.
+2. Hero: "Knowledge is a civilisation question." with the real sub-copy and two buttons; on the right, Arcadia drawn from `packages/tessera-hexmap/examples/arcadia.islandmap.json` in the Modern set — pointy-top hexes in 2:1 dimetric (top face 256 × 148 scaled to 88 px, row step 111, odd rows offset 128, 48 px plinth with strata), light from the top-left, terrain motifs, structure glyphs from `packages/tessera-icons` on a paper halo, brass lamps (8-frame flicker, still under reduced motion), sea lanes with vessels, fog at the edge, and five cartouches with leader lines (the Capital, the Port, the Observatory, the Streams, the Ancient Forest). Beneath it, the districts as a text list: the map's text equivalent and, at phone width, where the cartouches go.
 3. The Foundation: Information, Knowledge, Wisdom drawn as depth — one island cross-section rising from the shallows through inhabited land to the ancient forest on high stone.
 4. The Cycle: Capture at the Port, Connect along the Routes, Reflect from the Observatory, on a tide loop that returns to the Port.
 5. The Home: the Capital as a plate — its seven-hex flower (the Library and the Council Hall around an open square), then Calendar, Pillars, Resources, the Council Hall, Streams and the Port, in glyphs rather than emoji.
@@ -33,7 +33,7 @@ Both scripts import package source by relative path (`packages/hexmap/src/geomet
 8. The journey rail (The Problem · A New Paradigm · The Islands · Stewardship · Landscapes · Create), the six canon principles in canon words and order, and the closing "Tools change. Landscapes endure."
 9. Footer split into the Voyage and the Atlas.
 
-**`field-guide.html` — the Atlas's Field Guide.** One card per entry in `packages/symbols` (50), grouped by category with a filter (toggle buttons; without JavaScript every group shows): glyph roundel, name, status badge (Official · Agreed · Proposed, proposed dashed), id, meaning and notes. Entries without a glyph show a dashed empty roundel and say "No glyph yet". Each group links back to where the Voyage explains it. It ends with "How the map works": hex topology → data and layers → isometric render → the map, all drawn from the Arcadia data.
+**`field-guide.html` — the Atlas's Field Guide.** One card per entry in `packages/tessera-symbols` (50), grouped by category with a filter (toggle buttons; without JavaScript every group shows): glyph roundel, name, status badge (Official · Agreed · Proposed, proposed dashed), id, meaning and notes. Entries without a glyph show a dashed empty roundel and say "No glyph yet". Each group links back to where the Voyage explains it. It ends with "How the map works": hex topology → data and layers → isometric render → the map, all drawn from the Arcadia data.
 
 Screenshots at 1440 and 390 px are in `screenshots/`.
 
@@ -59,5 +59,5 @@ Screenshots at 1440 and 390 px are in `screenshots/`.
 ## Notes for the design system
 
 - GDR-KI-PRINCIPAL-011: the hero chart's cartouche, alt text and glyph show the Capital (Library · Council Hall), drawn with the `capital` glyph, and the site vendors that chart. The districts list, the Foundation, the Cycle, the Home plate and the Territory card use the `capital` glyph and the Capital's words too; no Citadel or Tower remains.
-- The Field Guide renders `packages/symbols` 0.2.0, whose statuses and meanings follow `ki-principal` (GDR-KI-DESIGN-020): the Causeway in place of the Bridge, the Mill and the seven roles official, the Guardian and Whale song retired.
+- The Field Guide renders `packages/tessera-symbols` 0.2.0, whose statuses and meanings follow `ki-principal` (GDR-KI-DESIGN-020): the Causeway in place of the Bridge, the Mill and the seven roles official, the Guardian and Whale song retired.
 - No horizontal scroll at 390 px (16 px gutters); the Field Guide's filter row scrolls inside its own width. Reduced motion stops the lamps and the scroll reveal. Text pairs meet 4.5:1.

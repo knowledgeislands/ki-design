@@ -5,9 +5,9 @@ import {
   layoutFlat,
   renderFlatLayers,
   validateIslandMap
-} from '../../../packages/hexmap/src/index.ts'
-import { requiredInventory } from '../../../packages/tiles/src/index.ts'
-import { tokens } from '../../../packages/tokens/src/index.ts'
+} from '../../../packages/tessera-hexmap/src/index.ts'
+import { requiredInventory } from '../../../packages/tessera-tiles/src/index.ts'
+import { tokens } from '../../../packages/tessera-tokens/src/index.ts'
 import { glyphBody } from '../client/glyphs.ts'
 import { rank } from '../client/format.ts'
 import { type ChartInput, chart, conditionOf, islandMap, lanesOf, roleOf } from '../client/lands-model.ts'

@@ -1,0 +1,24 @@
+{
+  "name": "tessera-tokens",
+  "description": "Knowledge Islands design tokens: DTCG source, CSS variables, Tailwind v4 theme and WCAG contrast checks.",
+  "version": "0.2.0",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.json": "./tokens.json",
+    "./tokens.css": "./dist/tokens.css",
+    "./theme.css": "./dist/theme.css"
+  },
+  "files": [
+    "src",
+    "dist",
+    "tokens.json"
+  ],
+  "private": true,
+  "scripts": {
+    "build": "bun src/build.ts",
+    "clean": "rm -rf dist",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "type": "module"
+}

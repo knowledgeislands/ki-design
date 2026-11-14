@@ -15,7 +15,7 @@ PDR-KI-OBSERVA-002 in the Observatory says "shared values, never shared renderin
 
 ## Decision
 
-**Only elements both surfaces share become components: `<ki-glyph>` and `<ki-hexmap>`** (decided 18 October 2026). Everything else (buttons, dialogs, forms, tables, cartouches) is a pattern each surface builds from tokens.
+**Only elements both surfaces share become components: `<tessera-glyph>` and `<tessera-hexmap>`** (decided 18 October 2026). Everything else (buttons, dialogs, forms, tables, cartouches) is a pattern each surface builds from tokens.
 
 - The two are framework-neutral Custom Elements, styled from tokens only, and server-rendered on the site with Declarative Shadow DOM so pages read without JavaScript.
 - Each exports its stylesheet as a string so the app's density and contrast tests can read it.
@@ -23,11 +23,11 @@ PDR-KI-OBSERVA-002 in the Observatory says "shared values, never shared renderin
 
 ## Consequences
 
-- `@knowledgeislands/elements` holds the two components and nothing else.
+- `tessera` holds the two components and nothing else.
 - The exception to PDR-002 is to be recorded in a later Observatory decision record, not yet written. PDR-KI-OBSERVA-008 covers only the tokens and glyphs, and 007 was already taken by feedback.
 - Site-only and app-only patterns live in their own repositories.
 
 ## References
 
 - docs/spec/components.md.
-- `packages/elements`.
+- `packages/tessera`.

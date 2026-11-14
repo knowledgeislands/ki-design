@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Space, shape and layout
 
-Whitespace is open sea and navigable distance. On the site be generous; in the app, density is the product. Spacing and radii are tokens in [`packages/tokens/tokens.json`](../../packages/tokens/tokens.json) (`space`, `radius`); this file holds how they are used, the borders and elevation rules, the grids, the app's density budget, the responsive rules and the site's structure, the Voyage and the Atlas.
+Whitespace is open sea and navigable distance. On the site be generous; in the app, density is the product. Spacing and radii are tokens in [`packages/tessera-tokens/tokens.json`](../../packages/tessera-tokens/tokens.json) (`space`, `radius`); this file holds how they are used, the borders and elevation rules, the grids, the app's density budget, the responsive rules and the site's structure, the Voyage and the Atlas.
 
 ## Spacing
 

@@ -1,0 +1,26 @@
+{
+  "name": "tessera",
+  "description": "Knowledge Islands web components shared by the site and the apps: <tessera-glyph> and <tessera-hexmap>.",
+  "version": "0.1.0",
+  "dependencies": {
+    "lit": "3.3.1",
+    "tessera-hexmap": "workspace:*",
+    "tessera-icons": "workspace:*"
+  },
+  "devDependencies": {
+    "@happy-dom/global-registrator": "^21.0.3",
+    "tessera-tokens": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "private": true,
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "type": "module"
+}

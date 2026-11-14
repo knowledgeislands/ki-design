@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Motion
 
-Motion is slow, tidal and intentional. Every animation runs on one shared clock of 12 frames per second with a 48-frame master cycle, so loops realign every four seconds and neighbouring tiles never drift. Frame 0 is always the still. The clock is a token (`motion.fps`, `motion.cycle` and its allowed loops in [`packages/tokens/tokens.json`](../../packages/tokens/tokens.json)) and is recorded in [GDR-KI-DESIGN-005](../decisions/GDR-KI-DESIGN-005-the-animation-clock.md); the brief for animators is [animation-standard.md](../briefs/animation-standard.md). This file holds the rules, the defaults for what moves, and UI motion.
+Motion is slow, tidal and intentional. Every animation runs on one shared clock of 12 frames per second with a 48-frame master cycle, so loops realign every four seconds and neighbouring tiles never drift. Frame 0 is always the still. The clock is a token (`motion.fps`, `motion.cycle` and its allowed loops in [`packages/tessera-tokens/tokens.json`](../../packages/tessera-tokens/tokens.json)) and is recorded in [GDR-KI-DESIGN-005](../decisions/GDR-KI-DESIGN-005-the-animation-clock.md); the brief for animators is [animation-standard.md](../briefs/animation-standard.md). This file holds the rules, the defaults for what moves, and UI motion.
 
 ## The clock
 

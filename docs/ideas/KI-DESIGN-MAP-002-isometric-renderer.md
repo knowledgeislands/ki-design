@@ -49,7 +49,7 @@ Not started. The flat renderer exists; there is no Canvas 2D renderer.
 
 ## Files touched
 
-`packages/hexmap/`
+`packages/tessera-hexmap/`
 
 ## Verify
 

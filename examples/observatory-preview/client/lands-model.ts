@@ -20,7 +20,7 @@ import {
   offsetToAxial,
   spiral,
   toPixel
-} from '../../../packages/hexmap/src/index.ts'
+} from '../../../packages/tessera-hexmap/src/index.ts'
 import { ageInDays, name } from './format.ts'
 import type { Severity, TradeRoute } from './types.ts'
 
@@ -262,7 +262,7 @@ export function lanesOf(routes: readonly TradeRoute[], onChart: ReadonlySet<stri
 }
 
 // ---------------------------------------------------------------------------------------------
-// The chart as an `islandmap/v1` for `@knowledgeislands/hexmap`.
+// The chart as an `islandmap/v1` for `tessera-hexmap`.
 
 /** Terrain carries maturity (docs/spec/meaning.md, terrain elevation): a capital stands on hills, the rest on grassland. */
 const terrainOf = (role: Role): MapHex['terrain'] => (role === 'citadel' ? 'hills' : 'grassland')

@@ -1,6 +1,6 @@
 # Banner glyph candidates
 
-**Status: Proposed.** Five candidate line glyphs for the work model's banner states, drawn for Kit to judge. Kit answered on 20 October 2026 ([GDR-KI-DESIGN-037](../decisions/GDR-KI-DESIGN-037-the-banner-emoji-stay-the-written-notation-line-glyphs-may-be-a-rendered-form.md)): the emoji stay the written notation, and a rendered surface may draw these glyphs with the state's words beside them. They stay proposed until the `ki-coordination` standard admits the rendered form. Nothing uses them, and they are not in `@knowledgeislands/icons`. The banner notation belongs to the [`ki-coordination` standard](https://github.com/knowledgeislands/ki-agentic-harness/blob/main/skills/change-management/ki-coordination/references/standards-coordination.md#banner) in `ki-agentic-harness`, which writes it with emoji today; the Observatory's Work tab prints it unchanged, because Kit chose one notation everywhere.
+**Status: Proposed.** Five candidate line glyphs for the work model's banner states, drawn for Kit to judge. Kit answered on 20 October 2026 ([GDR-KI-DESIGN-037](../decisions/GDR-KI-DESIGN-037-the-banner-emoji-stay-the-written-notation-line-glyphs-may-be-a-rendered-form.md)): the emoji stay the written notation, and a rendered surface may draw these glyphs with the state's words beside them. They stay proposed until the `ki-coordination` standard admits the rendered form. Nothing uses them, and they are not in `tessera-icons`. The banner notation belongs to the [`ki-coordination` standard](https://github.com/knowledgeislands/ki-agentic-harness/blob/main/skills/change-management/ki-coordination/references/standards-coordination.md#banner) in `ki-agentic-harness`, which writes it with emoji today; the Observatory's Work tab prints it unchanged, because Kit chose one notation everywhere.
 
 ## What they would be
 
@@ -8,7 +8,7 @@ The recommendation is to keep the emoji as the standard's text notation, which r
 
 ## The candidates
 
-Each file follows the drawing contract in the [icons README](../../packages/icons/README.md) (24 grid, 1.5 stroke, round caps, single colour, no fills) and passes `lintIcon`. At 14 px they are drawn from the 24 px drawing, as the app shell draws every glyph today.
+Each file follows the drawing contract in the [icons README](../../packages/tessera-icons/README.md) (24 grid, 1.5 stroke, round caps, single colour, no fills) and passes `lintIcon`. At 14 px they are drawn from the 24 px drawing, as the app shell draws every glyph today.
 
 | State | File | Draw | Why |
 | --- | --- | --- | --- |
@@ -23,5 +23,5 @@ The handoff arrow stays a written `→` between two glyphs, as the standard writ
 ## If Kit adopts them
 
 1. The `ki-coordination` standard records the rendered form beside its emoji notation.
-2. ki-design moves the five files into `packages/icons/svg/` under a new ICO record, adds them to the coverage test and the contact sheet, and releases.
+2. ki-design moves the five files into `packages/tessera-icons/svg/` under a new ICO record, adds them to the coverage test and the contact sheet, and releases.
 3. The Observatory re-vendors them at a pinned ki-design commit, as it does every glyph.

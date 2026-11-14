@@ -17,7 +17,7 @@ Both surfaces must render from the same values. The local app fetches nothing at
 
 **The tokens are one DTCG JSON file, and the local app vendors the built stylesheet by digest.**
 
-- `packages/tokens/tokens.json` is the source, in DTCG format. The build emits CSS custom properties (bare roles and Tailwind v4 `--color-*`), a Tailwind theme, a typed module and a SHA-256 digest of the declarations in canonical form.
+- `packages/tessera-tokens/tokens.json` is the source, in DTCG format. The build emits CSS custom properties (bare roles and Tailwind v4 `--color-*`), a Tailwind theme, a typed module and a SHA-256 digest of the declarations in canonical form.
 - Each release publishes the digest. The app vendors tokens by digest; a hand edit fails its test.
 - Both apps render from one tagged kit release with matching digests.
 
@@ -29,4 +29,4 @@ Both surfaces must render from the same values. The local app fetches nothing at
 ## References
 
 - docs/spec/governance.md.
-- `packages/tokens`.
+- `packages/tessera-tokens`.

@@ -37,11 +37,11 @@ On 19 October 2026 Kit accepted the recommendations. The same day `ki-principal`
 
 ## Consequences
 
-- `@knowledgeislands/symbols` 0.2.0 carries the statuses and meanings; `guardian` and `whale-song` join `retiredSymbols`, and the `role-guardian` glyph stays, mapped to no symbol.
+- `tessera-symbols` 0.2.0 carries the statuses and meanings; `guardian` and `whale-song` join `retiredSymbols`, and the `role-guardian` glyph stays, mapped to no symbol.
 - When `ki-principal` changes a meaning, `symbols.ts` follows in the next release; a disagreement is listed in OPEN.md rather than settled here.
 - The KI Website's Field Guide shows the new statuses when it next syncs the symbol library.
 
 ## References
 
 - `ki-principal`: `Pillars/Aesthetics/Symbol Library`, `Pillars/Aesthetics/Visual Style`, `Pillars/Philosophy/Model/Conventions/Structure` and `Pillars/Philosophy/Model/Agents`.
-- `packages/symbols/src/symbols.ts`.
+- `packages/tessera-symbols/src/symbols.ts`.

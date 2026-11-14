@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "@knowledgeislands/design-boundary-tooling",
+      "name": "tessera-boundary-tooling",
       "dependencies": {
         "dependency-cruiser": "^18.7.0",
         "typescript": "^6.0.3",

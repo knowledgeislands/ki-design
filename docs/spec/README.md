@@ -21,7 +21,7 @@ The values are data, not prose: the tokens, the symbol library, the glyphs, the 
 | [hex-terrain-composition.md](hex-terrain-composition.md) | Proposed corner heights, compounds and edge connections; review scope and pilot |
 | [hex-terrain-mathematics.md](hex-terrain-mathematics.md) | Local coordinate, height, boundary and compound algorithms for the proposal |
 | [motion.md](motion.md) | The clock, what moves, UI motion |
-| [components.md](components.md) | `<ki-glyph>` and `<ki-hexmap>`, the package layers, site patterns, app patterns |
+| [components.md](components.md) | `<tessera-glyph>` and `<tessera-hexmap>`, the package layers, site patterns, app patterns |
 | [maps.md](maps.md) | The three maps, layers, how islands are typed, keyboard, map accessibility, the IslandMap model |
 | [accessibility.md](accessibility.md) | The floors every surface holds |
 | [governance.md](governance.md) | Canon and this repository, how meaning changes, decision records, versioning, how designs are judged |

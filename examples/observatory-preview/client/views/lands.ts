@@ -9,8 +9,8 @@ import {
   type Point,
   renderFlatLayers,
   toPixel
-} from '../../../../packages/hexmap/src/index.ts'
-import { tokens } from '../../../../packages/tokens/src/index.ts'
+} from '../../../../packages/tessera-hexmap/src/index.ts'
+import { tokens } from '../../../../packages/tessera-tokens/src/index.ts'
 import { api } from '../api.ts'
 import { h, replace, s } from '../dom.ts'
 import { name, owner, plural, tally, when } from '../format.ts'
@@ -123,7 +123,7 @@ interface DrawOptions {
 }
 
 /**
- * `<ki-known-lands>`: the chart. `@knowledgeislands/hexmap` draws the map (sea, shallows, land, terrain patterns,
+ * `<ki-known-lands>`: the chart. `tessera-hexmap` draws the map (sea, shallows, land, terrain patterns,
  * coast, trade lanes, structures, halo labels, selected ring); this element lays territory waters under the land and
  * an interactive layer of islands over it. Islands are a roving-tabindex group: arrows move between neighbours,
  * Home goes to the territory's capital, Enter or Space filters the shell to that repository, Escape clears it.

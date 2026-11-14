@@ -13,7 +13,7 @@ import { existsSync } from 'node:fs'
 import { readdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
-import { cssBlocks, renderCss } from '../../packages/tokens/src/index.ts'
+import { cssBlocks, renderCss } from '../../packages/tessera-tokens/src/index.ts'
 
 export type Mode = 'live' | 'fixtures'
 
@@ -76,7 +76,7 @@ async function bundle(): Promise<string> {
   return output.text()
 }
 
-/** `packages/tokens/dist/tokens.css` when it has been built, otherwise the same CSS rendered in memory. */
+/** `packages/tessera-tokens/dist/tokens.css` when it has been built, otherwise the same CSS rendered in memory. */
 export async function tokensCss(file = TOKENS_CSS): Promise<{ css: string; source: 'dist' | 'source' }> {
   if (existsSync(file)) return { css: await Bun.file(file).text(), source: 'dist' }
   return { css: renderCss(cssBlocks()), source: 'source' }
@@ -293,7 +293,7 @@ if (import.meta.main) {
     fetch: createHandler({ mode, upstream, assets })
   })
   if (assets.tokensSource === 'source') {
-    console.log('tokens: packages/tokens/dist/tokens.css is not built; serving the same CSS rendered from tokens.json')
+    console.log('tokens: packages/tessera-tokens/dist/tokens.css is not built; serving the same CSS rendered from tokens.json')
   }
   console.log(
     `Observatory preview (${mode}) at http://${server.hostname}:${server.port}/ reading ${mode === 'live' ? upstream.origin : DEFAULT_FIXTURES}`

@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "@knowledgeislands/design",
+      "name": "packages-tessera",
       "devDependencies": {
         "@biomejs/biome": "2.6.3",
         "@commitlint/cli": "^21.2.4",
@@ -20,55 +20,55 @@
       },
     },
     "packages/boundaries": {
-      "name": "@knowledgeislands/design-boundaries",
+      "name": "tessera-boundaries",
       "version": "0.0.0",
       "devDependencies": {
         "vitest": "^5.0.5",
       },
     },
-    "packages/elements": {
-      "name": "@knowledgeislands/elements",
+    "packages/tessera": {
+      "name": "tessera",
       "version": "0.1.0",
       "dependencies": {
-        "@knowledgeislands/hexmap": "workspace:*",
-        "@knowledgeislands/icons": "workspace:*",
         "lit": "3.3.1",
+        "tessera-hexmap": "workspace:*",
+        "tessera-icons": "workspace:*",
       },
       "devDependencies": {
         "@happy-dom/global-registrator": "^21.0.3",
-        "@knowledgeislands/tokens": "workspace:*",
+        "tessera-tokens": "workspace:*",
       },
     },
-    "packages/hexmap": {
-      "name": "@knowledgeislands/hexmap",
+    "packages/tessera-hexmap": {
+      "name": "tessera-hexmap",
       "version": "0.1.0",
       "dependencies": {
-        "@knowledgeislands/tokens": "workspace:*",
+        "tessera-tokens": "workspace:*",
       },
       "devDependencies": {
-        "@knowledgeislands/icons": "workspace:*",
+        "tessera-icons": "workspace:*",
       },
     },
-    "packages/icons": {
-      "name": "@knowledgeislands/icons",
+    "packages/tessera-icons": {
+      "name": "tessera-icons",
       "version": "0.2.0",
     },
-    "packages/symbols": {
-      "name": "@knowledgeislands/symbols",
-      "version": "0.2.0",
-      "dependencies": {
-        "@knowledgeislands/icons": "workspace:*",
-      },
-    },
-    "packages/tiles": {
-      "name": "@knowledgeislands/tiles",
+    "packages/tessera-symbols": {
+      "name": "tessera-symbols",
       "version": "0.2.0",
       "dependencies": {
-        "@knowledgeislands/tokens": "workspace:*",
+        "tessera-icons": "workspace:*",
       },
     },
-    "packages/tokens": {
-      "name": "@knowledgeislands/tokens",
+    "packages/tessera-tiles": {
+      "name": "tessera-tiles",
+      "version": "0.2.0",
+      "dependencies": {
+        "tessera-tokens": "workspace:*",
+      },
+    },
+    "packages/tessera-tokens": {
+      "name": "tessera-tokens",
       "version": "0.2.0",
     },
   },
@@ -150,20 +150,6 @@
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.6.0", "", {}, "sha512-T7jf+5zgsZHwNJ4lvQ7/aezbyk0nNX+zJVWpmHA7VYsEx7a7qr5Rg5IbtJFqkgze5Y2sruq1RUY8Q837Od7iFw=="],
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
-
-    "@knowledgeislands/design-boundaries": ["@knowledgeislands/design-boundaries@workspace:packages/boundaries"],
-
-    "@knowledgeislands/elements": ["@knowledgeislands/elements@workspace:packages/elements"],
-
-    "@knowledgeislands/hexmap": ["@knowledgeislands/hexmap@workspace:packages/hexmap"],
-
-    "@knowledgeislands/icons": ["@knowledgeislands/icons@workspace:packages/icons"],
-
-    "@knowledgeislands/symbols": ["@knowledgeislands/symbols@workspace:packages/symbols"],
-
-    "@knowledgeislands/tiles": ["@knowledgeislands/tiles@workspace:packages/tiles"],
-
-    "@knowledgeislands/tokens": ["@knowledgeislands/tokens@workspace:packages/tokens"],
 
     "@lit-labs/ssr-dom-shim": ["@lit-labs/ssr-dom-shim@1.6.0", "", {}, "sha512-VHb0ALPMTlgKjM6yIxxoQNnpKyUKLD04VzeQdsiXkMqkvYlAHxq9glGLmgbb889/1GsohSOAjvQYoiBppXFqrQ=="],
 
@@ -630,6 +616,20 @@
     "syncpack-windows-x64": ["syncpack-windows-x64@15.3.3", "", { "os": "win32", "cpu": "x64" }, "sha512-9CrrEzXE/MdWJuxyB7JvR1b6kiTNQPZh1dDJbWiRgtpNyCbEiddM1/viOsyaufftWDrQFV6RCGQzqCvWEas45g=="],
 
     "tapable": ["tapable@2.3.3", "", {}, "sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A=="],
+
+    "tessera": ["tessera@workspace:packages/tessera"],
+
+    "tessera-boundaries": ["tessera-boundaries@workspace:packages/boundaries"],
+
+    "tessera-hexmap": ["tessera-hexmap@workspace:packages/tessera-hexmap"],
+
+    "tessera-icons": ["tessera-icons@workspace:packages/tessera-icons"],
+
+    "tessera-symbols": ["tessera-symbols@workspace:packages/tessera-symbols"],
+
+    "tessera-tiles": ["tessera-tiles@workspace:packages/tessera-tiles"],
+
+    "tessera-tokens": ["tessera-tokens@workspace:packages/tessera-tokens"],
 
     "tinybench": ["tinybench@6.2.2", "", {}, "sha512-nIZ2N2dFpjBsg2hgitKu7mA+FvsIJuGJOwysRngmVRRmWgR/UyPjwJj8c/fT/dhm8EkHnF5EOogRf+0Z2qrimA=="],
 

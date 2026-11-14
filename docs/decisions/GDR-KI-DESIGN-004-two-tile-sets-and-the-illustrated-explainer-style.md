@@ -25,7 +25,7 @@ A tile set is a skin over one inventory of ids. Any set, including a community s
 
 ## Consequences
 
-- `@knowledgeislands/tiles` holds the contract and the sets; `<ki-hexmap>` is to take a `tileset` choice.
+- `tessera-tiles` holds the contract and the sets; `<tessera-hexmap>` is to take a `tileset` choice.
 - Modern v0 is drawn as SVG; Ancient waits on art painted from the chosen Arcadia painting.
 - The release target is three variants for terrain and the five hero structures, and one for other structures.
 - Generated art is treated as unlicensed until the art-licensing decision is recorded.

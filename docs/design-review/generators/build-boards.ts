@@ -9,16 +9,21 @@
  * kept as template text and every value that comes from data written as a marker, `@@kind:argument@@`. The generator
  * replaces each marker from the sources below, and fails on a marker it cannot resolve.
  *
- * Sources: packages/tokens (tokens.json), packages/symbols (symbols.ts), packages/icons/svg, packages/tiles (the
+ * Sources: packages/tessera-tokens (tokens.json), packages/tessera-symbols (symbols.ts), packages/tessera-icons/svg, packages/tessera-tiles (the
  * contract and the Modern manifest), docs/decisions (GDR-KI-DESIGN-*.md), docs/OPEN.md, docs/spec and docs/briefs.
  */
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { retiredSymbols, symbolAliases, symbolCategories, symbols } from '../../../packages/symbols/src/index.ts'
-import type { KiSymbol } from '../../../packages/symbols/src/types.ts'
-import { requiredInventory, tileGeometry, tileKinds } from '../../../packages/tiles/src/contract.ts'
-import { contrastRatio } from '../../../packages/tokens/src/contrast.ts'
-import { nightTerrain, resolveValue, terrainNames, tokenDocument } from '../../../packages/tokens/src/tokens.ts'
+import {
+  retiredSymbols,
+  symbolAliases,
+  symbolCategories,
+  symbols
+} from '../../../packages/tessera-symbols/src/index.ts'
+import type { KiSymbol } from '../../../packages/tessera-symbols/src/types.ts'
+import { requiredInventory, tileGeometry, tileKinds } from '../../../packages/tessera-tiles/src/contract.ts'
+import { contrastRatio } from '../../../packages/tessera-tokens/src/contrast.ts'
+import { nightTerrain, resolveValue, terrainNames, tokenDocument } from '../../../packages/tessera-tokens/src/tokens.ts'
 
 const root = resolve(import.meta.dir, '../../..')
 const templateDir = join(import.meta.dir, 'templates')
@@ -134,12 +139,15 @@ const library: readonly KiSymbol[] = symbols
 const symbolById = new Map(library.map((s) => [s.id, s]))
 const symbol = (id: string): KiSymbol => need(symbolById.get(id), `symbol "${id}" in symbols.ts`)
 
-/** Every glyph in packages/icons/svg, by name, as one line of SVG. */
+/** Every glyph in packages/tessera-icons/svg, by name, as one line of SVG. */
 const icons: ReadonlyMap<string, string> = new Map(
-  readdirSync(join(root, 'packages/icons/svg'))
+  readdirSync(join(root, 'packages/tessera-icons/svg'))
     .filter((f) => f.endsWith('.svg'))
     .sort()
-    .map((f) => [f.slice(0, -4), read(`packages/icons/svg/${f}`).replace(/\s+/g, ' ').replace(/> </g, '><').trim()])
+    .map((f) => [
+      f.slice(0, -4),
+      read(`packages/tessera-icons/svg/${f}`).replace(/\s+/g, ' ').replace(/> </g, '><').trim()
+    ])
 )
 
 /** Every token value by its dotted path in tokens.json. */
@@ -263,7 +271,7 @@ const openQuestion = (title: string): OpenQuestion =>
     `open question "${title}" in OPEN.md`
   )
 
-const manifest = JSON.parse(read('packages/tiles/sets/modern/manifest.json')) as {
+const manifest = JSON.parse(read('packages/tessera-tiles/sets/modern/manifest.json')) as {
   aliases: Record<string, string>
   conditions: Record<string, unknown>
   tiles: {
@@ -387,7 +395,7 @@ function iconsData(): Record<string, unknown> {
   const extra = names.filter((n) => !briefs.has(n))
   const groups = ['All', ...groupOrder, ...(extra.length ? [unbriefed] : [])]
   const foot = [
-    `${icons.size} glyphs in packages/icons/svg, grouped and briefed as docs/briefs/glyph-briefs.md lists them.`,
+    `${icons.size} glyphs in packages/tessera-icons/svg, grouped and briefed as docs/briefs/glyph-briefs.md lists them.`,
     `${names.filter((n) => library.some((s) => s.icon === n)).length} map to a symbol in symbols.ts.`,
     `Retired, mapped to no symbol: ${names.filter((n) => retired[n] ?? retired[n.replace(/^role-/, '')]).join(', ')}.`,
     extra.length ? `Drawn but not briefed: ${extra.join(', ')}.` : 'Every glyph has a brief.',

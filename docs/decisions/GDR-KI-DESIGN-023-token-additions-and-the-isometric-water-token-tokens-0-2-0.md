@@ -15,7 +15,7 @@ The old DESIGN.md used values that were not tokens: a 96 px hero step, a round r
 
 ## Decision
 
-**`@knowledgeislands/tokens` 0.2.0, a minor release, adds the missing tokens and names the isometric water for what it is.**
+**`tessera-tokens` 0.2.0, a minor release, adds the missing tokens and names the isometric water for what it is.**
 
 | Token | Value |
 | --- | --- |
@@ -38,5 +38,5 @@ The old DESIGN.md used values that were not tokens: a 96 px hero step, a round r
 
 ## References
 
-- `packages/tokens/README.md` and docs/spec/colour.md.
+- `packages/tessera-tokens/README.md` and docs/spec/colour.md.
 - [GDR-KI-DESIGN-013](GDR-KI-DESIGN-013-dtcg-tokens-vendored-by-digest.md).

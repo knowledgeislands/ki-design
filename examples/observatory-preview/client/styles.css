@@ -1,6 +1,6 @@
 /*
  * Observatory preview. Colour roles, washes, fonts and the theme switch come from
- * @knowledgeislands/tokens (served as /tokens.css, loaded first): light on :root, night under
+ * tessera-tokens (served as /tokens.css, loaded first): light on :root, night under
  * prefers-color-scheme: dark or [data-theme="night"], light again under [data-theme="light"].
  * Only the preview's own derived values live here.
  */

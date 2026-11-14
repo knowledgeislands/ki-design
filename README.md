@@ -29,12 +29,12 @@ Consumers:
 
 | Package | What it is | State |
 | --- | --- | --- |
-| [`@knowledgeislands/tokens`](packages/tokens) | Colour, type, space, radius and motion tokens in DTCG JSON, built to CSS custom properties (bare roles and Tailwind `--color-*`) with a digest | v0 |
-| [`@knowledgeislands/icons`](packages/icons) | Line glyphs on a 24 grid, 1.5 stroke; an SVG sprite and a typed name list | v0: 72 glyphs ([glyph briefs](docs/briefs/glyph-briefs.md)) |
-| [`@knowledgeislands/symbols`](packages/symbols) | The symbol library as data: every canonical symbol, its meaning, status, glyph and where it surfaces | v0 |
-| [`@knowledgeislands/hexmap`](packages/hexmap) | Pure TypeScript hex geometry (pointy-top, axial), 2:1 dimetric projection, `IslandMap` model and a flat SVG renderer with no DOM | v0 |
-| [`@knowledgeislands/tiles`](packages/tiles) | The tile-set contract: manifest schema, the id inventory every tile set must cover, and the sets themselves (Modern, Ancient) | contract v0; Modern set v0 drawn (37 tiles); Ancient set waits on art |
-| [`@knowledgeislands/elements`](packages/elements) | Web Components: `<ki-glyph>` and `<ki-hexmap>` (the two shared by both surfaces) | v0: Lit, tested in happy-dom |
+| [`tessera-tokens`](packages/tessera-tokens) | Colour, type, space, radius and motion tokens in DTCG JSON, built to CSS custom properties (bare roles and Tailwind `--color-*`) with a digest | v0 |
+| [`tessera-icons`](packages/tessera-icons) | Line glyphs on a 24 grid, 1.5 stroke; an SVG sprite and a typed name list | v0: 72 glyphs ([glyph briefs](docs/briefs/glyph-briefs.md)) |
+| [`tessera-symbols`](packages/tessera-symbols) | The symbol library as data: every canonical symbol, its meaning, status, glyph and where it surfaces | v0 |
+| [`tessera-hexmap`](packages/tessera-hexmap) | Pure TypeScript hex geometry (pointy-top, axial), 2:1 dimetric projection, `IslandMap` model and a flat SVG renderer with no DOM | v0 |
+| [`tessera-tiles`](packages/tessera-tiles) | The tile-set contract: manifest schema, the id inventory every tile set must cover, and the sets themselves (Modern, Ancient) | contract v0; Modern set v0 drawn (37 tiles); Ancient set waits on art |
+| [`tessera`](packages/tessera) | Web Components: `<tessera-glyph>` and `<tessera-hexmap>` (the two shared by both surfaces) | v0: Lit, tested in happy-dom |
 
 Toolchain: Bun workspaces, Turbo, Biome, rumdl; `mise` pins Bun and Node. Run `bun install`, then `bun run test`.
 
@@ -45,7 +45,7 @@ Toolchain: Bun workspaces, Turbo, Biome, rumdl; `mise` pins Bun and Node. Run `b
 | [`examples/observatory-preview`](examples/observatory-preview) | The local app restructured around Observe · Attend · Act · Extend, in the new design, reading the real Observatory's API through a read-only proxy | `bun run self:preview` (live) or `bun run self:preview -- --fixtures`, then <http://127.0.0.1:1676/> |
 | [`examples/site-preview`](examples/site-preview) | The Voyage home and the Field Guide for knowledgeislands.info, drawn with the Modern set | `bun examples/site-preview/serve.ts`, then <http://127.0.0.1:1677/> |
 
-Renders worth opening: `packages/tiles/sets/modern/arcadia-iso.png`, `packages/tiles/sets/modern/contact-sheet.png`, `packages/hexmap/examples/arcadia.png` and `arcadia-night.png`, `packages/icons/contact-sheet.png`.
+Renders worth opening: `packages/tessera-tiles/sets/modern/arcadia-iso.png`, `packages/tessera-tiles/sets/modern/contact-sheet.png`, `packages/tessera-hexmap/examples/arcadia.png` and `arcadia-night.png`, `packages/tessera-icons/contact-sheet.png`.
 
 ## Living sources while in draft
 

@@ -220,7 +220,7 @@ class Component extends DCLogic {
       opt: [16, 20, 24].map(p => ({ px: p, src: this.uri(d.svg, '#1a2030') })),
       mean: d.mean.map(m => { const c = this.chip(m.st); return { n: m.n, m: m.m, st: c.label, chip: c.style, note: m.note }; }),
       noMeanStyle: d.mean.length ? 'display:none' : 'font-size:12.5px;line-height:1.4;color:#4a5568',
-      snip: '<ki-glyph name="' + sel + '" size="' + snipSize + '" label="' + label.charAt(0).toUpperCase() + label.slice(1) + '"></ki-glyph>'
+      snip: '<tessera-glyph name="' + sel + '" size="' + snipSize + '" label="' + label.charAt(0).toUpperCase() + label.slice(1) + '"></tessera-glyph>'
     };
 
     return {

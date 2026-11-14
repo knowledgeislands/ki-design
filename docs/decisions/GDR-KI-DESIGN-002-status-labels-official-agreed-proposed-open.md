@@ -24,13 +24,13 @@ On 18 October 2026 Kit (Kris Brown) accepted the proposal to rename the labels t
 - **Proposed** - usable in drafts and mockups, never shipped as settled.
 - **Open** - a question still to answer, listed in OPEN.md and drawn as meaning.md says until it is answered.
 
-The data keys change with the labels. `@knowledgeislands/symbols` uses `official`, `agreed` and `proposed`; Open belongs to questions rather than symbols, so it is not a symbol status.
+The data keys change with the labels. `tessera-symbols` uses `official`, `agreed` and `proposed`; Open belongs to questions rather than symbols, so it is not a symbol status.
 
 The rename covers status labels only. Knowledge Islands Principal keeps its own use of "canon" and "canonical" for ratified knowledge in Pillars, and roadmap records keep the words they were written with.
 
 ## Consequences
 
-- `packages/symbols` statuses, their tests and README, DESIGN.md's status vocabulary, the spec in `docs/spec/`, and the review boards use the new labels.
+- `packages/tessera-symbols` statuses, their tests and README, DESIGN.md's status vocabulary, the spec in `docs/spec/`, and the review boards use the new labels.
 - Consumers that vendor the symbol library, such as the KI Website's Field Guide, map `official` and `agreed` and show Official and Agreed chips.
 - Prose that means the body of ratified knowledge may still say "canon"; a status cell or chip never does.
 
@@ -38,4 +38,4 @@ The rename covers status labels only. Knowledge Islands Principal keeps its own 
 
 - DESIGN.md - the status vocabulary.
 - docs/spec/meaning.md - meaning, and how to draw open items.
-- `@knowledgeislands/symbols` - the statuses as data.
+- `tessera-symbols` - the statuses as data.

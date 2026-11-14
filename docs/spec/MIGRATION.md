@@ -15,7 +15,7 @@ On 18 October 2026 the single-file DESIGN.md (about 17,400 words, sections 1–1
 | 2.3 The cycle | [world.md](world.md#the-cycle) |
 | 2.4 Hex for logic, isometric for life | [world.md](world.md#hex-for-logic-isometric-for-life); [GDR-KI-DESIGN-003](../decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md) |
 | 3 Meaning (intro) | [meaning.md](meaning.md) |
-| 3.1 The canonical symbols | Meanings and statuses: `packages/symbols/src/symbols.ts`. Drawing and surfaces: [meaning.md](meaning.md#the-canonical-symbols-how-they-are-drawn). The GDR-010/011 supersession note: [meaning.md](meaning.md#what-the-port-and-the-capital-superseded) |
+| 3.1 The canonical symbols | Meanings and statuses: `packages/tessera-symbols/src/symbols.ts`. Drawing and surfaces: [meaning.md](meaning.md#the-canonical-symbols-how-they-are-drawn). The GDR-010/011 supersession note: [meaning.md](meaning.md#what-the-port-and-the-capital-superseded) |
 | 3.2 Zones and working areas | [meaning.md](meaning.md#zones-and-working-areas) |
 | 3.3 The Capital and other structures | [meaning.md](meaning.md#the-capital-and-other-structures); [GDR-KI-DESIGN-008](../decisions/GDR-KI-DESIGN-008-the-capital-and-the-non-combative-principle.md), [GDR-KI-DESIGN-009](../decisions/GDR-KI-DESIGN-009-the-observatory-as-the-local-app-s-mark.md) |
 | 3.4 Port modes | [meaning.md](meaning.md#port-modes); [GDR-KI-DESIGN-007](../decisions/GDR-KI-DESIGN-007-the-port.md) |
@@ -30,7 +30,7 @@ On 18 October 2026 the single-file DESIGN.md (about 17,400 words, sections 1–1
 | 5.3 Washes | Values: `color.wash`. Rule: [colour.md](colour.md#washes) |
 | 5.4 Rule vs boundary | [colour.md](colour.md#rule-and-boundary) |
 | 5.5 Sea fills | Values: `color.sea`. Use: [colour.md](colour.md#sea-fills-maps) |
-| 5.6 Terrain palette | Values: `color.terrain`; night: `nightTerrain()`; patterns: `packages/hexmap/src/patterns.ts`. Rules and fog: [colour.md](colour.md#terrain-fills-flat) |
+| 5.6 Terrain palette | Values: `color.terrain`; night: `nightTerrain()`; patterns: `packages/tessera-hexmap/src/patterns.ts`. Rules and fog: [colour.md](colour.md#terrain-fills-flat) |
 | 5.7 Per-island palettes | [colour.md](colour.md#per-island-palettes) (not yet tokens) |
 | 5.8 Usage rules | [colour.md](colour.md#usage-rules); summary in [DESIGN.md](../../DESIGN.md#hard-rules) |
 | 6.1 Two dialects | [typography.md](typography.md#two-dialects); [GDR-KI-DESIGN-006](../decisions/GDR-KI-DESIGN-006-fonts-per-dialect.md) |
@@ -46,13 +46,13 @@ On 18 October 2026 the single-file DESIGN.md (about 17,400 words, sections 1–1
 | 7.7 Site structure: the Voyage and the Atlas | [layout.md](layout.md#site-structure-the-voyage-and-the-atlas); [GDR-KI-DESIGN-011](../decisions/GDR-KI-DESIGN-011-voyage-and-atlas-site-navigation.md) |
 | 8.1 The line-glyph specification | [iconography.md](iconography.md#the-line-glyph-specification); the enforced parts in the icons README |
 | 8.1 Roundels | [iconography.md](iconography.md#roundels) |
-| 8.2 Glyph inventory | The glyphs: `packages/icons/svg/`. The one-line drawing briefs: [docs/briefs/glyph-briefs.md](../briefs/glyph-briefs.md). Rules: [iconography.md](iconography.md#rules-for-the-inventory) |
+| 8.2 Glyph inventory | The glyphs: `packages/tessera-icons/svg/`. The one-line drawing briefs: [docs/briefs/glyph-briefs.md](../briefs/glyph-briefs.md). Rules: [iconography.md](iconography.md#rules-for-the-inventory) |
 | 8.2 Value icons | [iconography.md](iconography.md#value-icons) |
 | 9.1 The three directions; reference images in words | [illustration.md](illustration.md#the-three-directions); [GDR-KI-DESIGN-004](../decisions/GDR-KI-DESIGN-004-two-tile-sets-and-the-illustrated-explainer-style.md) |
 | 9.2 The 70 / 30 balance | [illustration.md](illustration.md#the-70--30-balance) |
 | 9.3 Agent representation | [illustration.md](illustration.md#agent-representation) |
 | 9.4 Never draw | [illustration.md](illustration.md#never-draw) |
-| 10.1 Geometry | Numbers: `packages/tiles/src/contract.ts` and `packages/hexmap`. Rules: [tiles-and-buildings.md](tiles-and-buildings.md#geometry) |
+| 10.1 Geometry | Numbers: `packages/tessera-tiles/src/contract.ts` and `packages/tessera-hexmap`. Rules: [tiles-and-buildings.md](tiles-and-buildings.md#geometry) |
 | 10.2 Footprints, and the Capital compound | [tiles-and-buildings.md](tiles-and-buildings.md#footprints) |
 | 10.3 Terrain inventory | Ids: the contract. Notes: [tiles-and-buildings.md](tiles-and-buildings.md#terrain) |
 | 10.4 Structure inventory, decals, connectors, beyond the contract | Ids: the contract; drawn tiles: the Modern manifest. Rules: [tiles-and-buildings.md](tiles-and-buildings.md#structures) and [proposed beyond the contract](tiles-and-buildings.md#proposed-beyond-the-contract) |
@@ -73,7 +73,7 @@ On 18 October 2026 the single-file DESIGN.md (about 17,400 words, sections 1–1
 | 13.3 How islands are typed | [maps.md](maps.md#how-islands-are-typed-app) |
 | 13.4 Interaction and keyboard | [maps.md](maps.md#interaction-and-keyboard) |
 | 13.5 Accessibility (maps) | [maps.md](maps.md#accessibility) |
-| 13.6 The IslandMap model | The schema: `packages/hexmap/src/model.ts`. The proposed fuller model: [maps.md](maps.md#the-islandmap-model) |
+| 13.6 The IslandMap model | The schema: `packages/tessera-hexmap/src/model.ts`. The proposed fuller model: [maps.md](maps.md#the-islandmap-model) |
 | 14 Prompt library (14.1–14.8) | [docs/briefs/prompt-library.md](../briefs/prompt-library.md) |
 | 15 Accessibility | [accessibility.md](accessibility.md) |
 | 16.1 Canon vs this repository | [governance.md](governance.md#canon-and-this-repository); [GDR-KI-DESIGN-017](../decisions/GDR-KI-DESIGN-017-ki-design-is-the-home-of-the-design-kit.md) |
@@ -102,14 +102,14 @@ Data won, except where noted.
 | Symbol meanings | Pillars, Streams, Territory, Dock and others worded differently | `symbols.ts` | `symbols.ts` follows `ki-principal`'s wording ([GDR-KI-DESIGN-020](../decisions/GDR-KI-DESIGN-020-symbol-statuses-and-meanings-follow-ki-principal.md)) |
 | Glyph count | 62 + 6 value icons (68) | 72 files, including `capital` | 73 since `causeway` was added; `celestial` is `celestial-guide`; `arrow`, `refresh`, `hourglass` and `lantern` are drawn |
 | Glyph fills | Small brass accents allowed | The lint forbids fills | No fills; consumers apply brass ([GDR-KI-DESIGN-024](../decisions/GDR-KI-DESIGN-024-glyphs-stay-single-colour.md)) |
-| Package name | `@knowledgeislands/glyphs` | `@knowledgeislands/icons` | `icons` |
+| Package name | `@knowledgeislands/glyphs` | `tessera-icons` | `icons` |
 | Tile ids | `terrain.marsh` | Keyed `terrain/marsh` | The slash form |
 | Structure count | "17 structures" | 16 in the contract | 16 |
 | Variants | Every structure 3 | Contract at least 1; Modern v0 has 1; briefs: 3 for terrain and hero structures, 1 for others | The briefs' target and the contract's minimum, stated separately |
 | Footprints | Council Hall and Workshop pairs; Library, Port and ancient forest with options | Modern: all single except Port (pair) and Capital (flower); contract fixes only the Capital | Footprints are per set, apart from the Capital ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-follow-the-animation-standard-footprints-are-each-set-s-choice.md)) |
 | Manifest fields | `flat`, `family`, `palette`, `fps`, `edge`, anchor as hex + px | The contract's `TileEntry` | The contract; the extra fields are listed as proposed |
 | Loop lengths | Lighthouse 24, mill 12 (as the animation standard) | Manifest: lighthouse 12, mill 16 | The manifest now says 24 and 12 ([GDR-KI-DESIGN-022](../decisions/GDR-KI-DESIGN-022-tile-loops-follow-the-animation-standard-footprints-are-each-set-s-choice.md)) |
-| `<ki-hexmap>` interface | Attributes `renderer`, `tileset`, `layers`, `window`, `static`; event `ki-hex-select` | v0: `.map`, `src`, `size`, `.selected`, `theme`; event `ki-select` | v0 from the README; the rest listed as proposed |
+| `<tessera-hexmap>` interface | Attributes `renderer`, `tileset`, `layers`, `window`, `static`; event `ki-hex-select` | v0: `.map`, `src`, `size`, `.selected`, `theme`; event `tessera-select` | v0 from the README; the rest listed as proposed |
 | IslandMap model | Territories, islands, cells, structures, workers | v0: id, name, hexes, routes, labels | v0 from `model.ts`; the fuller model kept as proposed |
 | Map keyboard | Home, Escape and Shift-selection | v0: arrows along neighbours, Enter, Space, click | Both stated; the missing keys noted as not yet built |
 | Home hero | Cartographic hero (painting) | Live site: the painting, then the chart | Recorded as [GDR-KI-DESIGN-014](../decisions/GDR-KI-DESIGN-014-the-painting-as-the-home-hero.md) |

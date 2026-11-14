@@ -39,7 +39,7 @@ Claude reviewed the model on 19 October 2026 and edited the existing documents i
 
 1. Accept one grid, with the construction cell as the semantic hex.
 2. Accept the height unit `U = R/4`, giving a rise of 32 px at 1×.
-3. Approve Pilot 0 as the first implementation step, in `@knowledgeislands/hexmap`, with no contract change.
+3. Approve Pilot 0 as the first implementation step, in `tessera-hexmap`, with no contract change.
 4. After Pilot 1, judge whether warped painted material survives slopes. That result decides whether this model suits the Ancient style.
 
 The committed Decisions board had drifted from `OPEN.md` since `af0318b`, so `bun run test` failed on main. The board is regenerated with this review.

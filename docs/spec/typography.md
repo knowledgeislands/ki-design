@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Typography
 
-Type has two dialects. The **Chart** (the public site) sets Cormorant Garamond for display, Cormorant SC for labels and Inter for body. The **Instrument** (the local app) uses system stacks only, fetches nothing, and sets fixed pixel leading so row heights can be summed by test. The font families are tokens in [`packages/tokens/tokens.json`](../../packages/tokens/tokens.json) (`font.site`, `font.app`, `font.mono`); the type scales below are not yet tokens. The choice is recorded in [GDR-KI-DESIGN-006](../decisions/GDR-KI-DESIGN-006-fonts-per-dialect.md).
+Type has two dialects. The **Chart** (the public site) sets Cormorant Garamond for display, Cormorant SC for labels and Inter for body. The **Instrument** (the local app) uses system stacks only, fetches nothing, and sets fixed pixel leading so row heights can be summed by test. The font families are tokens in [`packages/tessera-tokens/tokens.json`](../../packages/tessera-tokens/tokens.json) (`font.site`, `font.app`, `font.mono`); the type scales below are not yet tokens. The choice is recorded in [GDR-KI-DESIGN-006](../decisions/GDR-KI-DESIGN-006-fonts-per-dialect.md).
 
 ## Two dialects
 

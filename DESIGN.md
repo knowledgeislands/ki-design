@@ -80,7 +80,7 @@ The full world is in [world.md](docs/spec/world.md); every symbol is in [meaning
 8. **Pointy-top hexes, 2:1 dimetric, light from the top-left.** Painted art is never rotated.
 9. **The tile-set contract is complete or it is nothing:** a set is valid only when it covers every id, every structure in every condition state, at 1× and 2×.
 10. **The clock:** 12 fps, a 48-frame cycle, loops of 4, 6, 8, 12, 16, 24 or 48 frames. Frame 0 is the still, used under reduced motion, in print and in the local app.
-11. **Only two shared components:** `<ki-glyph>` and `<ki-hexmap>`. Everything else is a pattern each surface builds from tokens.
+11. **Only two shared components:** `<tessera-glyph>` and `<tessera-hexmap>`. Everything else is a pattern each surface builds from tokens.
 12. **Every map has a text equivalent** rendered in the page, and is keyboard-operable along axial neighbours.
 13. **No emoji, no hype, British English.** Sentence case; dates `YYYY-MM-DD`; times `YYYY-MM-DD HH:MM`.
 14. **Never draw** humanoid robots, neon, cyberpunk, crystals, magic glow, monsters, weapons, game UI or scores, text baked into art, or walls and towers around the Capital ([illustration](docs/spec/illustration.md#never-draw)).
@@ -141,13 +141,13 @@ The labels were Canon and Decided before 18 October 2026. The data keys are `off
 
 | What | Where |
 | --- | --- |
-| Tokens: colour, fonts, space, radius, motion | [`packages/tokens/tokens.json`](packages/tokens/tokens.json) |
-| Symbol library: meanings, statuses, glyphs, retired ids | [`packages/symbols/src/symbols.ts`](packages/symbols/src/symbols.ts) |
-| Glyphs (73) | [`packages/icons/svg/`](packages/icons/svg/) |
-| Tile contract and validator | [`packages/tiles/src/contract.ts`](packages/tiles/src/contract.ts) |
-| Modern tile set | [`packages/tiles/sets/modern/manifest.json`](packages/tiles/sets/modern/manifest.json) |
-| Hex map model and renderer | [`packages/hexmap`](packages/hexmap/README.md) |
-| Shared components | [`packages/elements`](packages/elements/README.md) |
+| Tokens: colour, fonts, space, radius, motion | [`packages/tessera-tokens/tokens.json`](packages/tessera-tokens/tokens.json) |
+| Symbol library: meanings, statuses, glyphs, retired ids | [`packages/tessera-symbols/src/symbols.ts`](packages/tessera-symbols/src/symbols.ts) |
+| Glyphs (73) | [`packages/tessera-icons/svg/`](packages/tessera-icons/svg/) |
+| Tile contract and validator | [`packages/tessera-tiles/src/contract.ts`](packages/tessera-tiles/src/contract.ts) |
+| Modern tile set | [`packages/tessera-tiles/sets/modern/manifest.json`](packages/tessera-tiles/sets/modern/manifest.json) |
+| Hex map model and renderer | [`packages/tessera-hexmap`](packages/tessera-hexmap/README.md) |
+| Shared components | [`packages/tessera`](packages/tessera/README.md) |
 
 **The spec, one file per area** ([index](docs/spec/README.md))
 

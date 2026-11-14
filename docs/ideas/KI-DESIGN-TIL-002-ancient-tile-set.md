@@ -43,14 +43,14 @@ Batch 1 ran on 19 October 2026: 20 candidates in `+/art/2026-10-19-ancient-batch
 - [x] Run batch 1 against the picture of Arcadia (19 Oct 2026).
 - [x] Prototype the diamond-to-hex re-projection and test it on a 37-hex island.
 - [ ] Run batch 1b on the geometry templates and judge the template method and the dusk light.
-- [ ] Port the re-projection to the `packages/tiles` TypeScript tooling, and record the geometry decision as a Decision Record.
+- [ ] Port the re-projection to the `packages/tessera-tiles` TypeScript tooling, and record the geometry decision as a Decision Record.
 - [ ] Generate the rest of the set from the prompt pack the same way.
-- [ ] Record each chosen image and its prompt in `packages/tiles/sets/ancient/manifest.json`.
+- [ ] Record each chosen image and its prompt in `packages/tessera-tiles/sets/ancient/manifest.json`.
 - [ ] Validate the set against the contract and place it on the Arcadia map.
 
 ## Files touched
 
-`packages/tiles/sets/ancient/`
+`packages/tessera-tiles/sets/ancient/`
 
 ## Verify
 

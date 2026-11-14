@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Meaning
 
-Every visual element that carries meaning is a symbol, and each symbol means one thing. The symbol library is data: [`packages/symbols/src/symbols.ts`](../../packages/symbols/src/symbols.ts) holds each symbol's id, name, meaning, status, category and glyph, and `retiredSymbols` lists the ids that may never be reused. This file holds what the data cannot: how each symbol is drawn, where it surfaces, which rules govern change, and how to draw a symbol whose question is still open. Read it before drawing or naming anything.
+Every visual element that carries meaning is a symbol, and each symbol means one thing. The symbol library is data: [`packages/tessera-symbols/src/symbols.ts`](../../packages/tessera-symbols/src/symbols.ts) holds each symbol's id, name, meaning, status, category and glyph, and `retiredSymbols` lists the ids that may never be reused. This file holds what the data cannot: how each symbol is drawn, where it surfaces, which rules govern change, and how to draw a symbol whose question is still open. Read it before drawing or naming anything.
 
 ## Rules
 
@@ -32,7 +32,7 @@ GDR-KI-PRINCIPAL-013 (The Causeway and the Mill) replaced the Bridge with the Ca
 
 ## The canonical symbols: how they are drawn
 
-Glyph ids are in [iconography.md](iconography.md) and `packages/icons/svg/`.
+Glyph ids are in [iconography.md](iconography.md) and `packages/tessera-icons/svg/`.
 
 | Symbol | Drawn as | Site | App |
 | --- | --- | --- | --- |

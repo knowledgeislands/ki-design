@@ -27,7 +27,7 @@ On 18 October 2026 Kit chose a hex grid for Knowledge Islands maps, reusing the 
 
 ## Consequences
 
-- `@knowledgeislands/hexmap` and `@knowledgeislands/tiles` carry the same numbers (`isoPosition`, `isoProject`, `tileGeometry`), and every tile set is drawn to them.
+- `tessera-hexmap` and `tessera-tiles` carry the same numbers (`isoPosition`, `isoProject`, `tileGeometry`), and every tile set is drawn to them.
 - The geometry is held fixed. A change would break every tile set, so it would be a major release.
 - Transitions between terrains are composited per edge with a 6-bit neighbour mask, because fixed light forbids rotating art.
 

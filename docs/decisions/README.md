@@ -15,7 +15,7 @@ Decision records for Knowledge Islands Design, following the Knowledge Islands d
 9. [GDR-KI-DESIGN-009](GDR-KI-DESIGN-009-the-observatory-as-the-local-app-s-mark.md) - the Observatory as the local app's mark.
 10. [GDR-KI-DESIGN-010](GDR-KI-DESIGN-010-night-as-the-reference-rendering.md) - night as the reference rendering.
 11. [GDR-KI-DESIGN-011](GDR-KI-DESIGN-011-voyage-and-atlas-site-navigation.md) - Voyage and Atlas site navigation.
-12. [GDR-KI-DESIGN-012](GDR-KI-DESIGN-012-only-two-shared-web-components.md) - only `<ki-glyph>` and `<ki-hexmap>` are shared components.
+12. [GDR-KI-DESIGN-012](GDR-KI-DESIGN-012-only-two-shared-web-components.md) - only `<tessera-glyph>` and `<tessera-hexmap>` are shared components.
 13. [GDR-KI-DESIGN-013](GDR-KI-DESIGN-013-dtcg-tokens-vendored-by-digest.md) - DTCG tokens, vendored by digest.
 14. [GDR-KI-DESIGN-014](GDR-KI-DESIGN-014-the-painting-as-the-home-hero.md) - the painting as the home hero: the legend and the map.
 15. [GDR-KI-DESIGN-015](GDR-KI-DESIGN-015-repositories-are-islands-territories-are-archipelagos.md) - repositories are islands; territories are archipelagos.

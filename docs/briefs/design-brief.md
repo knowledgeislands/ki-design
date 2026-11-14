@@ -308,7 +308,7 @@ Four pieces of tooling make the world repeatable: a token build, a glyph sprite,
 | --- | --- | --- | --- |
 | **Design tokens** | Tokens as DTCG JSON → CSS custom properties, Tailwind `@theme`, and the Observatory's vendored module with its SHA-256 digest | New `ki-design` repo | Site, Observatory, decks |
 | **Glyph sprite** | SVG sources on a 24 px grid → SVGO → one sprite + typed name union | `ki-design` | Site, Observatory |
-| **Hex map engine** — `@knowledgeislands/hexmap` | Axial/cube maths, layout, neighbour masks for auto-tiling, pathing for routes; a `IslandMap` JSON model; two renderers: flat SVG and isometric Canvas (PixiJS if needed) | `ki-design` | Living Map, Arcadia page, Known Lands chart |
+| **Hex map engine** — `tessera-hexmap` | Axial/cube maths, layout, neighbour masks for auto-tiling, pathing for routes; a `IslandMap` JSON model; two renderers: flat SVG and isometric Canvas (PixiJS if needed) | `ki-design` | Living Map, Arcadia page, Known Lands chart |
 | **Tile atlas** | Sliced PNG/AVIF tiles packed into atlases, with a manifest of anchor, footprint, variants and condition states per asset | `ki-design`, built from sources in `ki-principal/Pillars/Aesthetics` | Isometric renderer |
 | **Cartographer** (workbench) | A local page to paint terrain, place structures, preview condition states and night mode, and export `IslandMap` JSON | A standalone local dev page (authoring writes map data, so it is neither a read-only Instrument nor a Bridge aspect; the local app only reads the result) in `ki-design` | Whoever draws maps — you, or an agent |
 
@@ -316,9 +316,9 @@ Four pieces of tooling make the world repeatable: a token build, a glyph sprite,
 
 | Layer | Package | What it is | Site (Eleventy, static) | Observatory (app) |
 | --- | --- | --- | --- | --- |
-| 1 | `@knowledgeislands/tokens` | CSS custom properties from DTCG JSON; they pierce Shadow DOM, so light and night theming reach inside every component | Tailwind `@theme` + `:root` vars | Vendored module + digest (PDR-KI-OBSERVA-002) |
-| 2 | `@knowledgeislands/hexmap` | Pure TypeScript: geometry, layout, data in → SVG string out; no DOM, no Lit | Called at build time; maps ship as static SVG | Called server- or client-side |
-| 3 | `@knowledgeislands/elements` | Thin Lit wrappers adding interaction: `<ki-hexmap>`, `<ki-glyph>`, `<ki-cartouche>`, `<ki-status-chip>`, `<ki-journey>` | Server-rendered via `@lit-labs/eleventy-plugin-lit` with Declarative Shadow DOM; works without JS, enhances where it loads | Used directly. This is shared rendering, which PDR-KI-OBSERVA-002 rules out (“shared values, never shared rendering”), so a later Observatory decision record, not yet written, explicitly supersedes that sentence for these elements only; each exports its stylesheet as a string so the density, contrast and scale tests read it, and packages are pinned by exact version and lockfile integrity, inlined into the single document |
+| 1 | `tessera-tokens` | CSS custom properties from DTCG JSON; they pierce Shadow DOM, so light and night theming reach inside every component | Tailwind `@theme` + `:root` vars | Vendored module + digest (PDR-KI-OBSERVA-002) |
+| 2 | `tessera-hexmap` | Pure TypeScript: geometry, layout, data in → SVG string out; no DOM, no Lit | Called at build time; maps ship as static SVG | Called server- or client-side |
+| 3 | `tessera` | Thin Lit wrappers adding interaction: `<tessera-hexmap>`, `<tessera-glyph>`, `<ki-cartouche>`, `<ki-status-chip>`, `<ki-journey>` | Server-rendered via `@lit-labs/eleventy-plugin-lit` with Declarative Shadow DOM; works without JS, enhances where it loads | Used directly. This is shared rendering, which PDR-KI-OBSERVA-002 rules out (“shared values, never shared rendering”), so a later Observatory decision record, not yet written, explicitly supersedes that sentence for these elements only; each exports its stylesheet as a string so the density, contrast and scale tests read it, and packages are pinned by exact version and lockfile integrity, inlined into the single document |
 
 Rules for the layer:
 
@@ -327,7 +327,7 @@ Rules for the layer:
 - **Observatory tests extend inward.** Its density and contrast checks read shipped stylesheets; component styles must be exported so those checks cover them — part of that later Observatory decision record.
 - **Why not React:** it would force a framework into the Observatory for no gain. Stencil (adds React/Vue wrappers) is the upgrade path only if outside teams adopt the kit.
 
-**Review notes on the layer.** Lit earns its place through `<ki-hexmap>`'s interaction; on the “both surfaces” test only `<ki-hexmap>` and `<ki-glyph>` qualify today, so `<ki-cartouche>` and `<ki-journey>` stay site components and `<ki-status-chip>` stays the Observatory's own pattern. Risks to clear in a Phase 0 spike: Lit SSR is a labs package needing Node VM modules, so confirm it runs under Bun or build the site under Node; set `window.litNonce` from the page nonce for CSP; each element carries its own reset (Tailwind Preflight does not cross the shadow boundary); the token build emits both `--color-*` for Tailwind v4 `@theme` and the bare roles (`--paper`, `--ink`, `--accent`) from one source.
+**Review notes on the layer.** Lit earns its place through `<tessera-hexmap>`'s interaction; on the “both surfaces” test only `<tessera-hexmap>` and `<tessera-glyph>` qualify today, so `<ki-cartouche>` and `<ki-journey>` stay site components and `<ki-status-chip>` stays the Observatory's own pattern. Risks to clear in a Phase 0 spike: Lit SSR is a labs package needing Node VM modules, so confirm it runs under Bun or build the site under Node; set `window.litNonce` from the page nonce for CSP; each element carries its own reset (Tailwind Preflight does not cross the shadow boundary); the token build emits both `--color-*` for Tailwind v4 `@theme` and the bare roles (`--paper`, `--ink`, `--accent`) from one source.
 
 **Map data.** Positions are authored once and stored (proposed: `.ki/map.toml` beside `.ki.toml` in each territory's Principal — better a \[map\] table inside .ki.toml, since .ki/ would be a directory), so layout is stable. The realm layout, where islands sit relative to each other, belongs with Known Lands in ki-principal, with personal overrides in XDG state. Everything else — roster, roles, freshness, routes — comes from `ki` at build time (site) or observation time (Observatory). The `IslandMap` schema belongs in `ki-specifications` once it settles; while ki-specifications is dormant, the schema lives in the kit as islandmap/v1 with a conformance fixture.
 
@@ -367,7 +367,7 @@ The early Aesthetics pillar was input; the output is a complete, governed design
 | Visual Style v2 | Tone, palette, type (Cormorant + Inter), motion, illustration balance, master prompt | `ki-principal` Aesthetics (canon) |
 | Concept atlas | Every concept mapped once: Realm → territory → island → Capital → structures; workers and roles; layers and durability; with its symbol, structure, terrain, glyph and UI surface | `ki-principal` Aesthetics (canon) |
 | Symbol Library v2 | The 16 symbols plus Port modes, the Capital, Ruins, compass rose, Engine house; one line glyph and one illustration each | Canon + `@knowledgeislands/glyphs` |
-| Isometric tile kit v2 | Hex terrain set, structures re-cut to hex, connectors, props | Canon sources + `@knowledgeislands/tiles` |
+| Isometric tile kit v2 | Hex terrain set, structures re-cut to hex, connectors, props | Canon sources + `tessera-tiles` |
 | Building standards | Footprints, scale, light direction, plinth height, materials per architectural family, condition states, flat SVG twin | Canon |
 | Animation standard | The 12 fps / 48-frame clock and its rules | Canon + `hexmap` |
 | Design tokens and components | Tokens, Lit components, hex map engine | `ki-design` |

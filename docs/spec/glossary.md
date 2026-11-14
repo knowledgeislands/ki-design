@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Glossary
 
-The words of the Knowledge Islands design system, in one list. Each definition is short and points the way to its home; the symbol library in [`packages/symbols/src/symbols.ts`](../../packages/symbols/src/symbols.ts) holds the meanings as data, and [meaning.md](meaning.md) says how each is drawn.
+The words of the Knowledge Islands design system, in one list. Each definition is short and points the way to its home; the symbol library in [`packages/tessera-symbols/src/symbols.ts`](../../packages/tessera-symbols/src/symbols.ts) holds the meanings as data, and [meaning.md](meaning.md) says how each is drawn.
 
 | Term | Definition |
 | --- | --- |

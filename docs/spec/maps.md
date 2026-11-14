@@ -6,11 +6,11 @@ updated: 2026-10-19
 
 # Maps
 
-Three maps draw one world: the Map of Known Lands (the canon chart of the realm), the Living Map (the site's interactive map) and the Known Lands chart (the local app's instrument). Each is drawn from an `islandmap/v1` model on the hex grid, flat or isometric, with a text equivalent always rendered. The model and the renderer are code in [`packages/hexmap`](../../packages/hexmap/README.md); this file holds what each map shows, its layers, how islands are typed, keyboard and pointer interaction, accessibility, and the fuller model still proposed.
+Three maps draw one world: the Map of Known Lands (the canon chart of the realm), the Living Map (the site's interactive map) and the Known Lands chart (the local app's instrument). Each is drawn from an `islandmap/v1` model on the hex grid, flat or isometric, with a text equivalent always rendered. The model and the renderer are code in [`packages/tessera-hexmap`](../../packages/tessera-hexmap/README.md); this file holds what each map shows, its layers, how islands are typed, keyboard and pointer interaction, accessibility, and the fuller model still proposed.
 
 ## Two scales: the Territory Map and the Island Map
 
-Agreed with the owner on 19 October 2026. Every map is drawn at one of two scales, and the two serve different purposes. Both use the same pointy-top axial hex grid and the same code in `packages/hexmap`; what a hex means differs.
+Agreed with the owner on 19 October 2026. Every map is drawn at one of two scales, and the two serve different purposes. Both use the same pointy-top axial hex grid and the same code in `packages/tessera-hexmap`; what a hex means differs.
 
 | Scale | Purpose | A hex is | Shows | Rendering |
 | --- | --- | --- | --- | --- |
@@ -46,7 +46,7 @@ Until the Ancient tiles exist, the site shows the painting as the legend and the
 - A Knowledge Base island shows its zones as structures (Library, Council Hall, Port, Streams).
 - A single-purpose repository is a small isle typed by its dominant building: Capital for a Principal, Workshop for `tools-*`, Causeway for `mcp-*`, Library for knowledge bases, Port for intake-heavy repositories.
 - Layout is **deterministic**: positions are stored, so a repository stays where the operator learnt it was.
-- Until positions are stored, `renderArchipelagoSvg` in `packages/hexmap` lays a territory out from its island list: the Capital at the centre, the rest ring by ring in list order, each a small isle with its glyph, label and link, in one sea region with a tinted border. The site's Arcadia page draws its dated snapshot with it.
+- Until positions are stored, `renderArchipelagoSvg` in `packages/tessera-hexmap` lays a territory out from its island list: the Capital at the centre, the rest ring by ring in list order, each a small isle with its glyph, label and link, in one sea region with a tinted border. The site's Arcadia page draws its dated snapshot with it.
 
 ## Interaction and keyboard
 
@@ -54,7 +54,7 @@ Until the Ancient tiles exist, the site shows the painting as the legend and the
 - The focus ring is drawn on the **hex outline**: 2 px in `--accent`, plus a 1 px paper inner stroke.
 - Pointer: click selects, drag pans, wheel or pinch zooms (site only). The app does not zoom by wheel inside a table frame.
 
-`<ki-hexmap>` v0 implements the roving tabindex, arrow keys along axial neighbours (up and down to the diagonal that keeps the visual column), and Enter, Space or click to select. Home, Escape and Shift-selection are not yet built.
+`<tessera-hexmap>` v0 implements the roving tabindex, arrow keys along axial neighbours (up and down to the diagonal that keeps the visual column), and Enter, Space or click to select. Home, Escape and Shift-selection are not yet built.
 
 ## Accessibility
 
@@ -65,7 +65,7 @@ Until the Ancient tiles exist, the site shows the painting as the legend and the
 
 ## The IslandMap model
 
-The implemented `islandmap/v1` schema is in [`packages/hexmap/src/model.ts`](../../packages/hexmap/src/model.ts): a map has an id, a name, hexes (axial position, terrain, an optional structure and condition), optional routes and optional labels. `validateIslandMap` reports every problem.
+The implemented `islandmap/v1` schema is in [`packages/tessera-hexmap/src/model.ts`](../../packages/tessera-hexmap/src/model.ts): a map has an id, a name, hexes (axial position, terrain, an optional structure and condition), optional routes and optional labels. `validateIslandMap` reports every problem.
 
 The fuller model below is _proposed_. It is not yet in the schema.
 

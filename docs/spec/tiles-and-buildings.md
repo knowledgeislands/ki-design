@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Tiles and buildings
 
-A tile set is a skin over one inventory of ids, drawn on pointy-top hexes in 2:1 dimetric projection with light from the top-left. The contract is data: [`packages/tiles/src/contract.ts`](../../packages/tiles/src/contract.ts) holds the geometry, the required inventory (12 terrains, 16 structures, 4 decals, 4 connectors), the entry schema and `validateTileSet`; the [tiles README](../../packages/tiles/README.md) explains them; and each set's manifest, such as [`sets/modern/manifest.json`](../../packages/tiles/sets/modern/manifest.json), lists what it has drawn. This file holds the rules the data cannot express: footprints and the Capital, what is not terrain, condition decals, auto-tiling, layering, building standards, architectural families, what lies beyond the contract, and the budgets.
+A tile set is a skin over one inventory of ids, drawn on pointy-top hexes in 2:1 dimetric projection with light from the top-left. The contract is data: [`packages/tessera-tiles/src/contract.ts`](../../packages/tessera-tiles/src/contract.ts) holds the geometry, the required inventory (12 terrains, 16 structures, 4 decals, 4 connectors), the entry schema and `validateTileSet`; the [tiles README](../../packages/tessera-tiles/README.md) explains them; and each set's manifest, such as [`sets/modern/manifest.json`](../../packages/tessera-tiles/sets/modern/manifest.json), lists what it has drawn. This file holds the rules the data cannot express: footprints and the Capital, what is not terrain, condition decals, auto-tiling, layering, building standards, architectural families, what lies beyond the contract, and the budgets.
 
 ## Proposed terrain composition
 
@@ -14,7 +14,7 @@ The [hex terrain composition proposal](hex-terrain-composition.md) develops smal
 
 ## Geometry
 
-The grid is recorded in [GDR-KI-DESIGN-003](../decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md); the numbers are in `tileGeometry` and in `@knowledgeislands/hexmap` (`isoPosition`, `isoProject`).
+The grid is recorded in [GDR-KI-DESIGN-003](../decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md); the numbers are in `tileGeometry` and in `tessera-hexmap` (`isoPosition`, `isoProject`).
 
 - **Pointy-top** hexes, axial `(q, r)`; cube coordinates for distance and pathing; odd-r offset layout.
 - 2:1 dimetric projection; every sprite is normalised to it.

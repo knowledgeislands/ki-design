@@ -6,7 +6,7 @@ updated: 2026-10-18
 
 # Accessibility
 
-These are the floors every surface holds, in light and night, in both dialects. A design that drops below one fails review. The contrast floors are held by tests in the token package, whose [README](../../packages/tokens/README.md#contrast-floors) lists the measured ratios; map accessibility is detailed in [maps.md](maps.md#accessibility).
+These are the floors every surface holds, in light and night, in both dialects. A design that drops below one fails review. The contrast floors are held by tests in the token package, whose [README](../../packages/tessera-tokens/README.md#contrast-floors) lists the measured ratios; map accessibility is detailed in [maps.md](maps.md#accessibility).
 
 | Area | Floor |
 | --- | --- |

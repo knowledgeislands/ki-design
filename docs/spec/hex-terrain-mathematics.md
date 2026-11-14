@@ -10,7 +10,7 @@ updated: 2026-10-19
 
 ## Inputs and units
 
-Read nominal top-face width `W0` and height `H0` from `tileGeometry` in the [existing contract](../../packages/tiles/src/contract.ts). Let `s` be display scale, `W = s × W0`, `H = s × H0`, and `(ox, oy)` the projected origin. Let `Z` be the screen rise for one terrain-height unit at that display scale. `Z`, physical cell size and physical height-unit size are not yet selected. Do not derive them from the fixed plinth depth.
+Read nominal top-face width `W0` and height `H0` from `tileGeometry` in the [existing contract](../../packages/tessera-tiles/src/contract.ts). Let `s` be display scale, `W = s × W0`, `H = s × H0`, and `(ox, oy)` the projected origin. Let `Z` be the screen rise for one terrain-height unit at that display scale. `Z`, physical cell size and physical height-unit size are not yet selected. Do not derive them from the fixed plinth depth.
 
 Map coordinates and heights exist independently of pixels. Screen x points right and screen y down. Axial q points right; axial r points towards the lower right. A projected height `z` moves a point upwards by `Z × z`. Setting a camera origin or zoom never changes stored terrain heights.
 
@@ -122,7 +122,7 @@ Two consequences. An east or west step (e1 or e4) shows no cliff at all: the two
 
 ### Draw order
 
-Draw cells in increasing r, then increasing q: the existing `isoSort` in `@knowledgeislands/hexmap`. For each cell draw its top surface, then its visible e2 and e3 faces. A face hangs exactly down to the lower front neighbour's edge. Anything of that neighbour that rises over the face is in front of it and is drawn later, so it covers the face correctly; the same holds for any raised cell in front of what lies behind it. Cells in the same row never overlap: a raised surface moves straight up, into the rows behind.
+Draw cells in increasing r, then increasing q: the existing `isoSort` in `tessera-hexmap`. For each cell draw its top surface, then its visible e2 and e3 faces. A face hangs exactly down to the lower front neighbour's edge. Anything of that neighbour that rises over the face is in front of it and is drawn later, so it covers the face correctly; the same holds for any raised cell in front of what lies behind it. Cells in the same row never overlap: a raised surface moves straight up, into the rows behind.
 
 Upright objects (buildings, trees, compounds) are drawn in the pass of their front-most occupied row, after that row's ground. That is correct as long as nothing that should cover the object is drawn earlier. For the pilot, enforce it as a placement rule: a cell outside the compound that touches a member's e2 or e3 edge, and lies in a row no further forward than the compound's front row, must not be raised above the compound's base elevation and must carry no object. The general alternative, slicing compound art into per-row strips drawn in each row's pass, is Open.
 

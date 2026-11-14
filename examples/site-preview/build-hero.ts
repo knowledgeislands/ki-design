@@ -1,20 +1,20 @@
 /**
- * Renders Arcadia (packages/hexmap/examples/arcadia.islandmap.json) as an isometric, Modern-set SVG for the
+ * Renders Arcadia (packages/tessera-hexmap/examples/arcadia.islandmap.json) as an isometric, Modern-set SVG for the
  * site preview's hero, and splices it into index.html between the `hero:start` / `hero:end` markers.
  *
  *   bun examples/site-preview/build-hero.ts
  *
- * Geometry comes from @knowledgeislands/hexmap (pointy-top hexes, 2:1 dimetric: top face 256 x 148 at the
+ * Geometry comes from tessera-hexmap (pointy-top hexes, 2:1 dimetric: top face 256 x 148 at the
  * reference width, rows stepping 111, odd rows shifted 128), scaled down to `w`. Glyphs come from
- * @knowledgeislands/icons; terrain colours from @knowledgeislands/tokens. Imports are relative source paths so the
+ * tessera-icons; terrain colours from tessera-tokens. Imports are relative source paths so the
  * script runs without a workspace install.
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { type Axial, axialToOffset, distance, hexKey, neighbours } from '../../packages/hexmap/src/coords.ts'
-import { iso, isoPosition, isoProject, isoSort, type Point } from '../../packages/hexmap/src/geometry.ts'
-import { iconBodies, type IconName } from '../../packages/icons/src/icons.generated.ts'
+import { type Axial, axialToOffset, distance, hexKey, neighbours } from '../../packages/tessera-hexmap/src/coords.ts'
+import { iso, isoPosition, isoProject, isoSort, type Point } from '../../packages/tessera-hexmap/src/geometry.ts'
+import { iconBodies, type IconName } from '../../packages/tessera-icons/src/icons.generated.ts'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const root = join(here, '..', '..')
@@ -35,9 +35,9 @@ interface IslandMap {
 }
 
 export const arcadia: IslandMap = JSON.parse(
-  readFileSync(join(root, 'packages/hexmap/examples/arcadia.islandmap.json'), 'utf8')
+  readFileSync(join(root, 'packages/tessera-hexmap/examples/arcadia.islandmap.json'), 'utf8')
 )
-const tokens = JSON.parse(readFileSync(join(root, 'packages/tokens/tokens.json'), 'utf8'))
+const tokens = JSON.parse(readFileSync(join(root, 'packages/tessera-tokens/tokens.json'), 'utf8'))
 const terrainFill: Record<string, string> = Object.fromEntries(
   Object.entries(tokens.color.terrain as Record<string, { $value: string }>).map(([k, v]) => [k, v.$value])
 )

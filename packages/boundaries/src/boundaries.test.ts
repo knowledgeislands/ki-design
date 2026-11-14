@@ -41,41 +41,73 @@ let scratch: string
 
 // Each fixture is created outside the checkout and removed after the proof, including failed assertions.
 const fixtures: Record<string, string> = {
-  'packages/tokens/src/index.ts': 'export const tokens = 1\n',
-  'packages/symbols/src/index.ts': 'export const symbols = 1\n',
-  'packages/tiles/src/index.ts': 'export const tiles = 1\n',
-  'packages/icons/src/reaches-tokens.ts': "import '../../tokens/src/index.ts'\n",
-  'packages/symbols/src/reaches-tokens.ts': "import '../../tokens/src/index.ts'\n",
-  'packages/tiles/src/reaches-icons.ts': "import '../../icons/src/index.ts'\n",
-  'packages/hexmap/src/reaches-symbols.ts': "import '../../symbols/src/index.ts'\n",
-  'packages/elements/src/reaches-tiles.ts': "import '../../tiles/src/index.ts'\n",
-  'packages/icons/src/index.ts': 'export type Icon = string\n',
-  'packages/tokens/src/reaches-icons.ts':
-    "import type { Icon } from '../../icons/src/index.ts'\nexport type Value = Icon\n",
-  'packages/icons/scripts/draw.ts': 'export const draw = 1\n',
-  'packages/icons/src/command.ts': "import '../scripts/draw.ts'\n",
-  'packages/icons/src/consumer.ts': "import '../../../examples/observatory-preview/server.ts'\n",
+  'packages/tessera-tokens/src/index.ts': 'export const tokens = 1\n',
+  'packages/tessera-symbols/src/index.ts': 'export const symbols = 1\n',
+  'packages/tessera-tiles/src/index.ts': 'export const tiles = 1\n',
+  'packages/tessera-icons/src/reaches-tokens.ts': "import '../../tessera-tokens/src/index.ts'\n",
+  'packages/tessera-symbols/src/reaches-tokens.ts': "import '../../tessera-tokens/src/index.ts'\n",
+  'packages/tessera-tiles/src/reaches-icons.ts': "import '../../tessera-icons/src/index.ts'\n",
+  'packages/tessera-hexmap/src/reaches-symbols.ts': "import '../../tessera-symbols/src/index.ts'\n",
+  'packages/tessera/src/reaches-tiles.ts': "import '../../tessera-tiles/src/index.ts'\n",
+  'packages/tessera-icons/src/index.ts': 'export type Icon = string\n',
+  'packages/tessera-tokens/src/reaches-icons.ts':
+    "import type { Icon } from '../../tessera-icons/src/index.ts'\nexport type Value = Icon\n",
+  'packages/tessera-icons/scripts/draw.ts': 'export const draw = 1\n',
+  'packages/tessera-icons/src/command.ts': "import '../scripts/draw.ts'\n",
+  'packages/tessera-icons/src/consumer.ts': "import '../../../examples/observatory-preview/server.ts'\n",
   'examples/observatory-preview/server.ts': 'export const server = 1\n',
   'examples/observatory-preview/client/registry.ts': 'export const instruments = []\n',
   'examples/observatory-preview/client/views/extensions.ts': "import '../registry.ts'\n",
   'examples/observatory-preview/client/api.ts': "import '../server.ts'\nimport 'node:fs'\n",
-  'packages/icons/src/fixture.test-support.ts': 'export const fixture = 1\n',
-  'packages/icons/src/product.ts': "import './fixture.test-support.ts'\n",
-  'packages/icons/src/cycle-a.ts': "import './cycle-b.ts'\n",
-  'packages/icons/src/cycle-b.ts': "import './cycle-a.ts'\n",
-  'packages/icons/src/missing.ts': "import './absent.ts'\n"
+  'packages/tessera-icons/src/fixture.test-support.ts': 'export const fixture = 1\n',
+  'packages/tessera-icons/src/product.ts': "import './fixture.test-support.ts'\n",
+  'packages/tessera-icons/src/cycle-a.ts': "import './cycle-b.ts'\n",
+  'packages/tessera-icons/src/cycle-b.ts': "import './cycle-a.ts'\n",
+  'packages/tessera-icons/src/missing.ts': "import './absent.ts'\n"
 }
 
 const crossings = [
-  ['icons-dependency-direction', 'packages/icons/src/reaches-tokens.ts', 'packages/tokens/src/index.ts'],
-  ['symbols-dependency-direction', 'packages/symbols/src/reaches-tokens.ts', 'packages/tokens/src/index.ts'],
-  ['tiles-dependency-direction', 'packages/tiles/src/reaches-icons.ts', 'packages/icons/src/index.ts'],
-  ['hexmap-dependency-direction', 'packages/hexmap/src/reaches-symbols.ts', 'packages/symbols/src/index.ts'],
-  ['elements-dependency-direction', 'packages/elements/src/reaches-tiles.ts', 'packages/tiles/src/index.ts'],
-  ['tokens-dependency-direction', 'packages/tokens/src/reaches-icons.ts', 'packages/icons/src/index.ts'],
-  ['package-source-meets-by-package-name', 'packages/tokens/src/reaches-icons.ts', 'packages/icons/src/index.ts'],
-  ['source-does-not-import-artwork-commands', 'packages/icons/src/command.ts', 'packages/icons/scripts/draw.ts'],
-  ['libraries-do-not-import-consumers', 'packages/icons/src/consumer.ts', 'examples/observatory-preview/server.ts'],
+  [
+    'tessera-icons-dependency-direction',
+    'packages/tessera-icons/src/reaches-tokens.ts',
+    'packages/tessera-tokens/src/index.ts'
+  ],
+  [
+    'tessera-symbols-dependency-direction',
+    'packages/tessera-symbols/src/reaches-tokens.ts',
+    'packages/tessera-tokens/src/index.ts'
+  ],
+  [
+    'tessera-tiles-dependency-direction',
+    'packages/tessera-tiles/src/reaches-icons.ts',
+    'packages/tessera-icons/src/index.ts'
+  ],
+  [
+    'tessera-hexmap-dependency-direction',
+    'packages/tessera-hexmap/src/reaches-symbols.ts',
+    'packages/tessera-symbols/src/index.ts'
+  ],
+  ['tessera-dependency-direction', 'packages/tessera/src/reaches-tiles.ts', 'packages/tessera-tiles/src/index.ts'],
+  [
+    'tessera-tokens-dependency-direction',
+    'packages/tessera-tokens/src/reaches-icons.ts',
+    'packages/tessera-icons/src/index.ts'
+  ],
+  [
+    'package-source-meets-by-package-name',
+    'packages/tessera-tokens/src/reaches-icons.ts',
+    'packages/tessera-icons/src/index.ts'
+  ],
+  [
+    'source-does-not-import-artwork-commands',
+    'packages/tessera-icons/src/command.ts',
+    'packages/tessera-icons/scripts/draw.ts'
+  ],
+  [
+    'libraries-do-not-import-consumers',
+    'packages/tessera-icons/src/consumer.ts',
+    'examples/observatory-preview/server.ts'
+  ],
   [
     'preview-views-do-not-import-the-registry',
     'examples/observatory-preview/client/views/extensions.ts',
@@ -87,8 +119,12 @@ const crossings = [
     'examples/observatory-preview/server.ts'
   ],
   ['preview-client-reaches-no-runtime-built-in', 'examples/observatory-preview/client/api.ts', 'fs'],
-  ['tests-do-not-leak-into-product', 'packages/icons/src/product.ts', 'packages/icons/src/fixture.test-support.ts'],
-  ['no-circular', 'packages/icons/src/cycle-a.ts', 'packages/icons/src/cycle-b.ts']
+  [
+    'tests-do-not-leak-into-product',
+    'packages/tessera-icons/src/product.ts',
+    'packages/tessera-icons/src/fixture.test-support.ts'
+  ],
+  ['no-circular', 'packages/tessera-icons/src/cycle-a.ts', 'packages/tessera-icons/src/cycle-b.ts']
 ] as const
 
 beforeAll(async () => {
@@ -142,11 +178,11 @@ test('reads the real graph, including resolved type-only package crossings', () 
   expect(
     graph.modules.filter((module) => /^(packages|examples|docs)\//u.test(module.source)).length
   ).toBeGreaterThanOrEqual(75)
-  const symbols = graph.modules.find((module) => module.source === 'packages/symbols/src/types.ts')
+  const symbols = graph.modules.find((module) => module.source === 'packages/tessera-symbols/src/types.ts')
   expect(symbols?.dependencies).toContainEqual(
     expect.objectContaining({
-      module: '@knowledgeislands/icons',
-      resolved: expect.stringMatching(/(?:^|\/)packages\/icons\/src\/index\.ts$/u),
+      module: 'tessera-icons',
+      resolved: expect.stringMatching(/(?:^|\/)packages\/tessera-icons\/src\/index\.ts$/u),
       couldNotResolve: false,
       dependencyTypes: expect.arrayContaining(['type-only'])
     })
@@ -169,7 +205,8 @@ test.each(crossings)('trips %s for %s -> %s', (rule, from, to) => {
 test('reports imports that cannot resolve', () => {
   expect(
     crossed.summary.violations.some(
-      (violation) => violation.from === 'packages/icons/src/missing.ts' && violation.rule.name === 'no-unresolvable'
+      (violation) =>
+        violation.from === 'packages/tessera-icons/src/missing.ts' && violation.rule.name === 'no-unresolvable'
     )
   ).toBe(true)
 })

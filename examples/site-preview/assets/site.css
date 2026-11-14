@@ -1,6 +1,6 @@
 /*
  * Knowledge Islands site preview — the Chart dialect (DESIGN.md 6, 7, 12.2).
- * Values come from tokens.css (built from packages/tokens); this file only composes them.
+ * Values come from tokens.css (built from packages/tessera-tokens); this file only composes them.
  * Navy surfaces set data-theme="night" so the night roles (ink = parchment, muted = #a9b4c4) apply inside them.
  */
 
@@ -192,7 +192,7 @@ a {
   text-align: center;
 }
 
-/* ---------- Glyphs (line glyphs from packages/icons, inlined as a sprite) ---------- */
+/* ---------- Glyphs (line glyphs from packages/tessera-icons, inlined as a sprite) ---------- */
 
 .g {
   width: 24px;

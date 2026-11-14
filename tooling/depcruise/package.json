@@ -1,5 +1,5 @@
 {
-  "name": "@knowledgeislands/design-boundary-tooling",
+  "name": "tessera-boundary-tooling",
   "version": "0.0.0",
   "private": true,
   "description": "Install root for the dependency-boundary checker, which needs a TypeScript dependency-cruiser can drive. Not a workspace, not part of the repository's own dependency tree, and resolved by nothing else.",

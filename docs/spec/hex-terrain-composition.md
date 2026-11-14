@@ -14,7 +14,7 @@ This proposal is about the **Island Map**: one island's ground, drawn isometric,
 
 ## Authority and current compatibility
 
-The current [tile contract](../../packages/tiles/src/contract.ts), [tile specification](tiles-and-buildings.md), [geometry decision](../decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md) and [footprint decision](../decisions/GDR-KI-DESIGN-022-tile-loops-follow-the-animation-standard-footprints-are-each-set-s-choice.md) remain authoritative. Their existing geometry, footprint union, plinth and validation have not changed. In particular, a new irregular footprint cannot currently be written into a production manifest and pass the existing validator.
+The current [tile contract](../../packages/tessera-tiles/src/contract.ts), [tile specification](tiles-and-buildings.md), [geometry decision](../decisions/GDR-KI-DESIGN-003-hex-grid-geometry.md) and [footprint decision](../decisions/GDR-KI-DESIGN-022-tile-loops-follow-the-animation-standard-footprints-are-each-set-s-choice.md) remain authoritative. Their existing geometry, footprint union, plinth and validation have not changed. In particular, a new irregular footprint cannot currently be written into a production manifest and pass the existing validator.
 
 The owner confirmed the following direction on 19 October 2026: use hexes; investigate smaller construction cells for more flexible composition; describe height at each corner relative to a lowest corner of zero; raise a whole tile independently; support irregular compounds such as the Great Tree; derive exposed edges and waterfalls from neighbouring heights and connections; and keep the specification and supporting knowledge in `ki-design`. These directions are captured here without claiming formal **Agreed** status or a completed implementation.
 
@@ -180,7 +180,7 @@ compound:
 
 **Proposed.** One pure function and one fixture, with no art, no contract change and no renderer migration:
 
-- a `renderTerrainSvg` beside `renderArchipelagoSvg` in `@knowledgeislands/hexmap`, drawing cells from `(q, r, b, h0…h5, material)` with flat token colours;
+- a `renderTerrainSvg` beside `renderArchipelagoSvg` in `tessera-hexmap`, drawing cells from `(q, r, b, h0…h5, material)` with flat token colours;
 - the mean-centre fan, visible e2 and e3 faces in lit and shaded rock tones, outside faces down to the datum with the existing plinth below, and `isoSort` draw order;
 - a 19-cell fixture island containing: equal joins, a cell raised by one unit, a sloped shared edge, a tapered cliff, an edge whose higher side swaps, a three-cell junction with three different heights, an east step, one level river crossing and one front-edge waterfall, a seven-cell level-pad compound as a placeholder block, and a three-cell tree compound on a slope;
 - unit tests for every check in [mathematical acceptance](hex-terrain-mathematics.md#mathematical-acceptance-checks), plus: the all-zero map draws the same top faces and plinths as the current renderer, every visible face's endpoints coincide with its two surfaces' edges, and the placement rules reject a hole, a non-level pad and a raised cell in front of a compound.

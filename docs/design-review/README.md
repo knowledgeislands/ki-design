@@ -7,7 +7,7 @@ The interactive review of the Knowledge Islands design system, as published to C
 - `explorations/` — the earlier exploration boards, as published to **Knowledge Islands — Early Explorations**. Kept for history; superseded by the review boards.
 - `observatory/` — the Observatory overhaul: `OBSERVATORY-DESIGN.md`, the screen spec, and seven screen boards (`Obs*.dc.html`) for the shell, Attend, Observe, Act, Extend and the fifteen-tabs-to-ten-instruments map. Synthetic data only, and not generated.
 
-The boards are `.dc.html` Design Components (Claude Design's format): they render in Claude Design, not as plain HTML pages. Images are referenced by `/_blob/<id>` urls that resolve only inside their canvas; the originals are in `packages/tiles/sets/modern/` and `examples/`.
+The boards are `.dc.html` Design Components (Claude Design's format): they render in Claude Design, not as plain HTML pages. Images are referenced by `/_blob/<id>` urls that resolve only inside their canvas; the originals are in `packages/tessera-tiles/sets/modern/` and `examples/`.
 
 ## How the boards are generated
 
@@ -15,12 +15,12 @@ The boards are built from the repository's data and decision records, so the rev
 
 | Board | From data | Hand-written in its template |
 | --- | --- | --- |
-| Icons | Every glyph in `packages/icons/svg/`; groups and briefs from `docs/briefs/glyph-briefs.md`; meanings and statuses from `symbols.ts`; value icons and the glyph rules from `docs/spec/iconography.md` | The layout and controls |
+| Icons | Every glyph in `packages/tessera-icons/svg/`; groups and briefs from `docs/briefs/glyph-briefs.md`; meanings and statuses from `symbols.ts`; value icons and the glyph rules from `docs/spec/iconography.md` | The layout and controls |
 | Meaning | Every symbol in `symbols.ts` (meaning, status, category, glyph, site, app, notes) and its retired ids; "Drawn as" from the tables in `docs/spec/meaning.md` | The layout and controls |
 | Decisions | Agreed: each `docs/decisions/GDR-KI-DESIGN-*.md` (title, summary, decision, date, path). Open: each question in `docs/OPEN.md` (question, recommendation, meanwhile, affects) | The layout and controls |
 | Colour | Every role, wash, sea, core and terrain value from `tokens.json`; night terrain from `nightTerrain()`; contrast ratios | The notes on each colour, fog and the island palettes |
 | Type and voice | Font stacks from `tokens.json`; both type scales from `docs/spec/typography.md` | Specimens, voice rules and the do and don't pairs |
-| Tiles | The Modern manifest (tiles, footprints, loops, conditions, aliases); contract counts from `packages/tiles`; what moves from `docs/spec/motion.md`; families from `docs/spec/tiles-and-buildings.md` | Geometry and building drawings, the standards |
+| Tiles | The Modern manifest (tiles, footprints, loops, conditions, aliases); contract counts from `packages/tessera-tiles`; what moves from `docs/spec/motion.md`; families from `docs/spec/tiles-and-buildings.md` | Geometry and building drawings, the standards |
 | Overview | Symbol statuses for the layers, the realm-to-island chain and the zones; the board list | Essence, principles, how to read |
 | Structure | The Voyage order from GDR-KI-DESIGN-011; record ids; Open chips checked against `OPEN.md` | Page and instrument descriptions |
 | Arcadia | The GDR-KI-DESIGN-014 summary and record ids | The commentary on the painting |

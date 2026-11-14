@@ -1,6 +1,6 @@
 /**
  * Theme: the shell follows the OS (`prefers-color-scheme`) unless the viewer chose; the choice is
- * `data-theme` on the root, which `@knowledgeislands/tokens`' CSS keys on.
+ * `data-theme` on the root, which `tessera-tokens`' CSS keys on.
  */
 
 export type Theme = 'night' | 'light'

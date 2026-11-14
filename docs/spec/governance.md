@@ -34,12 +34,12 @@ The data files hold the values; prose points to them and never restates their ta
 
 | Data | File |
 | --- | --- |
-| Tokens | `packages/tokens/tokens.json` |
-| Symbols | `packages/symbols/src/symbols.ts` |
-| Glyphs | `packages/icons/svg/` |
-| Tile contract | `packages/tiles/src/contract.ts` |
-| Modern tile set | `packages/tiles/sets/modern/manifest.json` |
-| Map model | `packages/hexmap/src/model.ts` |
+| Tokens | `packages/tessera-tokens/tokens.json` |
+| Symbols | `packages/tessera-symbols/src/symbols.ts` |
+| Glyphs | `packages/tessera-icons/svg/` |
+| Tile contract | `packages/tessera-tiles/src/contract.ts` |
+| Modern tile set | `packages/tessera-tiles/sets/modern/manifest.json` |
+| Map model | `packages/tessera-hexmap/src/model.ts` |
 
 Where prose and data disagree, the data wins, unless a decision record says otherwise. Where the data itself seems wrong, the question goes in `OPEN.md` rather than being guessed.
 

@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Colour
 
-One palette, two papers: light is the printed chart and night is the same chart by lantern-light. The values live in [`packages/tokens/tokens.json`](../../packages/tokens/tokens.json) (DTCG) and the token build turns them into CSS custom properties, a typed module and a digest; the measured contrast ratios are in the [tokens README](../../packages/tokens/README.md#contrast-floors), held by its tests. This file holds what the values cannot say: what each colour is for, how roles, washes, edges, sea and terrain are used, the per-island palettes, and the usage rules.
+One palette, two papers: light is the printed chart and night is the same chart by lantern-light. The values live in [`packages/tessera-tokens/tokens.json`](../../packages/tessera-tokens/tokens.json) (DTCG) and the token build turns them into CSS custom properties, a typed module and a digest; the measured contrast ratios are in the [tokens README](../../packages/tessera-tokens/README.md#contrast-floors), held by its tests. This file holds what the values cannot say: what each colour is for, how roles, washes, edges, sea and terrain are used, the per-island palettes, and the usage rules.
 
 ## Where the values live
 
@@ -64,7 +64,7 @@ Never draw a control's edge in the rule colour.
 
 `color.terrain` holds twelve fills for the flat renderer, one per terrain id. Isometric art is painted to match. The values are _proposed_, chosen to sit inside the palette and to keep a pattern or label legible.
 
-- **Every terrain also carries a pattern**, so colour is never the only carrier. The patterns are drawn in [`packages/hexmap/src/patterns.ts`](../../packages/hexmap/src/patterns.ts), each in ink or parchment (whichever reads better on the fill), with gold embers on volcanic.
+- **Every terrain also carries a pattern**, so colour is never the only carrier. The patterns are drawn in [`packages/tessera-hexmap/src/patterns.ts`](../../packages/tessera-hexmap/src/patterns.ts), each in ink or parchment (whichever reads better on the fill), with gold embers on volcanic.
 - **Night fills are derived, not stored.** Each night fill is its day fill mixed 45 % into navy by `nightTerrain()` in the token package (`nightTerrainAmount`). Night ocean is the night `sea`, not a mix.
 - **Map labels never sit bare on a fill.** Forest and mountain fall just under 4.5:1 for text set directly on them, so map labels always carry a paper halo ([maps.md](maps.md#layers)).
 - Ruins and ancient forest are **structures** standing on grassland or forest. There is no ruins or uncharted terrain fill.

@@ -2,12 +2,12 @@ import type { IConfiguration } from 'dependency-cruiser'
 
 /** Package directions follow the declared dependencies, including those used only by tests and examples. */
 const directions = {
-  tokens: [],
-  icons: [],
-  symbols: ['icons'],
-  tiles: ['tokens'],
-  hexmap: ['tokens', 'icons'],
-  elements: ['tokens', 'icons', 'hexmap']
+  'tessera-tokens': [],
+  'tessera-icons': [],
+  'tessera-symbols': ['tessera-icons'],
+  'tessera-tiles': ['tessera-tokens'],
+  'tessera-hexmap': ['tessera-tokens', 'tessera-icons'],
+  tessera: ['tessera-tokens', 'tessera-icons', 'tessera-hexmap']
 } as const
 
 type Package = keyof typeof directions

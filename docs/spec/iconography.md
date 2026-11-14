@@ -6,7 +6,7 @@ updated: 2026-10-19
 
 # Iconography
 
-Glyphs are engraved, cartographic line drawings on a 24 px grid, in `currentColor`, with no fills. They label places, instruments, roles and values on both surfaces. The glyphs themselves are data: the SVGs in [`packages/icons/svg/`](../../packages/icons/svg/) (78 today, including `capital`), the generated name list in `packages/icons/src/icons.generated.ts`, and the drawing contract that `lintIcon` enforces, described in the [icons README](../../packages/icons/README.md). This file holds the rules the files cannot carry: optical sizes, colour, style, what is forbidden, labelling, roundels and the value icons. The one-line drawing brief for each glyph is in [docs/briefs/glyph-briefs.md](../briefs/glyph-briefs.md).
+Glyphs are engraved, cartographic line drawings on a 24 px grid, in `currentColor`, with no fills. They label places, instruments, roles and values on both surfaces. The glyphs themselves are data: the SVGs in [`packages/tessera-icons/svg/`](../../packages/tessera-icons/svg/) (78 today, including `capital`), the generated name list in `packages/tessera-icons/src/icons.generated.ts`, and the drawing contract that `lintIcon` enforces, described in the [icons README](../../packages/tessera-icons/README.md). This file holds the rules the files cannot carry: optical sizes, colour, style, what is forbidden, labelling, roundels and the value icons. The one-line drawing brief for each glyph is in [docs/briefs/glyph-briefs.md](../briefs/glyph-briefs.md).
 
 ## The line-glyph specification
 
@@ -19,7 +19,7 @@ Glyphs are engraved, cartographic line drawings on a 24 px grid, in `currentColo
 | Fills | **None** in the glyph files (enforced by `lintIcon`): glyphs stay single-colour. Where a brass accent matters (the Beacon's flame, a lamp, a star point; up to 10 % of the live area), the **consumer** applies it, never the glyph file ([GDR-KI-DESIGN-024](../decisions/GDR-KI-DESIGN-024-glyphs-stay-single-colour.md)) |
 | Style | Engraved, cartographic: straight sides and gentle arcs. Perspective is front elevation or slight three-quarter, never isometric. No gradients, no shading, no outline-plus-fill duotone |
 | Forbidden | Emoji; brand logos of third parties in the glyph set; weapons; faces with expressions; robot heads |
-| Delivery | One SVG sprite (`<symbol id="ki-…">`) with a typed name union; `<ki-glyph>` renders it ([components.md](components.md)) |
+| Delivery | One SVG sprite (`<symbol id="ki-…">`) with a typed name union; `<tessera-glyph>` renders it ([components.md](components.md)) |
 | Labelling | Decorative glyphs are `aria-hidden="true"`; meaningful glyphs carry a label |
 
 ## Roundels
@@ -30,7 +30,7 @@ The site may use glyphs inside a **roundel**: a circle of 1 px brass hairline at
 
 - **Ids** are kebab-case nouns, matching the tile name where both exist (`council-hall`, `rail-depot`). The file name is the id.
 - **Roles are drawn as tools, not faces**, in the glyph set. Figures appear only in illustration.
-- **Every Official or Agreed symbol has a glyph**, by test in `packages/symbols`; a territory is drawn with `archipelago`, and Proposed symbols may wait.
+- **Every Official or Agreed symbol has a glyph**, by test in `packages/tessera-symbols`; a territory is drawn with `archipelago`, and Proposed symbols may wait.
 - **Retired glyphs stay but mean nothing.** `citadel` and `tower` remain in the package, mapped to no symbol (GDR-KI-PRINCIPAL-011). The Capital has its own civic glyph, `capital`.
 - **`beacon` is not `lighthouse`.** The Beacon is a lantern with a brass flame, the Observatory's lamp; the lighthouse is guidance. They must stay distinct at small sizes.
 - **The compass is not the logo.** `compass` is the orientation motif.

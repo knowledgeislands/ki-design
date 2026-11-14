@@ -11,7 +11,7 @@ decision_type_url: https://knowledgeislands.info/specifications/decision-records
 
 ## Context
 
-The Living Map is interactive. The question was what it shows without JavaScript. `<ki-hexmap>` already renders static SVG first, and the hero lists the districts in text. On 19 October 2026 Kit accepted the recommendation.
+The Living Map is interactive. The question was what it shows without JavaScript. `<tessera-hexmap>` already renders static SVG first, and the hero lists the districts in text. On 19 October 2026 Kit accepted the recommendation.
 
 ## Decision
 

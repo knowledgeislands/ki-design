@@ -15,7 +15,7 @@ So, for whoever builds in `apps-observatory.local`:
 
 ### Suggested order
 
-1. **Tokens and glyphs** (handoff draft 6): vendor `@knowledgeislands/tokens` and the icons, and swap colours, type and emoji for glyphs across all existing tabs.
+1. **Tokens and glyphs** (handoff draft 6): vendor `tessera-tokens` and the icons, and swap colours, type and emoji for glyphs across all existing tabs.
 2. **Shell polish without regrouping:** the top bar with the Observatory mark, the status line, the pane states (observed, observing, empty, not observed, stale) and the filter-not-scope chip. Add the four jobs as an optional lens over the existing tabs, for example a grouped tab bar or a job filter, with every tab still reachable.
 3. **Per-tab upgrades in place:**
    - Beacon signal anatomy and filters;
@@ -43,7 +43,7 @@ All data on the boards is invented. Only the public Knowledge Islands repository
 - Knowledge and the work are the subject. Agents, human or AI, are workers: a column, a figure on the chart, never a dashboard of their own. This is the destination: the app's Sessions tab is a runs view today, and it stays one until Kit approves the Workers consolidation (§9).
 - Observation is the default and authority is the exception. Act is the only job that changes anything, and it looks different.
 - Dense, calm, instrument-like. Night is the reference rendering; the shell follows the operating system's theme, and light is checked second.
-- The app dialect only: system serif for titles, system sans for text, monospace for identifiers and map labels. Nothing is fetched or bundled. No emoji; glyphs from `packages/icons`. One known exception: the Work tab prints the work model's banner glyphs exactly as the `ki-coordination` standard writes them, because Kit chose one notation everywhere ([PDR-KI-OBSERVA-008](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-008-line-glyphs-beside-tabs-and-subjects.md)). The emoji stay the written notation, and the Work tab may draw the proposed line glyphs with the state's words beside them once the `ki-coordination` standard admits the rendered form ([GDR-KI-DESIGN-037](../../decisions/GDR-KI-DESIGN-037-the-banner-emoji-stay-the-written-notation-line-glyphs-may-be-a-rendered-form.md)).
+- The app dialect only: system serif for titles, system sans for text, monospace for identifiers and map labels. Nothing is fetched or bundled. No emoji; glyphs from `packages/tessera-icons`. One known exception: the Work tab prints the work model's banner glyphs exactly as the `ki-coordination` standard writes them, because Kit chose one notation everywhere ([PDR-KI-OBSERVA-008](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-008-line-glyphs-beside-tabs-and-subjects.md)). The emoji stay the written notation, and the Work tab may draw the proposed line glyphs with the state's words beside them once the `ki-coordination` standard admits the rendered form ([GDR-KI-DESIGN-037](../../decisions/GDR-KI-DESIGN-037-the-banner-emoji-stay-the-written-notation-line-glyphs-may-be-a-rendered-form.md)).
 - The app does not replace agentic harnesses. It shows their runs as evidence.
 
 ## 2. The shell
@@ -81,7 +81,7 @@ One frame, the same height on every instrument (board 1). The bands have no fixe
 
 ## 5. Colour, type and glyphs
 
-- Roles from `packages/tokens/tokens.json`, night values first: paper `#0f2440`, ink `#f5efe0`, muted `#a9b4c4`, accent `#9fbbd8`, ok `#8fc4a0`, warn `#c8963c`, bad `#f0947a`, rule `#24476e`, boundary `#5f7896`, with the three washes for chips. These match the values the app derived and holds by test, hex for hex, washes included; the app's contrast record in [PDR-KI-OBSERVA-002](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-002-observatory-design-language.md) is the evidence.
+- Roles from `packages/tessera-tokens/tokens.json`, night values first: paper `#0f2440`, ink `#f5efe0`, muted `#a9b4c4`, accent `#9fbbd8`, ok `#8fc4a0`, warn `#c8963c`, bad `#f0947a`, rule `#24476e`, boundary `#5f7896`, with the three washes for chips. These match the values the app derived and holds by test, hex for hex, washes included; the app's contrast record in [PDR-KI-OBSERVA-002](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-002-observatory-design-language.md) is the evidence.
 - Gold means attention, alone. Rust means blocking. A note has no colour and no mark. Every state has its word.
 - Conditions are words on chips: thriving (ok wash), quiet (outline), weathered (dashed outline), ruined (dotted, struck through). Never a score or a percentage.
 - Severity in rows: reef glyph and `blocking` chip; lantern glyph and `attention` chip; `note` as an outline tag.
@@ -186,7 +186,7 @@ Shell routes for every instrument: `/api/instruments`, `/api/scopes`, `/api/obse
 - **Automation splits in two** (runs to Workers, schedules to Machine). Which one does `?view=automation` land on?
 - **Bridge or Causeway.** Settled on 19 October 2026: the translation symbol is the Causeway, so "Bridge" names only the Act command, written and never drawn ([GDR-KI-DESIGN-018](../../decisions/GDR-KI-DESIGN-018-the-causeway-is-the-translation-symbol-bridge-names-the-act-command.md)). An MCP server takes the `causeway` glyph wherever its kind is known, which for Beacon subjects waits on a `ki` contract (§5).
 - **How Act looks different.** The boards give the Act segment a boundary-colour edge and "governed". Enough, or should Act panes also carry a top rule in the boundary colour (as on boards 4 and 5)?
-- **The Capital glyph.** Settled on 18 October 2026: `packages/icons` now has `capital`, a small dome beside a low colonnaded front on one base. The Known Lands chart uses it, vendored at a pinned commit, in place of the Library and Council Hall pair; a Beacon subject can use it once a `ki` contract says which repository is a Capital (§5).
+- **The Capital glyph.** Settled on 18 October 2026: `packages/tessera-icons` now has `capital`, a small dome beside a low colonnaded front on one base. The Known Lands chart uses it, vendored at a pinned commit, in place of the Library and Council Hall pair; a Beacon subject can use it once a `ki` contract says which repository is a Capital (§5).
 - **Stored chart positions.** No endpoint holds island positions today; Known Lands needs one so islands stay where they were learnt.
 - **Stale threshold.** When does an observation become stale: a fixed age, or per instrument?
 - **Extension switches.** Is a switch a host preference (no receipt) or an Act operation? Over the tailnet it is shown and not changed either way.

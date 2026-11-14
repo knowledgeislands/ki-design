@@ -212,4 +212,4 @@ Generate each on a fully transparent or flat light-grey background, as an overla
 
 ## After generating
 
-Save every result unaltered under `+/art/<date>-<batch>/` with a `NOTES.md` recording the exact prompts, pixel sizes and deviations, as [batch 1](ancient-batch-1.md) does. Once a candidate is chosen and normalised, record it in `packages/tiles/sets/ancient/manifest.json` (copy the Modern manifest's ids), with its source prompt, `family` on the heroes and the set's `palette`, so the set can be regenerated or extended consistently.
+Save every result unaltered under `+/art/<date>-<batch>/` with a `NOTES.md` recording the exact prompts, pixel sizes and deviations, as [batch 1](ancient-batch-1.md) does. Once a candidate is chosen and normalised, record it in `packages/tessera-tiles/sets/ancient/manifest.json` (copy the Modern manifest's ids), with its source prompt, `family` on the heroes and the set's `palette`, so the set can be regenerated or extended consistently.

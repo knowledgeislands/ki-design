@@ -140,7 +140,7 @@ body{margin:0}
         <div style="font-size:13.5px;line-height:1.5;color:#1a2030">{{detail.note}}</div>
         <div style="font-size:12px;color:#4a5568;margin-top:auto">Source · {{detail.src}}</div>
       </div>
-      <div style="font-size:11px;color:#4a5568;line-height:1.4">Values: packages/tokens/tokens.json; rules: docs/spec/colour.md. Roles, washes, sea and core are Agreed (changed only with Kit's approval); terrain fills, fog and island palettes are Proposed. Night terrain is nightTerrain(); fog is color.fog and isometric water is color.tile.water (@@gdr:023@@).</div>
+      <div style="font-size:11px;color:#4a5568;line-height:1.4">Values: packages/tessera-tokens/tokens.json; rules: docs/spec/colour.md. Roles, washes, sea and core are Agreed (changed only with Kit's approval); terrain fills, fog and island palettes are Proposed. Night terrain is nightTerrain(); fog is color.fog and isometric water is color.tile.water (@@gdr:023@@).</div>
     </div>
 
     <!-- Right column -->
@@ -330,7 +330,7 @@ class Component extends DCLogic {
     terr.forEach(t => {
       items['terrain.' + t[0]] = { id:'terrain.' + t[0], group:'Terrain fill', name: t[0], cssVar:'--terrain-' + t[0], path:'color.terrain.' + t[0] + '  (night: nightTerrain())',
         day: t[1], night: t[2], kind:'fill', note: 'Pattern: ' + t[3] + ' Night fill: nightTerrain(), the day fill mixed 45 % into navy.',
-        status:'Proposed', scope:'Both', src:'tokens.json color.terrain; nightTerrain() in packages/tokens; docs/spec/colour.md (terrain fills)' };
+        status:'Proposed', scope:'Both', src:'tokens.json color.terrain; nightTerrain() in packages/tessera-tokens; docs/spec/colour.md (terrain fills)' };
     });
     Object.assign(items['terrain.ocean'], { cssVar:'--color-tile-water', path:'color.tile.water  (color.terrain.ocean is its deprecated alias)',
       note: items['terrain.ocean'].note + ' Renamed by @@gdr:023@@.', src:'tokens.json color.tile.water; docs/spec/colour.md (sea and ocean); @@gdr:023@@' });

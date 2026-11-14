@@ -88,7 +88,7 @@ Batch 1b is evidence of failure modes, not the style master: its mountainous add
 3. Check the directly painted geometry against the [building standards](building-standards.md); record the anchor and footprint. Retain original candidates unaltered and record any separately approved production normalisation.
 4. Paint condition decals (ivy, cracks, moss, fallen roof) as separate overlays under the same light.
 5. Animate only what the [animation standard](animation-standard.md) lists, as sprite sheets.
-6. Pack into atlases; write `packages/tiles/sets/ancient/manifest.json`.
+6. Pack into atlases; write `packages/tessera-tiles/sets/ancient/manifest.json`.
 
 ## Inventory
 

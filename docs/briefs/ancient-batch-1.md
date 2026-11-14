@@ -2,7 +2,7 @@
 
 The first batch of the Ancient tile set is one instruction, ready to paste into the ChatGPT or Codex app working on the local `ki-design` checkout. It paints the 12 terrains and the eight hero structures of the [Ancient set brief](tile-set-ancient.md) against the chosen painting of Arcadia, saves every image unaltered in the inbound area, records exactly how each was made, and commits only that folder.
 
-Status: **run on 19 October 2026.** The candidates and their notes are in `+/art/2026-10-19-ancient-batch-1/`. The style held, but the generator painted square diamonds despite the exact hex geometry below, so the hex is now cut out afterwards (`+/art/2026-10-19-ancient-batch-1-hexed/`) and the next run, [batch 1b](ancient-batch-1b.md), paints on a template instead. The art it produces is unlicensed until KI-DESIGN-ART-002 is decided ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-is-unlicensed-until-its-licensing-is-recorded.md)), and it is a set of candidates for review, not the Ancient set: normalising, choosing and writing `packages/tiles/sets/ancient/manifest.json` come after.
+Status: **run on 19 October 2026.** The candidates and their notes are in `+/art/2026-10-19-ancient-batch-1/`. The style held, but the generator painted square diamonds despite the exact hex geometry below, so the hex is now cut out afterwards (`+/art/2026-10-19-ancient-batch-1-hexed/`) and the next run, [batch 1b](ancient-batch-1b.md), paints on a template instead. The art it produces is unlicensed until KI-DESIGN-ART-002 is decided ([GDR-KI-DESIGN-035](../decisions/GDR-KI-DESIGN-035-art-is-unlicensed-until-its-licensing-is-recorded.md)), and it is a set of candidates for review, not the Ancient set: normalising, choosing and writing `packages/tessera-tiles/sets/ancient/manifest.json` come after.
 
 ## What the batch paints
 
@@ -29,11 +29,11 @@ STEP 1: READ FIRST. Read these files in full before generating anything:
 - docs/briefs/building-standards.md (geometry, light, families)
 - docs/spec/illustration.md (art direction and the never-draw list)
 - docs/spec/tiles-and-buildings.md (the tile contract, footprints and the Capital)
-- packages/tiles/src/contract.ts (tileGeometry and the tile ids)
+- packages/tessera-tiles/src/contract.ts (tileGeometry and the tile ids)
 Then look at these images:
 - docs/briefs/references/arcadia.png: THE style reference. Kit kept this original painting (variation 1) unchanged. Match its atmosphere first and fix details second: calm painted dusk, low warm sun from the upper left, deep navy sea, forest and moss greens, pale warm limestone and sandstone, muted parchment and slate roofs, restrained brass, hundreds of small warm window lights, soft haze, matte painted surfaces with subtle brush texture, no bloom. Attach it to every image generation as the reference.
 - docs/briefs/references/explainer-hex-and-isometric.png: hex geometry only, not style.
-- packages/tiles/sets/modern/terrain/grassland.svg, packages/tiles/sets/modern/structures/port.svg and packages/tiles/sets/modern/structures/capital.svg: the exact hex outlines, plinths and footprints of the existing Modern set, which these tiles must fit. Geometry only, not style.
+- packages/tessera-tiles/sets/modern/terrain/grassland.svg, packages/tessera-tiles/sets/modern/structures/port.svg and packages/tessera-tiles/sets/modern/structures/capital.svg: the exact hex outlines, plinths and footprints of the existing Modern set, which these tiles must fit. Geometry only, not style.
 
 STEP 2: THE GEOMETRY. Every tile must follow it exactly.
 - At 1x a hex's top face is a pointy-top hexagon 256 px wide and 148 px tall (2:1 dimetric projection). Its six corners, in 1x pixels from the top-left of the cell: (128,0), (256,37), (256,111), (128,148), (0,111), (0,37).
@@ -99,4 +99,4 @@ FINALLY: reply with the folder path, a table of the 20 files with their pixel si
 
 ## After the run
 
-Review the candidates in `+/art/<date>-ancient-batch-1/` against the painting. The chosen tiles are then normalised to the 1× and 2× cell by re-projecting the painted diamond onto the hex (`+/art/2026-10-19-ancient-batch-1-hexed/_hexify.py`; plinth checked, anchor recorded), and written into `packages/tiles/sets/ancient/manifest.json` with `family` on the heroes, the set's `palette` and `licence: "UNLICENSED"` until ART-002 is decided. The rest of the inventory follows from the [prompt pack](ancient-prompt-pack.md).
+Review the candidates in `+/art/<date>-ancient-batch-1/` against the painting. The chosen tiles are then normalised to the 1× and 2× cell by re-projecting the painted diamond onto the hex (`+/art/2026-10-19-ancient-batch-1-hexed/_hexify.py`; plinth checked, anchor recorded), and written into `packages/tessera-tiles/sets/ancient/manifest.json` with `family` on the heroes, the set's `palette` and `licence: "UNLICENSED"` until ART-002 is decided. The rest of the inventory follows from the [prompt pack](ancient-prompt-pack.md).

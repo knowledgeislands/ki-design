@@ -70,7 +70,7 @@ Confident statements, plain words, one idea per sentence. Never breathless, neve
 | Tokens | kebab-case, role first | `--paper`, `--wash-ok`, `--color-terrain-marsh` (the token build's names; see [colour.md](colour.md)) |
 | Glyph ids | kebab-case noun, matching the tile name where both exist | `council-hall`, `rail-depot` |
 | Tile ids | `<kind>/<id>`, as the contract keys them | `terrain/marsh`, `structure/dock`, `decal/ivy` |
-| Components | `ki-` prefix; only the two shared elements | `<ki-glyph>`, `<ki-hexmap>` |
-| Packages | `@knowledgeislands/<name>` | `@knowledgeislands/tokens` |
+| Components | `ki-` prefix; only the two shared elements | `<tessera-glyph>`, `<tessera-hexmap>` |
+| Packages | `@knowledgeislands/<name>` | `tessera-tokens` |
 | Repository | `ki-design` | — |
 | Decision records | Existing series only; ids never rewritten | `PDR-KI-OBSERVA-008`, `GDR-KI-DESIGN-003` |

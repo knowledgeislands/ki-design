@@ -25,7 +25,7 @@ Every structure in 4 condition states (thriving, quiet, weathered, ruined); 3 va
 ## Format
 
 - SVG per tile (isometric) plus a flat top-down SVG per tile; `currentColor` and CSS variables for every fill so themes apply.
-- A `manifest.json` in `packages/tiles/sets/modern/` listing every id with footprint, orientation, anchor, variants, states and frames, valid against `validateTileSet`.
+- A `manifest.json` in `packages/tessera-tiles/sets/modern/` listing every id with footprint, orientation, anchor, variants, states and frames, valid against `validateTileSet`.
 
 ## Judged by
 
