@@ -1,6 +1,8 @@
-# Knowledge Islands Design
+# Tessera
 
-Knowledge Islands Design is the machine-readable design system for every Knowledge Islands surface: the design tokens, icons, symbol library, tile sets, hex map engine and web components that the public site and the local app both render with.
+Tessera is the Knowledge Islands design system. A tessera is one tile of a mosaic; here each package is one: the design tokens, line glyphs, symbol library, tile sets, hex map engine and web components that the public site and the local app both render with. It lives at [`knowledgeislands/packages-tessera`](https://github.com/knowledgeislands/packages-tessera), formerly `ki-design`.
+
+Each consumer copies the packages it uses whole into `packages/<package>/` and locks each one on its own, by SHA-256, in `<package>-lock.json`; nothing in a consumer's build fetches this repository. The tools that verify, compare and re-vendor a copy ship inside every package, in `tooling/`.
 
 **Charter: things the surfaces render with.** No app code, no data access, no instruments. If both [knowledgeislands.info](https://knowledgeislands.info) and the local app (the Observatory) can use it to look like Knowledge Islands, it belongs here; if only one can, it stays in that app.
 
@@ -13,8 +15,10 @@ Knowledge Islands Design is the machine-readable design system for every Knowled
 | Looking for why something was decided, or what is still open | [docs/decisions/](docs/decisions/README.md) and [OPEN.md](docs/OPEN.md) |
 | Producing art or tiles | [docs/briefs/](docs/briefs/README.md) — the tile-set, building, animation and Arcadia briefs, the prompt library and the glyph briefs, with the reference images |
 | Wondering why it looks this way | [docs/briefs/design-brief.md](docs/briefs/design-brief.md) and [docs/briefs/concept-atlas.md](docs/briefs/concept-atlas.md) |
-| Building with the toolkit | [packages/](#packages) below |
+| Building with the toolkit | [packages/](#packages) below, and the [component library](docs/spec/components.md) by atomic level |
+| Seeing every part on its own | [Storybook](#storybook) below |
 | Planning work | [docs/roadmap/](docs/roadmap/) |
+| Changing, releasing or vendoring a package | [AGENTS.md](AGENTS.md) and the [changelog](CHANGELOG.md) |
 
 ## Place in the Knowledge Islands ecosystem
 
@@ -22,28 +26,34 @@ The prose canon stays where it is: [Knowledge Islands Principal](https://github.
 
 Consumers:
 
-- [apps-knowledgeislands.info](https://github.com/knowledgeislands/apps-knowledgeislands.info) — Eleventy and Tailwind; takes tokens as CSS custom properties and Tailwind `@theme`, the icons, the hex map renderer at build time, and the web components.
-- [apps-observatory.local](https://github.com/knowledgeislands/apps-observatory.local) — the local app; vendors the tokens by digest (PDR-KI-OBSERVA-002) and takes the hex map renderer and the shared elements pinned by exact version.
+Tessera keeps no list of its consumers: a consumer is any repository that holds a `tessera*-lock.json`, and each finds a new release with its own `self:<package>:drift`. Today they are the public site, which takes the tokens, glyphs, symbols and hex map renderer at build time, and the Observatory, which vendors the tokens by digest (PDR-KI-OBSERVA-002).
 
 ## Packages
 
-| Package | What it is | State |
+Six packages, each vendored and locked on its own, one per layer. One release numbers them all.
+
+| Package | What it is | Level |
 | --- | --- | --- |
-| [`tessera-tokens`](packages/tessera-tokens) | Colour, type, space, radius and motion tokens in DTCG JSON, built to CSS custom properties (bare roles and Tailwind `--color-*`) with a digest | v0 |
-| [`tessera-icons`](packages/tessera-icons) | Line glyphs on a 24 grid, 1.5 stroke; an SVG sprite and a typed name list | v0: 72 glyphs ([glyph briefs](docs/briefs/glyph-briefs.md)) |
-| [`tessera-symbols`](packages/tessera-symbols) | The symbol library as data: every canonical symbol, its meaning, status, glyph and where it surfaces | v0 |
-| [`tessera-hexmap`](packages/tessera-hexmap) | Pure TypeScript hex geometry (pointy-top, axial), 2:1 dimetric projection, `IslandMap` model and a flat SVG renderer with no DOM | v0 |
-| [`tessera-tiles`](packages/tessera-tiles) | The tile-set contract: manifest schema, the id inventory every tile set must cover, and the sets themselves (Modern, Ancient) | contract v0; Modern set v0 drawn (37 tiles); Ancient set waits on art |
-| [`tessera`](packages/tessera) | Web Components: `<tessera-glyph>` and `<tessera-hexmap>` (the two shared by both surfaces) | v0: Lit, tested in happy-dom |
+| [`tessera-tokens`](packages/tessera-tokens) | Colour, type, space, radius and motion tokens in DTCG JSON, built to CSS custom properties (bare roles and Tailwind `--color-*`) with a digest | Tokens |
+| [`tessera-icons`](packages/tessera-icons) | Line glyphs on a 24 grid, 1.5 stroke; an SVG sprite and a typed name list ([glyph briefs](docs/briefs/glyph-briefs.md)) | Tokens |
+| [`tessera-symbols`](packages/tessera-symbols) | The symbol library as data: every canonical symbol, its meaning, status, glyph and where it surfaces | Tokens |
+| [`tessera-tiles`](packages/tessera-tiles) | The tile-set contract: manifest schema, the id inventory every tile set must cover, and the sets themselves (Modern drawn, Ancient waiting on art) | Tokens |
+| [`tessera-hexmap`](packages/tessera-hexmap) | Pure TypeScript hex geometry (pointy-top, axial), 2:1 dimetric projection, the `IslandMap` model, and flat and archipelago SVG renderers with no DOM | Organisms (renderers) |
+| [`tessera`](packages/tessera) | Web components: `<tessera-glyph>` (an atom) and `<tessera-hexmap>` (an organism), in Lit, with `custom-elements.json` | Atoms, organisms |
+
+[`packages/boundaries`](packages/boundaries) (`tessera-boundaries`) proves the module boundaries and the package rules; it is a repository check and never vendored.
 
 Toolchain: Bun workspaces, Turbo, Biome, rumdl; `mise` pins Bun and Node. Run `bun install`, then `bun run test`.
 
-## Examples
+## Storybook
 
-| Example | What it shows | Run |
-| --- | --- | --- |
-| [`examples/observatory-preview`](examples/observatory-preview) | The local app restructured around Observe · Attend · Act · Extend, in the new design, reading the real Observatory's API through a read-only proxy | `bun run self:preview` (live) or `bun run self:preview -- --fixtures`, then <http://127.0.0.1:1676/> |
-| [`examples/site-preview`](examples/site-preview) | The Voyage home and the Field Guide for knowledgeislands.info, drawn with the Modern set | `bun examples/site-preview/serve.ts`, then <http://127.0.0.1:1677/> |
+[`apps/storybook`](apps/storybook) is Storybook for web components on Vite, built to static files. It shows every part by atomic level: the tokens, `<tessera-glyph>`, `<tessera-hexmap>` and the archipelago renderer, the [Observatory preview](apps/storybook/observatory) as a template on an invented sample estate, and the [site preview](apps/storybook/site-preview)'s Voyage home and Field Guide as pages. Each element's controls and docs come from `packages/tessera/custom-elements.json`.
+
+```sh
+bun run self:storybook          # serves it on http://localhost:6006/
+bun run self:storybook:build    # writes apps/storybook/dist/
+bun run self:manifest           # regenerates packages/tessera/custom-elements.json
+```
 
 Renders worth opening: `packages/tessera-tiles/sets/modern/arcadia-iso.png`, `packages/tessera-tiles/sets/modern/contact-sheet.png`, `packages/tessera-hexmap/examples/arcadia.png` and `arcadia-night.png`, `packages/tessera-icons/contact-sheet.png`.
 

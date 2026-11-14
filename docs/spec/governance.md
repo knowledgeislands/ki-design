@@ -10,17 +10,17 @@ Meaning is decided in `ki-principal`; values and drawings are decided here. This
 
 ## Canon and this repository
 
-| | `ki-principal/Pillars/Aesthetics` | `ki-design` (this repository) |
+| | `ki-principal/Pillars/Aesthetics` | `packages-tessera` (this repository, formerly `ki-design`) |
 | --- | --- | --- |
 | Holds | Prose canon: Visual Style, Symbol Library, Isometric Tiles, Diagrams, Logo; meaning | Machine-readable authority: tokens, glyphs, symbol data, tile contract and sets, hexmap, elements, and this spec |
-| Changes by | The `ki-principal` **Enactment Process** (Stream ↔ Council → Pillars) and its GDRs | A change on `main`, Kit's approval, a semver release |
+| Changes by | The `ki-principal` **Enactment Process** (Stream ↔ Council → Pillars) and its GDRs | A change on `main`, Kit's approval, a tagged release |
 | Wins on | **Meaning** | **Values** (hex, px, ids), within the meaning canon sets |
 
 The home of the kit is recorded in [GDR-KI-DESIGN-017](../decisions/GDR-KI-DESIGN-017-ki-design-is-the-home-of-the-design-kit.md).
 
 ## How meaning changes
 
-Meaning never changes in `ki-design` first. A new symbol, a renamed concept (Harbour → Port) or a role is proposed as a Stream, reviewed in the Council Hall and ratified into the Aesthetics pillar; for a model zone, also into Home of Knowledge and Structure. The Port was enacted by GDR-KI-PRINCIPAL-010 and the Capital by GDR-KI-PRINCIPAL-011. Only then is a symbol marked _official_ here.
+Meaning never changes in Tessera first. A new symbol, a renamed concept (Harbour → Port) or a role is proposed as a Stream, reviewed in the Council Hall and ratified into the Aesthetics pillar; for a model zone, also into Home of Knowledge and Structure. The Port was enacted by GDR-KI-PRINCIPAL-010 and the Capital by GDR-KI-PRINCIPAL-011. Only then is a symbol marked _official_ here.
 
 ## How this repository records decisions
 
@@ -45,10 +45,10 @@ Where prose and data disagree, the data wins, unless a decision record says othe
 
 ## Versioning
 
-- `ki-design` and every `@knowledgeislands/*` package follow **semver**. A removed or renamed token, glyph id or tile id is **major**; a new one is **minor**; a value tweak within its floor is **patch**.
-- Each release publishes a **SHA-256 digest** of the token declarations. The local app vendors tokens by digest (PDR-KI-OBSERVA-002; from `ki-design` since PDR-KI-OBSERVA-008 recorded the switch); a hand edit fails its test. See [GDR-KI-DESIGN-013](../decisions/GDR-KI-DESIGN-013-dtcg-tokens-vendored-by-digest.md).
+- Tessera's packages share one version and follow **semver**, tagged `v<version>`; nothing is published to a registry, and each consumer vendors and locks each package it uses ([AGENTS.md](../../AGENTS.md#changing-and-releasing)). A removed or renamed token, glyph id, tile id, tag or package is **major**; a new one is **minor**; a value tweak within its floor is **patch**. While the version is below 1.0, a major change moves the minor number.
+- Each release publishes a **SHA-256 digest** of the token declarations. The local app vendors tokens by digest (PDR-KI-OBSERVA-002; from Tessera, then `ki-design`, since PDR-KI-OBSERVA-008 recorded the switch); a hand edit fails its test. See [GDR-KI-DESIGN-013](../decisions/GDR-KI-DESIGN-013-dtcg-tokens-vendored-by-digest.md).
 - Both apps render from one tagged kit release with matching digests.
-- Packages are pinned by exact version and lockfile integrity in the app.
+- Each consumer pins each package it vendors in its own `<package>-lock.json`, by release, commit and SHA-256 of every file.
 
 ## How designs are judged
 

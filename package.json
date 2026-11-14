@@ -51,6 +51,7 @@
     "ki:deps:update": "bun update --latest",
     "prepare": "git config core.hooksPath .githooks && bun install --frozen-lockfile --cwd tooling/depcruise",
     "self:boards": "bun docs/design-review/generators/build-boards.ts",
+    "self:lint": "biome check .",
     "self:manifest": "bun scripts/manifest.ts",
     "self:storybook": "bun run --cwd apps/storybook dev",
     "self:storybook:build": "turbo run build --filter=tessera-storybook",

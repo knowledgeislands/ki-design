@@ -63,3 +63,17 @@ The tests hold every text role at 4.5:1 on paper, the boundary at 3:1, and each 
 | night | 13.59 | 7.43 | 7.85 | 7.85 | 7.71 | 5.85 | 6.85 | 3.43 | 6.20 | 5.24 | 5.66 |
 
 The tightest margins are light teal (4.97), light warn on its wash (4.85) and the light boundary (3.18). `rule` is a decorative hairline and is deliberately not held to a floor.
+
+## Vendoring
+
+A consumer copies this folder whole into `packages/tessera-tokens/` and records the release in `tessera-tokens-lock.json` at its root, with a SHA-256 digest of every file; it never edits the copy. The tools in `tooling/` are run from the consumer's root, usually as `self:tessera-tokens:<verb>` scripts:
+
+```sh
+bun packages/tessera-tokens/tooling/tessera.ts verify                      # fails on any local edit
+bun packages/tessera-tokens/tooling/tessera.ts drift                       # what Tessera changed since the locked release
+bun packages/tessera-tokens/tooling/tessera.ts sync [--to <version>]       # re-vendors and rewrites the lock
+bun packages/tessera-tokens/tooling/tessera.ts defer <version> --reason "<why>"
+bun packages/tessera-tokens/tooling/tessera.ts diff                        # a local edit as a patch for upstream
+```
+
+They read a checkout of `packages-tessera` beside the consumer, or the one `TESSERA_CHECKOUT` names, and never fetch.

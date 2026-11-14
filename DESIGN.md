@@ -1,16 +1,16 @@
 ---
-title: Knowledge Islands Design System
+title: Tessera, the Knowledge Islands Design System
 status: draft
-version: 0.2.0
+version: 0.3.0
 date: 2026-10-18
-updated: 2026-10-19
+updated: 2026-11-14
 owner: Kit (Kristopher Brown)
-repository: ki-design
+repository: packages-tessera
 canon: ki-principal/Pillars/Aesthetics (prose canon); this repository is the machine-readable authority beside it
 language: British English
 ---
 
-# Knowledge Islands Design System
+# Tessera: the Knowledge Islands Design System
 
 One visual world, a hand-drawn natural archipelago built on a hex grid with isometric structures, expressed in two dialects. The **Chart** is the public site, knowledgeislands.info: atmospheric, illustrated, narrative. The **Instrument** is the local app, working name Observatory, at `127.0.0.1:1675`: dense, legible, quietly themed. Both draw from one token set, one glyph set and one tile kit.
 

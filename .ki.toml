@@ -13,10 +13,11 @@ harnesses = [
 [skills.ki-repo]
 repo_type = "project"
 primary_shape = "ki-repo-project"
-repository = "https://github.com/knowledgeislands/ki-design"
-title = "Knowledge Islands Design"
+repository = "https://github.com/knowledgeislands/packages-tessera"
+title = "Tessera"
 capital = "https://github.com/knowledgeislands/ki-principal"
-description = "The machine-readable Knowledge Islands design system: tokens, icons, symbol library, tile sets, hex map engine and web components that every surface renders with."
+description = "Tessera, the Knowledge Islands design system: tokens, glyphs, symbol library, tile sets, hex map engine and web components, each a package consumers vendor and lock on their own."
+# Kept from before the rename, so decision-record ids and citations stay valid.
 repo_code = "KI-DESIGN"
 supported_runtimes = [
   "claude-code",
@@ -33,6 +34,13 @@ license = "MIT"
 # -----------------------------------------------------------------------------
 
 [skills.ki-repo-project]
+
+# A package repository: consumers vendor packages/<package>/ under a lock. Tessera
+# vendors each layer on its own (ELEMENTS-MULTI), so every packages/tessera*/
+# folder is a vendored tree; `package` names the web components, the rest follow
+# its tooling and release.
+[skills.ki-repo-packages]
+package = "tessera"
 
 # -----------------------------------------------------------------------------
 # Governance and runtime
@@ -83,6 +91,7 @@ components = [
   "tiles",
   "hexmap",
   "elements",
+  "storybook",
   "art",
   "observatory",
 ]

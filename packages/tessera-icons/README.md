@@ -44,3 +44,17 @@ document.body.insertAdjacentHTML('afterbegin', sprite()) // then <svg><use href=
 - `sprite(names?)`: a hidden SVG of `<symbol id="ki-<name>">` elements.
 - `iconBodies`: inner markup per glyph, for renderers that build their own root.
 - `lintIcon(source)`, `parseSvg`, `requiredRootAttributes`, `safeArea`: the contract as code.
+
+## Vendoring
+
+A consumer copies this folder whole into `packages/tessera-icons/` and records the release in `tessera-icons-lock.json` at its root, with a SHA-256 digest of every file; it never edits the copy. The tools in `tooling/` are run from the consumer's root, usually as `self:tessera-icons:<verb>` scripts:
+
+```sh
+bun packages/tessera-icons/tooling/tessera.ts verify                      # fails on any local edit
+bun packages/tessera-icons/tooling/tessera.ts drift                       # what Tessera changed since the locked release
+bun packages/tessera-icons/tooling/tessera.ts sync [--to <version>]       # re-vendors and rewrites the lock
+bun packages/tessera-icons/tooling/tessera.ts defer <version> --reason "<why>"
+bun packages/tessera-icons/tooling/tessera.ts diff                        # a local edit as a patch for upstream
+```
+
+They read a checkout of `packages-tessera` beside the consumer, or the one `TESSERA_CHECKOUT` names, and never fetch.

@@ -72,3 +72,17 @@ const report = validateTileSet(manifest)
 ```
 
 Also exported: `requiredInventory`, `requiredIds`, `tileKey`, `tileGeometry`, `defaultAnchor`, `tileKinds`, `footprints`, `tileStates`, `tileScales`, `tileStatuses`, `loopLengths`, `heroStructures`, `architecturalFamilies`, `islandPalettes` and the types.
+
+## Vendoring
+
+A consumer copies this folder whole into `packages/tessera-tiles/` and records the release in `tessera-tiles-lock.json` at its root, with a SHA-256 digest of every file; it never edits the copy. It needs `tessera-tokens` vendored beside it, each under its own lock. The tools in `tooling/` are run from the consumer's root, usually as `self:tessera-tiles:<verb>` scripts:
+
+```sh
+bun packages/tessera-tiles/tooling/tessera.ts verify                      # fails on any local edit
+bun packages/tessera-tiles/tooling/tessera.ts drift                       # what Tessera changed since the locked release
+bun packages/tessera-tiles/tooling/tessera.ts sync [--to <version>]       # re-vendors and rewrites the lock
+bun packages/tessera-tiles/tooling/tessera.ts defer <version> --reason "<why>"
+bun packages/tessera-tiles/tooling/tessera.ts diff                        # a local edit as a patch for upstream
+```
+
+They read a checkout of `packages-tessera` beside the consumer, or the one `TESSERA_CHECKOUT` names, and never fetch.

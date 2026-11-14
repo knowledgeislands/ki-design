@@ -9,6 +9,8 @@ decision_type_url: https://knowledgeislands.info/specifications/decision-records
 
 # GDR-KI-DESIGN-017: ki-design is the home of the design kit
 
+> **Note, 14 November 2026.** The repository was renamed `knowledgeislands/packages-tessera` and the design system named Tessera, in the package repository shape (ELEMENTS-NAME b, ELEMENTS-MULTI a). The packages are now unscoped, `tessera` and `tessera-<layer>`, and consumers vendor and lock each one rather than install it. The decision below stands for the home and the charter; its name and package scope are superseded. Its id keeps the `KI-DESIGN` scope.
+
 ## Context
 
 The shared design kit needed a home. Kit first chose `apps-common`. The review recommended `ki-design`: `apps-*` repositories are deployable apps and "common" names a bucket, while `ki-design` would sit beside the Aesthetics prose canon as `ki-specifications` sits beside the Philosophy. Kit chose `ki-design` on 18 October 2026, and the repository was created and made public that day.

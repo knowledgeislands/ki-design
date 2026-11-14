@@ -33,3 +33,17 @@ byCategory['port-mode'].map((s) => s.name) // ['Dock', 'Rail depot', 'Airport', 
 - Types: `KiSymbol` (also exported as `Symbol`), `SymbolStatus`, `SymbolCategory`; lists `symbolStatuses`, `symbolCategories`.
 
 Each entry is `{ id, name, meaning, status, category, icon?, site?, app?, notes? }`. `icon` is typed as `IconName` from `tessera-icons`, and a test checks every one exists.
+
+## Vendoring
+
+A consumer copies this folder whole into `packages/tessera-symbols/` and records the release in `tessera-symbols-lock.json` at its root, with a SHA-256 digest of every file; it never edits the copy. It needs `tessera-icons` vendored beside it, each under its own lock. The tools in `tooling/` are run from the consumer's root, usually as `self:tessera-symbols:<verb>` scripts:
+
+```sh
+bun packages/tessera-symbols/tooling/tessera.ts verify                      # fails on any local edit
+bun packages/tessera-symbols/tooling/tessera.ts drift                       # what Tessera changed since the locked release
+bun packages/tessera-symbols/tooling/tessera.ts sync [--to <version>]       # re-vendors and rewrites the lock
+bun packages/tessera-symbols/tooling/tessera.ts defer <version> --reason "<why>"
+bun packages/tessera-symbols/tooling/tessera.ts diff                        # a local edit as a patch for upstream
+```
+
+They read a checkout of `packages-tessera` beside the consumer, or the one `TESSERA_CHECKOUT` names, and never fetch.

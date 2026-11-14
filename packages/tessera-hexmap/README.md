@@ -92,3 +92,17 @@ const svg = renderArchipelagoSvg(
 - **Theme.** `day` and `night` pin the token colours, as the flat chart does. `auto` follows the page: the chart's colours (`archipelagoColours`) are custom properties `--ki-chart-*` set with the token stylesheet's own selectors, so the nearest `data-theme` surface or the OS scheme decides. `frame: false` leaves the paper out so the page shows through; `variant` keeps ids apart when one archipelago is drawn twice, a wide and a tall layout say.
 
 `layoutArchipelago` returns the same geometry as data. `examples/arcadia-territory.archipelago.json` is Arcadia's public islands as the website charted them on 19 October 2026, with the glyphs [maps.md](../../docs/spec/maps.md#how-islands-are-typed-app) gives single-purpose islands; `bun run build` renders `examples/arcadia-territory.svg` and `-night.svg`, a test checks they are current, and the PNGs are Chromium renders for review.
+
+## Vendoring
+
+A consumer copies this folder whole into `packages/tessera-hexmap/` and records the release in `tessera-hexmap-lock.json` at its root, with a SHA-256 digest of every file; it never edits the copy. It needs `tessera-tokens` vendored beside it, each under its own lock. The tools in `tooling/` are run from the consumer's root, usually as `self:tessera-hexmap:<verb>` scripts:
+
+```sh
+bun packages/tessera-hexmap/tooling/tessera.ts verify                      # fails on any local edit
+bun packages/tessera-hexmap/tooling/tessera.ts drift                       # what Tessera changed since the locked release
+bun packages/tessera-hexmap/tooling/tessera.ts sync [--to <version>]       # re-vendors and rewrites the lock
+bun packages/tessera-hexmap/tooling/tessera.ts defer <version> --reason "<why>"
+bun packages/tessera-hexmap/tooling/tessera.ts diff                        # a local edit as a patch for upstream
+```
+
+They read a checkout of `packages-tessera` beside the consumer, or the one `TESSERA_CHECKOUT` names, and never fetch.

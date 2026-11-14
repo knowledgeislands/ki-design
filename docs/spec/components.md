@@ -1,12 +1,29 @@
 ---
 title: Components
 status: draft
-updated: 2026-10-19
+updated: 2026-11-14
 ---
 
 # Components
 
-Only elements that both surfaces share become components: `<tessera-glyph>` and `<tessera-hexmap>` ([GDR-KI-DESIGN-012](../decisions/GDR-KI-DESIGN-012-only-two-shared-web-components.md)). Everything else, from buttons to cartouches to tables, is a pattern each surface builds from tokens. The components are code: [`packages/tessera`](../../packages/tessera/README.md) documents their attributes, properties and events, and the other packages are described in their own READMEs. This file holds the rules for the toolkit, the interface still proposed beyond v0, and the site and app patterns.
+Tessera documents its parts by atomic level: tokens, atoms, molecules, organisms, templates and pages (ATOMIC-DESIGN). Only elements that both surfaces share become web components: `<tessera-glyph>`, an atom, and `<tessera-hexmap>`, an organism ([GDR-KI-DESIGN-012](../decisions/GDR-KI-DESIGN-012-only-two-shared-web-components.md)). Everything else, from buttons to cartouches to tables, is a pattern each surface builds from tokens. The components are code: [`packages/tessera`](../../packages/tessera/README.md) documents their attributes, properties and events, its `custom-elements.json` publishes them, and [Storybook](../../apps/storybook/) shows each part on its own at its level. This file holds the component library, the rules for the toolkit, the interface still proposed beyond v0, and the site and app patterns.
+
+## The component library
+
+One row per component (COMPONENT-LIBRARY). Each package is vendored and locked on its own; a level with no row has no component yet.
+
+| Component | Level | Signature | Owns | Does not own | Hand-offs |
+| --- | --- | --- | --- | --- | --- |
+| Design tokens | Tokens | `tessera-tokens`: `tokens.json` (DTCG); `tokens.css`, `theme.css`; `tokens`, `renderCss()`, `contrastRatio()` | Colour roles in light and night, washes, terrain and sea, type, space, radius, motion; the contrast floors | Meaning, which is canon in `ki-principal`; any rendering | Every other package reads its values; surfaces take `tokens.css` or the Tailwind theme |
+| Glyph set | Tokens | `tessera-icons`: `iconNames`, `iconBodies`, `iconSvg(name, { size, label })`, `sprite()`; `svg/*.svg` | Line glyphs on the 24 grid at 1.5 stroke, single-colour, and their lint | Which glyph stands for which symbol (`tessera-symbols`); colour, which the consumer gives | `<tessera-glyph>` and the hex map draw its bodies; the symbol library names them |
+| Symbol library | Tokens | `tessera-symbols`: `symbols`, `byId`, `byCategory`, `resolveSymbol(id)` | Every canonical symbol as data: id, name, meaning mirrored from canon, status, category, glyph | The meaning itself (canon in `ki-principal`); drawings | The site's Field Guide and the app's legends read it |
+| Tile sets | Tokens | `tessera-tiles`: `validateTileSet(manifest)`, the required inventory; `sets/modern/*` | The tile-set contract and the drawn sets: every id, in every condition state, at 1× and 2× | Map layout and projection (`tessera-hexmap`) | The isometric renderers and the site's plates draw from a valid set |
+| Glyph | Atom | `<tessera-glyph name size label>` | One glyph at its optical size, in `currentColor`; decorative without `label` | The drawing (`tessera-icons`); colour and tone | Sites and apps place it inline; the Observatory draws its tabs and subjects with the same bodies |
+| — | Molecule | None yet | — | — | — |
+| Hex map | Organism | `<tessera-hexmap .map src size theme .glyph .selected>`, event `tessera-select` (`{ q, r, structure }`), CSS `--ink`, `--paper`, `--accent`, `--font-body` | A flat, keyboard-navigable chart of one `islandmap/v1` map: roving focus, selection, the text equivalent | Geometry and SVG (`tessera-hexmap`); what selection means to the page | Hands selection to its page through `tessera-select`; the glyph resolver is injected |
+| Hex map engine | Organism (renderer) | `tessera-hexmap`: `layoutFlat`, `renderFlatSvg`, `renderFlatLayers`, `layoutArchipelago`, `renderArchipelagoSvg`, `validateIslandMap`; axial and dimetric geometry | Hex maths, the `islandmap/v1` model, deterministic SVG for flat charts and archipelagos, with no DOM | Glyph drawings (injected), interaction (`<tessera-hexmap>`) | Sites render at build time; `<tessera-hexmap>` and the Observatory's Known Lands draw with it |
+| Observatory preview | Template | `<observatory-preview>` in `apps/storybook/observatory/`, reading through `useReader(reader)` | The shell of the local app in Tessera: the four jobs, instruments and the Map of Known Lands, read-only | The Observatory's data and its actions; it is a template, never vendored | Shows the app patterns below on an invented sample estate; the Observatory itself owns its build |
+| Site preview | Page | `apps/storybook/site-preview/index.html` and `field-guide.html` | The Voyage home and the Atlas Field Guide drawn with Tessera: the hero chart, plates and marks | The live site and its copy | The site vendors the hero, the Arcadia plate, the logo roundel and the favicon from here |
 
 ## The toolkit
 
@@ -14,13 +31,7 @@ Only elements that both surfaces share become components: `<tessera-glyph>` and 
 - On the site they are server-rendered with Declarative Shadow DOM, so every page reads without JavaScript.
 - Each element exports its stylesheet as a string (`tesseraGlyphStyles`, `tesseraHexmapStyles`) so the app's density and contrast tests can read it.
 - The components make no network calls.
-
-| Layer | Package | What it is |
-| --- | --- | --- |
-| 1 | `tessera-tokens` | DTCG JSON → CSS custom properties (`--color-*` for Tailwind v4 `@theme`, and the bare roles `--paper`, `--ink`, `--accent`…), a typed module and a SHA-256 digest |
-| 2 | `tessera-hexmap` | Pure TypeScript: axial and cube maths, layout, neighbour masks, pathing; `IslandMap` in, SVG string out; no DOM |
-| 3 | `tessera` | Thin Lit wrappers adding interaction |
-| — | `tessera-icons`, `tessera-symbols`, `tessera-tiles` | Glyph sprite and typed name union; the symbol library; the tile contract and sets |
+- `packages/tessera/custom-elements.json` is generated by the Custom Elements Manifest analyser (`bun run self:manifest`) and kept current by `bun run test`; internal state is left out.
 
 ### The shared elements
 
@@ -36,9 +47,9 @@ Proposed beyond v0, not yet built:
 
 ### What stays outside the kit
 
-- **Site only (patterns):** cartouche, journey rail, principle strip, archetype card. The site may build them as its own elements, outside `ki-design`.
+- **Site only (patterns):** cartouche, journey rail, principle strip, archetype card. The site may build them as its own elements, outside Tessera.
 - **App only (patterns):** status chip, tag, table with drop-columns, foot-of-view note, job switch, instrument tabs, the plan / confirm / receipt panel. They live under each instrument's root, per PDR-KI-OBSERVA-002.
-- PDR-002's "shared values, never shared rendering" stands except for the two shared components. Moving the vendored tokens' source from `ki-website` to `ki-design`, with the glyphs, is recorded in [PDR-KI-OBSERVA-008](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-008-line-glyphs-beside-tabs-and-subjects.md). The shared-component exception is for a later Observatory decision record, not yet written.
+- PDR-002's "shared values, never shared rendering" stands except for the two shared components. Moving the vendored tokens' source from `ki-website` to Tessera (then `ki-design`), with the glyphs, is recorded in [PDR-KI-OBSERVA-008](https://github.com/knowledgeislands/apps-observatory.local/blob/main/docs/decisions/PDR-KI-OBSERVA-008-line-glyphs-beside-tabs-and-subjects.md). The shared-component exception is for a later Observatory decision record, not yet written.
 
 ## Site patterns (Chart)
 

@@ -36,3 +36,17 @@ Styles are token-driven: `var(--paper)`, `var(--ink)` and `var(--accent)` from `
 ## Tests
 
 `bun test` runs the components in happy-dom (preloaded by `bunfig.toml`).
+
+## Vendoring
+
+A consumer copies this folder whole into `packages/tessera/` and records the release in `tessera-lock.json` at its root, with a SHA-256 digest of every file; it never edits the copy. It needs `tessera-hexmap` and `tessera-icons` vendored beside it, each under its own lock. `custom-elements.json` describes both elements for tools such as Storybook; it is generated in `packages-tessera` and travels with the copy. The tools in `tooling/` are run from the consumer's root, usually as `self:tessera:<verb>` scripts:
+
+```sh
+bun packages/tessera/tooling/tessera.ts verify                      # fails on any local edit
+bun packages/tessera/tooling/tessera.ts drift                       # what Tessera changed since the locked release
+bun packages/tessera/tooling/tessera.ts sync [--to <version>]       # re-vendors and rewrites the lock
+bun packages/tessera/tooling/tessera.ts defer <version> --reason "<why>"
+bun packages/tessera/tooling/tessera.ts diff                        # a local edit as a patch for upstream
+```
+
+They read a checkout of `packages-tessera` beside the consumer, or the one `TESSERA_CHECKOUT` names, and never fetch.
