@@ -21,25 +21,36 @@ import type {
 /** A read either answers with its payload or says why it could not. */
 export type Read<T> = { ok: true; data: T } | { ok: false; reason: string }
 
-const cache = new Map<string, Promise<Read<unknown>>>()
+/** Answers one read path, such as `/api/beacon?scope=estate`. */
+export type Reader = (path: string) => Promise<Read<unknown>>
 
-async function get<T>(path: string): Promise<Read<T>> {
+/** Reads over HTTP from whatever serves the Observatory's JSON API alongside the page. */
+async function fetchReader(path: string): Promise<Read<unknown>> {
   try {
     const response = await fetch(path, { headers: { accept: 'application/json' } })
     const body = (await response.json()) as { schema?: string; reason?: string }
     if (!response.ok || body.schema?.endsWith('/unavailable/v1')) {
       return { ok: false, reason: body.reason ?? `${path} answered ${response.status}` }
     }
-    return { ok: true, data: body as T }
+    return { ok: true, data: body }
   } catch (error) {
     return { ok: false, reason: `${path} could not be read: ${String(error)}` }
   }
 }
 
+let reader: Reader = fetchReader
+const cache = new Map<string, Promise<Read<unknown>>>()
+
+/** Answers every read from `next` from now on: the stories use the sample estate. */
+export function useReader(next: Reader): void {
+  reader = next
+  cache.clear()
+}
+
 function read<T>(path: string): Promise<Read<T>> {
   let pending = cache.get(path)
   if (!pending) {
-    pending = get<T>(path)
+    pending = reader(path)
     cache.set(path, pending)
   }
   return pending as Promise<Read<T>>

@@ -1,0 +1,28 @@
+{
+  "name": "tessera-storybook",
+  "description": "Tessera's Storybook: each part on its own, by atomic level, with controls, actions and docs from the manifest",
+  "version": "0.1.0",
+  "dependencies": {
+    "lit": "3.3.1",
+    "tessera": "workspace:*",
+    "tessera-hexmap": "workspace:*",
+    "tessera-icons": "workspace:*",
+    "tessera-symbols": "workspace:*",
+    "tessera-tiles": "workspace:*",
+    "tessera-tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "10.6.7",
+    "@storybook/web-components-vite": "10.6.7",
+    "storybook": "10.6.7",
+    "vite": "8.3.8"
+  },
+  "private": true,
+  "scripts": {
+    "build": "storybook build --output-dir dist --quiet",
+    "dev": "storybook dev --port 6006 --no-open",
+    "test": "bun test observatory",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "type": "module"
+}

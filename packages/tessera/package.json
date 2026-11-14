@@ -2,6 +2,7 @@
   "name": "tessera",
   "description": "Knowledge Islands web components shared by the site and the apps: <tessera-glyph> and <tessera-hexmap>.",
   "version": "0.1.0",
+  "customElements": "custom-elements.json",
   "dependencies": {
     "lit": "3.3.1",
     "tessera-hexmap": "workspace:*",
@@ -12,10 +13,12 @@
     "tessera-tokens": "workspace:*"
   },
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./custom-elements.json": "./custom-elements.json"
   },
   "files": [
     "src",
+    "custom-elements.json",
     "tooling"
   ],
   "private": true,

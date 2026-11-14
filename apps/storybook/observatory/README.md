@@ -1,37 +1,23 @@
 # Observatory preview
 
-A reskinned, read-only front end for the local Observatory (`apps-observatory.local`), drawn with the Knowledge Islands design system: the chart at night or the light chart, following the system theme until you choose with the toggle, dense tables, cartographic line glyphs and a hex Map of Known Lands.
+A reskinned, read-only front end for the local Observatory (`apps-observatory.local`), drawn with Tessera: the chart at night or the light chart, following the system theme until you choose with the toggle, dense tables, cartographic line glyphs and a hex Map of Known Lands.
 
-It is an example, not the Observatory. It reads the real Observatory's JSON API through a tiny proxy and never changes anything. The Observatory itself is untouched.
+It is a template in Tessera's Storybook, not the Observatory, and it never changes anything. Since Tessera 0.3.0 it reads an invented sample estate, `sample.ts`, through a pluggable reader; the live proxy server it once had is retired, so it no longer reads a running Observatory.
 
-## Run it
+## Open it
 
 From the repository root:
 
 ```sh
-bun run self:preview            # reads the live Observatory at http://127.0.0.1:1675
-bun run self:preview -- --fixtures # reads the saved samples in fixtures/ instead
+bun run self:storybook          # then open Templates › Observatory
+bun run test                    # includes test/helpers.test.ts
 ```
 
-Then open <http://127.0.0.1:1676/>. `bun examples/observatory-preview/server.ts` works too.
-
-| Setting | Default | |
-| --- | --- | --- |
-| `OBSERVATORY_URL` | `http://127.0.0.1:1675` | The Observatory to read |
-| `--port` or `PORT` | `1676` | Where the preview listens (loopback only) |
-| `--fixtures` | off | Serve `fixtures/*.json` instead of the live API |
-
-The client is framework-free TypeScript, bundled once by `Bun.build` when the server starts, importing `packages/tessera-tokens`, `packages/tessera-icons` and `packages/tessera-hexmap` by relative path (no install step beyond `bun install` at the root). The server serves `packages/tessera-tokens/dist/tokens.css` as `/tokens.css`; if `bun run build` has not been run it renders the same CSS from `tokens.json` in memory and says so on start-up.
-
-```sh
-bun run test                    # includes bun test examples/observatory-preview
-bunx tsc -p examples/observatory-preview
-```
+`<observatory-preview>` is framework-free TypeScript. It reaches `tessera-tokens`, `tessera-icons`, `tessera-tiles` and `tessera-hexmap` by package name, as workspace dependencies of the Storybook app. Its reads go through `useReader` in `client/api.ts`: by default it fetches the Observatory's paths from whatever serves the page, and the story hands it `sampleReader()` instead. The token CSS comes from Storybook's preview, and the story adds `client/styles.css` while it is open.
 
 ## What it never does
 
-- **No writes.** Every method other than `GET` is answered `405`. Paths containing `execute`, `plan`, `probe` or `call` are answered `404` before any request leaves the process.
-- **Only `/api/*` is proxied**, server-side, with the `Host` header the Observatory checks (`127.0.0.1:1675`). The page itself only talks to the preview.
+- **No writes.** Every request is a `GET` of an Observatory read path through the reader; nothing is sent anywhere else.
 - **Operations are shown, not run.** Repositories and Machine list what the Observatory offers as inert buttons, each with a link to open the Observatory and run it there.
 - **No secrets.** MCP servers show how many secrets are set, never their names or values.
 - **Switches are local.** The Extensions switchboard keeps its state in this browser's `localStorage` and is labelled _preview only_.
@@ -55,7 +41,7 @@ The shell has a top bar (compass mark, _Knowledge Islands_, _Observatory_ with i
 
 ### The Map of Known Lands
 
-- **Territories are archipelagos.** The server reads `/api/scopes`, then `/api/repositories?scope=territory:<handle>&source=git` for each territory, and serves the membership at `/preview/lands`, cached for 30 seconds. Repositories in no territory sail as _Unclaimed waters_; a territory the Observatory cannot list is shown as _uncharted_ with its reason.
+- **Territories are archipelagos.** The membership comes from `/preview/lands`: a list of territories and their repositories, which the retired server composed from `/api/scopes` and `/api/repositories`, and which the sample estate answers directly. Repositories in no territory sail as _Unclaimed waters_; a territory the Observatory cannot list is shown as _uncharted_ with its reason.
 - **Repositories are islands**: one hex each, three for a territory's capital (`*-principal`). Structure by role from the name: `*-principal` the Capital (tile id `citadel`), `tools-*` and `*-harness` workshop, `mcp-*` bridge, `apps-*` and `homebrew-*` port, otherwise island. A capital stands on hills, every other island on grassland (terrain elevation = maturity).
 - **Drawn by `tessera-hexmap`**: the chart is an `islandmap/v1` rendered with `layoutFlat` and `renderFlatLayers` — sea, shallows, land, terrain patterns, coastline, trade lanes, structure roundels with `tessera-icons` glyphs, halo labels (monospace, as docs/spec/maps.md asks for the app) and the selected ring — in `night` or `day` to match the theme; the toggle and a system theme change redraw it. Territory waters (a tint and a dashed border) are laid under the land, and an interactive layer of islands over it.
 - **Condition by evidence**: the age of the latest commit (from `/api/activity`, falling back to the repository's head) at the time of observation — up to 2 days thriving, 14 quiet, 60 weathered, older ruined — drawn as fill strength: the island fades towards the paper as it weathers.
@@ -67,27 +53,25 @@ The shell has a top bar (compass mark, _Knowledge Islands_, _Observatory_ with i
 
 ### Tokens, glyphs and hex maths
 
-- **Tokens**: colour roles, washes, fonts and the theme switch are `tessera-tokens` (`/tokens.css`, loaded before `client/styles.css`): light on `:root`, night under `prefers-color-scheme: dark` or `[data-theme="night"]`. The preview adds only derived values (`--raised`, the teal, accent and muted washes) as `color-mix` of the roles. Lane colour on the chart is the `--lane` sea token for the theme.
+- **Tokens**: colour roles, washes, fonts and the theme switch are `tessera-tokens` (`tessera-tokens/tokens.css`, loaded by Storybook's preview before `client/styles.css`): light on `:root`, night under `prefers-color-scheme: dark` or `[data-theme="night"]`. The preview adds only derived values (`--raised`, the teal, accent and muted washes) as `color-mix` of the roles. Lane colour on the chart is the `--lane` sea token for the theme.
 - **Glyphs**: `client/glyphs.ts` renders `tessera-icons` bodies only; the package now draws every glyph the preview uses (`beacon` for the Beacon, `workbench` for Extensions, `theme` for the night-chart toggle among them), so there are no local stand-ins.
 - **Hex maths**: axial coordinates, spirals, offset rectangles, corners and pixels are `tessera-hexmap`; `client/hex.ts` is gone.
 
 Type is system stacks only: Georgia for headings, `system-ui` for text, `ui-monospace` for identifiers and times, with tabular figures. Times are local `YYYY-MM-DD HH:MM`. Rows are 30 px; tables never become cards and drop their least important columns below 1100 px and 880 px, with no horizontal page scroll down to 720 px.
 
-## Fixtures
+## Sample estate and fixtures
 
-`fixtures/*.json` are small samples taken from the live Observatory on 2026-10-18, trimmed to a few items per list, with secret names replaced and a handful of commit dates aged so the chart shows every condition. In fixture mode a `scope` query narrows lists by repository using `fixtures/lands.json`.
+`sample.ts` is an invented estate: two territories, Harbour and Uplands, and a stray repository, with signals, work records, runs, decisions, activity, trade routes and machine state enough to fill every instrument. Its times are relative to when the story opens, so the chart shows every condition on any day. A `scope` query narrows lists by repository, as the old fixture server did.
 
-The live estate declares no trade route yet, so `fixtures/trade-routes.json` carries three illustrative route reports between real repositories (one active pair, one awaiting a receiver) to show the lanes; they are not observed.
-
-Estate data is private, so `fixtures/` is ignored by this folder's `.gitignore`; commit it deliberately if you want the demo to travel. Screenshots taken from real fixtures show private estate data (repository names, commit messages, thread titles), so none are committed: this repository is public. Screenshots belong here only when taken from synthetic fixtures.
+`fixtures/*.json` were small samples taken from the live Observatory on 2026-10-18. Estate data is private, so `fixtures/` is ignored by this folder's `.gitignore` and nothing reads it now. Screenshots taken from real data show private estate data (repository names, commit messages, thread titles), so none are committed: this repository is public. Screenshots belong here only when taken from the sample estate.
 
 ## Tests
 
-`test/server.test.ts` runs the handler against a stub Observatory that, like the real one, answers only `Host: 127.0.0.1:1675`: every non-`GET` method is 405 and never forwarded; acting paths (including case and `%2F` spellings) are 404 before any request leaves; `GET /api/beacon` arrives with the right `Host`; non-JSON and unreachable upstreams are 502; fixture mode serves, scopes, refuses climbing names and keeps the same rules; the token CSS falls back to `tokens.json`. `test/helpers.test.ts` covers Beacon ranking, condition from commit age, roles, territory layout determinism (input order does not move anything), sea between islands, the island map, and trade-lane folding.
+`test/helpers.test.ts` covers Beacon ranking, condition from commit age, roles, territory layout determinism (input order does not move anything), sea between islands, the island map, and trade-lane folding. The server's tests went with the server.
 
 ## Known gaps
 
-- **Untested against the live API from here.** The proxy was exercised against a stand-in that enforces the same `Host` check; the shapes come from the live API, but the first live run is yours.
+- **No live mode.** The retired proxy read a running Observatory; serving the page beside the Observatory's API, or a reader that calls it, would bring that back.
 - Library and Extensions list what the API names; opening notes, documents or artifacts stays in the Observatory.
 - The observation network and the decision graph are not drawn yet; trade routes are untested against a live report with routes.
 - The chart draws flat only; the Modern and Ancient tile sets and isometric projection wait on `tessera-tiles`. Positions are computed, not yet stored (docs/spec/maps.md).

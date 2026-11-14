@@ -1,5 +1,5 @@
 /**
- * `<ki-observatory>`: the shell. A top bar (mark, scope, job switch, observed time, workers),
+ * `<observatory-preview>`: the shell. A top bar (mark, scope, job switch, observed time, workers),
  * the selected job's instruments as text tabs, an optional repository filter, then the view.
  */
 import { api, refresh } from './api.ts'
@@ -154,7 +154,11 @@ class Observatory extends HTMLElement {
         mode.hidden = false
         replace(
           mode,
-          h('span', { class: 'chip tone-warn', title: 'Serving saved fixtures, not the live Observatory' }, 'fixtures')
+          h(
+            'span',
+            { class: 'chip tone-warn', title: 'Drawing saved or sample data, not a live Observatory' },
+            'fixtures'
+          )
         )
       }
     })
@@ -258,4 +262,4 @@ class Observatory extends HTMLElement {
   }
 }
 
-customElements.define('ki-observatory', Observatory)
+if (!customElements.get('observatory-preview')) customElements.define('observatory-preview', Observatory)

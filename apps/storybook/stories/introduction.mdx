@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Introduction" />
+
+# Tessera
+
+Tessera is the Knowledge Islands design system: tokens, line glyphs, the symbol library, tile sets, the hex map engine and the web components every surface renders with. A tessera is one tile of a mosaic. Sites copy each package they use whole into `packages/<package>/` and lock it; nothing in their builds fetches it.
+
+This Storybook shows each part on its own, sorted by atomic level, as `docs/spec/components.md` in the repository sorts them:
+
+- **Tokens**: colour roles, washes, terrain and sea, type, space and radius, the glyph set and the symbol library.
+- **Atoms**: `<tessera-glyph>`, one line glyph in the text's colour.
+- **Molecules**: none yet.
+- **Organisms**: `<tessera-hexmap>`, the keyboard-navigable chart, and the archipelago renderer.
+- **Templates**: the Observatory preview, reading an invented sample estate.
+- **Pages**: the site preview's Voyage home and Field Guide.
+
+Each element's controls, attributes, events and CSS properties come from the package's `custom-elements.json`. Selecting a hex sends `tessera-select`, which shows in the Actions panel. The toolbar's Theme gives the light chart or the chart at night.

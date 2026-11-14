@@ -9,17 +9,17 @@ import {
   type Point,
   renderFlatLayers,
   toPixel
-} from '../../../../packages/tessera-hexmap/src/index.ts'
-import { tokens } from '../../../../packages/tessera-tokens/src/index.ts'
+} from 'tessera-hexmap'
+import { tokens } from 'tessera-tokens'
 import { api } from '../api.ts'
 import { h, replace, s } from '../dom.ts'
 import { name, owner, plural, tally, when } from '../format.ts'
 import { glyph, glyphBody, glyphGroup } from '../glyphs.ts'
 import type { Context, Instrument } from '../instrument.ts'
 import {
+  type Chart,
   CONDITION_LABEL,
   CONDITIONS,
-  type Chart,
   chart,
   edgeCorners,
   type Island,
@@ -370,7 +370,10 @@ function key(layout: FlatLayout, hasLanes: boolean): HTMLElement {
         item(hexSwatch(fillOf('hills'), paper), 'hills — a capital stands high'),
         item(hexSwatch(grass, paper), 'grassland — every other island')
       ),
-      section('Condition', ...CONDITIONS.map((c) => item(hexSwatch(grass, paper, CONDITION_VEIL[c]), CONDITION_LABEL[c]))),
+      section(
+        'Condition',
+        ...CONDITIONS.map((c) => item(hexSwatch(grass, paper, CONDITION_VEIL[c]), CONDITION_LABEL[c]))
+      ),
       section(
         'Signals',
         item(h('span', { class: 'key-mark marker-lantern' }, glyph('lantern', 14)), 'lantern — signals for attention'),
@@ -521,7 +524,10 @@ function routeList(lanes: readonly Lane[], incomplete: boolean, context: Context
           h(
             'span',
             { class: 'count' },
-            chip(`${lane.kind}${lane.status === 'awaiting' ? ', awaiting' : ''}`, lane.status === 'active' ? 'warn' : 'muted')
+            chip(
+              `${lane.kind}${lane.status === 'awaiting' ? ', awaiting' : ''}`,
+              lane.status === 'active' ? 'warn' : 'muted'
+            )
           )
         )
       )
@@ -590,7 +596,8 @@ export const lands: Instrument = {
       filtered: context.state.repository,
       lanes,
       onFocus: (island, territory) => replace(bearingSlot, bearing(island, territory, context)),
-      onChoose: (identity) => context.store.set({ repository: context.state.repository === identity ? null : identity }),
+      onChoose: (identity) =>
+        context.store.set({ repository: context.state.repository === identity ? null : identity }),
       onClear: () => context.store.set({ repository: null })
     })
     const chosen = model.islands.find((i) => i.identity === context.state.repository)

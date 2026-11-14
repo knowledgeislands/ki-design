@@ -1,15 +1,9 @@
 import { describe, expect, test } from 'bun:test'
-import {
-  hexKey,
-  type IslandMap,
-  layoutFlat,
-  renderFlatLayers,
-  validateIslandMap
-} from '../../../packages/tessera-hexmap/src/index.ts'
-import { requiredInventory } from '../../../packages/tessera-tiles/src/index.ts'
-import { tokens } from '../../../packages/tessera-tokens/src/index.ts'
-import { glyphBody } from '../client/glyphs.ts'
+import { hexKey, type IslandMap, layoutFlat, renderFlatLayers, validateIslandMap } from 'tessera-hexmap'
+import { requiredInventory } from 'tessera-tiles'
+import { tokens } from 'tessera-tokens'
 import { rank } from '../client/format.ts'
+import { glyphBody } from '../client/glyphs.ts'
 import { type ChartInput, chart, conditionOf, islandMap, lanesOf, roleOf } from '../client/lands-model.ts'
 import type { Signal, TradeRoute } from '../client/types.ts'
 
@@ -183,7 +177,12 @@ describe('the flat chart covers the tile inventory', () => {
 })
 
 describe('trade lanes', () => {
-  const route = (from: string, to: string, state: TradeRoute['state'], kind: TradeRoute['kind'] = 'work'): TradeRoute => ({
+  const route = (
+    from: string,
+    to: string,
+    state: TradeRoute['state'],
+    kind: TradeRoute['kind'] = 'work'
+  ): TradeRoute => ({
     source: { identity: from, repository: `https://github.com/${from}`, mapBonus: 0 },
     peer: { identity: to, repository: `https://github.com/${to}`, resolved: true, mapBonus: 0 },
     direction: 'export',

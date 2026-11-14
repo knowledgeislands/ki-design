@@ -5,16 +5,16 @@ A static preview of the redesigned knowledgeislands.info, built from this reposi
 ## Open it
 
 ```sh
-bun examples/site-preview/serve.ts      # http://127.0.0.1:1677
+bun run self:storybook                          # then open Pages › Site preview
 ```
 
-Or open `examples/site-preview/index.html` directly in a browser: everything is inlined or relative, so it works from `file://`. Fonts (Cormorant Garamond, Cormorant SC, Inter) come from Google Fonts, so the type falls back to Georgia and the system sans when offline.
+Or open `apps/storybook/site-preview/index.html` directly in a browser: everything is inlined or relative, so it works from `file://`. Storybook serves this folder as static files and frames each page. Fonts (Cormorant Garamond, Cormorant SC, Inter) come from Google Fonts, so the type falls back to Georgia and the system sans when offline.
 
 To regenerate the drawn parts after changing the map, glyphs, symbols or tokens:
 
 ```sh
-bun examples/site-preview/build-hero.ts    # hero-arcadia.svg, spliced into index.html
-bun examples/site-preview/build-pages.ts   # sprite, header, footer, rail, plates, Field Guide cards and panels
+bun apps/storybook/site-preview/build-hero.ts    # hero-arcadia.svg, spliced into index.html
+bun apps/storybook/site-preview/build-pages.ts   # sprite, header, footer, rail, plates, Field Guide cards and panels
 ```
 
 Both scripts import package source by relative path (`packages/tessera-hexmap/src/geometry.ts`, `packages/tessera-icons/src/icons.generated.ts`, `packages/tessera-symbols/src/symbols.ts`, `packages/tessera-tokens/tokens.json`), so they need no workspace install. They only rewrite the blocks between `<!-- name:start -->` and `<!-- name:end -->` markers; everything else in the HTML is hand-written. `assets/tokens.css` is a copy of `packages/tessera-tokens/dist/tokens.css` (run `bun run build` in `packages/tessera-tokens` and copy it again if the tokens change).

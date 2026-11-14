@@ -93,6 +93,14 @@ function step(from: Axial, key: string): Axial[] {
  * `<tessera-hexmap>`: an island map, keyboard navigable with a roving tabindex. Give it an `IslandMap` through the `.map`
  * property, or inline `islandmap/v1` JSON in the `src` attribute (never a URL: the components make no network calls).
  * Fires `tessera-select` with `{ q, r, structure }` on click, Enter or Space.
+ *
+ * @tagname tessera-hexmap
+ * @summary An island map: the flat chart, with a keyboard-navigable listbox of hexes over it.
+ * @fires {CustomEvent<TesseraSelectDetail>} tessera-select - A hex was chosen by click, Enter or Space; bubbles and is composed.
+ * @cssprop [--ink=#1a2030] - Text colour around the chart.
+ * @cssprop [--paper=#f5efe0] - The hover tint over a hex.
+ * @cssprop [--accent=#1b3a5c] - The focus ring of a hex.
+ * @cssprop [--font-body=system-ui, sans-serif] - The typeface of an error message.
  */
 export class TesseraHexmap extends LitElement {
   static override properties = {
@@ -108,15 +116,21 @@ export class TesseraHexmap extends LitElement {
 
   static override styles = [boxReset, hexmapCss]
 
+  /** The map to draw, an `islandmap/v1` object. */
   declare map: IslandMap | undefined
+  /** Inline `islandmap/v1` JSON, never a URL: it is parsed, not fetched. */
   declare src: string
+  /** The hex radius in user units. */
   declare size: number
   /** `day` (parchment) or `night` (navy). */
   declare theme: FlatTheme
   /** Structure glyphs; defaults to the icons package. */
   declare glyph: GlyphResolver
+  /** The hex ringed as selected, `{ q, r }`. */
   declare selected: Axial | undefined
+  /** The hex in the tab order. */
   declare focusKey: string | undefined
+  /** Why the `src` map could not be drawn. */
   declare error: string | undefined
 
   #layout: FlatLayout | undefined

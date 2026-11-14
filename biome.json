@@ -8,6 +8,7 @@
   "files": {
     "includes": [
       "packages/**",
+      "apps/storybook/**",
       "scripts/**",
       "docs/design-review/generators/**/*.ts",
       "*.ts",
@@ -16,7 +17,9 @@
       "!.agents/skills",
       "!**/*.svg",
       "!**/dist",
-      "!examples/**/fixtures"
+      "!apps/storybook/observatory/fixtures",
+      "!apps/storybook/site-preview",
+      "!apps/storybook/storybook-static"
     ],
     "ignoreUnknown": true
   },

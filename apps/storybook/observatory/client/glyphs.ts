@@ -3,7 +3,7 @@
  * fills). The preview once drew a few stand-ins here; the package now has every glyph it uses, so there are none.
  * Should a view need a glyph the set lacks, ask the icons package for it rather than drawing one locally.
  */
-import { type IconName, iconBodies, isIconName } from '../../../packages/tessera-icons/src/index.ts'
+import { type IconName, iconBodies, isIconName } from 'tessera-icons'
 import { s } from './dom.ts'
 
 export type GlyphName = IconName

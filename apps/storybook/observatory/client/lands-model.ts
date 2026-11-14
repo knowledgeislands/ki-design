@@ -20,7 +20,7 @@ import {
   offsetToAxial,
   spiral,
   toPixel
-} from '../../../packages/tessera-hexmap/src/index.ts'
+} from 'tessera-hexmap'
 import { ageInDays, name } from './format.ts'
 import type { Severity, TradeRoute } from './types.ts'
 

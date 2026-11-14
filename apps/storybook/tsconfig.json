@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Tessera: Storybook",
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "types": ["bun", "node", "vite/client"]
+  },
+  "include": [".storybook/*.ts", "src/**/*.ts", "stories/**/*.ts", "observatory/**/*.ts"],
+  "exclude": ["node_modules", "dist", "observatory/fixtures"]
+}

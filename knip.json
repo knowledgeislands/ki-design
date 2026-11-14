@@ -8,11 +8,16 @@
       "project": ["*.ts", "scripts/**/*.ts", "docs/design-review/generators/*.ts"],
       "husky": {
         "config": [".githooks/pre-commit", ".githooks/commit-msg"]
-      }
+      },
+      "ignoreDependencies": ["@custom-elements-manifest/analyzer"]
     },
     "packages/*": {
       "entry": ["src/index.ts", "src/**/*.test.ts", "tooling/tessera.ts", "tooling/*.test.ts"],
       "project": ["src/**/*.ts", "tooling/**/*.ts"]
+    },
+    "apps/storybook": {
+      "entry": [".storybook/*.ts", "stories/**/*.ts", "observatory/test/*.test.ts"],
+      "project": [".storybook/*.ts", "src/**/*.ts", "stories/**/*.ts", "observatory/**/*.ts"]
     }
   },
   "husky": {

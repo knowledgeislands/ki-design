@@ -1,0 +1,598 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/base.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "boxReset",
+          "default": "css` :host, *, *::before, *::after { box-sizing: border-box; } `",
+          "description": "Every component owns its box model rather than inheriting the page's."
+        },
+        {
+          "kind": "function",
+          "name": "define",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "tag",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "element",
+              "type": {
+                "text": "CustomElementConstructor"
+              }
+            }
+          ],
+          "description": "Registers `tag` once, so a page that loads the bundle twice does not throw."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "boxReset",
+          "declaration": {
+            "name": "boxReset",
+            "module": "src/base.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "define",
+          "declaration": {
+            "name": "define",
+            "module": "src/base.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tag",
+          "declaration": {
+            "name": "element",
+            "module": "src/base.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/glyph.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "tesseraGlyphStyles",
+          "type": {
+            "text": "string"
+          },
+          "default": "`${boxReset.cssText}\\n${glyphCss.cssText}`",
+          "description": "The stylesheet as a string, for consumers' density and contrast tests."
+        },
+        {
+          "kind": "class",
+          "description": "`<tessera-glyph name=\"lighthouse\" size=\"20\" label=\"Guidance\">`: an inline line glyph in `currentColor`.\nDecorative (hidden from assistive technology) unless it has a label.",
+          "name": "TesseraGlyph",
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "description": "The glyph's name in `tessera-icons`; an unknown name renders nothing.",
+              "default": "''",
+              "attribute": "name",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "number"
+              },
+              "description": "Width and height in CSS pixels.",
+              "default": "20",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "description": "The accessible name; without one the glyph is decorative.",
+              "default": "''",
+              "attribute": "label"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "description": "The glyph's name in `tessera-icons`; an unknown name renders nothing.",
+              "default": "''",
+              "fieldName": "name"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "description": "Width and height in CSS pixels.",
+              "default": "20",
+              "fieldName": "size"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "The accessible name; without one the glyph is decorative.",
+              "default": "''",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "tessera-glyph",
+          "customElement": true,
+          "summary": "One line glyph, inline, in `currentColor`."
+        },
+        {
+          "kind": "function",
+          "name": "defineTesseraGlyph",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "tag",
+              "default": "'tessera-glyph'"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "tesseraGlyphStyles",
+          "declaration": {
+            "name": "tesseraGlyphStyles",
+            "module": "src/glyph.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TesseraGlyph",
+          "declaration": {
+            "name": "TesseraGlyph",
+            "module": "src/glyph.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "defineTesseraGlyph",
+          "declaration": {
+            "name": "defineTesseraGlyph",
+            "module": "src/glyph.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/hexmap.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "iconGlyph",
+          "parameters": [
+            {
+              "name": "id"
+            }
+          ],
+          "description": "The default structure glyphs: the Knowledge Islands line glyph whose name is the structure id."
+        },
+        {
+          "kind": "variable",
+          "name": "tesseraHexmapStyles",
+          "type": {
+            "text": "string"
+          },
+          "default": "`${boxReset.cssText}\\n${hexmapCss.cssText}`",
+          "description": "The stylesheet as a string, for consumers' density and contrast tests."
+        },
+        {
+          "kind": "class",
+          "description": "`<tessera-hexmap>`: an island map, keyboard navigable with a roving tabindex. Give it an `IslandMap` through the `.map`\nproperty, or inline `islandmap/v1` JSON in the `src` attribute (never a URL: the components make no network calls).\nFires `tessera-select` with `{ q, r, structure }` on click, Enter or Space.",
+          "name": "TesseraHexmap",
+          "cssProperties": [
+            {
+              "description": "Text colour around the chart.",
+              "name": "--ink",
+              "default": "#1a2030"
+            },
+            {
+              "description": "The hover tint over a hex.",
+              "name": "--paper",
+              "default": "#f5efe0"
+            },
+            {
+              "description": "The focus ring of a hex.",
+              "name": "--accent",
+              "default": "#1b3a5c"
+            },
+            {
+              "description": "The typeface of an error message.",
+              "name": "--font-body",
+              "default": "system-ui, sans-serif"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "map",
+              "privacy": "public",
+              "type": {
+                "text": "IslandMap | undefined"
+              },
+              "description": "The map to draw, an `islandmap/v1` object.",
+              "default": "undefined"
+            },
+            {
+              "kind": "field",
+              "name": "src",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "description": "Inline `islandmap/v1` JSON, never a URL: it is parsed, not fetched.",
+              "default": "''",
+              "attribute": "src"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "number"
+              },
+              "description": "The hex radius in user units.",
+              "default": "32",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "theme",
+              "privacy": "public",
+              "type": {
+                "text": "FlatTheme"
+              },
+              "description": "`day` (parchment) or `night` (navy).",
+              "default": "'day'",
+              "attribute": "theme",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "glyph",
+              "privacy": "public",
+              "type": {
+                "text": "GlyphResolver"
+              },
+              "description": "Structure glyphs; defaults to the icons package.",
+              "default": "iconGlyph"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "privacy": "public",
+              "type": {
+                "text": "Axial | undefined"
+              },
+              "description": "The hex ringed as selected, `{ q, r }`.",
+              "default": "undefined"
+            },
+            {
+              "kind": "field",
+              "name": "#layout",
+              "privacy": "private",
+              "type": {
+                "text": "FlatLayout | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "#focusAfterRender",
+              "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "#loadSource",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "source",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "select",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "hex",
+                  "type": {
+                    "text": "Axial"
+                  }
+                }
+              ],
+              "description": "Selects a hex as if the user had chosen it, firing `tessera-select`."
+            },
+            {
+              "kind": "method",
+              "name": "#onKeydown",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                },
+                {
+                  "name": "current",
+                  "type": {
+                    "text": "LaidOutHex"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#hexLabel",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "{ hex }",
+                  "type": {
+                    "text": "LaidOutHex"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "tessera-select",
+              "type": {
+                "text": "CustomEvent<TesseraSelectDetail>"
+              },
+              "description": "A hex was chosen by click, Enter or Space; bubbles and is composed."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "src",
+              "type": {
+                "text": "string"
+              },
+              "description": "Inline `islandmap/v1` JSON, never a URL: it is parsed, not fetched.",
+              "default": "''",
+              "fieldName": "src"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "description": "The hex radius in user units.",
+              "default": "32",
+              "fieldName": "size"
+            },
+            {
+              "name": "theme",
+              "type": {
+                "text": "FlatTheme"
+              },
+              "description": "`day` (parchment) or `night` (navy).",
+              "default": "'day'",
+              "fieldName": "theme"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "tessera-hexmap",
+          "customElement": true,
+          "summary": "An island map: the flat chart, with a keyboard-navigable listbox of hexes over it."
+        },
+        {
+          "kind": "function",
+          "name": "defineTesseraHexmap",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "tag",
+              "default": "'tessera-hexmap'"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "iconGlyph",
+          "declaration": {
+            "name": "iconGlyph",
+            "module": "src/hexmap.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "tesseraHexmapStyles",
+          "declaration": {
+            "name": "tesseraHexmapStyles",
+            "module": "src/hexmap.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TesseraHexmap",
+          "declaration": {
+            "name": "TesseraHexmap",
+            "module": "src/hexmap.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "defineTesseraHexmap",
+          "declaration": {
+            "name": "defineTesseraHexmap",
+            "module": "src/hexmap.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/index.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "defineElements",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "description": "Registers `<tessera-glyph>` and `<tessera-hexmap>`. Importing this module does it for you."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "defineTesseraGlyph",
+          "declaration": {
+            "name": "defineTesseraGlyph",
+            "module": "./glyph.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TesseraGlyph",
+          "declaration": {
+            "name": "TesseraGlyph",
+            "module": "./glyph.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "tesseraGlyphStyles",
+          "declaration": {
+            "name": "tesseraGlyphStyles",
+            "module": "./glyph.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "defineTesseraHexmap",
+          "declaration": {
+            "name": "defineTesseraHexmap",
+            "module": "./hexmap.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "iconGlyph",
+          "declaration": {
+            "name": "iconGlyph",
+            "module": "./hexmap.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TesseraHexmap",
+          "declaration": {
+            "name": "TesseraHexmap",
+            "module": "./hexmap.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TesseraSelectDetail",
+          "declaration": {
+            "name": "TesseraSelectDetail",
+            "module": "./hexmap.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "tesseraHexmapStyles",
+          "declaration": {
+            "name": "tesseraHexmapStyles",
+            "module": "./hexmap.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "defineElements",
+          "declaration": {
+            "name": "defineElements",
+            "module": "src/index.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

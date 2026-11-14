@@ -1,12 +1,13 @@
 {
   "name": "packages-tessera",
-  "description": "The machine-readable Knowledge Islands design system: tokens, icons, symbol library, tile sets, hex map engine and web components that every surface renders with.",
+  "description": "Tessera, the Knowledge Islands design system: tokens, glyphs, the symbol library, tile sets, the hex map engine and web components, each a package a site copies and locks on its own.",
   "version": "0.2.0",
   "author": "kris@kris.me.uk",
   "devDependencies": {
     "@biomejs/biome": "2.6.3",
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
+    "@custom-elements-manifest/analyzer": "0.11.0",
     "@types/bun": "^1.4.4",
     "@types/node": "^26.6.5",
     "dependency-cruiser": "^18.7.0",
@@ -20,7 +21,7 @@
   "engines": {
     "node": ">=22"
   },
-  "homepage": "https://github.com/knowledgeislands/ki-design#readme",
+  "homepage": "https://github.com/knowledgeislands/packages-tessera#readme",
   "keywords": [
     "design-system",
     "design-tokens",
@@ -39,9 +40,10 @@
     ]
   },
   "packageManager": "bun@1.4.3",
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/knowledgeislands/ki-design.git"
+    "url": "git+https://github.com/knowledgeislands/packages-tessera.git"
   },
   "scripts": {
     "build": "turbo run build",
@@ -49,12 +51,15 @@
     "ki:deps:update": "bun update --latest",
     "prepare": "git config core.hooksPath .githooks && bun install --frozen-lockfile --cwd tooling/depcruise",
     "self:boards": "bun docs/design-review/generators/build-boards.ts",
-    "self:preview": "bun examples/observatory-preview/server.ts",
+    "self:manifest": "bun scripts/manifest.ts",
+    "self:storybook": "bun run --cwd apps/storybook dev",
+    "self:storybook:build": "turbo run build --filter=tessera-storybook",
     "self:typecheck": "turbo run typecheck",
-    "test": "turbo run test && bun test examples/observatory-preview docs/design-review/generators"
+    "test": "turbo run test && bun test docs/design-review/generators && bun scripts/manifest.ts --check"
   },
   "type": "module",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ]
 }

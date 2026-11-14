@@ -1,6 +1,6 @@
 import type { IConfiguration } from 'dependency-cruiser'
 
-/** Package directions follow the declared dependencies, including those used only by tests and examples. */
+/** Package directions follow the declared dependencies, including those used only by tests and the Storybook app. */
 const directions = {
   'tessera-tokens': [],
   'tessera-icons': [],
@@ -15,7 +15,7 @@ const packages = Object.keys(directions) as Package[]
 const owners = (...names: readonly string[]) => `^packages/(${names.join('|')})/`
 const source = '^packages/[^/]+/src/'
 const commands = '^packages/[^/]+/scripts/'
-const preview = '^examples/observatory-preview/'
+const preview = '^apps/storybook/observatory/'
 const testFile = '\\.(test|test-support)\\.[cm]?[jt]sx?$'
 
 const config: IConfiguration = {
@@ -55,10 +55,10 @@ const config: IConfiguration = {
     {
       name: 'libraries-do-not-import-consumers',
       comment:
-        'The preview and design-review generators compose libraries; library source cannot depend on those consumers or checker tooling.',
+        'The Storybook app and design-review generators compose libraries; library source cannot depend on those consumers or checker tooling.',
       severity: 'error',
       from: { path: source },
-      to: { path: '^(examples/|docs/|tooling/|packages/boundaries/)' }
+      to: { path: '^(apps/|docs/|tooling/|packages/boundaries/)' }
     },
     {
       name: 'package-source-meets-by-package-name',
@@ -75,13 +75,6 @@ const config: IConfiguration = {
       severity: 'error',
       from: { path: `${preview}client/views/` },
       to: { path: `${preview}client/registry\\.ts$` }
-    },
-    {
-      name: 'preview-client-does-not-import-the-server',
-      comment: 'The browser uses the HTTP API; server implementation stays outside its import graph.',
-      severity: 'error',
-      from: { path: `${preview}client/` },
-      to: { path: `${preview}server\\.ts$` }
     },
     {
       name: 'preview-client-reaches-no-runtime-built-in',

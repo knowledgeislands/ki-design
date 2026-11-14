@@ -54,11 +54,10 @@ const fixtures: Record<string, string> = {
     "import type { Icon } from '../../tessera-icons/src/index.ts'\nexport type Value = Icon\n",
   'packages/tessera-icons/scripts/draw.ts': 'export const draw = 1\n',
   'packages/tessera-icons/src/command.ts': "import '../scripts/draw.ts'\n",
-  'packages/tessera-icons/src/consumer.ts': "import '../../../examples/observatory-preview/server.ts'\n",
-  'examples/observatory-preview/server.ts': 'export const server = 1\n',
-  'examples/observatory-preview/client/registry.ts': 'export const instruments = []\n',
-  'examples/observatory-preview/client/views/extensions.ts': "import '../registry.ts'\n",
-  'examples/observatory-preview/client/api.ts': "import '../server.ts'\nimport 'node:fs'\n",
+  'packages/tessera-icons/src/consumer.ts': "import '../../../apps/storybook/observatory/client/api.ts'\n",
+  'apps/storybook/observatory/client/registry.ts': 'export const instruments = []\n',
+  'apps/storybook/observatory/client/views/extensions.ts': "import '../registry.ts'\n",
+  'apps/storybook/observatory/client/api.ts': "import 'node:fs'\n",
   'packages/tessera-icons/src/fixture.test-support.ts': 'export const fixture = 1\n',
   'packages/tessera-icons/src/product.ts': "import './fixture.test-support.ts'\n",
   'packages/tessera-icons/src/cycle-a.ts': "import './cycle-b.ts'\n",
@@ -106,19 +105,14 @@ const crossings = [
   [
     'libraries-do-not-import-consumers',
     'packages/tessera-icons/src/consumer.ts',
-    'examples/observatory-preview/server.ts'
+    'apps/storybook/observatory/client/api.ts'
   ],
   [
     'preview-views-do-not-import-the-registry',
-    'examples/observatory-preview/client/views/extensions.ts',
-    'examples/observatory-preview/client/registry.ts'
+    'apps/storybook/observatory/client/views/extensions.ts',
+    'apps/storybook/observatory/client/registry.ts'
   ],
-  [
-    'preview-client-does-not-import-the-server',
-    'examples/observatory-preview/client/api.ts',
-    'examples/observatory-preview/server.ts'
-  ],
-  ['preview-client-reaches-no-runtime-built-in', 'examples/observatory-preview/client/api.ts', 'fs'],
+  ['preview-client-reaches-no-runtime-built-in', 'apps/storybook/observatory/client/api.ts', 'fs'],
   [
     'tests-do-not-leak-into-product',
     'packages/tessera-icons/src/product.ts',
@@ -132,12 +126,7 @@ beforeAll(async () => {
     .filter((entry) => entry.isDirectory())
     .map((entry) => `packages/${entry.name}`)
   const rootFiles = (await readdir(root)).filter((name) => name.endsWith('.ts'))
-  graph = await cruise(root, [
-    ...members,
-    'examples/observatory-preview',
-    'docs/design-review/generators',
-    ...rootFiles
-  ])
+  graph = await cruise(root, [...members, 'apps/storybook/observatory', 'docs/design-review/generators', ...rootFiles])
   scratch = await mkdtemp(join(tmpdir(), 'design-boundary-proof-'))
   await writeFile(join(scratch, '.dependency-cruiser.ts'), await readFile(join(root, '.dependency-cruiser.ts')))
   await writeFile(
@@ -176,7 +165,7 @@ test('uses the supported isolated TypeScript transpiler', async () => {
 test('reads the real graph, including resolved type-only package crossings', () => {
   // There are 77 authored source files today; private audit copies omit generated dist leaves.
   expect(
-    graph.modules.filter((module) => /^(packages|examples|docs)\//u.test(module.source)).length
+    graph.modules.filter((module) => /^(packages|apps|docs)\//u.test(module.source)).length
   ).toBeGreaterThanOrEqual(75)
   const symbols = graph.modules.find((module) => module.source === 'packages/tessera-symbols/src/types.ts')
   expect(symbols?.dependencies).toContainEqual(

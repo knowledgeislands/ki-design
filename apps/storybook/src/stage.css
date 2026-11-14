@@ -1,0 +1,54 @@
+/* The stage every story draws on: the token roles' paper and ink, and the small layouts the token stories use. */
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans, system-ui, sans-serif);
+}
+
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.stage-swatch {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md, 6px);
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.stage-swatch > div:first-child {
+  block-size: 56px;
+}
+
+.stage-swatch > div:last-child {
+  padding: 6px 8px;
+}
+
+.stage-mono {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: var(--muted);
+}
+
+.stage-card {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md, 6px);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+}
+
+.stage-frame {
+  inline-size: 100%;
+  block-size: 85vh;
+  border: 1px solid var(--rule);
+}
+
+h2.stage-heading {
+  font: 600 14px / 1.4 var(--font-sans, system-ui, sans-serif);
+  margin: 24px 0 8px;
+}

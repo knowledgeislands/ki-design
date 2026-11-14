@@ -25,6 +25,9 @@ export const tesseraGlyphStyles: string = `${boxReset.cssText}\n${glyphCss.cssTe
 /**
  * `<tessera-glyph name="lighthouse" size="20" label="Guidance">`: an inline line glyph in `currentColor`.
  * Decorative (hidden from assistive technology) unless it has a label.
+ *
+ * @tagname tessera-glyph
+ * @summary One line glyph, inline, in `currentColor`.
  */
 export class TesseraGlyph extends LitElement {
   static override properties = {
@@ -35,8 +38,11 @@ export class TesseraGlyph extends LitElement {
 
   static override styles = [boxReset, glyphCss]
 
+  /** The glyph's name in `tessera-icons`; an unknown name renders nothing. */
   declare name: string
+  /** Width and height in CSS pixels. */
   declare size: number
+  /** The accessible name; without one the glyph is decorative. */
   declare label: string
 
   constructor() {
