@@ -59,7 +59,7 @@ export const CONDITIONS: readonly Condition[] = ['thriving', 'quiet', 'weathered
 
 export const ROLE_LABEL: Record<Role, string> = {
   citadel: 'capital (Principal)',
-  workshop: 'workshop (tools, harness)',
+  workshop: 'workshop (tools, backpack, harness)',
   bridge: 'bridge (MCP server)',
   port: 'port (app, tap)',
   island: 'island'
@@ -75,7 +75,7 @@ export const CONDITION_LABEL: Record<Condition, string> = {
 export function roleOf(identity: string): Role {
   const n = name(identity)
   if (n.endsWith('-principal')) return 'citadel'
-  if (n.startsWith('tools-') || n.endsWith('-harness')) return 'workshop'
+  if (n.startsWith('tools-') || n.endsWith('-backpack') || n.endsWith('-harness')) return 'workshop'
   if (n.startsWith('mcp-')) return 'bridge'
   if (n.startsWith('apps-') || n.startsWith('homebrew-')) return 'port'
   return 'island'

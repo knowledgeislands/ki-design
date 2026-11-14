@@ -56,7 +56,8 @@ describe('roles from names', () => {
   test.each([
     ['k/ki-principal', 'citadel'],
     ['k/tools-ki', 'workshop'],
-    ['k/ki-agentic-harness', 'workshop'],
+    ['k/ki-agent-backpack', 'workshop'],
+    ['k/ki-techne-harness', 'workshop'],
     ['k/mcp-gsuite', 'bridge'],
     ['k/apps-observatory.local', 'port'],
     ['k/homebrew-tap', 'port'],
