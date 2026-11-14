@@ -1,7 +1,7 @@
 {
   "name": "tessera-hexmap",
   "description": "Pure TypeScript hex map engine: axial coordinates, flat and isometric geometry, islandmap/v1 and an SVG renderer.",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "dependencies": {
     "tessera-tokens": "workspace:*"
   },

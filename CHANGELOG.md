@@ -1,0 +1,13 @@
+# Changelog
+
+Releases of Tessera, the Knowledge Islands design system, in `packages-tessera`. Every package is released at the same version and tagged `v<version>`; a consumer re-vendors each package it uses. A breaking change is marked **Breaking**, with what a consumer must change.
+
+## 0.3.0
+
+The first release as Tessera, in the package repository shape. Before it the repository was `ki-design`, its packages were installed under the `@knowledgeislands/` scope, and the last versions were tokens, icons, symbols and tiles 0.2.0, and hexmap and elements 0.1.0.
+
+- **Breaking: the packages are renamed and unscoped, and are vendored rather than installed.** `@knowledgeislands/elements` is `tessera`, `@knowledgeislands/tokens` is `tessera-tokens`, `@knowledgeislands/icons` is `tessera-icons`, `@knowledgeislands/symbols` is `tessera-symbols`, `@knowledgeislands/tiles` is `tessera-tiles` and `@knowledgeislands/hexmap` is `tessera-hexmap`. A consumer copies each package it uses whole into `packages/<package>/` and locks it in `<package>-lock.json`; it changes its imports to the new names.
+- **Breaking: the elements are `<tessera-glyph>` and `<tessera-hexmap>`.** `<ki-glyph>` and `<ki-hexmap>` are gone, with `KiGlyph`, `KiHexmap`, `defineKiGlyph`, `defineKiHexmap`, `kiGlyphStyles`, `kiHexmapStyles` and `KiSelectDetail`, now `TesseraGlyph`, `TesseraHexmap`, `defineTesseraGlyph`, `defineTesseraHexmap`, `tesseraGlyphStyles`, `tesseraHexmapStyles` and `TesseraSelectDetail`. The hex map's selection event is `tessera-select`, where it was `ki-select`. A consumer renames its tags, imports and listeners. The sprite's symbol prefix (`ki-`) and the archipelago renderer's classes are unchanged.
+- Every package ships the vendoring tools in `tooling/`: `verify`, `drift`, `sync`, `defer` and `diff`, each acting on the package that holds it, reading a checkout of `packages-tessera` beside the consumer or at `TESSERA_CHECKOUT`. Each package's `tsconfig.json` now stands alone.
+- `tessera` ships `custom-elements.json`, the Custom Elements Manifest of both elements, exported as `tessera/custom-elements.json` and named by the package's `customElements` field. Its JSDoc now documents each property, the `tessera-select` event and the hex map's CSS custom properties.
+- Storybook (`apps/storybook`) replaces `examples/`: the tokens, the glyph set and symbol library, `<tessera-glyph>`, `<tessera-hexmap>` and the archipelago renderer, the Observatory preview as a template, and the site preview's pages, by atomic level. The Observatory preview reads an invented sample estate; its live proxy server is retired. The site preview's pages, art and scripts are now in `apps/storybook/site-preview/`.

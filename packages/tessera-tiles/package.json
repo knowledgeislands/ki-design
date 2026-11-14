@@ -1,7 +1,7 @@
 {
   "name": "tessera-tiles",
   "description": "The Knowledge Islands tile-set contract: manifest types, required inventory, geometry and a validator.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": {
     "tessera-tokens": "workspace:*"
   },

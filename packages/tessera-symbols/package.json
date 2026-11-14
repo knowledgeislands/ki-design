@@ -1,7 +1,7 @@
 {
   "name": "tessera-symbols",
   "description": "The Knowledge Islands symbol library as typed data.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": {
     "tessera-icons": "workspace:*"
   },

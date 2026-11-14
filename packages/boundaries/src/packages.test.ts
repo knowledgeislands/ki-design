@@ -51,3 +51,16 @@ test('a vendored tsconfig stands alone', async () => {
     expect(config.extends, `packages/${name}/tsconfig.json`).toBeUndefined()
   }
 })
+
+test('the packages release together, at one version named in the changelog', async () => {
+  const versions = new Set<string>()
+  for (const name of await vendored()) {
+    const manifest = JSON.parse(await readFile(join(root, 'packages', name, 'package.json'), 'utf8'))
+    expect(manifest.name).toBe(name)
+    expect(manifest.files, `${name} ships its tools`).toContain('tooling')
+    versions.add(manifest.version)
+  }
+  expect(versions.size).toBe(1)
+  const changelog = await readFile(join(root, 'CHANGELOG.md'), 'utf8')
+  expect(changelog).toContain(`\n## ${[...versions][0]}\n`)
+})
