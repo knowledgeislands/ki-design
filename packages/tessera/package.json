@@ -15,7 +15,8 @@
     ".": "./src/index.ts"
   },
   "files": [
-    "src"
+    "src",
+    "tooling"
   ],
   "private": true,
   "scripts": {

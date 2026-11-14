@@ -14,7 +14,8 @@
   },
   "files": [
     "src",
-    "examples"
+    "examples",
+    "tooling"
   ],
   "private": true,
   "scripts": {

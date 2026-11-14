@@ -11,7 +11,8 @@
   "files": [
     "src",
     "dist",
-    "tokens.json"
+    "tokens.json",
+    "tooling"
   ],
   "private": true,
   "scripts": {

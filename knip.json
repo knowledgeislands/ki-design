@@ -6,9 +6,16 @@
     ".": {
       "entry": ["*.ts", "scripts/**/*.ts", "docs/design-review/generators/*.ts"],
       "project": ["*.ts", "scripts/**/*.ts", "docs/design-review/generators/*.ts"],
-      "husky": { "config": [".githooks/pre-commit", ".githooks/commit-msg"] }
+      "husky": {
+        "config": [".githooks/pre-commit", ".githooks/commit-msg"]
+      }
     },
-    "packages/*": { "entry": ["src/index.ts", "src/**/*.test.ts"], "project": ["src/**/*.ts"] }
+    "packages/*": {
+      "entry": ["src/index.ts", "src/**/*.test.ts", "tooling/tessera.ts", "tooling/*.test.ts"],
+      "project": ["src/**/*.ts", "tooling/**/*.ts"]
+    }
   },
-  "husky": { "config": [".githooks/pre-commit", ".githooks/commit-msg"] }
+  "husky": {
+    "config": [".githooks/pre-commit", ".githooks/commit-msg"]
+  }
 }
